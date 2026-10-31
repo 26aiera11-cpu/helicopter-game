@@ -8,8 +8,18 @@
   const result = document.getElementById('selectionResult');
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const settling = new Map();
+  const accents = [...selectionMenu.querySelectorAll('.character-details')];
+  selectionMenu.querySelectorAll('.heli-stage').forEach(stage => {
+    const light = document.createElement('div');
+    light.className = 'podium-light';
+    light.dataset.heli = stage.dataset.heli;
+    light.setAttribute('aria-hidden', 'true');
+    stage.before(light);
+    accents.push(light);
+  });
 
   function syncCharacters() {
+    accents.forEach(element => element.classList.toggle('is-selected', Number(element.dataset.heli) === selectedHeli));
     document.querySelectorAll('.heli-stage').forEach((element, index) => {
       const selected = index === selectedHeli;
       if (selected === element.classList.contains('is-selected')) {
