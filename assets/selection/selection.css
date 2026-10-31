@@ -5,16 +5,18 @@
 #menu .select-hit.selected{outline:clamp(2px,.3vw,4px) solid #ffe68b;outline-offset:-3px;box-shadow:inset 0 0 12px #ffe68b55,0 0 15px #ffe68b88}
 #menu .select-hit:active{background:#ffffff14}
 #menu .select-hit:focus-visible,#menu button:focus-visible{outline:3px solid white;outline-offset:3px}
-#menu .heli-stage{position:absolute;top:19%;height:36%;width:27%;display:grid;place-items:end center;pointer-events:none;z-index:2;transform-origin:50% 90%;filter:drop-shadow(0 5px 4px #09263a35)}
-#heliStage0{left:8%}#heliStage1{left:36.5%}#heliStage2{left:65.4%}
+#menu .heli-stage{position:absolute;top:19%;height:36%;width:26%;display:grid;place-items:end center;pointer-events:none;z-index:2;transform-origin:50% 90%;transform:translateY(0) scale(1);filter:drop-shadow(0 5px 4px #09263a35);transition:filter .22s ease}
+/* Centers match the empty red, blue and green podium rings in the artwork. */
+#heliStage0{left:9.25%}#heliStage1{left:37%}#heliStage2{left:63.45%}
 #menu .heli-art{position:relative;width:min(100%,calc(var(--art-ratio)*36vh));aspect-ratio:var(--art-ratio)}
 #menu .heli-body{position:absolute;inset:0;z-index:2;width:100%;height:100%;overflow:visible}
-#menu .heli-rotor-position{position:absolute;z-index:1;left:50%;top:var(--hub-y,3%);width:118%;aspect-ratio:var(--rotor-ratio);transform:translate(-50%,-50%)}
+#menu .heli-rotor-position{position:absolute;z-index:1;left:50%;top:var(--hub-y,3%);width:96%;aspect-ratio:var(--rotor-ratio);transform:translate(-50%,-50%)}
 #menu .heli-rotor{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 50%;transform:scaleX(1)}
-#menu .heli-stage.is-selected{animation:selection-hover 2.1s ease-in-out infinite;filter:drop-shadow(0 0 10px var(--heli-glow))}
+#menu .heli-stage.is-selected{transform:translateY(-4px) scale(1.015);filter:drop-shadow(0 0 10px var(--heli-glow))}
+#menu .heli-stage.is-selected.is-hovering{animation:selection-hover 2.1s ease-in-out infinite}
 #menu .heli-stage.is-selected .heli-rotor{animation:selection-rotor .66s linear infinite}
 #menu .heli-stage:not(.is-selected) .heli-rotor{animation:none;transform:scaleX(1)}
-@keyframes selection-hover{0%,100%{transform:translateY(-3px) scale(1.015)}50%{transform:translateY(-9px) scale(1.035)}}
+@keyframes selection-hover{0%,100%{transform:translateY(-4px) scale(1.015)}50%{transform:translateY(-8px) scale(1.025)}}
 /* Front view: the blades project onto the X axis; the hub stays on the body. */
 @keyframes selection-rotor{0%,100%{transform:scaleX(1)}12.5%{transform:scaleX(.707)}25%{transform:scaleX(.035)}37.5%{transform:scaleX(-.707)}50%{transform:scaleX(-1)}62.5%{transform:scaleX(-.707)}75%{transform:scaleX(-.035)}87.5%{transform:scaleX(.707)}}
 #menu .character-details{position:absolute;z-index:3;top:58.1%;height:21.7%;width:22.6%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.5vh,6px);padding:.4% 1%;border:2px solid var(--card-color);border-radius:clamp(8px,1vw,18px);background:linear-gradient(#13213f,#07192e);box-shadow:0 2px 7px #0006;pointer-events:none;color:white;text-align:left}
@@ -43,4 +45,5 @@
 #selectionHelpDialog p{margin:8px 0}
 #selectionHelpDialog button{padding:8px 20px;border:1px solid #fff9;border-radius:12px;background:#1266a6;color:white;font:inherit;font-weight:800;cursor:pointer}
 @media(max-height:450px){#menu #audioControls{padding:4px;gap:4px}#menu #audioControls button{padding:4px 6px;font-size:10px}#menu .character-details{gap:1px;padding:.2% .8%}#selectionHelpDialog{padding:14px}}
-@media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .select-hit,#menu #audioControls{transition:none}}
+@media(max-height:350px){#menu .character-details{gap:0;padding:0 .8%}#menu .character-name{font-size:12px}#menu .character-trait{font-size:8px;line-height:1.15}#menu .stat-row{font-size:9px;line-height:1.15}}
+@media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected.is-hovering,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .heli-stage.is-selected{transform:translateY(0) scale(1)}#menu .heli-stage,#menu .select-hit,#menu #audioControls{transition:none}}

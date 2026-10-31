@@ -6,12 +6,46 @@
   const help = document.getElementById('selectionHelpDialog');
   const heading = selectionMenu.querySelector('h1');
   const result = document.getElementById('selectionResult');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const settling = new Map();
 
   function syncCharacters() {
     document.querySelectorAll('.heli-stage').forEach((element, index) => {
-      element.classList.toggle('is-selected', index === selectedHeli);
+      const selected = index === selectedHeli;
+      if (selected === element.classList.contains('is-selected')) {
+        if (selected && !reducedMotion.matches && !settling.has(element)) {
+          element.classList.add('is-hovering');
+        }
+        return;
+      }
+
+      // Capture the current pose before stopping a hover or an earlier landing.
+      // This also keeps rapid selection changes continuous.
+      const from = getComputedStyle(element).transform;
+      settling.get(element)?.cancel();
+      settling.delete(element);
+      element.classList.remove('is-hovering');
+      element.classList.toggle('is-selected', selected);
+      if (reducedMotion.matches) return;
+
+      const movement = element.animate([
+        { transform: from },
+        { transform: selected ? 'translateY(-4px) scale(1.015)' : 'translateY(0) scale(1)' }
+      ], { duration: 220, easing: 'ease-out' });
+      settling.set(element, movement);
+      movement.finished.then(() => {
+        if (settling.get(element) !== movement) return;
+        settling.delete(element);
+        if (element.classList.contains('is-selected')) element.classList.add('is-hovering');
+      }).catch(() => {}); // Re-selection intentionally cancels an in-flight move.
     });
   }
+  reducedMotion.addEventListener('change', () => {
+    settling.forEach(animation => animation.cancel());
+    settling.clear();
+    document.querySelectorAll('.heli-stage').forEach(element => element.classList.remove('is-hovering'));
+    syncCharacters();
+  });
   function closeSettings() {
     audioControls.classList.remove('settings-open');
     settings.setAttribute('aria-expanded', 'false');

@@ -44,6 +44,7 @@ for asset in (root / 'assets/selection').glob('*.png'):
     image = Image.open(asset)
     if asset.name != 'background-clean.png':
         assert image.mode == 'RGBA' and image.getchannel('A').getextrema()[0] == 0
+        assert all(image.getpixel(point)[3] == 0 for point in [(0,0), (image.width-1,0), (0,image.height-1), (image.width-1,image.height-1)])
 passed('Character and blade PNG files contain real alpha transparency.')
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -75,6 +76,36 @@ with sync_playwright() as playwright:
     assert page.locator('.heli-rotor').count() == 3
     passed('Desktop selection, PNG layers, all stage/enemy/boss/projectile images load without failures.')
 
+    # Freeze the old helicopter at the highest hover pose, then sample its landing.
+    page.wait_for_function("document.querySelector('#heliStage0').classList.contains('is-hovering')")
+    landing = page.evaluate('''() => {
+        const previous = document.querySelector('#heliStage0');
+        const hover = previous.getAnimations().find(a => a.animationName === 'selection-hover');
+        hover.pause(); hover.currentTime = 1050;
+        document.querySelector('.select-hit[data-heli="1"]').click();
+        const movement = previous.getAnimations().find(a => a.constructor.name === 'Animation');
+        movement.pause();
+        const y = [0,110,219].map(time => {
+            movement.currentTime = time;
+            return new DOMMatrix(getComputedStyle(previous).transform).m42;
+        });
+        movement.play();
+        return {y, rotor:getComputedStyle(previous.querySelector('.heli-rotor')).animationName};
+    }''')
+    assert landing['y'][0] < -7.9 and landing['y'][0] < landing['y'][1] < landing['y'][2] < .1
+    assert landing['rotor'] == 'none'
+    page.wait_for_function("Math.abs(new DOMMatrix(getComputedStyle(document.querySelector('#heliStage0')).transform).m42) < .01")
+    assert page.locator('#heliStage0').evaluate("e => !e.classList.contains('is-hovering')")
+    passed('Deselection stops the rotor immediately and lowers the previous helicopter continuously to its podium in 220ms.')
+
+    page.evaluate('''() => {
+        for (let i=0;i<24;i++) document.querySelectorAll('.select-hit')[i%3].click();
+    }''')
+    page.wait_for_function("document.querySelector('#heliStage2').classList.contains('is-hovering')")
+    assert page.locator('.heli-stage.is-selected').count() == 1
+    assert page.locator('.heli-stage.is-hovering').count() == 1
+    passed('Rapid re-selection cancels earlier movements without leaving another helicopter floating or spinning.')
+
     for kind in range(3):
         page.locator(f'.select-hit[data-heli="{kind}"]').click()
         expect(page.locator(f'.select-hit[data-heli="{kind}"]')).to_have_attribute('aria-pressed', 'true')
@@ -96,8 +127,57 @@ with sync_playwright() as playwright:
     passed('Only the selected helicopter floats/spins; previous rotors stop; blades compress left/right while the body/hub stays fixed.')
     page.emulate_media(reduced_motion='reduce')
     assert page.locator('#heliStage2 .heli-rotor').evaluate('element => getComputedStyle(element).animationName') == 'none'
+    page.locator('#heliStage2').evaluate("element => element.classList.add('is-hovering')")
+    assert page.locator('#heliStage2').evaluate('element => getComputedStyle(element).animationName') == 'none'
     page.emulate_media(reduced_motion='no-preference')
     passed('Reduced-motion preference stops decorative animation.')
+
+    # Inspect fully extended blades at the largest hover scale on varied screens.
+    for width, height in [(1280,720),(844,390),(568,320),(1024,768),(2560,1080)]:
+        page.set_viewport_size({'width':width,'height':height})
+        for kind in range(3):
+            page.locator(f'.select-hit[data-heli="{kind}"]').click()
+            page.wait_for_function('(kind) => document.querySelector(`#heliStage${kind}`).classList.contains("is-hovering")', arg=kind)
+            poses = page.evaluate('''() => {
+                const selected = document.querySelector('.heli-stage.is-selected');
+                const hover = selected.getAnimations().find(a=>a.animationName==='selection-hover');
+                hover.pause(); hover.currentTime=1050;
+                return [...document.querySelectorAll('.heli-stage')].map(element => {
+                    const body=element.querySelector('.heli-body').getBoundingClientRect();
+                    const rotor=element.querySelector('.heli-rotor-position').getBoundingClientRect();
+                    return {cx:body.x+body.width/2,left:rotor.left,right:rotor.right,top:rotor.top,bottom:body.bottom};
+                });
+            }''')
+            for pose, center in zip(poses, [.2225,.5,.7645]):
+                assert abs(pose['cx']/width-center) < .002
+                assert pose['left'] >= 0 and pose['right'] <= width and pose['top'] > 0
+                assert .55*height-12 < pose['bottom'] <= .55*height+1
+            assert poses[0]['right']+2 < poses[1]['left']
+            assert poses[1]['right']+2 < poses[2]['left']
+            assert page.locator('.character-details').evaluate_all('els=>els.every(e=>e.scrollHeight<=e.clientHeight&&e.scrollWidth<=e.clientWidth)')
+    passed('All podium centers align; PNG outlines and fully extended rotors fit without overlap; panels fit at five desktop/mobile/tablet/ultrawide sizes.')
+
+    page.set_viewport_size({'width':1280,'height':720})
+    for kind, name in enumerate(['trio','bingle','tanko']):
+        page.locator(f'.select-hit[data-heli="{kind}"]').click()
+        page.wait_for_function('(kind) => document.querySelector(`#heliStage${kind}`).classList.contains("is-hovering")', arg=kind)
+        page.evaluate('''() => {
+            const selected=document.querySelector('.heli-stage.is-selected');
+            for(const element of [selected,selected.querySelector('.heli-rotor')]) {
+                const animation=element.getAnimations().find(a=>a instanceof CSSAnimation);
+                animation.pause();animation.currentTime=0;
+            }
+        }''')
+        page.screenshot(path=str(args.artifacts/f'selection-{name}.png'))
+
+    # Browser-only inspection surfaces; these styles never enter the application.
+    inspection = page.add_style_tag(content='#menu .select-screen{background-image:none;background:repeating-conic-gradient(#aaa 0% 25%,#fff 0% 50%) 0 0 / 20px 20px}')
+    page.screenshot(path=str(args.artifacts/'selection-alpha-check.png'))
+    inspection.evaluate('element=>element.remove()')
+    inspection = page.add_style_tag(content='#menu .heli-stage,#menu .character-details,#menu .select-hit{visibility:hidden}')
+    page.screenshot(path=str(args.artifacts/'selection-background-only.png'))
+    inspection.evaluate('element=>element.remove()')
+    passed('Screenshots captured for all three selections, transparent PNG outlines and the background with character layers hidden.')
 
     for selector in ['#musicToggle', '#sfxToggle']:
         button = page.locator(selector)
