@@ -1,0 +1,73 @@
+{
+  "artifact": "dist/heli_trio_galaxy_test.html",
+  "bytes": 28200639,
+  "sha256": "f9a54363ec36964ed6c25f8fc678a1ff14e6f3344491ef612cbecdd3756123c5",
+  "passed": [
+    "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
+    "The three original combat/stage/boss/audio scripts and current selection JavaScript are preserved exactly and pass syntax checks.",
+    "All five selection PNGs are embedded without changing their bytes, alpha, colors or geometry.",
+    "Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.",
+    "All 12 embedded original WAV tracks/effects load playable metadata while offline.",
+    "All three touch selections retain no yellow rectangle, colored circular lighting, panel accents, floating and front-view rotor/stop behavior.",
+    "Original music and SFX toggles work with touch input.",
+    "Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.",
+    "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
+    "All four original stage/boss configurations and final-clear return pass controlled-state regression checks.",
+    "915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.",
+    "No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run."
+  ],
+  "limits": [
+    "Physical Galaxy/Samsung Internet, hardware sensors, audible speaker output and device fullscreen/orientation permissions were not tested.",
+    "Direct file:// navigation is blocked by this environment browser policy. The same HTML was tested offline without a server; actual Galaxy local-file opening still requires device validation."
+  ],
+  "local_file_navigation": "blocked_by_browser_administrator_policy",
+  "execution_mode": "identical HTML injected into about:blank with browser offline",
+  "decoded_selection_images": {
+    "layers": [
+      [
+        2172,
+        724
+      ],
+      [
+        1536,
+        1024
+      ],
+      [
+        2172,
+        724
+      ],
+      [
+        1402,
+        1122
+      ],
+      [
+        2172,
+        724
+      ],
+      [
+        1402,
+        1122
+      ]
+    ],
+    "background": [
+      1672,
+      941
+    ]
+  },
+  "audio_durations": [
+    15.745442,
+    17.751701,
+    16.937687,
+    15.113016,
+    27.581814,
+    30.199955,
+    26.227574,
+    24.625805,
+    2.4,
+    2.1,
+    0.6,
+    3.2
+  ],
+  "external_requests": 0,
+  "failed_asset_requests": 0
+}

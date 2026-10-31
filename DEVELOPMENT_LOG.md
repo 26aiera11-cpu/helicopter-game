@@ -12,6 +12,8 @@
 
 선택 강조 구현 커밋: `b8021cac3dda1f563d56ccc80050e7d24918539f` — 후속 명시 요청에 따라 GitHub 작업 브랜치에 게시 확인
 
+갤럭시 단일 HTML 빌드 기준: `19c46ebdc76f46dde3c3698202a3c392a3bb9914`
+
 이 문서는 이 대화에서 사용자가 요청한 개발 작업과 Codex가 실제 수행한 결과를 정리한다. 대화에서 확인된 내용, Git 이력, 저장된 테스트 결과를 구분해 기록하며, 수행하지 않은 테스트나 배포를 완료했다고 표현하지 않는다. 단계별 정확한 작업 시각은 모두 기록되지 않았으므로, 아래의 정확한 시각은 Git 커밋 시각을 KST로 변환한 값이다.
 
 ## 1. 앞으로의 기록 갱신 규칙
@@ -42,9 +44,11 @@ git log -1 --format='%h %s' -- DEVELOPMENT_LOG.md
 - `index.html` 안의 기존 인라인 JavaScript 블록 3개는 통합 전 백업과 바이트 단위로 동일하다. 최종 검증 수정에서도 이 스크립트와 원본 선택화면 PNG 5개를 변경하지 않았다.
 - 마지막 선택화면 검증에서 재현되는 미해결 문제는 없었다. iOS/Safari 실기기 및 실제 센서·스피커 확인은 남아 있다.
 - 선택 강조 구현 커밋 `b8021ca`까지 원격 작업 브랜치에 반영했다. 앞선 기록 커밋 `457eb80`도 같은 이력에 포함된다. 게시 전에는 로컬 전용으로 관리했으며, 후속 명시 요청으로 푸시를 진행했다. `main` 병합 및 GitHub Pages 배포는 하지 않았다.
+- 갤럭시 다운로드 테스트용 `dist/heli_trio_galaxy_test.html`을 추가했다. 기존 소스는 수정하지 않고 모든 리소스를 내장한 약 28.2MB 단일 파일이다. 오프라인 브라우저 검증은 통과했으나 실제 갤럭시의 로컬 파일 실행은 미검증이다.
 
 관련 자료:
 
+- [갤럭시 단일 파일 다운로드·실행·검증 안내](docs/review/galaxy-test/README.md)
 - [최신 선택 강조 효과 검증·스크린샷](docs/review/selection-highlight/README.md)
 - [최종 검증 보고서](docs/review/selection-final/README.md)
 - [검증 결과 JSON 및 PNG SHA-256](docs/review/selection-final/test-results.json)
@@ -62,6 +66,7 @@ git log -1 --format='%h %s' -- DEVELOPMENT_LOG.md
 | `336da71` | 2026-11-01 00:12:58 | `Refine selection alignment and smooth character transitions` — 발판·날개 정렬, 부드러운 선택 전환, 확대된 브라우저 검증과 스크린샷 추가. |
 | `457eb80` | 2026-11-01 00:37:49 | `Document helicopter development history and ongoing logging policy` — 개발 기록 작성. 최초 로컬 커밋 후 후속 명시 요청에 따라 원격 게시. |
 | `b8021ca` | 2026-11-01 01:00:28 | `Replace selection rectangles with colored circular podium lighting` — 노란 선택 사각형 제거, 고유 색상 발판 조명·패널 테두리, 브라우저 검증·스크린샷 추가. 최초 로컬 커밋 후 후속 명시 요청으로 원격 게시. |
+| `19c46eb` | 2026-11-01 08:08:45 | `Record verification and authorized publication of selection highlights` — 실제 적용 상태·원격 게시 확인 내용을 기록. |
 
 최종 개발 검증 후 원격 작업 브랜치는 `336da71`, 원격 `main`은 `173d550`임을 확인했다. 개발 기록 작성 직전 로컬 작업 트리도 깨끗했고 HEAD는 `336da71`이었다.
 
@@ -457,3 +462,65 @@ python tests/selection_smoke.py --artifacts /absolute/path/to/regression-review
 - 게시 확인 내용은 이 기록과 `docs/review/selection-highlight/README.md`에 추가해 별도의 문서 커밋으로 관리한다. 해당 문서 커밋도 같은 작업 브랜치에 게시하고, 최종 원격 HEAD는 완료 보고에서 안내한다.
 
 실제 선택 강조 구현의 변경 파일 목록과 테스트·스크린샷은 13절 및 [검증 보고서](docs/review/selection-highlight/README.md)를 따른다. 이 확인·게시 단계에서는 애플리케이션 코드, 이미지, 테스트·스크린샷을 변경하지 않았다. `main` 병합과 GitHub Pages 배포도 수행하지 않았다.
+
+## 15. 8단계 — 갤럭시용 단일 HTML 테스트 파일 제작
+
+### 사용자 요청
+
+- 최신 `feature/selection-screen-integration`을 기준으로 외부 파일 없이 실행 가능한 `dist/heli_trio_galaxy_test.html`을 만든다.
+- 캐릭터 PNG·배경·CSS·JavaScript를 내장하고 `index.html`과 기존 게임 원본은 수정하지 않는다.
+- 세 헬기, 사각형 없는 선택 강조, 고유 발판 조명, 부유·정면 날개·착지·능력치 패널 강조를 모두 포함한다.
+- 기존 전투·스테이지·보스·탄환·아이템·사운드를 그대로 유지한다.
+- 모바일 가로·터치·시작·로컬 파일 이미지 로딩을 가능한 브라우저에서 검사하고 실제 갤럭시 미검증 항목을 구분한다.
+- 작업 브랜치에 커밋·푸시하고 다운로드 링크를 제공하되 `main` 병합·Pages 배포는 하지 않는다.
+
+### 수행 결과
+
+- 로컬과 원격 작업 브랜치가 `19c46eb`이며 작업 트리가 깨끗한 것을 확인하고 시작했다.
+- 재현 가능한 `scripts/build_galaxy_test.py`를 추가했다. 기존 HTML에 외부 선택 PNG 5개, 선택 CSS·JS를 데이터 URL·인라인 스타일·스크립트로 내장한다.
+- 원래 게임·사운드 인라인 스크립트 3개와 선택 JavaScript를 그대로 포함했다. 원래 내장된 게임 이미지·WAV 12개와 선택 PNG의 바이트도 보존했다.
+- 생성된 파일의 모든 자산 참조를 검사해 외부 의존성 0개를 확인했다. 원본 파일은 변경하지 않았다.
+- 모바일 검사에서 브라우저 자체의 파란 사각형 터치 잔상을 확인해 테스트 HTML에만 이를 억제하는 CSS를 추가했다. 원본 CSS·JS와 게임 동작은 수정하지 않았다.
+- 완성 파일은 **28,200,639바이트**이며, 같은 입력으로 재생성하면 바이트 단위로 동일함을 확인했다.
+
+SHA-256:
+
+```text
+f9a54363ec36964ed6c25f8fc678a1ff14e6f3344491ef612cbecdd3756123c5
+```
+
+### 변경·추가 파일
+
+- `dist/heli_trio_galaxy_test.html`: 사용자 다운로드용 단일 HTML. 런타임 외부 파일 불필요.
+- `scripts/build_galaxy_test.py`: 원본을 변경하지 않는 생성 스크립트.
+- `tests/galaxy_standalone.py`: 정적 의존성·코드 보존·오프라인 실행·터치·이미지·음원·게임 진행 검사.
+- `docs/review/galaxy-test/README.md`: 다운로드·기기 실행 안내, 브라우저 결과와 미검증 항목.
+- `docs/review/galaxy-test/build-results.json`, `test-results.json`: 파일 크기·해시·내장 자산·검증 결과.
+- 같은 폴더의 `galaxy-selection.png`, `galaxy-gameplay.png`, `galaxy-selection-compact.png`, `galaxy-portrait-notice.png`: 실제 오프라인 Chromium 화면 4개.
+- `DEVELOPMENT_LOG.md`: 이번 요청·결과·제한 기록.
+
+### 실제 브라우저 검사와 제한
+
+```sh
+python scripts/build_galaxy_test.py
+python tests/galaxy_standalone.py --artifacts /absolute/path/to/galaxy-review
+```
+
+**12개 검사 그룹을 통과했다.** 네트워크를 끄고 서버 없이 실행해 이미지, 음원 메타데이터, 터치 조작과 기존 게임 상태를 검사했다.
+
+- 생성 HTML 하나만 둔 독립 디렉터리에서 `file://` 직접 열기를 시도했으나 이 환경의 Chromium 관리자 정책이 차단했다. 직접 로컬 파일 열기를 성공했다고 기록하지 않는다.
+- 정책을 바꾸거나 우회하지 않고 새 빈 문서에 동일한 HTML을 주입해 오프라인으로 검증했다. 실제 갤럭시 파일 열기는 실기기 확인이 남아 있다.
+- 선택·게임 배경·적·보스·탄환 이미지와 WAV 12개가 모두 로드됐다. 사용자 터치 후 배경음 재생 시작을 확인했으나 스피커로 듣지는 않았다.
+- 세 캐릭터 선택, 노란 사각형 없음, 원형 조명·패널 강조·부유·정면 회전·비선택 회전 정지를 확인했다.
+- 각 캐릭터의 터치 시작·체력 4/6/9·길게 눌러 회전·드래그 이동·연속 발사·나가기·적 생성을 확인했다.
+- 기존 음악·효과음 토글, 네 지역 보스 구성, 최종 클리어 복귀도 확인했다. 보스·클리어는 상태 설정을 이용한 회귀 검사다.
+- 915×412, 800×360 가로 화면과 412×915 회전 안내를 확인했다.
+- 외부 HTTP 요청 0건, 실패 자산 0건, 잡히지 않은 JavaScript 오류 0건이었다.
+
+검증 도구의 초기 실행에서는 차단 오류 페이지의 이동 경합과 오디오 관찰기 중복 설치가 발견됐다. 테스트 도구를 수정한 후 통과했으며 게임·음원 코드를 수정한 것은 아니다.
+
+### 아직 확인하지 못한 사항과 게시 범위
+
+실제 갤럭시·Samsung Internet·모바일 Chrome의 파일 연결, 로컬 파일 센서 권한·중앙 보정, 전체화면·가로 잠금, 실제 음량·지연, 앱 복귀, 기기 성능·발열은 미검증이다. 전 스테이지 연속 완주도 수행하지 않았다.
+
+검증된 빌드와 안내 자료를 요청한 작업 브랜치에 커밋해 GitHub에 푸시하고, 완료 보고에서 다운로드 링크와 원격 커밋 SHA를 제공한다. `main` 병합·GitHub Pages 배포는 하지 않는다.
