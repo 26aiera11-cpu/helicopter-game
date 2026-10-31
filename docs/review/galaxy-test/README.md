@@ -1,21 +1,35 @@
-# 갤럭시용 단일 HTML 테스트 빌드
+# 갤럭시 테스트 빌드 — ZIP 다운로드
 
 2026-11-01(KST) · `feature/selection-screen-integration` · 소스 기준 `19c46eb`
 
 ## 다운로드와 실행
 
-**[heli_trio_galaxy_test.html 다운로드](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/selection-screen-integration/dist/heli_trio_galaxy_test.html?download=1)**
+**[heli_trio_galaxy_test.zip 다운로드 — 약 20.4MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/selection-screen-integration/dist/heli_trio_galaxy_test.zip?download=1)**
 
-[GitHub 파일 페이지](../../../dist/heli_trio_galaxy_test.html)에서도 Download raw file 메뉴를 사용할 수 있다.
+[ZIP 파일 페이지](../../../dist/heli_trio_galaxy_test.zip)에서도 Download raw file 메뉴를 사용할 수 있다. ZIP에는 `heli_trio_galaxy_test.html` 하나만 들어 있다. [원본 HTML](../../../dist/heli_trio_galaxy_test.html)은 수정하지 않았다.
 
-1. 갤럭시에서 위 링크의 파일을 다운로드한다. 소스 텍스트가 표시되면 링크를 길게 누르고 **링크 다운로드**를 선택한다.
-2. 다운로드 완료 후 ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.html`을 찾는다. 파일 크기는 **28,200,639바이트, 약 28.2MB**다.
+1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **20,396,028바이트, 약 20.4MB**다.
+2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **28,200,639바이트, 약 28.2MB**다.
 3. 로컬 HTML 실행을 지원하는 브라우저로 파일을 연다. Chrome 또는 Samsung Internet의 지원 여부는 기기의 파일 열기 방식에 따라 직접 확인해야 한다.
 4. 휴대폰을 가로로 돌리고 캐릭터를 선택한 뒤 **게임 시작**을 누른다.
 5. 화면을 드래그해 이동하고, ↶ ↷ 버튼을 길게 눌러 방향을 바꾸고, 발사 버튼을 길게 눌러 공격한다. 음악·효과음은 선택화면에서 각각 켜고 끌 수 있다.
 6. 센서 사용은 별도로 테스트한다. 로컬 파일에서의 센서 허용 여부는 브라우저·파일 열기 경로에 따라 확인이 필요하며, 드래그 이동으로도 플레이할 수 있다.
 
 파일 하나에 필요한 이미지·CSS·JavaScript·음원을 담았다. 다운로드 후에는 별도 폴더·설치·서버·네트워크 연결이 필요하지 않도록 구성했다. 실제 갤럭시에서 로컬 파일을 여는 절차는 아직 검증하지 않았다. GitHub Pages에는 배포하지 않는다.
+
+HTML의 GitHub raw 응답은 브라우저에서 소스 텍스트로 표시될 수 있어 ZIP 다운로드를 추가했다. 압축을 푼 뒤 HTML을 실행한다.
+
+## ZIP 무결성 검증
+
+- 일반 ZIP DEFLATE 방식이며 암호는 없다.
+- 압축 목록은 루트의 `heli_trio_galaxy_test.html` **1개뿐**이다. 별도 폴더나 리소스 파일을 넣지 않았다.
+- Python ZIP CRC 검사와 시스템 `unzip -t`를 통과했다.
+- 실제 압축 해제한 HTML을 원본과 바이트 단위로 비교했고 SHA-256도 동일했다.
+- 기존 `dist/heli_trio_galaxy_test.html` 및 게임 코드·리소스는 변경하지 않았다.
+
+상세 결과·ZIP/HTML 크기 및 해시: [zip-results.json](zip-results.json).
+
+ZIP 포장만 추가했으므로 아래의 기존 게임 브라우저 테스트를 다시 실행하지 않았다. HTML을 새 버전으로 재생성해 배포할 때는 ZIP도 같은 HTML로 다시 만들고 검증해야 한다.
 
 ## 포함한 기능과 보호 범위
 

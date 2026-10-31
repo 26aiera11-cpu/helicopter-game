@@ -45,10 +45,11 @@ git log -1 --format='%h %s' -- DEVELOPMENT_LOG.md
 - 마지막 선택화면 검증에서 재현되는 미해결 문제는 없었다. iOS/Safari 실기기 및 실제 센서·스피커 확인은 남아 있다.
 - 선택 강조 구현 커밋 `b8021ca`까지 원격 작업 브랜치에 반영했다. 앞선 기록 커밋 `457eb80`도 같은 이력에 포함된다. 게시 전에는 로컬 전용으로 관리했으며, 후속 명시 요청으로 푸시를 진행했다. `main` 병합 및 GitHub Pages 배포는 하지 않았다.
 - 갤럭시 다운로드 테스트용 `dist/heli_trio_galaxy_test.html`을 추가했다. 기존 소스는 수정하지 않고 모든 리소스를 내장한 약 28.2MB 단일 파일이다. 오프라인 브라우저 검증은 통과했으나 실제 갤럭시의 로컬 파일 실행은 미검증이다.
+- HTML 링크에서 소스가 표시되는 문제에 대응해 HTML 하나만 담은 `dist/heli_trio_galaxy_test.zip`도 추가했다. ZIP은 약 20.4MB이며 원본 HTML의 내용은 변경하지 않았다.
 
 관련 자료:
 
-- [갤럭시 단일 파일 다운로드·실행·검증 안내](docs/review/galaxy-test/README.md)
+- [갤럭시 ZIP 다운로드·실행·검증 안내](docs/review/galaxy-test/README.md)
 - [최신 선택 강조 효과 검증·스크린샷](docs/review/selection-highlight/README.md)
 - [최종 검증 보고서](docs/review/selection-final/README.md)
 - [검증 결과 JSON 및 PNG SHA-256](docs/review/selection-final/test-results.json)
@@ -67,6 +68,7 @@ git log -1 --format='%h %s' -- DEVELOPMENT_LOG.md
 | `457eb80` | 2026-11-01 00:37:49 | `Document helicopter development history and ongoing logging policy` — 개발 기록 작성. 최초 로컬 커밋 후 후속 명시 요청에 따라 원격 게시. |
 | `b8021ca` | 2026-11-01 01:00:28 | `Replace selection rectangles with colored circular podium lighting` — 노란 선택 사각형 제거, 고유 색상 발판 조명·패널 테두리, 브라우저 검증·스크린샷 추가. 최초 로컬 커밋 후 후속 명시 요청으로 원격 게시. |
 | `19c46eb` | 2026-11-01 08:08:45 | `Record verification and authorized publication of selection highlights` — 실제 적용 상태·원격 게시 확인 내용을 기록. |
+| `9a88c40` | 2026-11-01 08:34:43 | `Build a self-contained Galaxy HTML test download` — 원본을 유지한 단일 HTML 생성·오프라인 터치 검증·실행 안내 추가. |
 
 최종 개발 검증 후 원격 작업 브랜치는 `336da71`, 원격 `main`은 `173d550`임을 확인했다. 개발 기록 작성 직전 로컬 작업 트리도 깨끗했고 HEAD는 `336da71`이었다.
 
@@ -524,3 +526,33 @@ python tests/galaxy_standalone.py --artifacts /absolute/path/to/galaxy-review
 실제 갤럭시·Samsung Internet·모바일 Chrome의 파일 연결, 로컬 파일 센서 권한·중앙 보정, 전체화면·가로 잠금, 실제 음량·지연, 앱 복귀, 기기 성능·발열은 미검증이다. 전 스테이지 연속 완주도 수행하지 않았다.
 
 검증된 빌드와 안내 자료를 요청한 작업 브랜치에 커밋해 GitHub에 푸시하고, 완료 보고에서 다운로드 링크와 원격 커밋 SHA를 제공한다. `main` 병합·GitHub Pages 배포는 하지 않는다.
+
+## 16. 9단계 — HTML 한 파일만 담은 ZIP 다운로드 추가
+
+### 사용자 요청
+
+- HTML 다운로드 링크가 소스 코드를 표시하므로 ZIP 파일로 제공한다.
+- 기존 `dist/heli_trio_galaxy_test.html`은 변경하지 않는다.
+- 이 HTML 하나만 담은 `dist/heli_trio_galaxy_test.zip`을 만들고 정상 열림·내용 보존을 검증한다.
+- 현재 작업 브랜치에 커밋·푸시하고 갤럭시에서 다운로드할 ZIP 링크를 안내한다.
+- 게임 코드·리소스 수정, `main` 병합, GitHub Pages 배포는 하지 않는다.
+
+### 수행 결과와 검증
+
+시작 HEAD는 `9a88c40`이었으며 작업 트리는 깨끗했다. ZIP은 표준 DEFLATE 방식으로 만들었고 암호를 설정하지 않았다.
+
+- ZIP 목록이 **`heli_trio_galaxy_test.html` 1개**인지 확인했다. 하위 폴더나 다른 리소스는 포함하지 않았다.
+- Python `ZipFile.testzip()` CRC 검사와 시스템 `unzip -t`를 통과했다.
+- 실제 별도 디렉터리에 압축을 풀고 원본과 바이트 단위로 비교했다. 해제한 HTML의 SHA-256과 크기도 원본과 일치했다.
+- 기존 HTML은 **28,200,639바이트**이며 SHA-256은 계속 `f9a54363ec36964ed6c25f8fc678a1ff14e6f3344491ef612cbecdd3756123c5`다.
+- ZIP은 **20,396,028바이트**, SHA-256은 `138783ff3147f65b776aa6ae16373557020ccc47e8d20e5f02f2b0338bacfc67`이다.
+- 원본 HTML·게임 코드·리소스와 기존 테스트 결과는 변경하지 않았다. 포장 방식만 바뀌므로 게임 브라우저 테스트는 재실행하지 않았다.
+
+### 변경 파일과 안내
+
+- `dist/heli_trio_galaxy_test.zip`: HTML 하나만 포함한 압축파일.
+- `docs/review/galaxy-test/zip-results.json`: 파일 목록·크기·해시·CRC·압축 해제 대조 결과.
+- `docs/review/galaxy-test/README.md`: ZIP 다운로드와 갤럭시 ‘내 파일 → 압축 풀기 → HTML 열기’ 안내로 갱신.
+- `DEVELOPMENT_LOG.md`: 이번 요청과 검증 결과 추가.
+
+검증한 ZIP과 기록을 같은 작업 브랜치에 커밋·푸시하고, 원격 바이너리 다운로드 응답과 내려받은 ZIP도 확인한다. `main` 병합·GitHub Pages 배포는 하지 않는다. 실제 갤럭시에서의 압축 해제·HTML 연결은 아직 직접 검증하지 않았으며, 앞선 센서·음성·기기 권한 검증 한계도 유지한다.
