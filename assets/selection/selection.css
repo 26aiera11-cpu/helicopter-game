@@ -1,0 +1,46 @@
+/* Selection UI only. Gameplay rendering, balance and audio stay in index.html. */
+#menu.new-select{background:#51b2e9;z-index:40;isolation:isolate}
+#menu .select-screen{overflow:hidden;background-image:url('background-clean.png');background-size:100% 100%;background-position:center}
+#menu .select-hit{z-index:5;top:20%;height:59.6%;width:29.3%;border-radius:7%;transition:box-shadow .2s,outline-color .2s}
+#menu .select-hit.selected{outline:clamp(2px,.3vw,4px) solid #ffe68b;outline-offset:-3px;box-shadow:inset 0 0 12px #ffe68b55,0 0 15px #ffe68b88}
+#menu .select-hit:active{background:#ffffff14}
+#menu .select-hit:focus-visible,#menu button:focus-visible{outline:3px solid white;outline-offset:3px}
+#menu .heli-stage{position:absolute;top:19%;height:36%;width:27%;display:grid;place-items:end center;pointer-events:none;z-index:2;transform-origin:50% 90%;filter:drop-shadow(0 5px 4px #09263a35)}
+#heliStage0{left:8%}#heliStage1{left:36.5%}#heliStage2{left:65.4%}
+#menu .heli-art{position:relative;width:min(100%,calc(var(--art-ratio)*36vh));aspect-ratio:var(--art-ratio)}
+#menu .heli-body{position:absolute;inset:0;z-index:2;width:100%;height:100%;overflow:visible}
+#menu .heli-rotor-position{position:absolute;z-index:1;left:50%;top:var(--hub-y,3%);width:118%;aspect-ratio:var(--rotor-ratio);transform:translate(-50%,-50%)}
+#menu .heli-rotor{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 50%;transform:scaleX(1)}
+#menu .heli-stage.is-selected{animation:selection-hover 2.1s ease-in-out infinite;filter:drop-shadow(0 0 10px var(--heli-glow))}
+#menu .heli-stage.is-selected .heli-rotor{animation:selection-rotor .66s linear infinite}
+#menu .heli-stage:not(.is-selected) .heli-rotor{animation:none;transform:scaleX(1)}
+@keyframes selection-hover{0%,100%{transform:translateY(-3px) scale(1.015)}50%{transform:translateY(-9px) scale(1.035)}}
+/* Front view: the blades project onto the X axis; the hub stays on the body. */
+@keyframes selection-rotor{0%,100%{transform:scaleX(1)}12.5%{transform:scaleX(.707)}25%{transform:scaleX(.035)}37.5%{transform:scaleX(-.707)}50%{transform:scaleX(-1)}62.5%{transform:scaleX(-.707)}75%{transform:scaleX(-.035)}87.5%{transform:scaleX(.707)}}
+#menu .character-details{position:absolute;z-index:3;top:58.1%;height:21.7%;width:22.6%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.5vh,6px);padding:.4% 1%;border:2px solid var(--card-color);border-radius:clamp(8px,1vw,18px);background:linear-gradient(#13213f,#07192e);box-shadow:0 2px 7px #0006;pointer-events:none;color:white;text-align:left}
+#menu .character-details[data-heli="0"]{left:11.2%;--card-color:#ff4b59}
+#menu .character-details[data-heli="1"]{left:38.6%;--card-color:#36c8ff}
+#menu .character-details[data-heli="2"]{left:65.8%;--card-color:#62ed66}
+#menu .character-name{text-align:center;color:var(--card-color);font-weight:900;font-size:clamp(14px,1.8vw,27px);line-height:1.15}
+#menu .character-trait{text-align:center;font-size:clamp(9px,1vw,15px);color:#e1edff;line-height:1.25}
+#menu .stat-row{display:flex;justify-content:space-between;align-items:center;gap:4px;font-size:clamp(10px,1.2vw,18px);font-weight:750;line-height:1.3}
+#menu .stat-value{color:#fff1a7;white-space:nowrap}
+#menu #startSelected{z-index:6;left:33.5%;top:82.2%;width:33%;height:16.5%}
+#menu .art-button{position:absolute;z-index:6;border:0;background:transparent;border-radius:24px;cursor:pointer;touch-action:manipulation}
+#menu .art-button:active{background:#ffffff25}
+#menu #selectionSettings{left:13%;top:84.1%;width:18%;height:11.5%}
+#menu #selectionHelp{left:69%;top:84.1%;width:19.5%;height:11.5%}
+#menu #audioControls{top:1.5%;right:1%;display:flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:13px;background:#0b2949ed;max-width:35%;transition:box-shadow .2s}
+#menu #audioControls button{color:white;background:#124d79;border:1px solid #ffffff99;font-size:clamp(10px,1.1vw,15px);padding:6px 9px;box-shadow:none;white-space:nowrap}
+#menu #audioControls button.off{opacity:1;background:#26394b;color:#c6cdd6;text-decoration:line-through}
+#menu #audioControls.settings-open{box-shadow:0 0 0 3px #ffe68b,0 0 20px #ffe68b88}
+#menu .selection-result{position:absolute;z-index:7;top:17.5%;left:25%;right:25%;margin:0;padding:5px 10px;border-radius:12px;color:white;background:#092849ee;font-weight:800;font-size:clamp(12px,1.5vw,22px)}
+#menu .selection-result:empty{display:none}
+.selection-open .hud,.selection-open .controls,.selection-open #sensor,.selection-open #sensorStatus,.selection-open #exitGame{visibility:hidden}
+#selectionHelpDialog{max-width:min(440px,78vw);max-height:76vh;box-sizing:border-box;overflow:auto;border:2px solid #7ddcff;border-radius:20px;padding:22px;color:#edf8ff;background:#0d2a48;box-shadow:0 15px 80px #0009;font-size:clamp(12px,1.4vw,17px);line-height:1.6}
+#selectionHelpDialog::backdrop{background:#031323b8}
+#selectionHelpDialog h2{margin:0 0 10px;font-size:1.3em}
+#selectionHelpDialog p{margin:8px 0}
+#selectionHelpDialog button{padding:8px 20px;border:1px solid #fff9;border-radius:12px;background:#1266a6;color:white;font:inherit;font-weight:800;cursor:pointer}
+@media(max-height:450px){#menu #audioControls{padding:4px;gap:4px}#menu #audioControls button{padding:4px 6px;font-size:10px}#menu .character-details{gap:1px;padding:.2% .8%}#selectionHelpDialog{padding:14px}}
+@media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .select-hit,#menu #audioControls{transition:none}}
