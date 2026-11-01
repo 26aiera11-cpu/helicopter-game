@@ -19,6 +19,7 @@ from PIL import Image
 from playwright.sync_api import sync_playwright, expect
 from reward_preservation import without_boss_reward_changes
 from final_trio_preservation import without_final_trio_changes
+from tanko_preservation import without_tanko_restore
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -50,9 +51,9 @@ assert expected.count(old_body) == 1
 expected = expected.replace(old_body, new_body, 1)
 old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', expected, re.S)
 game_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S)
-assert old_scripts == re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', without_boss_reward_changes(without_final_trio_changes(after)), re.S)
+assert old_scripts == re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(after))), re.S)
 assert hashlib.sha1(b'blob ' + str(len(before.encode())).encode() + b'\0' + before.encode()).hexdigest() == '19d3426b649a1ba77e4b7bd80019ea809fdf832d'
-passed('Backup matches the original Git blob; only authorized selection/exit, final Trio PNG/ratio drawing, BGM-stop and isolated boss-reward changes differ from original scripts/assets.')
+passed('Backup matches the original Git blob; only authorized selection/exit, Trio/Tanko PNGs, Trio ratio drawing, BGM-stop and boss-reward changes differ from original scripts/assets.')
 for source in game_scripts + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=source, text=True, check=True, capture_output=True)
 passed('All original JavaScript blocks and selection.js pass syntax checks.')

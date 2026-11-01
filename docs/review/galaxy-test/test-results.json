@@ -1,7 +1,7 @@
 {
   "artifact": "dist/heli_trio_galaxy_test.html",
-  "bytes": 28891824,
-  "sha256": "eb890e8072d544b3ebec9b395ccc0ed917e3bffa99c2d4a2a1f2f20c9e0fa8be",
+  "bytes": 28736448,
+  "sha256": "d304864b844fbd133e6e6325a1e87a5c8c640b528be1c2370f807841f32b78e1",
   "passed": [
     "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
     "The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.",
@@ -11,6 +11,7 @@
     "All three touch selections retain no yellow rectangle, colored circular lighting, panel accents, floating and front-view rotor/stop behavior.",
     "Original music and SFX toggles work with touch input.",
     "The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.",
+    "The supplied restored Tanko PNG is embedded byte-for-byte and used offline with the unchanged 503×490 source and original gameplay draw rectangle.",
     "Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.",
     "The rebuilt offline HTML includes the in-page exit modal, gameplay pause/resume and fullscreen-preserving selection return without native dialogs.",
     "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
@@ -83,6 +84,17 @@
       42.17245989304813,
       33.75
     ]
+  },
+  "restored_tanko_draw": {
+    "width": 503,
+    "height": 490,
+    "args": [
+      -16.33,
+      -16.33,
+      32.67,
+      32.67
+    ],
+    "approvedSprite": true
   },
   "external_requests": 0,
   "failed_asset_requests": 0

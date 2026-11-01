@@ -12,6 +12,7 @@ from pathlib import Path
 from playwright.sync_api import expect, sync_playwright
 from reward_preservation import without_boss_reward_changes, without_reward_notice
 from final_trio_preservation import FINAL_TRIO_ASSET, assert_final_trio_asset, without_final_trio_changes
+from tanko_preservation import TANKO_ASSET, assert_tanko_asset, without_tanko_restore
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -20,10 +21,13 @@ args.artifacts.mkdir(parents=True, exist_ok=True)
 root = Path(__file__).resolve().parents[1]
 baseline = '501b1a0a80e77e47068450bd263993a28eab1b3e'
 source = (root / 'index.html').read_text()
-assert without_boss_reward_changes(without_final_trio_changes(source)).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
+assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
         name = str(path.relative_to(root))
+        if name == TANKO_ASSET:
+            assert_tanko_asset()
+            continue
         if name == FINAL_TRIO_ASSET:
             assert_final_trio_asset()
             continue
@@ -42,7 +46,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-passed('Only authorized reward/notice/final-Trio changes differ; ordinary items, region healing, all other gameplay/audio and character assets are preserved; JS syntax passes.')
+passed('Only authorized reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

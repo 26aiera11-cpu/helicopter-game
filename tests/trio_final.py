@@ -15,6 +15,7 @@ from pathlib import Path
 from PIL import Image
 from playwright.sync_api import expect, sync_playwright
 from final_trio_preservation import FINAL_TRIO_ASSET, FINAL_TRIO_SHA256, assert_final_trio_asset, without_final_trio_changes
+from tanko_preservation import TANKO_ASSET, assert_tanko_asset, without_tanko_restore
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -37,13 +38,16 @@ def passed(message):
     report['passed'].append(message);print('PASS:', message, flush=True)
 
 
-assert without_final_trio_changes(source) == before
+assert without_final_trio_changes(without_tanko_restore(source)) == before
 for path in (root / 'assets').rglob('*'):
     if path.is_file() and str(path.relative_to(root)) != FINAL_TRIO_ASSET:
+        if str(path.relative_to(root)) == TANKO_ASSET:
+            assert_tanko_asset()
+            continue
         assert path.read_bytes() == subprocess.check_output(['git', 'show', baseline + ':' + str(path.relative_to(root))], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only one Trio PNG URL and its draw rectangle differ from e12666e; all other game/reward/audio/fullscreen/exit code, Bingle/Tanko and selection assets are unchanged; syntax passes.')
+passed('Only authorized Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.')
 png = Image.open(root / FINAL_TRIO_ASSET)
 assert png.size == (1402, 1122) and png.mode == 'RGBA' and png.getchannel('A').getextrema() == (0, 255)
 bounds = png.getchannel('A').point(lambda value: 255 if value >= 128 else 0).getbbox()
@@ -179,7 +183,7 @@ try:
             assert result['calls'][0]['args']==[-16.33,-16.33,32.67,32.67]
             page.screenshot(path=str(args.artifacts/f'unchanged-{name}.png'))
             page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
-        passed('Bingle and Tanko retain their exact original draw rectangle and PNGs; their actual gameplay and exit flows remain usable.')
+        passed('Bingle and Tanko retain their exact original draw rectangle; Bingle PNG stays unchanged and the approved Tanko restoration is isolated; gameplay and exit flows remain usable.')
         assert not errors and not dialogs,(errors,dialogs)
         passed('Saved enlarged before/after, nine-angle rotation and three mobile landscape gameplay screenshots; no native dialogs or uncaught JavaScript errors.')
         browser.close()

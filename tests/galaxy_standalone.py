@@ -13,6 +13,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 from playwright.sync_api import Error, expect, sync_playwright
+from tanko_preservation import assert_tanko_asset
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -187,6 +188,19 @@ with sync_playwright() as playwright:
             assert abs(final_draw['args'][2]/1402-final_draw['args'][3]/1122)<1e-12
             report['final_trio_draw']=final_draw
             passed('The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.')
+        if kind == 2:
+            tanko_bytes=assert_tanko_asset()
+            tanko_url='data:image/png;base64,'+base64.b64encode(tanko_bytes).decode()
+            assert html.count(tanko_url)==1
+            tanko_draw=page.evaluate('''src=>{
+                let args;const original=ctx.drawImage;
+                ctx.drawImage=function(image,...values){if(image===sprites[2])args=values;return original.call(this,image,...values)};
+                try{draw()}finally{ctx.drawImage=original}
+                return {width:sprites[2].naturalWidth,height:sprites[2].naturalHeight,args,approvedSprite:sprites[2].src===src};
+            }''',tanko_url)
+            assert tanko_draw=={'width':503,'height':490,'args':[-16.33,-16.33,32.67,32.67],'approvedSprite':True}
+            report['restored_tanko_draw']=tanko_draw
+            passed('The supplied restored Tanko PNG is embedded byte-for-byte and used offline with the unchanged 503×490 source and original gameplay draw rectangle.')
         expect(page.locator('#menu')).to_be_hidden()
         page.wait_for_function('worldScroll>1')
         angle=page.evaluate('player.a')
