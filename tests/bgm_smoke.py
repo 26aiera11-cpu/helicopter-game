@@ -117,6 +117,7 @@ try:
             page.wait_for_function('!started')
             expect(page.locator('#menu')).to_be_hidden()
             expect(page.locator('#gameOverOverlay')).to_be_visible()
+            assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop).every(a=>a.paused)')
             expect(page.locator('#menu')).to_be_visible(timeout=4000)
             expect(page.locator('#selectionResult')).to_have_text('')
             assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop).every(a=>a.paused)')

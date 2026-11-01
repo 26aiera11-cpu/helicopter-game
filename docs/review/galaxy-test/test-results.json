@@ -1,7 +1,7 @@
 {
   "artifact": "dist/heli_trio_galaxy_test.html",
-  "bytes": 28736448,
-  "sha256": "d304864b844fbd133e6e6325a1e87a5c8c640b528be1c2370f807841f32b78e1",
+  "bytes": 28739279,
+  "sha256": "4568c9e27a893dbd78d5bf37eb627b355b0d7240cd98902da175c666b6583fe7",
   "passed": [
     "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
     "The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.",
@@ -19,6 +19,7 @@
     "The latest standalone HTML pauses all BGM on game over, freezes its playback clock and restarts one track with another character offline.",
     "The rebuilt offline HTML applies both boss rewards before existing region HP healing, drops no boss item and displays the compact reward notice.",
     "All four original stage/boss configurations and final-clear return pass controlled-state regression checks.",
+    "The latest offline build preserves ordinary items and remaining life through phase/region changes, snapshots scaled boss HP once and clears items in a fresh game.",
     "915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.",
     "No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run."
   ],

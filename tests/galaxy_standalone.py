@@ -249,6 +249,12 @@ with sync_playwright() as playwright:
     page.evaluate('hp=0')
     page.wait_for_function('!started')
     expect(page.locator('#gameOverOverlay')).to_be_visible()
+    expect(page.locator('#menu')).to_be_hidden()
+    assert page.evaluate('gameOverPending&&!window.gameAudioStarted&&window.__galaxyAudio.filter(a=>a.loop).every(a=>a.paused)')
+    frozen = page.evaluate('JSON.stringify({player,bullets,enemyBullets,worldScroll,rotorSpin,items})')
+    page.wait_for_timeout(400)
+    assert page.evaluate('JSON.stringify({player,bullets,enemyBullets,worldScroll,rotorSpin,items})') == frozen
+    page.screenshot(path=str(args.artifacts/'galaxy-game-over.png'))
     expect(page.locator('#menu')).to_be_visible(timeout=4000)
     expect(page.locator('#selectionResult')).to_have_text('')
     assert page.evaluate('!window.gameAudioStarted&&window.__galaxyAudio.filter(a=>a.loop).every(a=>a.paused)')
@@ -289,6 +295,22 @@ with sync_playwright() as playwright:
     page.evaluate('stage=3;phase=5;nextPhase()')
     expect(page.locator('#selectionResult')).to_contain_text('모든 지역 클리어')
     passed('All four original stage/boss configurations and final-clear return pass controlled-state regression checks.')
+
+    page.locator('#startSelected').tap()
+    preserved = page.evaluate('''() => {
+        spawn=999;invuln=999;transition=0;
+        const item={x:45,y:55,type:'power',life:4.75,r:13,t:0,vx:0,vy:0,turn:999};items=[item];
+        nextPhase();const phasePreserved=items[0]===item&&item.life===4.75;
+        phase=5;stage=0;nextPhase();const regionPreserved=items[0]===item&&item.life===4.75;
+        player.upgrade=5;phase=5;phaseKills=requiredKills;boss=null;update(0);
+        const scaled=boss.hp===77&&boss.maxHp===77;player.upgrade=0;update(.1);
+        return {phasePreserved,regionPreserved,life:item.life,scaled,unchanged:boss.maxHp===77};
+    }''')
+    assert preserved['phasePreserved'] and preserved['regionPreserved'] and preserved['scaled'] and preserved['unchanged'] and abs(preserved['life']-4.65)<1e-9
+    page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
+    page.locator('#startSelected').tap();assert page.evaluate('items.length===0&&player.upgrade===0')
+    page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
+    passed('The latest offline build preserves ordinary items and remaining life through phase/region changes, snapshots scaled boss HP once and clears items in a fresh game.')
 
     # Reopen a clean offline document so the compact screenshot is not a victory screen.
     page.close()
