@@ -13,6 +13,7 @@ from pathlib import Path
 
 from playwright.sync_api import expect, sync_playwright
 from reward_preservation import without_boss_reward_changes, without_reward_notice
+from final_trio_preservation import FINAL_TRIO_ASSET, assert_final_trio_asset, without_final_trio_changes
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -36,7 +37,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-assert before.count(old) == 1 and without_boss_reward_changes(after) == before.replace(old, new, 1)
+assert before.count(old) == 1 and without_boss_reward_changes(without_final_trio_changes(after)) == before.replace(old, new, 1)
 audio_pattern = r'data:audio/[^;]+;base64,[A-Za-z0-9+/=]+'
 old_audio, new_audio = re.findall(audio_pattern, before), re.findall(audio_pattern, after)
 assert old_audio == new_audio and len(new_audio) == 12
@@ -44,11 +45,14 @@ report['unchanged_wav_sha256'] = [hashlib.sha256(base64.b64decode(url.split(',')
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
         name = str(path.relative_to(root))
+        if name == FINAL_TRIO_ASSET:
+            assert_final_trio_asset()
+            continue
         actual = without_reward_notice(path.read_text(), name).encode() if name.endswith(('.js', '.css')) else path.read_bytes()
         assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized game-over audio and boss-reward additions differ; all image/audio bytes and other game/UI code are preserved, and JavaScript syntax checks pass.')
+passed('Only authorized audio/boss-reward/final-Trio changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

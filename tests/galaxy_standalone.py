@@ -175,6 +175,18 @@ with sync_playwright() as playwright:
         page.locator('#startSelected').tap()
         page.wait_for_function('(kind)=>started&&player.type===kind',arg=kind)
         assert page.evaluate('hp') == health
+        if kind == 0:
+            final_draw=page.evaluate('''() => {
+                let args;const original=ctx.drawImage;
+                ctx.drawImage=function(image,...values){if(image===sprites[0])args=values;return original.call(this,image,...values)};
+                try{draw()}finally{ctx.drawImage=original}
+                return {width:sprites[0].naturalWidth,height:sprites[0].naturalHeight,args};
+            }''')
+            assert [final_draw['width'],final_draw['height']]==[1402,1122]
+            assert len(final_draw['args'])==4
+            assert abs(final_draw['args'][2]/1402-final_draw['args'][3]/1122)<1e-12
+            report['final_trio_draw']=final_draw
+            passed('The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.')
         expect(page.locator('#menu')).to_be_hidden()
         page.wait_for_function('worldScroll>1')
         angle=page.evaluate('player.a')

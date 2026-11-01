@@ -1,7 +1,7 @@
 {
   "artifact": "dist/heli_trio_galaxy_test.html",
-  "bytes": 28100881,
-  "sha256": "bb084fe8580e4d3cda50cc373fce6cca15d14ed19804455e6d62d429f9698f02",
+  "bytes": 28891824,
+  "sha256": "eb890e8072d544b3ebec9b395ccc0ed917e3bffa99c2d4a2a1f2f20c9e0fa8be",
   "passed": [
     "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
     "The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.",
@@ -10,6 +10,7 @@
     "All 12 embedded original WAV tracks/effects load playable metadata while offline.",
     "All three touch selections retain no yellow rectangle, colored circular lighting, panel accents, floating and front-view rotor/stop behavior.",
     "Original music and SFX toggles work with touch input.",
+    "The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.",
     "Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.",
     "The rebuilt offline HTML includes the in-page exit modal, gameplay pause/resume and fullscreen-preserving selection return without native dialogs.",
     "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
@@ -73,6 +74,16 @@
     3.2
   ],
   "standalone_selection_fullscreen": true,
+  "final_trio_draw": {
+    "width": 1402,
+    "height": 1122,
+    "args": [
+      -21.086229946524064,
+      -16.468917112299465,
+      42.17245989304813,
+      33.75
+    ]
+  },
   "external_requests": 0,
   "failed_asset_requests": 0
 }
