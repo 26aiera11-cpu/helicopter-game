@@ -155,16 +155,16 @@ try:
                     }
                     if(target.hp>0)throw Error('Enemy could not be destroyed');
                 }
-                let bossDefeated=false;
+                let bossDefeated=false,bossMaxHP=null;
                 if(before.phase===5) {
                     update(.001);if(!boss)throw Error('Boss did not spawn');transition=0;
-                    let shots=0;
-                    while(boss&&shots++<80) {
+                    bossMaxHP=boss.maxHp;const maxShots=Math.ceil(boss.maxHp)+1;let shots=0;
+                    while(boss&&shots++<maxShots) {
                         bullets=[];shoot();Object.assign(bullets[0],{x:boss.x,y:boss.y,vx:0,vy:0});update(.001);
                     }
                     if(boss)throw Error('Boss could not be defeated');bossDefeated=true;
                 }
-                waves.push({...before,bossDefeated});
+                waves.push({...before,bossDefeated,bossMaxHP});
                 if(started&&stage===before.stage&&phase===before.phase)throw Error('Stage progression stalled');
             }
             draw();return {waves,score,started,stage,phase,message:menu.querySelector('h1').textContent};

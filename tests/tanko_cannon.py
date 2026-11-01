@@ -41,7 +41,7 @@ def passed(message):
     report['passed'].append(message);print('PASS:',message,flush=True)
 
 
-passed('The entire index differs only by gameplayHeliImages[2] PNG bytes; all rendering, rotation, propeller, attack, movement, collision, Trio/Bingle and selection assets are unchanged; syntax passes.')
+passed('After undoing the exact reviewed progression deltas, the entire index differs only by gameplayHeliImages[2] PNG bytes; all rendering, rotation, propeller, attack, movement, collision, Trio/Bingle and selection assets are unchanged; syntax passes.')
 new=Image.open(root/TANKO_ASSET);old=Image.open(root/TANKO_BACKUP)
 assert new.size==old.size==(503,490) and new.mode==old.mode=='RGBA'
 assert new.getchannel('A').getbbox()==old.getchannel('A').getbbox()==(6,6,497,484)

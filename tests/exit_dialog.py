@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_ui
 """Real DOM exit modal, native fullscreen and touch regression checks."""
 import argparse
 import json
@@ -30,7 +31,7 @@ def passed(message):
 
 for name in ['assets/selection/selection.js', 'assets/selection/selection.css']:
     baseline = subprocess.check_output(['git', 'show', 'f36ab92076636a7bec3ccc9ef084ccdaf3455007:' + name], cwd=root)
-    assert (root / name).read_bytes().startswith(baseline), name
+    assert without_progression_ui((root / name).read_text(), name).encode().startswith(baseline), name
 source = (root / 'index.html').read_text() + (root / 'assets/selection/selection.js').read_text()
 assert not re.search(r'\b(?:window\.)?(?:confirm|alert)\s*\(', source)
 passed('Existing selection animations/fullscreen controls are unchanged; active source contains no confirm() or alert() calls.')
