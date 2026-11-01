@@ -1,0 +1,114 @@
+{
+  "date_kst": "2026-11-02",
+  "branch": "feature/selection-screen-integration",
+  "baseline": "287629fb7a1bc91d359375f253aef23ef376dcaf",
+  "passed_groups": {
+    "Tanko browser": 14,
+    "Tanko offline": 14,
+    "old/new balance": 3,
+    "bgm": 9,
+    "boss-reward": 8,
+    "exit-dialog": 10,
+    "game-audit": 11,
+    "game-over": 7,
+    "health-scaling": 4,
+    "items": 7,
+    "selection": 15,
+    "tanko": 8,
+    "trio": 9,
+    "galaxy standalone": 19
+  },
+  "total_passed_groups": 138,
+  "penetration_before": [
+    2,
+    3,
+    3,
+    5,
+    6,
+    7
+  ],
+  "penetration_after": [
+    2,
+    3,
+    3,
+    4,
+    4,
+    5
+  ],
+  "interception": "One hostile bullet and exactly one live Tanko shot both die immediately, regardless of remaining monster penetration.",
+  "damage_unchanged": 1.5,
+  "widths_unchanged_css_px": [
+    17.5,
+    45.5,
+    51.1875,
+    56.875,
+    62.5625,
+    68.25
+  ],
+  "height_unchanged_css_px": 29,
+  "speed_unchanged_px_s": 410,
+  "same_attack_and_fire_counts_verified": true,
+  "boss_old_new_fights": 288,
+  "shield_12s_cases": 96,
+  "summary_120hz_all_four_regions": [
+    {
+      "level": 0,
+      "emitted": 121,
+      "before_blocked": 77,
+      "after_blocked": 72,
+      "before_reached": 0,
+      "after_reached": 0
+    },
+    {
+      "level": 1,
+      "emitted": 121,
+      "before_blocked": 115,
+      "after_blocked": 95,
+      "before_reached": 0,
+      "after_reached": 0
+    },
+    {
+      "level": 2,
+      "emitted": 121,
+      "before_blocked": 120,
+      "after_blocked": 118,
+      "before_reached": 0,
+      "after_reached": 0
+    },
+    {
+      "level": 3,
+      "emitted": 121,
+      "before_blocked": 121,
+      "after_blocked": 118,
+      "before_reached": 0,
+      "after_reached": 0
+    },
+    {
+      "level": 4,
+      "emitted": 121,
+      "before_blocked": 121,
+      "after_blocked": 118,
+      "before_reached": 0,
+      "after_reached": 0
+    },
+    {
+      "level": 5,
+      "emitted": 121,
+      "before_blocked": 121,
+      "after_blocked": 118,
+      "before_reached": 0,
+      "after_reached": 0
+    }
+  ],
+  "blocked_total_before": 675,
+  "blocked_total_after": 639,
+  "blocked_count_reduction_percent": 5.333333333333334,
+  "player_reached_total_before": 0,
+  "player_reached_total_after": 0,
+  "physical_galaxy_tested": false,
+  "speaker_listening_tested": false,
+  "remaining_findings": [
+    "Player-reached count stays zero under continuous exact frontal aim in both120Hz and60Hz tests; frontal defense remains strong.",
+    "Desert upgrade1 TTK16.225s exceeds upgrade0 TTK14.292s under controlled aim; protected HP multipliers and firing rates were not changed."
+  ]
+}

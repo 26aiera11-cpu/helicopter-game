@@ -1,20 +1,21 @@
-"""Tanko real damage, shared penetration, 8-direction dimensions and finite defense."""
+"""Tanko real damage, monster penetration/mutual interception, 8-direction dimensions and finite defense."""
 import argparse,json,shutil,subprocess,re,threading,math
 from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
-from tanko_combat_preservation import without_tanko_combat_changes
+from tanko_combat_preservation import without_tanko_combat_changes,without_tanko_interception_changes
 root=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'passed':[],'standalone':args.standalone,'baseline_commit':'71bce184d5b2b1cd59dcb696d3a64f3016b11c6a','width_basis':'Existing upgrade-1 width 22.75 CSS px; 0 remains 17.5, upgrades1..5 use 200/225/250/275/300%; height29.','limits':['Chromium native fullscreen/touch emulation, not physical Galaxy/Samsung Internet or speaker/performance measurement.','Standalone mode injects identical built HTML into a fresh offline document; managed policy blocks file://, checked by galaxy_standalone.py.']}
+report={'passed':[],'standalone':args.standalone,'baseline_commit':'287629fb7a1bc91d359375f253aef23ef376dcaf','width_basis':'Existing upgrade-1 width 22.75 CSS px; 0 remains 17.5, upgrades1..5 use 200/225/250/275/300%; height29.','limits':['Chromium native fullscreen/touch emulation, not physical Galaxy/Samsung Internet or speaker/performance measurement.','Standalone mode injects identical built HTML into a fresh offline document; managed policy blocks file://, checked by galaxy_standalone.py.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
-s=(root/'index.html').read_text();before=subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
-assert without_tanko_combat_changes(s)==before
+s=(root/'index.html').read_text();before=subprocess.check_output(['git','show','287629f:index.html'],cwd=root).decode()
+assert without_tanko_interception_changes(s)==before
+assert without_tanko_combat_changes(s)==subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
 for path in (root/'assets').rglob('*'):
- if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show','71bce18:'+str(path.relative_to(root))],cwd=root)
+ if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show','287629f:'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
-passed('Only exact reviewed Tanko damage/geometry/penetration/interception deltas differ from 71bce18; every asset, audio/UI, movement, cooldown, boss HP/reward and other-character source is preserved; JS syntax passes.')
+passed('Only the exact penetration table and mutual-interception changes differ from 287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, cooldown, boss HP/reward and other-character source is preserved; JS syntax passes.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=None
@@ -42,8 +43,8 @@ try:
    return rows;
   }''');widths=[17.5,45.5,51.1875,56.875,62.5625,68.25]
   for r in matrix:
-   u=r['level'];assert r=={'level':u,'width':widths[u],'height':29,'damage':1.5,'pierce':[2,3,3,5,6,7][u],'count':1 if u<2 else 2,'speed':410,'life':1.9}
-  report['weapon_matrix']=matrix;passed('All six upgrades keep original speed410, lifetime1.9, counts and penetration2/3/3/5/6/7; damage is1.5 and requested upgrade1..5 widths are exact with height29.')
+   u=r['level'];assert r=={'level':u,'width':widths[u],'height':29,'damage':1.5,'pierce':[2,3,3,4,4,5][u],'count':1 if u<2 else 2,'speed':410,'life':1.9}
+  report['weapon_matrix']=matrix;passed('All six upgrades keep original speed410, lifetime1.9, counts; new monster penetration2/3/3/4/4/5; damage is1.5 and requested upgrade1..5 widths are exact with height29.')
   geometry=page.evaluate('''() => {
    const rows=[];gameExitDialogOpen=true;
    for(let level=0;level<=5;level++)for(let direction=0;direction<8;direction++){
@@ -61,11 +62,11 @@ try:
   report['geometry']=geometry;passed('48 actual draws across 0..5 upgrades and eight directions preserve a rectangular29px height with width perpendicular to travel; side/end/corner hit boundaries match the same oriented rectangle.')
   page.evaluate('''() => {
    const panel=document.createElement('div');panel.id='combatReview';panel.style.cssText='position:fixed;inset:0;z-index:1000;overflow:auto;background:#10283c;color:white;font:16px system-ui;text-align:center;padding:12px;box-sizing:border-box';
-   panel.innerHTML='<h2>탱코 탄환 · 기존 PNG/색상 유지 · 폭만 확장</h2><p>1강 기존 폭22.75px 기준 · 0강 유지 · 피해2 → 1.5 · 높이29px 고정</p>';
+   panel.innerHTML='<h2>탱코 탄환 · 폭/PNG/색상 유지 · 적 탄환과 양쪽 소멸</h2><p>1강 기존 폭22.75px 기준 · 0강 유지 · 피해1.5 유지 · 높이29px 고정</p>';
    const canvas=document.createElement('canvas');canvas.width=1280;canvas.height=760;canvas.style.cssText='width:100%;height:auto';const t=canvas.getContext('2d');t.fillStyle='#10283c';t.fillRect(0,0,1280,760);t.fillStyle='white';t.textAlign='center';t.font='bold 18px system-ui';
    for(let level=0;level<=5;level++){
-    const y=75+level*118;t.fillText(level+'강',60,y);t.fillText('기존 '+(17.5*(1+.3*level)).toFixed(2)+'px',230,y-53);t.fillText('변경 '+tankoBulletWidth(level).toFixed(4)+'px',460,y-53);
-    for(const [x,w] of [[230,17.5*(1+.3*level)],[460,tankoBulletWidth(level)]])t.drawImage(bulletSprites[2],x-w*1.5,y-43.5,w*3,87);
+    const y=75+level*118;t.fillText(level+'강',60,y);t.fillText('기존 '+tankoBulletWidth(level).toFixed(4)+'px',230,y-53);t.fillText('변경 '+tankoBulletWidth(level).toFixed(4)+'px',460,y-53);
+    for(const [x,w] of [[230,tankoBulletWidth(level)],[460,tankoBulletWidth(level)]])t.drawImage(bulletSprites[2],x-w*1.5,y-43.5,w*3,87);
     for(let i=0;i<8;i++){const x=650+i*80;t.save();t.translate(x,y);t.rotate(i*Math.PI/4);t.drawImage(bulletSprites[2],-tankoBulletWidth(level)/2,-14.5,tankoBulletWidth(level),29);t.restore();}
    }panel.append(canvas);document.body.append(panel);
   }''');page.set_viewport_size({'width':1400,'height':1040});page.screenshot(path=str(args.artifacts/'tanko-bullet-widths-eight-directions.png'));page.evaluate('document.getElementById("combatReview").remove()');page.set_viewport_size({'width':915,'height':412});page.wait_for_function('W===915&&H===412')
@@ -75,12 +76,21 @@ try:
    return {first,again,hp2:e2.hp,hp3:e3.hp,pierce:b.pierce,life:b.life};
   }''');assert damage['first']==damage['again']=={'hp':2.5,'pierce':2,'life':1.9} and damage['hp2']==.5 and damage['hp3']==.5 and damage['pierce']==0 and damage['life']==0
   passed('Actual ordinary-enemy HP falls by exactly1.5; same-target overlap across frames is ignored, and each distinct enemy consumes one shared penetration without resetting lifetime.')
+  depleted=page.evaluate('''() => {
+   const rows=[];for(let level=0;level<=5;level++){
+    const b=combatShot(level),budget=b.pierce,targets=Array.from({length:budget+1},()=>combatEnemy(10));enemies=targets;
+    update(0);const first=targets.map(e=>e.hp);update(0);
+    rows.push({level,budget,hp:first,pierce:b.pierce,life:b.life,removed:!bullets.includes(b),noRepeat:targets.every((e,i)=>e.hp===first[i])});
+   }return rows;
+  }''');assert all(r['pierce']==0 and r['life']==0 and r['removed'] and r['noRepeat'] and r['hp']==[8.5]*r['budget']+[10] for r in depleted)
+  report['monster_depletion']=depleted
+  passed('All upgrades exhaust exactly2/3/3/4/4/5 distinct monster hits, apply1.5 each, remove the shot immediately and leave the next monster untouched without duplicate damage.')
   boss_damage=page.evaluate('''() => {
    const b=combatShot(0);stage=0;phase=5;phaseKills=requiredKills;update(0);boss.x=300;boss.y=120;boss.hp=boss.maxHp=10;boss.shot=99;const target=boss;
    update(0);const first={hp:boss.hp,pierce:b.pierce,life:b.life};update(0);const again={hp:boss.hp,pierce:b.pierce,life:b.life};
    const incoming=hostile();update(0);return {first,again,after:target.hp,pierce:b.pierce,life:b.life,blocked:incoming.life===0};
-  }''');assert boss_damage['first']==boss_damage['again']=={'hp':8.5,'pierce':1,'life':1.9} and boss_damage['after']==8.5 and boss_damage['pierce']==0 and boss_damage['life']==0 and boss_damage['blocked']
-  passed('Actual boss HP falls10→8.5 once per projectile; boss contact and a later blocked hostile bullet consume the same remaining penetration, with no repeated boss damage.')
+  }''');assert boss_damage['first']==boss_damage['again']=={'hp':8.5,'pierce':1,'life':1.9} and boss_damage['after']==8.5 and boss_damage['pierce']==1 and boss_damage['life']==0 and boss_damage['blocked']
+  passed('Actual boss HP falls10→8.5 once per projectile; boss contact consumes one monster penetration; a later hostile collision destroys both bullets despite one charge left, without repeated boss damage.')
   intercepted=page.evaluate('''() => {
    const values=[];
    for(const source of ['ordinary','boss']){
@@ -88,45 +98,46 @@ try:
     if(source==='ordinary')incoming=hostile();
     else{stage=3;phase=5;phaseKills=requiredKills;update(0);boss.x=300;boss.y=120;boss.shot=0;transition=0;update(0);incoming=null;}
     if(source==='ordinary')update(0);
-    values.push({source,left:enemyBullets.length,pierce:b.pierce,hit:b.hit.length,bossHp:boss?.hp});
+    values.push({source,left:enemyBullets.length,pierce:b.pierce,life:b.life,removed:!bullets.includes(b),hit:b.hit.length,bossHp:boss?.hp});
    }return values;
-  }''');assert intercepted[0]['left']==0 and intercepted[0]['pierce']==6 and intercepted[1]['left']==0 and intercepted[1]['pierce']==1,intercepted
-  report['interception']=intercepted;passed('Ordinary emitEnemyShot bullets and the desert boss’s actual five-shot volley are intercepted; boss contact plus five blocks consume six of seven charges.')
+  }''');assert intercepted[0]['left']==0 and intercepted[0]['pierce']==5 and intercepted[0]['life']==0 and intercepted[0]['removed'] and intercepted[1]['left']==4 and intercepted[1]['pierce']==4 and intercepted[1]['life']==0 and intercepted[1]['removed'],intercepted
+  report['interception']=intercepted;passed('Ordinary bullets and one projectile from the actual desert boss five-shot volley mutually annihilate the Tanko shot; the other four hostile bullets remain.')
   shared=page.evaluate('''() => {
    const b=combatShot(1),e=combatEnemy();enemies=[e];const one=hostile();update(0);const first={hp:e.hp,pierce:b.pierce,left:enemyBullets.length};
    const two=hostile();update(0);const third=hostile();update(0);
    return {first,hp:e.hp,pierce:b.pierce,life:b.life,one:one.life,two:two.life,third:third.life,left:enemyBullets.length,removed:!bullets.includes(b)};
-  }''');assert shared['first']=={'hp':8.5,'pierce':1,'left':0} and shared['hp']==8.5 and shared['pierce']==0 and shared['life']==0 and shared['one']==shared['two']==0 and shared['third']>0 and shared['left']==1 and shared['removed']
-  passed('One enemy hit plus two hostile blocks spend the same three charges; the depleted shot disappears that frame and a third incoming bullet remains unblocked.')
+  }''');assert shared['first']=={'hp':8.5,'pierce':2,'left':0} and shared['hp']==8.5 and shared['pierce']==2 and shared['life']==0 and shared['one']==0 and shared['two']>0 and shared['third']>0 and shared['left']==2 and shared['removed']
+  passed('After one enemy hit leaves two charges, the first hostile contact destroys the Tanko shot that frame; subsequent hostile bullets are not intercepted.')
   duplicate=page.evaluate('''() => {
    const first=combatShot(0);const second={...first,hit:[]};bullets.push(second);const target=hostile();update(0);
-   const again=blockEnemyBullet(target);return {first:first.pierce,second:second.pierce,hits:first.hit.length+second.hit.length,again,left:enemyBullets.length};
-  }''');assert duplicate=={'first':1,'second':2,'hits':1,'again':False,'left':0}
-  passed('Two overlapping Tanko shots consume only one total charge for one hostile bullet; retrying the removed target cannot double-charge.')
+   const again=blockEnemyBullet(target);return {first:first.pierce,second:second.pierce,firstLife:first.life,secondLife:second.life,again,left:enemyBullets.length,shots:bullets.length};
+  }''');assert duplicate=={'first':2,'second':2,'firstLife':0,'secondLife':1.9,'again':False,'left':0,'shots':1}
+  passed('One hostile bullet overlapping two Tanko shots destroys exactly one shot; the other survives, and retrying the removed hostile target has no effect.')
   limits=page.evaluate('''() => {
    const rows=[];
    for(let level=0;level<=5;level++){
     const b=combatShot(level),initial=b.pierce;for(let i=0;i<20;i++)hostile();update(0);
     const removed=!bullets.includes(b),remaining=enemyBullets.length;
-    rows.push({level,initial,pierce:b.pierce,removed,remaining});
+    rows.push({level,initial,pierce:b.pierce,life:b.life,removed,remaining});
    }
    const b=combatShot(5);b.life=.01;update(.02);const expired=!bullets.includes(b);return {rows,expired};
-  }''');assert all(r['pierce']==0 and r['removed'] and r['remaining']==20-r['initial'] for r in limits['rows']) and limits['expired']
-  report['finite_limits']=limits;passed('A single projectile blocks at most2/3/3/5/6/7 of20 incoming bullets and leaves the rest; even unused charges cannot extend its original1.9-second lifetime.')
+  }''');assert all(r['pierce']==r['initial'] and r['life']==0 and r['removed'] and r['remaining']==19 for r in limits['rows']) and limits['expired']
+  report['finite_limits']=limits;passed('At every upgrade, one Tanko projectile blocks exactly one of20 incoming bullets and vanishes despite2/3/3/4/4/5 charges; the other19 remain, and original lifetime expiry still works.')
   remaining=page.evaluate('''() => {
-   const b=combatShot(0),incoming=hostile();update(0);const afterBlock=b.pierce;
-   const e=combatEnemy(2);enemies=[e];update(0);const afterEnemy={hp:e.hp,pierce:b.pierce,removed:!bullets.includes(b)};
-   const timed=combatShot(5);timed.vx=timed.vy=0;timed.life=.35;const stopped=hostile();stopped.vx=stopped.vy=0;update(.1);const lifeAfterBlock=timed.life;
-   const e2=combatEnemy();enemies=[e2];update(.1);return {afterBlock,afterEnemy,lifeAfterBlock,lifeAfterEnemy:timed.life};
-  }''');assert remaining['afterBlock']==1 and remaining['afterEnemy']=={'hp':.5,'pierce':0,'removed':True} and abs(remaining['lifeAfterBlock']-.25)<1e-9 and abs(remaining['lifeAfterEnemy']-.15)<1e-9
-  passed('Blocking first and hitting an enemy later spend the same budget in reverse order; nonzero elapsed time remains deducted through both interactions, without lifetime extension.')
+   const b=combatShot(0),incoming=hostile();update(0);
+   const e=combatEnemy(2);enemies=[e];update(0);const afterBlock={hp:e.hp,pierce:b.pierce,removed:!bullets.includes(b)};
+   const timed=combatShot(5);timed.vx=timed.vy=0;timed.life=.35;const e2=combatEnemy();enemies=[e2];update(.1);const afterHit={life:timed.life,pierce:timed.pierce,hp:e2.hp};
+   update(.1);const afterOverlap={life:timed.life,pierce:timed.pierce,hp:e2.hp};
+   const stopped=hostile();stopped.vx=stopped.vy=0;update(0);return {afterBlock,afterHit,afterOverlap,annihilated:timed.life===0&&stopped.life===0};
+  }''');assert remaining['afterBlock']=={'hp':2,'pierce':2,'removed':True} and abs(remaining['afterHit']['life']-.25)<1e-9 and abs(remaining['afterOverlap']['life']-.15)<1e-9 and remaining['afterHit']['pierce']==remaining['afterOverlap']['pierce']==4 and remaining['afterHit']['hp']==remaining['afterOverlap']['hp']==8.5 and remaining['annihilated']
+  passed('After interception a dead shot cannot damage a later monster; normal penetration still preserves remaining lifetime, skips repeat damage and later mutually annihilates with a hostile bullet.')
   bypass=page.evaluate('''() => {
    const rows=[];for(const side of ['rear','side']){
     const b=combatShot(5);b.x=player.x;b.y=player.y-70;invuln=0;
     emitEnemyShot({x:player.x+(side==='side'?16:0),y:player.y+(side==='rear'?16:0)});update(0);
     rows.push({side,hp,pierce:b.pierce});
    }return rows;
-  }''');assert all(r['hp']==8 and r['pierce']==7 for r in bypass)
+  }''');assert all(r['hp']==8 and r['pierce']==5 for r in bypass)
   passed('Actual rear/side hostile hits still reduce Tanko HP9→8 when they miss the shot rectangle; unused projectile charges do not create a global player shield.')
   others=page.evaluate('''() => {
    const rows=[];for(const type of [0,1])for(let level=0;level<=5;level++){

@@ -66,7 +66,7 @@ try:
             assert value['homing'] == ([0,0,0,1,2,3][u] if t==1 else 0)
             assert value['damage'] == (1.5 if t==2 else 1)
             assert value['speed'] == [535,480,410][t]
-            assert value['pierce'] == ([2,3,3,5,6,7][u] if t==2 else (2 if t==0 and u==5 else 1))
+            assert value['pierce'] == ([2,3,3,4,4,5][u] if t==2 else (2 if t==0 and u==5 else 1))
         report['weapon_matrix']=weapons
         passed('All three helicopters and upgrade levels 0–5 produce the expected shot counts, damage, speed, homing and piercing configuration.')
 
