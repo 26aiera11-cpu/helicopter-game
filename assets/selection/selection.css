@@ -56,3 +56,13 @@
 @media(max-height:350px){#menu .character-details{gap:0;padding:0 .8%}#menu .character-name{font-size:12px}#menu .character-trait{font-size:8px;line-height:1.15}#menu .stat-row{font-size:9px;line-height:1.15}}
 @media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected.is-hovering,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .heli-stage.is-selected{transform:translateY(0) scale(1)}#menu .heli-stage,#menu .select-hit,#menu #audioControls{transition:none}}
 @media(prefers-reduced-motion:reduce){#menu .podium-light,#menu .character-details{transition:none}}
+/* Small shared control: menu sky corner, then the reserved gameplay HUD space. */
+#fullscreenToggle{position:fixed;z-index:70;top:max(9px,env(safe-area-inset-top));right:max(96px,env(safe-area-inset-right));width:94px;min-height:30px;box-sizing:border-box;padding:5px 6px;border:1px solid #ffffffa8;border-radius:11px;background:#0b2949e8;color:white;font:800 11px system-ui;line-height:1.25;white-space:nowrap;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 7px #0003}
+.selection-open #fullscreenToggle{left:max(8px,env(safe-area-inset-left));right:auto}
+#fullscreenToggle[aria-pressed="true"]{background:#155778ec}
+#fullscreenToggle:disabled{opacity:.6;cursor:default}
+#fullscreenToggle:focus-visible{outline:3px dashed white;outline-offset:2px}
+#fullscreenStatus{position:fixed;z-index:71;top:43px;right:96px;max-width:min(320px,70vw);margin:0;padding:6px 9px;border-radius:9px;background:#092849f0;color:#fff;font:600 11px/1.4 system-ui;pointer-events:none}
+.selection-open #fullscreenStatus{left:8px;right:auto}
+#fullscreenStatus:empty{display:none}
+@media(max-height:450px){#fullscreenToggle{min-height:26px;padding:4px 5px;font-size:10px}#fullscreenStatus{top:38px}}

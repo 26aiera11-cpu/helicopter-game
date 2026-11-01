@@ -70,6 +70,16 @@
 @media(max-height:350px){#menu .character-details{gap:0;padding:0 .8%}#menu .character-name{font-size:12px}#menu .character-trait{font-size:8px;line-height:1.15}#menu .stat-row{font-size:9px;line-height:1.15}}
 @media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected.is-hovering,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .heli-stage.is-selected{transform:translateY(0) scale(1)}#menu .heli-stage,#menu .select-hit,#menu #audioControls{transition:none}}
 @media(prefers-reduced-motion:reduce){#menu .podium-light,#menu .character-details{transition:none}}
+/* Small shared control: menu sky corner, then the reserved gameplay HUD space. */
+#fullscreenToggle{position:fixed;z-index:70;top:max(9px,env(safe-area-inset-top));right:max(96px,env(safe-area-inset-right));width:94px;min-height:30px;box-sizing:border-box;padding:5px 6px;border:1px solid #ffffffa8;border-radius:11px;background:#0b2949e8;color:white;font:800 11px system-ui;line-height:1.25;white-space:nowrap;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 7px #0003}
+.selection-open #fullscreenToggle{left:max(8px,env(safe-area-inset-left));right:auto}
+#fullscreenToggle[aria-pressed="true"]{background:#155778ec}
+#fullscreenToggle:disabled{opacity:.6;cursor:default}
+#fullscreenToggle:focus-visible{outline:3px dashed white;outline-offset:2px}
+#fullscreenStatus{position:fixed;z-index:71;top:43px;right:96px;max-width:min(320px,70vw);margin:0;padding:6px 9px;border-radius:9px;background:#092849f0;color:#fff;font:600 11px/1.4 system-ui;pointer-events:none}
+.selection-open #fullscreenStatus{left:8px;right:auto}
+#fullscreenStatus:empty{display:none}
+@media(max-height:450px){#fullscreenToggle{min-height:26px;padding:4px 5px;font-size:10px}#fullscreenStatus{top:38px}}
 </style><style id="galaxy-mobile-touch">#menu .select-hit{-webkit-tap-highlight-color:transparent}</style><canvas id="game"></canvas><div id="rotateNotice">📱 휴대폰을 가로로 돌려 주세요!<br>가로 화면에서 게임이 시작돼요.</div><div class="hud" id="hud">⭐ 0　❤️ 5</div><button id="exitGame" class="hidden" type="button">🚪 나가기</button><button id="sensor">📱 센서 켜기</button><div id="sensorStatus">센서 대기 중 · 드래그 이동 가능</div><div class="controls"><div class="side"><button class="btn" id="left">↶</button><button class="btn" id="right">↷</button></div><div class="side"><button class="btn fire" id="fire" aria-label="탄환 발사"><img id="fireProjectile" alt="" draggable="false"></button></div></div><div class="menu new-select" id="menu">
   <h1 class="sr-only">🚁 귀염 헬기 슈팅</h1>
   <p class="hint sr-only">헬기를 고른 뒤 게임 시작을 눌러 주세요.</p>
@@ -506,6 +516,81 @@ function frame(t){let dt=Math.min(.04,(t-last)/1000||0);last=t;if(started&&windo
   new MutationObserver(syncMenu).observe(selectionMenu, { attributes: true, attributeFilter: ['class'] });
   new MutationObserver(syncMenu).observe(heading, { childList: true, characterData: true, subtree: true });
   syncMenu();
+})();
+
+/* Standard fullscreen controls, shared by the menu and gameplay. */
+(() => {
+  const root = document.documentElement;
+  const button = document.createElement('button');
+  button.id = 'fullscreenToggle';
+  button.type = 'button';
+  button.className = 'fullscreen-toggle';
+  button.setAttribute('aria-describedby', 'fullscreenStatus');
+  const status = document.createElement('p');
+  status.id = 'fullscreenStatus';
+  status.className = 'fullscreen-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  document.body.append(button, status);
+  let busy = false;
+  let timeout = null;
+
+  const active = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  const supported = () => Boolean(root.requestFullscreen || root.webkitRequestFullscreen);
+  function clearPending() {
+    clearTimeout(timeout);
+    timeout = null;
+    busy = false;
+  }
+  function render() {
+    const on = active();
+    button.disabled = busy || !supported();
+    button.textContent = !supported() ? '⛶ 미지원' : on ? '⛶ 화면 복원' : '⛶ 전체화면';
+    button.setAttribute('aria-label', !supported() ? '전체화면을 지원하지 않는 브라우저' : on ? '전체화면 해제' : '전체화면으로 보기');
+    button.setAttribute('aria-pressed', String(on));
+    button.setAttribute('aria-busy', String(busy));
+    button.title = button.getAttribute('aria-label');
+  }
+  function unavailable() {
+    clearPending();
+    status.textContent = '전체화면으로 전환할 수 없어요. 현재 화면에서 계속할 수 있어요.';
+    render();
+  }
+  function changed() {
+    clearPending();
+    status.textContent = '';
+    render();
+    if (active()) {
+      try { screen.orientation?.lock?.('landscape').catch(() => {}); } catch (ignore) {}
+    }
+  }
+  button.addEventListener('click', () => {
+    if (busy || !supported()) return;
+    const expected = !active();
+    busy = true;
+    status.textContent = '';
+    render();
+    try {
+      if (expected) {
+        // Reuse the original synchronous user-gesture helper and its legacy fallback.
+        enterGameFullscreen();
+      } else {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (!exit) { unavailable(); return; }
+        const result = exit.call(document);
+        if (result && typeof result.catch === 'function') result.catch(unavailable);
+      }
+      // The existing helper intentionally swallows rejected promises. Native error
+      // events handle normal failures; this timeout also covers silent rejections.
+      timeout = setTimeout(() => {
+        if (active() !== expected) unavailable();
+        else { clearPending(); render(); }
+      }, 1500);
+    } catch (error) { unavailable(); }
+  });
+  for (const event of ['fullscreenchange', 'webkitfullscreenchange']) document.addEventListener(event, changed);
+  for (const event of ['fullscreenerror', 'webkitfullscreenerror']) document.addEventListener(event, unavailable);
+  render();
 })();
 </script>
 </html>

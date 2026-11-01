@@ -1,7 +1,7 @@
 {
   "artifact": "dist/heli_trio_galaxy_test.html",
-  "bytes": 28200639,
-  "sha256": "f9a54363ec36964ed6c25f8fc678a1ff14e6f3344491ef612cbecdd3756123c5",
+  "bytes": 28204890,
+  "sha256": "d7aae45cfbf19de490643778a108feca9ff2aab03dba75aa79b8eb719285ba34",
   "passed": [
     "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
     "The three original combat/stage/boss/audio scripts and current selection JavaScript are preserved exactly and pass syntax checks.",
@@ -12,6 +12,7 @@
     "Original music and SFX toggles work with touch input.",
     "Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.",
     "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
+    "The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.",
     "All four original stage/boss configurations and final-clear return pass controlled-state regression checks.",
     "915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.",
     "No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run."
@@ -68,6 +69,7 @@
     0.6,
     3.2
   ],
+  "standalone_selection_fullscreen": true,
   "external_requests": 0,
   "failed_asset_requests": 0
 }

@@ -1,0 +1,22 @@
+{
+  "passed": [
+    "Backup matches the original Git blob; all original game/audio scripts and embedded game assets are byte-identical.",
+    "All original JavaScript blocks and selection.js pass syntax checks.",
+    "Character and blade PNG files contain real alpha transparency.",
+    "Desktop selection, PNG layers, all stage/enemy/boss/projectile images load without failures.",
+    "Deselection stops the rotor immediately and lowers the previous helicopter continuously to its podium in 220ms.",
+    "Rapid re-selection cancels earlier movements without leaving another helicopter floating or spinning.",
+    "Only the selected helicopter floats/spins; previous rotors stop; blades compress left/right while the body/hub stays fixed.",
+    "Reduced-motion preference stops decorative animation.",
+    "All podium centers align; PNG outlines and fully extended rotors fit without overlap; panels fit at five desktop/mobile/tablet/ultrawide sizes.",
+    "Screenshots captured for all three selections, transparent PNG outlines and the background with character layers hidden.",
+    "Original music/SFX toggles retain their state and visible ON/OFF labels; settings/help buttons work.",
+    "All three helicopters start with HP 4/6/9 and retain gameplay scrolling, rotation, drag, firing and return-to-menu.",
+    "Normal enemy spawning, all four stage/boss configurations and final-clear return work; original hint target is present.",
+    "Mobile landscape layout and portrait rotation notice render; desktop/mobile review screenshots saved.",
+    "No uncaught JavaScript errors or failed asset requests."
+  ],
+  "limits": [
+    "Physical sensor motion and audible output require a real device."
+  ]
+}

@@ -89,3 +89,78 @@
   new MutationObserver(syncMenu).observe(heading, { childList: true, characterData: true, subtree: true });
   syncMenu();
 })();
+
+/* Standard fullscreen controls, shared by the menu and gameplay. */
+(() => {
+  const root = document.documentElement;
+  const button = document.createElement('button');
+  button.id = 'fullscreenToggle';
+  button.type = 'button';
+  button.className = 'fullscreen-toggle';
+  button.setAttribute('aria-describedby', 'fullscreenStatus');
+  const status = document.createElement('p');
+  status.id = 'fullscreenStatus';
+  status.className = 'fullscreen-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  document.body.append(button, status);
+  let busy = false;
+  let timeout = null;
+
+  const active = () => Boolean(document.fullscreenElement || document.webkitFullscreenElement);
+  const supported = () => Boolean(root.requestFullscreen || root.webkitRequestFullscreen);
+  function clearPending() {
+    clearTimeout(timeout);
+    timeout = null;
+    busy = false;
+  }
+  function render() {
+    const on = active();
+    button.disabled = busy || !supported();
+    button.textContent = !supported() ? '⛶ 미지원' : on ? '⛶ 화면 복원' : '⛶ 전체화면';
+    button.setAttribute('aria-label', !supported() ? '전체화면을 지원하지 않는 브라우저' : on ? '전체화면 해제' : '전체화면으로 보기');
+    button.setAttribute('aria-pressed', String(on));
+    button.setAttribute('aria-busy', String(busy));
+    button.title = button.getAttribute('aria-label');
+  }
+  function unavailable() {
+    clearPending();
+    status.textContent = '전체화면으로 전환할 수 없어요. 현재 화면에서 계속할 수 있어요.';
+    render();
+  }
+  function changed() {
+    clearPending();
+    status.textContent = '';
+    render();
+    if (active()) {
+      try { screen.orientation?.lock?.('landscape').catch(() => {}); } catch (ignore) {}
+    }
+  }
+  button.addEventListener('click', () => {
+    if (busy || !supported()) return;
+    const expected = !active();
+    busy = true;
+    status.textContent = '';
+    render();
+    try {
+      if (expected) {
+        // Reuse the original synchronous user-gesture helper and its legacy fallback.
+        enterGameFullscreen();
+      } else {
+        const exit = document.exitFullscreen || document.webkitExitFullscreen;
+        if (!exit) { unavailable(); return; }
+        const result = exit.call(document);
+        if (result && typeof result.catch === 'function') result.catch(unavailable);
+      }
+      // The existing helper intentionally swallows rejected promises. Native error
+      // events handle normal failures; this timeout also covers silent rejections.
+      timeout = setTimeout(() => {
+        if (active() !== expected) unavailable();
+        else { clearPending(); render(); }
+      }, 1500);
+    } catch (error) { unavailable(); }
+  });
+  for (const event of ['fullscreenchange', 'webkitfullscreenchange']) document.addEventListener(event, changed);
+  for (const event of ['fullscreenerror', 'webkitfullscreenerror']) document.addEventListener(event, unavailable);
+  render();
+})();

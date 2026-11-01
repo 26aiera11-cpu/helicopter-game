@@ -134,6 +134,12 @@ with sync_playwright() as playwright:
     report['audio_durations'] = page.evaluate('window.__galaxyAudio.map(audio=>audio.duration)')
     passed('All 12 embedded original WAV tracks/effects load playable metadata while offline.')
 
+    fullscreen = page.locator('#fullscreenToggle')
+    expect(fullscreen).to_be_visible()
+    fullscreen.tap()
+    page.wait_for_function('document.fullscreenElement===document.documentElement')
+    report['standalone_selection_fullscreen'] = True
+
     for kind in range(3):
         page.locator(f'.select-hit[data-heli="{kind}"]').tap()
         assert page.evaluate('selectedHeli') == kind
@@ -193,8 +199,11 @@ with sync_playwright() as playwright:
         page.locator('#exitGame').tap()
         expect(page.locator('#menu')).to_be_visible()
         assert page.evaluate('!started&&player===null')
+        assert page.evaluate('!!document.fullscreenElement')
     passed('Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.')
     passed('The original embedded background track starts after a user gesture; audible speaker output remains a device test.')
+    fullscreen.tap();page.wait_for_function('!document.fullscreenElement')
+    passed('The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.')
 
     page.locator('#startSelected').tap()
     for stage in range(4):
