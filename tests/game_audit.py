@@ -134,10 +134,12 @@ try:
             return {first,protectedHP,body,gameOver:!started,menuVisible:!menu.classList.contains('hidden'),audioFlag:window.gameAudioStarted};
         }''')
         assert damage['first']==3 and damage['protectedHP']==3 and damage['body']==2
-        assert damage['gameOver'] and damage['menuVisible']
+        assert damage['gameOver'] and not damage['menuVisible']
         assert not damage['audioFlag'], 'Game over must reset the audio-started flag (N1 regression).'
-        expect(page.locator('#selectionResult')).to_contain_text('게임 오버')
-        passed('Enemy bullet/body damage and invulnerability work; zero health returns to selection with the score and resets the audio-started flag (N1 fixed).')
+        expect(page.locator('#gameOverOverlay')).to_be_visible()
+        expect(page.locator('#menu')).to_be_visible(timeout=4000)
+        expect(page.locator('#selectionResult')).to_have_text('')
+        passed('Enemy bullet/body damage and invulnerability work; zero health freezes gameplay, then returns to a clean selection after the three-second overlay and resets the audio-started flag (N1 fixed).')
 
         progression = page.evaluate('''() => {
             auditReset(0);const waves=[];let safety=0;

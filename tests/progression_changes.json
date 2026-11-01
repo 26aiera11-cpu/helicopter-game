@@ -1,0 +1,36 @@
+{
+  "gameover": [
+    [
+      "function start(type){gameAudio.init();",
+      "// A single death lifecycle: freeze the last frame and return after three seconds.\nlet gameOverPending=false,gameOverTimer=null;\nfunction clearGameOver(){\n clearTimeout(gameOverTimer);gameOverTimer=null;gameOverPending=false;\n document.dispatchEvent(new Event('gameoverclose'));\n}\nfunction beginGameOver(){\n if(!started||gameOverPending)return;\n started=false;window.gameAudioStarted=false;gameAudio.pause();\n keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};\n document.getElementById('exitGame').classList.add('hidden');\n draw();gameOverPending=true;\n document.dispatchEvent(new CustomEvent('gameover',{detail:{score}}));\n gameOverTimer=setTimeout(()=>{\n  clearGameOver();\n  menu.querySelector('h1').textContent='🚁 귀염 헬기 슈팅';\n  menu.classList.remove('hidden');drawChoices();\n },3000);\n}\naddEventListener('resize',()=>{if(gameOverPending)draw()});\nfunction start(type){clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();"
+    ],
+    [
+      "function hurt(){if(invuln<=0){hp--;invuln=1.55;gameAudio.fx('hurt')}}",
+      "function hurt(){if(invuln<=0){hp--;invuln=1.55;gameAudio.fx('hurt');if(hp<=0)beginGameOver()}}"
+    ],
+    [
+      "if(!started||window.gameExitDialogOpen)return;\n worldScroll",
+      "if(!started||window.gameExitDialogOpen)return;\n if(hp<=0){beginGameOver();return;}\n worldScroll"
+    ],
+    [
+      "if(e.hp>0&&Math.hypot(e.x-player.x,e.y-player.y)<e.r+13)hurt();",
+      "if(e.hp>0&&Math.hypot(e.x-player.x,e.y-player.y)<e.r+13){hurt();if(!started)return;}"
+    ],
+    [
+      "if(boss&&Math.hypot(player.x-boss.x,player.y-boss.y)<boss.r+14)hurt();",
+      "if(boss&&Math.hypot(player.x-boss.x,player.y-boss.y)<boss.r+14){hurt();if(!started)return;}"
+    ],
+    [
+      "if(Math.hypot(b.x-player.x,b.y-player.y)<b.r+12){b.life=0;hurt()}",
+      "if(Math.hypot(b.x-player.x,b.y-player.y)<b.r+12){b.life=0;hurt();if(!started)return;}"
+    ],
+    [
+      "if(hp<=0){started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=`게임 오버! ⭐ ${score}`;document.getElementById('exitGame').classList.add('hidden')}",
+      "if(hp<=0)beginGameOver();"
+    ],
+    [
+      "update(dt);draw();requestAnimationFrame(frame)",
+      "update(dt);if(!gameOverPending)draw();requestAnimationFrame(frame)"
+    ]
+  ]
+}

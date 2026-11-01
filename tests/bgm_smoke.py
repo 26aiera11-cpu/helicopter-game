@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_changes, without_progression_ui
 """Observe real WAV playback clocks/pause states; do not mock audio playback."""
 import argparse
 import base64
@@ -24,6 +25,7 @@ root = Path(__file__).resolve().parents[1]
 baseline = '7e5faf5cee3e38e17301fd8746f693b7010934cf'
 before = subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root).decode()
 after = (root / 'index.html').read_text()
+preserved_after = without_progression_changes(after)
 old = "if(hp<=0){started=false;menu.classList.remove('hidden');"
 new = "if(hp<=0){started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');"
 report = {'baseline_commit': baseline, 'passed': [], 'limits': [
@@ -38,7 +40,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-assert before.count(old) == 1 and without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(after))) == before.replace(old, new, 1)
+assert before.count(old) == 1 and without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_after))) == before.replace(old, new, 1)
 audio_pattern = r'data:audio/[^;]+;base64,[A-Za-z0-9+/=]+'
 old_audio, new_audio = re.findall(audio_pattern, before), re.findall(audio_pattern, after)
 assert old_audio == new_audio and len(new_audio) == 12
@@ -52,11 +54,11 @@ for path in (root / 'assets').rglob('*'):
         if name == FINAL_TRIO_ASSET:
             assert_final_trio_asset()
             continue
-        actual = without_reward_notice(path.read_text(), name).encode() if name.endswith(('.js', '.css')) else path.read_bytes()
+        actual = without_reward_notice(without_progression_ui(path.read_text(), name), name).encode() if name.endswith(('.js', '.css')) else path.read_bytes()
         assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
+passed('Only authorized progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -113,8 +115,10 @@ try:
         def lose():
             page.evaluate('hp=0')
             page.wait_for_function('!started')
-            expect(page.locator('#menu')).to_be_visible()
-            expect(page.locator('#selectionResult')).to_contain_text('게임 오버')
+            expect(page.locator('#menu')).to_be_hidden()
+            expect(page.locator('#gameOverOverlay')).to_be_visible()
+            expect(page.locator('#menu')).to_be_visible(timeout=4000)
+            expect(page.locator('#selectionResult')).to_have_text('')
             assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop).every(a=>a.paused)')
 
         start(0)

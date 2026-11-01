@@ -68,7 +68,7 @@
       if (help.open) help.close();
     }
     const message = heading.textContent || '';
-    result.textContent = /게임 오버|모든 지역 클리어/.test(message) ? message : '';
+    result.textContent = /모든 지역 클리어/.test(message) ? message : '';
     syncCharacters();
   }
 
@@ -245,4 +245,32 @@
   new MutationObserver(() => {
     if (document.getElementById('menu').classList.contains('hidden')) hide();
   }).observe(document.getElementById('menu'), { attributes: true, attributeFilter: ['class'] });
+})();
+
+/* Game-over presentation only; the game owns the single three-second timer. */
+(() => {
+  const overlay = document.createElement('div');
+  overlay.id = 'gameOverOverlay';
+  overlay.hidden = true;
+  overlay.setAttribute('role', 'status');
+  overlay.setAttribute('aria-live', 'assertive');
+  overlay.innerHTML = '<div class="game-over-panel"><h2>GAME OVER</h2><p id="gameOverStars"></p></div>';
+  document.body.append(overlay);
+  const controls = [...document.querySelectorAll('.controls, #sensor, #fullscreenToggle, #game')];
+  let saved = [];
+  function close() {
+    overlay.hidden = true;
+    saved.forEach(([element, inert]) => { element.inert = inert; });
+    saved = [];
+  }
+  document.addEventListener('gameover', event => {
+    close();
+    document.getElementById('selectionResult').textContent = '';
+    overlay.querySelector('#gameOverStars').textContent = '⭐ ' + event.detail.score;
+    saved = controls.map(element => [element, element.inert]);
+    controls.forEach(element => { element.inert = true; });
+    document.activeElement?.blur();
+    overlay.hidden = false;
+  });
+  document.addEventListener('gameoverclose', close);
 })();

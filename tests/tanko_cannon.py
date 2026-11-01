@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_changes, without_progression_ui
 """Provided Tanko PNG identity and actual eight-direction gameplay rendering."""
 import argparse
 import base64
@@ -21,11 +22,12 @@ args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 root=Path(__file__).resolve().parents[1]
 baseline='08f3bd87cde0bccd09f6a9ad31c46c0bc1ad34df'
 source=(root/'index.html').read_text()
+preserved_source=without_progression_changes(source)
 original=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode()
-assert without_tanko_restore(source)==original
+assert without_tanko_restore(preserved_source)==original
 for path in (root/'assets').rglob('*'):
     if path.is_file() and str(path.relative_to(root))!=TANKO_ASSET:
-        assert path.read_bytes()==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
+        assert (without_progression_ui(path.read_text(),str(path.relative_to(root))).encode() if path.suffix in ('.js','.css') else path.read_bytes())==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',source,re.S):
     subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 report={'baseline_commit':baseline,'passed':[],'provided_png_sha256':TANKO_SHA256,'previous_png_sha256':TANKO_OLD_SHA256,'limits':[

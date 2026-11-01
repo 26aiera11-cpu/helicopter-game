@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_changes, without_progression_ui
 """Boss rewards through actual shot/collision paths plus ordinary item regression."""
 import argparse
 import json
@@ -21,7 +22,8 @@ args.artifacts.mkdir(parents=True, exist_ok=True)
 root = Path(__file__).resolve().parents[1]
 baseline = '501b1a0a80e77e47068450bd263993a28eab1b3e'
 source = (root / 'index.html').read_text()
-assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
+preserved_source = without_progression_changes(source)
+assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
         name = str(path.relative_to(root))
@@ -31,7 +33,7 @@ for path in (root / 'assets').rglob('*'):
         if name == FINAL_TRIO_ASSET:
             assert_final_trio_asset()
             continue
-        actual = without_reward_notice(path.read_text(), name).encode() if name.endswith(('.js', '.css')) else path.read_bytes()
+        actual = without_reward_notice(without_progression_ui(path.read_text(), name), name).encode() if name.endswith(('.js', '.css')) else path.read_bytes()
         assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S) + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
@@ -46,7 +48,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-passed('Only authorized reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
+passed('Only authorized progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

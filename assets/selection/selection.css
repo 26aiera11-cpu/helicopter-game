@@ -80,3 +80,28 @@
 /* Compact boss reward notice. */
 #bossRewardNotice{position:fixed;z-index:65;top:42px;left:8px;max-width:calc(100vw - 24px);box-sizing:border-box;margin:0;padding:4px 9px;border:1px solid #cceeff99;border-radius:12px;background:#092849ec;color:#fff;font:800 12px/1.3 system-ui;white-space:nowrap;pointer-events:none;box-shadow:0 2px 8px #0004}
 #bossRewardNotice[hidden]{display:none}
+
+/* Last-frame game-over overlay; no browser dialog or fullscreen transition. */
+#gameOverOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: #07192e99;
+  touch-action: none;
+}
+#gameOverOverlay[hidden] { display: none; }
+.game-over-panel {
+  box-sizing: border-box;
+  max-width: calc(100vw - 32px);
+  padding: 24px 44px;
+  border: 2px solid #ffffffad;
+  border-radius: 24px;
+  background: #123b60ed;
+  color: white;
+  text-align: center;
+  box-shadow: 0 12px 40px #0005;
+}
+.game-over-panel h2 { margin: 0 0 12px; font-size: clamp(26px, 6vw, 46px); }
+.game-over-panel p { margin: 0; font-size: 25px; font-weight: 800; }

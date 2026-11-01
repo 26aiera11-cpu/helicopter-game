@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_changes, without_progression_ui
 """Final PNG byte identity, native aspect/anchor and actual gameplay regression."""
 import argparse
 import base64
@@ -24,6 +25,7 @@ root = Path(__file__).resolve().parents[1]
 baseline = 'e12666ee90cf7e905ffa4c41de13b1c337a37641'
 before = subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root).decode()
 source = (root / 'index.html').read_text()
+preserved_source = without_progression_changes(source)
 data = assert_final_trio_asset()
 new_url = 'data:image/png;base64,' + base64.b64encode(data).decode()
 old_url = 'data:image/png;base64,' + base64.b64encode((root / 'assets/gameplay/trio-body-pointed.png').read_bytes()).decode()
@@ -38,16 +40,16 @@ def passed(message):
     report['passed'].append(message);print('PASS:', message, flush=True)
 
 
-assert without_final_trio_changes(without_tanko_restore(source)) == before
+assert without_final_trio_changes(without_tanko_restore(preserved_source)) == before
 for path in (root / 'assets').rglob('*'):
     if path.is_file() and str(path.relative_to(root)) != FINAL_TRIO_ASSET:
         if str(path.relative_to(root)) == TANKO_ASSET:
             assert_tanko_asset()
             continue
-        assert path.read_bytes() == subprocess.check_output(['git', 'show', baseline + ':' + str(path.relative_to(root))], cwd=root)
+        assert (without_progression_ui(path.read_text(),str(path.relative_to(root))).encode() if path.suffix in ('.js','.css') else path.read_bytes()) == subprocess.check_output(['git', 'show', baseline + ':' + str(path.relative_to(root))], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.')
+passed('Only authorized progression/game-over, Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.')
 png = Image.open(root / FINAL_TRIO_ASSET)
 assert png.size == (1402, 1122) and png.mode == 'RGBA' and png.getchannel('A').getextrema() == (0, 255)
 bounds = png.getchannel('A').point(lambda value: 255 if value >= 128 else 0).getbbox()

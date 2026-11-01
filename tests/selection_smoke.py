@@ -1,3 +1,4 @@
+from progression_preservation import without_progression_changes, without_progression_ui
 """Selection and gameplay regression checks; requires Playwright and Chromium.
 
 Run: python tests/selection_smoke.py --artifacts /absolute/path/to/review
@@ -28,6 +29,7 @@ args.artifacts.mkdir(parents=True, exist_ok=True)
 root = Path(__file__).resolve().parents[1]
 before = (root / 'backups/index.before-selection.html').read_text()
 after = (root / 'index.html').read_text()
+preserved_after = without_progression_changes(after)
 report = {'passed': [], 'limits': ['Physical sensor motion and audible output require a real device.']}
 
 
@@ -51,9 +53,9 @@ assert expected.count(old_body) == 1
 expected = expected.replace(old_body, new_body, 1)
 old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', expected, re.S)
 game_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S)
-assert old_scripts == re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(after))), re.S)
+assert old_scripts == re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_after))), re.S)
 assert hashlib.sha1(b'blob ' + str(len(before.encode())).encode() + b'\0' + before.encode()).hexdigest() == '19d3426b649a1ba77e4b7bd80019ea809fdf832d'
-passed('Backup matches the original Git blob; only authorized selection/exit, Trio/Tanko PNGs, Trio ratio drawing, BGM-stop and boss-reward changes differ from original scripts/assets.')
+passed('Backup matches the original Git blob; only authorized progression/game-over, selection/exit, Trio/Tanko PNGs, Trio ratio drawing, BGM-stop and boss-reward changes differ from original scripts/assets.')
 for source in game_scripts + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=source, text=True, check=True, capture_output=True)
 passed('All original JavaScript blocks and selection.js pass syntax checks.')
