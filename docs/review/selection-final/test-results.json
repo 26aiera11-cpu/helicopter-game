@@ -1,0 +1,54 @@
+{
+  "passed": [
+    "Backup matches the original Git blob; all original game/audio scripts and embedded game assets are byte-identical.",
+    "All original JavaScript blocks and selection.js pass syntax checks.",
+    "Character and blade PNG files contain real alpha transparency.",
+    "Desktop selection, PNG layers, all stage/enemy/boss/projectile images load without failures.",
+    "Deselection stops the rotor immediately and lowers the previous helicopter continuously to its podium in 220ms.",
+    "Rapid re-selection cancels earlier movements without leaving another helicopter floating or spinning.",
+    "Only the selected helicopter floats/spins; previous rotors stop; blades compress left/right while the body/hub stays fixed.",
+    "Reduced-motion preference stops decorative animation.",
+    "All podium centers align; PNG outlines and fully extended rotors fit without overlap; panels fit at five desktop/mobile/tablet/ultrawide sizes.",
+    "Screenshots captured for all three selections, transparent PNG outlines and the background with character layers hidden.",
+    "Original music/SFX toggles retain their state and visible ON/OFF labels; settings/help buttons work.",
+    "All three helicopters start with HP 4/6/9 and retain gameplay scrolling, rotation, drag, firing and return-to-menu.",
+    "Normal enemy spawning, all four stage/boss configurations and final-clear return work; original hint target is present.",
+    "Mobile landscape layout and portrait rotation notice render; desktop/mobile review screenshots saved.",
+    "No uncaught JavaScript errors or failed asset requests."
+  ],
+  "limits": [
+    "Physical sensor motion and audible output require a real device."
+  ],
+  "baseline": "968621b746c13df37df6e385806912a1e1e88099",
+  "browser": "Chromium / Playwright",
+  "viewports": [
+    [
+      1280,
+      720
+    ],
+    [
+      844,
+      390
+    ],
+    [
+      568,
+      320
+    ],
+    [
+      1024,
+      768
+    ],
+    [
+      2560,
+      1080
+    ]
+  ],
+  "source_png_sha256": {
+    "assets/selection/background-clean.png": "843c326b7a5147cf954507b00fc934a29e7ed12b11484a365c62587e1dbc2a80",
+    "assets/selection/heli-0-body.png": "42e65c65b9542b8e05e0645509f5877636c06ae8a61cb5742c9d2f5ecaeed983",
+    "assets/selection/heli-1-body.png": "8b1431a11559ad2d0f6ba5bb5bb6b25d94dce618aae824b5bd143f04169f7125",
+    "assets/selection/heli-2-body.png": "c2f8a4322239b375d32fba737436ca65486d0bea1474cefa7ae4de35d6ec567f",
+    "assets/selection/rotor-blades.png": "10846754330f1f55977e5df2e3d29024c8b4694c8b5dd0b0206d373527284198"
+  },
+  "preserved": "All index.html game/audio scripts and all five source selection PNGs are byte-identical to 968621b."
+}

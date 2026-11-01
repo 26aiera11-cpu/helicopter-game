@@ -1,0 +1,34 @@
+{
+  "baseline": "457eb80",
+  "passed": [
+    "All three hit areas and panel geometry/content/background/shadow match the baseline at five screen sizes; no selected-button outline or shadow.",
+    "Red fades out while blue fades in continuously over 240ms; selection uses opacity rather than rectangular glow.",
+    "Red/blue/green podiums and subtle panel borders select independently; three desktop screenshots saved.",
+    "After 30 rapid selections the previous lights and panel accents clear; only the last choice remains active.",
+    "Keyboard retains a distinct white dashed focus indicator and Enter selection; pointer selection has no focus rectangle.",
+    "Pixel checks on black confirm red/blue/green light, transparent ellipse corners and no rectangular lighting.",
+    "Touch selection works for all three characters on mobile landscape; screenshot saved.",
+    "No uncaught JavaScript errors or failed asset requests."
+  ],
+  "limits": [
+    "Chromium desktop/touch emulation; physical iOS/Safari not tested."
+  ],
+  "fade_samples": [
+    {
+      "values": [
+        1,
+        0.197597,
+        9.28246e-06
+      ],
+      "duration": 240
+    },
+    {
+      "values": [
+        0,
+        0.802403,
+        0.999991
+      ],
+      "duration": 240
+    }
+  ]
+}

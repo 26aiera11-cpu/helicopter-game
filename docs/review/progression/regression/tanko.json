@@ -1,0 +1,527 @@
+{
+  "baseline_commit": "08f3bd87cde0bccd09f6a9ad31c46c0bc1ad34df",
+  "passed": [
+    "The entire index differs only by gameplayHeliImages[2] PNG bytes; all rendering, rotation, propeller, attack, movement, collision, Trio/Bingle and selection assets are unchanged; syntax passes.",
+    "The supplied PNG is byte-identical to the approved hash and retains the original size/alpha bounds; visible changes are limited to the left cannon ROI. Hidden RGB differences in fully transparent supplied pixels do not affect rendering.",
+    "The actual active Tanko sprite loads the supplied 503×490 PNG and starts in native fullscreen at 12 o’clock with the original 9 HP and speed 204.",
+    "Eight actual draw samples preserve the exact body/rotor rectangles, center/axis and 19px muzzle/410 projectile direction; left-cannon coordinates rotate with the body without cropping.",
+    "Saved enlarged before/after and eight-angle screenshots replaying real body/propeller draw calls, with the restored anatomical-left cannon region marked only in review overlays.",
+    "Actual mobile touch rotation, rotor animation, upward Tanko fire and drag movement remain usable at the existing gameplay size.",
+    "The unchanged player hit radius still rejects a 5px enemy bullet at 17.1px and accepts it at 16.9px, with Tanko health 9→8.",
+    "Three mobile landscape sizes and fullscreen exit-to-selection pass; the restored sprite remains active, with no native dialogs or uncaught JS errors."
+  ],
+  "provided_png_sha256": "77c71f6efe44020e6fcaa04888f0cc1758d49fbed3f315f47638ac591e413db2",
+  "previous_png_sha256": "f541a1141d440e12e1812cb3bd782e751efe082071dce730a2cdeebc00870747",
+  "limits": [
+    "Actual headless Chromium with native fullscreen/input; mobile viewport/touch emulation is not physical Galaxy/Samsung Internet.",
+    "Review enlargements replay real body/rotor draw calls; health/aim are controlled for reproducible screenshots.",
+    "Physical sensors, audible output, Android UI and device performance require device checks."
+  ],
+  "png": {
+    "width": 503,
+    "height": 490,
+    "mode": "RGBA",
+    "alpha_bounds": [
+      6,
+      6,
+      497,
+      484
+    ],
+    "bytes": 314182,
+    "visible_outside_roi_differences": 0,
+    "transparent_hidden_rgb_differences_in_supplied_file": 99983,
+    "restored_opaque_pixels": 2982,
+    "cannon_roi": [
+      6,
+      365,
+      90,
+      442
+    ]
+  },
+  "eight_direction_draws": [
+    {
+      "i": 0,
+      "a": 3.141592653589793,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            -1,
+            1.2246467991473532e-16,
+            -1.2246467991473532e-16,
+            -1,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            -0.9393727128473789,
+            -0.34289780745545123,
+            0.34289780745545123,
+            -0.9393727128473789,
+            640,
+            403.2000000476837
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        653.2123856858847,
+        389.4272551020408
+      ],
+      "shot": {
+        "dx": 0,
+        "dy": -19,
+        "vx": -7.531577814756222e-14,
+        "vy": -410,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 1,
+      "a": 3.9269908169872414,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            -0.7071067811865477,
+            -0.7071067811865475,
+            0.7071067811865475,
+            -0.7071067811865477,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            -0.4217714504102365,
+            -0.9067021802217338,
+            0.9067021802217338,
+            -0.4217714504102365,
+            637.7372582664856,
+            402.2627417335144
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        656.8186271272435,
+        401.86650790103874
+      ],
+      "shot": {
+        "dx": 13.435028842544398,
+        "dy": -13.435028842544398,
+        "vx": 289.91378028648444,
+        "vy": -289.91378028648455,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 2,
+      "a": 4.71238898038469,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            -1.8369701987210297e-16,
+            -1,
+            1,
+            -1.8369701987210297e-16,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            0.3428978074554512,
+            -0.939372712847379,
+            0.939372712847379,
+            0.3428978074554512,
+            636.7999999523163,
+            400
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        650.5727448979592,
+        413.21238568588467
+      ],
+      "shot": {
+        "dx": 19,
+        "dy": 0,
+        "vx": 410,
+        "vy": -1.0042103753008296e-13,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 3,
+      "a": 5.497787143782138,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            0.7071067811865474,
+            -0.7071067811865477,
+            0.7071067811865477,
+            0.7071067811865474,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            0.9067021802217337,
+            -0.42177145041023656,
+            0.42177145041023656,
+            0.9067021802217337,
+            637.7372582664856,
+            397.7372582664856
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        638.1334920989613,
+        416.81862712724353
+      ],
+      "shot": {
+        "dx": 13.435028842544398,
+        "dy": 13.435028842544398,
+        "vx": 289.91378028648455,
+        "vy": 289.91378028648444,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 4,
+      "a": 6.283185307179586,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            1,
+            -2.4492935982947064e-16,
+            2.4492935982947064e-16,
+            1,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            0.939372712847379,
+            0.3428978074554511,
+            -0.3428978074554511,
+            0.939372712847379,
+            640,
+            396.7999999523163
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        626.7876143141153,
+        410.5727448979592
+      ],
+      "shot": {
+        "dx": 0,
+        "dy": 19,
+        "vx": 1.255262969126037e-13,
+        "vy": 410,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 5,
+      "a": 7.0685834705770345,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            0.7071067811865477,
+            0.7071067811865474,
+            -0.7071067811865474,
+            0.7071067811865477,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            0.42177145041023656,
+            0.9067021802217337,
+            -0.9067021802217337,
+            0.42177145041023656,
+            642.2627417335144,
+            397.7372582664856
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        623.1813728727565,
+        398.13349209896126
+      ],
+      "shot": {
+        "dx": -13.435028842544398,
+        "dy": 13.435028842544398,
+        "vx": -289.91378028648415,
+        "vy": 289.91378028648484,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 6,
+      "a": 7.853981633974483,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            3.061616997868383e-16,
+            1,
+            -1,
+            3.061616997868383e-16,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            -0.34289780745545106,
+            0.939372712847379,
+            -0.939372712847379,
+            -0.34289780745545106,
+            643.2000000476837,
+            400
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        0,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        629.4272551020408,
+        386.78761431411533
+      ],
+      "shot": {
+        "dx": -19,
+        "dy": 0,
+        "vx": -410,
+        "vy": 1.5063155629512443e-13,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    },
+    {
+      "i": 7,
+      "a": 8.63937979737193,
+      "calls": [
+        {
+          "kind": "body",
+          "args": [
+            -16.33,
+            -16.33,
+            32.67,
+            32.67
+          ],
+          "m": [
+            -0.7071067811865467,
+            0.7071067811865483,
+            -0.7071067811865483,
+            -0.7071067811865467,
+            640,
+            400
+          ]
+        },
+        {
+          "kind": "rotor",
+          "args": [
+            -19,
+            -19,
+            38,
+            38
+          ],
+          "m": [
+            -0.9067021802217333,
+            0.42177145041023745,
+            -0.42177145041023745,
+            -0.9067021802217333,
+            642.2627417335144,
+            402.2627417335144
+          ]
+        }
+      ],
+      "x": 640,
+      "y": 400,
+      "dpr": 1,
+      "rotorLocal": [
+        -5.684341886080802e-14,
+        -3.200000047683716
+      ],
+      "cannonCenter": [
+        641.8665079010387,
+        383.18137287275647
+      ],
+      "shot": {
+        "dx": -13.435028842544398,
+        "dy": -13.435028842544398,
+        "vx": -289.9137802864849,
+        "vy": -289.9137802864841,
+        "kind": 2,
+        "damage": 2,
+        "pierce": 2
+      }
+    }
+  ],
+  "collision": {
+    "outside": 9,
+    "inside": 8
+  }
+}

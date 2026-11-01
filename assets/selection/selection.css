@@ -1,0 +1,107 @@
+/* Selection UI only. Gameplay rendering, balance and audio stay in index.html. */
+#menu.new-select{background:#51b2e9;z-index:40;isolation:isolate}
+#menu .select-screen{overflow:hidden;background-image:url('background-clean.png');background-size:100% 100%;background-position:center}
+#menu .select-hit{z-index:5;top:20%;height:59.6%;width:29.3%;border-radius:7%;outline:none;box-shadow:none}
+#menu .select-hit.selected{outline:none;box-shadow:none}
+#menu .select-hit:active{background:transparent}
+#menu .select-hit:focus-visible,#menu button:focus-visible{outline:3px solid white;outline-offset:3px}
+#menu .select-hit:focus-visible{outline-style:dashed;outline-offset:-3px}
+/* A perspective view of each circular podium; never attached to the floating body. */
+#menu .podium-light{position:absolute;z-index:1;top:54.6%;width:26%;height:9.4%;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity .24s ease;background:radial-gradient(ellipse closest-side,rgba(var(--podium-rgb),.1) 0%,rgba(var(--podium-rgb),.12) 42%,rgba(var(--podium-rgb),.62) 70%,rgba(var(--podium-rgb),.25) 82%,rgba(var(--podium-rgb),0) 100%);filter:blur(3px);mix-blend-mode:screen}
+#menu .podium-light[data-heli="0"]{left:22.25%;--podium-rgb:255,64,74}
+#menu .podium-light[data-heli="1"]{left:50%;--podium-rgb:48,174,255}
+#menu .podium-light[data-heli="2"]{left:76.45%;--podium-rgb:61,236,98}
+#menu .podium-light.is-selected{opacity:1}
+#menu .heli-stage{position:absolute;top:19%;height:36%;width:26%;display:grid;place-items:end center;pointer-events:none;z-index:2;transform-origin:50% 90%;transform:translateY(0) scale(1);filter:drop-shadow(0 5px 4px #09263a35);transition:filter .22s ease}
+/* Centers match the empty red, blue and green podium rings in the artwork. */
+#heliStage0{left:9.25%}#heliStage1{left:37%}#heliStage2{left:63.45%}
+#menu .heli-art{position:relative;width:min(100%,calc(var(--art-ratio)*36vh));aspect-ratio:var(--art-ratio)}
+#menu .heli-body{position:absolute;inset:0;z-index:2;width:100%;height:100%;overflow:visible}
+#menu .heli-rotor-position{position:absolute;z-index:1;left:50%;top:var(--hub-y,3%);width:96%;aspect-ratio:var(--rotor-ratio);transform:translate(-50%,-50%)}
+#menu .heli-rotor{display:block;width:100%;height:100%;overflow:visible;transform-origin:50% 50%;transform:scaleX(1)}
+#menu .heli-stage.is-selected{transform:translateY(-4px) scale(1.015);filter:drop-shadow(0 0 10px var(--heli-glow))}
+#menu .heli-stage.is-selected.is-hovering{animation:selection-hover 2.1s ease-in-out infinite}
+#menu .heli-stage.is-selected .heli-rotor{animation:selection-rotor .66s linear infinite}
+#menu .heli-stage:not(.is-selected) .heli-rotor{animation:none;transform:scaleX(1)}
+@keyframes selection-hover{0%,100%{transform:translateY(-4px) scale(1.015)}50%{transform:translateY(-8px) scale(1.025)}}
+/* Front view: the blades project onto the X axis; the hub stays on the body. */
+@keyframes selection-rotor{0%,100%{transform:scaleX(1)}12.5%{transform:scaleX(.707)}25%{transform:scaleX(.035)}37.5%{transform:scaleX(-.707)}50%{transform:scaleX(-1)}62.5%{transform:scaleX(-.707)}75%{transform:scaleX(-.035)}87.5%{transform:scaleX(.707)}}
+#menu .character-details{position:absolute;z-index:3;top:58.1%;height:21.7%;width:22.6%;box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;gap:clamp(2px,.5vh,6px);padding:.4% 1%;border:2px solid var(--card-color);border-radius:clamp(8px,1vw,18px);background:linear-gradient(#13213f,#07192e);box-shadow:0 2px 7px #0006;pointer-events:none;color:white;text-align:left;transition:border-color .24s ease}
+#menu .character-details[data-heli="0"]{left:11.2%;--card-color:#ff4b59;--card-highlight:#ff7883}
+#menu .character-details[data-heli="1"]{left:38.6%;--card-color:#36c8ff;--card-highlight:#6ed7ff}
+#menu .character-details[data-heli="2"]{left:65.8%;--card-color:#62ed66;--card-highlight:#8cf38f}
+#menu .character-details.is-selected{border-color:var(--card-highlight)}
+#menu .character-name{text-align:center;color:var(--card-color);font-weight:900;font-size:clamp(14px,1.8vw,27px);line-height:1.15}
+#menu .character-trait{text-align:center;font-size:clamp(9px,1vw,15px);color:#e1edff;line-height:1.25}
+#menu .stat-row{display:flex;justify-content:space-between;align-items:center;gap:4px;font-size:clamp(10px,1.2vw,18px);font-weight:750;line-height:1.3}
+#menu .stat-value{color:#fff1a7;white-space:nowrap}
+#menu #startSelected{z-index:6;left:33.5%;top:82.2%;width:33%;height:16.5%}
+#menu .art-button{position:absolute;z-index:6;border:0;background:transparent;border-radius:24px;cursor:pointer;touch-action:manipulation}
+#menu .art-button:active{background:#ffffff25}
+#menu #selectionSettings{left:13%;top:84.1%;width:18%;height:11.5%}
+#menu #selectionHelp{left:69%;top:84.1%;width:19.5%;height:11.5%}
+#menu #audioControls{top:1.5%;right:1%;display:flex;flex-wrap:wrap;gap:6px;padding:6px;border-radius:13px;background:#0b2949ed;max-width:35%;transition:box-shadow .2s}
+#menu #audioControls button{color:white;background:#124d79;border:1px solid #ffffff99;font-size:clamp(10px,1.1vw,15px);padding:6px 9px;box-shadow:none;white-space:nowrap}
+#menu #audioControls button.off{opacity:1;background:#26394b;color:#c6cdd6;text-decoration:line-through}
+#menu #audioControls.settings-open{box-shadow:0 0 0 3px #ffe68b,0 0 20px #ffe68b88}
+#menu .selection-result{position:absolute;z-index:7;top:17.5%;left:25%;right:25%;margin:0;padding:5px 10px;border-radius:12px;color:white;background:#092849ee;font-weight:800;font-size:clamp(12px,1.5vw,22px)}
+#menu .selection-result:empty{display:none}
+.selection-open .hud,.selection-open .controls,.selection-open #sensor,.selection-open #sensorStatus,.selection-open #exitGame{visibility:hidden}
+#selectionHelpDialog{max-width:min(440px,78vw);max-height:76vh;box-sizing:border-box;overflow:auto;border:2px solid #7ddcff;border-radius:20px;padding:22px;color:#edf8ff;background:#0d2a48;box-shadow:0 15px 80px #0009;font-size:clamp(12px,1.4vw,17px);line-height:1.6}
+#selectionHelpDialog::backdrop{background:#031323b8}
+#selectionHelpDialog h2{margin:0 0 10px;font-size:1.3em}
+#selectionHelpDialog p{margin:8px 0}
+#selectionHelpDialog button{padding:8px 20px;border:1px solid #fff9;border-radius:12px;background:#1266a6;color:white;font:inherit;font-weight:800;cursor:pointer}
+@media(max-height:450px){#menu #audioControls{padding:4px;gap:4px}#menu #audioControls button{padding:4px 6px;font-size:10px}#menu .character-details{gap:1px;padding:.2% .8%}#selectionHelpDialog{padding:14px}}
+@media(max-height:350px){#menu .character-details{gap:0;padding:0 .8%}#menu .character-name{font-size:12px}#menu .character-trait{font-size:8px;line-height:1.15}#menu .stat-row{font-size:9px;line-height:1.15}}
+@media(prefers-reduced-motion:reduce){#menu .heli-stage.is-selected,#menu .heli-stage.is-selected.is-hovering,#menu .heli-stage.is-selected .heli-rotor{animation:none}#menu .heli-stage.is-selected{transform:translateY(0) scale(1)}#menu .heli-stage,#menu .select-hit,#menu #audioControls{transition:none}}
+@media(prefers-reduced-motion:reduce){#menu .podium-light,#menu .character-details{transition:none}}
+/* Small shared control: menu sky corner, then the reserved gameplay HUD space. */
+#fullscreenToggle{position:fixed;z-index:70;top:max(9px,env(safe-area-inset-top));right:max(96px,env(safe-area-inset-right));width:94px;min-height:30px;box-sizing:border-box;padding:5px 6px;border:1px solid #ffffffa8;border-radius:11px;background:#0b2949e8;color:white;font:800 11px system-ui;line-height:1.25;white-space:nowrap;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent;box-shadow:0 2px 7px #0003}
+.selection-open #fullscreenToggle{left:max(8px,env(safe-area-inset-left));right:auto}
+#fullscreenToggle[aria-pressed="true"]{background:#155778ec}
+#fullscreenToggle:disabled{opacity:.6;cursor:default}
+#fullscreenToggle:focus-visible{outline:3px dashed white;outline-offset:2px}
+#fullscreenStatus{position:fixed;z-index:71;top:43px;right:96px;max-width:min(320px,70vw);margin:0;padding:6px 9px;border-radius:9px;background:#092849f0;color:#fff;font:600 11px/1.4 system-ui;pointer-events:none}
+.selection-open #fullscreenStatus{left:8px;right:auto}
+#fullscreenStatus:empty{display:none}
+@media(max-height:450px){#fullscreenToggle{min-height:26px;padding:4px 5px;font-size:10px}#fullscreenStatus{top:38px}}
+/* DOM dialog stays inside the fullscreen document and makes the game inert. */
+#gameExitDialog{box-sizing:border-box;width:min(380px,calc(100vw - 40px));max-height:calc(100dvh - 32px);overflow:auto;border:2px solid #c6eaffb8;border-radius:22px;padding:clamp(18px,4vh,28px) clamp(18px,3vw,30px);background:linear-gradient(145deg,#12395bf5,#071d36fa);color:#fff;text-align:center;font-family:system-ui;box-shadow:0 18px 70px #0009}
+#gameExitDialog::backdrop{background:#030f20ad}
+#gameExitTitle{margin:0 0 22px;font-size:clamp(20px,3vw,26px);line-height:1.35;font-weight:850}
+#gameExitDialog .game-exit-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#gameExitDialog button{min-height:44px;padding:10px 8px;border:1px solid #a7dcffb8;border-radius:12px;font:800 14px/1.3 system-ui;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#gameExitCancel{background:#175582;color:#fff}
+#gameExitConfirm{background:#f6cd59;color:#173652;border-color:#fff1a8!important}
+#gameExitDialog button:focus-visible{outline:3px dashed white;outline-offset:3px}
+#gameExitDialog button:active{filter:brightness(1.12)}
+@media(max-height:350px){#gameExitDialog{padding:16px 18px}#gameExitTitle{font-size:20px;margin-bottom:16px}#gameExitDialog button{min-height:40px}}
+/* Compact boss reward notice. */
+#bossRewardNotice{position:fixed;z-index:65;top:42px;left:8px;max-width:calc(100vw - 24px);box-sizing:border-box;margin:0;padding:4px 9px;border:1px solid #cceeff99;border-radius:12px;background:#092849ec;color:#fff;font:800 12px/1.3 system-ui;white-space:nowrap;pointer-events:none;box-shadow:0 2px 8px #0004}
+#bossRewardNotice[hidden]{display:none}
+
+/* Last-frame game-over overlay; no browser dialog or fullscreen transition. */
+#gameOverOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  background: #07192e99;
+  touch-action: none;
+}
+#gameOverOverlay[hidden] { display: none; }
+.game-over-panel {
+  box-sizing: border-box;
+  max-width: calc(100vw - 32px);
+  padding: 24px 44px;
+  border: 2px solid #ffffffad;
+  border-radius: 24px;
+  background: #123b60ed;
+  color: white;
+  text-align: center;
+  box-shadow: 0 12px 40px #0005;
+}
+.game-over-panel h2 { margin: 0 0 12px; font-size: clamp(26px, 6vw, 46px); }
+.game-over-panel p { margin: 0; font-size: 25px; font-weight: 800; }

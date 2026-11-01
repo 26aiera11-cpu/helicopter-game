@@ -1,0 +1,169 @@
+{
+  "baseline_commit": "5d7c7a8721d7eec7dd257fb5ee46d8f50e060d40",
+  "passed": [
+    "Only authorized Trio/BGM/boss-reward changes differ from the baseline; other rendering/gameplay/audio/fullscreen/exit code and image assets remain byte-identical.",
+    "Canvas dimensions/bounds/center are unchanged; the front narrows to a centered short point while opaque face, guns, tail and non-nose artwork pixels stay identical.",
+    "The active gameplay sprite decodes correctly; Trio still starts at 12 o’clock with the original Math.PI angle, 4 HP and speed settings.",
+    "At eight rotations, body-forward and original 19px projectile origins/535 speed match; actual draw calls retain body size, center and the rotor’s original local (0,-3.2) offset.",
+    "Real update collision checks preserve the existing 12px player projectile-hit radius: distance 17.1 is safe and 16.9 damages against a 5px enemy bullet.",
+    "Saved enlarged before/after screenshots facing 12 o’clock and an eight-angle body/rotor/firing-direction review sheet.",
+    "Mobile landscape gameplay, all three character starts and internal exit confirmation remain usable; unchanged Bingle/Tanko screenshots saved.",
+    "No native confirm/alert dialogs or uncaught JavaScript errors occur in the new-body browser checks."
+  ],
+  "limits": [
+    "Actual Chromium, with mobile touch/viewport emulation; physical Galaxy/Samsung Internet remains untested.",
+    "Enlarged comparison canvases use the exact gameplay body draw size/rotation; actual gameplay screenshots are also supplied."
+  ],
+  "original_png_sha256": "9dae3f9454696cee4c8470ff909895c22b8a546a3013c01faa58dee096cf16bd",
+  "new_png_sha256": "f3f064f27523a1f5e4d8bcb637efcdde1928e9e2fb0de810b3c411b8330dfe53",
+  "nose_widths_at_rows_430_440_450_460_470_476": [
+    319,
+    230,
+    140,
+    75,
+    22,
+    6
+  ],
+  "unchanged_opaque_face_and_non_nose_pixels": true,
+  "render_and_shot_alignment": {
+    "directions": [
+      {
+        "angle": 3.141592653589793,
+        "spawnX": 0,
+        "spawnY": -19,
+        "vx": -9.827790563157508e-14,
+        "vy": -535,
+        "forward": {
+          "x": -1.2246467991473532e-16,
+          "y": -1
+        },
+        "kind": 0
+      },
+      {
+        "angle": 3.9269908169872414,
+        "spawnX": 13.435028842544398,
+        "spawnY": -13.435028842544398,
+        "vx": 378.30212793480285,
+        "vy": -378.302127934803,
+        "forward": {
+          "x": 0.7071067811865475,
+          "y": -0.7071067811865477
+        },
+        "kind": 0
+      },
+      {
+        "angle": 4.71238898038469,
+        "spawnX": 19,
+        "spawnY": 0,
+        "vx": 535,
+        "vy": -1.3103720750876679e-13,
+        "forward": {
+          "x": 1,
+          "y": -1.8369701987210297e-16
+        },
+        "kind": 0
+      },
+      {
+        "angle": 5.497787143782138,
+        "spawnX": 13.435028842544398,
+        "spawnY": 13.435028842544398,
+        "vx": 378.302127934803,
+        "vy": 378.30212793480285,
+        "forward": {
+          "x": 0.7071067811865477,
+          "y": 0.7071067811865474
+        },
+        "kind": 0
+      },
+      {
+        "angle": 6.283185307179586,
+        "spawnX": 0,
+        "spawnY": 19,
+        "vx": 1.637965093859585e-13,
+        "vy": 535,
+        "forward": {
+          "x": 2.4492935982947064e-16,
+          "y": 1
+        },
+        "kind": 0
+      },
+      {
+        "angle": 7.0685834705770345,
+        "spawnX": -13.435028842544398,
+        "spawnY": 13.435028842544398,
+        "vx": -378.30212793480246,
+        "vy": 378.30212793480337,
+        "forward": {
+          "x": -0.7071067811865474,
+          "y": 0.7071067811865477
+        },
+        "kind": 0
+      },
+      {
+        "angle": 7.853981633974483,
+        "spawnX": -19,
+        "spawnY": 0,
+        "vx": -535,
+        "vy": 1.9655581126315017e-13,
+        "forward": {
+          "x": -1,
+          "y": 3.061616997868383e-16
+        },
+        "kind": 0
+      },
+      {
+        "angle": 8.63937979737193,
+        "spawnX": -13.435028842544398,
+        "spawnY": -13.435028842544398,
+        "vx": -378.3021279348034,
+        "vy": -378.3021279348024,
+        "forward": {
+          "x": -0.7071067811865483,
+          "y": -0.7071067811865467
+        },
+        "kind": 0
+      }
+    ],
+    "calls": [
+      {
+        "kind": "body",
+        "args": [
+          -16.33,
+          -16.33,
+          32.67,
+          32.67
+        ],
+        "m": [
+          -1,
+          1.2246467991473532e-16,
+          -1.2246467991473532e-16,
+          -1,
+          640,
+          360
+        ]
+      },
+      {
+        "kind": "rotor",
+        "args": [
+          -19,
+          -19,
+          38,
+          38
+        ],
+        "m": [
+          0.5029458237980529,
+          -0.8643179382172385,
+          0.8643179382172385,
+          0.5029458237980529,
+          640,
+          363.2000000476837
+        ]
+      }
+    ],
+    "center": {
+      "x": 640,
+      "y": 360
+    },
+    "dpr": 1
+  }
+}
