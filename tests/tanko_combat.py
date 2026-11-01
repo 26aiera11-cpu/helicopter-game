@@ -4,18 +4,19 @@ from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
-from tanko_combat_preservation import without_tanko_combat_changes,without_tanko_interception_changes
+from tanko_combat_preservation import without_tanko_combat_changes,without_tanko_interception_changes,without_tanko_cadence_changes
 root=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'passed':[],'standalone':args.standalone,'baseline_commit':'287629fb7a1bc91d359375f253aef23ef376dcaf','width_basis':'Existing upgrade-1 width 22.75 CSS px; 0 remains 17.5, upgrades1..5 use 200/225/250/275/300%; height29.','limits':['Chromium native fullscreen/touch emulation, not physical Galaxy/Samsung Internet or speaker/performance measurement.','Standalone mode injects identical built HTML into a fresh offline document; managed policy blocks file://, checked by galaxy_standalone.py.']}
+report={'passed':[],'standalone':args.standalone,'baseline_commit':'f622f3f9c8e82f390b40883abd1abd8f6b9e7f71','width_basis':'Existing upgrade-1 width 22.75 CSS px; 0 remains 17.5, upgrades1..5 use 200/225/250/275/300%; height29.','limits':['Chromium native fullscreen/touch emulation, not physical Galaxy/Samsung Internet or speaker/performance measurement.','Standalone mode injects identical built HTML into a fresh offline document; managed policy blocks file://, checked by galaxy_standalone.py.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
 s=(root/'index.html').read_text();before=subprocess.check_output(['git','show','287629f:index.html'],cwd=root).decode()
+assert without_tanko_cadence_changes(s)==subprocess.check_output(['git','show','f622f3f:index.html'],cwd=root).decode()
 assert without_tanko_interception_changes(s)==before
 assert without_tanko_combat_changes(s)==subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
 for path in (root/'assets').rglob('*'):
  if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show','287629f:'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
-passed('Only the exact penetration table and mutual-interception changes differ from 287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, cooldown, boss HP/reward and other-character source is preserved; JS syntax passes.')
+passed('Only the exact Tanko cooldown multiplier differs from f622f3f; reviewed penetration/mutual-interception deltas still match287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, other-character cooldowns, boss HP/reward and other-character source is preserved; JS syntax passes.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=None

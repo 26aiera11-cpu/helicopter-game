@@ -1,0 +1,911 @@
+{
+  "baseline_commit": "501b1a0a80e77e47068450bd263993a28eab1b3e",
+  "passed": [
+    "Only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.",
+    "The original Math.random()<0.5 split is preserved at both boundaries: one 50/50 health/power draw per boss, with no extra no-reward branch.",
+    "All 24 character×stage×reward cases defeat bosses through real bullets/collision: payout precedes original next-region +2 HP; desert final clear adds no region healing and no item is dropped.",
+    "Health 4/6/9 and upgrade 5 caps hold; partially useful health rewards report +1 and full caps report 0 without rerolling the reward type.",
+    "Ten attempts against the same defeated boss pay once; living bosses and ended games pay nothing; actual multi-bullet kills in the stage matrix also pay once.",
+    "Ordinary special-enemy kills still drop one 13px health/power item; bonuses apply only on contact with the same effects and no boss notice or double pickup.",
+    "The 1.8-second notice displays actual +2/+1/cap text, replaces earlier messages without stale timeouts, fits three landscape sizes and overlaps no HUD/touch/fullscreen/exit controls.",
+    "Final-clear rewards remain visible in fullscreen selection; a new game clears old text and its new boss can pay again; no native dialogs or uncaught JS errors occur."
+  ],
+  "limits": [
+    "Actual headless Chromium with mobile touch emulation; physical Galaxy/Samsung Internet/Chrome and speaker/sensor testing remain outstanding.",
+    "Controlled health, boss and random samples; actual shoot/collision/update paths are exercised, not a manual difficulty playthrough."
+  ],
+  "probability_boundary_samples": [
+    {
+      "roll": 0,
+      "calls": 1,
+      "event": {
+        "type": "hp",
+        "amount": 2,
+        "hp": 3,
+        "upgrade": 1,
+        "stage": 0,
+        "phase": 1
+      },
+      "hp": 3,
+      "upgrade": 1
+    },
+    {
+      "roll": 0.499999999,
+      "calls": 1,
+      "event": {
+        "type": "hp",
+        "amount": 2,
+        "hp": 3,
+        "upgrade": 1,
+        "stage": 0,
+        "phase": 1
+      },
+      "hp": 3,
+      "upgrade": 1
+    },
+    {
+      "roll": 0.5,
+      "calls": 1,
+      "event": {
+        "type": "power",
+        "amount": 1,
+        "hp": 1,
+        "upgrade": 2,
+        "stage": 0,
+        "phase": 1
+      },
+      "hp": 1,
+      "upgrade": 2
+    },
+    {
+      "roll": 0.999999999,
+      "calls": 1,
+      "event": {
+        "type": "power",
+        "amount": 1,
+        "hp": 1,
+        "upgrade": 2,
+        "stage": 0,
+        "phase": 1
+      },
+      "hp": 1,
+      "upgrade": 2
+    }
+  ],
+  "all_character_stage_reward_cases": [
+    {
+      "kind": 0,
+      "defeatedStage": 0,
+      "roll": 0.25,
+      "hp": 4,
+      "upgrade": 2,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 0,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 1,
+      "roll": 0.25,
+      "hp": 4,
+      "upgrade": 2,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 1,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 2,
+      "roll": 0.25,
+      "hp": 4,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 2,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 3,
+      "roll": 0.25,
+      "hp": 3,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 0,
+      "defeatedStage": 3,
+      "roll": 0.75,
+      "hp": 1,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 0,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 0,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 1,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 1,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 2,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 2,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 3,
+      "roll": 0.25,
+      "hp": 3,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 1,
+      "defeatedStage": 3,
+      "roll": 0.75,
+      "hp": 1,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 0,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 0,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 1,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 0,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 1,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 1,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 2,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 1,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 2,
+      "roll": 0.25,
+      "hp": 5,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 2,
+      "roll": 0.75,
+      "hp": 3,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 1,
+      "started": true,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 2,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 3,
+      "roll": 0.25,
+      "hp": 3,
+      "upgrade": 2,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 2,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    },
+    {
+      "kind": 2,
+      "defeatedStage": 3,
+      "roll": 0.75,
+      "hp": 1,
+      "upgrade": 3,
+      "stage": 3,
+      "phase": 5,
+      "started": false,
+      "score": 10,
+      "items": 0,
+      "rewardGranted": true,
+      "randomCalls": 1,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 3,
+          "stage": 3,
+          "phase": 5
+        }
+      ]
+    }
+  ],
+  "cap_cases": [
+    {
+      "kind": 0,
+      "full": false,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 4,
+      "upgrade": 4,
+      "event": {
+        "type": "hp",
+        "amount": 1,
+        "hp": 4,
+        "upgrade": 4,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 0,
+      "full": false,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 3,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 1,
+        "hp": 3,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 0,
+      "full": true,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 4,
+      "upgrade": 5,
+      "event": {
+        "type": "hp",
+        "amount": 0,
+        "hp": 4,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 0,
+      "full": true,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 4,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 0,
+        "hp": 4,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 1,
+      "full": false,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 6,
+      "upgrade": 4,
+      "event": {
+        "type": "hp",
+        "amount": 1,
+        "hp": 6,
+        "upgrade": 4,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 1,
+      "full": false,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 5,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 1,
+        "hp": 5,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 1,
+      "full": true,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 6,
+      "upgrade": 5,
+      "event": {
+        "type": "hp",
+        "amount": 0,
+        "hp": 6,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 1,
+      "full": true,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 6,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 0,
+        "hp": 6,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 2,
+      "full": false,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 9,
+      "upgrade": 4,
+      "event": {
+        "type": "hp",
+        "amount": 1,
+        "hp": 9,
+        "upgrade": 4,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 2,
+      "full": false,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 8,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 1,
+        "hp": 8,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 2,
+      "full": true,
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 9,
+      "upgrade": 5,
+      "event": {
+        "type": "hp",
+        "amount": 0,
+        "hp": 9,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    },
+    {
+      "kind": 2,
+      "full": true,
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 9,
+      "upgrade": 5,
+      "event": {
+        "type": "power",
+        "amount": 0,
+        "hp": 9,
+        "upgrade": 5,
+        "stage": 0,
+        "phase": 1
+      }
+    }
+  ],
+  "duplicate_guard_cases": [
+    {
+      "roll": 0.25,
+      "calls": 1,
+      "hp": 3,
+      "upgrade": 0,
+      "events": 1,
+      "afterInvalidCalls": 1,
+      "afterInvalidEvents": 1
+    },
+    {
+      "roll": 0.75,
+      "calls": 1,
+      "hp": 1,
+      "upgrade": 1,
+      "events": 1,
+      "afterInvalidCalls": 1,
+      "afterInvalidEvents": 1
+    }
+  ],
+  "ordinary_enemy_drop_and_pickup": [
+    {
+      "roll": 0.25,
+      "before": {
+        "count": 1,
+        "type": "hp",
+        "r": 13,
+        "hp": 1,
+        "upgrade": 0,
+        "events": 0
+      },
+      "after": {
+        "count": 0,
+        "hp": 3,
+        "upgrade": 0,
+        "events": 0
+      },
+      "afterSecondUpdate": {
+        "hp": 3,
+        "upgrade": 0
+      }
+    },
+    {
+      "roll": 0.75,
+      "before": {
+        "count": 1,
+        "type": "power",
+        "r": 13,
+        "hp": 1,
+        "upgrade": 0,
+        "events": 0
+      },
+      "after": {
+        "count": 0,
+        "hp": 1,
+        "upgrade": 1,
+        "events": 0
+      },
+      "afterSecondUpdate": {
+        "hp": 1,
+        "upgrade": 1
+      }
+    }
+  ]
+}

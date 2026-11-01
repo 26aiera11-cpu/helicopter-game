@@ -1,114 +1,122 @@
-"""Compare real previous/current code TTK, sustained defense and visible footprint."""
+"""Actual before/after cadence: matched boss traces,12s accounting and normal-HP TTK."""
 import argparse,json,shutil,subprocess,threading,hashlib
 from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[1];p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'passed':[],'baseline_commit':'287629fb7a1bc91d359375f253aef23ef376dcaf','method':{'ttk':'Actual old and new index pages; same HP scaling, distance160, stationary invulnerable player, centre aim each tick, fixed random. Two time steps120Hz/60Hz.','shield':'12s centre-aim fire, stationary invulnerable player, boss HP1e6 in test memory only. Every emitted timestamp/position/velocity/radius is compared exactly before/after; reached means an actual hostile-circle/player collision, including invulnerability. All0..5 upgrades,4 bosses,120/60Hz.','footprint':'Actual PNG alpha>40 union pixels, max-upgrade fire for6s in8 directions at3 mobile landscape sizes; sampled every0.5s.'},'limits':['Controlled real-browser simulation, not physical Galaxy/Samsung Internet, human aim or performance testing.','Continuous fire renews a finite ammunition shield, so per-projectile limits alone do not guarantee equal defense across boss patterns.']}
+baseline='f622f3f9c8e82f390b40883abd1abd8f6b9e7f71';before=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode()
+report={'baseline':baseline,'passed':[],'method':{'viewport':[915,412],'steps_hz':[120,60],'distance':160,'aim':'Stationary player, centre aim refreshed each tick, fixed random. Existing1.5s boss transition included; first trigger at first update with zero initial cooldown.','ttk':'Actual previous/current pages, normal spawn HP, invulnerable player for reproducible uninterrupted TTK; all3 characters/upgrades0..5/four regions.','defense':'12s for each boss at upgrades0/1/3/5. Test-only boss HP1e6 keeps it alive. Tanko starts with actual9HP and normal hurt/invulnerability; no invulnerability override during defense. Enemy timestamps/positions/velocities/radii/lifetimes must match exactly.','volleys':'One invocation of shoot(); generated projectiles also counted, since upgrades3/5 create two per volley.','reached':'An actual enemy-circle/player hit, counted even during native invulnerability; HP damage events recorded separately.','passed':'Neither intercepted nor player-reached, and removed by arena bounds/lifetime before12s. Still-flying at12s is separate. emitted=blocked+reached+passed+flying.'},'limits':['Controlled Chromium simulation, not physical Galaxy/Samsung Internet performance or human aim.','Finite-window counts reflect the unchanged frame scheduler and first-shot inclusion; exact ideal rate is80%.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start()
-before=subprocess.check_output(['git','show','287629f:index.html'],cwd=root).decode()
 try:
  with sync_playwright() as p:
-  browser=p.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox']);ttk=[];defense=[]
+  browser=p.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox']);ttk=[];defense=[];calibrations=[]
   for version in ['before','after']:
-   context=browser.new_context(viewport={'width':915,'height':412});page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
-   if version=='before':page.route('**/baseline-tanko.html',lambda route:route.fulfill(status=200,content_type='text/html; charset=utf-8',body=before))
-   page.goto(f'http://127.0.0.1:{server.server_port}/'+('baseline-tanko.html' if version=='before' else ''),wait_until='load')
+   page=browser.new_page(viewport={'width':915,'height':412});errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+   if version=='before':page.route('**/balance-baseline.html',lambda route:route.fulfill(status=200,content_type='text/html; charset=utf-8',body=before))
+   page.goto(f'http://127.0.0.1:{server.server_port}/'+('balance-baseline.html' if version=='before' else ''),wait_until='load')
    data=page.evaluate('''version=>{
     const rows=[],shields=[],realFx=gameAudio.fx,realRandom=Math.random,realEmit=emitEnemyShot,realHurt=hurt,realShoot=shoot,realBlock=blockEnemyBullet;
-    const realConsume=typeof consumeTankoPierce==='function'?consumeTankoPierce:null;
-    let incoming,created=0,blocked=0,contacts=0,budget=0,spent=0,shotsCreated=0,annihilated=0,trace=[],tick=0;
-    shoot=()=>{const count=bullets.length;realShoot();for(const b of bullets.slice(count)){budget+=b.pierce;shotsCreated++}};
+    let emitted=[],blockedTargets,reachedTargets,volleys=0,projectiles=0,damageEvents=0,tick=0,trace=[],fireTrace=[];
     gameAudio.fx=()=>{};Math.random=()=>.75;
-    emitEnemyShot=(...args)=>{realEmit(...args);const target=enemyBullets[enemyBullets.length-1];incoming.add(target);created++;trace.push([tick,target.x,target.y,target.vx,target.vy,target.r,target.life])};
-    if(realConsume)consumeTankoPierce=(b,target)=>{const previous=b.pierce,ok=realConsume(b,target);if(ok){if(b.pierce!==previous-1)throw Error('Incorrect penetration charge');spent++;}return ok};
-    blockEnemyBullet=target=>{
-     const alive=bullets.filter(b=>b.kind===2&&b.life>0),ok=realBlock(target);
-     if(ok){blocked++;const lost=alive.filter(b=>b.life<=0).length;annihilated+=lost;if(lost>1||version==='after'&&lost!==1)throw Error('Duplicate or missing shot consumption')}
+    shoot=()=>{const count=bullets.length;realShoot();volleys++;projectiles+=bullets.length-count;fireTrace.push(tick)};
+    emitEnemyShot=(...args)=>{realEmit(...args);const b=enemyBullets[enemyBullets.length-1];emitted.push(b);trace.push([tick,b.x,b.y,b.vx,b.vy,b.r,b.life])};
+    blockEnemyBullet=b=>{
+     const live=bullets.filter(s=>s.kind===2&&s.life>0),ok=realBlock(b);
+     if(ok){if(blockedTargets.has(b)||reachedTargets.has(b)||live.filter(s=>s.life<=0).length!==1)throw Error('Duplicate or incorrect mutual interception');blockedTargets.add(b)}
      return ok;
     };
-    hurt=()=>{contacts++;realHurt()};
+    hurt=()=>{
+     const candidates=emitted.filter(b=>b.life===0&&!blockedTargets.has(b)&&!reachedTargets.has(b)&&Math.hypot(b.x-player.x,b.y-player.y)<b.r+12);
+     if(candidates.length!==1)throw Error('Expected one identifiable enemy-bullet/player contact');
+     reachedTargets.add(candidates[0]);const previous=hp;realHurt();if(hp<previous)damageEvents++;
+    };
     const setup=(type,level,region)=>{
-     incoming=new WeakSet();created=blocked=contacts=budget=spent=shotsCreated=annihilated=tick=0;trace=[];
+     emitted=[];blockedTargets=new Set();reachedTargets=new Set();volleys=projectiles=damageEvents=tick=0;trace=[];fireTrace=[];
      start(type);stage=region;phase=5;phaseKills=requiredKills;spawn=999;invuln=999;fireCooldown=0;
      player.x=W*.5;player.y=H*.27+160;player.upgrade=level;update(0);keys.fire=true;return boss;
     };
     try{
      for(const hz of [120,60])for(let type=0;type<3;type++)for(let level=0;level<=5;level++)for(let region=0;region<4;region++){
       const target=setup(type,level,region);let frames=0;
-      while(boss===target&&frames<hz*120){player.a=Math.atan2(target.y-player.y,target.x-player.x)-Math.PI/2;update(1/hz);frames++;}
-      rows.push({version,hz,type,level,stage:region,hp:target.maxHp,seconds:frames/hz,defeated:target.hp<=0,rewardGranted:!!target.rewardGranted,created,blocked,contacts,budget,spent,shotsCreated,annihilated});
+      while(boss===target&&frames<hz*120){tick=frames+1;player.a=Math.atan2(target.y-player.y,target.x-player.x)-Math.PI/2;update(1/hz);frames++;}
+      rows.push({version,hz,type,level,stage:region,hp:target.maxHp,seconds:frames/hz,defeated:target.hp<=0,rewardGranted:!!target.rewardGranted,volleys,projectiles,blocked:blockedTargets.size,reached:reachedTargets.size});
      }
-     for(const hz of [120,60])for(let level=0;level<=5;level++)for(let region=0;region<4;region++){
-      const target=setup(2,level,region);target.hp=target.maxHp=1e6;
+     for(const hz of [120,60])for(const level of [0,1,3,5])for(let region=0;region<4;region++){
+      const target=setup(2,level,region);target.hp=target.maxHp=1e6;invuln=0;
       for(let frame=0;frame<hz*12;frame++){tick=frame+1;player.a=Math.atan2(target.y-player.y,target.x-player.x)-Math.PI/2;update(1/hz)}
-      shields.push({version,hz,level,stage:region,created,blocked,contacts,remaining:enemyBullets.length,playerHp:hp,budget,spent,shotsCreated,annihilated,trace});
+      const live=new Set(enemyBullets);let escaped=0;
+      for(const b of emitted){
+       if(!blockedTargets.has(b)&&!reachedTargets.has(b)&&!live.has(b)){
+        if(!(b.life<=0||b.x<=-30||b.x>=W+30||b.y<=-30||b.y>=H+30))throw Error('Unclassified projectile disappearance');escaped++;
+       }
+      }
+      shields.push({version,hz,level,stage:region,emitted:emitted.length,volleys,projectiles,blocked:blockedTargets.size,reached:reachedTargets.size,passed:escaped,flying:enemyBullets.length,hp_end:hp,damage_events:damageEvents,started,trace,fireTrace});
      }
-     keys.fire=false;return {rows,shields};
-    }finally{gameAudio.fx=realFx;Math.random=realRandom;emitEnemyShot=realEmit;hurt=realHurt;shoot=realShoot;blockEnemyBullet=realBlock;if(realConsume)consumeTankoPierce=realConsume}
+     setup(2,0,0);keys.fire=false;invuln=0;boss.shot=99;
+     emitEnemyShot({x:player.x,y:player.y+16});update(0);
+     const calibration={version,emitted:emitted.length,reached:reachedTargets.size,damage_events:damageEvents,hp};
+     keys.fire=false;return {rows,shields,calibration};
+    }finally{gameAudio.fx=realFx;Math.random=realRandom;emitEnemyShot=realEmit;hurt=realHurt;shoot=realShoot;blockEnemyBullet=realBlock}
    }''',version)
-   assert not errors,errors;ttk+=data['rows'];defense+=data['shields'];context.close()
-  assert len(ttk)==288 and all(r['rewardGranted']==r['defeated'] for r in ttk)
+   assert not errors,errors;ttk+=data['rows'];defense+=data['shields'];calibrations.append(data['calibration']);page.close()
+  assert len(ttk)==288 and all(r['defeated'] and r['rewardGranted'] for r in ttk)
   for row in ttk:
-   previous=next(r for r in ttk if r['version']=='before' and all(r[k]==row[k] for k in ['hz','type','level','stage']))
-   assert row['hp']==previous['hp']
-   if row['type']!=2:assert row['seconds']==previous['seconds']
-  report['ttk']=ttk;report['sustained_defense']=defense
-  report['ttk_limit_seconds']=120
-  report['uncleared_fixed_aim_cases']=[r for r in ttk if not r['defeated']]
-  passed('288 actual previous/current fights cover3 characters, upgrades0..5,4 bosses and120/60Hz. HP scaling/rewards are unchanged; Trio/Bingle TTK is exactly identical before/after.')
-  assert len(defense)==96
-  patterns={}
+   original=next(r for r in ttk if r['version']=='before' and all(r[k]==row[k] for k in ['hz','type','level','stage']))
+   assert row['hp']==original['hp']
+   if row['type']!=2:assert row==dict(original,version=row['version'])
+  report['ttk']=ttk
+  passed('288 actual old/new fights preserve boss HP/rewards; every fight ends, and Trio/Bingle entire fight statistics remain identical at all upgrades and120/60Hz.')
+  assert len(defense)==64;patterns={}
   for row in defense:
-   previous=next(r for r in defense if r['version']=='before' and all(r[k]==row[k] for k in ['hz','level','stage']))
-   assert row['trace']==previous['trace'] and row['shotsCreated']==previous['shotsCreated']
-   row['pattern_sha256']=hashlib.sha256(json.dumps(row['trace'],separators=(',',':')).encode()).hexdigest()
+   original=next(r for r in defense if r['version']=='before' and all(r[k]==row[k] for k in ['hz','level','stage']))
+   assert row['trace']==original['trace'] and row['fireTrace'][0]==original['fireTrace'][0]
+   assert row['projectiles']==row['volleys']*(1 if row['level']<2 else 2)
+   if row['version']=='after':assert row['volleys']<original['volleys']
+   row['attack_sha256']=hashlib.sha256(json.dumps(row['trace'],separators=(',',':')).encode()).hexdigest()
    key=f"{row['hz']}Hz-stage{row['stage']}"
    if key not in patterns:patterns[key]=row['trace']
    assert row['trace']==patterns[key]
-  report['matched_attack_patterns']=patterns
-  for row in defense:row.pop('trace')
-  assert all(r['blocked']==r['annihilated']<=r['shotsCreated'] and r['spent']<=r['budget'] for r in defense if r['version']=='after')
-  passed('Ninety-six12s cases have identical attack traces and player firing counts before/after; each new block destroys exactly one Tanko shot, with player-reached counts measured independently.')
-  # Actual visible PNG area, without enemies or interception, at the largest width.
-  page=browser.new_page(viewport={'width':915,'height':412});page.goto(f'http://127.0.0.1:{server.server_port}',wait_until='load');page.wait_for_function('bulletSprites.every(i=>i.complete&&i.naturalWidth)')
-  coverage=[]
-  for w,h in [(915,412),(800,360),(568,320)]:
-   page.set_viewport_size({'width':w,'height':h});page.wait_for_function('size=>W===size[0]&&H===size[1]',arg=[w,h])
-   rows=page.evaluate('''() => {
-    const rows=[],oldFx=gameAudio.fx;gameAudio.fx=()=>{};
-    try{for(let direction=0;direction<8;direction++){
-     start(2);player.upgrade=5;player.a=Math.PI+direction*Math.PI/4;spawn=999;transition=0;invuln=999;fireCooldown=0;keys.fire=true;
-     const mask=document.createElement('canvas');mask.width=W;mask.height=H;const g=mask.getContext('2d',{willReadFrequently:true});let peak=0,maxActive=0;
-     for(let frame=0;frame<360;frame++){
-      update(1/60);maxActive=Math.max(maxActive,bullets.length);if(frame%30!==0)continue;
-      g.clearRect(0,0,W,H);
-      for(const b of bullets){if(b.kind!==2||b.life<=0)continue;const width=tankoBulletWidth(b.upgrade);g.save();g.translate(b.x,b.y);g.rotate(Math.atan2(b.vy,b.vx)+Math.PI/2);g.drawImage(bulletSprites[2],-width/2,-14.5,width,29);g.restore()}
-      const pixels=g.getImageData(0,0,W,H).data;let opaque=0;for(let i=3;i<pixels.length;i+=4)if(pixels[i]>40)opaque++;peak=Math.max(peak,opaque/(W*H));
-     }keys.fire=false;rows.push({width:W,height:H,direction,peak_visible_fraction:peak,max_active:maxActive});
-    }return rows;}finally{gameAudio.fx=oldFx}
-   }''');coverage+=rows
-  assert len(coverage)==24 and {(r['width'],r['height']) for r in coverage}=={(915,412),(800,360),(568,320)} and all(r['peak_visible_fraction']<.15 for r in coverage)
-  report['coverage']=coverage;report['peak_visible_percent']=max(r['peak_visible_fraction'] for r in coverage)*100
-  passed('Twenty-four6s sustained-fire scenarios measure actual alpha coverage across8 directions and3 landscape sizes; peak visible coverage stays below15% of the game area.')
-  print('PEAK_VISIBLE_PERCENT:',report['peak_visible_percent'],flush=True)
-  page.close();browser.close()
+  for row in defense:
+   row['fire_times_seconds']=[v/row['hz'] for v in row.pop('fireTrace')];row.pop('trace')
+  report['matched_attack_patterns']=patterns;report['sustained_defense']=defense
+  passed('64 twelve-second cases cover four bosses×upgrades0/1/3/5×120/60Hz×old/new; enemy traces match exactly, first-shot timing matches, and Tanko volleys/projectiles decrease.')
+  for row in defense:
+   assert row['emitted']==row['blocked']+row['reached']+row['passed']+row['flying']
+   assert row['hp_end']==9-row['damage_events'] and row['damage_events']<=row['reached'] and row['started']
+  assert all(c['emitted']==c['reached']==c['damage_events']==1 and c['hp']==8 for c in calibrations)
+  report['positive_contact_calibrations']=calibrations
+  reached=[r for r in defense if r['version']=='after' and r['reached']>0]
+  report['new_gap_cases']=reached;report['gap_cases_count']=len(reached)
+  passed('Every emitted bullet is accounted for as blocked, player-reached, passed/expired, or still flying; native HP/invulnerability remains active, and a deliberately unblocked shot calibrates reached1/damage1/HP9→8 in each version.')
+  # Long-window practical volley rates, with both endpoint effects and timestep exposed.
+  rates=[]
+  for hz in [120,60]:
+   for level in [0,1,3,5]:
+    a,b=[next(r for r in defense if r['version']==v and r['hz']==hz and r['level']==level and r['stage']==0) for v in ['before','after']]
+    rates.append({'hz':hz,'level':level,'before_volleys':a['volleys'],'after_volleys':b['volleys'],'ratio':b['volleys']/a['volleys'],'before_projectiles':a['projectiles'],'after_projectiles':b['projectiles']})
+  report['practical_12s_rates']=rates
+  passed('Requested defense metrics and normal-HP TTK are recorded for both time steps; no extra balance adjustment is applied when frontal defense remains strong.')
+  browser.close()
 finally:server.shutdown();server.server_close()
 (args.artifacts/'test-results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-lines=['# 탱코 관통·차단 변경 전후 비교','','기준287629f 실제 HTML과 새 HTML을 각각 Chromium에 로드했다. 두 버전 모두 피해1.5·기존 폭·높이29px·탄속410·연사/이동/보스 HP/패턴이 같다. 거리160px, 정지/무적 플레이어, 매 틱 중심 조준, 기존 등장1.5초/초기 쿨다운0이다. 주 표는120Hz이며60Hz 교차 검사는JSON에 있다. 사람의 실제 처치 시간이나 갤럭시 성능 측정은 아니다.','','| 지역 | 강화 | 보스 HP | 기존 처치 시간 | 새 처치 시간 |','| --- | ---: | ---: | ---: | ---: |']
-for region,name in enumerate(['숲','바위','바다','사막']):
- for level in range(6):
-  pair=[next(r for r in ttk if r['version']==version and r['hz']==120 and r['type']==2 and r['stage']==region and r['level']==level) for version in ['before','after']]
-  times=[f"{r['seconds']:.3f}초" if r['defeated'] else '120초 내 미처치' for r in pair]
-  lines.append(f'| {name} | {level} | {pair[0]["hp"]:g} | {times[0]} | {times[1]} |')
-lines+=['','## 동일한 보스 탄막·12초 정면 연사','','테스트에서만 보스 HP1,000,000으로 생존시켜12초간 같은 공격을 관찰했다. 발사 프레임·좌표·속도·반경/수명 배열을 두 버전/모든 강화에서 정확히 비교했고 SHA-256을 JSON에 저장했다. 발사 수는 enemy bullets, 플레이어 도달 수는 실제 적 탄환/플레이어 충돌 수다. 무적 중 도달도 세며, 빗나감/아직 비행 중인 탄과 구분한다. 플레이어 발사 수/연사 간격도 두 버전이 같다.','','| 지역 | 강화 | 적 발사 | 기존 차단 | 새 차단 | 차단 감소 | 기존 도달 | 새 도달 |','| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |']
-for region,name in enumerate(['숲','바위','바다','사막']):
- for level in range(6):
-  a,b=[next(r for r in defense if r['version']==v and r['hz']==120 and r['stage']==region and r['level']==level) for v in ['before','after']]
-  lines.append(f'| {name} | {level} | {b["created"]} | {a["blocked"]} | {b["blocked"]} | {a["blocked"]-b["blocked"]} | {a["contacts"]} | {b["contacts"]} |')
-lines+=['',f'새 버전5강 탄환8방향·3가로 화면의6초 연사 PNG 알파 합집합 최대점유율은 **{report["peak_visible_percent"]:.2f}%**다. 폭/높이/이미지는 기준 버전과 바이트/그리기 값이 같다.','','몬스터 관통은0~5강[2,3,3,4,4,5]이며 한 적/보스에 한 번1.5 피해/횟수1을 쓴다. 적 탄환은 관통 잔량과 관계없이 서로 소멸하므로 한 탱코 탄환당 최대1개 차단이다. 차단 뒤 남은 관통 횟수로 탄환을 재사용하지 않는다.','']
-(args.artifacts/'boss-and-defense-comparison.md').write_text('\n'.join(lines))
+lines=['# 탱코 연사20% 감소 전후 비교','','기준f622f3f 실제 HTML과 새 HTML을 Chromium에 각각 로드했다. 제품 변경은 탱코 발사 간격×1.25 한 곳이다. 거리160px, 정지, 매 틱 중앙 조준, 기존 등장 전환1.5초/최초 쿨다운0을 포함한다. 실제 갤럭시 성능이나 사람의 조준 시험이 아니다.','','발사 횟수는 shoot() 동작 수다. 0/1강은1발,3/5강은2발을 생성하므로 생성 탄환 수도 기록한다. 적 도달은 피격 무적 중이라도 실제 적 탄환/플레이어 충돌을 센다. 통과는 차단/도달 없이 화면 밖 또는 수명 종료로 제거된 탄이고12초 끝에 비행 중인 탄은 별도다. 적 발사=차단+도달+통과+비행 중이 모든 행에서 성립한다.','','12초 방어 검사에서만 보스 HP1,000,000을 사용했다. 플레이어는 실제9HP와 기본 피격 무적을 유지하고12초 생존했다. 처치 시간은 정상 보스 HP와 무적 플레이어로 별도 측정했다. 적 발사 시각/위치/속도/반경/수명 배열의 일치를 검사하고 해시를 보관했다.']
+for hz in [120,60]:
+ lines += ['',f'## {hz}Hz ·12초 방어 비교','','모든 셀의 화살표는 기존→새 버전이다. 적 발사는 두 버전이 같다.','','| 지역 | 강화 | 발사 동작 | 생성 탄환 | 적 발사 | 차단 | 도달 | 통과 | 비행 중 |','| --- | ---: | --- | --- | ---: | --- | --- | --- | --- |']
+ for stage,name in enumerate(['숲','바위','바다','사막']):
+  for level in [0,1,3,5]:
+   a,b=[next(r for r in defense if r['version']==v and r['hz']==hz and r['stage']==stage and r['level']==level) for v in ['before','after']]
+   arrow=lambda k:f'{a[k]}→{b[k]}'
+   lines.append(f'| {name} | {level} | {arrow("volleys")} | {arrow("projectiles")} | {b["emitted"]} | {arrow("blocked")} | {arrow("reached")} | {arrow("passed")} | {arrow("flying")} |')
+ lines += ['',f'### {hz}Hz ·정상 HP 보스 처치 시간','','| 지역 | 강화 | 보스 HP | 기존 | 새 버전 |','| --- | ---: | ---: | ---: | ---: |']
+ for stage,name in enumerate(['숲','바위','바다','사막']):
+  for level in range(6):
+   a,b=[next(r for r in ttk if r['version']==v and r['hz']==hz and r['type']==2 and r['stage']==stage and r['level']==level) for v in ['before','after']]
+   lines.append(f'| {name} | {level} | {b["hp"]:g} | {a["seconds"]:.3f}초 | {b["seconds"]:.3f}초 |')
+lines += ['','## 발사 수와 남은 균형 결과','','| Hz | 강화 | 기존 발사 | 새 발사 | 기존 대비 |','| --- | ---: | ---: | ---: | ---: |']
+for r in rates:lines.append(f'| {r["hz"]} | {r["level"]} | {r["before_volleys"]} | {r["after_volleys"]} | {r["ratio"]*100:.2f}% |')
+lines += ['',f'새 버전의 플레이어 도달이 양수인 조건은32개 중 **{len(reached)}개**다. 각 조건의 실제 체력 감소/피격 수는 JSON에 있다. 도달이0인 조건의 정면 방어가 충분히 낮아졌다고 표현하지 않는다. 요청한20% 외의 연사·탄속·폭·관통/차단·보스 수치는 추가로 바꾸지 않았다.','']
+(args.artifacts/'comparison.md').write_text('\n'.join(lines))
