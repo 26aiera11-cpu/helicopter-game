@@ -1,15 +1,15 @@
 # 갤럭시 테스트 빌드 — ZIP 다운로드
 
-2026-11-01(KST) · `feature/selection-screen-integration` · 선택화면 전체화면·게임 내부 종료 확인창 포함 최신 빌드
+2026-11-01(KST) · `feature/selection-screen-integration` · 트리오 플레이 본체 윤곽·전체화면·게임 내부 종료 확인창 포함 최신 빌드
 
 ## 다운로드와 실행
 
-**[heli_trio_galaxy_test.zip 다운로드 — 약 20.4MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/selection-screen-integration/dist/heli_trio_galaxy_test.zip?download=1)**
+**[heli_trio_galaxy_test.zip 다운로드 — 약 20.3MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/selection-screen-integration/dist/heli_trio_galaxy_test.zip?download=1)**
 
 [ZIP 파일 페이지](../../../dist/heli_trio_galaxy_test.zip)에서도 Download raw file 메뉴를 사용할 수 있다. ZIP에는 최신 [단일 HTML](../../../dist/heli_trio_galaxy_test.html) 하나만 들어 있다.
 
-1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **20,398,323바이트, 약 20.4MB**다.
-2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **28,208,252바이트, 약 28.2MB**다.
+1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **20,314,989바이트, 약 20.3MB**다.
+2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **28,098,756바이트, 약 28.1MB**다.
 3. 로컬 HTML 실행을 지원하는 브라우저로 파일을 연다. Chrome 또는 Samsung Internet의 지원 여부는 기기의 파일 열기 방식에 따라 직접 확인해야 한다.
 4. 휴대폰을 가로로 돌리고 왼쪽 위 **⛶ 전체화면**을 누른 뒤 캐릭터를 선택해 **게임 시작**을 누른다. 선택·게임·선택화면 복귀 중 전체화면이 유지되며 **⛶ 화면 복원**으로 해제할 수 있다. 미지원·거부 시 일반 화면에서 시작한다.
 5. 화면을 드래그해 이동하고, ↶ ↷ 버튼을 길게 눌러 방향을 바꾸고, 발사 버튼을 길게 눌러 공격한다. 음악·효과음은 선택화면에서 각각 켜고 끌 수 있다.
@@ -26,21 +26,22 @@ HTML의 GitHub raw 응답은 브라우저에서 소스 텍스트로 표시될 �
 - 압축 목록은 루트의 `heli_trio_galaxy_test.html` **1개뿐**이다. 별도 폴더나 리소스 파일을 넣지 않았다.
 - Python ZIP CRC 검사와 시스템 `unzip -t`를 통과했다.
 - 실제 압축 해제한 HTML을 원본과 바이트 단위로 비교했고 SHA-256도 동일했다.
-- 새 종료창이 포함된 현재 HTML을 기준으로 ZIP을 재생성했다. 압축 과정에서는 HTML을 변경하지 않는다. ZIP 내 새 모달 코드 포함과 기존 기본 confirm 제거를 확인했다.
+- 트리오의 새 본체 윤곽과 기존 종료창을 포함한 현재 HTML로 ZIP을 재생성했다. 압축 과정에서는 HTML을 변경하지 않는다. ZIP 내 최신 트리오 PNG·모달 코드 포함과 기본 confirm 부재를 확인했다.
 
 상세 결과·ZIP/HTML 크기 및 해시: [zip-results.json](zip-results.json).
 
-최초 ZIP 추가 때는 포장만 검사했다. 이번에는 종료 확인창 개선 후 브라우저 검사를 다시 실행하고 HTML·ZIP을 함께 재생성했다. HTML을 재생성할 때는 ZIP도 같은 HTML로 다시 만들고 검증해야 한다.
+최초 ZIP 추가 때는 포장만 검사했다. 이번에는 트리오 본체 윤곽 수정 후 브라우저 검사를 다시 실행하고 HTML·ZIP을 함께 재생성했다. HTML을 재생성할 때는 ZIP도 같은 HTML로 다시 만들고 검증해야 한다.
 
 ## 포함한 기능과 보호 범위
 
 - 세 헬기와 투명 PNG 레이어, 노란 선택 사각형 제거, 빨강·파랑·초록 발판 조명, 패널 테두리 강조를 포함한다.
 - 기존 부유·확대·정면 프로펠러·회전 정지·220ms 착지를 유지한다.
 - 기존 전투·적·탄환·아이템·스테이지·보스·음악·효과음 코드를 그대로 포함한다.
-- 현재 `index.html`의 인라인 스크립트 3개와 최신 선택화면 JavaScript를 그대로 내장한다. 원본 백업 대비 종료창 연결·일시정지 조건의 세 문자열 변경만 허용하며, 그 외 게임·사운드 코드와 선택 PNG 5개는 유지한다.
+- 현재 `index.html`의 인라인 스크립트 3개와 최신 선택화면 JavaScript를 그대로 내장한다. 통합 전 원본 백업 대비 종료창 연결·일시정지 조건 세 문자열과 플레이용 트리오 PNG 한 곳의 변경만 허용하며, 그 외 게임·사운드 코드와 선택 PNG 5개는 유지한다.
 - 외부 선택화면 CSS·JS와 PNG 참조를 내장 스타일·스크립트·데이터 URL로 치환했다. 원래 내장돼 있던 게임 이미지와 WAV 12개도 유지했다.
 - 갤럭시 테스트 파일에만 선택 버튼의 브라우저 기본 파란 터치 잔상을 억제하는 CSS를 추가한다. 빌드 과정은 원본 파일을 수정하지 않는다.
 - 브라우저 기본 confirm 대신 DOM 모달을 사용하고 게임 진행을 잠시 멈춘다. 취소·선택화면 복귀 과정에서 전체화면 요청·해제는 하지 않는다. [원인·수정·검증 상세](../exit-dialog/README.md).
+- 플레이 중 트리오의 앞부분을 짧은 삼각 꼭짓점으로 다듬었다. 선택화면 PNG와 빙글·탱코, 크기·중심·12시 시작 방향·발사·프로펠러·충돌은 그대로다. [수정 전후 확대 비교·검증](../trio-body/README.md).
 
 ## 재생성
 
@@ -54,7 +55,7 @@ python scripts/package_galaxy_test.py
 SHA-256:
 
 ```text
-8c06e228a2b71744a9c5b206bb2b063a87fda76eb0dac6b576bd18efdc57e17a
+085177594be68f89039726a5afee18b6bdb3a1091d3c27f418189c7fd74b1c20
 ```
 
 빌드 상세: [build-results.json](build-results.json).
@@ -90,6 +91,7 @@ Chromium·Playwright·Pillow·Node.js 환경에서 **14개 검사 그룹**을 �
 - 로컬 파일의 센서 권한·센서 방향·중앙 보정.
 - 스피커의 실제 소리·음량·지연, 앱 전환 후 소리 복귀.
 - 전체화면 진입·가로 방향 잠금 허용 여부.
+- 새 트리오 앞끝의 실기기 표시 선명도와 회전 중 외형.
 - Samsung Internet에서 전체화면 중 새 종료창의 표시·취소·복귀, Android 뒤로가기·앱 전환 후 상태. 이번 수정의 실기기 재검사는 아직 수행하지 못했다.
 - 실제 기기 성능·배터리·발열, 브라우저 주소창·제스처 영역에 따른 가용 화면.
 

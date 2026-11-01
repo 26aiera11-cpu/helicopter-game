@@ -1,0 +1,343 @@
+{
+  "passed": [
+    "All three helicopters and upgrade levels 0–5 produce the expected shot counts, damage, speed, homing and piercing configuration.",
+    "Continuous-fire timing preserves Trio/Bingle/Tanko rate ordering and first-upgrade fire-rate increase.",
+    "Actual collision updates support Tanko piercing, upgraded projectile width and Bingle homing turns.",
+    "The four bosses emit their original one/three/three/five-shot patterns with the configured stage/phase projectile speeds.",
+    "Health pickups heal by two and respect max HP; upgrades cap at five; special-enemy destruction scores, drops an item and emits particles.",
+    "Enemy bullet/body damage and invulnerability work; zero health returns to the selection screen and displays the score.",
+    "All 20 waves and four bosses clear through real warning/spawn, shooting/collision and update-driven transitions; score reaches 160 without a progression blocker.",
+    "Existing boss-reward disappearance reproduced and classified as nonblocking; next-stage entry still succeeds.",
+    "Synthetic sensor samples calibrate a neutral point, clamp motion and reset; physical sensor permission remains untested.",
+    "Restart after defeat/clear resets stage, score, health and weapon upgrades.",
+    "No uncaught JavaScript errors in the controlled full-function audit."
+  ],
+  "blocking_findings": [],
+  "nonblocking_findings": [
+    {
+      "id": "N1",
+      "issue": "Game-over path leaves gameAudioStarted true and does not pause the soundtrack.",
+      "status": "existing, not changed",
+      "blocks_progress": false
+    },
+    {
+      "id": "N2",
+      "issue": "Boss reward is created then cleared by nextPhase before collection.",
+      "status": "existing, not changed",
+      "blocks_progress": false
+    }
+  ],
+  "limits": [
+    "Controlled automated game-state/input checks, not a manual difficulty/balance playthrough.",
+    "Physical Galaxy/Samsung Internet, sensors and audible output require device checks."
+  ],
+  "weapon_matrix": [
+    {
+      "type": 0,
+      "level": 0,
+      "count": 1,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 535
+    },
+    {
+      "type": 0,
+      "level": 1,
+      "count": 2,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 535
+    },
+    {
+      "type": 0,
+      "level": 2,
+      "count": 3,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 535
+    },
+    {
+      "type": 0,
+      "level": 3,
+      "count": 4,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 535
+    },
+    {
+      "type": 0,
+      "level": 4,
+      "count": 5,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 535
+    },
+    {
+      "type": 0,
+      "level": 5,
+      "count": 5,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 2,
+      "speed": 535
+    },
+    {
+      "type": 1,
+      "level": 0,
+      "count": 1,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 1,
+      "level": 1,
+      "count": 1,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 1,
+      "level": 2,
+      "count": 3,
+      "homing": 0,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 1,
+      "level": 3,
+      "count": 3,
+      "homing": 1,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 1,
+      "level": 4,
+      "count": 3,
+      "homing": 2,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 1,
+      "level": 5,
+      "count": 3,
+      "homing": 3,
+      "damage": 1,
+      "pierce": 1,
+      "speed": 480
+    },
+    {
+      "type": 2,
+      "level": 0,
+      "count": 1,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 2,
+      "speed": 410
+    },
+    {
+      "type": 2,
+      "level": 1,
+      "count": 1,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 3,
+      "speed": 410
+    },
+    {
+      "type": 2,
+      "level": 2,
+      "count": 2,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 3,
+      "speed": 410
+    },
+    {
+      "type": 2,
+      "level": 3,
+      "count": 2,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 5,
+      "speed": 410
+    },
+    {
+      "type": 2,
+      "level": 4,
+      "count": 2,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 6,
+      "speed": 410
+    },
+    {
+      "type": 2,
+      "level": 5,
+      "count": 2,
+      "homing": 0,
+      "damage": 2,
+      "pierce": 7,
+      "speed": 410
+    }
+  ],
+  "shots_per_controlled_second": [
+    [
+      10,
+      12
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "boss_projectile_patterns": [
+    {
+      "stage": 0,
+      "count": 1,
+      "speed": 117
+    },
+    {
+      "stage": 1,
+      "count": 3,
+      "speed": 142.00000000000003
+    },
+    {
+      "stage": 2,
+      "count": 3,
+      "speed": 161.99999999999997
+    },
+    {
+      "stage": 3,
+      "count": 5,
+      "speed": 187
+    }
+  ],
+  "controlled_progression": {
+    "waves": [
+      {
+        "stage": 0,
+        "phase": 1,
+        "bossDefeated": false
+      },
+      {
+        "stage": 0,
+        "phase": 2,
+        "bossDefeated": false
+      },
+      {
+        "stage": 0,
+        "phase": 3,
+        "bossDefeated": false
+      },
+      {
+        "stage": 0,
+        "phase": 4,
+        "bossDefeated": false
+      },
+      {
+        "stage": 0,
+        "phase": 5,
+        "bossDefeated": true
+      },
+      {
+        "stage": 1,
+        "phase": 1,
+        "bossDefeated": false
+      },
+      {
+        "stage": 1,
+        "phase": 2,
+        "bossDefeated": false
+      },
+      {
+        "stage": 1,
+        "phase": 3,
+        "bossDefeated": false
+      },
+      {
+        "stage": 1,
+        "phase": 4,
+        "bossDefeated": false
+      },
+      {
+        "stage": 1,
+        "phase": 5,
+        "bossDefeated": true
+      },
+      {
+        "stage": 2,
+        "phase": 1,
+        "bossDefeated": false
+      },
+      {
+        "stage": 2,
+        "phase": 2,
+        "bossDefeated": false
+      },
+      {
+        "stage": 2,
+        "phase": 3,
+        "bossDefeated": false
+      },
+      {
+        "stage": 2,
+        "phase": 4,
+        "bossDefeated": false
+      },
+      {
+        "stage": 2,
+        "phase": 5,
+        "bossDefeated": true
+      },
+      {
+        "stage": 3,
+        "phase": 1,
+        "bossDefeated": false
+      },
+      {
+        "stage": 3,
+        "phase": 2,
+        "bossDefeated": false
+      },
+      {
+        "stage": 3,
+        "phase": 3,
+        "bossDefeated": false
+      },
+      {
+        "stage": 3,
+        "phase": 4,
+        "bossDefeated": false
+      },
+      {
+        "stage": 3,
+        "phase": 5,
+        "bossDefeated": true
+      }
+    ],
+    "score": 160,
+    "started": false,
+    "stage": 3,
+    "phase": 5,
+    "message": "🏆 모든 지역 클리어! ⭐ 160"
+  }
+}

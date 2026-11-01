@@ -4,6 +4,7 @@ Run: python tests/selection_smoke.py --artifacts /absolute/path/to/review
 Uses a temporary loopback-only server; no account, publishing or external requests.
 """
 import argparse
+import base64
 import hashlib
 import json
 import re
@@ -40,11 +41,15 @@ for old, new in [
 ]:
     assert expected.count(old) == 1
     expected = expected.replace(old, new, 1)
+old_body = 'data:image/png;base64,' + base64.b64encode((root / 'backups/trio-gameplay.before-pointed-nose.png').read_bytes()).decode()
+new_body = 'data:image/png;base64,' + base64.b64encode((root / 'assets/gameplay/trio-body-pointed.png').read_bytes()).decode()
+assert expected.count(old_body) == 1
+expected = expected.replace(old_body, new_body, 1)
 old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', expected, re.S)
 game_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S)
 assert old_scripts == game_scripts
 assert hashlib.sha1(b'blob ' + str(len(before.encode())).encode() + b'\0' + before.encode()).hexdigest() == '19d3426b649a1ba77e4b7bd80019ea809fdf832d'
-passed('Backup matches the original Git blob; all original scripts/assets are preserved except the exact authorized exit-dialog wiring and pause guard.')
+passed('Backup matches the original Git blob; only authorized exit-dialog wiring/pause guard and one Trio body PNG differ from original scripts/assets.')
 for source in game_scripts + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=source, text=True, check=True, capture_output=True)
 passed('All original JavaScript blocks and selection.js pass syntax checks.')
