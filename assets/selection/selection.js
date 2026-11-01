@@ -164,3 +164,56 @@
   for (const event of ['fullscreenerror', 'webkitfullscreenerror']) document.addEventListener(event, unavailable);
   render();
 })();
+
+/* In-page exit confirmation: no native browser prompt or fullscreen request. */
+(() => {
+  const dialog = document.createElement('dialog');
+  dialog.id = 'gameExitDialog';
+  dialog.setAttribute('aria-labelledby', 'gameExitTitle');
+  dialog.innerHTML = '<h2 id="gameExitTitle">게임을 종료할까요?</h2>' +
+    '<div class="game-exit-actions"><button id="gameExitCancel" type="button" autofocus>계속 플레이</button>' +
+    '<button id="gameExitConfirm" type="button">선택화면으로</button></div>';
+  document.body.append(dialog);
+  let onConfirm = null;
+  let previousFocus = null;
+  window.gameExitDialogOpen = false;
+
+  function clearInput() {
+    keys.left = keys.right = keys.fire = false;
+    drag = null;
+    tilt = { x: 0, y: 0 };
+  }
+  function finish(confirmed) {
+    if (!dialog.open && !window.gameExitDialogOpen) return;
+    const callback = onConfirm;
+    onConfirm = null;
+    if (dialog.open) dialog.close();
+    window.gameExitDialogOpen = false;
+    clearInput();
+    if (confirmed && callback) callback();
+    else if (started && previousFocus?.isConnected) previousFocus.focus({ preventScroll: true });
+    previousFocus = null;
+  }
+  window.showGameExitDialog = callback => {
+    if (!started || dialog.open) return;
+    previousFocus = document.activeElement;
+    onConfirm = callback;
+    clearInput();
+    window.gameExitDialogOpen = true;
+    try { dialog.showModal(); }
+    catch (error) {
+      window.gameExitDialogOpen = false;
+      onConfirm = null;
+      previousFocus = null;
+    }
+  };
+  dialog.querySelector('#gameExitCancel').addEventListener('click', () => finish(false));
+  dialog.querySelector('#gameExitConfirm').addEventListener('click', () => finish(true));
+  dialog.addEventListener('cancel', event => { event.preventDefault(); finish(false); });
+  dialog.addEventListener('close', () => {
+    if (!dialog.open && window.gameExitDialogOpen) finish(false);
+  });
+  new MutationObserver(() => {
+    if (!started && window.gameExitDialogOpen) finish(false);
+  }).observe(document.getElementById('menu'), { attributes: true, attributeFilter: ['class'] });
+})();

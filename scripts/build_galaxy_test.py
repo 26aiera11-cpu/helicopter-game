@@ -52,7 +52,7 @@ def build():
     result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/selection/[^\"\']+)([\"\'])', inline_image, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == original_scripts + [javascript], 'Original gameplay/audio scripts changed'
+    assert built_scripts == original_scripts + [javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -64,7 +64,7 @@ def build():
     for value in re.findall(r'url\(([^)]+)\)', result):
         assert value.strip('\"\' ').startswith(('data:', '#')), 'External CSS dependency'
     assert not re.search(r'@import\s', result, re.I)
-    note = '\n<!-- Self-contained Galaxy test build: original game/audio scripts preserved; all resources embedded. -->\n'
+    note = '\n<!-- Self-contained Galaxy test build: current source scripts preserved; all resources embedded. -->\n'
     result = result.replace('<!doctype html>', '<!doctype html>' + note, 1)
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(result)
@@ -72,12 +72,12 @@ def build():
         'output': str(OUTPUT.relative_to(ROOT)),
         'bytes': OUTPUT.stat().st_size,
         'sha256': hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
-        'preserved_original_inline_scripts': len(original_scripts),
+        'preserved_source_inline_scripts': len(original_scripts),
         'inlined_selection_scripts': 1,
         'inlined_selection_stylesheets': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded)],
         'external_dependencies': 0,
-        'galaxy_only_style': 'Disable the browser native selection-button tap flash; original game and selection source files unchanged.',
+        'galaxy_only_style': 'Disable the browser native selection-button tap flash; packaging does not edit source files.',
     }
 
 

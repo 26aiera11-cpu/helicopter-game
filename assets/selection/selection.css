@@ -66,3 +66,14 @@
 .selection-open #fullscreenStatus{left:8px;right:auto}
 #fullscreenStatus:empty{display:none}
 @media(max-height:450px){#fullscreenToggle{min-height:26px;padding:4px 5px;font-size:10px}#fullscreenStatus{top:38px}}
+/* DOM dialog stays inside the fullscreen document and makes the game inert. */
+#gameExitDialog{box-sizing:border-box;width:min(380px,calc(100vw - 40px));max-height:calc(100dvh - 32px);overflow:auto;border:2px solid #c6eaffb8;border-radius:22px;padding:clamp(18px,4vh,28px) clamp(18px,3vw,30px);background:linear-gradient(145deg,#12395bf5,#071d36fa);color:#fff;text-align:center;font-family:system-ui;box-shadow:0 18px 70px #0009}
+#gameExitDialog::backdrop{background:#030f20ad}
+#gameExitTitle{margin:0 0 22px;font-size:clamp(20px,3vw,26px);line-height:1.35;font-weight:850}
+#gameExitDialog .game-exit-actions{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+#gameExitDialog button{min-height:44px;padding:10px 8px;border:1px solid #a7dcffb8;border-radius:12px;font:800 14px/1.3 system-ui;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+#gameExitCancel{background:#175582;color:#fff}
+#gameExitConfirm{background:#f6cd59;color:#173652;border-color:#fff1a8!important}
+#gameExitDialog button:focus-visible{outline:3px dashed white;outline-offset:3px}
+#gameExitDialog button:active{filter:brightness(1.12)}
+@media(max-height:350px){#gameExitDialog{padding:16px 18px}#gameExitTitle{font-size:20px;margin-bottom:16px}#gameExitDialog button{min-height:40px}}

@@ -32,7 +32,7 @@ try:
         context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True)
         page=context.new_page();errors=[]
         page.on('pageerror',lambda error:errors.append(str(error)))
-        page.on('dialog',lambda dialog:dialog.accept())
+        page.on('dialog',lambda dialog:(errors.append('Unexpected native dialog: '+dialog.type),dialog.dismiss()))
         url=f'http://127.0.0.1:{server.server_port}/'
         page.goto(url,wait_until='load')
         assert page.evaluate('document.fullscreenEnabled&&!document.fullscreenElement')
@@ -72,7 +72,7 @@ try:
         toggle.tap();page.wait_for_function('!document.fullscreenElement')
         assert page.evaluate('started&&player.type===2')
         toggle.tap();page.wait_for_function('!!document.fullscreenElement')
-        page.locator('#exitGame').tap();expect(page.locator('#menu')).to_be_visible()
+        page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap();expect(page.locator('#menu')).to_be_visible()
         assert page.evaluate('!!document.fullscreenElement&&!started')
         toggle.tap();page.wait_for_function('!document.fullscreenElement')
         expect(toggle).to_have_attribute('aria-pressed','false')
@@ -100,7 +100,7 @@ try:
                 }
             })()''')
             other=fallback.new_page();other.on('pageerror',lambda error:errors.append(str(error)))
-            other.on('dialog',lambda dialog:dialog.accept());other.goto(url,wait_until='load')
+            other.on('dialog',lambda dialog:(errors.append('Unexpected native dialog: '+dialog.type),dialog.dismiss()));other.goto(url,wait_until='load')
             if mode=='unsupported':expect(other.locator('#fullscreenToggle')).to_be_disabled()
             else:
                 other.locator('#fullscreenToggle').tap()
@@ -108,7 +108,7 @@ try:
                 expect(other.locator('#fullscreenToggle')).to_be_enabled()
             other.locator('#startSelected').tap();other.wait_for_function('started&&player.type===0')
             assert other.evaluate('!document.fullscreenElement&&hp===4')
-            other.locator('#exitGame').tap();expect(other.locator('#menu')).to_be_visible()
+            other.locator('#exitGame').tap();other.locator('#gameExitConfirm').tap();expect(other.locator('#menu')).to_be_visible()
             fallback.close()
         passed('Simulated unsupported and rejected API paths allow normal-screen game start/return without crashes or automatic retry loops.')
         assert not errors,errors

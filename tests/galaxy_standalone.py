@@ -55,7 +55,7 @@ scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.S)
 assert scripts == old_scripts + [(root / 'assets/selection/selection.js').read_text()]
 for script in scripts:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('The three original combat/stage/boss/audio scripts and current selection JavaScript are preserved exactly and pass syntax checks.')
+passed('The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.')
 embedded_pngs = {base64.b64decode(value.split(',', 1)[1]) for value in resources.values if value.startswith('data:image/png;base64,')}
 for path in (root / 'assets/selection').glob('*.png'):
     if path.name == 'background-clean.png':
@@ -93,7 +93,7 @@ with sync_playwright() as playwright:
         current_page.on('pageerror', lambda error: errors.append(str(error)))
         current_page.on('requestfailed', lambda request: failed_assets.append(request.url) if request.url != file_url else None)
         current_page.on('request', lambda request: external_requests.append(request.url) if request.url.startswith(('http:', 'https:')) else None)
-        current_page.on('dialog', lambda dialog: dialog.accept())
+        current_page.on('dialog', lambda dialog: (errors.append('Unexpected native dialog: '+dialog.type),dialog.dismiss()))
 
     observe(page)
     try:
@@ -197,10 +197,23 @@ with sync_playwright() as playwright:
             page.wait_for_function('enemies.length>0',timeout=15000)
             page.wait_for_function('window.__galaxyAudio.some(audio=>audio.loop&&!audio.paused&&audio.currentTime>0)')
         page.locator('#exitGame').tap()
+        expect(page.locator('#gameExitDialog')).to_be_visible()
+        assert page.evaluate('gameExitDialogOpen && !!document.fullscreenElement')
+        if kind == 0:
+            paused = page.evaluate('worldScroll')
+            page.wait_for_timeout(200)
+            assert page.evaluate('worldScroll') == paused
+            page.screenshot(path=str(args.artifacts/'galaxy-exit-confirm.png'))
+            page.locator('#gameExitCancel').tap()
+            page.wait_for_function('(old)=>started&&worldScroll>old',arg=paused)
+            assert page.evaluate('!gameExitDialogOpen&&!!document.fullscreenElement')
+            page.locator('#exitGame').tap()
+        page.locator('#gameExitConfirm').tap()
         expect(page.locator('#menu')).to_be_visible()
         assert page.evaluate('!started&&player===null')
         assert page.evaluate('!!document.fullscreenElement')
     passed('Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.')
+    passed('The rebuilt offline HTML includes the in-page exit modal, gameplay pause/resume and fullscreen-preserving selection return without native dialogs.')
     passed('The original embedded background track starts after a user gesture; audible speaker output remains a device test.')
     fullscreen.tap();page.wait_for_function('!document.fullscreenElement')
     passed('The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.')

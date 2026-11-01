@@ -32,11 +32,19 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', before, re.S)
+expected = before
+for old, new in [
+    ("if(!confirm('게임을 종료하고 캐릭터 선택 화면으로 돌아갈까요?'))return;", 'showGameExitDialog(()=>{'),
+    ('drawChoices()});function bind', 'drawChoices()})});function bind'),
+    ('function update(dt){\n if(!started)return;', 'function update(dt){\n if(!started||window.gameExitDialogOpen)return;'),
+]:
+    assert expected.count(old) == 1
+    expected = expected.replace(old, new, 1)
+old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', expected, re.S)
 game_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S)
 assert old_scripts == game_scripts
 assert hashlib.sha1(b'blob ' + str(len(before.encode())).encode() + b'\0' + before.encode()).hexdigest() == '19d3426b649a1ba77e4b7bd80019ea809fdf832d'
-passed('Backup matches the original Git blob; all original game/audio scripts and embedded game assets are byte-identical.')
+passed('Backup matches the original Git blob; all original scripts/assets are preserved except the exact authorized exit-dialog wiring and pause guard.')
 for source in game_scripts + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=source, text=True, check=True, capture_output=True)
 passed('All original JavaScript blocks and selection.js pass syntax checks.')
@@ -61,7 +69,7 @@ with sync_playwright() as playwright:
     failures = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.on('requestfailed', lambda request: failures.append(request.url))
-    page.on('dialog', lambda dialog: dialog.accept())
+    page.on('dialog', lambda dialog: (errors.append('Unexpected native dialog: '+dialog.type),dialog.dismiss()))
     page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
@@ -221,6 +229,7 @@ with sync_playwright() as playwright:
         assert page.evaluate('bullets.every(bullet => bullet.kind === player.type)')
         page.mouse.up()
         page.locator('#exitGame').click()
+        page.locator('#gameExitConfirm').click()
         expect(page.locator('#menu')).to_be_visible()
         assert page.evaluate('!started && player === null && bullets.length === 0')
     passed('All three helicopters start with HP 4/6/9 and retain gameplay scrolling, rotation, drag, firing and return-to-menu.')
