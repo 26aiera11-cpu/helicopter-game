@@ -195,7 +195,8 @@ function nextPhase(){gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];w
  moveHelicopter(dt);
  fireCooldown-=dt;if(keys.fire&&fireCooldown<=0){shoot();fireCooldown=[.105,.17,.28][player.type]*(player.upgrade>=1?.82:1)*(player.type===1&&player.upgrade>=5?.85:1)}
  spawn-=dt;
- if(phase===5&&phaseKills>=requiredKills&&!boss){boss={x:W*.5,y:H*.27,r:48,hp:20+stage*15,maxHp:20+stage*15,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}
+ // Snapshot health once. Linear +20%/level, with measured level-1/4/5 tuning.
+ if(phase===5&&phaseKills>=requiredKills&&!boss){const bossHP=(20+stage*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}
  if(spawn<=0&&!boss&&transition<=0&&phaseKills<requiredKills&&enemies.length+warnings.length<Math.min(7,3+stage+Math.floor(phase/2))){
  warnEnemy();spawn=Math.max(.72,tactics[stage].spawn-(phase-1)*.09)
  }

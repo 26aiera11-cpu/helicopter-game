@@ -32,5 +32,11 @@
       "update(dt);draw();requestAnimationFrame(frame)",
       "update(dt);if(!gameOverPending)draw();requestAnimationFrame(frame)"
     ]
+  ],
+  "boss": [
+    [
+      "if(phase===5&&phaseKills>=requiredKills&&!boss){boss={x:W*.5,y:H*.27,r:48,hp:20+stage*15,maxHp:20+stage*15,",
+      "// Snapshot health once. Linear +20%/level, with measured level-1/4/5 tuning.\n if(phase===5&&phaseKills>=requiredKills&&!boss){const bossHP=(20+stage*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,"
+    ]
   ]
 }
