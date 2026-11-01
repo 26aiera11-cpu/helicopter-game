@@ -135,10 +135,9 @@ try:
         }''')
         assert damage['first']==3 and damage['protectedHP']==3 and damage['body']==2
         assert damage['gameOver'] and damage['menuVisible']
+        assert not damage['audioFlag'], 'Game over must reset the audio-started flag (N1 regression).'
         expect(page.locator('#selectionResult')).to_contain_text('게임 오버')
-        passed('Enemy bullet/body damage and invulnerability work; zero health returns to the selection screen and displays the score.')
-        if damage['audioFlag']:
-            report['nonblocking_findings'].append({'id':'N1','issue':'Game-over path leaves gameAudioStarted true and does not pause the soundtrack.','status':'existing, not changed','blocks_progress':False})
+        passed('Enemy bullet/body damage and invulnerability work; zero health returns to selection with the score and resets the audio-started flag (N1 fixed).')
 
         progression = page.evaluate('''() => {
             auditReset(0);const waves=[];let safety=0;

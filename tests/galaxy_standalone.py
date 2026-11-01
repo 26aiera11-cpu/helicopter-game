@@ -219,6 +219,22 @@ with sync_playwright() as playwright:
     passed('The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.')
 
     page.locator('#startSelected').tap()
+    page.wait_for_function('window.__galaxyAudio[0]&&!window.__galaxyAudio[0].paused&&window.__galaxyAudio[0].currentTime>0')
+    page.evaluate('hp=0')
+    page.wait_for_function('!started')
+    expect(page.locator('#selectionResult')).to_contain_text('게임 오버')
+    assert page.evaluate('!window.gameAudioStarted&&window.__galaxyAudio.filter(a=>a.loop).every(a=>a.paused)')
+    page.wait_for_timeout(80)
+    stopped=page.evaluate('window.__galaxyAudio[0].currentTime')
+    page.wait_for_timeout(200)
+    assert page.evaluate('window.__galaxyAudio[0].currentTime')==stopped
+    page.locator('.select-hit[data-heli="1"]').tap()
+    page.locator('#startSelected').tap()
+    page.wait_for_function('started&&player.type===1&&window.__galaxyAudio.filter(a=>a.loop&&!a.paused).length===1')
+    page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
+    passed('The latest standalone HTML pauses all BGM on game over, freezes its playback clock and restarts one track with another character offline.')
+
+    page.locator('#startSelected').tap()
     for stage in range(4):
         state=page.evaluate('''index=>{stage=index;phase=4;nextPhase();
             phaseKills=requiredKills;transition=0;boss=null;update(.01);

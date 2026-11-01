@@ -38,6 +38,7 @@ for old, new in [
     ("if(!confirm('게임을 종료하고 캐릭터 선택 화면으로 돌아갈까요?'))return;", 'showGameExitDialog(()=>{'),
     ('drawChoices()});function bind', 'drawChoices()})});function bind'),
     ('function update(dt){\n if(!started)return;', 'function update(dt){\n if(!started||window.gameExitDialogOpen)return;'),
+    ("if(hp<=0){started=false;menu.classList.remove('hidden');", "if(hp<=0){started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');"),
 ]:
     assert expected.count(old) == 1
     expected = expected.replace(old, new, 1)
@@ -49,7 +50,7 @@ old_scripts = re.findall(r'<script[^>]*>(.*?)</script>', expected, re.S)
 game_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S)
 assert old_scripts == game_scripts
 assert hashlib.sha1(b'blob ' + str(len(before.encode())).encode() + b'\0' + before.encode()).hexdigest() == '19d3426b649a1ba77e4b7bd80019ea809fdf832d'
-passed('Backup matches the original Git blob; only authorized exit-dialog wiring/pause guard and one Trio body PNG differ from original scripts/assets.')
+passed('Backup matches the original Git blob; only authorized exit-dialog wiring/pause guard, one Trio PNG and the exact game-over BGM stop differ from original scripts/assets.')
 for source in game_scripts + [(root / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=source, text=True, check=True, capture_output=True)
 passed('All original JavaScript blocks and selection.js pass syntax checks.')

@@ -39,10 +39,14 @@ def passed(message):
 
 
 assert report['original_png_sha256'] == '9dae3f9454696cee4c8470ff909895c22b8a546a3013c01faa58dee096cf16bd'
-assert before.count(old_url) == 1 and after == before.replace(old_url, new_url, 1)
+expected = before.replace(old_url, new_url, 1)
+old_stop = "if(hp<=0){started=false;menu.classList.remove('hidden');"
+new_stop = "if(hp<=0){started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');"
+assert before.count(old_url) == 1 and expected.count(old_stop) == 1
+assert after == expected.replace(old_stop, new_stop, 1)
 for name in ['assets/selection/selection.js', 'assets/selection/selection.css'] + [str(p.relative_to(root)) for p in (root / 'assets/selection').glob('*.png')]:
     assert (root / name).read_bytes() == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
-passed('Only one gameplay Trio PNG data URL changes; all rendering/gameplay/audio/fullscreen/exit code, Bingle/Tanko, projectiles, rotors and selection assets remain byte-identical.')
+passed('Only the authorized Trio PNG and exact game-over BGM stop differ from the baseline; all other rendering/gameplay/audio/fullscreen/exit code and assets remain byte-identical.')
 
 old, new = Image.open(old_path), Image.open(new_path)
 assert old.size == new.size == (506, 484) and old.mode == new.mode == 'RGBA'
