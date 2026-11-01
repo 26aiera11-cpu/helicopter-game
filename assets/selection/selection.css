@@ -77,3 +77,6 @@
 #gameExitDialog button:focus-visible{outline:3px dashed white;outline-offset:3px}
 #gameExitDialog button:active{filter:brightness(1.12)}
 @media(max-height:350px){#gameExitDialog{padding:16px 18px}#gameExitTitle{font-size:20px;margin-bottom:16px}#gameExitDialog button{min-height:40px}}
+/* Compact boss reward notice. */
+#bossRewardNotice{position:fixed;z-index:65;top:42px;left:8px;max-width:calc(100vw - 24px);box-sizing:border-box;margin:0;padding:4px 9px;border:1px solid #cceeff99;border-radius:12px;background:#092849ec;color:#fff;font:800 12px/1.3 system-ui;white-space:nowrap;pointer-events:none;box-shadow:0 2px 8px #0004}
+#bossRewardNotice[hidden]{display:none}

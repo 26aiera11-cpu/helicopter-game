@@ -149,6 +149,20 @@ function moveHelicopter(dt){
  if(player.y>H-12){player.y=H-12;if(player.vy>0)player.vy=0;}
 }
 function dropItem(x,y,isBoss=false){items.push({x,y,type:Math.random()<.5?'hp':'power',life:16,r:13,t:0,vx:(Math.random()-.5)*95,vy:(Math.random()-.5)*95,turn:0})}
+// Automatic boss reward; regular item drops and pickups stay unchanged.
+function grantBossReward(defeatedBoss){
+ if(!started||!player||!defeatedBoss||defeatedBoss.hp>0||defeatedBoss.rewardGranted)return;
+ defeatedBoss.rewardGranted=true;
+ const type=Math.random()<.5?'hp':'power';
+ let amount;
+ if(type==='hp'){
+  const before=hp;hp=Math.min(maxHP[player.type],hp+2);amount=hp-before;
+ }else{
+  const before=player.upgrade;player.upgrade=Math.min(5,player.upgrade+1);amount=player.upgrade-before;
+  gameAudio.fx('upgrade');
+ }
+ document.dispatchEvent(new CustomEvent('bossreward',{detail:{type,amount}}));
+}
 const tactics=[{move:38,bullet:85,interval:4.3,spawn:2.0},{move:53,bullet:110,interval:3.6,spawn:1.8},{move:65,bullet:130,interval:3.1,spawn:1.62},{move:82,bullet:155,interval:2.7,spawn:1.46}];
 function warnEnemy(){const edge=Math.floor(Math.random()*4),pad=27;let x=edge===0?pad:edge===1?W-pad:pad+Math.random()*(W-2*pad),y=edge===2?pad:edge===3?H-pad:pad+Math.random()*(H-2*pad);if(edge<2)y=pad+Math.random()*(H-2*pad);else x=pad+Math.random()*(W-2*pad);warnings.push({x,y,time:1.4,kind:Math.floor(Math.random()*enemySprites[stage].length),edge,special:Math.random()<.22})}
 function emitEnemyShot(e,spread=0){let a=Math.atan2(player.y-e.y,player.x-e.x)+spread,v=tactics[stage].bullet+(phase-1)*8;enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:3.4,r:5})}
@@ -192,7 +206,7 @@ function nextPhase(){gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];w
  let desired=Math.min(W*.35,160);let radial=(d-desired)*.9;let speed=stage===0?45:stage===1?65:stage===2?85:105;
  boss.x=Math.max(72,Math.min(W-72,boss.x+(dx/d*radial-dy/d*speed*.48)*dt));boss.y=Math.max(85,Math.min(H-80,boss.y+(dy/d*radial+dx/d*speed*.48)*dt));
  if(boss.shot<=0&&transition<=0){emitEnemyShot(boss);if(stage>=1){emitEnemyShot(boss,-.23);emitEnemyShot(boss,.23)}if(stage===3){emitEnemyShot(boss,-.43);emitEnemyShot(boss,.43)}boss.shot=Math.max(.75,1.8-stage*.2-phase*.055)}
- for(let b of bullets)if(b.life>0&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){b.life=0;boss.hp-=(b.damage||1);gameAudio.fx('hit');if(boss.hp<=0){gameAudio.fx('boss_defeat');dropItem(boss.x,boss.y,true);boss=null;score+=10;nextPhase();break}}
+ for(let b of bullets)if(b.life>0&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){b.life=0;boss.hp-=(b.damage||1);gameAudio.fx('hit');if(boss.hp<=0){gameAudio.fx('boss_defeat');grantBossReward(boss);boss=null;score+=10;nextPhase();break}}
  if(boss&&Math.hypot(player.x-boss.x,player.y-boss.y)<boss.r+14)hurt();
  }
  for(let b of enemyBullets){b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;if(Math.hypot(b.x-player.x,b.y-player.y)<b.r+12){b.life=0;hurt()}}

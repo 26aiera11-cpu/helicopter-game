@@ -217,3 +217,32 @@
     if (!started && window.gameExitDialogOpen) finish(false);
   }).observe(document.getElementById('menu'), { attributes: true, attributeFilter: ['class'] });
 })();
+
+/* Boss reward notice only; gameplay owns reward selection and application. */
+(() => {
+  const notice = document.createElement('p');
+  notice.id = 'bossRewardNotice';
+  notice.setAttribute('role', 'status');
+  notice.setAttribute('aria-live', 'polite');
+  notice.setAttribute('aria-atomic', 'true');
+  notice.hidden = true;
+  document.body.append(notice);
+  let timeout;
+  function hide() {
+    clearTimeout(timeout);
+    notice.hidden = true;
+    notice.textContent = '';
+  }
+  document.addEventListener('bossreward', event => {
+    const { type, amount } = event.detail;
+    if (type !== 'hp' && type !== 'power') return;
+    clearTimeout(timeout);
+    const label = type === 'hp' ? '❤️ 체력' : '⚡ 무기 강화';
+    notice.textContent = amount > 0 ? `${label} +${amount}` : `${label} 최대`;
+    notice.hidden = false;
+    timeout = setTimeout(hide, 1800);
+  });
+  new MutationObserver(() => {
+    if (document.getElementById('menu').classList.contains('hidden')) hide();
+  }).observe(document.getElementById('menu'), { attributes: true, attributeFilter: ['class'] });
+})();

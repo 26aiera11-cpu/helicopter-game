@@ -1,7 +1,7 @@
 {
   "artifact": "dist/heli_trio_galaxy_test.html",
-  "bytes": 28098804,
-  "sha256": "f15bfe3c42712ef9d71f179800d158502ba4926eef29425e52eb400cd49f78b4",
+  "bytes": 28100881,
+  "sha256": "bb084fe8580e4d3cda50cc373fce6cca15d14ed19804455e6d62d429f9698f02",
   "passed": [
     "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
     "The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.",
@@ -15,6 +15,7 @@
     "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
     "The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.",
     "The latest standalone HTML pauses all BGM on game over, freezes its playback clock and restarts one track with another character offline.",
+    "The rebuilt offline HTML applies both boss rewards before existing region HP healing, drops no boss item and displays the compact reward notice.",
     "All four original stage/boss configurations and final-clear return pass controlled-state regression checks.",
     "915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.",
     "No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run."

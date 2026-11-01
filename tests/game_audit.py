@@ -173,16 +173,17 @@ try:
         passed('All 20 waves and four bosses clear through real warning/spawn, shooting/collision and update-driven transitions; score reaches 160 without a progression blocker.')
 
         reward = page.evaluate('''() => {
-            auditReset(0);phase=5;phaseKills=requiredKills;
+            auditReset(0);phase=5;phaseKills=requiredKills;hp=1;
             boss={x:100,y:100,r:48,hp:1,maxHp:20,t:0,shot:999};
             const original=dropItem;let requested=0;dropItem=(...args)=>{requested++;return original(...args)};
+            const random=Math.random;Math.random=()=>.75;
             try {shoot();Object.assign(bullets[0],{x:100,y:100,vx:0,vy:0});update(.001);}
-            finally {dropItem=original;}
-            return {requested,remaining:items.length,nextStage:stage,nextPhase:phase};
+            finally {dropItem=original;Math.random=random;}
+            return {requested,remaining:items.length,nextStage:stage,nextPhase:phase,hp,upgrade:player.upgrade};
         }''')
-        assert reward['requested']==1 and reward['remaining']==0 and reward['nextStage']==1
-        report['nonblocking_findings'].append({'id':'N2','issue':'Boss reward is created then cleared by nextPhase before collection.','status':'existing, not changed','blocks_progress':False})
-        passed('Existing boss-reward disappearance reproduced and classified as nonblocking; next-stage entry still succeeds.')
+        assert reward=={'requested':0,'remaining':0,'nextStage':1,'nextPhase':1,'hp':3,'upgrade':1}
+        report['automatic_boss_reward']=reward
+        passed('N2 fixed: boss power reward applies immediately, produces no dropped item, and next-region HP healing/progression remains intact.')
 
         sensors = page.evaluate('''() => {
             auditReset(0);sensorOn=true;neutral=null;applyTilt(10,20,'방향');const neutralTilt={...tilt};

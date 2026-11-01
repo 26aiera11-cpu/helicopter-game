@@ -1,0 +1,135 @@
+{
+  "baseline_commit": "7e5faf5cee3e38e17301fd8746f693b7010934cf",
+  "passed": [
+    "Only authorized game-over audio and boss-reward additions differ; all image/audio bytes and other game/UI code are preserved, and JavaScript syntax checks pass.",
+    "All 12 original WAV files load native playable metadata; eight BGM elements are initially paused on the selection screen.",
+    "A real touch start plays the forest BGM at nonzero volume and its native playback clock advances.",
+    "Zero health immediately pauses every BGM, resets gameAudioStarted and freezes the playback clocks after game over.",
+    "Selection stays silent after game over and a visible-page notification; the music ON preference remains unchanged.",
+    "Restarting with Bingle starts exactly one forest BGM again, with the original character and music settings.",
+    "Music OFF survives game over and two different-character restarts; turning it ON in selection does not start old gameplay music.",
+    "All four stage/boss themes retain their original switches, boss appearance effect and next-stage progression; final clear still stops BGM.",
+    "Twelve additional game-over/restart cycles across all characters reuse the same audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors."
+  ],
+  "limits": [
+    "Actual headless Chromium with user touch gestures and real HTMLAudioElement playback; no audio-playback/autoplay-policy mocks.",
+    "No physical Galaxy/Samsung Internet/Chrome or audible speaker listening; volume, sound quality, latency and Android app/route changes require device tests.",
+    "Health/stage/boss transitions are controlled game-state tests, not a manual full playthrough."
+  ],
+  "unchanged_wav_sha256": [
+    "d0dd83fbaf26914a0f23db2ac1a4f1671debbdf85901321e90cd87a268bb07e6",
+    "0539eaf8cedc758f88b88cc57d5db14b81ea24e2657f19a0970b5bbf2e6015ca",
+    "832ee94f4a6d55a88babb737c14ff1595e9aa9b08d85cc1597a63e532444e4bb",
+    "4b0fac984c7bd4ad62bb462f5ca6661002ee9d173834734e05683e7f24f2f954",
+    "96402ce299e75b09fba7bc86281b275c1c00bf798291c1182a7bcdd5a823829c",
+    "796de2a0f31b41438c6972acb904f43da6ab375abcf583f66b350bb8e43097a7",
+    "19c6e9212c08aa5a588fe227558761e2f9b851b77435e492363b87283857628c",
+    "cfc475ca6de52009e4ec670f7583d11273a474bf139a9dc0dbe70e0877cd7f7a",
+    "5471ca2f15fc1c7aeaf70ee33fc434c8cb15d9815220d4fa8014a58bddfbd694",
+    "4f092219f544c4fe217edc639560b4bc5ecabf4cd2b52d3cbe2bdb9e99d689d7",
+    "638846fa2c5586d3be657de7e7e5cfb3b206249b944e4c64f1705fa3b46d9cfa",
+    "b25425dda0d28c1fa19d224bbe7e4aeae23e8a19acd21bcda825734ace4a9e28"
+  ],
+  "forest_start": {
+    "active": [
+      "stage_forest"
+    ],
+    "time": 0.12006,
+    "volume": 0.42
+  },
+  "game_over": {
+    "game_audio_started": false,
+    "active_bgm": 0,
+    "playback_clocks_frozen": true
+  },
+  "stage_and_boss_transitions": [
+    {
+      "stage": "forest",
+      "boss_track": "boss_forest",
+      "active_bgm": 1
+    },
+    {
+      "stage": "rock",
+      "boss_track": "boss_rock",
+      "active_bgm": 1
+    },
+    {
+      "stage": "sea",
+      "boss_track": "boss_sea",
+      "active_bgm": 1
+    },
+    {
+      "stage": "desert",
+      "boss_track": "boss_desert",
+      "active_bgm": 1
+    }
+  ],
+  "restart_cycles": [
+    {
+      "cycle": 1,
+      "character": 0,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 2,
+      "character": 1,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 3,
+      "character": 2,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 4,
+      "character": 0,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 5,
+      "character": 1,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 6,
+      "character": 2,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 7,
+      "character": 0,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 8,
+      "character": 1,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 9,
+      "character": 2,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 10,
+      "character": 0,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 11,
+      "character": 1,
+      "after_game_over_active_bgm": 0
+    },
+    {
+      "cycle": 12,
+      "character": 2,
+      "after_game_over_active_bgm": 0
+    }
+  ],
+  "audio_monitor": {
+    "max_simultaneous_bgm": 1,
+    "overlap_events": [],
+    "base_audio_elements": 12,
+    "play_events": 24
+  }
+}

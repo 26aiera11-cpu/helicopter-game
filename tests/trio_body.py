@@ -12,6 +12,7 @@ from pathlib import Path
 
 from PIL import Image
 from playwright.sync_api import expect, sync_playwright
+from reward_preservation import without_boss_reward_changes, without_reward_notice
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--artifacts', type=Path, required=True)
@@ -43,10 +44,11 @@ expected = before.replace(old_url, new_url, 1)
 old_stop = "if(hp<=0){started=false;menu.classList.remove('hidden');"
 new_stop = "if(hp<=0){started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');"
 assert before.count(old_url) == 1 and expected.count(old_stop) == 1
-assert after == expected.replace(old_stop, new_stop, 1)
+assert without_boss_reward_changes(after) == expected.replace(old_stop, new_stop, 1)
 for name in ['assets/selection/selection.js', 'assets/selection/selection.css'] + [str(p.relative_to(root)) for p in (root / 'assets/selection').glob('*.png')]:
-    assert (root / name).read_bytes() == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
-passed('Only the authorized Trio PNG and exact game-over BGM stop differ from the baseline; all other rendering/gameplay/audio/fullscreen/exit code and assets remain byte-identical.')
+    actual = without_reward_notice((root / name).read_text(), name).encode() if name.endswith(('.js', '.css')) else (root / name).read_bytes()
+    assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
+passed('Only authorized Trio/BGM/boss-reward changes differ from the baseline; other rendering/gameplay/audio/fullscreen/exit code and image assets remain byte-identical.')
 
 old, new = Image.open(old_path), Image.open(new_path)
 assert old.size == new.size == (506, 484) and old.mode == new.mode == 'RGBA'

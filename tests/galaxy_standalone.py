@@ -234,6 +234,24 @@ with sync_playwright() as playwright:
     page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
     passed('The latest standalone HTML pauses all BGM on game over, freezes its playback clock and restarts one track with another character offline.')
 
+    for roll in [.25,.75]:
+        page.locator('#startSelected').tap()
+        page.wait_for_function('started&&player.type===1')
+        reward=page.evaluate('''roll=>{
+            stage=0;phase=5;phaseKills=requiredKills;hp=1;player.upgrade=0;
+            spawn=999;transition=0;invuln=999;enemies=[];warnings=[];enemyBullets=[];bullets=[];
+            boss={x:W/2,y:100,r:48,hp:1,maxHp:20,t:0,shot:999};
+            const target=boss,random=Math.random;Math.random=()=>roll;
+            try{shoot();Object.assign(bullets[0],{x:boss.x,y:boss.y,vx:0,vy:0});update(.001)}finally{Math.random=random}
+            return {hp,upgrade:player.upgrade,stage,phase,items:items.length,rewardGranted:target.rewardGranted};
+        }''',roll)
+        assert reward=={'hp':5 if roll<.5 else 3,'upgrade':0 if roll<.5 else 1,'stage':1,'phase':1,'items':0,'rewardGranted':True}
+        expect(page.locator('#bossRewardNotice')).to_have_text('❤️ 체력 +2' if roll<.5 else '⚡ 무기 강화 +1')
+        expect(page.locator('#bossRewardNotice')).to_be_visible()
+        if roll>.5:page.screenshot(path=str(args.artifacts/'galaxy-boss-reward.png'))
+        page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
+    passed('The rebuilt offline HTML applies both boss rewards before existing region HP healing, drops no boss item and displays the compact reward notice.')
+
     page.locator('#startSelected').tap()
     for stage in range(4):
         state=page.evaluate('''index=>{stage=index;phase=4;nextPhase();
