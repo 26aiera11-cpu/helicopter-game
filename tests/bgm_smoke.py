@@ -58,7 +58,7 @@ for path in (root / 'assets').rglob('*'):
         assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
+passed('Only authorized Tanko combat/progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

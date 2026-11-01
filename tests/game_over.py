@@ -15,7 +15,7 @@ for path in (root/'assets').rglob('*'):
  if path.is_file():
   name=str(path.relative_to(root));actual=without_progression_ui(path.read_text(),name).encode() if path.suffix in ('.js','.css') else path.read_bytes()
   assert actual==subprocess.check_output(['git','show','9c3c5a8:'+name],cwd=root)
-passed('Reviewed progression deltas are the only source/UI differences from 9c3c5a8; all images/audio and unrelated behavior remain byte-identical.')
+passed('Reviewed Tanko combat and progression deltas are the only source/UI differences from 9c3c5a8; all images/audio and unrelated behavior remain byte-identical.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start()

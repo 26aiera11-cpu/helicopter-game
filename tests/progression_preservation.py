@@ -1,9 +1,11 @@
 """Undo only reviewed progression changes for historical byte-preservation checks."""
 import json
+from tanko_combat_preservation import without_tanko_combat_changes
 from pathlib import Path
 
 
 def without_progression_changes(source):
+    source=without_tanko_combat_changes(source)
     for changes in reversed(list(json.loads(Path(__file__).with_name('progression_changes.json').read_text()).values())):
         for old, new in reversed(changes):
             assert source.count(new) == 1, new[:90]

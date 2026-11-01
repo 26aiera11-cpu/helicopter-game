@@ -48,7 +48,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-passed('Only authorized progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
+passed('Only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

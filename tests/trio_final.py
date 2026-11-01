@@ -49,7 +49,7 @@ for path in (root / 'assets').rglob('*'):
         assert (without_progression_ui(path.read_text(),str(path.relative_to(root))).encode() if path.suffix in ('.js','.css') else path.read_bytes()) == subprocess.check_output(['git', 'show', baseline + ':' + str(path.relative_to(root))], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized progression/game-over, Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.')
+passed('Only authorized Tanko combat/progression/game-over, Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.')
 png = Image.open(root / FINAL_TRIO_ASSET)
 assert png.size == (1402, 1122) and png.mode == 'RGBA' and png.getchannel('A').getextrema() == (0, 255)
 bounds = png.getchannel('A').point(lambda value: 255 if value >= 128 else 0).getbbox()
