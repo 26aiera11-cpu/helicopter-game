@@ -208,3 +208,11 @@
     getLastResult: () => lastResult, storageKeys
   });
 })();
+
+/* Load the independent item-monster layer after the scoring API is ready. */
+(() => {
+ const script=document.createElement('script');
+ script.src='assets/item_monster/item_monster.js';
+ script.async=false;
+ document.body.appendChild(script);
+})();
