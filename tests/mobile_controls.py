@@ -118,7 +118,7 @@ try:
         touch = Touch(context, page)
 
         def joy():
-            return page.evaluate('''() => {const r=rotationJoystick.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2,travel:r.width/2-26,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}''')
+            return page.evaluate('''() => {const r=rotationJoystick.getBoundingClientRect(),inset=parseFloat(getComputedStyle(rotationJoystick).getPropertyValue('--stick-inset'));return {x:r.x+r.width/2,y:r.y+r.height/2,travel:r.width/2-inset,left:r.left,right:r.right,top:r.top,bottom:r.bottom};}''')
 
         page.evaluate(reset, 0);g=joy()
         for raw in [0,.04,-.04,.079,-.079]:
@@ -143,7 +143,7 @@ try:
         touch.down(1,g['x']+g['travel']*.6,g['y']);page.wait_for_timeout(120);touch.up(1)
         angle=page.evaluate('player.a');page.wait_for_timeout(200)
         assert page.evaluate('player.a')==angle and page.evaluate('gameControls.rotation()')==0
-        assert abs(page.locator('.rotation-knob').bounding_box()['x']+22-g['x'])<1
+        knob=page.locator('.rotation-knob').bounding_box();assert abs(knob['x']+knob['width']/2-g['x'])<1
         passed('Release springs only the knob to center and leaves helicopter heading unchanged.')
         touch.down(1,g['x']+g['travel'],g['y']);touch.move(1,g['right']+40,g['y'])
         assert page.evaluate('gameControls.snapshot().rotationPointer===null&&gameControls.rotation()===0');touch.up(1)

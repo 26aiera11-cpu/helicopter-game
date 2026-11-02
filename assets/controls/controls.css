@@ -10,20 +10,14 @@
   -webkit-user-select:text;user-select:text;-webkit-touch-callout:default;touch-action:auto;
 }
 .rotation-joystick{
-  --stick-inset:26px;--stick-offset:0px;
+  --stick-inset:22px;--stick-offset:0px;
   position:relative;box-sizing:border-box;pointer-events:auto;cursor:ew-resize;
-  width:clamp(180px,28vw,230px);height:76px;border:2px solid #c1eaffce;border-radius:22px;
-  background:linear-gradient(155deg,#287eb9e8,#103e75e8);
-  box-shadow:inset 0 2px 8px #d3f3ff30,0 3px 12px #051e4059;
+  width:clamp(135px,18vw,165px);height:58px;border:0;background:none;box-shadow:none;
+  opacity:.4;transition:opacity .12s ease;
 }
 .rotation-joystick:focus-visible{outline:3px dashed #fff;outline-offset:4px}
-.rotation-direction,.rotation-caption{position:absolute;top:5px;color:#e5f7ff;line-height:20px;pointer-events:none}
-.rotation-direction{font:900 22px/20px system-ui;width:26px;text-align:center}
-.rotation-direction:first-child{left:11px}.rotation-direction:nth-child(2){right:11px}
-.rotation-caption{left:50%;transform:translateX(-50%);font:800 11px/20px system-ui;letter-spacing:.08em}
-.rotation-track{position:absolute;left:var(--stick-inset);right:var(--stick-inset);top:47px;height:6px;transform:translateY(-50%);border-radius:9px;background:#062e5e;box-shadow:inset 0 1px 3px #0007,0 1px 0 #c4eeff60;pointer-events:none}
-.rotation-track::after{content:"";position:absolute;left:50%;top:50%;width:3px;height:14px;border-radius:2px;transform:translate(-50%,-50%);background:#beeaff9c}
-.rotation-knob{position:absolute;left:calc(50% + var(--stick-offset));top:47px;width:44px;height:44px;box-sizing:border-box;transform:translate(-50%,-50%);border:2px solid #e4faff;border-radius:50%;background:radial-gradient(circle at 35% 25%,#b5efff,#4bafeb 48%,#1764ae);box-shadow:0 3px 7px #041f4566,inset 0 2px 4px #fff8;pointer-events:none;transition:left .12s ease-out}
-.rotation-knob::after{content:"";position:absolute;inset:12px;border:2px solid #e5faff9c;border-radius:50%}
-.rotation-joystick.is-held .rotation-knob{transition:none;filter:brightness(1.08)}
-@media(max-height:450px){.rotation-joystick{height:68px;border-radius:20px}.rotation-track,.rotation-knob{top:43px}.rotation-direction,.rotation-caption{top:2px}}
+.rotation-direction,.rotation-caption{display:none}
+.rotation-track{position:absolute;left:var(--stick-inset);right:var(--stick-inset);top:50%;height:2px;transform:translateY(-50%);border-radius:2px;background:#fff;box-shadow:0 1px 1px #08213b66;pointer-events:none}
+.rotation-knob{position:absolute;left:calc(50% + var(--stick-offset));top:50%;width:32px;height:32px;box-sizing:border-box;transform:translate(-50%,-50%);border:1px solid #eefaffc9;border-radius:50%;background:#87d8ff;box-shadow:0 1px 2px #06213b66;pointer-events:none;transition:left .12s ease-out}
+.rotation-joystick.is-held{opacity:.7}
+.rotation-joystick.is-held .rotation-knob{transition:none}
