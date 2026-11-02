@@ -59,7 +59,7 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}/'
 html = (ROOT / 'dist/heli_trio_galaxy_test.html').read_text() if args.standalone else None
 helpers = '''() => {
-  window.itemReset=(type=0)=>{start(type);itemMonsters.configure({probability:0,intervalSeconds:null,maxActive:null,allowDuringBoss:false,stageRules:{0:{},1:{},2:{},3:{}}});spawn=999;transition=0;invuln=999;fireCooldown=0;};
+  window.itemReset=(type=0)=>{itemMonsters.configure({opportunitiesPerRegion:0});start(type);spawn=999;transition=0;invuln=999;fireCooldown=0;};
   window.hitItem=m=>{bullets=[];shoot();Object.assign(bullets[0],{x:m.x,y:m.y,vx:0,vy:0});update(0);};
   window.plainEnemy=(x=100,y=100)=>({x,y,hp:1,special:false,r:16,t:0,speed:0,shot:999,charge:999,kind:0,mode:'chase',vx:0,vy:0});
 }'''
@@ -86,48 +86,27 @@ try:
         assert page.evaluate('itemMonsterAtlas.naturalWidth===2560&&itemMonsterAtlas.naturalHeight===1280')
         assert page.evaluate('document.querySelectorAll("#itemMonsterAtlas").length') == 1
         report['initial_runtime_policy'] = page.evaluate('itemMonsters.snapshot()')
-        assert report['initial_runtime_policy']['policy']['probability'] == .22
+        assert report['initial_runtime_policy']['settings']['opportunitiesPerRegion'] == 3
         assert report['initial_runtime_policy']['normalOpportunityProbability'] == .78
-        passed('One actual supplied RGBA atlas decodes with correct dimensions; no static stand-in, synthesized artwork, missing motion frame or dynamic JS loader is used.')
+        passed('Supplied atlas and the new default3-opportunity kill-count planner load; original images and native normal-enemy78% admission are preserved.')
 
-        policies = page.evaluate('''() => {
-          itemReset();const rows=[];
-          for(let area=0;area<4;area++)for(let step=1;step<=5;step++){
-            stage=area;phase=step;rows.push({area,step,...itemMonsters.snapshot().policy});
-          }return rows;
+        policy = page.evaluate('''() => {
+          itemMonsters.configure({opportunitiesPerRegion:3});start(0);spawn=999;transition=0;invuln=999;
+          const first=itemMonsters.snapshot().regions[0].phases.find(s=>s.selected);phase=first.phase;
+          for(let i=0;i<first.requiredKills;i++){const target=plainEnemy();enemies=[target];hitItem(target);}
+          const pending=itemMonsters.snapshot().entrances.length;itemMonsters.update(1.4);
+          return {pending,count:itemMonsters.targets().length,hp:itemMonsters.targets()[0].hp,life:itemMonsters.targets()[0].life,phaseKills,threshold:first.requiredKills};
         }''')
-        for row in policies:
-            assert abs(row['intervalSeconds'] - max(.72, [2, 1.8, 1.62, 1.46][row['area']] - (row['step'] - 1) * .09)) < 1e-9
-            assert row['probability'] == 0 and row['maxActive'] == min(7, 3 + row['area'] + row['step'] // 2)
-            assert not row['allowDuringBoss']
-        report['inherited_policy_matrix'] = policies
-        passed('All20 region/phase policies inherit existing cadence/capacity rather than the prototype8/7/11–16-second timers; independent probability/cap/boss/stage controls remain configurable.')
-
-        independence = page.evaluate('''() => {
-          itemReset();itemMonsters.configure({probability:1,maxActive:1});spawn=999;itemMonsters.update(0);
-          const independent={normal:warnings.length,item:itemMonsters.snapshot().entrances.length};
-          itemReset();const random=Math.random;Math.random=()=>.9;spawn=0;
-          try{update(0)}finally{Math.random=random}
-          return {independent,ordinary:{normal:warnings.length,item:itemMonsters.snapshot().entrances.length,special:warnings[0].special}};
-        }''')
-        assert independence == {'independent': {'normal': 0, 'item': 1}, 'ordinary': {'normal': 1, 'item': 0, 'special': False}}
-        report['independence'] = independence
+        assert policy['pending']==policy['count']==1 and policy['hp']==5 and policy['life']==10 and policy['phaseKills']==policy['threshold']
+        report['actual_kill_trigger']=policy
+        passed('Actual normal-monster kill events reserve one independent appearance and the unchanged1.4s warning creates an HP5 actor with ten full seconds.')
         distribution = page.evaluate('''() => {
           itemReset();const random=Math.random;let normal=0;
           try{for(let i=0;i<1000;i++){Math.random=()=>i/1000;warnings=[];spawn=0;update(0);normal+=warnings.length;}}
           finally{Math.random=random}return normal;
         }''')
-        assert distribution == 780
-        passed('Item and normal clocks operate without driving each other;1000 deterministic empty-arena opportunities retain780 normal spawns, with the original normal interval/AI untouched.')
-
-        arrival = page.evaluate('''() => {
-          itemReset();itemMonsters.configure({probability:1,intervalSeconds:.5,maxActive:1});itemMonsters.update(0);
-          const first=itemMonsters.snapshot();for(let i=0;i<15;i++)itemMonsters.update(.1);
-          const entered=itemMonsters.targets()[0];itemMonsters.update(.5);
-          return {warnings:first.entrances.length,firstNormal:enemies.length,count:itemMonsters.targets().length,hp:entered.hp,life:entered.life,pending:itemMonsters.snapshot().entrances.length};
-        }''')
-        assert arrival['warnings'] == 1 and arrival['count'] == 1 and arrival['hp'] == 5 and arrival['pending'] == 0 and arrival['firstNormal'] == 0
-        passed('Independent warning becomes one HP5 entity; active plus pending entries respect the configured cap and never enter the regular enemy array.')
+        assert distribution==780
+        passed('The normal generator retains780 admissions per1000 controlled opportunities; only item spawning switches away from time/probability.')
 
         flee = page.evaluate('''() => {
           itemReset();const rows=[];
@@ -165,12 +144,6 @@ try:
         assert saved['score']==200 and saved['itemKills']==1 and saved['normalKills']==0 and saved['phase']==1
         report['saved_item_analysis'] = saved
         report['actual_hit_matrix'] = hit_matrix
-        repeated = page.evaluate('''() => {
-          itemReset();for(let count=0;count<6;count++){const m=itemMonsters.spawn({x:100,y:100});for(let hit=0;hit<5;hit++)hitItem(m);}
-          return {score:runScore,kills:phaseKills,phase,items:items.length,analysis:gameScoring.finish('abandoned').record.itemKills};
-        }''')
-        assert repeated == {'score':1200,'kills':0,'phase':1,'items':6,'analysis':6}
-        report['six_item_kills_without_phase_progress'] = repeated
         passed('Real bullets from Trio/Bingle/Tanko defeat HP5 in5/5/4 hits, retain damage1/1/1.5, award200 once and drop once without advancing phaseKills.')
 
         shared = page.evaluate('''() => {
@@ -216,22 +189,21 @@ try:
         }''')
         assert transitions == {'first': {'same': True, 'life': 7.25, 'phase': 2}, 'second': {'same': True, 'life': 7.25, 'stage': 1, 'phase': 1}}
         boss_rules = page.evaluate('''() => {
-          itemReset();itemMonsters.spawn({x:100,y:100});phase=5;phaseKills=requiredKills;update(0);
-          const blocked={count:itemMonsters.targets().length,warnings:itemMonsters.snapshot().entrances.length,spawn:itemMonsters.spawn({x:100,y:100}),hp:boss.hp,score:runScore};
-          itemMonsters.configure({allowDuringBoss:true});const m=itemMonsters.spawn({x:100,y:100});const allowed=Boolean(m);return {blocked,allowed};
+          itemReset();const m=itemMonsters.spawn({x:100,y:100});m.life=7.25;phase=5;phaseKills=requiredKills;update(0);
+          const same=itemMonsters.targets()[0]===m,life=m.life,spawned=itemMonsters.spawn({x:100,y:100});
+          for(let i=0;i<5;i++)hitItem(m);return {same,life,spawned,score:runScore,count:itemMonsters.targets().length,drops:items.length,bossHP:boss.hp,phaseKills};
         }''')
-        assert boss_rules['blocked']['count'] == boss_rules['blocked']['warnings'] == boss_rules['blocked']['score'] == 0
-        assert boss_rules['blocked']['spawn'] is None and boss_rules['blocked']['hp'] == 20 and boss_rules['allowed']
-        passed('Live item lifetime/position survive ordinary phase and region transitions; default boss policy clears item entities without rewards, while explicit boss allowance works independently.')
-
+        assert boss_rules=={'same':True,'life':7.25,'spawned':None,'score':200,'count':0,'drops':1,'bossHP':20,'phaseKills':6}
+        passed('Live item identity/lifetime survive phases and boss entry; the actor remains killable/drop-capable during the boss without new boss-phase spawning.')
         configured = page.evaluate('''() => {
-          itemReset();itemMonsters.configure({intervalSeconds:.5,probability:1,maxActive:2,stageRules:{0:{enabled:false},1:{intervalSeconds:1.25,probability:0,maxActive:3,allowDuringBoss:true}}});
-          const disabled=itemMonsters.spawn({x:100,y:100});stage=1;const policy=itemMonsters.snapshot().policy;
-          const errors=[];for(const patch of [{intervalSeconds:0},{probability:2},{maxActive:-1},{stageRules:{9:{}}}])try{itemMonsters.configure(patch)}catch(e){errors.push(e.name)}
-          return {disabled,policy,errors};
+          itemMonsters.configure({opportunitiesPerRegion:2});start(0);const old=itemMonsters.snapshot().regions[0];
+          itemMonsters.configure({opportunitiesPerRegion:4});itemMonsters.enterRegion(1);
+          const plans=itemMonsters.snapshot().regions,errors=[];
+          for(const patch of [{opportunitiesPerRegion:-1},{opportunitiesPerRegion:5},{opportunitiesPerRegion:.5},{intervalSeconds:1}])try{itemMonsters.configure(patch)}catch(e){errors.push(e.name)}
+          return {old:old.opportunities,next:plans[1].opportunities,still:plans[0].opportunities,errors};
         }''')
-        assert configured == {'disabled': None, 'policy': {'enabled': True, 'intervalSeconds': 1.25, 'probability': 0, 'maxActive': 3, 'allowDuringBoss': True}, 'errors': ['RangeError'] * 4}
-        passed('Interval/probability/capacity, per-region enable/overrides and boss permission configure independently; invalid settings are rejected without partially applying them.')
+        assert configured=={'old':2,'next':4,'still':2,'errors':['RangeError']*4}
+        passed('Region opportunity count is configurable0–4 for future regions; chosen plans stay immutable and invalid/retired timer settings are rejected.')
 
         animation = page.evaluate('''() => {
           itemReset();const m=itemMonsters.spawn({x:150,y:130});const frames={};
@@ -266,13 +238,13 @@ try:
         for width, height in [(915, 412), (800, 360), (568, 320)]:
             page.set_viewport_size({'width': width, 'height': height})
             page.wait_for_function('W===innerWidth&&H===innerHeight')
-            page.evaluate('''() => {itemReset();itemMonsters.configure({maxActive:3});for(let i=0;i<3;i++){const m=itemMonsters.spawn({x:W*(i+1)/4,y:H*.35});m.angle=0;m.moving=i===1;m.turnLeft=i===2?.12:0;}window.gameExitDialogOpen=true;draw();}''')
+            page.evaluate('''() => {itemReset();for(let i=0;i<3;i++){const m=itemMonsters.spawn({x:W*(i+1)/4,y:H*.35});m.angle=0;m.moving=i===1;m.turnLeft=i===2?.12:0;}window.gameExitDialogOpen=true;draw();}''')
             page.screenshot(path=str(args.artifacts / f'item-monsters-{width}.png'))
             assert page.evaluate('itemMonsters.targets().every(m=>m.x>18&&m.x<W-18&&m.y>18&&m.y<H-18)')
             page.evaluate('gameExitDialogOpen=false')
         page.set_viewport_size({'width': 915, 'height': 412})
         page.wait_for_function('W===innerWidth&&H===innerHeight')
-        page.evaluate('''() => {itemReset();itemMonsters.configure({maxActive:8});for(let i=0;i<8;i++){const m=itemMonsters.spawn({x:W*(i+1)/9,y:H*.4});m.angle=-Math.PI/2+i*Math.PI/4;m.turnLeft=.12;}gameExitDialogOpen=true;draw();}''')
+        page.evaluate('''() => {itemReset();for(let i=0;i<8;i++){const m=itemMonsters.spawn({x:W*(i+1)/9,y:H*.4});m.angle=-Math.PI/2+i*Math.PI/4;m.turnLeft=.12;}gameExitDialogOpen=true;draw();}''')
         page.screenshot(path=str(args.artifacts / 'eight-directions.png'))
         page.evaluate('gameExitDialogOpen=false')
         passed('Actual supplied art is visible at915×412,800×360,568×320 and all8 directions; existing HUD/touch layout and character imagery stay intact.')

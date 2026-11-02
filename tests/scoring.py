@@ -72,7 +72,7 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}'
 html = (ROOT / 'dist/heli_trio_galaxy_test.html').read_text() if args.standalone else None
 helpers = '''() => {
- window.scoreReset=(kind=0)=>{start(kind);itemMonsters.configure({probability:0});transition=0;spawn=999;invuln=999;fireCooldown=0;};
+ window.scoreReset=(kind=0)=>{itemMonsters.configure({opportunitiesPerRegion:0});start(kind);transition=0;spawn=999;invuln=999;fireCooldown=0;};
  window.scoreEnemy=(special=false)=>({x:100,y:100,r:16,hp:1,special,life:10,t:0,turn:999,speed:0,shot:999,charge:999,vx:0,vy:0,kind:0,mode:'chase'});
  window.scoreKill=target=>{bullets=[];shoot();Object.assign(bullets[0],{x:target.x,y:target.y,vx:0,vy:0});update(0);};
 }'''

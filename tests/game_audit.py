@@ -43,7 +43,7 @@ try:
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
         page.evaluate('''() => {
             window.auditReset = (type=0) => {
-                start(type); itemMonsters.configure({probability:0}); spawn=999;transition=0;invuln=999;fireCooldown=0;
+                itemMonsters.configure({opportunitiesPerRegion:0}); start(type); spawn=999;transition=0;invuln=999;fireCooldown=0;
                 keys.left=keys.right=keys.fire=false;tilt={x:0,y:0};
             };
             window.auditEnemy = (x,y,hp=1,special=false) => ({x,y,hp,special,r:16,

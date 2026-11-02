@@ -2,11 +2,13 @@
 import hashlib
 import json
 from pathlib import Path
+from item_spawn_preservation import without_item_spawn_changes
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def without_item_monsters(source):
+    source=without_item_spawn_changes(source)
     for old, new in reversed(json.loads((ROOT / 'tests/item_monster_changes.json').read_text())):
         assert source.count(new) == 1, (source.count(new), new[:120])
         source = source.replace(new, old, 1)

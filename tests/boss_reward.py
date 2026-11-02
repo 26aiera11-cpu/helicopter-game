@@ -174,7 +174,7 @@ try:
             const result=[],random=Math.random;
             try {for(const roll of [.25,.75]) {
                 rewardReset(2);hp=1;player.upgrade=0;
-                itemMonsters.configure({probability:0});const itemMonster=itemMonsters.spawn({x:100,y:100});
+                itemMonsters.configure({opportunitiesPerRegion:0});const itemMonster=itemMonsters.spawn({x:100,y:100});
                 Math.random=()=>roll;for(let shot=0;shot<4;shot++){bullets=[];shoot();Object.assign(bullets[0],{x:itemMonster.x,y:itemMonster.y,vx:0,vy:0});update(.001);}
                 const before={count:items.length,type:items[0]?.type,r:items[0]?.r,hp,upgrade:player.upgrade,events:rewardEvents.length};
                 Object.assign(items[0],{x:player.x,y:player.y,vx:0,vy:0,turn:999});update(.001);
