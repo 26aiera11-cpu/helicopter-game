@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
 """Boss rewards through actual shot/collision paths plus ordinary item regression."""
 import argparse
@@ -26,6 +27,8 @@ preserved_source = without_progression_changes(source)
 assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
+        if str(path.relative_to(root))==BGM_ASSET:
+            assert_selection_bgm_asset();continue
         name = str(path.relative_to(root))
         if name == TANKO_ASSET:
             assert_tanko_asset()
@@ -48,7 +51,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-passed('Only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
+passed('After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Tanko real damage, monster penetration/mutual interception, 8-direction dimensions and finite defense."""
 import argparse,json,shutil,subprocess,re,threading,math
 from functools import partial
@@ -14,9 +15,11 @@ assert without_tanko_cadence_changes(s)==subprocess.check_output(['git','show','
 assert without_tanko_interception_changes(s)==before
 assert without_tanko_combat_changes(s)==subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
 for path in (root/'assets').rglob('*'):
+ if str(path.relative_to(root))==BGM_ASSET:
+  assert_selection_bgm_asset();continue
  if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show','287629f:'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
-passed('Only the exact Tanko cooldown multiplier differs from f622f3f; reviewed penetration/mutual-interception deltas still match287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, other-character cooldowns, boss HP/reward and other-character source is preserved; JS syntax passes.')
+passed('After reversing reviewed selection-BGM changes, only the exact Tanko cooldown multiplier differs from f622f3f; reviewed penetration/mutual-interception deltas still match287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, other-character cooldowns, boss HP/reward and other-character source is preserved; JS syntax passes.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=None

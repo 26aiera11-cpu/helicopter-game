@@ -1,9 +1,11 @@
 """Reverse only the reviewed Tanko combat deltas for historical byte assertions."""
 import json
+from selection_bgm_preservation import without_selection_bgm_changes
 from pathlib import Path
 
 
 def without_tanko_cadence_changes(source):
+    source=without_selection_bgm_changes(source)
     for old,new in reversed(json.loads(Path(__file__).with_name('tanko_cadence_changes.json').read_text())):
         assert source.count(new)==1,new[:90]
         source=source.replace(new,old,1)

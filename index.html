@@ -10,7 +10,7 @@
 #menu #audioControls button{background:#103b68e8;color:#fff;border:2px solid #ffffffa8;border-radius:12px;font-size:clamp(11px,1.35vw,15px);font-weight:800;padding:8px 12px;touch-action:manipulation;box-shadow:0 3px 9px #0004}
 #menu #audioControls button.off{opacity:.58}
 @media(max-height:450px){#menu #audioControls{top:8px;right:8px;gap:5px}#menu #audioControls button{font-size:11px;padding:5px 7px}}
-</style><link rel="stylesheet" href="assets/selection/selection.css"><canvas id="game"></canvas><div id="rotateNotice">📱 휴대폰을 가로로 돌려 주세요!<br>가로 화면에서 게임이 시작돼요.</div><div class="hud" id="hud">⭐ 0　❤️ 5</div><button id="exitGame" class="hidden" type="button">🚪 나가기</button><button id="sensor">📱 센서 켜기</button><div id="sensorStatus">센서 대기 중 · 드래그 이동 가능</div><div class="controls"><div class="side"><button class="btn" id="left">↶</button><button class="btn" id="right">↷</button></div><div class="side"><button class="btn fire" id="fire" aria-label="탄환 발사"><img id="fireProjectile" alt="" draggable="false"></button></div></div><div class="menu new-select" id="menu">
+</style><link rel="stylesheet" href="assets/selection/selection.css"><audio id="selectionBgm" src="assets/audio/heli_trio_selection_bgm_track2.mp3" preload="auto" loop hidden></audio><canvas id="game"></canvas><div id="rotateNotice">📱 휴대폰을 가로로 돌려 주세요!<br>가로 화면에서 게임이 시작돼요.</div><div class="hud" id="hud">⭐ 0　❤️ 5</div><button id="exitGame" class="hidden" type="button">🚪 나가기</button><button id="sensor">📱 센서 켜기</button><div id="sensorStatus">센서 대기 중 · 드래그 이동 가능</div><div class="controls"><div class="side"><button class="btn" id="left">↶</button><button class="btn" id="right">↷</button></div><div class="side"><button class="btn fire" id="fire" aria-label="탄환 발사"><img id="fireProjectile" alt="" draggable="false"></button></div></div><div class="menu new-select" id="menu">
   <h1 class="sr-only">🚁 귀염 헬기 슈팅</h1>
   <p class="hint sr-only">헬기를 고른 뒤 게임 시작을 눌러 주세요.</p>
   <div class="choices sr-only" id="choices"></div>
@@ -334,21 +334,64 @@ function frame(t){let dt=Math.min(.04,(t-last)/1000||0);last=t;if(started&&windo
   const stageTracks=names.map(n=>audio('stage_'+n,true));
   const bossTracks=names.map(n=>audio('boss_'+n,true));
   const effects=Object.fromEntries(['warning','appear','hit','defeat'].map(n=>[n,audio('boss_'+n)]));
+  const selectionTrack=document.getElementById('selectionBgm');
+  const bgmTracks=[...stageTracks,...bossTracks,selectionTrack];
+  const selectionVolume=.34;
+  let unlocked=false,playRequest=null,awaitingGesture=false;
   let current=null, currentStage=-1, bossMode=false, appearancePending=-1;
   let lastBossHit=0, muted=false, sfxMuted=false, wasPlaying=false;
   const isMusicOn=()=>document.getElementById('musicToggle')?.textContent.includes('ON')!==false;
   const isSfxOn=()=>document.getElementById('sfxToggle')?.textContent.includes('ON')!==false;
-  function play(a,volume){
-    if(!a||!isMusicOn())return;
-    if(current!==a){
-      if(current){current.pause();current.currentTime=0}
-      current=a;
-      a.volume=0;
-      a.currentTime=0;
-      a.play().catch(()=>{});
-    } else if(a.paused){a.play().catch(()=>{})}
-    a.volume=Math.min(volume,Math.max(0,a.volume+.025));
+  // One owner for menu/stage/boss music; no play request survives a scene change.
+  function pauseMusic(){
+    for(const track of bgmTracks)track.pause();
+    playRequest=null;
   }
+  function desiredMusic(){
+    if(document.hidden||!isMusicOn())return null;
+    if(started)return boss?bossTracks[stage]:stageTracks[stage];
+    return !gameOverPending&&!menu.classList.contains('hidden')?selectionTrack:null;
+  }
+  function play(a,volume){
+    if(!a||!isMusicOn()||document.hidden)return;
+    if(current!==a){
+      pauseMusic();
+      if(current)current.currentTime=0;
+      current=a;awaitingGesture=false;
+      a.volume=0;a.currentTime=0;
+    }
+    a.volume=a===selectionTrack?selectionVolume:Math.min(volume,Math.max(0,a.volume+.025));
+    if(!unlocked||awaitingGesture||playRequest||!a.paused)return;
+    const request={track:a};playRequest=request;
+    try{
+      Promise.resolve(a.play()).then(()=>{
+        if(playRequest===request)playRequest=null;
+        if(current!==a||desiredMusic()!==a)a.pause();
+      }).catch(()=>{
+        if(playRequest===request){playRequest=null;awaitingGesture=true;}
+      });
+    }catch(error){
+      if(playRequest===request){playRequest=null;awaitingGesture=true;}
+    }
+  }
+  function syncMusic(){
+    const target=desiredMusic();
+    if(!target){pauseMusic();return;}
+    play(target,target===selectionTrack?selectionVolume:boss?.58:.42);
+  }
+  function userGesture(event){
+    if(!event.isTrusted)return;
+    unlocked=true;awaitingGesture=false;
+    // The existing click handlers finish Start/toggle before choosing a track.
+    if(event.target.closest?.('#startSelected,#musicToggle'))return;
+    syncMusic();
+  }
+  document.addEventListener('pointerdown',userGesture,{capture:true});
+  document.addEventListener('keydown',userGesture,{capture:true});
+  document.addEventListener('click',event=>{
+    if(event.isTrusted){unlocked=true;awaitingGesture=false;syncMusic();}
+  });
+  new MutationObserver(syncMusic).observe(menu,{attributes:true,attributeFilter:['class']});
   function effect(name,volume=.65){
     if(!isSfxOn())return;
     const base=effects[name];if(!base)return;
@@ -362,12 +405,13 @@ function frame(t){let dt=Math.min(.04,(t-last)/1000||0);last=t;if(started&&windo
   const oldResume=gameAudio.resume;
   gameAudio.resume=function(){
     oldResume();
+    // start() calls resume before setting started/menu: stop menu music here.
+    pauseMusic();
+    if(current)current.currentTime=0;
+    current=null;currentStage=0;bossMode=false;appearancePending=-1;
     if(isMusicOn()){
-      const a=stageTracks[0];
-      a.volume=.42;
-      a.play().catch(()=>{});
-      current=a;
-      currentStage=0;
+      play(stageTracks[0],.42);
+      stageTracks[0].volume=.42;
     }
   };
   gameAudio.tick=function(st){
@@ -406,20 +450,13 @@ function frame(t){let dt=Math.min(.04,(t-last)/1000||0);last=t;if(started&&windo
     return oldFx(type,variant);
   };
   gameAudio.pause=function(){
-    for(const a of [...stageTracks,...bossTracks])a.pause();
+    pauseMusic();
     for(const a of Object.values(effects))a.pause();
     current=null;currentStage=-1;bossMode=false;appearancePending=-1;
     oldPause();
   };
-  for(const id of ['musicToggle','sfxToggle']){
-    document.getElementById(id)?.addEventListener('click',()=>{
-      if(id==='musicToggle'&&!isMusicOn()&&current)current.pause();
-    });
-  }
-  document.addEventListener('visibilitychange',()=>{
-    if(document.hidden){if(current)current.pause()}
-    else if(started&&isMusicOn()&&current)current.play().catch(()=>{});
-  });
+  document.getElementById('musicToggle').addEventListener('click',syncMusic);
+  document.addEventListener('visibilitychange',syncMusic);
 })();
 </script>
 <script src="assets/selection/selection.js"></script>

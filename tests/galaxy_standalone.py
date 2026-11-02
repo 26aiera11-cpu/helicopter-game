@@ -115,6 +115,7 @@ with sync_playwright() as playwright:
         page.evaluate(audio_probe)
         page.set_content(html, wait_until='load', timeout=30000)
 
+    page.evaluate('if(!__galaxyAudio.includes(selectionBgm))__galaxyAudio.push(selectionBgm)')
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
         .every(image=>image.complete&&image.naturalWidth>0)''')
@@ -130,10 +131,10 @@ with sync_playwright() as playwright:
     assert len(dimensions['layers']) == 6 and dimensions['background'] == [1672,941]
     report['decoded_selection_images'] = dimensions
     passed('Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.')
-    page.wait_for_function('''() => window.__galaxyAudio.length===12 &&
+    page.wait_for_function('''() => window.__galaxyAudio.length===13 &&
         window.__galaxyAudio.every(audio=>!audio.error&&audio.readyState>=1&&audio.duration>0)''')
     report['audio_durations'] = page.evaluate('window.__galaxyAudio.map(audio=>audio.duration)')
-    passed('All 12 embedded original WAV tracks/effects load playable metadata while offline.')
+    passed('All12 original WAV tracks/effects plus the supplied selection MP3 load native metadata offline.')
 
     fullscreen = page.locator('#fullscreenToggle')
     expect(fullscreen).to_be_visible()
@@ -257,7 +258,8 @@ with sync_playwright() as playwright:
     page.screenshot(path=str(args.artifacts/'galaxy-game-over.png'))
     expect(page.locator('#menu')).to_be_visible(timeout=4000)
     expect(page.locator('#selectionResult')).to_have_text('')
-    assert page.evaluate('!window.gameAudioStarted&&window.__galaxyAudio.filter(a=>a.loop).every(a=>a.paused)')
+    assert page.evaluate('!window.gameAudioStarted&&window.__galaxyAudio.filter(a=>a.loop&&a.id!=="selectionBgm").every(a=>a.paused)')
+    page.wait_for_function('!selectionBgm.paused&&selectionBgm.currentTime>0')
     page.wait_for_timeout(80)
     stopped=page.evaluate('window.__galaxyAudio[0].currentTime')
     page.wait_for_timeout(200)
@@ -266,7 +268,7 @@ with sync_playwright() as playwright:
     page.locator('#startSelected').tap()
     page.wait_for_function('started&&player.type===1&&window.__galaxyAudio.filter(a=>a.loop&&!a.paused).length===1')
     page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
-    passed('The latest standalone HTML pauses all BGM on game over, freezes its playback clock and restarts one track with another character offline.')
+    passed('The latest standalone HTML pauses all BGM during the3s game-over overlay, resumes selection MP3 on return, freezes the old game clock and restarts one stage track offline.')
 
     for roll in [.25,.75]:
         page.locator('#startSelected').tap()

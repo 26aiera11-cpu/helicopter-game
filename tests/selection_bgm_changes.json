@@ -1,0 +1,26 @@
+[
+  [
+    "<canvas id=\"game\"></canvas>",
+    "<audio id=\"selectionBgm\" src=\"assets/audio/heli_trio_selection_bgm_track2.mp3\" preload=\"auto\" loop hidden></audio><canvas id=\"game\"></canvas>"
+  ],
+  [
+    "  let current=null, currentStage=-1, bossMode=false, appearancePending=-1;",
+    "  const selectionTrack=document.getElementById('selectionBgm');\n  const bgmTracks=[...stageTracks,...bossTracks,selectionTrack];\n  const selectionVolume=.34;\n  let unlocked=false,playRequest=null,awaitingGesture=false;\n  let current=null, currentStage=-1, bossMode=false, appearancePending=-1;"
+  ],
+  [
+    "  function play(a,volume){\n    if(!a||!isMusicOn())return;\n    if(current!==a){\n      if(current){current.pause();current.currentTime=0}\n      current=a;\n      a.volume=0;\n      a.currentTime=0;\n      a.play().catch(()=>{});\n    } else if(a.paused){a.play().catch(()=>{})}\n    a.volume=Math.min(volume,Math.max(0,a.volume+.025));\n  }",
+    "  // One owner for menu/stage/boss music; no play request survives a scene change.\n  function pauseMusic(){\n    for(const track of bgmTracks)track.pause();\n    playRequest=null;\n  }\n  function desiredMusic(){\n    if(document.hidden||!isMusicOn())return null;\n    if(started)return boss?bossTracks[stage]:stageTracks[stage];\n    return !gameOverPending&&!menu.classList.contains('hidden')?selectionTrack:null;\n  }\n  function play(a,volume){\n    if(!a||!isMusicOn()||document.hidden)return;\n    if(current!==a){\n      pauseMusic();\n      if(current)current.currentTime=0;\n      current=a;awaitingGesture=false;\n      a.volume=0;a.currentTime=0;\n    }\n    a.volume=a===selectionTrack?selectionVolume:Math.min(volume,Math.max(0,a.volume+.025));\n    if(!unlocked||awaitingGesture||playRequest||!a.paused)return;\n    const request={track:a};playRequest=request;\n    try{\n      Promise.resolve(a.play()).then(()=>{\n        if(playRequest===request)playRequest=null;\n        if(current!==a||desiredMusic()!==a)a.pause();\n      }).catch(()=>{\n        if(playRequest===request){playRequest=null;awaitingGesture=true;}\n      });\n    }catch(error){\n      if(playRequest===request){playRequest=null;awaitingGesture=true;}\n    }\n  }\n  function syncMusic(){\n    const target=desiredMusic();\n    if(!target){pauseMusic();return;}\n    play(target,target===selectionTrack?selectionVolume:boss?.58:.42);\n  }\n  function userGesture(event){\n    if(!event.isTrusted)return;\n    unlocked=true;awaitingGesture=false;\n    // The existing click handlers finish Start/toggle before choosing a track.\n    if(event.target.closest?.('#startSelected,#musicToggle'))return;\n    syncMusic();\n  }\n  document.addEventListener('pointerdown',userGesture,{capture:true});\n  document.addEventListener('keydown',userGesture,{capture:true});\n  document.addEventListener('click',event=>{\n    if(event.isTrusted){unlocked=true;awaitingGesture=false;syncMusic();}\n  });\n  new MutationObserver(syncMusic).observe(menu,{attributes:true,attributeFilter:['class']});"
+  ],
+  [
+    "    oldResume();\n    if(isMusicOn()){\n      const a=stageTracks[0];\n      a.volume=.42;\n      a.play().catch(()=>{});\n      current=a;\n      currentStage=0;\n    }",
+    "    oldResume();\n    // start() calls resume before setting started/menu: stop menu music here.\n    pauseMusic();\n    if(current)current.currentTime=0;\n    current=null;currentStage=0;bossMode=false;appearancePending=-1;\n    if(isMusicOn()){\n      play(stageTracks[0],.42);\n      stageTracks[0].volume=.42;\n    }"
+  ],
+  [
+    "  gameAudio.pause=function(){\n    for(const a of [...stageTracks,...bossTracks])a.pause();\n    for(const a of Object.values(effects))a.pause();\n    current=null;currentStage=-1;bossMode=false;appearancePending=-1;\n    oldPause();\n  };",
+    "  gameAudio.pause=function(){\n    pauseMusic();\n    for(const a of Object.values(effects))a.pause();\n    current=null;currentStage=-1;bossMode=false;appearancePending=-1;\n    oldPause();\n  };"
+  ],
+  [
+    "  for(const id of ['musicToggle','sfxToggle']){\n    document.getElementById(id)?.addEventListener('click',()=>{\n      if(id==='musicToggle'&&!isMusicOn()&&current)current.pause();\n    });\n  }\n  document.addEventListener('visibilitychange',()=>{\n    if(document.hidden){if(current)current.pause()}\n    else if(started&&isMusicOn()&&current)current.play().catch(()=>{});\n  });",
+    "  document.getElementById('musicToggle').addEventListener('click',syncMusic);\n  document.addEventListener('visibilitychange',syncMusic);"
+  ]
+]

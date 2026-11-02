@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Exact type-specific interval, first-trigger preservation and native-timestep counts."""
 import argparse,json,re,subprocess,shutil,threading,math
 from pathlib import Path
@@ -9,11 +10,13 @@ root=Path(__file__).resolve().parents[1];p=argparse.ArgumentParser();p.add_argum
 baseline='f622f3f9c8e82f390b40883abd1abd8f6b9e7f71';before=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode();after=(root/'index.html').read_text()
 assert without_tanko_cadence_changes(after)==before
 for path in (root/'assets').rglob('*'):
+ if str(path.relative_to(root))==BGM_ASSET:
+  assert_selection_bgm_asset();continue
  if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',after,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 report={'baseline':baseline,'passed':[],'limits':['Controlled actual Chromium updates, not physical Galaxy timing or human aim. Finite-window shot counts are quantized to the unchanged game update step.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
-passed('Reversing the single Tanko cooldown multiplier restores every index byte to f622f3f; all assets/audio/UI/other gameplay are identical and JS syntax passes.')
+passed('After reversing reviewed selection-BGM changes, reversing the single Tanko cooldown multiplier restores every index byte to f622f3f; all assets/audio/UI/other gameplay are identical and JS syntax passes.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start()
