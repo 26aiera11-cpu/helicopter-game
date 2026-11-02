@@ -11,7 +11,7 @@
 }
 .rotation-joystick{
   --stick-inset:22px;--stick-offset:0px;
-  position:relative;box-sizing:border-box;pointer-events:auto;cursor:ew-resize;
+  position:fixed;left:30px;bottom:22px;box-sizing:border-box;pointer-events:auto;cursor:ew-resize;
   width:clamp(135px,18vw,165px);height:58px;border:0;background:none;box-shadow:none;
   opacity:.4;transition:opacity .12s ease;
 }

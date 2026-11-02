@@ -16,7 +16,7 @@ from playwright.sync_api import sync_playwright
 from controls_preservation import assert_controls_asset
 
 ROOT=Path(__file__).resolve().parents[1]
-BASELINE='22191f996908195937ebef7c220e871e487d7712'
+BASELINE='cb59d8e99dbc209045de2b9b59a05fbfcaf18e3f'
 parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--standalone',action='store_true');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':['Native Chromium/mobile touch emulation, not physical Galaxy/Samsung Internet or outdoor display visibility.','Backdrop scenes use a frozen native game frame; screenshots are not image edits.','Standalone injects the actual embedded HTML offline; no managed file:// policy bypass.']}
 def passed(message):report['passed'].append(message);print('PASS:',message,flush=True)
@@ -28,7 +28,8 @@ for path in (ROOT/'assets').rglob('*'):
  assert path.read_bytes()==subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT),name
 old_css=subprocess.check_output(['git','show',BASELINE+':assets/controls/controls.css'],cwd=ROOT).decode()
 assert (ROOT/'assets/controls/controls.css').read_text().split('.rotation-joystick{')[0]==old_css.split('.rotation-joystick{')[0]
-passed('Only joystick appearance CSS changes; index, every JavaScript file, touch-selection guards, images/audio and item/score/combat code exactly match the latest joystick baseline.')
+assert (ROOT/'assets/controls/controls.css').read_text().replace('position:fixed;left:30px;bottom:22px;','position:relative;',1)==old_css
+passed('Only one joystick position declaration changes; index, all JavaScript and every other style/resource exactly match the minimal joystick baseline.')
 
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*unused):pass
@@ -52,18 +53,21 @@ try:
   def settled(opacity):page.wait_for_function('v=>Number(getComputedStyle(rotationJoystick).opacity)===v',arg=opacity,timeout=5000)
   def layout():return page.evaluate('''() => {
    const r=rotationJoystick.getBoundingClientRect(),knob=document.querySelector('.rotation-knob'),k=knob.getBoundingClientRect(),c=getComputedStyle(rotationJoystick),t=getComputedStyle(document.querySelector('.rotation-track')),s=getComputedStyle(knob),f=fire.getBoundingClientRect();
-   return {rect:r.toJSON(),knob:k.toJSON(),travel:r.width/2-parseFloat(c.getPropertyValue('--stick-inset')),opacity:Number(c.opacity),background:c.backgroundColor,image:c.backgroundImage,border:c.borderTopWidth,shadow:c.boxShadow,trackHeight:parseFloat(t.height),trackColor:t.backgroundColor,knobColor:s.backgroundColor,knobImage:s.backgroundImage,labelsHidden:[...document.querySelectorAll('.rotation-direction,.rotation-caption')].every(e=>getComputedStyle(e).display==='none'),fireX:f.left};
+   return {rect:r.toJSON(),knob:k.toJSON(),travel:r.width/2-parseFloat(c.getPropertyValue('--stick-inset')),opacity:Number(c.opacity),background:c.backgroundColor,image:c.backgroundImage,border:c.borderTopWidth,shadow:c.boxShadow,trackHeight:parseFloat(t.height),trackColor:t.backgroundColor,knobColor:s.backgroundColor,knobImage:s.backgroundImage,labelsHidden:[...document.querySelectorAll('.rotation-direction,.rotation-caption')].every(e=>getComputedStyle(e).display==='none'),fireX:f.left,otherUI:Object.fromEntries(['fire','hud','sensor','exitGame','fullscreenToggle'].map(id=>[id,document.getElementById(id).getBoundingClientRect().toJSON()]))};
   }''')
   def freeze():page.evaluate('worldScroll=0;player.a=Math.PI;player.x=W/2;player.y=H/2;invuln=0;rotorSpin=.35;gameExitDialogOpen=true;draw()')
-  rows=[];halos=[]
+  rows=[];halos=[];initials={};comparisons=[]
   names=['forest','rock','sea','desert']
   for width,height in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('W===innerWidth&&H===innerHeight')
    page.evaluate('gameExitDialogOpen=false;start(0);spawn=999;transition=0;enemies=[];enemyBullets=[];warnings=[]');freeze();page.wait_for_timeout(180)
    initial=layout();r=initial['rect'];cx=r['x']+r['width']/2;cy=r['y']+r['height']/2
+   initials[width]=initial
    assert 135<=r['width']<=165 and r['height']==58 and initial['knob']['width']==initial['knob']['height']==32
    assert initial['opacity']==.4 and initial['background']=='rgba(0, 0, 0, 0)' and initial['image']=='none' and initial['border']=='0px' and initial['shadow']=='none' and initial['labelsHidden']
-   assert initial['trackHeight']==2 and initial['knobImage']=='none' and r['x']==15 and r['bottom']==height-10 and r['right']<initial['fireX']
+   assert initial['trackHeight']==2 and initial['knobImage']=='none' and r['x']==30 and r['bottom']==height-22 and r['right']<initial['fireX']
+   for other in initial['otherUI'].values():
+    assert not (r['left']<other['right'] and r['right']>other['left'] and r['top']<other['bottom'] and r['bottom']>other['top'])
    for raw in [-1,0,1]:
     page.evaluate('gameExitDialogOpen=false');down(cx+raw*initial['travel'],cy);settled(.7)
     current=layout();k=current['knob'];kx=k['x']+k['width']/2;ky=k['y']+k['height']/2
@@ -90,13 +94,20 @@ try:
     up();assert page.evaluate('gameControls.rotation()===0');settled(.4)
     rows.append({'viewport':[width,height],'region':name,'idle':idle,'held_opacity':held['opacity'],'uncovered_corner_rgb_difference':corner,'track_rgb_difference':round(line,3),'knob_rgb_difference':round(thumb,3)})
   report['layouts_and_backdrops']=rows;report['touch_halos']=halos
-  passed('All3 landscape sizes meet135–165×58, visible32px knob,2px white line, zero panel/border/gradient and hidden labels; native idle/held opacity reaches.4/.7.')
+  passed('All3 landscape sizes place the joystick exactly30px from left/22px from bottom without UI overlap;135–165×58,32px knob,44px touch area and.4/.7 opacity stay unchanged.')
   passed('The entire control accepts touch; all44px square corners remain hittable at both ends/center, and native contacts outside the visible knob own the joystick without shrinking its usable range.')
   passed('All12 region/viewport native scenes show distinct line/knob pixels through the translucent control with exact zero change in the empty panel corner; pressed/released opacity and endpoints work.')
   # Before screenshots come from the actual original commit at the same pose.
   old_context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True);old=old_context.new_page();old.goto(f'http://127.0.0.1:{old_web.server_port}/',wait_until='load');old.wait_for_function('sprites.every(i=>i.complete&&i.naturalWidth)')
   for width,height in [(915,412),(800,360),(568,320)]:
    old.set_viewport_size({'width':width,'height':height});old.wait_for_function('W===innerWidth&&H===innerHeight');old.evaluate('gameExitDialogOpen=false;start(0);spawn=999;transition=0;enemies=[];enemyBullets=[];warnings=[];worldScroll=0;player.a=Math.PI;player.x=W/2;player.y=H/2;invuln=0;rotorSpin=.35;gameExitDialogOpen=true;draw()');old.screenshot(path=str(args.artifacts/f'before-{width}.png'))
+   before=old.evaluate('''() => ({rect:rotationJoystick.getBoundingClientRect().toJSON(),otherUI:Object.fromEntries(['fire','hud','sensor','exitGame','fullscreenToggle'].map(id=>[id,document.getElementById(id).getBoundingClientRect().toJSON()]))})''')
+   after=initials[width]
+   assert before['rect']['left']==15 and before['rect']['bottom']==height-10
+   assert after['rect']['left']-before['rect']['left']==15 and before['rect']['bottom']-after['rect']['bottom']==12
+   assert before['rect']['width']==after['rect']['width'] and before['rect']['height']==after['rect']['height'] and before['otherUI']==after['otherUI']
+   comparisons.append({'viewport':[width,height],'before':before,'after':after,'delta_right':15,'delta_up':12,'other_ui_unchanged':True})
+  report['position_comparisons']=comparisons
   assert not errors and not failed and not external,(errors,failed,external)
   report.update(uncaught_errors=errors,failed_resources=failed,external_requests=external)
   passed('Unedited before/after native screenshots are saved; current web/offline game has no JS errors, failed assets or offline HTTP requests.')
