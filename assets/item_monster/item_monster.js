@@ -126,7 +126,9 @@
    ctx.save();ctx.globalAlpha=.8+.2*Math.sin(m.t*8)**2;
    ctx.shadowColor='#ffbb19';ctx.shadowBlur=10;
    const imgs=art[Math.abs(m.vx)+Math.abs(m.vy)>.7?'move':'idle'];
-   const img=imgs[Math.floor(m.t*9)%imgs.length];
+   const wanted=imgs[Math.floor(m.t*9)%imgs.length];
+   // Show the approved idle sprite until the remaining animation PNGs are uploaded.
+   const img=wanted.complete&&wanted.naturalWidth?wanted:art.idle[0];
    if(img.complete&&img.naturalWidth)ctx.drawImage(img,m.x-25,m.y-23,50,46);
    else{
     ctx.fillStyle='#e93631';ctx.strokeStyle='#ffe05b';ctx.lineWidth=3;
