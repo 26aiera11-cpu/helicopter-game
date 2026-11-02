@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+from item_monster_preservation import without_item_monsters
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORE_ASSETS = {'assets/score/score.js', 'assets/score/score.css'}
@@ -22,6 +23,7 @@ def reverse(source, filename):
 
 
 def without_scoring_changes(source):
+    source=without_item_monsters(source)
     return reverse(source, 'scoring_changes.json')
 
 

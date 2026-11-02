@@ -43,7 +43,7 @@ try:
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
         page.evaluate('''() => {
             window.auditReset = (type=0) => {
-                start(type); spawn=999;transition=0;invuln=999;fireCooldown=0;
+                start(type); itemMonsters.configure({probability:0}); spawn=999;transition=0;invuln=999;fireCooldown=0;
                 keys.left=keys.right=keys.fire=false;tilt={x:0,y:0};
             };
             window.auditEnemy = (x,y,hp=1,special=false) => ({x,y,hp,special,r:16,
@@ -117,8 +117,8 @@ try:
             items=[auditItem('hp')];update(.001);const capped=hp;
             player.upgrade=4;items=[auditItem('power')];update(.001);
             items=[auditItem('power')];update(.001);const upgrade=player.upgrade;
-            auditReset(0);enemies=[auditEnemy(100,100,1,true)];shoot();
-            Object.assign(bullets[0],{x:100,y:100,vx:0,vy:0});update(.001);
+            auditReset(0);const itemMonster=itemMonsters.spawn({x:100,y:100});
+            for(let shot=0;shot<5;shot++){bullets=[];shoot();Object.assign(bullets[0],{x:itemMonster.x,y:itemMonster.y,vx:0,vy:0});update(.001);}
             return {healed,capped,upgrade,specialDrop:items.length,specialScore:runScore,particles:particles.length};
         }''')
         assert items=={'healed':3,'capped':4,'upgrade':5,'specialDrop':1,'specialScore':200,'particles':9}

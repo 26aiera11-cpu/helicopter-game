@@ -1,168 +1,173 @@
-/* 헬리 트리오 — independent item monsters.
- * Loaded after the original gameplay and scoring scripts.  The original
- * monster/boss routines and rank storage stay unchanged.
- */
+/* Independent item helicopters. Spawn cadence remains a provisional legacy policy. */
 (() => {
- 'use strict';
- const CONFIG=Object.freeze({
-  hp:5, life:10, maxActive:1, startDelay:8, phaseDelay:7,
-  intervalMin:11, intervalMax:16, warningTime:1
- });
- let monsters=[],entrances=[],bursts=[],timer=CONFIG.startDelay,previousStage=0,previousPhase=1,previousBoss=false;
- let wasPlaying=false;
- const art={};
- for(const [kind,count] of [['idle',6],['move',6],['hit',3],['explosion',4]]){
-  art[kind]=Array.from({length:count},(_,index)=>{
-   const img=new Image();
-   img.src='assets/item_monster/frames/'+kind+'_'+String(index+1).padStart(2,'0')+'.png';
-   return img;
+  'use strict';
+  const atlas = document.getElementById('itemMonsterAtlas');
+  // Coordinates, anchors and timing are from the supplied, unmodified manifest.
+  const groups = Object.freeze({
+    idle: { row: 0, column: 0, count: 6, duration: .115 },
+    move: { row: 1, column: 0, count: 6, duration: .105 },
+    directions: { row: 2, column: 0, count: 8, duration: .12 },
+    hit: { row: 3, column: 0, count: 3, duration: .095 },
+    explosion: { row: 3, column: 3, count: 4, duration: .095 }
   });
- }
- const reset=delay=>{monsters=[];entrances=[];bursts=[];timer=delay;};
- const randomInterval=()=>CONFIG.intervalMin+Math.random()*(CONFIG.intervalMax-CONFIG.intervalMin);
- const entry=()=>{
-  const edge=Math.floor(Math.random()*4),pad=27;
-  let x=edge===0?pad:edge===1?W-pad:pad+Math.random()*(W-2*pad);
-  let y=edge===2?pad:edge===3?H-pad:pad+Math.random()*(H-2*pad);
-  if(edge<2)y=pad+Math.random()*(H-2*pad);
-  else x=pad+Math.random()*(W-2*pad);
-  return{x,y,time:CONFIG.warningTime};
- };
- // Remove the old 22% substitution.  A regular spawn is always regular.
- warnEnemy=function(){
-  const w=entry();
-  warnings.push({...w,time:1.4,kind:Math.floor(Math.random()*enemySprites[stage].length),special:false});
- };
- const nativeUpdate=update;
- update=function(dt){
-  // Before regular update, let guided Bingle shots seek an item monster
-  // when no regular target or boss is within homing range.
-  if(started&&!boss){
-   for(const b of bullets){
-    if(!b.homing||b.life<=0)continue;
-    const nearbyEnemy=enemies.some(e=>e.hp>0&&Math.hypot(e.x-b.x,e.y-b.y)<260);
-    if(nearbyEnemy)continue;
-    let chosen=null,dist=260;
-    for(const m of monsters){const d=Math.hypot(m.x-b.x,m.y-b.y);if(d<dist){chosen=m;dist=d;}}
-    if(chosen){
-     const wanted=Math.atan2(chosen.y-b.y,chosen.x-b.x),old=Math.atan2(b.vy,b.vx);
-     const diff=Math.atan2(Math.sin(wanted-old),Math.cos(wanted-old));
-     const turn=old+Math.max(-3.3*dt,Math.min(3.3*dt,diff));
-     b.vx=Math.cos(turn)*b.speed;b.vy=Math.sin(turn)*b.speed;
+  const legacyInterval = () => Math.max(.72, tactics[stage].spawn - (phase - 1) * .09);
+  const legacyCapacity = () => Math.min(7, 3 + stage + Math.floor(phase / 2));
+  const legacyProbability = .22;
+  let settings = { intervalSeconds: null, probability: legacyProbability, maxActive: null,
+    allowDuringBoss: false, stageRules: {} };
+  let monsters = [], entrances = [], bursts = [], countdown = 0;
+  let randomState = 1;
+  function seed() {
+    const word = new Uint32Array(1);
+    globalThis.crypto?.getRandomValues?.(word);
+    randomState = word[0] || (Date.now() >>> 0) || 1;
+  }
+  // Item movement/spawn draws do not consume the normal enemies/boss reward RNG.
+  function random() {
+    randomState ^= randomState << 13; randomState ^= randomState >>> 17; randomState ^= randomState << 5;
+    return (randomState >>> 0) / 4294967296;
+  }
+  function rule() {
+    const local = settings.stageRules[stage] || {};
+    return { enabled: local.enabled !== false,
+      intervalSeconds: local.intervalSeconds ?? settings.intervalSeconds ?? legacyInterval(),
+      probability: local.probability ?? settings.probability,
+      maxActive: local.maxActive ?? settings.maxActive ?? legacyCapacity(),
+      allowDuringBoss: local.allowDuringBoss ?? settings.allowDuringBoss };
+  }
+  function ready() { return Boolean(atlas?.complete && atlas.naturalWidth === 2560 && atlas.naturalHeight === 1280); }
+  function configure(patch) {
+    const candidate = { ...settings, ...patch, stageRules: { ...settings.stageRules, ...patch.stageRules } };
+    function validate(value) {
+      if (value.intervalSeconds != null && (!Number.isFinite(value.intervalSeconds) || value.intervalSeconds <= 0)) throw new RangeError('Invalid item interval');
+      if (value.probability != null && (!Number.isFinite(value.probability) || value.probability < 0 || value.probability > 1)) throw new RangeError('Invalid item probability');
+      if (value.maxActive != null && (!Number.isInteger(value.maxActive) || value.maxActive < 0)) throw new RangeError('Invalid item capacity');
     }
-   }
-  }
-  nativeUpdate(dt);
-  if(!started||window.gameExitDialogOpen)return;
-  if(stage!==previousStage||phase!==previousPhase){
-   reset(CONFIG.phaseDelay);previousStage=stage;previousPhase=phase;
-  }
-  if(boss){
-   if(!previousBoss)reset(CONFIG.phaseDelay);
-   previousBoss=true;return;
-  }
-  previousBoss=false;
-  timer-=dt;
-  if(timer<=0&&transition<=0&&phaseKills<requiredKills&&
-     monsters.length+entrances.length<CONFIG.maxActive){
-   entrances.push(entry());timer=randomInterval();
-  }
-  for(const w of entrances){
-   w.time-=dt;
-   if(w.time<=0)monsters.push({x:w.x,y:w.y,r:16,hp:CONFIG.hp,special:true,
-    life:CONFIG.life,t:0,turn:0,vx:0,vy:0,flash:0});
-  }
-  entrances=entrances.filter(w=>w.time>0);
-  for(const m of monsters){
-   m.t+=dt;m.life-=dt;m.turn-=dt;m.flash=Math.max(0,m.flash-dt);
-   if(m.life<=0){m.hp=0;continue;}
-   if(m.turn<=0){
-    const angle=Math.random()*Math.PI*2;
-    m.vx=Math.cos(angle);m.vy=Math.sin(angle);m.turn=.4+Math.random()*.85;
-   }
-   // Random movement with gentle evasion, no shots and no contact damage.
-   const dx=m.x-player.x,dy=m.y-player.y,d=Math.hypot(dx,dy)||1;
-   const evade=d<125?.65:0,speed=45+stage*8;
-   m.x+=((1-evade)*m.vx+evade*dx/d)*speed*dt;
-   m.y+=((1-evade)*m.vy+evade*dy/d)*speed*dt;
-   if(m.x<18||m.x>W-18)m.vx*=-1;
-   if(m.y<18||m.y>H-18)m.vy*=-1;
-   m.x=Math.max(18,Math.min(W-18,m.x));
-   m.y=Math.max(18,Math.min(H-18,m.y));
-   for(const b of bullets){
-    if(b.life<=0||(b.hit||[]).includes(m)||!bulletHitsCircle(b,m.x,m.y,m.r))continue;
-    if(b.kind===2){if(!consumeTankoPierce(b,m))continue;}
-    else {b.hit.push(m);b.life=0;}
-    m.hp-=b.damage||1;m.flash=.14;gameAudio.fx('hit');
-    if(b.kind!==2){b.pierce=(b.pierce||1)-1;if(b.pierce>0)b.life=1;}
-    if(m.hp<=0){
-     if(gameScoring.enemyDefeated(m)){
-      gameAudio.fx('destroy');dropItem(m.x,m.y);
-      bursts.push({x:m.x,y:m.y,t:0});
-      for(let i=0;i<9;i++)particles.push({
-       x:m.x,y:m.y,vx:(Math.random()-.5)*180,vy:(Math.random()-.5)*180,life:.5
-      });
-     }
-     break;
+    validate(candidate);
+    for (const [key, value] of Object.entries(candidate.stageRules)) {
+      if (!['0', '1', '2', '3'].includes(key) || !value || typeof value !== 'object') throw new RangeError('Invalid item stage rule');
+      validate(value);
     }
-   }
+    settings = candidate;
   }
-  monsters=monsters.filter(m=>m.hp>0);
-  for(const b of bursts)b.t+=dt;
-  bursts=bursts.filter(b=>b.t<.48);
- };
- const nativeDraw=draw;
- draw=function(){
-  nativeDraw();
-  if(!started&&menu.classList.contains('hidden')===false)return;
-  for(const w of entrances){
-   ctx.save();ctx.globalAlpha=.65+.35*Math.sin(performance.now()/130);
-   ctx.fillStyle='#f4bd28';ctx.strokeStyle='#fff';ctx.lineWidth=2;
-   ctx.beginPath();ctx.arc(w.x,w.y,16,0,7);ctx.fill();ctx.stroke();
-   ctx.fillStyle='#a82725';ctx.font='bold 18px system-ui';ctx.textAlign='center';
-   ctx.fillText('★',w.x,w.y+6);ctx.restore();
+  function reset() { monsters = []; entrances = []; bursts = []; countdown = 0; seed(); }
+  function edge() {
+    const side = Math.floor(random() * 4), pad = 27;
+    return { x: side === 0 ? pad : side === 1 ? W - pad : pad + random() * (W - 2 * pad),
+      y: side === 2 ? pad : side === 3 ? H - pad : pad + random() * (H - 2 * pad), time: 1.4 };
   }
-  for(const m of monsters){
-   ctx.save();ctx.globalAlpha=.8+.2*Math.sin(m.t*8)**2;
-   ctx.shadowColor='#ffbb19';ctx.shadowBlur=10;
-   const imgs=art[Math.abs(m.vx)+Math.abs(m.vy)>.7?'move':'idle'];
-   const wanted=imgs[Math.floor(m.t*9)%imgs.length];
-   // Show the approved idle sprite until the remaining animation PNGs are uploaded.
-   const img=wanted.complete&&wanted.naturalWidth?wanted:art.idle[0];
-   if(img.complete&&img.naturalWidth)ctx.drawImage(img,m.x-25,m.y-23,50,46);
-   else{
-    ctx.fillStyle='#e93631';ctx.strokeStyle='#ffe05b';ctx.lineWidth=3;
-    ctx.beginPath();ctx.arc(m.x,m.y,17,0,7);ctx.fill();ctx.stroke();
-    ctx.fillStyle='#fff';ctx.font='bold 22px system-ui';ctx.textAlign='center';
-    ctx.fillText('★',m.x,m.y+7);
-   }
-   if(m.flash>0){
-    ctx.globalAlpha=.5*m.flash/.14;ctx.fillStyle='#fff';
-    ctx.beginPath();ctx.arc(m.x,m.y,18,0,7);ctx.fill();
-   }
-   ctx.restore();
+  function spawn(position) {
+    const policy = rule();
+    if (!started || !ready() || !policy.enabled || (boss && !policy.allowDuringBoss) || monsters.length + entrances.length >= policy.maxActive) return null;
+    const point = position || edge();
+    const monster = { x: point.x, y: point.y, r: 16, hp: 5, special: true,
+      life: 10, t: 0, turn: 0, vx: 0, vy: 0, angle: -Math.PI / 2,
+      idleLeft: groups.idle.count * groups.idle.duration, hitLeft: 0, turnLeft: 0 };
+    monsters.push(monster);
+    return monster;
   }
-  for(const b of bursts){
-   const frame=Math.min(3,Math.floor(b.t/.12)),img=art.explosion[frame];
-   ctx.save();ctx.globalAlpha=1-b.t/.48;
-   if(img.complete&&img.naturalWidth)ctx.drawImage(img,b.x-32,b.y-30,64,60);
-   else{ctx.fillStyle='#ffca35';ctx.beginPath();ctx.arc(b.x,b.y,26*(1-b.t/.48),0,7);ctx.fill();}
-   ctx.restore();
+  function bossPolicy() {
+    if (boss && !rule().allowDuringBoss) { monsters = []; entrances = []; return false; }
+    return true;
   }
- };
- // The menu's hide/show transition runs on every new game, including when
- // the original start() was captured by an existing event listener.
- new MutationObserver(()=>{
-  const playing=started&&menu.classList.contains('hidden');
-  if(playing&&!wasPlaying){
-   reset(CONFIG.startDelay);previousStage=stage;previousPhase=phase;previousBoss=false;
+  function update(dt) {
+    if (!started || window.gameExitDialogOpen) return;
+    const policy = rule();
+    if (!bossPolicy()) return;
+    countdown = Math.max(0, countdown - dt);
+    if (policy.enabled && ready() && transition <= 0 && countdown <= 0 && monsters.length + entrances.length < policy.maxActive) {
+      countdown = policy.intervalSeconds;
+      if (random() < policy.probability) entrances.push(edge());
+    }
+    for (const entry of entrances) entry.time -= dt;
+    const arriving = entrances.filter(entry => entry.time <= 0);
+    entrances = entrances.filter(entry => entry.time > 0);
+    for (const entry of arriving) spawn(entry);
+    for (const monster of monsters) {
+      monster.t += dt; monster.life -= dt; monster.turn -= dt;
+      monster.hitLeft = Math.max(0, monster.hitLeft - dt);
+      monster.turnLeft = Math.max(0, monster.turnLeft - dt);
+      monster.idleLeft = Math.max(0, monster.idleLeft - dt);
+      if (monster.life <= 0) continue;
+      if (monster.turn <= 0) {
+        const angle = random() * Math.PI * 2;
+        monster.vx = Math.cos(angle); monster.vy = Math.sin(angle);
+        monster.turn = .4 + random() * .85;
+      }
+      const dx = monster.x - player.x, dy = monster.y - player.y, distance = Math.hypot(dx, dy);
+      const fleeing = distance < 125;
+      const awayX = distance > .001 ? dx / distance : Math.cos(monster.angle);
+      const awayY = distance > .001 ? dy / distance : Math.sin(monster.angle);
+      const blend = fleeing ? .65 : 0;
+      let vx = fleeing || monster.idleLeft <= 0 ? ((1 - blend) * monster.vx + blend * awayX) : 0;
+      let vy = fleeing || monster.idleLeft <= 0 ? ((1 - blend) * monster.vy + blend * awayY) : 0;
+      if (vx || vy) {
+        const angle = Math.atan2(vy, vx);
+        if (Math.abs(Math.atan2(Math.sin(angle - monster.angle), Math.cos(angle - monster.angle))) > Math.PI / 8) monster.turnLeft = groups.directions.duration;
+        monster.angle = angle;
+      }
+      const speed = 45 + stage * 8;
+      monster.x += vx * speed * dt; monster.y += vy * speed * dt;
+      if (monster.x < 18 || monster.x > W - 18) monster.vx *= -1;
+      if (monster.y < 18 || monster.y > H - 18) monster.vy *= -1;
+      monster.x = Math.max(18, Math.min(W - 18, monster.x));
+      monster.y = Math.max(18, Math.min(H - 18, monster.y));
+      monster.moving = Boolean(vx || vy);
+    }
+    monsters = monsters.filter(monster => monster.life > 0 && monster.hp > 0);
+    for (const burst of bursts) burst.t += dt;
+    bursts = bursts.filter(burst => burst.t < groups.explosion.count * groups.explosion.duration);
   }
-  wasPlaying=playing;
- }).observe(menu,{attributes:true,attributeFilter:['class']});
- window.itemMonsterDebug=Object.freeze({
-  get activeCount(){return monsters.length;},
-  get warningCount(){return entrances.length;},
-  get countdown(){return timer;},
-  config:CONFIG
- });
+  function collide() {
+    if (!started || window.gameExitDialogOpen || !bossPolicy()) return;
+    for (const monster of monsters) for (const bullet of bullets) {
+      if (monster.hp <= 0 || bullet.life <= 0 || (bullet.hit || []).includes(monster) || !bulletHitsCircle(bullet, monster.x, monster.y, monster.r)) continue;
+      if (bullet.kind === 2) { if (!consumeTankoPierce(bullet, monster)) continue; }
+      else { (bullet.hit ||= []).push(monster); bullet.life = 0; }
+      monster.hp -= bullet.damage || 1;
+      monster.hitLeft = groups.hit.count * groups.hit.duration;
+      gameAudio.fx('hit');
+      if (bullet.kind !== 2) { bullet.pierce = (bullet.pierce || 1) - 1; if (bullet.pierce > 0) bullet.life = 1; }
+      if (monster.hp <= 0 && gameScoring.enemyDefeated(monster)) {
+        gameAudio.fx('destroy'); dropItem(monster.x, monster.y);
+        bursts.push({ x: monster.x, y: monster.y, t: 0 });
+        for (let i = 0; i < 9; i++) particles.push({ x: monster.x, y: monster.y,
+          vx: (Math.random() - .5) * 180, vy: (Math.random() - .5) * 180, life: .5 });
+      }
+    }
+    monsters = monsters.filter(monster => monster.hp > 0);
+    bullets = bullets.filter(bullet => bullet.kind !== 2 || bullet.life > 0);
+  }
+  function frame(monster) {
+    let group = monster.hitLeft > 0 ? 'hit' : monster.turnLeft > 0 ? 'directions' : monster.moving ? 'move' : 'idle';
+    const spec = groups[group];
+    const index = group === 'directions' ? ((Math.round((monster.angle + Math.PI / 2) / (Math.PI / 4)) % 8) + 8) % 8 :
+      group === 'hit' ? Math.min(2, Math.floor((spec.count * spec.duration - monster.hitLeft) / spec.duration)) : Math.floor(monster.t / spec.duration) % spec.count;
+    return { group, index, column: spec.column + index, row: spec.row,
+      rotation: group === 'directions' ? 0 : monster.angle + (group === 'move' ? 0 : Math.PI / 2) };
+  }
+  function paint(point, pose, width) {
+    const height = width * 256 / 320;
+    ctx.save(); ctx.translate(point.x, point.y); ctx.rotate(pose.rotation || 0);
+    ctx.drawImage(atlas, pose.column * 320, pose.row * 256, 320, 256,
+      -width * 160 / 320, -height * 127 / 256, width, height);
+    ctx.restore();
+  }
+  function draw() {
+    if (!ready() || !player || !menu.classList.contains('hidden')) return;
+    for (const entry of entrances) {
+      ctx.save(); ctx.globalAlpha = .65 + .35 * Math.sin(entry.time * 8);
+      paint(entry, { column: 0, row: 0 }, 48); ctx.restore();
+    }
+    for (const monster of monsters) paint(monster, frame(monster), 64);
+    for (const burst of bursts) paint(burst, { column: groups.explosion.column + Math.min(3, Math.floor(burst.t / groups.explosion.duration)), row: 3 }, 80);
+  }
+  window.itemMonsters = Object.freeze({ reset, update, collide, draw, configure, spawn, frame, ready,
+    targets: () => monsters.filter(monster => monster.hp > 0 && monster.life > 0),
+    snapshot: () => ({ monsters: monsters.map(monster => ({ ...monster })), entrances: entrances.map(entry => ({ ...entry })),
+      bursts: bursts.map(burst => ({ ...burst })), countdown, policy: { ...rule() },
+      mode: 'provisional-legacy-compatible', normalOpportunityProbability: 1 - legacyProbability }),
+    legacyProbability
+  });
+  seed();
 })();

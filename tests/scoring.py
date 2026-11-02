@@ -1,3 +1,4 @@
+from item_monster_preservation import assert_item_asset
 """Real-browser scoring, local TOP 10 persistence, result lifecycle and mobile UI."""
 import argparse
 import base64
@@ -35,6 +36,8 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_scoring_changes(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)).startswith('assets/item_monster/'):
+     assert_item_asset(path);continue
     if not path.is_file():
         continue
     name = str(path.relative_to(ROOT))
@@ -69,7 +72,7 @@ threading.Thread(target=server.serve_forever, daemon=True).start()
 url = f'http://127.0.0.1:{server.server_port}'
 html = (ROOT / 'dist/heli_trio_galaxy_test.html').read_text() if args.standalone else None
 helpers = '''() => {
- window.scoreReset=(kind=0)=>{start(kind);transition=0;spawn=999;invuln=999;fireCooldown=0;};
+ window.scoreReset=(kind=0)=>{start(kind);itemMonsters.configure({probability:0});transition=0;spawn=999;invuln=999;fireCooldown=0;};
  window.scoreEnemy=(special=false)=>({x:100,y:100,r:16,hp:1,special,life:10,t:0,turn:999,speed:0,shot:999,charge:999,vx:0,vy:0,kind:0,mode:'chase'});
  window.scoreKill=target=>{bullets=[];shoot();Object.assign(bullets[0],{x:target.x,y:target.y,vx:0,vy:0});update(0);};
 }'''
@@ -125,17 +128,17 @@ try:
           const normal={score:runScore,kills:phaseKills};
           const repeated=gameScoring.enemyDefeated(e);update(0);
           const afterDuplicate={score:runScore,kills:phaseKills};
-          const special=scoreEnemy(true);enemies=[special];scoreKill(special);
+          const special=itemMonsters.spawn({x:100,y:100});for(let i=0;i<5;i++)scoreKill(special);
           return {normal,repeated,afterDuplicate,score:runScore,items:items.length,kills:phaseKills};
         }''')
         assert kills == {'normal': {'score': 100, 'kills': 1}, 'repeated': False,
-                         'afterDuplicate': {'score': 100, 'kills': 1}, 'score': 300, 'items': 1, 'kills': 2}
+                         'afterDuplicate': {'score': 100, 'kills': 1}, 'score': 300, 'items': 1, 'kills': 1}
         counted = page.evaluate('gameScoring.finish("abandoned").record')
         assert counted['normalKills'] == 1 and counted['itemKills'] == 1 and counted['score'] == 300
         report['actual_kills'] = kills
         report['actual_kill_analysis'] = counted
         passed('Actual normal/item-monster bullet kills award100/200 exactly once; repeated credit is rejected and requiredKills/normal item drop stay unchanged.')
-        expired = page.evaluate('''() => {scoreReset();const e=scoreEnemy(true);e.life=0;enemies=[e];update(.001);return {score:runScore,kills:phaseKills,items:items.length}}''')
+        expired = page.evaluate('''() => {scoreReset();const e=itemMonsters.spawn({x:100,y:100});e.life=0;update(.001);return {score:runScore,kills:phaseKills,items:items.length}}''')
         assert expired == {'score': 0, 'kills': 0, 'items': 0}
         passed('An item monster expiring without a kill gives no points, kill progress or dropped item.')
 

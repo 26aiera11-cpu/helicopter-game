@@ -1,3 +1,4 @@
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
@@ -27,6 +28,8 @@ source = (root / 'index.html').read_text()
 preserved_source = without_progression_changes(source)
 assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+     assert_item_asset(path);continue
     if path.is_file():
         if str(path.relative_to(root)) in SCORE_ASSETS:
             assert_scoring_asset(path);continue
@@ -171,8 +174,8 @@ try:
             const result=[],random=Math.random;
             try {for(const roll of [.25,.75]) {
                 rewardReset(2);hp=1;player.upgrade=0;
-                enemies=[{x:100,y:100,hp:1,special:true,r:16,life:999,turn:999,kind:0,speed:0,shot:999,t:0,mode:'chase',charge:999,vx:0,vy:0}];
-                Math.random=()=>roll;shoot();Object.assign(bullets[0],{x:100,y:100,vx:0,vy:0});update(.001);
+                itemMonsters.configure({probability:0});const itemMonster=itemMonsters.spawn({x:100,y:100});
+                Math.random=()=>roll;for(let shot=0;shot<4;shot++){bullets=[];shoot();Object.assign(bullets[0],{x:itemMonster.x,y:itemMonster.y,vx:0,vy:0});update(.001);}
                 const before={count:items.length,type:items[0]?.type,r:items[0]?.r,hp,upgrade:player.upgrade,events:rewardEvents.length};
                 Object.assign(items[0],{x:player.x,y:player.y,vx:0,vy:0,turn:999});update(.001);
                 const after={count:items.length,hp,upgrade:player.upgrade,events:rewardEvents.length};

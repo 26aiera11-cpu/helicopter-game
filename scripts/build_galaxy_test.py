@@ -38,7 +38,8 @@ def build():
     javascript = js_path.read_text()
     score_css = (ROOT / 'assets/score/score.css').read_text()
     score_javascript = (ROOT / 'assets/score/score.js').read_text()
-    assert '</style' not in (css + score_css).lower() and '</script' not in (javascript + score_javascript).lower()
+    item_javascript = (ROOT / 'assets/item_monster/item_monster.js').read_text()
+    assert '</style' not in (css + score_css).lower() and '</script' not in (javascript + score_javascript + item_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -51,14 +52,16 @@ def build():
                             '<style id="galaxy-score-css">' + score_css + '</style>')
     result = result.replace('<script src="assets/score/score.js"></script>',
                             '<script id="galaxy-score-js">' + score_javascript + '</script>')
+    result = result.replace('<script src="assets/item_monster/item_monster.js"></script>',
+                            '<script id="galaxy-item-monster-js">' + item_javascript + '</script>')
 
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
-    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score)/[^\"\']+)([\"\'])', inline_resource, result)
+    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [item_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -83,6 +86,7 @@ def build():
         'inlined_selection_stylesheets': 1,
         'inlined_score_scripts': 1,
         'inlined_score_stylesheets': 1,
+        'inlined_item_monster_scripts': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],
         'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.mp3'],
         'external_dependencies': 0,
