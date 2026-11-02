@@ -6,7 +6,7 @@ from pathlib import Path
 from playwright.sync_api import sync_playwright
 root=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'passed':[],'method':{'viewport':[915,412],'step_seconds':1/120,'initial_distance_px':160,'aim':'Exact centre aim each simulation tick; actual boss movement, attacks, projectile spread/homing and hit tests; player stationary and invulnerable. Start with empty bullets, zero fire cooldown, existing 1.5s boss transition.','before':'Unscaled HP using current weapon rules (including current Tanko damage1.5); only initial hp/maxHp overridden. This is an HP-only comparison, not the previous Tanko combat version.','requested':'Initial proposed linear 1 + 0.2 * upgrade; only initial HP overridden in test memory.','after':'Actual product spawn HP, without test override.','limits':'Controlled reproducible simulation in a real browser, not human difficulty or physical-device frame-rate measurement. 120Hz fixed step; a second 60Hz matrix checks the conclusion.'},'limits':['Physical Galaxy/Samsung Internet and human aiming/latency/weapon balance are not tested. HP-only scaling cannot make every upgraded character equally fast without changing protected attacks.']}
+report={'passed':[],'method':{'viewport':[915,412],'step_seconds':1/120,'simulation_timeout_seconds':60,'initial_distance_px':160,'aim':'Exact centre aim each simulation tick; actual boss movement, attacks, projectile spread/homing and hit tests; player stationary and invulnerable. Start with empty bullets, zero fire cooldown, existing 1.5s boss transition.','before':'Unscaled HP using current weapon rules (including current Tanko damage1.5); only initial hp/maxHp overridden. This is an HP-only comparison, not the previous Tanko combat version.','requested':'Initial proposed linear 1 + 0.2 * upgrade; only initial HP overridden in test memory.','after':'Actual product spawn HP, without test override.','limits':'Controlled reproducible simulation in a real browser, not human difficulty or physical-device frame-rate measurement. 120Hz fixed step; a second 60Hz matrix checks the conclusion.'},'limits':['Physical Galaxy/Samsung Internet and human aiming/latency/weapon balance are not tested. HP-only scaling cannot make every upgraded character equally fast without changing protected attacks.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
@@ -24,14 +24,14 @@ try:
     if(model!=='after')target.hp=target.maxHp=(20+15*region)*(model==='before'?1:1+.2*level);
     keys.fire=true;let frames=0,firstAttack=null,shots=0;const realShoot=shoot;
     shoot=()=>{shots++;realShoot()};
-    try{while(boss===target&&frames<hz*30){
+    try{while(boss===target&&frames<hz*60){
      player.a=Math.atan2(target.y-player.y,target.x-player.x)-Math.PI/2;update(1/hz);frames++;
      if(firstAttack===null&&enemyBullets.length)firstAttack=frames/hz;
     }}finally{shoot=realShoot}
-    rows.push({hz,model,type,level,stage:region,hp:target.maxHp,seconds:frames/hz,shots,firstAttack,defeated:target.hp<=0,rewardGranted:target.rewardGranted===true,score,regionAfter:stage,phaseAfter:phase});keys.fire=false;
+    rows.push({hz,model,type,level,stage:region,hp:target.maxHp,seconds:frames/hz,shots,firstAttack,defeated:target.hp<=0,rewardGranted:target.rewardGranted===true,score:runScore,regionAfter:stage,phaseAfter:phase});keys.fire=false;
    }return rows;}finally{gameAudio.fx=oldFx;Math.random=oldRandom}
   }''')
-  assert len(rows)==288 and all(r['defeated'] and r['rewardGranted'] and r['score']==10 for r in rows)
+  assert len(rows)==288 and all(r['defeated'] and r['rewardGranted'] and r['score']==2000 for r in rows), {'count':len(rows),'failed':[r for r in rows if not (r['defeated'] and r['rewardGranted'] and r['score']==2000)]}
   report['timings']=rows
   passed('288 controlled actual-code fights cover all four bosses, three characters and upgrades 0/1/3/5 at 120Hz and 60Hz, comparing original, requested and final HP.')
   scale=[1,1.1,1.4,1.6,1.9,2.2];report['final_hp_scale']=scale

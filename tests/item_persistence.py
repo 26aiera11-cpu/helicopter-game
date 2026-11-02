@@ -31,8 +31,8 @@ try:
   normal=page.evaluate('''() => {
    itemReset();phaseKills=requiredKills-1;const it=carried('power');items=[it];
    const enemy={x:player.x,y:player.y-70,hp:1,r:16,special:false,kind:0,life:999,t:0,turn:99,speed:0,shot:99,charge:99,vx:0,vy:0,mode:'chase'};enemies=[enemy];
-   itemKill(enemy);return {phase,score,same:items[0]===it,life:it.life,x:it.x,y:it.y};
-  }''');assert normal['phase']==2 and normal['score']==1 and normal['same'] and abs(normal['life']-7.249)<1e-9
+   itemKill(enemy);return {phase,runScore,same:items[0]===it,life:it.life,x:it.x,y:it.y};
+  }''');assert normal['phase']==2 and normal['runScore']==600 and normal['same'] and abs(normal['life']-7.249)<1e-9
   assert abs(normal['x']-45.011)<1e-9 and abs(normal['y']-55.007)<1e-9
   report['ordinary_kill_transition']=normal
   passed('The sixth ordinary monster dies through actual bullet collision and advances the phase while retaining its existing item with only the normal elapsed tick/movement deducted.')
@@ -66,8 +66,8 @@ try:
   assert drop=={'same':True,'equal':True,'life':16,'r':13,'count':1}
   passed('The unchanged normal drop generator still creates one 16-second, 13px item and the new transition preserves it exactly.')
   page.evaluate('hp=0;update(0)');expect(page.locator('#gameOverOverlay')).to_be_visible();expect(page.locator('#menu')).to_be_visible(timeout=4000)
-  page.locator('#startSelected').tap();assert page.evaluate('started&&items.length===0&&stage===0&&phase===1&&score===0&&player.upgrade===0')
-  passed('After the actual three-second game-over return, a new user-started game resets items and the original stage/score/upgrade state.')
+  page.locator('#startSelected').tap();assert page.evaluate('started&&items.length===0&&stage===0&&phase===1&&runScore===0&&player.upgrade===0')
+  passed('After the actual three-second game-over return, a new user-started game resets items and the original stage/runScore/upgrade state.')
   assert not errors,errors
   browser.close()
 finally:server.shutdown();server.server_close()

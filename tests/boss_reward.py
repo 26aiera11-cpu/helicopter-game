@@ -1,3 +1,4 @@
+from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
 """Boss rewards through actual shot/collision paths plus ordinary item regression."""
@@ -27,6 +28,8 @@ preserved_source = without_progression_changes(source)
 assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
+        if str(path.relative_to(root)) in SCORE_ASSETS:
+            assert_scoring_asset(path);continue
         if str(path.relative_to(root))==BGM_ASSET:
             assert_selection_bgm_asset();continue
         name = str(path.relative_to(root))
@@ -86,7 +89,7 @@ try:
                 const random=Math.random;let randomCalls=0;Math.random=()=>{randomCalls++;return roll};
                 try {shoot();for(const b of bullets)Object.assign(b,{x:boss.x,y:boss.y,vx:0,vy:0});update(.001)}
                 finally{Math.random=random}
-                return {hp,upgrade:player.upgrade,stage,phase,started,score,items:items.length,
+                return {hp,upgrade:player.upgrade,stage,phase,started,score:runScore,items:items.length,
                     rewardGranted:defeated.rewardGranted,randomCalls,events:rewardEvents.slice()};
             };
         }''')
@@ -119,7 +122,7 @@ try:
             assert value['hp'] == min(cap, reward_hp + (2 if index < 3 else 0))
             assert value['upgrade'] == (2 if is_health else 3)
             assert value['stage'] == min(index + 1, 3) and value['phase'] == (1 if index < 3 else 5)
-            assert value['started'] == (index < 3) and value['score'] == 10 and value['items'] == 0
+            assert value['started'] == (index < 3) and value['score'] == 2000 and value['items'] == 0
             assert value['rewardGranted'] and value['randomCalls'] == 1 and len(value['events']) == 1
             event = value['events'][0]
             assert event['hp'] == reward_hp and event['upgrade'] == value['upgrade'] and event['stage'] == index

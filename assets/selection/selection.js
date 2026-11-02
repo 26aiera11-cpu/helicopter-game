@@ -1,8 +1,6 @@
 /* Presentation hooks only; the original game functions remain unchanged. */
 (() => {
   const selectionMenu = document.getElementById('menu');
-  const settings = document.getElementById('selectionSettings');
-  const audioControls = document.getElementById('audioControls');
   const help = document.getElementById('selectionHelpDialog');
   const heading = selectionMenu.querySelector('h1');
   const result = document.getElementById('selectionResult');
@@ -56,15 +54,10 @@
     document.querySelectorAll('.heli-stage').forEach(element => element.classList.remove('is-hovering'));
     syncCharacters();
   });
-  function closeSettings() {
-    audioControls.classList.remove('settings-open');
-    settings.setAttribute('aria-expanded', 'false');
-  }
   function syncMenu() {
     const visible = !selectionMenu.classList.contains('hidden');
     document.body.classList.toggle('selection-open', visible);
     if (!visible) {
-      closeSettings();
       if (help.open) help.close();
     }
     const message = heading.textContent || '';
@@ -74,14 +67,6 @@
 
   document.querySelectorAll('.select-hit').forEach(button => {
     button.addEventListener('click', syncCharacters);
-  });
-  settings.addEventListener('click', () => {
-    const opened = audioControls.classList.toggle('settings-open');
-    settings.setAttribute('aria-expanded', String(opened));
-    if (opened) document.getElementById('musicToggle').focus();
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape') closeSettings();
   });
   document.getElementById('selectionHelp').addEventListener('click', () => help.showModal());
   document.getElementById('selectionHelpClose').addEventListener('click', () => help.close());
@@ -254,7 +239,8 @@
   overlay.hidden = true;
   overlay.setAttribute('role', 'status');
   overlay.setAttribute('aria-live', 'assertive');
-  overlay.innerHTML = '<div class="game-over-panel"><h2>GAME OVER</h2><p id="gameOverStars"></p></div>';
+  overlay.innerHTML = '<div class="game-over-panel"><h2>GAME OVER</h2><p id="gameOverScore"></p>' +
+    '<p id="gameOverCharacter"></p><p id="gameOverRank"></p></div>';
   document.body.append(overlay);
   const controls = [...document.querySelectorAll('.controls, #sensor, #fullscreenToggle, #game')];
   let saved = [];
@@ -266,7 +252,10 @@
   document.addEventListener('gameover', event => {
     close();
     document.getElementById('selectionResult').textContent = '';
-    overlay.querySelector('#gameOverStars').textContent = '⭐ ' + event.detail.score;
+    const { record, isTop10, rank, saved: recordSaved } = event.detail.result;
+    overlay.querySelector('#gameOverScore').textContent = '🏆 ' + gameScoring.format(record.score) + '점';
+    overlay.querySelector('#gameOverCharacter').textContent = record.characterName;
+    overlay.querySelector('#gameOverRank').textContent = (isTop10 ? `새로운 TOP 10 기록 · ${rank}위` : 'TOP 10 진입 안됨') + (recordSaved ? '' : ' · 기록 저장 불가');
     saved = controls.map(element => [element, element.inert]);
     controls.forEach(element => { element.inert = true; });
     document.activeElement?.blur();

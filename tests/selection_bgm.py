@@ -1,3 +1,4 @@
+from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 """Native13-track menu/game routing, trusted gesture, loop and retry checks."""
 import argparse,base64,hashlib,json,re,shutil,subprocess,threading
 from pathlib import Path
@@ -11,7 +12,12 @@ def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
 source=(root/'index.html').read_text();assert without_selection_bgm_changes(source)==subprocess.check_output(['git','show','dcd2fe2:index.html'],cwd=root).decode()
 data=assert_selection_bgm_asset()
 for path in (root/'assets').rglob('*'):
- if path.is_file() and str(path.relative_to(root))!=BGM_ASSET:assert path.read_bytes()==subprocess.check_output(['git','show','dcd2fe2:'+str(path.relative_to(root))],cwd=root)
+ if not path.is_file():continue
+ name=str(path.relative_to(root))
+ if name==BGM_ASSET:continue
+ if name in SCORE_ASSETS:assert_scoring_asset(path);continue
+ actual=without_scoring_ui(path.read_text(),name).encode() if name.endswith(('.js','.css')) else path.read_bytes()
+ assert actual==subprocess.check_output(['git','show','dcd2fe2:'+name],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',source,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 passed('The supplied990740-byte MP3 matches its exact hash; only reviewed audio routing/hidden source differ from dcd2fe2, all earlier assets/gameplay and12WAV bytes remain unchanged, and syntax passes.')
 probe='''(() => {
@@ -89,8 +95,8 @@ try:
   report['loop_boundaries']=page.evaluate('audioProbe.loops')
   assert page.evaluate('audioProbe.loops.every(x=>!x.paused&&x.recoveryMs<1000)')
   passed('Native loop crosses the file end without a paused state and its playback clock recovers within1s (measured in the report); online includes one full natural30.9s pass, offline tests the real end boundary. Musical seam quality still needs listening.')
-  page.locator('#selectionSettings').tap();page.locator('#sfxToggle').tap();clock=page.evaluate('selectionBgm.currentTime');track('selection');assert page.evaluate('selectionBgm.currentTime')>clock
-  page.locator('#sfxToggle').tap();page.locator('#selectionSettings').tap()
+  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardDialog')).to_be_visible();page.locator('#leaderboardClose').tap();page.locator('#sfxToggle').tap();clock=page.evaluate('selectionBgm.currentTime');track('selection');assert page.evaluate('selectionBgm.currentTime')>clock
+  page.locator('#sfxToggle').tap()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement')
   start(0);track('stage_forest');assert page.evaluate('selectionBgm.paused&&selectionBgm.currentTime===0')
   assert page.evaluate('!!document.fullscreenElement')
