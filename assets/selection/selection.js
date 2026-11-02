@@ -164,6 +164,7 @@
   window.gameExitDialogOpen = false;
 
   function clearInput() {
+    gameControls.reset();
     keys.left = keys.right = keys.fire = false;
     drag = null;
     tilt = { x: 0, y: 0 };

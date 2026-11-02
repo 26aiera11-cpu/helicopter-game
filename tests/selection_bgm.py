@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 """Native13-track menu/game routing, trusted gesture, loop and retry checks."""
@@ -13,6 +14,8 @@ def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)
 source=(root/'index.html').read_text();assert without_selection_bgm_changes(source)==subprocess.check_output(['git','show','dcd2fe2:index.html'],cwd=root).decode()
 data=assert_selection_bgm_asset()
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+     assert_controls_asset(path);continue
  if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
   assert_item_asset(path);continue
  if not path.is_file():continue

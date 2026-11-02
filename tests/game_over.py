@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
@@ -15,6 +16,8 @@ def passed(message):report['passed'].append(message);print('PASS:',message,flush
 source=(root/'index.html').read_text()
 assert without_progression_changes(source).encode()==subprocess.check_output(['git','show','9c3c5a8:index.html'],cwd=root)
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+     assert_controls_asset(path);continue
  if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
   assert_item_asset(path);continue
  if str(path.relative_to(root)) in SCORE_ASSETS:

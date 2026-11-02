@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
@@ -49,6 +50,8 @@ old_audio, new_audio = re.findall(audio_pattern, before), re.findall(audio_patte
 assert old_audio == new_audio and len(new_audio) == 12
 report['unchanged_wav_sha256'] = [hashlib.sha256(base64.b64decode(url.split(',')[1])).hexdigest() for url in new_audio]
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
      assert_item_asset(path);continue
     if path.is_file():

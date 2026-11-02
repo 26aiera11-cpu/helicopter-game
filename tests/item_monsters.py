@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 """Native browser verification of the independent item monster system."""
 import argparse
 import base64
@@ -38,12 +39,15 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_item_monsters(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if not path.is_file():
         continue
     if str(path.relative_to(ROOT)).startswith('assets/item_monster/'):
         assert_item_asset(path)
     else:
-        assert path.read_bytes() == subprocess.check_output(['git', 'show', BASELINE + ':' + str(path.relative_to(ROOT))], cwd=ROOT)
+        actual = without_controls_ui(path.read_text(), str(path.relative_to(ROOT))).encode() if path.suffix in ('.js','.css') else path.read_bytes()
+        assert actual == subprocess.check_output(['git', 'show', BASELINE + ':' + str(path.relative_to(ROOT))], cwd=ROOT)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S) + [(ROOT / 'assets/item_monster/item_monster.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('Only exact reviewed item integration differs from main; every previous asset/scoring/audio/UI file is unchanged, supplied assets match pinned bytes, and JS syntax passes.')

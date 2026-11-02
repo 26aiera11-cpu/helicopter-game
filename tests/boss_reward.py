@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
@@ -28,6 +29,8 @@ source = (root / 'index.html').read_text()
 preserved_source = without_progression_changes(source)
 assert without_boss_reward_changes(without_final_trio_changes(without_tanko_restore(preserved_source))).encode() == subprocess.check_output(['git', 'show', baseline + ':index.html'], cwd=root)
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
      assert_item_asset(path);continue
     if path.is_file():
@@ -202,7 +205,7 @@ try:
             assert bounds['x'] >= 0 and bounds['y'] >= 0 and bounds['x'] + bounds['width'] <= width
             assert bounds['height'] <= 30
             assert notice.evaluate('e=>getComputedStyle(e).pointerEvents') == 'none'
-            for name in ['hud', 'fire', 'left', 'right', 'exitGame', 'fullscreenToggle']:
+            for name in ['hud', 'fire', 'rotationJoystick', 'exitGame', 'fullscreenToggle']:
                 control = page.locator('#' + name).bounding_box()
                 assert not (bounds['x'] < control['x'] + control['width'] and bounds['x'] + bounds['width'] > control['x'] and bounds['y'] < control['y'] + control['height'] and bounds['y'] + bounds['height'] > control['y']), name
             if width == 915:

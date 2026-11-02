@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
@@ -45,6 +46,8 @@ def passed(message):
 
 assert without_final_trio_changes(without_tanko_restore(preserved_source)) == before
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
      assert_item_asset(path);continue
     if str(path.relative_to(root)) in SCORE_ASSETS:
@@ -165,10 +168,10 @@ try:
         page.evaluate('spawn=999;invuln=999;transition=0;player.a=Math.PI;bullets=[];fireCooldown=0')
         cdp=context.new_cdp_session(page)
         def hold(control,condition):
-            box=page.locator('#'+control).bounding_box();cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+box['width']/2,'y':box['y']+box['height']/2,'id':1}]})
+            box=page.locator('#'+control).bounding_box();cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+(box['width']-26 if control=='rotationJoystick' else box['width']/2),'y':box['y']+box['height']/2,'id':1}]})
             page.wait_for_function(condition,timeout=15000);cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
         old_spin=page.evaluate('rotorSpin')
-        hold('right','player.a>=Math.PI+Math.PI*2')
+        hold('rotationJoystick','player.a>=Math.PI+Math.PI*2')
         assert page.evaluate('rotorSpin')>old_spin
         page.evaluate('player.a=Math.PI;bullets=[];fireCooldown=0')
         hold('fire','bullets.length>0')

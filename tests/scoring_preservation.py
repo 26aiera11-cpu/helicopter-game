@@ -3,6 +3,7 @@ import hashlib
 import json
 from pathlib import Path
 from item_monster_preservation import without_item_monsters
+from controls_preservation import without_controls_ui
 
 ROOT = Path(__file__).resolve().parents[1]
 SCORE_ASSETS = {'assets/score/score.js', 'assets/score/score.css'}
@@ -28,4 +29,5 @@ def without_scoring_changes(source):
 
 
 def without_scoring_ui(source, name):
+    source = without_controls_ui(source, name)
     return reverse(source, 'scoring_ui_changes.json') if name == 'assets/selection/selection.js' else source

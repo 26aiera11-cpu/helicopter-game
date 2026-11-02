@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 """Native browser tests for regional kill-count reservations and 125% geometry."""
 import argparse
 import hashlib
@@ -35,13 +36,16 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_item_spawn_changes(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if not path.is_file():
         continue
     relative = str(path.relative_to(ROOT))
     if relative in ['assets/item_monster/item_monster.js', 'assets/item_monster/README.md']:
         assert_item_asset(path)
     else:
-        assert path.read_bytes() == subprocess.check_output(['git', 'show', BASELINE + ':' + relative], cwd=ROOT)
+        actual = without_controls_ui(path.read_text(), relative).encode() if path.suffix in ('.js','.css') else path.read_bytes()
+        assert actual == subprocess.check_output(['git', 'show', BASELINE + ':' + relative], cwd=ROOT)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S) + [(ROOT / 'assets/item_monster/item_monster.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('Only two native integration hooks and the reviewed item manager change; every PNG/scoring/audio/UI/attack file remains unchanged and JS syntax passes.')

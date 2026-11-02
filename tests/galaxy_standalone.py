@@ -53,7 +53,7 @@ for url in re.findall(r'url\(([^)]+)\)', html):
 passed('All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.')
 old_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
 scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.S)
-assert scripts == [(root / 'assets/item_monster/item_monster.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
+assert scripts == [(root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
 for script in scripts:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.')
@@ -205,8 +205,8 @@ with sync_playwright() as playwright:
         expect(page.locator('#menu')).to_be_hidden()
         page.wait_for_function('worldScroll>1')
         angle=page.evaluate('player.a')
-        box=page.locator('#right').bounding_box()
-        touch_start(box['x']+box['width']/2,box['y']+box['height']/2)
+        box=page.locator('#rotationJoystick').bounding_box()
+        touch_start(box['x']+box['width']-26,box['y']+box['height']/2)
         page.wait_for_function('(angle)=>player.a>angle+.12',arg=angle)
         touch_end()
         x,y=page.evaluate('[W/2,H/2]');old_x=page.evaluate('player.x')

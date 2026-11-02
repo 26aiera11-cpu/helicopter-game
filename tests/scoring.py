@@ -1,3 +1,4 @@
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 """Real-browser scoring, local TOP 10 persistence, result lifecycle and mobile UI."""
 import argparse
@@ -36,6 +37,8 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_scoring_changes(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
     if path.is_file() and str(path.relative_to(ROOT)).startswith('assets/item_monster/'):
      assert_item_asset(path);continue
     if not path.is_file():
@@ -46,7 +49,7 @@ for path in (ROOT / 'assets').rglob('*'):
         continue
     actual = without_scoring_ui(path.read_text(), name).encode() if path.suffix in ('.js', '.css') else path.read_bytes()
     assert actual == subprocess.check_output(['git', 'show', BASELINE + ':' + name], cwd=ROOT)
-assert not re.search(r'\bscore\b', re.sub(r'data:[^;]+;base64,[A-Za-z0-9+/=]+', '', source).split('function start(type)')[1].split('function bind')[0])
+assert not re.search(r'\bscore\b', re.sub(r'data:[^;]+;base64,[A-Za-z0-9+/=]+', '', source).split('function start(type)')[1].split('const sensorBtn=')[0])
 for block in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S) + [
         (ROOT / 'assets/score/score.js').read_text(), (ROOT / 'assets/selection/selection.js').read_text()]:
     subprocess.run(['node', '--check', '-'], input=block, text=True, capture_output=True, check=True)
