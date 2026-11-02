@@ -1,0 +1,222 @@
+{
+  "baseline_commit": "e12666ee90cf7e905ffa4c41de13b1c337a37641",
+  "final_asset": "assets/gameplay/trio_gameplay_final.png",
+  "png_sha256": "b7bdc4d0a393e46436b214fda435e288c48f147c0272d85cc93658dd811f983e",
+  "passed": [
+    "Only authorized Tanko combat/progression/game-over, Trio/Tanko PNG replacements and the Trio draw rectangle differ; other game/reward/audio/fullscreen/exit code and selection assets are unchanged; syntax passes.",
+    "The final 1402×1122 RGBA PNG matches the exact approved file hash; no image edits, cropping, resampling or square conversion are applied to the asset.",
+    "The actual active sprite is the final PNG; Trio still starts facing 12 o’clock at Math.PI with the original HP, speed and player center.",
+    "Actual drawing uses equal X/Y scale and the original 1.24955 ratio; visible-body center stays at the player, visible height stays within 0.1px, and the original rotor size/anchor remains unchanged.",
+    "Seventeen samples across a full 360° keep uniform image scale, circular gun proportions and the original forward 19px muzzle/535 projectile direction, including the 12 o’clock start and full-turn endpoint.",
+    "Actual held touch rotates through a full 360° while the rotor keeps animating; releasing and firing at 12 o’clock retains the original upward projectiles.",
+    "The original hit radius remains independent of the visual rectangle: a 5px enemy bullet at 17.1px is safe and at 16.9px damages Trio.",
+    "Bingle and Tanko retain their exact original draw rectangle; Bingle PNG stays unchanged and the approved Tanko restoration is isolated; gameplay and exit flows remain usable.",
+    "Saved enlarged before/after, nine-angle rotation and three mobile landscape gameplay screenshots; no native dialogs or uncaught JavaScript errors."
+  ],
+  "limits": [
+    "Actual headless Chromium and native input/fullscreen; viewport/touch emulation, not a physical Galaxy.",
+    "Review enlargements replay real body/rotor draw calls; actual mobile gameplay screenshots are also provided.",
+    "Speaker/sensor/performance/Android UI testing requires a physical device."
+  ],
+  "png": {
+    "width": 1402,
+    "height": 1122,
+    "mode": "RGBA",
+    "bytes": 928623,
+    "alpha128_bounds": [
+      207,
+      20,
+      1195,
+      1075
+    ],
+    "native_ratio": 1.249554367201426
+  },
+  "draw": {
+    "body_args": [
+      -21.086229946524064,
+      -16.468917112299465,
+      42.17245989304813,
+      33.75
+    ],
+    "scale_x": 0.030080213903743314,
+    "scale_y": 0.030080213903743314,
+    "visible_height": 31.734625668449198,
+    "previous_visible_height": 31.725,
+    "rotor_source_anchor": [
+      701.0,
+      441.1177777777778
+    ]
+  },
+  "rotation_samples": [
+    {
+      "degrees": 0.0,
+      "angle": 3.141592653589793,
+      "shot": {
+        "dx": 0,
+        "dy": -19,
+        "vx": -9.827790563157508e-14,
+        "vy": -535
+      }
+    },
+    {
+      "degrees": 22.5,
+      "angle": 3.5342917352885173,
+      "shot": {
+        "dx": 7.2709852149366725,
+        "dy": -17.553711117714442,
+        "vx": 204.73563631532315,
+        "vy": -494.27554989353837
+      }
+    },
+    {
+      "degrees": 45.0,
+      "angle": 3.9269908169872414,
+      "shot": {
+        "dx": 13.435028842544398,
+        "dy": -13.435028842544398,
+        "vx": 378.30212793480285,
+        "vy": -378.302127934803
+      }
+    },
+    {
+      "degrees": 67.5,
+      "angle": 4.319689898685965,
+      "shot": {
+        "dx": 17.553711117714442,
+        "dy": -7.270985214936729,
+        "vx": 494.2755498935383,
+        "vy": -204.73563631532335
+      }
+    },
+    {
+      "degrees": 90.0,
+      "angle": 4.71238898038469,
+      "shot": {
+        "dx": 19,
+        "dy": 0,
+        "vx": 535,
+        "vy": -1.3103720750876679e-13
+      }
+    },
+    {
+      "degrees": 112.5,
+      "angle": 5.105088062083414,
+      "shot": {
+        "dx": 17.553711117714442,
+        "dy": 7.270985214936729,
+        "vx": 494.2755498935384,
+        "vy": 204.73563631532312
+      }
+    },
+    {
+      "degrees": 135.0,
+      "angle": 5.497787143782138,
+      "shot": {
+        "dx": 13.435028842544398,
+        "dy": 13.435028842544398,
+        "vx": 378.302127934803,
+        "vy": 378.30212793480285
+      }
+    },
+    {
+      "degrees": 157.5,
+      "angle": 5.890486225480862,
+      "shot": {
+        "dx": 7.2709852149366725,
+        "dy": 17.553711117714442,
+        "vx": 204.73563631532338,
+        "vy": 494.2755498935383
+      }
+    },
+    {
+      "degrees": 180.0,
+      "angle": 6.283185307179586,
+      "shot": {
+        "dx": 0,
+        "dy": 19,
+        "vx": 1.637965093859585e-13,
+        "vy": 535
+      }
+    },
+    {
+      "degrees": 202.5,
+      "angle": 6.675884388878311,
+      "shot": {
+        "dx": -7.2709852149366725,
+        "dy": 17.553711117714442,
+        "vx": -204.7356363153231,
+        "vy": 494.2755498935384
+      }
+    },
+    {
+      "degrees": 225.0,
+      "angle": 7.0685834705770345,
+      "shot": {
+        "dx": -13.435028842544398,
+        "dy": 13.435028842544398,
+        "vx": -378.30212793480246,
+        "vy": 378.30212793480337
+      }
+    },
+    {
+      "degrees": 247.5,
+      "angle": 7.461282552275758,
+      "shot": {
+        "dx": -17.553711117714442,
+        "dy": 7.270985214936729,
+        "vx": -494.27554989353825,
+        "vy": 204.73563631532343
+      }
+    },
+    {
+      "degrees": 270.0,
+      "angle": 7.853981633974483,
+      "shot": {
+        "dx": -19,
+        "dy": 0,
+        "vx": -535,
+        "vy": 1.9655581126315017e-13
+      }
+    },
+    {
+      "degrees": 292.5,
+      "angle": 8.246680715673207,
+      "shot": {
+        "dx": -17.553711117714442,
+        "dy": -7.270985214936729,
+        "vx": -494.2755498935384,
+        "vy": -204.73563631532306
+      }
+    },
+    {
+      "degrees": 315.0,
+      "angle": 8.63937979737193,
+      "shot": {
+        "dx": -13.435028842544398,
+        "dy": -13.435028842544398,
+        "vx": -378.3021279348034,
+        "vy": -378.3021279348024
+      }
+    },
+    {
+      "degrees": 337.5,
+      "angle": 9.032078879070655,
+      "shot": {
+        "dx": -7.2709852149366725,
+        "dy": -17.553711117714442,
+        "vx": -204.73563631532346,
+        "vy": -494.27554989353825
+      }
+    },
+    {
+      "degrees": 360.0,
+      "angle": 9.42477796076938,
+      "shot": {
+        "dx": 0,
+        "dy": -19,
+        "vx": -2.293151131403419e-13,
+        "vy": -535
+      }
+    }
+  ]
+}

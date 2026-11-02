@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Actual three-second last-frame lifecycle, input, audio and stale-result regression."""
 import argparse,json,shutil,threading,hashlib,subprocess
 from functools import partial
@@ -13,9 +14,11 @@ source=(root/'index.html').read_text()
 assert without_progression_changes(source).encode()==subprocess.check_output(['git','show','9c3c5a8:index.html'],cwd=root)
 for path in (root/'assets').rglob('*'):
  if path.is_file():
+  if str(path.relative_to(root))==BGM_ASSET:
+   assert_selection_bgm_asset();continue
   name=str(path.relative_to(root));actual=without_progression_ui(path.read_text(),name).encode() if path.suffix in ('.js','.css') else path.read_bytes()
   assert actual==subprocess.check_output(['git','show','9c3c5a8:'+name],cwd=root)
-passed('Reviewed progression deltas are the only source/UI differences from 9c3c5a8; all images/audio and unrelated behavior remain byte-identical.')
+passed('After reversing reviewed selection-BGM changes, reviewed Tanko combat and progression deltas are the only source/UI differences from 9c3c5a8; all images/audio and unrelated behavior remain byte-identical.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*a):pass
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start()

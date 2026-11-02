@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
 """Provided Tanko PNG identity and actual eight-direction gameplay rendering."""
 import argparse
@@ -27,6 +28,8 @@ original=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root)
 assert without_tanko_restore(preserved_source)==original
 for path in (root/'assets').rglob('*'):
     if path.is_file() and str(path.relative_to(root))!=TANKO_ASSET:
+        if str(path.relative_to(root))==BGM_ASSET:
+            assert_selection_bgm_asset();continue
         assert (without_progression_ui(path.read_text(),str(path.relative_to(root))).encode() if path.suffix in ('.js','.css') else path.read_bytes())==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',source,re.S):
     subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
@@ -41,7 +44,7 @@ def passed(message):
     report['passed'].append(message);print('PASS:',message,flush=True)
 
 
-passed('After undoing the exact reviewed progression deltas, the entire index differs only by gameplayHeliImages[2] PNG bytes; all rendering, rotation, propeller, attack, movement, collision, Trio/Bingle and selection assets are unchanged; syntax passes.')
+passed('After reversing reviewed selection-BGM changes, after undoing the exact reviewed progression and Tanko combat deltas, the entire index differs only by gameplayHeliImages[2] PNG bytes; all rendering, rotation, propeller, movement, player collision, Trio/Bingle and selection assets are unchanged; syntax passes.')
 new=Image.open(root/TANKO_ASSET);old=Image.open(root/TANKO_BACKUP)
 assert new.size==old.size==(503,490) and new.mode==old.mode=='RGBA'
 assert new.getchannel('A').getbbox()==old.getchannel('A').getbbox()==(6,6,497,484)
@@ -108,7 +111,7 @@ try:
             assert value['calls'][1]['args']==[-19,-19,38,38]
             assert abs(value['rotorLocal'][0])<1e-4 and abs(value['rotorLocal'][1]+3.2)<1e-4
             for actual,expected in [(value['shot']['dx'],-math.sin(value['a'])*19),(value['shot']['dy'],math.cos(value['a'])*19),(value['shot']['vx'],-math.sin(value['a'])*410),(value['shot']['vy'],math.cos(value['a'])*410)]:assert abs(actual-expected)<1e-8
-            assert value['shot']['kind']==2 and value['shot']['damage']==2 and value['shot']['pierce']==2
+            assert value['shot']['kind']==2 and value['shot']['damage']==1.5 and value['shot']['pierce']==2
             assert value['cannonCenter'][0]>30 and value['cannonCenter'][1]>30
         report['eight_direction_draws']=samples
         passed('Eight actual draw samples preserve the exact body/rotor rectangles, center/axis and 19px muzzle/410 projectile direction; left-cannon coordinates rotate with the body without cropping.')

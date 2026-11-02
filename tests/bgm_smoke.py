@@ -1,3 +1,4 @@
+from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
 """Observe real WAV playback clocks/pause states; do not mock audio playback."""
 import argparse
@@ -47,6 +48,8 @@ assert old_audio == new_audio and len(new_audio) == 12
 report['unchanged_wav_sha256'] = [hashlib.sha256(base64.b64decode(url.split(',')[1])).hexdigest() for url in new_audio]
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
+        if str(path.relative_to(root))==BGM_ASSET:
+            assert_selection_bgm_asset();continue
         name = str(path.relative_to(root))
         if name == TANKO_ASSET:
             assert_tanko_asset()
@@ -58,7 +61,7 @@ for path in (root / 'assets').rglob('*'):
         assert actual == subprocess.check_output(['git', 'show', baseline + ':' + name], cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', after, re.S):
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
-passed('Only authorized progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
+passed('After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):
@@ -83,6 +86,11 @@ probe = '''(() => {
         });
         return a;
     }});
+    probe.attachSelection=()=>{
+        const a=document.getElementById('selectionBgm');if(probe.elements.includes(a))return;
+        a.__probeName='selection';probe.elements.push(a);
+        for(const type of ['play','playing','pause','ended'])a.addEventListener(type,()=>{probe.events.push({type,name:a.__probeName,time:a.currentTime});probe.sample(type)});
+    };
     const sample=()=>{probe.sample('frame');requestAnimationFrame(sample)};requestAnimationFrame(sample);
 })()'''
 server = ThreadingHTTPServer(('127.0.0.1', 0), partial(QuietHandler, directory=str(root)))
@@ -97,9 +105,10 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('dialog', lambda dialog: (native_dialogs.append(dialog.type), dialog.dismiss()))
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
-        page.wait_for_function('__bgmProbe.elements.length===12 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
-        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===8 && __bgmProbe.active().length===0')
-        passed('All 12 original WAV files load native playable metadata; eight BGM elements are initially paused on the selection screen.')
+        page.evaluate('__bgmProbe.attachSelection()')
+        page.wait_for_function('__bgmProbe.elements.length===13 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
+        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===9 && __bgmProbe.active().length===0')
+        passed('All12 original WAV files and the supplied MP3 load native metadata; nine BGM elements are paused before the first gesture.')
 
         def start(kind):
             page.locator(f'.select-hit[data-heli="{kind}"]').tap()
@@ -120,7 +129,9 @@ try:
             assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop).every(a=>a.paused)')
             expect(page.locator('#menu')).to_be_visible(timeout=4000)
             expect(page.locator('#selectionResult')).to_have_text('')
-            assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop).every(a=>a.paused)')
+            assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.elements.filter(a=>a.loop&&a.__probeName!=="selection").every(a=>a.paused)')
+            if page.locator('#musicToggle').get_attribute('aria-pressed')=='true':expect_track('selection')
+            else:assert page.evaluate('__bgmProbe.active().length===0')
 
         start(0)
         expect_track('stage_forest')
@@ -129,18 +140,18 @@ try:
 
         lose()
         page.wait_for_timeout(80)
-        paused_times = page.evaluate('__bgmProbe.elements.filter(a=>a.loop).map(a=>a.currentTime)')
+        paused_times = page.evaluate('__bgmProbe.elements.filter(a=>a.loop&&a.__probeName!=="selection").map(a=>a.currentTime)')
         page.wait_for_timeout(350)
-        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).map(a=>a.currentTime)') == paused_times
-        report['game_over'] = {'game_audio_started': False, 'active_bgm': 0, 'playback_clocks_frozen': True}
+        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop&&a.__probeName!=="selection").map(a=>a.currentTime)') == paused_times
+        report['game_over'] = {'game_audio_started':False,'active_game_bgm':0,'active_selection_bgm':1,'game_playback_clocks_frozen':True}
         passed('Zero health immediately pauses every BGM, resets gameAudioStarted and freezes the playback clocks after game over.')
 
         page.evaluate('document.dispatchEvent(new Event("visibilitychange"))')
         page.wait_for_timeout(150)
-        assert page.evaluate('!started&&!window.gameAudioStarted&&__bgmProbe.active().length===0')
+        assert page.evaluate('!started&&!window.gameAudioStarted&&__bgmProbe.active().length===1&&__bgmProbe.active()[0].__probeName==="selection"')
         expect(page.locator('#musicToggle')).to_have_attribute('aria-pressed', 'true')
         page.screenshot(path=str(args.artifacts / 'game-over-music-stopped.png'))
-        passed('Selection stays silent after game over and a visible-page notification; the music ON preference remains unchanged.')
+        passed('Selection resumes only its MP3 after game over and a visible-page notification; old game tracks stay paused and music ON persists.')
 
         start(1)
         expect_track('stage_forest')
@@ -158,8 +169,8 @@ try:
             expect(page.locator('#musicToggle')).to_have_attribute('aria-pressed', 'false')
         page.locator('#musicToggle').tap()
         expect(page.locator('#musicToggle')).to_have_attribute('aria-pressed', 'true')
-        assert page.evaluate('__bgmProbe.active().length===0')
-        passed('Music OFF survives game over and two different-character restarts; turning it ON in selection does not start old gameplay music.')
+        expect_track('selection')
+        passed('Music OFF survives game over and two different-character restarts; turning it ON in selection starts only the selection MP3.')
 
         start(0)
         transitions = []
@@ -177,9 +188,10 @@ try:
                 page.wait_for_function('(index)=>stage===index+1&&phase===1', arg=index)
             else:
                 page.wait_for_function('!started')
-                assert page.evaluate('!window.gameAudioStarted&&__bgmProbe.active().length===0')
+                assert page.evaluate('!window.gameAudioStarted')
+                expect_track('selection')
         report['stage_and_boss_transitions'] = transitions
-        passed('All four stage/boss themes retain their original switches, boss appearance effect and next-stage progression; final clear still stops BGM.')
+        passed('All four stage/boss themes retain their original switches, boss appearance effect and next-stage progression; final clear stops game BGM before selection MP3 resumes.')
 
         cycles = []
         for index in range(12):
@@ -187,14 +199,14 @@ try:
             start(kind)
             expect_track('stage_forest')
             lose()
-            cycles.append({'cycle': index + 1, 'character': kind, 'after_game_over_active_bgm': 0})
+            cycles.append({'cycle': index + 1, 'character': kind, 'after_game_over_active_bgm': 1})
         report['restart_cycles'] = cycles
         report['audio_monitor'] = page.evaluate('({max_simultaneous_bgm:__bgmProbe.maxActive,overlap_events:__bgmProbe.overlaps,base_audio_elements:__bgmProbe.elements.length,play_events:__bgmProbe.events.filter(e=>e.type==="play").length})')
         assert report['audio_monitor']['max_simultaneous_bgm'] == 1
         assert not report['audio_monitor']['overlap_events']
-        assert report['audio_monitor']['base_audio_elements'] == 12
+        assert report['audio_monitor']['base_audio_elements'] == 13
         assert not errors and not native_dialogs, (errors, native_dialogs)
-        passed('Twelve additional game-over/restart cycles across all characters reuse the same audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
+        passed('Twelve additional game-over/restart cycles across all characters reuse the same13 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
         browser.close()
 finally:
     server.shutdown();server.server_close()

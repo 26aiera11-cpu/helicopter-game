@@ -1,0 +1,71 @@
+{
+  "baseline": "71bce184d5b2b1cd59dcb696d3a64f3016b11c6a",
+  "branch": "feature/selection-screen-integration",
+  "date_kst": "2026-11-02",
+  "passed_groups": {
+    "Tanko browser": 13,
+    "Tanko offline": 13,
+    "balance/footprint": 3,
+    "bgm": 9,
+    "boss-reward": 8,
+    "exit-dialog": 10,
+    "game-audit": 11,
+    "game-over": 7,
+    "health-scaling": 4,
+    "items": 7,
+    "selection": 15,
+    "tanko": 8,
+    "trio": 9,
+    "galaxy standalone": 19
+  },
+  "total_groups": 136,
+  "damage_before": 2,
+  "damage_after": 1.5,
+  "widths_before_css_px": [
+    17.5,
+    22.75,
+    28,
+    33.25,
+    38.5,
+    43.75
+  ],
+  "widths_after_css_px": [
+    17.5,
+    45.5,
+    51.1875,
+    56.875,
+    62.5625,
+    68.25
+  ],
+  "height_css_px": 29,
+  "upgrade_zero_width_unchanged": true,
+  "penetration_unchanged": [
+    2,
+    3,
+    3,
+    5,
+    6,
+    7
+  ],
+  "lifetime_max_seconds": 1.9,
+  "actual_old_new_boss_fights": 288,
+  "boss_hp_only_regression_fights": 288,
+  "peak_visible_coverage_percent": 3.75,
+  "landscape_sizes": [
+    [
+      915,
+      412
+    ],
+    [
+      800,
+      360
+    ],
+    [
+      568,
+      320
+    ]
+  ],
+  "frontal_defense_limitation": "All16 new-version controlled12s centre-aim continuous-fire cases had zero player hit contacts; new shots keep supplying finite penetration. Some incoming bullets miss naturally. Rear/side actual damage still applies. No unrequested width/cadence/penetration nerfs.",
+  "physical_galaxy_tested": false,
+  "speaker_listening_tested": false
+}

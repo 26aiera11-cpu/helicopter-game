@@ -1,0 +1,42 @@
+[
+  [
+    "function bulletHitsCircle(b,x,y,r){",
+    "// Tanko uses the same local rectangle for drawing, damage and bullet interception.\nfunction tankoBulletWidth(upgrade=0){\n const level=Math.max(0,Math.min(5,upgrade));\n return level===0?17.5:22.75*(2+.25*(level-1));\n}\nfunction consumeTankoPierce(b,target){\n if(b.kind!==2||b.life<=0||b.pierce<=0||(b.hit||[]).includes(target))return false;\n (b.hit||(b.hit=[])).push(target);\n b.pierce--;\n if(b.pierce<=0)b.life=0;\n return true;\n}\nfunction blockEnemyBullet(target){\n if(target.life<=0)return false;\n for(const shot of bullets){\n  if(shot.kind===2&&shot.life>0&&bulletHitsCircle(shot,target.x,target.y,target.r)&&consumeTankoPierce(shot,target)){\n   target.life=0;return true;\n  }\n }\n return false;\n}\nfunction bulletHitsCircle(b,x,y,r){"
+  ],
+  [
+    "const width=17.5*(1+0.30*(b.upgrade||0)),halfLength=14.5;",
+    "const width=tankoBulletWidth(b.upgrade||0),halfLength=14.5;"
+  ],
+  [
+    "damage:kind===2?2:1,",
+    "damage:kind===2?1.5:1,"
+  ],
+  [
+    "{b.hit.push(e);b.life=0;e.hp-=b.damage||1;gameAudio.fx('hit');",
+    "{if(b.kind===2){if(!consumeTankoPierce(b,e))continue;}else{b.hit.push(e);b.life=0;}e.hp-=b.damage||1;gameAudio.fx('hit');"
+  ],
+  [
+    "b.pierce=(b.pierce||1)-1;if(b.pierce>0)b.life=1;if(e.hp<=0)",
+    "if(b.kind!==2){b.pierce=(b.pierce||1)-1;if(b.pierce>0)b.life=1;}if(e.hp<=0)"
+  ],
+  [
+    "for(let b of bullets)if(b.life>0&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){b.life=0;boss.hp-=(b.damage||1);",
+    "for(let b of bullets)if(b.life>0&&(b.kind!==2||!(b.hit||[]).includes(boss))&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){if(b.kind===2){if(!consumeTankoPierce(b,boss))continue;}else b.life=0;boss.hp-=(b.damage||1);"
+  ],
+  [
+    "for(let b of enemyBullets){b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;if(Math.hypot",
+    "for(let b of enemyBullets){b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;if(blockEnemyBullet(b))continue;if(Math.hypot"
+  ],
+  [
+    "const w=[10.5,14,17.5*(1+.30*(b.upgrade||0))][b.kind ?? player.type],h=29;",
+    "const w=[10.5,14,tankoBulletWidth(b.upgrade||0)][b.kind ?? player.type],h=29;"
+  ],
+  [
+    "enemyBullets=enemyBullets.filter(b=>b.life>0&&b.x>-30&&b.x<W+30&&b.y>-30&&b.y<H+30);",
+    "enemyBullets=enemyBullets.filter(b=>b.life>0&&b.x>-30&&b.x<W+30&&b.y>-30&&b.y<H+30);\n bullets=bullets.filter(b=>b.kind!==2||b.life>0);"
+  ],
+  [
+    "for(let b of bullets){\n  const img=bulletSprites",
+    "for(let b of bullets){\n  if(b.kind===2&&b.life<=0)continue;\n  const img=bulletSprites"
+  ]
+]

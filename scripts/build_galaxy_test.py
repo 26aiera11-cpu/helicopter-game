@@ -46,10 +46,10 @@ def build():
                             '</style><style id="galaxy-mobile-touch">' + mobile_css + '</style>')
     result = result.replace(script, '<script id="galaxy-selection-js">' + javascript + '</script>')
 
-    def inline_image(match):
+    def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
-    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/selection/[^\"\']+)([\"\'])', inline_image, result)
+    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
     assert built_scripts == original_scripts + [javascript], 'Current source scripts changed during packaging'
@@ -75,7 +75,8 @@ def build():
         'preserved_source_inline_scripts': len(original_scripts),
         'inlined_selection_scripts': 1,
         'inlined_selection_stylesheets': 1,
-        'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded)],
+        'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],
+        'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.mp3'],
         'external_dependencies': 0,
         'galaxy_only_style': 'Disable the browser native selection-button tap flash; packaging does not edit source files.',
     }

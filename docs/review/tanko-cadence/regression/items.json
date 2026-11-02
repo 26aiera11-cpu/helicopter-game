@@ -1,0 +1,210 @@
+{
+  "passed": [
+    "All 20 direct phase/region/final-clear transitions preserve ordinary item object identity, exact positions/types, movement fields and remaining lifetime without resetting them.",
+    "The sixth ordinary monster dies through actual bullet collision and advances the phase while retaining its existing item with only the normal elapsed tick/movement deducted.",
+    "All four actual boss-kill paths retain ordinary items; automatic boss rewards still occur once before existing next-region +2 healing (no region healing after final clear).",
+    "Transitions add no lifetime: a 0.25s item loses exactly 0.1s during update, keeps that remainder through two more phases and expires normally after another 0.16s.",
+    "Carried health/power pickups apply the existing +2/+1 once, respect max HP/upgrade5, and disappear normally on contact.",
+    "The unchanged normal drop generator still creates one 16-second, 13px item and the new transition preserves it exactly.",
+    "After the actual three-second game-over return, a new user-started game resets items and the original stage/score/upgrade state."
+  ],
+  "limits": [
+    "Controlled actual-code Chromium tests; physical Galaxy/Samsung Internet remains untested."
+  ],
+  "direct_transitions": [
+    {
+      "region": 0,
+      "wave": 1,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 0,
+      "wave": 2,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 0,
+      "wave": 3,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 0,
+      "wave": 4,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 0,
+      "wave": 5,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 1,
+      "wave": 1,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 1,
+      "wave": 2,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 1,
+      "wave": 3,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 1,
+      "wave": 4,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 1,
+      "wave": 5,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 2,
+      "wave": 1,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 2,
+      "wave": 2,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 2,
+      "wave": 3,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 2,
+      "wave": 4,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 2,
+      "wave": 5,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 3,
+      "wave": 1,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 3,
+      "wave": 2,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 3,
+      "wave": 3,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 3,
+      "wave": 4,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    },
+    {
+      "region": 3,
+      "wave": 5,
+      "unchanged": true,
+      "same": true,
+      "count": 2
+    }
+  ],
+  "ordinary_kill_transition": {
+    "phase": 2,
+    "score": 1,
+    "same": true,
+    "life": 7.249,
+    "x": 45.011,
+    "y": 55.007
+  },
+  "boss_region_transitions": [
+    {
+      "region": 0,
+      "stage": 1,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 1,
+      "same": true,
+      "life": 7.249,
+      "reward": true,
+      "started": true
+    },
+    {
+      "region": 1,
+      "stage": 2,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 1,
+      "same": true,
+      "life": 7.249,
+      "reward": true,
+      "started": true
+    },
+    {
+      "region": 2,
+      "stage": 3,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 1,
+      "same": true,
+      "life": 7.249,
+      "reward": true,
+      "started": true
+    },
+    {
+      "region": 3,
+      "stage": 3,
+      "phase": 5,
+      "hp": 1,
+      "upgrade": 1,
+      "same": true,
+      "life": 7.249,
+      "reward": true,
+      "started": false
+    }
+  ]
+}
