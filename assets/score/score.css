@@ -1,0 +1,54 @@
+/* Cover only the old illustrated Settings button, including its lettering. */
+#menu #selectionSettings {
+  left: 12.8%; top: 84.1%; width: 18.3%; height: 11.5%;
+  border: 3px solid #3b1c0b; border-radius: clamp(14px, 2vw, 30px);
+  background: linear-gradient(#c98244, #9c4c20 52%, #713610);
+  box-shadow: inset 0 3px 0 #ffd39a, inset 0 -4px 0 #55230d, 0 3px 0 #281c13;
+  color: #fff6dd; font: 900 clamp(11px, 1.7vw, 25px)/1.1 system-ui;
+  text-shadow: 0 2px 1px #49240e; white-space: nowrap;
+}
+#menu #selectionSettings:active { background: linear-gradient(#de9e5a, #985020); }
+#leaderboardDialog {
+  box-sizing: border-box; width: min(800px, calc(100vw - 28px));
+  max-height: calc(100dvh - 24px); padding: 16px;
+  border: 2px solid #a9ddffb8; border-radius: 22px;
+  background: #0c2844f5; color: #f1f8ff; box-shadow: 0 18px 80px #0009;
+  font: 600 13px/1.4 system-ui;
+}
+#leaderboardDialog[open] { display: flex; flex-direction: column; gap: 8px; }
+#leaderboardDialog::backdrop { background: #031323ad; }
+#leaderboardDialog header { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-shrink: 0; }
+#leaderboardDialog h2 { margin: 0; font-size: 22px; }
+#leaderboardDialog header p { margin: 2px 0 0; color: #b3d3ec; font-size: 11px; }
+#leaderboardClose { min-height: 36px; padding: 6px 16px; border: 1px solid #b6dcff; border-radius: 11px; background: #195684; color: white; font: 800 13px system-ui; cursor: pointer; touch-action: manipulation; }
+#leaderboardDialog :focus-visible { outline: 3px dashed white; outline-offset: 2px; }
+.leaderboard-scroll { min-height: 0; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y; border-radius: 10px; }
+#leaderboardDialog table { width: 100%; border-collapse: collapse; white-space: nowrap; font-variant-numeric: tabular-nums; }
+#leaderboardDialog table[hidden] { display: none; }
+#leaderboardDialog th { position: sticky; top: 0; background: #19405e; color: #c9e7fd; z-index: 1; }
+#leaderboardDialog th, #leaderboardDialog td { padding: 8px 6px; text-align: left; border-bottom: 1px solid #bde2ff20; }
+#leaderboardDialog th:nth-child(3), #leaderboardDialog td:nth-child(3) { text-align: right; }
+#leaderboardDialog tbody tr:nth-child(even) { background: #ffffff06; }
+#leaderboardDialog tr[data-character="0"] { --record-color: #ff4b59; }
+#leaderboardDialog tr[data-character="1"] { --record-color: #36c8ff; }
+#leaderboardDialog tr[data-character="2"] { --record-color: #62ed66; }
+#leaderboardDialog .leaderboard-character { color: var(--record-color); }
+.leaderboard-character img { width: 24px; height: 24px; object-fit: contain; vertical-align: middle; margin-right: 5px; }
+#leaderboardDialog tr.latest-record { background: #ffc85b17; box-shadow: inset 3px 0 #ffe292; }
+#leaderboardEmpty { margin: 24px 0; text-align: center; color: #c9def1; }
+#leaderboardStorage, .leaderboard-note { margin: 0; flex-shrink: 0; font-size: 10px; color: #b7cde0; }
+#leaderboardStorage:empty { display: none; }
+#leaderboardStorage { color: #ffe0a0; }
+.game-over-panel #gameOverScore { font-size: clamp(23px, 4vw, 32px); color: #ffe293; }
+.game-over-panel #gameOverCharacter { margin-top: 6px; font-size: 18px; }
+.game-over-panel #gameOverRank { margin-top: 9px; font-size: 14px; color: #b8e7ff; }
+@media(max-height:450px) {
+  #leaderboardDialog { padding: 12px; border-radius: 17px; gap: 6px; }
+  #leaderboardDialog th, #leaderboardDialog td { padding: 6px; }
+  .game-over-panel { padding: 18px 30px; }
+}
+@media(max-width:600px) {
+  #leaderboardDialog { font-size: 11px; }
+  #leaderboardDialog th, #leaderboardDialog td { padding: 6px 4px; }
+  .leaderboard-character img { width: 19px; height: 19px; margin-right: 3px; }
+}

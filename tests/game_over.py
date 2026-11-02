@@ -1,3 +1,4 @@
+from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Actual three-second last-frame lifecycle, input, audio and stale-result regression."""
 import argparse,json,shutil,threading,hashlib,subprocess
@@ -13,6 +14,8 @@ def passed(message):report['passed'].append(message);print('PASS:',message,flush
 source=(root/'index.html').read_text()
 assert without_progression_changes(source).encode()==subprocess.check_output(['git','show','9c3c5a8:index.html'],cwd=root)
 for path in (root/'assets').rglob('*'):
+ if str(path.relative_to(root)) in SCORE_ASSETS:
+  assert_scoring_asset(path);continue
  if path.is_file():
   if str(path.relative_to(root))==BGM_ASSET:
    assert_selection_bgm_asset();continue
@@ -30,13 +33,13 @@ try:
   page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
   page.goto(f'http://127.0.0.1:{server.server_port}',wait_until='load')
   page.locator('#startSelected').tap();page.wait_for_function('started&&!!document.fullscreenElement')
-  page.evaluate('spawn=999;transition=0;score=37;window.deathAt=0;window.returnAt=0;window.deathEvents=0;document.addEventListener("gameover",()=>{deathAt=performance.now();deathEvents++});new MutationObserver(()=>{if(!menu.classList.contains("hidden"))returnAt=performance.now()}).observe(menu,{attributes:true,attributeFilter:["class"]})')
+  page.evaluate('spawn=999;transition=0;runScore=3700;window.deathAt=0;window.returnAt=0;window.deathEvents=0;document.addEventListener("gameover",()=>{deathAt=performance.now();deathEvents++});new MutationObserver(()=>{if(!menu.classList.contains("hidden"))returnAt=performance.now()}).observe(menu,{attributes:true,attributeFilter:["class"]})')
   # Lethal actual collision, plus a collocated heal that must not revive the player.
   page.evaluate('''() => {hp=1;invuln=0;items=[{x:player.x,y:player.y,type:'hp',life:8,r:13,t:0,vx:0,vy:0,turn:99}];enemyBullets=[{x:player.x,y:player.y,vx:0,vy:0,r:5,life:3}];update(.001)}''')
   expect(page.locator('#gameOverOverlay')).to_be_visible();expect(page.locator('#menu')).to_be_hidden()
-  expect(page.locator('#gameOverStars')).to_have_text('⭐ 37')
+  expect(page.locator('#gameOverScore')).to_have_text('🏆 3,700점')
   assert page.evaluate('!started&&!gameAudioStarted&&hp===0&&gameOverPending&&!!document.fullscreenElement&&items.length===1')
-  snapshot='JSON.stringify({player,bullets,enemyBullets,enemies,warnings,items,particles,worldScroll,rotorSpin,score,hp,phase,stage})'
+  snapshot='JSON.stringify({player,bullets,enemyBullets,enemies,warnings,items,particles,worldScroll,rotorSpin,runScore,hp,phase,stage})'
   before=page.evaluate(snapshot);canvas=page.evaluate('canvas.toDataURL()')
   page.evaluate('beginGameOver();beginGameOver();keys.fire=true;keys.left=true;tilt.x=1;update(.04);document.getElementById("exitGame").click();')
   page.wait_for_timeout(400)

@@ -87,14 +87,14 @@ try:
         collision = page.evaluate('''() => {
             auditReset(2);enemies=[auditEnemy(100,100),auditEnemy(100,100),auditEnemy(100,100)];
             shoot();Object.assign(bullets[0],{x:100,y:100,vx:0,vy:0});update(.001);
-            const pierced={kills:phaseKills,score,enemies:enemies.length};
+            const pierced={kills:phaseKills,runScore,enemies:enemies.length};
             const narrow=bulletHitsCircle({kind:2,x:0,y:0,vx:1,vy:0,upgrade:0},0,15,1);
             const wide=bulletHitsCircle({kind:2,x:0,y:0,vx:1,vy:0,upgrade:5},0,15,1);
             auditReset(1);player.upgrade=3;enemies=[auditEnemy(player.x+100,player.y-100,20)];shoot();
             const homing=bullets.find(b=>b.homing);update(.04);
             return {pierced,narrow,wide,homingTurn:homing.vx>0};
         }''')
-        assert collision['pierced']=={'kills':2,'score':2,'enemies':1}
+        assert collision['pierced']=={'kills':2,'runScore':200,'enemies':1}
         assert not collision['narrow'] and collision['wide'] and collision['homingTurn']
         passed('Actual collision updates support Tanko piercing, upgraded projectile width and Bingle homing turns.')
 
@@ -119,9 +119,9 @@ try:
             items=[auditItem('power')];update(.001);const upgrade=player.upgrade;
             auditReset(0);enemies=[auditEnemy(100,100,1,true)];shoot();
             Object.assign(bullets[0],{x:100,y:100,vx:0,vy:0});update(.001);
-            return {healed,capped,upgrade,specialDrop:items.length,specialScore:score,particles:particles.length};
+            return {healed,capped,upgrade,specialDrop:items.length,specialScore:runScore,particles:particles.length};
         }''')
-        assert items=={'healed':3,'capped':4,'upgrade':5,'specialDrop':1,'specialScore':1,'particles':9}
+        assert items=={'healed':3,'capped':4,'upgrade':5,'specialDrop':1,'specialScore':200,'particles':9}
         passed('Health pickups heal by two and respect max HP; upgrades cap at five; special-enemy destruction scores, drops an item and emits particles.')
 
         damage = page.evaluate('''() => {
@@ -167,12 +167,15 @@ try:
                 waves.push({...before,bossDefeated,bossMaxHP});
                 if(started&&stage===before.stage&&phase===before.phase)throw Error('Stage progression stalled');
             }
-            draw();return {waves,score,started,stage,phase,message:menu.querySelector('h1').textContent};
+            draw();return {waves,runScore,started,stage,phase,message:menu.querySelector('h1').textContent};
         }''')
         assert len(progression['waves'])==20 and sum(w['bossDefeated'] for w in progression['waves'])==4
-        assert progression['score']==160 and not progression['started'] and '모든 지역 클리어' in progression['message']
+        assert progression['runScore']==28000 and not progression['started'] and '모든 지역 클리어' in progression['message']
+        saved_clear=page.evaluate('gameScoring.getLastResult().record')
+        assert saved_clear['score']==28000 and saved_clear['normalKills']==120 and saved_clear['itemKills']==0 and saved_clear['bossKills']==4 and saved_clear['clearedPhases']==16 and saved_clear['outcome']=='clear'
+        report['saved_full_clear_record']=saved_clear
         report['controlled_progression']=progression
-        passed('All 20 waves and four bosses clear through real warning/spawn, shooting/collision and update-driven transitions; score reaches 160 without a progression blocker.')
+        passed('All 20 waves and four bosses clear through real warning/spawn, shooting/collision and update-driven transitions; score reaches 28,000 without a progression blocker.')
 
         reward = page.evaluate('''() => {
             auditReset(0);phase=5;phaseKills=requiredKills;hp=1;
@@ -196,8 +199,8 @@ try:
         assert sensors['neutralTilt']=={'x':0,'y':0} and abs(sensors['magnitude']-1)<.001 and sensors['reset']=={'x':0,'y':0}
         passed('Synthetic sensor samples calibrate a neutral point, clamp motion and reset; physical sensor permission remains untested.')
         page.evaluate('auditReset(0)')
-        assert page.evaluate('stage===0&&phase===1&&score===0&&hp===4&&player.upgrade===0')
-        passed('Restart after defeat/clear resets stage, score, health and weapon upgrades.')
+        assert page.evaluate('stage===0&&phase===1&&runScore===0&&hp===4&&player.upgrade===0')
+        passed('Restart after defeat/clear resets stage, runScore, health and weapon upgrades.')
         assert not errors, errors
         passed('No uncaught JavaScript errors in the controlled full-function audit.')
         browser.close()

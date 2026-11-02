@@ -2,6 +2,7 @@
 import json
 from tanko_combat_preservation import without_tanko_combat_changes
 from pathlib import Path
+from scoring_preservation import without_scoring_ui
 
 
 def without_progression_changes(source):
@@ -14,6 +15,7 @@ def without_progression_changes(source):
 
 
 def without_progression_ui(source, name):
+    source=without_scoring_ui(source,name)
     markers = {
         'assets/selection/selection.js': '\n/* Game-over presentation only;',
         'assets/selection/selection.css': '\n/* Last-frame game-over overlay;',

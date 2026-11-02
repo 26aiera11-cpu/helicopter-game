@@ -1,3 +1,4 @@
+from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
 """Observe real WAV playback clocks/pause states; do not mock audio playback."""
@@ -48,6 +49,8 @@ assert old_audio == new_audio and len(new_audio) == 12
 report['unchanged_wav_sha256'] = [hashlib.sha256(base64.b64decode(url.split(',')[1])).hexdigest() for url in new_audio]
 for path in (root / 'assets').rglob('*'):
     if path.is_file():
+        if str(path.relative_to(root)) in SCORE_ASSETS:
+            assert_scoring_asset(path);continue
         if str(path.relative_to(root))==BGM_ASSET:
             assert_selection_bgm_asset();continue
         name = str(path.relative_to(root))

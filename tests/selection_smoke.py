@@ -207,12 +207,12 @@ with sync_playwright() as playwright:
         button.click()
         expect(button).to_have_attribute('aria-pressed', 'true')
     page.locator('#selectionSettings').click()
-    expect(page.locator('#selectionSettings')).to_have_attribute('aria-expanded', 'true')
+    expect(page.locator('#leaderboardDialog')).to_be_visible()
     page.keyboard.press('Escape')
     page.locator('#selectionHelp').click()
     expect(page.locator('#selectionHelpDialog')).to_be_visible()
     page.locator('#selectionHelpClose').click()
-    passed('Original music/SFX toggles retain their state and visible ON/OFF labels; settings/help buttons work.')
+    passed('Original music/SFX toggles retain their state and visible ON/OFF labels; leaderboard/help buttons work.')
 
     for kind, hp in enumerate([4, 6, 9]):
         page.locator(f'.select-hit[data-heli="{kind}"]').click()

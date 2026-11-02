@@ -1,3 +1,4 @@
+from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Exact type-specific interval, first-trigger preservation and native-timestep counts."""
 import argparse,json,re,subprocess,shutil,threading,math
@@ -10,9 +11,11 @@ root=Path(__file__).resolve().parents[1];p=argparse.ArgumentParser();p.add_argum
 baseline='f622f3f9c8e82f390b40883abd1abd8f6b9e7f71';before=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode();after=(root/'index.html').read_text()
 assert without_tanko_cadence_changes(after)==before
 for path in (root/'assets').rglob('*'):
+ if str(path.relative_to(root)) in SCORE_ASSETS:
+  assert_scoring_asset(path);continue
  if str(path.relative_to(root))==BGM_ASSET:
   assert_selection_bgm_asset();continue
- if path.is_file():assert path.read_bytes()==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
+ if path.is_file():assert (without_scoring_ui(path.read_text(),str(path.relative_to(root))).encode() if path.suffix in ('.js','.css') else path.read_bytes())==subprocess.check_output(['git','show',baseline+':'+str(path.relative_to(root))],cwd=root)
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',after,re.S):subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 report={'baseline':baseline,'passed':[],'limits':['Controlled actual Chromium updates, not physical Galaxy timing or human aim. Finite-window shot counts are quantized to the unchanged game update step.']}
 def passed(m):report['passed'].append(m);print('PASS:',m,flush=True)

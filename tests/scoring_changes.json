@@ -1,0 +1,66 @@
+[
+  [
+    "<link rel=\"stylesheet\" href=\"assets/selection/selection.css\">",
+    "<link rel=\"stylesheet\" href=\"assets/selection/selection.css\"><link rel=\"stylesheet\" href=\"assets/score/score.css\">"
+  ],
+  [
+    "<div class=\"hud\" id=\"hud\">⭐ 0　❤️ 5</div>",
+    "<div class=\"hud\" id=\"hud\">🏆 0　❤️ 5</div>"
+  ],
+  [
+    "<button class=\"art-button\" id=\"selectionSettings\" type=\"button\" aria-label=\"사운드 설정\" aria-controls=\"audioControls\" aria-expanded=\"false\"></button>",
+    "<button class=\"art-button\" id=\"selectionSettings\" type=\"button\" aria-label=\"점수 순위표\" aria-controls=\"leaderboardDialog\" aria-haspopup=\"dialog\">🏆 점수 순위표</button>"
+  ],
+  [
+    "items=[],score=0,hp=5",
+    "items=[],runScore=0,hp=5"
+  ],
+  [
+    "document.dispatchEvent(new CustomEvent('gameover',{detail:{score}}));",
+    "const result=gameScoring.finish('game_over');\n document.dispatchEvent(new CustomEvent('gameover',{detail:{score:runScore,result}}));"
+  ],
+  [
+    "};score=0;hp=[4,6,9][type]",
+    "};runScore=0;hp=[4,6,9][type]"
+  ],
+  [
+    "transition=2;started=true;menu.classList.add('hidden');",
+    "transition=2;started=true;gameScoring.updateHUD();menu.classList.add('hidden');"
+  ],
+  [
+    "showGameExitDialog(()=>{started=false;",
+    "showGameExitDialog(()=>{gameScoring.finish('abandoned');started=false;"
+  ],
+  [
+    "function nextPhase(){gameAudio.fx('win');",
+    "function nextPhase(){gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');"
+  ],
+  [
+    "else{started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent='🏆 모든 지역 클리어! ⭐ '+score;",
+    "else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent='🏆 모든 지역 클리어! · '+result.record.characterName+' · '+gameScoring.format(result.record.score)+'점';"
+  ],
+  [
+    "if(hp<=0){beginGameOver();return;}\n worldScroll",
+    "if(hp<=0){beginGameOver();return;}\n gameScoring.tick(dt);\n worldScroll"
+  ],
+  [
+    "if(e.hp<=0){gameAudio.fx('destroy');score++;phaseKills++;",
+    "if(e.hp<=0){if(!gameScoring.enemyDefeated(e))break;gameAudio.fx('destroy');phaseKills++;"
+  ],
+  [
+    "grantBossReward(boss);boss=null;score+=10;nextPhase();",
+    "grantBossReward(boss);gameScoring.bossDefeated(boss);boss=null;nextPhase();"
+  ],
+  [
+    "hud.textContent=`${stageNames[stage]} · ${phase}/5　⭐ ${score}　❤️ ${Math.max(0,hp)}/${maxHP[player.type]}　⚡ ${player.upgrade}/5`;\n if(hp<=0)",
+    "gameScoring.updateHUD();\n if(hp<=0)"
+  ],
+  [
+    "<script src=\"assets/selection/selection.js\"></script>",
+    "<script src=\"assets/score/score.js\"></script>\n<script src=\"assets/selection/selection.js\"></script>"
+  ],
+  [
+    "function start(type){clearGameOver();",
+    "function start(type){gameScoring.start(type);clearGameOver();"
+  ]
+]

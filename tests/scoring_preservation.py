@@ -1,0 +1,29 @@
+"""Reverse exact reviewed score/UI deltas without relaxing gameplay asset guards."""
+import hashlib
+import json
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+SCORE_ASSETS = {'assets/score/score.js', 'assets/score/score.css'}
+
+
+def assert_scoring_asset(path):
+    relative = str(Path(path).relative_to(ROOT)) if Path(path).is_absolute() else str(path)
+    expected = json.loads((ROOT / 'tests/scoring_asset_hashes.json').read_text())
+    assert relative in SCORE_ASSETS
+    assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected[relative]
+
+
+def reverse(source, filename):
+    for old, new in reversed(json.loads((ROOT / 'tests' / filename).read_text())):
+        assert source.count(new) == 1, new[:100]
+        source = source.replace(new, old, 1)
+    return source
+
+
+def without_scoring_changes(source):
+    return reverse(source, 'scoring_changes.json')
+
+
+def without_scoring_ui(source, name):
+    return reverse(source, 'scoring_ui_changes.json') if name == 'assets/selection/selection.js' else source

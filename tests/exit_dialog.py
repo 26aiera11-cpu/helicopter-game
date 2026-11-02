@@ -72,7 +72,7 @@ try:
         expect(dialog).to_have_accessible_name('게임을 종료할까요?')
         expect(page.locator('#gameExitCancel')).to_be_focused()
         assert page.evaluate('gameExitDialogOpen && started && !!document.fullscreenElement && document.querySelector("#gameExitDialog").matches(":modal")')
-        snapshot = 'JSON.stringify({worldScroll,rotorSpin,hp,score,stage,phase,transition,player,bullets,enemyBullets,enemies,warnings,items,particles})'
+        snapshot = 'JSON.stringify({worldScroll,rotorSpin,hp,runScore,stage,phase,transition,player,bullets,enemyBullets,enemies,warnings,items,particles})'
         before = page.evaluate(snapshot)
         page.wait_for_timeout(300)
         assert page.evaluate(snapshot) == before
