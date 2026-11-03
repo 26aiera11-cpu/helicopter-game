@@ -1,0 +1,40 @@
+{
+  "baseline": "615481239202eb773c494476368e8fa02cd46aea",
+  "condition": "One Chromium page at a time after other browser suites finish,915x412,snow phase4,max5 ordinary enemies; one initial shot each,invulnerability,auto item generation disabled,1000ms warmup,180RAF intervals. Observational only, not physical Galaxy.",
+  "scenarios": [
+    {
+      "version": "before",
+      "setup": {
+        "enemies": 5,
+        "ready": true,
+        "viewport": [
+          915,
+          412
+        ]
+      },
+      "samples": 180,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.700000000000728,
+      "maxMs": 33.29999999999973,
+      "meanFps": 59.67180507210342,
+      "allImagesLoaded": true
+    },
+    {
+      "version": "after",
+      "setup": {
+        "enemies": 5,
+        "ready": true,
+        "viewport": [
+          915,
+          412
+        ]
+      },
+      "samples": 180,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.799999999999272,
+      "maxMs": 16.800000000000182,
+      "meanFps": 60.00200006666889,
+      "allImagesLoaded": true
+    }
+  ]
+}

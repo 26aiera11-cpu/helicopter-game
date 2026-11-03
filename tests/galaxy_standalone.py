@@ -53,7 +53,7 @@ for url in re.findall(r'url\(([^)]+)\)', html):
 passed('All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.')
 old_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
 scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.S)
-assert scripts == [(root / 'assets/worlds/worlds.js').read_text(), (root / 'assets/snowfield/snowfield.js').read_text(), (root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
+assert scripts == [(root / 'assets/worlds/worlds.js').read_text(), (root / 'assets/snowfield/snowfield.js').read_text(), (root / 'assets/snowfield/combat.js').read_text(), (root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
 for script in scripts:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.')

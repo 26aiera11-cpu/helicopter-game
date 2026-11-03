@@ -4,6 +4,7 @@ from pathlib import Path
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from playwright.sync_api import sync_playwright,expect
+from snow_combat_preservation import COMBAT_ASSETS,assert_combat_asset
 from developer_start_preservation import without_developer_start_source,without_developer_start_asset
 
 ROOT=Path(__file__).resolve().parents[1];BASELINE='c5e8fa2a27a6c8d8f360c7680345a55589ae6a09'
@@ -18,7 +19,9 @@ def passed(text):report['passed'].append(text);print('PASS:',text,flush=True)
 source=(ROOT/'index.html').read_text();assert without_developer_start_source(source)==subprocess.check_output(['git','show',BASELINE+':index.html'],cwd=ROOT).decode()
 for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
- name=str(path.relative_to(ROOT));actual=without_developer_start_asset(path.read_text(),name).encode() if path.suffix in ['.js','.css'] else path.read_bytes()
+ name=str(path.relative_to(ROOT))
+ if name in COMBAT_ASSETS:assert_combat_asset(path);continue
+ actual=without_developer_start_asset(path.read_text(),name).encode() if path.suffix in ['.js','.css'] else path.read_bytes()
  assert actual==subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT),name
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',source,re.S)+[p.read_text() for p in (ROOT/'assets').rglob('*.js')]:subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 passed('Exact developer startup/UI/volatile-score hooks reverse to c5e8fa2; every image, atlas, manifest, sound, input and item asset is unchanged and all JavaScript parses.')

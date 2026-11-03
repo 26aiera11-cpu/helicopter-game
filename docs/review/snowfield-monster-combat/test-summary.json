@@ -1,0 +1,299 @@
+{
+  "date": "2026-11-03 KST",
+  "baseline": "615481239202eb773c494476368e8fa02cd46aea",
+  "branch": "feature/snowfield-monster-combat",
+  "suite_count": 32,
+  "passed_groups": 459,
+  "old_regression_groups": 427,
+  "new_groups": 32,
+  "suites": [
+    {
+      "suite": "snowfield_art",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 1,
+      "final_attempt": "snowfield_art-retry",
+      "report": "regression/snowfield_art/test-results.json"
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 1,
+      "final_attempt": "snowfield_art-offline-retry",
+      "report": "regression/snowfield_art-offline/test-results.json"
+    },
+    {
+      "suite": "worlds",
+      "groups": 20,
+      "exit_code": 0,
+      "initial_exit_code": 1,
+      "final_attempt": "worlds-protocol-native",
+      "report": "regression/worlds/test-results.json"
+    },
+    {
+      "suite": "worlds-offline",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 1,
+      "final_attempt": "worlds-protocol-offline",
+      "report": "regression/worlds-offline/test-results.json"
+    },
+    {
+      "suite": "game_audit",
+      "groups": 11,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "game_audit",
+      "report": "regression/game_audit/test-results.json"
+    },
+    {
+      "suite": "scoring",
+      "groups": 17,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "scoring",
+      "report": "regression/scoring/test-results.json"
+    },
+    {
+      "suite": "scoring-offline",
+      "groups": 17,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "scoring-offline",
+      "report": "regression/scoring-offline/test-results.json"
+    },
+    {
+      "suite": "selection_smoke",
+      "groups": 15,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "selection_smoke",
+      "report": "regression/selection_smoke/test-results.json"
+    },
+    {
+      "suite": "exit_dialog",
+      "groups": 10,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "exit_dialog",
+      "report": "regression/exit_dialog/test-results.json"
+    },
+    {
+      "suite": "game_over",
+      "groups": 7,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "game_over",
+      "report": "regression/game_over/test-results.json"
+    },
+    {
+      "suite": "item_persistence",
+      "groups": 7,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "item_persistence",
+      "report": "regression/item_persistence/test-results.json"
+    },
+    {
+      "suite": "boss_reward",
+      "groups": 8,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "boss_reward",
+      "report": "regression/boss_reward/test-results.json"
+    },
+    {
+      "suite": "item_spawn_rules",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "item_spawn_rules",
+      "report": "regression/item_spawn_rules/test-results.json"
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 1,
+      "final_attempt": "item_spawn_rules-offline-retry",
+      "report": "regression/item_spawn_rules-offline/test-results.json"
+    },
+    {
+      "suite": "item_monsters",
+      "groups": 16,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "item_monsters",
+      "report": "regression/item_monsters/test-results.json"
+    },
+    {
+      "suite": "item_monsters-offline",
+      "groups": 16,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "item_monsters-offline",
+      "report": "regression/item_monsters-offline/test-results.json"
+    },
+    {
+      "suite": "tanko_combat",
+      "groups": 14,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "tanko_combat",
+      "report": "regression/tanko_combat/test-results.json"
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "groups": 14,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "tanko_combat-offline",
+      "report": "regression/tanko_combat-offline/test-results.json"
+    },
+    {
+      "suite": "tanko_cadence",
+      "groups": 5,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "tanko_cadence",
+      "report": "regression/tanko_cadence/test-results.json"
+    },
+    {
+      "suite": "selection_bgm",
+      "groups": 14,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "selection_bgm",
+      "report": "regression/selection_bgm/test-results.json"
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "groups": 14,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "selection_bgm-offline",
+      "report": "regression/selection_bgm-offline/test-results.json"
+    },
+    {
+      "suite": "bgm_smoke",
+      "groups": 9,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "bgm_smoke",
+      "report": "regression/bgm_smoke/test-results.json"
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "groups": 7,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "fullscreen_smoke",
+      "report": "regression/fullscreen_smoke/test-results.json"
+    },
+    {
+      "suite": "galaxy_standalone",
+      "groups": 19,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "galaxy_standalone",
+      "report": "regression/galaxy_standalone/test-results.json"
+    },
+    {
+      "suite": "mobile_controls",
+      "groups": 23,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "mobile_controls",
+      "report": "regression/mobile_controls/test-results.json"
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "groups": 23,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "mobile_controls-offline",
+      "report": "regression/mobile_controls-offline/test-results.json"
+    },
+    {
+      "suite": "joystick_design",
+      "groups": 5,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "joystick_design",
+      "report": "regression/joystick_design/test-results.json"
+    },
+    {
+      "suite": "joystick_design-offline",
+      "groups": 5,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "joystick_design-offline",
+      "report": "regression/joystick_design-offline/test-results.json"
+    },
+    {
+      "suite": "developer_start-native",
+      "groups": 18,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "developer_start-native",
+      "report": "regression/developer_start-native/test-results.json"
+    },
+    {
+      "suite": "developer_start-offline",
+      "groups": 18,
+      "exit_code": 0,
+      "initial_exit_code": 0,
+      "final_attempt": "developer_start-offline",
+      "report": "regression/developer_start-offline/test-results.json"
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "groups": 16,
+      "exit_code": 0,
+      "report": "native/test-results.json"
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "groups": 16,
+      "exit_code": 0,
+      "report": "offline/test-results.json"
+    }
+  ],
+  "attempt_notes": [
+    {
+      "suites": [
+        "snowfield_art",
+        "snowfield_art-offline",
+        "worlds",
+        "worlds-offline"
+      ],
+      "initial_exit_code": 1,
+      "reason": "Old forest placeholder stat/notice expectations. Updated only Issue8 normal-enemy values/notice assertions; original115-frame/geometry/boss/route/storage/input assertions retained.",
+      "final_exit_code": 0
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "initial_exit_code": 1,
+      "reason": "Existing4000ms game-over return wait timed out once under concurrent browser suites. Identical unchanged command rerun successfully; product3000ms timer and test timeout unchanged. Contention remains unproven.",
+      "final_exit_code": 0
+    },
+    {
+      "suite": "worlds",
+      "post_expectation_native_attempts": [
+        "worlds-retry",
+        "worlds-final",
+        "worlds-diagnostic"
+      ],
+      "reason": "Native exit tap after multitouch repeatedly delivered pointerdown/up but no click. Same issue reproduced on baseline6154812; button enabled/hit target correct and no prevented event/remaining gameplay owner.",
+      "correction": "Only the test CDP sender: last lifted contact uses an empty touchEnd list. Partial-contact releases, actual trusted touch actions, multitouch ownership assertions and all timeouts unchanged; baseline/native/offline full suites pass. Product input code remains byte-identical.",
+      "final_exit_code": 0
+    }
+  ],
+  "review_logs": "Logs retain failures and success attempts; trailing whitespace only was normalized.",
+  "limits": [
+    "Controlled native Chromium combat/input/frame/fullscreen/media tests, not physical Galaxy/Samsung Internet or manual difficulty play.",
+    "Deterministic60/120Hz update steps are not hardware FPS.",
+    "Offline is exact HTML on a blank localhost origin with networking disabled; no file policy bypass."
+  ]
+}

@@ -18,7 +18,7 @@ parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,req
 args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':[
  'Native Chromium controlled combat/input/media/fullscreen checks, not a human balance playthrough.',
- 'Snowfield uses approved background/monster art with prototype atlas animation and the unchanged forest combat/audio profile; final balance is not approved.',
+ 'Snowfield uses approved background/monster art with prototype atlas animation and Issue8 first-trial normal combat with the unchanged forest boss/audio profile; final balance is not approved.',
  'Physical Galaxy/Samsung Internet, actual sensors, audible output and file opening are not tested.',
  'Offline injects the exact standalone HTML into a blank local origin then disables networking; managed file policy is unchanged.'
 ]}
@@ -82,7 +82,8 @@ class Touch:
  def __init__(self,context,page):self.cdp=context.new_cdp_session(page);self.points={}
  def down(self,id,x,y):self.points[id]={'id':id,'x':x,'y':y};self.cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':list(self.points.values())})
  def move(self,id,x,y):self.points[id].update(x=x,y=y);self.cdp.send('Input.dispatchTouchEvent',{'type':'touchMove','touchPoints':list(self.points.values())})
- def up(self,id):point=self.points.pop(id);self.cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[point]})
+ # Finish the last contact with an empty CDP touchEnd; partial release identifies the lifted contact.
+ def up(self,id):point=self.points.pop(id);self.cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[point] if self.points else []})
  def tap(self,page,selector):
   expect(page.locator(selector)).to_be_visible();r=page.locator(selector).bounding_box()
   self.down(50,r['x']+r['width']/2,r['y']+r['height']/2);page.wait_for_timeout(60);self.up(50)
@@ -156,9 +157,9 @@ try:
    phase=5;phaseKills=requiredKills;player.upgrade=5;update(0);transition=0;const hpAtSpawn=boss.hp;player.upgrade=0;boss.shot=0;update(0);
    return {normal,profile:gameWorlds.profile(stage),tactics:tactics[4],sameSprites:enemySprites[4]===enemySprites[0]&&bossSprites[4]===bossSprites[0],hpAtSpawn,hpAfter:boss.hp,shots:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),points:runScore};
   }''')
-  assert snow_combat['normal']=={'hp':1,'speed':38,'special':False} and snow_combat['hpAtSpawn']==snow_combat['hpAfter']==44
+  assert snow_combat['normal']=={'hp':1,'speed':32.3,'special':False} and snow_combat['hpAtSpawn']==snow_combat['hpAfter']==44
   assert not snow_combat['sameSprites'] and snow_combat['shots']==1 and snow_combat['speed']==117 and snow_combat['points']==100
-  report['snow_prototype_combat']=snow_combat;passed('Snow uses approved monster sprites with unchanged forest prototype HP/speed/boss pattern and upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.')
+  report['snow_prototype_combat']=snow_combat;passed('Snow uses approved monster sprites with Issue8 slimeHP1/speed32.3 and the unchanged forest boss pattern and upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.')
 
   routes=[]
   for trial in [False,True]:
@@ -251,6 +252,7 @@ try:
   passed('Existing music OFF/ON persists across trial start/exit and selection return; the original in-page exit confirmation stays intact.')
 
   # Actual mobile pointer owners and unchanged placement in each requested snow viewport.
+  page.evaluate('''() => {window.worldPointerTrace=[];for(const name of ['pointerdown','pointerup','pointercancel','click'])window.addEventListener(name,e=>{const row={name,x:e.clientX,y:e.clientY,id:e.pointerId,primary:e.isPrimary,target:e.target.id||e.target.tagName,time:performance.now()};worldPointerTrace.push(row);if(worldPointerTrace.length>120)worldPointerTrace.shift();queueMicrotask(()=>row.prevented=e.defaultPrevented);},true);}''')
   layouts=[];touch=Touch(context,page)
   for w,h in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':w,'height':h});touch.tap(page,'#startSelected');page.wait_for_function('started');page.evaluate('worldSnow();invuln=999;spawn=999;transition=0;player.x=W/2;player.y=H*.55;gameScoring.updateHUD();draw()')
@@ -279,7 +281,12 @@ try:
    page.evaluate('phase=5;phaseKills=requiredKills;update(0);transition=0;gameScoring.updateHUD();draw()')
    page.screenshot(path=str(args.artifacts/f'snow-boss-{w}x{h}.png'))
    touch.tap(page,'#exitGame')
-   expect(page.locator('#gameExitDialog')).to_be_visible(timeout=3000)
+   try:expect(page.locator('#gameExitDialog')).to_be_visible(timeout=3000)
+   except AssertionError:
+    diagnostic=page.evaluate('''() => {const e=document.getElementById('exitGame'),r=e.getBoundingClientRect(),hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return {viewport:[W,H],started,hp,dialog:gameExitDialogOpen,inert:e.inert,disabled:e.disabled,pointerEvents:getComputedStyle(e).pointerEvents,hit:hit?.id||hit?.tagName,rect:r.toJSON(),controls:gameControls.snapshot(),finale:gameSnowfield.snapshot().finale,trace:worldPointerTrace};}''')
+    (args.artifacts/'exit-touch-failure.json').write_text(json.dumps(diagnostic,ensure_ascii=False,indent=2)+'\n')
+    page.screenshot(path=str(args.artifacts/'exit-touch-failure.png'))
+    raise
    state=page.evaluate('({started,stage,phase,hp,dialog:gameExitDialogOpen,open:document.getElementById("gameExitDialog").open,controls:gameControls.snapshot()})')
    assert state['dialog'] and state['open'],{'viewport':[w,h],**state}
    touch.tap(page,'#gameExitCancel');page.wait_for_function('started&&!gameExitDialogOpen')

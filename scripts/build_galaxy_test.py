@@ -51,7 +51,8 @@ def build():
     world_css = (ROOT / 'assets/worlds/worlds.css').read_text()
     world_javascript = (ROOT / 'assets/worlds/worlds.js').read_text()
     snowfield_javascript = (ROOT / 'assets/snowfield/snowfield.js').read_text()
-    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + snowfield_javascript).lower()
+    snow_combat_javascript = (ROOT / 'assets/snowfield/combat.js').read_text()
+    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + snowfield_javascript + snow_combat_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -77,6 +78,8 @@ def build():
 
     result = result.replace('<script src="assets/snowfield/snowfield.js"></script>',
                             '<script id="galaxy-snowfield-js">' + snowfield_javascript + '</script>')
+    result = result.replace('<script src="assets/snowfield/combat.js"></script>',
+                            '<script id="galaxy-snow-combat-js">' + snow_combat_javascript + '</script>')
 
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
@@ -84,7 +87,7 @@ def build():
     result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [world_javascript, snowfield_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, snowfield_javascript, snow_combat_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -114,6 +117,7 @@ def build():
         'inlined_controls_stylesheets': 1,
         'inlined_world_scripts': 1,
         'inlined_snowfield_scripts': 1,
+        'inlined_snow_combat_scripts': 1,
         'embedded_snowfield_manifest': True,
         'inlined_world_stylesheets': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],

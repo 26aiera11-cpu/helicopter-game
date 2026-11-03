@@ -1,0 +1,42 @@
+[
+  [
+    "<script src=\"assets/snowfield/snowfield.js\"></script>",
+    "<script src=\"assets/snowfield/snowfield.js\"></script>\n<script src=\"assets/snowfield/combat.js\"></script>",
+    1
+  ],
+  [
+    "enemies.push({x:w.x,y:w.y,r:16,",
+    "enemies.push(gameSnowfieldCombat.prepare({x:w.x,y:w.y,r:16,",
+    1
+  ],
+  [
+    "charge:2+Math.random()*2,vx:0,vy:0})}}warnings=",
+    "charge:2+Math.random()*2,vx:0,vy:0}))}}warnings=",
+    1
+  ],
+  [
+    "for(let e of enemies){\n e.t+=dt;",
+    "for(let e of enemies){\n if(!gameSnowfieldCombat.update(e,dt)){\n e.t+=dt;",
+    1
+  ],
+  [
+    "if(e.shot<=0&&transition<=0){emitEnemyShot(e);e.shot=tactics[stage].interval*(.85+Math.random()*.55)/(1+(phase-1)*.07)}\n for(let b",
+    "if(e.shot<=0&&transition<=0){emitEnemyShot(e);e.shot=tactics[stage].interval*(.85+Math.random()*.55)/(1+(phase-1)*.07)}\n }\n for(let b",
+    1
+  ],
+  [
+    "for(let b of enemyBullets){ctx.fillStyle='#ff544d';",
+    "for(let b of enemyBullets){ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';",
+    1
+  ],
+  [
+    "ctx.strokeStyle='#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}",
+    "ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}",
+    1
+  ],
+  [
+    "for(let e of enemies){if(gameSnowfield.drawActor(ctx,e))continue;",
+    "for(let e of enemies){gameSnowfieldCombat.drawTelegraph(ctx,e);if(gameSnowfield.drawActor(ctx,e))continue;",
+    1
+  ]
+]

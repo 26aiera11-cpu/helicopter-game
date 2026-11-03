@@ -1,0 +1,19 @@
+PASS: Exact art-only hooks reverse to0cbfe82; every earlier image/audio/input/score/item/combat asset is byte-identical and all JS syntax passes.
+PASS: Approved1920×864 background hash matches Issue6; all5 RGBA atlases have their distinct manifest cells, transparent padding and115 nonempty, in-bounds frames.
+PASS: Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.
+PASS: Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.
+PASS: All115 supplied frames are selected through the runtime renderer with exact manifest source rectangles/counts/times and equal X/Y scaling; no adjacent-cell bleed, rotation or square distortion.
+PASS: Actual slime pursuit at32.3px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.
+PASS: Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while preserving the boss117px/s single-shot profile.
+PASS: A real nonlethal boss collision removes exactly1HP, awards no kill points and plays all3 hit frames; hit has priority over attack/movement.
+PASS: HP1 normal kill immediately removes collision/awards100+phase500, then a visual-only3-frame hit→6-frame defeat survives the phase change with the original species and cannot duplicate score or corpses.
+PASS: At both viewport corners every complete cell stays visible; visual offsets do not move or resize original enemy/boss colliders.
+PASS: Three landscape sizes use exactly one static1920×864 cover draw, unchanged by scroll: no repeated seam, no nonuniform scale or excessive zoom; all5 phase screenshots are saved.
+PASS: All4 World1 normal scenes and4 boss scenes render byte-identical canvas PNGs to0cbfe82, proving old backgrounds/sprites/character drawing are unchanged.
+PASS: Actual before/after snow normal/boss PNGs are captured at all3 landscape sizes from the baseline and new engine; no images are edited or composited.
+PASS: Existing in-page exit modal freezes animation clock/frames exactly and preserves fullscreen; Continue resumes the same entities without resetting their poses.
+PASS: Game over still freezes immediately for3s, returns to clean selection and resets all art state; no animation continues behind the death overlay.
+PASS: Real boss death awards/saves clear immediately once, removes combat, shows visual-only330ms hit+720ms defeat, then reveals the existing trial-clear selection with identical score/fullscreen.
+PASS: A defensive restart during the art outro cancels it synchronously; no stale timer/class/corpse can cover or terminate the new game.
+PASS: Snow still uses the original forest BGM with increasing native playback time and one looping track; art adds no Audio objects, music files or control buttons.
+PASS: No uncaught JS errors/native dialogs/failed resources/offline network requests occur across art, events, clear, pause, restart and reference comparisons.

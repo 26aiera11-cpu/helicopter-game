@@ -1834,7 +1834,7 @@
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 설원 그래픽과 숲 시험용 전투·음악을 사용하며 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·일반 몬스터 1차 전투 시험, 보스/BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -1863,7 +1863,7 @@
     devPhase.addEventListener('change',()=>{setDeveloperStart({phase:Number(devPhase.value)});syncUI();});
     new MutationObserver(syncUI).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 승인 그래픽 / 숲 전투·BGM 임시';notice.hidden=true;document.body.append(notice);
+    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 일반 적 1차 전투 / 보스·BGM 숲 임시';notice.hidden=true;document.body.append(notice);
     new MutationObserver(syncUI).observe(document.getElementById('menu'),{attributes:true,attributeFilter:['class']});syncUI();
   }
   window.gameWorlds=Object.freeze({worlds,regions,region,isTrial,setTrialEnabled,isDeveloper,setDeveloperStart,
@@ -1999,6 +1999,94 @@
     ready:()=>loaded(backgroundImage)&&species.every(spec=>loaded(spec.atlasImage)&&loaded(spec.baseImage)),
     snapshot:()=>({clock,actors:[...observed].map(s=>({id:s.id,x:s.x,y:s.y,pose:pose(s.actor,s.id===bossId)})),
       ghosts:ghosts.map(g=>({...g,pose:ghostPose(g)})),finale:{active:finale,pending:pendingFinale}})
+  });
+})();
+</script>
+<script id="galaxy-snow-combat-js">/* Issue #8: first-playtest normal-enemy values, scoped to world-2:snowfield.
+ * Forest tactics[0] is the 1.0 reference; boss/combatProfile is not changed.
+ */
+(() => {
+  'use strict';
+  const profiles=Object.freeze([
+    {id:'snow_slime',hp:1,move:.85,interval:1.2,bullet:1},
+    {id:'penguin_raider',hp:2,move:.95,interval:1,bullet:1,
+      windup:.45,dash:.4,dashSpeed:1.8,rest:.65,cooldown:3.75},
+    {id:'ice_yeti',hp:2,move:.75,interval:1.4,bullet:.9},
+    {id:'frost_turtle',hp:3,move:.55,interval:1.5,bullet:1}
+  ].map(Object.freeze));
+  const states=new WeakMap(),epsilon=1e-9;
+  const enabled=()=>typeof stage!=='undefined'&&gameWorlds.region(stage)?.key==='world-2:snowfield';
+  function prepare(actor) {
+    if(!enabled())return actor;
+    const spec=profiles[Math.max(0,Math.min(profiles.length-1,phase-1))],base=tactics[0];
+    actor.hp=spec.hp;actor.speed=base.move*spec.move;actor.shot=base.interval*spec.interval;
+    actor.snowSpeciesId=spec.id;
+    states.set(actor,{spec,mode:'pursue',remaining:spec.cooldown??Infinity,age:0,
+      direction:{x:0,y:1},interval:actor.shot,bulletSpeed:base.bullet*spec.bullet,dashSpeed:base.move*(spec.dashSpeed??0)});
+    return actor;
+  }
+  function changeMode(actor,state) {
+    const spec=state.spec;
+    if(state.mode==='pursue'){
+      const dx=player.x-actor.x,dy=player.y-actor.y,d=Math.hypot(dx,dy);
+      state.direction=d>epsilon?{x:dx/d,y:dy/d}:{x:0,y:1};
+      state.mode='windup';state.remaining=spec.windup;
+    }else if(state.mode==='windup'){
+      state.mode='dash';state.remaining=spec.dash;
+    }else if(state.mode==='dash'){
+      state.mode='rest';state.remaining=spec.rest;
+    }else{
+      state.mode='pursue';state.remaining=spec.cooldown-spec.windup-spec.dash-spec.rest;
+    }
+  }
+  function shoot(actor,state) {
+    // Reuse the actual shot event, art hook, life, radius and damage path.
+    emitEnemyShot(actor);
+    const bullet=enemyBullets[enemyBullets.length-1],angle=Math.atan2(player.y-actor.y,player.x-actor.x);
+    bullet.vx=Math.cos(angle)*state.bulletSpeed;bullet.vy=Math.sin(angle)*state.bulletSpeed;
+    if(state.spec.id==='ice_yeti')bullet.snowIce=true;
+    actor.shot=state.interval;
+  }
+  function update(actor,dt) {
+    const state=states.get(actor);
+    if(!enabled()||!state)return false;
+    if(actor.hp<=0)return true;
+    let left=Math.max(0,dt);
+    // Split at state/shot boundaries rather than adding one frame to each phase.
+    for(let guard=0;guard<64;guard++){
+      if(state.remaining<=epsilon)changeMode(actor,state);
+      const canShoot=state.mode==='pursue'&&transition<=0;
+      if(canShoot&&actor.shot<=epsilon)shoot(actor,state);
+      if(left<=epsilon)break;
+      const slice=Math.min(left,state.remaining,canShoot?actor.shot:Infinity);
+      let vx=0,vy=0;
+      if(state.mode==='pursue'){
+        const dx=player.x-actor.x,dy=player.y-actor.y,d=Math.hypot(dx,dy)||1;
+        vx=dx/d*actor.speed;vy=dy/d*actor.speed;
+      }else if(state.mode==='dash'){
+        vx=state.direction.x*state.dashSpeed;vy=state.direction.y*state.dashSpeed;
+      }
+      actor.x=Math.max(17,Math.min(W-17,actor.x+vx*slice));
+      actor.y=Math.max(18,Math.min(H-18,actor.y+vy*slice));
+      actor.t+=slice;actor.shot=Math.max(0,actor.shot-slice);
+      state.age+=slice;state.remaining-=slice;left-=slice;
+    }
+    return true;
+  }
+  function drawTelegraph(ctx,actor) {
+    const state=states.get(actor);
+    if(!enabled()||state?.mode!=='windup')return;
+    const spec=gameSnowfield.species.find(s=>s.id===state.spec.id);
+    const box=gameSnowfield.geometry(spec,actor.x,actor.y,W,H);
+    const x=box.x+box.w/2,y=box.y+box.h/2;
+    ctx.save();ctx.translate(x,y);ctx.rotate(Math.atan2(state.direction.y,state.direction.x));
+    ctx.globalAlpha=.65+.3*Math.sin((1-state.remaining/state.spec.windup)*Math.PI*4)**2;
+    ctx.strokeStyle='#fff3a6';ctx.lineWidth=3;ctx.beginPath();ctx.arc(0,0,25,0,Math.PI*2);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(29,-7);ctx.lineTo(38,0);ctx.lineTo(29,7);ctx.stroke();ctx.restore();
+  }
+  window.gameSnowfieldCombat=Object.freeze({profiles,enabled,prepare,update,drawTelegraph,
+    snapshot:actor=>{const s=states.get(actor);return s?{id:s.spec.id,mode:s.mode,remaining:s.remaining,age:s.age,
+      direction:{...s.direction},interval:s.interval,bulletSpeed:s.bulletSpeed,dashSpeed:s.dashSpeed}:null;}
   });
 })();
 </script><script id="galaxy-item-monster-js">/* Independent item helicopters: regional kill-count reservations and carried lifetime. */
@@ -2501,7 +2589,7 @@ function update(dt){
  if(spawn<=0&&!boss&&transition<=0&&phaseKills<requiredKills&&enemies.length+warnings.length<Math.min(7,3+profile+Math.floor(phase/2))){
  if(Math.random()>=itemMonsters.legacyProbability)warnEnemy();spawn=Math.max(.72,tactics[stage].spawn-(phase-1)*.09)
  }
- for(let w of warnings){w.time-=dt;if(w.time<=0){enemies.push({x:w.x,y:w.y,r:16,hp:1+Math.floor(profile/2),special:false,life:Infinity,turn:0,kind:w.kind,speed:tactics[stage].move+(phase-1)*5,shot:1+Math.random()*tactics[stage].interval,t:Math.random()*6.28,mode:Math.random()<.38?'ranged':'chase',charge:2+Math.random()*2,vx:0,vy:0})}}warnings=warnings.filter(w=>w.time>0);
+ for(let w of warnings){w.time-=dt;if(w.time<=0){enemies.push(gameSnowfieldCombat.prepare({x:w.x,y:w.y,r:16,hp:1+Math.floor(profile/2),special:false,life:Infinity,turn:0,kind:w.kind,speed:tactics[stage].move+(phase-1)*5,shot:1+Math.random()*tactics[stage].interval,t:Math.random()*6.28,mode:Math.random()<.38?'ranged':'chase',charge:2+Math.random()*2,vx:0,vy:0}))}}warnings=warnings.filter(w=>w.time>0);
  for(let b of bullets){
  if(b.homing){let targets=boss?[boss]:[...enemies.filter(e=>e.hp>0),...itemMonsters.targets()];let best=null,dist=260;
  for(let e of targets){let dd=Math.hypot(e.x-b.x,e.y-b.y);if(dd<dist){dist=dd;best=e;}}
@@ -2510,6 +2598,7 @@ function update(dt){
  cur+=Math.max(-3.3*dt,Math.min(3.3*dt,delta));b.vx=Math.cos(cur)*b.speed;b.vy=Math.sin(cur)*b.speed;}}
  b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt}bullets=bullets.filter(b=>b.life>0&&b.x>-35&&b.x<W+35&&b.y>-35&&b.y<H+35);
  for(let e of enemies){
+ if(!gameSnowfieldCombat.update(e,dt)){
  e.t+=dt;e.shot-=dt;e.charge-=dt;
  let dx=player.x-e.x,dy=player.y-e.y,d=Math.hypot(dx,dy)||1,nx=dx/d,ny=dy/d;
  let vx=nx,vy=ny;
@@ -2521,6 +2610,7 @@ function update(dt){
  if(e.mode==='ranged'&&d>=Math.min(175,W*.32)&&d<Math.min(240,W*.45)){vx=-ny*.5;vy=nx*.5}
  e.x=Math.max(17,Math.min(W-17,e.x+vx*e.speed*dt));e.y=Math.max(18,Math.min(H-18,e.y+vy*e.speed*dt));
  if(e.shot<=0&&transition<=0){emitEnemyShot(e);e.shot=tactics[stage].interval*(.85+Math.random()*.55)/(1+(phase-1)*.07)}
+ }
  for(let b of bullets)if(b.life>0&&!(b.hit||[]).includes(e)&&bulletHitsCircle(b,e.x,e.y,e.r)){if(b.kind===2){if(!consumeTankoPierce(b,e))continue;}else{b.hit.push(e);b.life=0;}e.hp-=b.damage||1;gameSnowfield.hit(e);gameAudio.fx('hit');if(b.explosion){particles.push({x:e.x,y:e.y,vx:0,vy:0,life:.32,maxLife:.32,blast:b.explosion});for(let other of enemies)if(other!==e&&other.hp>0&&Math.hypot(other.x-e.x,other.y-e.y)<b.explosion){other.hp-=b.explosion>=72?2:1;gameSnowfield.hit(other);}}if(b.kind!==2){b.pierce=(b.pierce||1)-1;if(b.pierce>0)b.life=1;}if(e.hp<=0){if(!gameScoring.enemyDefeated(e))break;gameAudio.fx('destroy');phaseKills++;itemMonsters.normalDefeated();for(let i=0;i<9;i++)particles.push({x:e.x,y:e.y,vx:(Math.random()-.5)*180,vy:(Math.random()-.5)*180,life:.5});break}}
  if(e.hp>0&&Math.hypot(e.x-player.x,e.y-player.y)<e.r+13){hurt();if(!started)return;}
  }
@@ -2579,8 +2669,8 @@ function seamlessTerrain(img){
 }
 let rotorSpin=0;function draw(){let c=stageColors[stage],im=terrainImgs[stage];ctx.fillStyle=c[0];ctx.fillRect(0,0,W,H);if(!gameSnowfield.drawBackground(ctx,W,H)&&im&&im.complete&&im.naturalWidth){let tile=seamlessTerrain(im);let scale=W/tile.width;let th=tile.height*scale;let shift=worldScroll%th;for(let y=shift-th;y<H;y+=th)ctx.drawImage(tile,0,Math.round(y),W,Math.ceil(th)+1);}for(let w of warnings){let pulse=.65+.35*Math.sin(performance.now()/90);ctx.save();ctx.globalAlpha=pulse;ctx.fillStyle='#ff4545';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(w.x,w.y,15,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='white';ctx.font='bold 18px system-ui';ctx.textAlign='center';ctx.fillText('!',w.x,w.y+6);ctx.restore()}
 itemMonsters.draw();
-for(let b of enemyBullets){ctx.fillStyle='#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle='#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
-for(let it of items){ctx.save();ctx.translate(it.x,it.y+Math.sin(it.t*5)*3);ctx.fillStyle=it.type==='hp'?'#e94b65':'#ffd349';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,14,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.font='bold 19px system-ui';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(it.type==='hp'?'♥':'⚡',0,7);ctx.restore()}for(let e of enemies){if(gameSnowfield.drawActor(ctx,e))continue;let im=enemySprites[stage][e.kind||0];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,e.x-22,e.y-22,44,44);else{ctx.fillStyle=['#4f9d36','#686579','#267bca','#bd6d37'][gameWorlds.profile(stage)];ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,7);ctx.fill()}}if(boss){if(!gameSnowfield.drawActor(ctx,boss,true)){let im=bossSprites[stage];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,boss.x-77,boss.y-67,154,134);}ctx.fillStyle='#16243acb';ctx.fillRect(W*.3,53,W*.4,12);ctx.fillStyle='#ff6767';ctx.fillRect(W*.3,53,W*.4*Math.max(0,boss.hp/boss.maxHp),12);ctx.fillStyle=stage===4?'#173b59':'white';ctx.font='bold 16px system-ui';ctx.textAlign='center';ctx.fillText(gameWorlds.region(stage).bossName,W/2,47)}gameSnowfield.drawDefeats(ctx);for(let b of bullets){
+for(let b of enemyBullets){ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
+for(let it of items){ctx.save();ctx.translate(it.x,it.y+Math.sin(it.t*5)*3);ctx.fillStyle=it.type==='hp'?'#e94b65':'#ffd349';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,14,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.font='bold 19px system-ui';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(it.type==='hp'?'♥':'⚡',0,7);ctx.restore()}for(let e of enemies){gameSnowfieldCombat.drawTelegraph(ctx,e);if(gameSnowfield.drawActor(ctx,e))continue;let im=enemySprites[stage][e.kind||0];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,e.x-22,e.y-22,44,44);else{ctx.fillStyle=['#4f9d36','#686579','#267bca','#bd6d37'][gameWorlds.profile(stage)];ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,7);ctx.fill()}}if(boss){if(!gameSnowfield.drawActor(ctx,boss,true)){let im=bossSprites[stage];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,boss.x-77,boss.y-67,154,134);}ctx.fillStyle='#16243acb';ctx.fillRect(W*.3,53,W*.4,12);ctx.fillStyle='#ff6767';ctx.fillRect(W*.3,53,W*.4*Math.max(0,boss.hp/boss.maxHp),12);ctx.fillStyle=stage===4?'#173b59':'white';ctx.font='bold 16px system-ui';ctx.textAlign='center';ctx.fillText(gameWorlds.region(stage).bossName,W/2,47)}gameSnowfield.drawDefeats(ctx);for(let b of bullets){
   if(b.kind===2&&b.life<=0)continue;
   const img=bulletSprites[b.kind ?? player.type];
   if(img && img.complete && img.naturalWidth){

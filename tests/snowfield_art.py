@@ -21,7 +21,7 @@ ROOT=Path(__file__).resolve().parents[1];BASELINE='0cbfe8205a761890a17b0cb9b77d1
 parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--standalone',action='store_true');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':[
  'Real Chromium canvas/pointer/fullscreen/media with controlled combat fixtures, not physical Galaxy/Samsung Internet or a manual difficulty playthrough.',
- 'The supplied atlas animations are prototypes; original PNG/manifest bytes are preserved. Combat values and BGM continue to use the forest trial profile.',
+ 'The supplied atlas animations are prototypes; original PNG/manifest bytes are preserved. Boss/BGM retain the forest trial profile; Issue8 normal-enemy behavior is tested in snowfield_combat.py.',
  'Offline injects the exact one-file HTML into a blank origin with networking disabled; no managed file policy bypass.',
  'PNG screenshots are actual browser captures; game state/animation time is controlled for comparisons, without image editing.'
 ]}
@@ -70,7 +70,7 @@ helpers='''() => {
  window.artEnemy=(x=160,y=150)=>({x,y,r:16,hp:1,special:false,t:0,speed:38,shot:999,charge:999,kind:0,mode:'chase',vx:0,vy:0});
  window.artScene=(step=1,type=0)=>{
   gameExitDialogOpen=false;itemMonsters.configure({opportunitiesPerRegion:0});start(type);stage=4;phase=step;transition=0;spawn=999;invuln=999;player.x=W*.55;player.y=H*.72;
-  if(step<5)enemies=[artEnemy(W*.45,H*.42)];else{phaseKills=requiredKills;update(0);transition=0;boss.shot=999;}
+  if(step<5)enemies=[gameSnowfieldCombat.prepare(artEnemy(W*.45,H*.42))];else{phaseKills=requiredKills;update(0);transition=0;boss.shot=999;}
   gameSnowfield.observe(enemies,boss);gameScoring.updateHUD();
  };
  window.artHit=target=>{bullets=[];shoot();Object.assign(bullets[0],{x:target.x,y:target.y,vx:0,vy:0});update(0);};
@@ -99,8 +99,8 @@ try:
   assert not page.evaluate('gameWorlds.isTrial()')
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
-  assert '승인 설원 그래픽' in page.locator('#worldTrialSettings').inner_text()
-  assert '숲 전투·BGM 임시' in page.locator('#worldPrototypeNotice').inner_text()
+  assert '승인 그래픽' in page.locator('#worldTrialSettings').inner_text()
+  assert '일반 적 1차 전투 / 보스·BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
 
@@ -108,12 +108,12 @@ try:
   for step in range(1,6):
    row=page.evaluate('''step=>{artScene(step);const entity=boss||enemies[0];return {step,pose:gameSnowfield.pose(entity,!!boss),hp:entity.hp,r:entity.r,speed:entity.speed,boss:!!boss,profile:gameWorlds.profile(stage),name:gameWorlds.region(stage).bossName}}''',step)
    assert row['pose']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle','blizzard_king'][step-1]
-   assert row['hp']==(20 if step==5 else 1) and row['r']==(48 if step==5 else 16) and row['profile']==0
-   if step<5:assert row['speed']==38
+   assert row['hp']==[1,2,2,3,20][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
+   if step<5:assert abs(row['speed']-[32.3,36.1,28.5,20.9][step-1])<1e-8
    else:assert row['name']=='❄ 눈보라 거인왕 (시험)'
    mapping.append(row)
   report['stage_mapping']=mapping
-  passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; HP1/r16 and bossHP20/r48 retain forest trial values, independent of visual species roles.')
+  passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.')
 
   frames=page.evaluate('''() => {
    const rows=[];
@@ -144,11 +144,11 @@ try:
 
   movement=page.evaluate('''() => {artScene(1);const e=enemies[0],before={x:e.x,y:e.y};update(.1);const moved=gameSnowfield.pose(e);update(.101);return {before,after:{x:e.x,y:e.y},moved,frame:gameSnowfield.pose(e),hp:e.hp,r:e.r,speed:e.speed};}''')
   assert movement['moved']['name']==movement['frame']['name']=='move' and movement['frame']['index']==1
-  assert movement['hp']==1 and movement['r']==16 and movement['speed']==38
-  report['actual_movement']=movement;passed('Actual existing movement changes idle to move and advances its frame without changing position calculation, speed, health or collider.')
+  assert movement['hp']==1 and movement['r']==16 and abs(movement['speed']-32.3)<1e-8
+  report['actual_movement']=movement;passed('Actual slime pursuit at32.3px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.')
   attacks=page.evaluate('''() => {const rows=[];for(let step=1;step<=5;step++){artScene(step);const e=boss||enemies[0];e.shot=0;update(0);const start=gameSnowfield.pose(e,!!boss);update(.121);rows.push({step,start,after:gameSnowfield.pose(e,!!boss),bullets:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),interval:e.shot});}return rows;}''')
-  assert all(r['start']['name']==r['after']['name']=='attack' and r['after']['index']==1 and r['bullets']==1 and abs(r['speed']-(85+(r['step']-1)*8))<1e-8 for r in attacks),attacks
-  report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and retains forest bullet counts/speeds/intervals for every snow phase.')
+  assert all(r['start']['name']==r['after']['name']=='attack' and r['after']['index']==1 and r['bullets']==1 and abs(r['speed']-[85,85,76.5,85,117][r['step']-1])<1e-8 for r in attacks),attacks
+  report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while preserving the boss117px/s single-shot profile.')
 
   hit=page.evaluate('''() => {artScene(5);const target=boss;artHit(target);const first=gameSnowfield.pose(target,true);update(.111);const middle=gameSnowfield.pose(target,true);update(.111);const last=gameSnowfield.pose(target,true);return {hp:target.hp,r:target.r,first,middle,last,score:runScore};}''')
   assert hit['hp']==19 and hit['r']==48 and hit['score']==0 and [hit[k]['index'] for k in ['first','middle','last']]==[0,1,2] and all(hit[k]['name']=='hit' for k in ['first','middle','last'])
