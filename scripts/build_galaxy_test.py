@@ -4,6 +4,7 @@ import hashlib
 import json
 import mimetypes
 import re
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -13,6 +14,12 @@ OUTPUT = ROOT / 'dist/heli_trio_galaxy_test.html'
 
 def build():
     source = (ROOT / 'index.html').read_text()
+    manifest_path = ROOT / 'assets/snowfield/asset_manifest.json'
+    manifest_text = manifest_path.read_text()
+    manifest = json.loads(manifest_text)
+    embedded_manifest = re.search(r'<template id="snowfieldManifest">(.*?)</template>', source, re.S)
+    assert embedded_manifest and unescape(embedded_manifest[1]) == manifest_text, 'Native/standalone must use the supplied manifest unchanged'
+    assert hashlib.sha256((manifest_path.parent / manifest['background']['path']).read_bytes()).hexdigest() == manifest['background']['sha256'], 'Preserve the approved snowfield background'
     css_path = ROOT / 'assets/selection/selection.css'
     js_path = ROOT / 'assets/selection/selection.js'
     embedded = {}
@@ -43,7 +50,8 @@ def build():
     controls_javascript = (ROOT / 'assets/controls/controls.js').read_text()
     world_css = (ROOT / 'assets/worlds/worlds.css').read_text()
     world_javascript = (ROOT / 'assets/worlds/worlds.js').read_text()
-    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript).lower()
+    snowfield_javascript = (ROOT / 'assets/snowfield/snowfield.js').read_text()
+    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + snowfield_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -67,13 +75,16 @@ def build():
     result = result.replace('<script src="assets/worlds/worlds.js"></script>',
                             '<script id="galaxy-worlds-js">' + world_javascript + '</script>')
 
+    result = result.replace('<script src="assets/snowfield/snowfield.js"></script>',
+                            '<script id="galaxy-snowfield-js">' + snowfield_javascript + '</script>')
+
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
-    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster)/[^\"\']+)([\"\'])', inline_resource, result)
+    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [world_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, snowfield_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -102,6 +113,8 @@ def build():
         'inlined_controls_scripts': 1,
         'inlined_controls_stylesheets': 1,
         'inlined_world_scripts': 1,
+        'inlined_snowfield_scripts': 1,
+        'embedded_snowfield_manifest': True,
         'inlined_world_stylesheets': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],
         'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.mp3'],

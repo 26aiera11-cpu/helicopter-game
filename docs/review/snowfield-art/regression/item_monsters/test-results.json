@@ -1,0 +1,354 @@
+{
+  "baseline_main": "17da293570f422035d455add578dbc8412e4f24b",
+  "prior_feature": "6d4e4e969e38cbab7e4c499f73fda68f2be1b09c",
+  "standalone": false,
+  "passed": [
+    "Only exact reviewed item integration differs from main; every previous asset/scoring/audio/UI file is unchanged, supplied assets match pinned bytes, and JS syntax passes.",
+    "Supplied atlas and the new default3-opportunity kill-count planner load; original images and native normal-enemy78% admission are preserved.",
+    "Actual normal-monster kill events reserve one independent appearance and the unchanged1.4s warning creates an HP5 actor with ten full seconds.",
+    "The normal generator retains780 admissions per1000 controlled opportunities; only item spawning switches away from time/probability.",
+    "Even movement initially pointing toward the player yields gentle escape in every region; speed never exceeds existing45–69px/s, with no shots or contact damage.",
+    "The10-second exit gives no score, kill progress, drop or destruction reward; no timer is restarted by movement or animation.",
+    "Real bullets from Trio/Bingle/Tanko defeat HP5 in5/5/4 hits, retain damage1/1/1.5, award200 once and drop once without advancing phaseKills.",
+    "Tanko shares its original penetration/hit list across both target types; Bingle retains nearest-target selection and the original3.3rad/s homing turn.",
+    "The existing50:50 hp/power generator,16s lifetime,13px radius,+2/+1 effects and carried-item identity are reused without changing cap handling.",
+    "Live item identity/lifetime survive phases and boss entry; the actor remains killable/drop-capable during the boss without new boss-phase spawning.",
+    "Region opportunity count is configurable0–4 for future regions; chosen plans stay immutable and invalid/retired timer settings are rejected.",
+    "All idle6/move6/direction8/hit3 cells and timing match the supplied manifest; frame changes use actual distinct art, not repeated idle placeholders.",
+    "Actual canvas draw calls show all4 supplied explosion cells then remove the effect; sprite sampling preserves320×256 ratio and160/127 anchor.",
+    "Actual supplied art is visible at915×412,800×360,568×320 and all8 directions; existing HUD/touch layout and character imagery stay intact.",
+    "Exit modal and3-second game-over freeze all item state; restart synchronously clears live entities/warnings/effects without changing existing exit/fullscreen/audio flows.",
+    "No uncaught JS errors, native dialogs, failed resources or external requests in standalone mode; full atlas and source scripts are embedded."
+  ],
+  "limits": [
+    "Actual Chromium and controlled state/input tests, not physical Galaxy or a human balance playthrough.",
+    "New spawn cadence is not finalized: only inherited legacy parameters are the compatibility default.",
+    "Standalone is injected into an offline document because direct file navigation is blocked by managed policy."
+  ],
+  "initial_runtime_policy": {
+    "monsters": [],
+    "entrances": [],
+    "bursts": [],
+    "regions": [],
+    "settings": {
+      "opportunitiesPerRegion": 3
+    },
+    "mode": "regional-kill-count",
+    "bodyWidth": 80,
+    "bodyHeight": 64,
+    "hitRadius": 20,
+    "normalOpportunityProbability": 0.78
+  },
+  "actual_kill_trigger": {
+    "pending": 1,
+    "count": 1,
+    "hp": 5,
+    "life": 10,
+    "phaseKills": 3,
+    "threshold": 3
+  },
+  "flee_speed": [
+    {
+      "area": 0,
+      "before": 60,
+      "after": 61.35000000000002,
+      "speed": 13.500000000000227
+    },
+    {
+      "area": 1,
+      "before": 60,
+      "after": 61.59000000000003,
+      "speed": 15.900000000000318
+    },
+    {
+      "area": 2,
+      "before": 60,
+      "after": 61.83000000000004,
+      "speed": 18.30000000000041
+    },
+    {
+      "area": 3,
+      "before": 60,
+      "after": 62.07000000000005,
+      "speed": 20.7000000000005
+    }
+  ],
+  "saved_item_analysis": {
+    "id": "a103839c-0a1b-425a-83c8-6f88e89e930d",
+    "score": 200,
+    "characterId": 2,
+    "characterName": "탱코",
+    "regionId": 0,
+    "regionName": "🌲 숲 지역",
+    "worldId": 0,
+    "worldName": "월드 1",
+    "regionKey": "world-1:forest",
+    "localRegionIndex": 0,
+    "trialMode": false,
+    "phase": 1,
+    "order": 8,
+    "createdAt": "2026-11-03T02:42:32.391Z",
+    "outcome": "abandoned",
+    "normalKills": 0,
+    "itemKills": 1,
+    "bossKills": 0,
+    "clearedPhases": 0,
+    "playTimeSeconds": 0.08,
+    "finalUpgrade": 0
+  },
+  "actual_hit_matrix": [
+    {
+      "kind": 0,
+      "shots": 5,
+      "hp": 0,
+      "before": {
+        "score": 200,
+        "kills": 0,
+        "items": 1
+      },
+      "score": 200,
+      "kills": 0,
+      "items": 1,
+      "remaining": 0
+    },
+    {
+      "kind": 1,
+      "shots": 5,
+      "hp": 0,
+      "before": {
+        "score": 200,
+        "kills": 0,
+        "items": 1
+      },
+      "score": 200,
+      "kills": 0,
+      "items": 1,
+      "remaining": 0
+    },
+    {
+      "kind": 2,
+      "shots": 4,
+      "hp": -1,
+      "before": {
+        "score": 200,
+        "kills": 0,
+        "items": 1
+      },
+      "score": 200,
+      "kills": 0,
+      "items": 1,
+      "remaining": 0
+    }
+  ],
+  "nearest_homing_target": [
+    {
+      "itemNear": true,
+      "turn": 0.06600000000000006
+    },
+    {
+      "itemNear": false,
+      "turn": -0.06600000000000006
+    }
+  ],
+  "drop_and_pickup": [
+    {
+      "roll": 0.25,
+      "before": {
+        "type": "hp",
+        "life": 16,
+        "r": 13
+      },
+      "same": true,
+      "hp": 3,
+      "upgrade": 0,
+      "remaining": 0
+    },
+    {
+      "roll": 0.75,
+      "before": {
+        "type": "power",
+        "life": 16,
+        "r": 13
+      },
+      "same": true,
+      "hp": 1,
+      "upgrade": 1,
+      "remaining": 0
+    }
+  ],
+  "animation_cells": {
+    "idle": [
+      {
+        "group": "idle",
+        "index": 0,
+        "column": 0,
+        "row": 0,
+        "rotation": 0
+      },
+      {
+        "group": "idle",
+        "index": 1,
+        "column": 1,
+        "row": 0,
+        "rotation": 0
+      },
+      {
+        "group": "idle",
+        "index": 2,
+        "column": 2,
+        "row": 0,
+        "rotation": 0
+      },
+      {
+        "group": "idle",
+        "index": 3,
+        "column": 3,
+        "row": 0,
+        "rotation": 0
+      },
+      {
+        "group": "idle",
+        "index": 4,
+        "column": 4,
+        "row": 0,
+        "rotation": 0
+      },
+      {
+        "group": "idle",
+        "index": 5,
+        "column": 5,
+        "row": 0,
+        "rotation": 0
+      }
+    ],
+    "move": [
+      {
+        "group": "move",
+        "index": 0,
+        "column": 0,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      },
+      {
+        "group": "move",
+        "index": 1,
+        "column": 1,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      },
+      {
+        "group": "move",
+        "index": 2,
+        "column": 2,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      },
+      {
+        "group": "move",
+        "index": 3,
+        "column": 3,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      },
+      {
+        "group": "move",
+        "index": 4,
+        "column": 4,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      },
+      {
+        "group": "move",
+        "index": 5,
+        "column": 5,
+        "row": 1,
+        "rotation": -1.5707963267948966
+      }
+    ],
+    "hit": [
+      {
+        "group": "hit",
+        "index": 0,
+        "column": 0,
+        "row": 3,
+        "rotation": 0
+      },
+      {
+        "group": "hit",
+        "index": 1,
+        "column": 1,
+        "row": 3,
+        "rotation": 0
+      },
+      {
+        "group": "hit",
+        "index": 2,
+        "column": 2,
+        "row": 3,
+        "rotation": 0
+      }
+    ],
+    "directions": [
+      {
+        "group": "directions",
+        "index": 0,
+        "column": 0,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 1,
+        "column": 1,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 2,
+        "column": 2,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 3,
+        "column": 3,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 4,
+        "column": 4,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 5,
+        "column": 5,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 6,
+        "column": 6,
+        "row": 2,
+        "rotation": 0
+      },
+      {
+        "group": "directions",
+        "index": 7,
+        "column": 7,
+        "row": 2,
+        "rotation": 0
+      }
+    ]
+  },
+  "uncaught_errors": [],
+  "native_dialogs": [],
+  "failed_requests": [],
+  "external_requests": []
+}

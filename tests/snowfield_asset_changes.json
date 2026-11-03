@@ -1,0 +1,38 @@
+{
+  "assets/worlds/worlds.js": [
+    [
+      "'설원 시험 보스 · 숲 리소스','snow-grid'",
+      "'❄ 눈보라 거인왕 (시험)','snowfield-approved'"
+    ],
+    [
+      "  function snowImage() {\n    // Deliberately simple geometry: no final art, obstacles, weather or mechanics.\n    const c=document.createElement('canvas');c.width=c.height=512;const g=c.getContext('2d');\n    g.fillStyle='#e3f3fa';g.fillRect(0,0,512,512);\n    for(let y=0;y<512;y+=64)for(let x=0;x<512;x+=64){\n      g.fillStyle=(x/64+y/64)%2?'#d2e9f4':'#eef9ff';\n      g.beginPath();g.moveTo(x+8,y+20);g.lineTo(x+48,y+8);g.lineTo(x+60,y+45);g.lineTo(x+22,y+57);g.closePath();g.fill();\n      g.strokeStyle='#b8d9eb';g.lineWidth=1;g.stroke();\n    }\n    const im=new Image();im.src=c.toDataURL('image/png');return im;\n  }\n",
+      "  function snowImage() { return gameSnowfield.backgroundImage; }\n"
+    ],
+    [
+      "r.prototypeBackground==='snow-grid'",
+      "r.prototypeBackground==='snowfield-approved'"
+    ],
+    [
+      "data.enemySprites[r.id]=data.enemySprites[r.assetProfile];data.bossSprites[r.id]=data.bossSprites[r.assetProfile];",
+      "data.enemySprites[r.id]=gameSnowfield.species.filter(s=>s.id!==gameSnowfield.bossId).map(s=>s.baseImage);data.bossSprites[r.id]=gameSnowfield.species.find(s=>s.id===gameSnowfield.bossId).baseImage;"
+    ],
+    [
+      "임시 지형과 숲 적·보스·음악을 사용하며",
+      "승인 설원 그래픽과 숲 시험용 전투·음악을 사용하며"
+    ],
+    [
+      "설원 시험 · 임시 지형 / 숲 적·보스·BGM 재사용",
+      "설원 시험 · 승인 그래픽 / 숲 전투·BGM 임시"
+    ],
+    [
+      "data.enemySprites[r.id]=gameSnowfield.species.filter(s=>s.id!==gameSnowfield.bossId).map(s=>s.baseImage);data.bossSprites[r.id]=gameSnowfield.species.find(s=>s.id===gameSnowfield.bossId).baseImage;",
+      "data.enemySprites[r.id]=r.prototypeBackground==='snowfield-approved'?gameSnowfield.species.filter(s=>s.id!==gameSnowfield.bossId).map(s=>s.baseImage):data.enemySprites[r.assetProfile];data.bossSprites[r.id]=r.prototypeBackground==='snowfield-approved'?gameSnowfield.species.find(s=>s.id===gameSnowfield.bossId).baseImage:data.bossSprites[r.assetProfile];"
+    ]
+  ],
+  "assets/worlds/worlds.css": [
+    [
+      "#selectionHelpDialog{touch-action:pan-y}\n#worldTrialSettings{margin:12px 0;padding:10px;border:1px solid #a9ddff80;border-radius:10px;text-align:left;background:#14385a}\n#worldTrialSettings label{display:flex;align-items:center;gap:8px;font-weight:800;cursor:pointer}\n#worldTrialSettings input{width:20px;height:20px;flex:none;touch-action:manipulation}\n#worldTrialSettings p{margin:6px 0 0;font-size:11px;line-height:1.45;color:#d2e8f7}\n#worldPrototypeNotice{position:fixed;z-index:12;left:10px;top:90px;max-width:calc(100vw - 36px);margin:0;padding:4px 8px;border-radius:7px;background:#103858df;color:#e4f7ff;font:700 10px/1.35 system-ui;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}\n#worldPrototypeNotice[hidden]{display:none}\n",
+      "#selectionHelpDialog{touch-action:pan-y}\n#worldTrialSettings{margin:12px 0;padding:10px;border:1px solid #a9ddff80;border-radius:10px;text-align:left;background:#14385a}\n#worldTrialSettings label{display:flex;align-items:center;gap:8px;font-weight:800;cursor:pointer}\n#worldTrialSettings input{width:20px;height:20px;flex:none;touch-action:manipulation}\n#worldTrialSettings p{margin:6px 0 0;font-size:11px;line-height:1.45;color:#d2e8f7}\n#worldPrototypeNotice{position:fixed;z-index:12;left:10px;top:90px;max-width:calc(100vw - 36px);margin:0;padding:4px 8px;border-radius:7px;background:#103858df;color:#e4f7ff;font:700 10px/1.35 system-ui;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}\n#worldPrototypeNotice[hidden]{display:none}\n/* Only the snow boss art outro; score/clear is already committed by the engine. */\n.snowfield-finale #menu{visibility:hidden}\n.snowfield-finale .controls,.snowfield-finale #exitGame{visibility:hidden;pointer-events:none}\n"
+    ]
+  ]
+}

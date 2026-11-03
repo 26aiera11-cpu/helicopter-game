@@ -5,3 +5,6 @@
 #worldTrialSettings p{margin:6px 0 0;font-size:11px;line-height:1.45;color:#d2e8f7}
 #worldPrototypeNotice{position:fixed;z-index:12;left:10px;top:90px;max-width:calc(100vw - 36px);margin:0;padding:4px 8px;border-radius:7px;background:#103858df;color:#e4f7ff;font:700 10px/1.35 system-ui;pointer-events:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 #worldPrototypeNotice[hidden]{display:none}
+/* Only the snow boss art outro; score/clear is already committed by the engine. */
+.snowfield-finale #menu{visibility:hidden}
+.snowfield-finale .controls,.snowfield-finale #exitGame{visibility:hidden;pointer-events:none}

@@ -18,7 +18,7 @@ parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,req
 args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':[
  'Native Chromium controlled combat/input/media/fullscreen checks, not a human balance playthrough.',
- 'Snowfield intentionally inherits the forest combat/art/audio profile; no final snowfield design or balance is approved.',
+ 'Snowfield uses approved background/monster art with prototype atlas animation and the unchanged forest combat/audio profile; final balance is not approved.',
  'Physical Galaxy/Samsung Internet, actual sensors, audible output and file opening are not tested.',
  'Offline injects the exact standalone HTML into a blank local origin then disables networking; managed file policy is unchanged.'
 ]}
@@ -97,7 +97,7 @@ try:
    if args.standalone:
     context.set_offline(False);page.goto(url+'offline-world-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:page.goto(url,wait_until='load')
-   page.wait_for_function('gameWorlds&&itemMonsters.ready()&&terrainImgs.every(i=>i.complete&&i.naturalWidth>0)');page.evaluate(helpers)
+   page.wait_for_function('gameWorlds&&gameSnowfield.ready()&&itemMonsters.ready()&&terrainImgs.every(i=>i.complete&&i.naturalWidth>0)');page.evaluate(helpers)
   load()
   registry=page.evaluate('({worlds:gameWorlds.worlds,regions:gameWorlds.regions,snapshot:gameWorlds.snapshot(),assets:terrainImgs.length,enemies:enemySprites.length,bosses:bossSprites.length})')
   assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4]]
@@ -157,14 +157,14 @@ try:
    return {normal,profile:gameWorlds.profile(stage),tactics:tactics[4],sameSprites:enemySprites[4]===enemySprites[0]&&bossSprites[4]===bossSprites[0],hpAtSpawn,hpAfter:boss.hp,shots:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),points:runScore};
   }''')
   assert snow_combat['normal']=={'hp':1,'speed':38,'special':False} and snow_combat['hpAtSpawn']==snow_combat['hpAfter']==44
-  assert snow_combat['sameSprites'] and snow_combat['shots']==1 and snow_combat['speed']==117 and snow_combat['points']==100
-  report['snow_prototype_combat']=snow_combat;passed('Snow uses explicit forest prototype HP/speed/sprites/boss pattern and unchanged upgrade HP multipliers, snapshotted once; no arbitrary fifth-region difficulty scaling.')
+  assert not snow_combat['sameSprites'] and snow_combat['shots']==1 and snow_combat['speed']==117 and snow_combat['points']==100
+  report['snow_prototype_combat']=snow_combat;passed('Snow uses approved monster sprites with unchanged forest prototype HP/speed/boss pattern and upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.')
 
   routes=[]
   for trial in [False,True]:
    page.evaluate('worldExit()');page.evaluate('value=>gameWorlds.setTrialEnabled(value)',trial)
    for kind in range(3):
-    route=page.evaluate('type=>worldRoute(type)',kind);waves=route['waves'];r=route['result']['record']
+    route=page.evaluate('type=>worldRoute(type)',kind);page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending');waves=route['waves'];r=route['result']['record']
     assert len(waves)==(25 if trial else 20) and route['score']==(35000 if trial else 28000) and not route['started']
     assert sum(w['bossHP'] is not None for w in waves)==(5 if trial else 4)
     assert {w['stage'] for w in waves}==set(range(5 if trial else 4))
