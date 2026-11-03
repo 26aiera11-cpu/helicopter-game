@@ -1,0 +1,2526 @@
+{
+  "schema_version": 1,
+  "version": "review-v1-2026-11-04",
+  "title": "헬리 트리오 월드 2 화산 그래픽 검토팩",
+  "world": 2,
+  "region": "volcano",
+  "status": "review_draft_not_integrated",
+  "game_runtime_integration": false,
+  "reference_issue": "https://github.com/26aiera11-cpu/helicopter-game/issues/14",
+  "reference_zip": {
+    "name": "heli_trio_volcano_design_reference_v2.zip",
+    "sha256": "4ba659ef9efc52ab4b20a508b731847fbc9f9d53c602087899c8946ca28f6188",
+    "crc_ok": true
+  },
+  "references": [
+    {
+      "path": "../../docs/review/volcano-art-assets/references/01_approved_topdown_volcano_concept.png",
+      "sha256": "a7e27102cb4575237410e79f38ea3b592bebfed8d942c3321812cfa5470da918",
+      "bytes": 2546853
+    },
+    {
+      "path": "../../docs/review/volcano-art-assets/references/02_approved_normal_monster_animation_first_option.png",
+      "sha256": "1f762c62ab794661ad9dd09bc82d1991c86f622a64dc57a82a85aa90c06a0870",
+      "bytes": 2109133
+    },
+    {
+      "path": "../../docs/review/volcano-art-assets/references/03_approved_boss_wings_up_sprite_sheet.png",
+      "sha256": "c2ee83f710c0201fddcfc524aec72facbed0892e3eb036f75c8c9c5ec77e0a88",
+      "bytes": 1892428
+    },
+    {
+      "path": "../../docs/review/volcano-art-assets/references/README_approved_design.md",
+      "sha256": "ce973b18772defb0359ad79129dd53b688b93f1ca16d35eb0b2d07bb9c37633a",
+      "bytes": 2396
+    }
+  ],
+  "background": {
+    "path": "background/volcano_1920x864.png",
+    "pixels": [
+      1920,
+      864
+    ],
+    "sha256": "02733da79774fa1cc0fa7e7084b79c74d94542a93be69f6ab73ee2983564f404",
+    "source": "background/volcano_generated_original.png",
+    "source_sha256": "e9303d15edd36c3cc28630c609d820d231a090062cd2f615e139333f0e5fd349",
+    "source_pixels": [
+      1870,
+      841
+    ],
+    "export": "ImageMagick 1920x864 cover, uniform scale, centered extent; artwork generated with imagegen",
+    "seamless": false,
+    "render_mode": "cover",
+    "view": "overhead_top_down",
+    "contains_characters_or_labels": false
+  },
+  "frame_format": {
+    "packing": "trimmed_rectangles; do not derive rects by multiplying row/column",
+    "logical_cell_px": [
+      320,
+      320
+    ],
+    "pivot_normalized": [
+      0.5,
+      0.5
+    ],
+    "rotated": false,
+    "rect_px": "x,y,width,height in original unmodified atlas",
+    "sprite_source_rect_px": "x,y,width,height in logical 320x320 cell; draw here without stretching",
+    "visibility_alpha_threshold": 8,
+    "trim_padding_px": 8,
+    "low_alpha_note": "Original imagegen outputs preserved. Alpha1–7 antialias/noise may occur outside visible bounds, including nominally empty slots. This threshold is for bounds measurement, not a modification of PNG alpha."
+  },
+  "notes": [
+    "User-approved design references are preserved byte-for-byte; newly generated separated assets still need visual approval.",
+    "No game code, combat values, world registration, old assets, sound or Galaxy package changed.",
+    "Normal monsters have no propeller. Face points toward image bottom. Dragon wing tips point upward while head remains down.",
+    "Not eight-direction or hand-keyed final animation. Limited generated poses; defeat ends at last frame and must be hidden by a future runtime consumer.",
+    "Review display sizes and frame timing are art-preview settings, not combat/balance decisions."
+  ],
+  "monsters": [
+    {
+      "id": "ember_bean",
+      "name_ko": "불씨콩",
+      "kind": "normal",
+      "base": "monsters/ember_bean.png",
+      "base_pixels": [
+        1254,
+        1254
+      ],
+      "base_sha256": "a4a208bab7d68871162b0516a0a17e81b09df906de6fe4b5a258e14c0dbd055d",
+      "base_content_bounds_px": [
+        229,
+        224,
+        1023,
+        995
+      ],
+      "base_pivot_px": [
+        626.0,
+        609.5
+      ],
+      "atlas": "animations/ember_bean_atlas.png",
+      "atlas_pixels": [
+        1254,
+        1254
+      ],
+      "atlas_sha256": "25286b94bb15c54db94f77a3087562b4b0ec69a8ef901f43f5a36cf2d2dd1f5d",
+      "source_slot_columns": 4,
+      "source_slot_rows": 4,
+      "source_slot_boundaries_x_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "source_slot_boundaries_y_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "logical_cell_px": [
+        320,
+        320
+      ],
+      "preview_content_width_px": 42,
+      "view": "top_down_face_down",
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_count": 1,
+          "frame_duration_ms": 180,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                42,
+                55,
+                230,
+                218
+              ],
+              "source_slot_px": [
+                0,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                45.0,
+                58.0,
+                230,
+                218
+              ]
+            }
+          ]
+        },
+        "move": {
+          "frame_count": 4,
+          "frame_duration_ms": 110,
+          "loop": true,
+          "frames": [
+            {
+              "index": 1,
+              "rect_px": [
+                354,
+                59,
+                231,
+                213
+              ],
+              "source_slot_px": [
+                314,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                43.5,
+                62.0,
+                231,
+                213
+              ]
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                669,
+                38,
+                230,
+                235
+              ],
+              "source_slot_px": [
+                627,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                45.5,
+                41.0,
+                230,
+                235
+              ]
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                983,
+                62,
+                231,
+                211
+              ],
+              "source_slot_px": [
+                940,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                46.0,
+                65.0,
+                231,
+                211
+              ]
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                44,
+                375,
+                228,
+                211
+              ],
+              "source_slot_px": [
+                0,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                47.0,
+                64.5,
+                228,
+                211
+              ]
+            }
+          ]
+        },
+        "attack": {
+          "frame_count": 1,
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "index": 5,
+              "rect_px": [
+                356,
+                363,
+                230,
+                228
+              ],
+              "source_slot_px": [
+                314,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                45.5,
+                52.5,
+                230,
+                228
+              ]
+            }
+          ]
+        },
+        "hit": {
+          "frame_count": 2,
+          "frame_duration_ms": 90,
+          "loop": false,
+          "frames": [
+            {
+              "index": 6,
+              "rect_px": [
+                669,
+                369,
+                233,
+                218
+              ],
+              "source_slot_px": [
+                627,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                45.5,
+                58.5,
+                233,
+                218
+              ]
+            },
+            {
+              "index": 7,
+              "rect_px": [
+                983,
+                364,
+                230,
+                223
+              ],
+              "source_slot_px": [
+                940,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                46.0,
+                53.5,
+                230,
+                223
+              ]
+            }
+          ]
+        },
+        "defeat": {
+          "frame_count": 4,
+          "frame_duration_ms": 130,
+          "loop": false,
+          "frames": [
+            {
+              "index": 8,
+              "rect_px": [
+                42,
+                680,
+                237,
+                212
+              ],
+              "source_slot_px": [
+                0,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                45.0,
+                56.5,
+                237,
+                212
+              ]
+            },
+            {
+              "index": 9,
+              "rect_px": [
+                367,
+                686,
+                217,
+                199
+              ],
+              "source_slot_px": [
+                314,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                56.5,
+                62.5,
+                217,
+                199
+              ]
+            },
+            {
+              "index": 10,
+              "rect_px": [
+                684,
+                706,
+                195,
+                171
+              ],
+              "source_slot_px": [
+                627,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                60.5,
+                82.5,
+                195,
+                171
+              ]
+            },
+            {
+              "index": 11,
+              "rect_px": [
+                1021,
+                731,
+                153,
+                134
+              ],
+              "source_slot_px": [
+                940,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                84.0,
+                107.5,
+                153,
+                134
+              ]
+            }
+          ]
+        }
+      },
+      "frame_count": 12
+    },
+    {
+      "id": "lava_lizard",
+      "name_ko": "용암 도마뱀",
+      "kind": "normal",
+      "base": "monsters/lava_lizard.png",
+      "base_pixels": [
+        1254,
+        1254
+      ],
+      "base_sha256": "35091214795743fbd694852470f869816b5e068f269f48fc0e4091b80105bca2",
+      "base_content_bounds_px": [
+        273,
+        119,
+        981,
+        1106
+      ],
+      "base_pivot_px": [
+        627.0,
+        612.5
+      ],
+      "atlas": "animations/lava_lizard_atlas.png",
+      "atlas_pixels": [
+        1254,
+        1254
+      ],
+      "atlas_sha256": "000c9679bd55d4784072c2b41ad8884c737be009053c00f0dfaf3e610fc0fed8",
+      "source_slot_columns": 4,
+      "source_slot_rows": 4,
+      "source_slot_boundaries_x_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "source_slot_boundaries_y_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "logical_cell_px": [
+        320,
+        320
+      ],
+      "preview_content_width_px": 40,
+      "view": "top_down_face_down",
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_count": 1,
+          "frame_duration_ms": 180,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                58,
+                34,
+                206,
+                266
+              ],
+              "source_slot_px": [
+                0,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61.0,
+                37.0,
+                206,
+                266
+              ]
+            }
+          ]
+        },
+        "move": {
+          "frame_count": 4,
+          "frame_duration_ms": 110,
+          "loop": true,
+          "frames": [
+            {
+              "index": 1,
+              "rect_px": [
+                371,
+                35,
+                206,
+                265
+              ],
+              "source_slot_px": [
+                314,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                60.5,
+                38.0,
+                206,
+                265
+              ]
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                681,
+                34,
+                203,
+                266
+              ],
+              "source_slot_px": [
+                627,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                57.5,
+                37.0,
+                203,
+                266
+              ]
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                995,
+                35,
+                201,
+                265
+              ],
+              "source_slot_px": [
+                940,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                58.0,
+                38.0,
+                201,
+                265
+              ]
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                58,
+                348,
+                205,
+                266
+              ],
+              "source_slot_px": [
+                0,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61.0,
+                37.5,
+                205,
+                266
+              ]
+            }
+          ]
+        },
+        "attack": {
+          "frame_count": 1,
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "index": 5,
+              "rect_px": [
+                372,
+                348,
+                205,
+                266
+              ],
+              "source_slot_px": [
+                314,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61.5,
+                37.5,
+                205,
+                266
+              ]
+            }
+          ]
+        },
+        "hit": {
+          "frame_count": 2,
+          "frame_duration_ms": 90,
+          "loop": false,
+          "frames": [
+            {
+              "index": 6,
+              "rect_px": [
+                680,
+                351,
+                209,
+                263
+              ],
+              "source_slot_px": [
+                627,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                56.5,
+                40.5,
+                209,
+                263
+              ]
+            },
+            {
+              "index": 7,
+              "rect_px": [
+                995,
+                348,
+                206,
+                268
+              ],
+              "source_slot_px": [
+                940,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                58.0,
+                37.5,
+                206,
+                268
+              ]
+            }
+          ]
+        },
+        "defeat": {
+          "frame_count": 4,
+          "frame_duration_ms": 130,
+          "loop": false,
+          "frames": [
+            {
+              "index": 8,
+              "rect_px": [
+                50,
+                662,
+                226,
+                264
+              ],
+              "source_slot_px": [
+                0,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                53.0,
+                38.5,
+                226,
+                264
+              ]
+            },
+            {
+              "index": 9,
+              "rect_px": [
+                362,
+                685,
+                217,
+                214
+              ],
+              "source_slot_px": [
+                314,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                51.5,
+                61.5,
+                217,
+                214
+              ]
+            },
+            {
+              "index": 10,
+              "rect_px": [
+                679,
+                691,
+                212,
+                191
+              ],
+              "source_slot_px": [
+                627,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                55.5,
+                67.5,
+                212,
+                191
+              ]
+            },
+            {
+              "index": 11,
+              "rect_px": [
+                1011,
+                719,
+                175,
+                153
+              ],
+              "source_slot_px": [
+                940,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                74.0,
+                95.5,
+                175,
+                153
+              ]
+            }
+          ]
+        }
+      },
+      "frame_count": 12
+    },
+    {
+      "id": "volcano_bat",
+      "name_ko": "화산 박쥐",
+      "kind": "normal",
+      "base": "monsters/volcano_bat.png",
+      "base_pixels": [
+        1254,
+        1254
+      ],
+      "base_sha256": "2065694ab763a1ce73716e09bc3a1046c1e3721ca554a285db674389b50ebae0",
+      "base_content_bounds_px": [
+        104,
+        381,
+        1149,
+        872
+      ],
+      "base_pivot_px": [
+        626.5,
+        626.5
+      ],
+      "atlas": "animations/volcano_bat_atlas.png",
+      "atlas_pixels": [
+        1254,
+        1254
+      ],
+      "atlas_sha256": "9e7acb1261d11a1b070e09c35abdfdf7adf557016a88990ac141da9c45064eb5",
+      "source_slot_columns": 4,
+      "source_slot_rows": 4,
+      "source_slot_boundaries_x_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "source_slot_boundaries_y_px": [
+        0,
+        314,
+        627,
+        940,
+        1254
+      ],
+      "logical_cell_px": [
+        320,
+        320
+      ],
+      "preview_content_width_px": 54,
+      "view": "top_down_face_down",
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_count": 1,
+          "frame_duration_ms": 180,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                50,
+                116,
+                214,
+                122
+              ],
+              "source_slot_px": [
+                0,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                53.0,
+                119.0,
+                214,
+                122
+              ]
+            }
+          ]
+        },
+        "move": {
+          "frame_count": 4,
+          "frame_duration_ms": 110,
+          "loop": true,
+          "frames": [
+            {
+              "index": 1,
+              "rect_px": [
+                361,
+                114,
+                213,
+                123
+              ],
+              "source_slot_px": [
+                314,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                50.5,
+                117.0,
+                213,
+                123
+              ]
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                676,
+                119,
+                208,
+                118
+              ],
+              "source_slot_px": [
+                627,
+                0,
+                313,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                52.5,
+                122.0,
+                208,
+                118
+              ]
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                992,
+                128,
+                200,
+                110
+              ],
+              "source_slot_px": [
+                940,
+                0,
+                314,
+                314
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                157.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                55.0,
+                131.0,
+                200,
+                110
+              ]
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                51,
+                424,
+                214,
+                125
+              ],
+              "source_slot_px": [
+                0,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                54.0,
+                113.5,
+                214,
+                125
+              ]
+            }
+          ]
+        },
+        "attack": {
+          "frame_count": 1,
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "index": 5,
+              "rect_px": [
+                362,
+                427,
+                214,
+                136
+              ],
+              "source_slot_px": [
+                314,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                51.5,
+                116.5,
+                214,
+                136
+              ]
+            }
+          ]
+        },
+        "hit": {
+          "frame_count": 2,
+          "frame_duration_ms": 90,
+          "loop": false,
+          "frames": [
+            {
+              "index": 6,
+              "rect_px": [
+                675,
+                437,
+                210,
+                122
+              ],
+              "source_slot_px": [
+                627,
+                314,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                51.5,
+                126.5,
+                210,
+                122
+              ]
+            },
+            {
+              "index": 7,
+              "rect_px": [
+                988,
+                424,
+                211,
+                125
+              ],
+              "source_slot_px": [
+                940,
+                314,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                470.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                51.0,
+                113.5,
+                211,
+                125
+              ]
+            }
+          ]
+        },
+        "defeat": {
+          "frame_count": 4,
+          "frame_duration_ms": 130,
+          "loop": false,
+          "frames": [
+            {
+              "index": 8,
+              "rect_px": [
+                52,
+                705,
+                211,
+                167
+              ],
+              "source_slot_px": [
+                0,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                157.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                55.0,
+                81.5,
+                211,
+                167
+              ]
+            },
+            {
+              "index": 9,
+              "rect_px": [
+                397,
+                719,
+                139,
+                140
+              ],
+              "source_slot_px": [
+                314,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                470.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                86.5,
+                95.5,
+                139,
+                140
+              ]
+            },
+            {
+              "index": 10,
+              "rect_px": [
+                705,
+                731,
+                139,
+                124
+              ],
+              "source_slot_px": [
+                627,
+                627,
+                313,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                783.5,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                81.5,
+                107.5,
+                139,
+                124
+              ]
+            },
+            {
+              "index": 11,
+              "rect_px": [
+                1038,
+                750,
+                122,
+                99
+              ],
+              "source_slot_px": [
+                940,
+                627,
+                314,
+                313
+              ],
+              "pivot_in_atlas_px": [
+                1097.0,
+                783.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                101.0,
+                126.5,
+                122,
+                99
+              ]
+            }
+          ]
+        }
+      },
+      "frame_count": 12
+    },
+    {
+      "id": "magma_beetle",
+      "name_ko": "마그마 갑충",
+      "kind": "normal",
+      "base": "monsters/magma_beetle.png",
+      "base_pixels": [
+        1254,
+        1254
+      ],
+      "base_sha256": "ea4d1de304c3dcf5655fc169d7d02fd1608c74ca6fa413311c3e8d36f0ceb2a1",
+      "base_content_bounds_px": [
+        160,
+        183,
+        1093,
+        1031
+      ],
+      "base_pivot_px": [
+        626.5,
+        607.0
+      ],
+      "atlas": "animations/magma_beetle_atlas.png",
+      "atlas_pixels": [
+        1263,
+        1246
+      ],
+      "atlas_sha256": "bd963af4e792cd42789ec807f2593c114379739b0ab71942df6123bd71602347",
+      "source_slot_columns": 4,
+      "source_slot_rows": 4,
+      "source_slot_boundaries_x_px": [
+        0,
+        316,
+        632,
+        947,
+        1263
+      ],
+      "source_slot_boundaries_y_px": [
+        0,
+        312,
+        623,
+        934,
+        1246
+      ],
+      "logical_cell_px": [
+        320,
+        320
+      ],
+      "preview_content_width_px": 46,
+      "view": "top_down_face_down",
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_count": 1,
+          "frame_duration_ms": 180,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                49,
+                52,
+                245,
+                235
+              ],
+              "source_slot_px": [
+                0,
+                0,
+                316,
+                312
+              ],
+              "pivot_in_atlas_px": [
+                171.5,
+                169.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                37.5,
+                42.5,
+                245,
+                235
+              ]
+            }
+          ]
+        },
+        "move": {
+          "frame_count": 4,
+          "frame_duration_ms": 110,
+          "loop": true,
+          "frames": [
+            {
+              "index": 1,
+              "rect_px": [
+                346,
+                54,
+                252,
+                238
+              ],
+              "source_slot_px": [
+                316,
+                0,
+                316,
+                312
+              ],
+              "pivot_in_atlas_px": [
+                472.0,
+                173.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                34.0,
+                41.0,
+                252,
+                238
+              ]
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                662,
+                54,
+                245,
+                234
+              ],
+              "source_slot_px": [
+                632,
+                0,
+                315,
+                312
+              ],
+              "pivot_in_atlas_px": [
+                784.5,
+                171.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                37.5,
+                43.0,
+                245,
+                234
+              ]
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                974,
+                55,
+                248,
+                235
+              ],
+              "source_slot_px": [
+                947,
+                0,
+                316,
+                312
+              ],
+              "pivot_in_atlas_px": [
+                1098.0,
+                172.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                36.0,
+                42.5,
+                248,
+                235
+              ]
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                49,
+                349,
+                244,
+                236
+              ],
+              "source_slot_px": [
+                0,
+                312,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                171.0,
+                467.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                38.0,
+                42.0,
+                244,
+                236
+              ]
+            }
+          ]
+        },
+        "attack": {
+          "frame_count": 1,
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "index": 5,
+              "rect_px": [
+                354,
+                348,
+                251,
+                240
+              ],
+              "source_slot_px": [
+                316,
+                312,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                479.5,
+                468.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                34.5,
+                40.0,
+                251,
+                240
+              ]
+            }
+          ]
+        },
+        "hit": {
+          "frame_count": 2,
+          "frame_duration_ms": 90,
+          "loop": false,
+          "frames": [
+            {
+              "index": 6,
+              "rect_px": [
+                665,
+                359,
+                240,
+                221
+              ],
+              "source_slot_px": [
+                632,
+                312,
+                315,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                785.0,
+                469.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                40.0,
+                49.5,
+                240,
+                221
+              ]
+            },
+            {
+              "index": 7,
+              "rect_px": [
+                973,
+                351,
+                249,
+                233
+              ],
+              "source_slot_px": [
+                947,
+                312,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                1097.5,
+                467.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                35.5,
+                43.5,
+                249,
+                233
+              ]
+            }
+          ]
+        },
+        "defeat": {
+          "frame_count": 4,
+          "frame_duration_ms": 130,
+          "loop": false,
+          "frames": [
+            {
+              "index": 8,
+              "rect_px": [
+                46,
+                661,
+                240,
+                227
+              ],
+              "source_slot_px": [
+                0,
+                623,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                166.0,
+                774.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                40.0,
+                46.5,
+                240,
+                227
+              ]
+            },
+            {
+              "index": 9,
+              "rect_px": [
+                374,
+                675,
+                205,
+                202
+              ],
+              "source_slot_px": [
+                316,
+                623,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                476.5,
+                776.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                57.5,
+                59.0,
+                205,
+                202
+              ]
+            },
+            {
+              "index": 10,
+              "rect_px": [
+                690,
+                687,
+                190,
+                171
+              ],
+              "source_slot_px": [
+                632,
+                623,
+                315,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                785.0,
+                772.5
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                65.0,
+                74.5,
+                190,
+                171
+              ]
+            },
+            {
+              "index": 11,
+              "rect_px": [
+                1016,
+                691,
+                163,
+                148
+              ],
+              "source_slot_px": [
+                947,
+                623,
+                316,
+                311
+              ],
+              "pivot_in_atlas_px": [
+                1097.5,
+                765.0
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                78.5,
+                86.0,
+                163,
+                148
+              ]
+            }
+          ]
+        }
+      },
+      "frame_count": 12,
+      "alignment_note": "Per-frame visible silhouette center aligns the beetle to logical160,160; corrects generated translation while retaining leg/pincer poses. PNG unchanged; not a gameplay collision pivot."
+    },
+    {
+      "id": "magma_dragon",
+      "name_ko": "마그마 드래곤",
+      "kind": "boss",
+      "base": "monsters/magma_dragon.png",
+      "base_pixels": [
+        1254,
+        1254
+      ],
+      "base_sha256": "2336c5165a7b65b1167f18509d1668f59bd9cd1ba239c9905140d1af583b4d62",
+      "base_content_bounds_px": [
+        139,
+        76,
+        1114,
+        1121
+      ],
+      "base_pivot_px": [
+        626.5,
+        598.5
+      ],
+      "atlas": "animations/magma_dragon_atlas.png",
+      "atlas_pixels": [
+        1254,
+        1254
+      ],
+      "atlas_sha256": "7ecd2b0a0ebe89e4ee2b30d914f63a33f7658f30005fa81215ef1925e4b8804f",
+      "source_slot_columns": 5,
+      "source_slot_rows": 5,
+      "source_slot_boundaries_x_px": [
+        0,
+        275,
+        510,
+        748,
+        983,
+        1254
+      ],
+      "source_slot_boundaries_y_px": [
+        0,
+        258,
+        496,
+        735,
+        973,
+        1254
+      ],
+      "logical_cell_px": [
+        320,
+        320
+      ],
+      "preview_content_width_px": 112,
+      "view": "top_down_face_down",
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_count": 4,
+          "frame_duration_ms": 180,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                58,
+                34,
+                195,
+                215
+              ],
+              "source_slot_px": [
+                0,
+                0,
+                275,
+                258
+              ],
+              "pivot_in_atlas_px": [
+                156,
+                140
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                54,
+                195,
+                215
+              ]
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                298,
+                29,
+                196,
+                220
+              ],
+              "source_slot_px": [
+                275,
+                0,
+                235,
+                258
+              ],
+              "pivot_in_atlas_px": [
+                392,
+                140
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                66,
+                49,
+                196,
+                220
+              ]
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                532,
+                30,
+                198,
+                220
+              ],
+              "source_slot_px": [
+                510,
+                0,
+                238,
+                258
+              ],
+              "pivot_in_atlas_px": [
+                628,
+                140
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                64,
+                50,
+                198,
+                220
+              ]
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                767,
+                34,
+                201,
+                216
+              ],
+              "source_slot_px": [
+                748,
+                0,
+                235,
+                258
+              ],
+              "pivot_in_atlas_px": [
+                868,
+                140
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                59,
+                54,
+                201,
+                216
+              ]
+            }
+          ]
+        },
+        "move": {
+          "frame_count": 6,
+          "frame_duration_ms": 130,
+          "loop": true,
+          "frames": [
+            {
+              "index": 4,
+              "rect_px": [
+                1003,
+                30,
+                197,
+                220
+              ],
+              "source_slot_px": [
+                983,
+                0,
+                271,
+                258
+              ],
+              "pivot_in_atlas_px": [
+                1100,
+                140
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                63,
+                50,
+                197,
+                220
+              ]
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                58,
+                269,
+                197,
+                218
+              ],
+              "source_slot_px": [
+                0,
+                258,
+                275,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                156,
+                376
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                53,
+                197,
+                218
+              ]
+            },
+            {
+              "index": 6,
+              "rect_px": [
+                295,
+                267,
+                200,
+                220
+              ],
+              "source_slot_px": [
+                275,
+                258,
+                235,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                392,
+                376
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                63,
+                51,
+                200,
+                220
+              ]
+            },
+            {
+              "index": 7,
+              "rect_px": [
+                529,
+                269,
+                201,
+                218
+              ],
+              "source_slot_px": [
+                510,
+                258,
+                238,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                628,
+                376
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61,
+                53,
+                201,
+                218
+              ]
+            },
+            {
+              "index": 8,
+              "rect_px": [
+                765,
+                272,
+                202,
+                215
+              ],
+              "source_slot_px": [
+                748,
+                258,
+                235,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                868,
+                376
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                57,
+                56,
+                202,
+                215
+              ]
+            },
+            {
+              "index": 9,
+              "rect_px": [
+                1001,
+                273,
+                202,
+                213
+              ],
+              "source_slot_px": [
+                983,
+                258,
+                271,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                1100,
+                376
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61,
+                57,
+                202,
+                213
+              ]
+            }
+          ]
+        },
+        "attack": {
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 10,
+              "rect_px": [
+                57,
+                509,
+                198,
+                213
+              ],
+              "source_slot_px": [
+                0,
+                496,
+                275,
+                239
+              ],
+              "pivot_in_atlas_px": [
+                156,
+                613
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61,
+                56,
+                198,
+                213
+              ]
+            },
+            {
+              "index": 11,
+              "rect_px": [
+                294,
+                509,
+                198,
+                214
+              ],
+              "source_slot_px": [
+                275,
+                496,
+                235,
+                239
+              ],
+              "pivot_in_atlas_px": [
+                392,
+                613
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                56,
+                198,
+                214
+              ]
+            },
+            {
+              "index": 12,
+              "rect_px": [
+                529,
+                509,
+                199,
+                214
+              ],
+              "source_slot_px": [
+                510,
+                496,
+                238,
+                239
+              ],
+              "pivot_in_atlas_px": [
+                628,
+                613
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61,
+                56,
+                199,
+                214
+              ]
+            },
+            {
+              "index": 13,
+              "rect_px": [
+                765,
+                513,
+                198,
+                210
+              ],
+              "source_slot_px": [
+                748,
+                496,
+                235,
+                239
+              ],
+              "pivot_in_atlas_px": [
+                868,
+                613
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                57,
+                60,
+                198,
+                210
+              ]
+            }
+          ]
+        },
+        "hit": {
+          "frame_count": 3,
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "index": 14,
+              "rect_px": [
+                1001,
+                518,
+                199,
+                205
+              ],
+              "source_slot_px": [
+                983,
+                496,
+                271,
+                239
+              ],
+              "pivot_in_atlas_px": [
+                1100,
+                613
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                61,
+                65,
+                199,
+                205
+              ]
+            },
+            {
+              "index": 15,
+              "rect_px": [
+                58,
+                748,
+                197,
+                209
+              ],
+              "source_slot_px": [
+                0,
+                735,
+                275,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                156,
+                851
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                57,
+                197,
+                209
+              ]
+            },
+            {
+              "index": 16,
+              "rect_px": [
+                295,
+                749,
+                197,
+                208
+              ],
+              "source_slot_px": [
+                275,
+                735,
+                235,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                392,
+                851
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                63,
+                58,
+                197,
+                208
+              ]
+            }
+          ]
+        },
+        "defeat": {
+          "frame_count": 4,
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "index": 17,
+              "rect_px": [
+                530,
+                749,
+                198,
+                208
+              ],
+              "source_slot_px": [
+                510,
+                735,
+                238,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                628,
+                851
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                58,
+                198,
+                208
+              ]
+            },
+            {
+              "index": 18,
+              "rect_px": [
+                765,
+                749,
+                197,
+                208
+              ],
+              "source_slot_px": [
+                748,
+                735,
+                235,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                868,
+                851
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                57,
+                58,
+                197,
+                208
+              ]
+            },
+            {
+              "index": 19,
+              "rect_px": [
+                1002,
+                750,
+                197,
+                207
+              ],
+              "source_slot_px": [
+                983,
+                735,
+                271,
+                238
+              ],
+              "pivot_in_atlas_px": [
+                1100,
+                851
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                62,
+                59,
+                197,
+                207
+              ]
+            },
+            {
+              "index": 20,
+              "rect_px": [
+                59,
+                986,
+                196,
+                209
+              ],
+              "source_slot_px": [
+                0,
+                973,
+                275,
+                281
+              ],
+              "pivot_in_atlas_px": [
+                156,
+                1091
+              ],
+              "source_size_px": [
+                320,
+                320
+              ],
+              "sprite_source_rect_px": [
+                63,
+                55,
+                196,
+                209
+              ]
+            }
+          ]
+        }
+      },
+      "frame_count": 21
+    }
+  ]
+}

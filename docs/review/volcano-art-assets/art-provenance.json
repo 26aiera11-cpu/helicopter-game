@@ -1,0 +1,93 @@
+{
+  "tool": "image_gen.imagegen",
+  "reference_zip": "heli_trio_volcano_design_reference_v2.zip",
+  "generated": [
+    {
+      "path": "assets/volcano/background/volcano_generated_original.png",
+      "imagegen_output_id": "exec-19467deb-fce4-42b1-973f-7f09b8468704.png",
+      "sha256": "e9303d15edd36c3cc28630c609d820d231a090062cd2f615e139333f0e5fd349",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/monsters/ember_bean.png",
+      "imagegen_output_id": "exec-ba4da9e4-6938-4502-84e0-55465d3f1236.png",
+      "sha256": "a4a208bab7d68871162b0516a0a17e81b09df906de6fe4b5a258e14c0dbd055d",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/monsters/lava_lizard.png",
+      "imagegen_output_id": "exec-7f74a518-aa21-4bd9-9f2c-338fd9e59ca1.png",
+      "sha256": "35091214795743fbd694852470f869816b5e068f269f48fc0e4091b80105bca2",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/monsters/volcano_bat.png",
+      "imagegen_output_id": "exec-1b2cf160-a311-422f-a087-238cf0735d61.png",
+      "sha256": "2065694ab763a1ce73716e09bc3a1046c1e3721ca554a285db674389b50ebae0",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/monsters/magma_beetle.png",
+      "imagegen_output_id": "exec-812ecee3-df4d-43ac-a4d0-db6abd2e5ab2.png",
+      "sha256": "ea4d1de304c3dcf5655fc169d7d02fd1608c74ca6fa413311c3e8d36f0ceb2a1",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/monsters/magma_dragon.png",
+      "imagegen_output_id": "exec-a84f1f92-f17e-4874-b093-c77372cb4393.png",
+      "sha256": "2336c5165a7b65b1167f18509d1668f59bd9cd1ba239c9905140d1af583b4d62",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/animations/ember_bean_atlas.png",
+      "imagegen_output_id": "exec-0bbfd378-61e4-41da-883f-9127f3217a26.png",
+      "sha256": "25286b94bb15c54db94f77a3087562b4b0ec69a8ef901f43f5a36cf2d2dd1f5d",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/animations/lava_lizard_atlas.png",
+      "imagegen_output_id": "exec-8fae875d-6730-4c9c-a9af-5810cd3fa834.png",
+      "sha256": "000c9679bd55d4784072c2b41ad8884c737be009053c00f0dfaf3e610fc0fed8",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/animations/volcano_bat_atlas.png",
+      "imagegen_output_id": "exec-c495cda3-2834-47fb-a741-081ebc73e52f.png",
+      "sha256": "9e7acb1261d11a1b070e09c35abdfdf7adf557016a88990ac141da9c45064eb5",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/animations/magma_beetle_atlas.png",
+      "imagegen_output_id": "exec-f70074bf-2f05-4eeb-9fb7-1261f85dd3a7.png",
+      "sha256": "bd963af4e792cd42789ec807f2593c114379739b0ab71942df6123bd71602347",
+      "copied_without_pixel_changes": true
+    },
+    {
+      "path": "assets/volcano/animations/magma_dragon_atlas.png",
+      "imagegen_output_id": "exec-7c3f55f1-1890-4916-b514-b6591aec2d51.png",
+      "sha256": "7ecd2b0a0ebe89e4ee2b30d914f63a33f7658f30005fa81215ef1925e4b8804f",
+      "copied_without_pixel_changes": true
+    }
+  ],
+  "background_export": {
+    "path": "assets/volcano/background/volcano_1920x864.png",
+    "sha256": "02733da79774fa1cc0fa7e7084b79c74d94542a93be69f6ab73ee2983564f404",
+    "source_retained": true,
+    "steps": [
+      "ImageMagick uniform cover resize 1870x841 to1921x864",
+      "center extent to1920x864, one column crop, no stretching/redesign"
+    ]
+  },
+  "rejected_attempts": [
+    {
+      "imagegen_output_id": "exec-100b0797-ac5a-40c7-b6ea-147e28c51800.png",
+      "reason": "Bat remained visible in final defeat frames; wings too wide for comfortable cell padding. Replaced via imagegen, not committed."
+    }
+  ],
+  "notes": [
+    "All artwork generation and artistic edits used imagegen with approved references.",
+    "PNG originals preserved; no Python image editing. Pillow/numpy used only to read metadata/pixels and validate.",
+    "Mechanical background resolution export only; animation trim/centering uses JSON coordinates, PNGs not cropped or repainted.",
+    "Generated outputs are review drafts, not pixel-identical isolation of approved composite concepts."
+  ]
+}

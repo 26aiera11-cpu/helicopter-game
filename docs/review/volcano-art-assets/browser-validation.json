@@ -1,0 +1,768 @@
+{
+  "browser": "Chromium headless, mobile/touch emulation",
+  "passed": [
+    "3 landscape sizes: background cover, 5 actors, original3 helicopter images, static bullet contrast samples, no overflow/storage writes",
+    "All5 states rendered with nonempty canvases; contact sheet drew all69 rects; checker/light/dark alpha screenshots; zero resource/JS failures",
+    "Unchanged game: all3 character selections/start/quit-dialog/menu return via touch; title remains 헬리 트리오"
+  ],
+  "viewports": [
+    {
+      "pixels": [
+        915,
+        412
+      ],
+      "actors": 5,
+      "decodedFrames": 69,
+      "overflow": false,
+      "localStorageWrites": 0
+    },
+    {
+      "pixels": [
+        800,
+        360
+      ],
+      "actors": 5,
+      "decodedFrames": 69,
+      "overflow": false,
+      "localStorageWrites": 0
+    },
+    {
+      "pixels": [
+        568,
+        320
+      ],
+      "actors": 5,
+      "decodedFrames": 69,
+      "overflow": false,
+      "localStorageWrites": 0
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Not physical Galaxy or Samsung Internet.",
+    "Art scenes are standalone visual samples, not a registered volcano stage or combat test.",
+    "Original game only received a short selection/start/exit smoke; no full combat rerun for unused new art."
+  ],
+  "animation_clock_advance_ms": 233.2,
+  "all_frame_browser_audit": [
+    {
+      "id": "ember_bean",
+      "state": "idle",
+      "index": 0,
+      "visiblePixels": 26780,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 1,
+      "visiblePixels": 27311,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 2,
+      "visiblePixels": 27882,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 3,
+      "visiblePixels": 26991,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 4,
+      "visiblePixels": 25984,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "attack",
+      "index": 5,
+      "visiblePixels": 27755,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "hit",
+      "index": 6,
+      "visiblePixels": 27010,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "hit",
+      "index": 7,
+      "visiblePixels": 28299,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 8,
+      "visiblePixels": 28251,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 9,
+      "visiblePixels": 25419,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 10,
+      "visiblePixels": 15236,
+      "edgePixels": 0
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 11,
+      "visiblePixels": 6812,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "idle",
+      "index": 0,
+      "visiblePixels": 26586,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 1,
+      "visiblePixels": 28066,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 2,
+      "visiblePixels": 26799,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 3,
+      "visiblePixels": 27798,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 4,
+      "visiblePixels": 26676,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "attack",
+      "index": 5,
+      "visiblePixels": 26907,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "hit",
+      "index": 6,
+      "visiblePixels": 27172,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "hit",
+      "index": 7,
+      "visiblePixels": 27273,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 8,
+      "visiblePixels": 28595,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 9,
+      "visiblePixels": 27979,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 10,
+      "visiblePixels": 23643,
+      "edgePixels": 0
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 11,
+      "visiblePixels": 7360,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "idle",
+      "index": 0,
+      "visiblePixels": 12518,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 1,
+      "visiblePixels": 11931,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 2,
+      "visiblePixels": 12486,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 3,
+      "visiblePixels": 11897,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 4,
+      "visiblePixels": 13024,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "attack",
+      "index": 5,
+      "visiblePixels": 13732,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "hit",
+      "index": 6,
+      "visiblePixels": 13208,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "hit",
+      "index": 7,
+      "visiblePixels": 12718,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 8,
+      "visiblePixels": 14645,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 9,
+      "visiblePixels": 10172,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 10,
+      "visiblePixels": 6756,
+      "edgePixels": 0
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 11,
+      "visiblePixels": 637,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "idle",
+      "index": 0,
+      "visiblePixels": 36426,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 1,
+      "visiblePixels": 34607,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 2,
+      "visiblePixels": 35965,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 3,
+      "visiblePixels": 35194,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 4,
+      "visiblePixels": 36312,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "attack",
+      "index": 5,
+      "visiblePixels": 37248,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "hit",
+      "index": 6,
+      "visiblePixels": 33038,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "hit",
+      "index": 7,
+      "visiblePixels": 36348,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 8,
+      "visiblePixels": 33804,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 9,
+      "visiblePixels": 24533,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 10,
+      "visiblePixels": 18199,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 11,
+      "visiblePixels": 4108,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 0,
+      "visiblePixels": 18696,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 1,
+      "visiblePixels": 19397,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 2,
+      "visiblePixels": 19247,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 3,
+      "visiblePixels": 18952,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 4,
+      "visiblePixels": 19053,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 5,
+      "visiblePixels": 19033,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 6,
+      "visiblePixels": 19543,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 7,
+      "visiblePixels": 19113,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 8,
+      "visiblePixels": 18803,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 9,
+      "visiblePixels": 18557,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 10,
+      "visiblePixels": 18291,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 11,
+      "visiblePixels": 18355,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 12,
+      "visiblePixels": 18371,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 13,
+      "visiblePixels": 18180,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 14,
+      "visiblePixels": 18057,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 15,
+      "visiblePixels": 18194,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 16,
+      "visiblePixels": 18299,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 17,
+      "visiblePixels": 18648,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 18,
+      "visiblePixels": 19845,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 19,
+      "visiblePixels": 19727,
+      "edgePixels": 0
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 20,
+      "visiblePixels": 19284,
+      "edgePixels": 0
+    }
+  ],
+  "rendered_samples": [
+    {
+      "state": "idle",
+      "time": 0,
+      "visiblePixels": [
+        26780,
+        26586,
+        12518,
+        36426,
+        18696
+      ]
+    },
+    {
+      "state": "idle",
+      "time": 180,
+      "visiblePixels": [
+        26780,
+        26586,
+        12518,
+        36426,
+        19397
+      ]
+    },
+    {
+      "state": "idle",
+      "time": 360,
+      "visiblePixels": [
+        26780,
+        26586,
+        12518,
+        36426,
+        19247
+      ]
+    },
+    {
+      "state": "idle",
+      "time": 540,
+      "visiblePixels": [
+        26780,
+        26586,
+        12518,
+        36426,
+        18952
+      ]
+    },
+    {
+      "state": "move",
+      "time": 0,
+      "visiblePixels": [
+        27311,
+        28066,
+        11931,
+        34607,
+        19053
+      ]
+    },
+    {
+      "state": "move",
+      "time": 180,
+      "visiblePixels": [
+        27882,
+        26799,
+        12486,
+        35965,
+        19033
+      ]
+    },
+    {
+      "state": "move",
+      "time": 360,
+      "visiblePixels": [
+        25984,
+        26676,
+        13024,
+        36312,
+        19543
+      ]
+    },
+    {
+      "state": "move",
+      "time": 540,
+      "visiblePixels": [
+        27311,
+        28066,
+        11931,
+        34607,
+        18803
+      ]
+    },
+    {
+      "state": "move",
+      "time": 720,
+      "visiblePixels": [
+        26991,
+        27798,
+        11897,
+        35194,
+        18557
+      ]
+    },
+    {
+      "state": "move",
+      "time": 900,
+      "visiblePixels": [
+        27311,
+        28066,
+        11931,
+        34607,
+        19053
+      ]
+    },
+    {
+      "state": "attack",
+      "time": 0,
+      "visiblePixels": [
+        27755,
+        26907,
+        13732,
+        37248,
+        18291
+      ]
+    },
+    {
+      "state": "attack",
+      "time": 180,
+      "visiblePixels": [
+        27755,
+        26907,
+        13732,
+        37248,
+        18355
+      ]
+    },
+    {
+      "state": "attack",
+      "time": 360,
+      "visiblePixels": [
+        27755,
+        26907,
+        13732,
+        37248,
+        18180
+      ]
+    },
+    {
+      "state": "attack",
+      "time": 540,
+      "visiblePixels": [
+        27755,
+        26907,
+        13732,
+        37248,
+        18291
+      ]
+    },
+    {
+      "state": "hit",
+      "time": 0,
+      "visiblePixels": [
+        27010,
+        27172,
+        13208,
+        33038,
+        18057
+      ]
+    },
+    {
+      "state": "hit",
+      "time": 180,
+      "visiblePixels": [
+        27010,
+        27172,
+        13208,
+        33038,
+        18194
+      ]
+    },
+    {
+      "state": "hit",
+      "time": 360,
+      "visiblePixels": [
+        27010,
+        27172,
+        13208,
+        33038,
+        18057
+      ]
+    },
+    {
+      "state": "defeat",
+      "time": 0,
+      "visiblePixels": [
+        28251,
+        28595,
+        14645,
+        33804,
+        18648
+      ]
+    },
+    {
+      "state": "defeat",
+      "time": 180,
+      "visiblePixels": [
+        25419,
+        27979,
+        10172,
+        24533,
+        19845
+      ]
+    },
+    {
+      "state": "defeat",
+      "time": 360,
+      "visiblePixels": [
+        15236,
+        23643,
+        6756,
+        18199,
+        19727
+      ]
+    },
+    {
+      "state": "defeat",
+      "time": 540,
+      "visiblePixels": [
+        28251,
+        28595,
+        14645,
+        33804,
+        19284
+      ]
+    }
+  ],
+  "failed_requests": [],
+  "bad_http": [],
+  "passed_all": true
+}
