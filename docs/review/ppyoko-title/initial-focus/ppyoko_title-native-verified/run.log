@@ -1,0 +1,8 @@
+PASS: Exact name/title-only changes reverse to4831903;original background,all character/115frame assets,combat/region tuning,input,audio,score logic/IDs/keys preserved;all JS parses.
+PASS: All40 legacy normal/trial TOP10/history records retain IDs,scores,dates,order,region,stats and ties;ID0 displays뾰코,others unchanged;reading/scope switches/table opening do not rewrite a single stored byte.
+PASS: Reload/reopen preserves all original version1 storage keys and raw records while resolving the new display name by characterId0;no destructive migration.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/ppyoko_title.py", line 68, in <module>
+    diff=ImageChops.difference(Image.open(io.BytesIO(before)).convert('RGB'),Image.open(io.BytesIO(after)).convert('RGB'));bbox=diff.getbbox();assert bbox and bbox[0]>=math.floor(.37*w)-1 and bbox[2]<=math.ceil(.418*w)+1 and bbox[1]>=math.floor(.024*h)-1 and bbox[3]<=math.ceil(.112*h)+1,bbox
+                                                                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (296, 8, 602, 84)

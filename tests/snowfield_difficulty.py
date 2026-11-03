@@ -14,7 +14,7 @@ for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
  if name in DIFFICULTY_ASSETS:assert_difficulty_asset(path);continue
- b=without_difficulty_asset(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes();assert b==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+ b=without_difficulty_asset(path.read_text(),name).encode() if path.suffix in ['.js','.css'] else path.read_bytes();assert b==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
 for script in re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',s,re.S)+[p.read_text() for p in (ROOT/'assets').rglob('*.js')]:subprocess.run(['node','--check','-'],input=script,text=True,capture_output=True,check=True)
 passed('Only regional config and exact3 consumer deltas/source inclusion differ from0441a88;World1,players,controls,items,score,audio,PNG/115frames remain byte-protected;all JS parses.')
 class Quiet(SimpleHTTPRequestHandler):

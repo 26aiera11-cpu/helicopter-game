@@ -60,7 +60,7 @@ try:
   expect(page.locator('#gameOverOverlay')).to_be_visible();expect(page.locator('#menu')).to_be_hidden()
   expect(page.locator('#menu')).to_be_visible(timeout=1500);expect(page.locator('#gameOverOverlay')).to_be_hidden()
   timing=page.evaluate('returnAt-deathAt');report['return_delay_ms']=timing;assert 2990<=timing<3400,timing
-  assert page.evaluate('!gameOverPending&&gameOverTimer===null&&!!document.fullscreenElement&&menu.querySelector("h1").textContent==="🚁 귀염 헬기 슈팅"')
+  assert page.evaluate('!gameOverPending&&gameOverTimer===null&&!!document.fullscreenElement&&menu.querySelector("h1").textContent==="🚁 헬리 트리오"')
   expect(page.locator('#selectionResult')).to_have_text('');page.screenshot(path=str(args.artifacts/'clean-selection-after-game-over.png'))
   passed('Overlay remains at 2.7 seconds and returns at three seconds to the original title/three-character selection with no residual result and fullscreen intact.')
   # Even legacy title mutations must never repopulate selectionResult.

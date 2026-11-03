@@ -27,6 +27,8 @@ def package():
     assert b'developerStartToggle' in payload and b'developerTest' in payload, "Include the developer region start and disabled-recording guard"
     assert b'id="left"' not in payload and b'id="right"' not in payload, 'Do not package retired rotation buttons'
     assert b'id="galaxy-difficulty-js"' in payload and b'gameRegionDifficulty' in payload, 'Include current regional tuning'
+    assert "const names = ['뾰코', '빙글', '탱코'];".encode() in payload and 'aria-label="뾰코 선택:'.encode() in payload, 'Include the canonical ID0 display name'
+    assert b'.select-screen::before' in payload and b'clip-path:polygon(37% 2.4%,41.8% 2.4%,41.8% 11.2%,37% 11.2%)' in payload, 'Include the local title-vowel correction'
     info=zipfile.ZipInfo.from_file(html,arcname=html.name)
     info.compress_type=zipfile.ZIP_DEFLATED
     info.external_attr=(stat.S_IFREG|0o644)<<16
@@ -42,7 +44,7 @@ def package():
             'html_sha256':hashlib.sha256(payload).hexdigest(),'compression':'ZIP DEFLATE',
             'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed',
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
-            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'snowfield_mixed_spawns_included':True,'regional_difficulty_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
+            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'snowfield_mixed_spawns_included':True,'regional_difficulty_included':True,'ppyoko_name_included':True,'corrected_hel_title_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 
 
 if __name__=='__main__':

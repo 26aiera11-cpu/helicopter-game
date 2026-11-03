@@ -1,15 +1,15 @@
 # 갤럭시 테스트 빌드 — ZIP 다운로드
 
-2026-11-04(KST) · `feature/snowfield-difficulty-tuning` · 설원 난이도1차 상향·지역 설정 분리 시험 빌드
+2026-11-04(KST) · `feature/ppyoko` · 뾰코 이름·타이틀 헬 교정 빌드
 
 ## 다운로드와 실행
 
-**[heli_trio_galaxy_test.zip 다운로드 — 약 31.8MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/snowfield-difficulty-tuning/dist/heli_trio_galaxy_test.zip?download=1)**
+**[heli_trio_galaxy_test.zip 다운로드 — 약 31.8MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/ppyoko/dist/heli_trio_galaxy_test.zip?download=1)**
 
 [ZIP 파일 페이지](../../../dist/heli_trio_galaxy_test.zip)에서도 Download raw file 메뉴를 사용할 수 있다. ZIP에는 최신 [단일 HTML](../../../dist/heli_trio_galaxy_test.html) 하나만 들어 있다.
 
-1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **31,835,556바이트, 약 31.8MB**다.
-2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **43,593,828바이트, 약 43.6MB**다.
+1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **34,016,937바이트, 약 31.8MB**다.
+2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **46,509,074바이트, 약 43.6MB**다.
 3. 로컬 HTML 실행을 지원하는 브라우저로 파일을 연다. Chrome 또는 Samsung Internet의 지원 여부는 기기의 파일 열기 방식에 따라 직접 확인해야 한다.
 4. 휴대폰을 가로로 돌리고 왼쪽 위 **⛶ 전체화면**을 누른 뒤 캐릭터를 선택해 **게임 시작**을 누른다. 선택·게임·선택화면 복귀 중 전체화면이 유지되며 **⛶ 화면 복원**으로 해제할 수 있다. 미지원·거부 시 일반 화면에서 시작한다.
 5. **센서 켜기**로 자이로센서 이동을 사용한다. 화면 드래그는 보조 이동이다. 왼쪽 아래 가로 조이스틱을 좌우로 밀어 회전하고 발사 버튼을 길게 눌러 공격한다. 멀리 밀수록 빨라지며 중앙8%는 회전하지 않는다. 끝에서 기존 최대 회전 속도이고 손을 떼면 방향은 그대로다. 센서 또는 드래그 이동·회전·발사를 함께 사용할 수 있다. 음악·효과음은 선택화면에서 각각 켜고 끌 수 있다. 첫 터치 후 선택 음악을 재생하고, 캐릭터를 변경해도 계속 이어진다. 게임 시작 시 선택 곡을 멈추고 스테이지 곡으로 전환한다.
@@ -34,11 +34,14 @@ HTML의 GitHub raw 응답은 브라우저에서 소스 텍스트로 표시될 �
 
 상세 결과·ZIP/HTML 크기 및 해시: [zip-results.json](zip-results.json).
 
-현재 ZIP은 실행 스크립트13개/모든 리소스와 설원 혼합 등장/확대 돌진·폭발·전용 보스·일반 전투·개발자 지역 시작·승인 설원 아트·월드2 시험 기능을 포함하며 HTML1개·CRC·실제 압축 해제 바이트 일치를 검증했다. [현재 소스·패키지 일치](../snowfield-difficulty-tuning/package-source-verification.json).
+현재 ZIP은 실행 스크립트13개/모든 리소스와 설원 혼합 등장/확대 돌진·폭발·전용 보스·일반 전투·개발자 지역 시작·승인 설원 아트·월드2 시험 기능을 포함하며 HTML1개·CRC·실제 압축 해제 바이트 일치를 검증했다. [현재 소스·패키지 일치](../ppyoko-title/package-source-verification.json).
 
 최초 ZIP 추가 때는 포장만 검사했다. 이번에는 조이스틱·터치 보호와 기존 아이템 개선을 포함한 브라우저 검사를 실행하고 HTML·ZIP을 함께 재생성했다. HTML을 재생성할 때는 ZIP도 같은 HTML로 다시 만들고 검증해야 한다.
 
 ## 포함한 기능과 보호 범위
+
+- **최신 이름/타이틀:** 빨간 ID0은뾰코이며 팀/게임명은헬리 트리오다. 기존TOP10/분석의 옛트리오 기록은ID0으로 새표시명을 사용하고 삭제/이관하지 않는다. 제목 첫모음만교정하고 원본 배경/다른 글자·캐릭터/난이도는 보존했다.40개 중39개·546그룹 통과,미완료는worlds-offline다. **[실제 선택화면·확대 비교·기록 호환·테스트](../ppyoko-title/README.md)**.
+
 
 - **최신 설원 난이도1차 조정:** 추적1.06배·발사 간격0.95배·후반 혼합 확률·보스 휴식3.0초를 지역 설정 한곳에 모았다. 체력/공격력·돌진·폭발·월드1/캐릭터는 유지한다. 현재검사는38개 중36개/508그룹 통과이며 미완료는worlds, worlds-offline다. 실제 체감10~15% 차이는 미검증이다. **[최신 수치·사막 비교·스크린샷·실패 이력](../snowfield-difficulty-tuning/README.md)**. 아래의 이전 혼합/전투 설명은 당시 구현 이력이며 최신 수치는 이 보고서를 따른다.
 
@@ -98,14 +101,14 @@ python scripts/package_galaxy_test.py
 SHA-256:
 
 ```text
-f861ed24d4588c1b23b58c0ed37ea297cca19d71c7c256463f07e961c84b660e
+f652262f62c82d8cde613eed26885515d20714ed95c669a0a37c8774d986351d
 ```
 
 빌드 상세: [build-results.json](build-results.json).
 
 ## 실제 브라우저 검사
 
-최신 전체 검사는 **38개 모음 중36개 모음·508그룹 통과**다. [현재 집계·재실행·미완료](../snowfield-difficulty-tuning/test-summary.json)를 따른다. 이전 결과는 각 기능의 과거 검증 이력이다.
+최신 전체 검사는 **40개 모음 중39개·546그룹 통과**다. [현재 집계·초기/실패 이력](../ppyoko-title/test-summary.json)을 따른다. 이전 수치는 해당 기능의 과거 검증 이력이다.
 
 ```sh
 python tests/galaxy_standalone.py --artifacts /absolute/path/to/galaxy-review
@@ -171,6 +174,15 @@ Chromium·Playwright·Pillow·Node.js 환경에서 **19개 검사 그룹**을 �
 전 스테이지 수동 연속 완주는 수행하지 않았다. N1(BGM 게임 오버 정지 누락)에 이어 N2(보스 보상 소실)도 수정했다. 다른 미대응 사항은 `DEVELOPMENT_LOG.md`를 따른다. 오디오 상태 검사는 실제 스피커 청취와 구분한다.
 
 ## 스크린샷
+
+최신 뾰코/타이틀 교정의 동일 단일HTML 오프라인 화면:
+
+![새 선택화면](../ppyoko-title/offline/selection-0-915x412.png)
+
+![헬 글자 확대 비교](../ppyoko-title/offline/title-enlarged-before-after.png)
+
+[3캐릭터·3가로 화면·과거 기록·결과](../ppyoko-title/README.md). 아래는 이전 구현 당시의 자료다.
+
 
 최신 난이도 조정 후 단일HTML 오프라인 실행 화면:
 

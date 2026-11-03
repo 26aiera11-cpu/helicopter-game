@@ -7,7 +7,7 @@
   const trialKeys = Object.freeze({ top: 'heliTrio.world2Trial.top10.v1', history: 'heliTrio.world2Trial.playHistory.v1' });
   let storageKeys = normalKeys, scope = 'normal';
   const stores = new Map();
-  const names = ['트리오', '빙글', '탱코'];
+  const names = ['뾰코', '빙글', '탱코'];
   const number = new Intl.NumberFormat('en-US');
   const format = value => number.format(value);
   let storageMessage = '';
