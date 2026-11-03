@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const ids=Object.freeze(['snow_slime','penguin_raider','ice_yeti','frost_turtle']);
-  const weights=Object.freeze([[80,20,0,0],[50,40,10,0],[25,30,35,10],[10,25,35,30],[0,20,30,50]].map(Object.freeze));
+  const weights=gameRegionDifficulty.get('world-2:snowfield').spawnWeights;
   let state=0x6d2b79f5,serial=0;
   function reset(seed) {
     if(seed===undefined){

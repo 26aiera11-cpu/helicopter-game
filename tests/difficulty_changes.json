@@ -1,0 +1,35 @@
+{
+  "index.html": [
+    [
+      "<script src=\"assets/worlds/worlds.js\"></script>",
+      "<script src=\"assets/worlds/worlds.js\"></script><script src=\"assets/worlds/difficulty.js\"></script>",
+      1
+    ]
+  ],
+  "assets/snowfield/spawns.js": [
+    [
+      "const weights=Object.freeze([[80,20,0,0],[50,40,10,0],[25,30,35,10],[10,25,35,30],[0,20,30,50]].map(Object.freeze));",
+      "const weights=gameRegionDifficulty.get('world-2:snowfield').spawnWeights;",
+      1
+    ]
+  ],
+  "assets/snowfield/combat.js": [
+    [
+      "  'use strict';\n",
+      "  'use strict';\n  const tuning=gameRegionDifficulty.get('world-2:snowfield');\n",
+      1
+    ],
+    [
+      "actor.hp=spec.hp;actor.speed=base.move*spec.move;actor.shot=base.interval*spec.interval;",
+      "actor.hp=spec.hp;actor.speed=base.move*spec.move*tuning.chaseSpeedScale;actor.shot=base.interval*spec.interval*tuning.shotIntervalScale;",
+      1
+    ]
+  ],
+  "assets/snowfield/boss_combat.js": [
+    [
+      "firstDelay:1.8,rest:3.2,fanSpeed:80",
+      "firstDelay:1.8,rest:gameRegionDifficulty.get('world-2:snowfield').bossRest,fanSpeed:80",
+      1
+    ]
+  ]
+}

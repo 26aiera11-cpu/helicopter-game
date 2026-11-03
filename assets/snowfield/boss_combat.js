@@ -1,7 +1,7 @@
 /* Issue #9: first-playtest attacks only; existing boss motion/HP stay in the engine. */
 (() => {
   'use strict';
-  const settings=Object.freeze({firstDelay:1.8,rest:3.2,fanSpeed:80,fanSpread:Math.PI/10,
+  const settings=Object.freeze({firstDelay:1.8,rest:gameRegionDifficulty.get('world-2:snowfield').bossRest,fanSpeed:80,fanSpread:Math.PI/10,
     radialSpeed:65,radialStep:Math.PI/12,radiusRatio:.18,minRadius:56,maxRadius:74,warning:1.4,burst:.25,bulletLife:3.4,bulletRadius:5,maxBullets:9});
   const names=['fan','radial','blast'],epsilon=1e-9;
   let active=null,validateHazard=false;

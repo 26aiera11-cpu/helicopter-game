@@ -1873,6 +1873,25 @@
     snapshot:()=>({trialEnabled,activeTrial,route:[...route]})});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
+</script><script id="galaxy-difficulty-js">/* Regional tuning only. Consumers explicitly opt in; World1 keeps its engine values. */
+(() => {
+  'use strict';
+  const regions=Object.freeze({
+    'world-2:snowfield':Object.freeze({
+      chaseSpeedScale:1.06,
+      shotIntervalScale:.95,
+      bossRest:3.0,
+      spawnWeights:Object.freeze([
+        [80,20,0,0],
+        [45,40,15,0],
+        [20,30,35,15],
+        [10,20,35,35],
+        [0,15,30,55]
+      ].map(Object.freeze))
+    })
+  });
+  window.gameRegionDifficulty=Object.freeze({regions,get:key=>regions[key]});
+})();
 </script><script id="galaxy-snowfield-js">/* Approved snowfield art only. No combat, score, RNG or input configuration. */
 (() => {
   'use strict';
@@ -2006,7 +2025,7 @@
 (() => {
   'use strict';
   const ids=Object.freeze(['snow_slime','penguin_raider','ice_yeti','frost_turtle']);
-  const weights=Object.freeze([[80,20,0,0],[50,40,10,0],[25,30,35,10],[10,25,35,30],[0,20,30,50]].map(Object.freeze));
+  const weights=gameRegionDifficulty.get('world-2:snowfield').spawnWeights;
   let state=0x6d2b79f5,serial=0;
   function reset(seed) {
     if(seed===undefined){
@@ -2033,6 +2052,7 @@
  */
 (() => {
   'use strict';
+  const tuning=gameRegionDifficulty.get('world-2:snowfield');
   const profiles=Object.freeze([
     {id:'snow_slime',hp:1,move:.85,interval:1.2,bullet:1},
     {id:'penguin_raider',hp:2,move:.95,interval:1,bullet:1,
@@ -2047,7 +2067,7 @@
     if(!enabled())return actor;
     if(states.has(actor))return actor;
     const spec=byId.get(actor.snowSpeciesId)||byId.get(gameSnowfieldSpawns.select(phase)),base=tactics[0];
-    actor.hp=spec.hp;actor.speed=base.move*spec.move;actor.shot=base.interval*spec.interval;
+    actor.hp=spec.hp;actor.speed=base.move*spec.move*tuning.chaseSpeedScale;actor.shot=base.interval*spec.interval*tuning.shotIntervalScale;
     Object.defineProperty(actor,'snowSpeciesId',{value:spec.id,enumerable:true});
     states.set(actor,{spec,mode:'pursue',remaining:spec.initialDelay??Infinity,age:0,
       direction:{x:0,y:1},interval:actor.shot,bulletSpeed:base.bullet*spec.bullet,dashSpeed:spec.dashHeight?H*spec.dashHeight/spec.dash:0,plannedDistance:spec.dashHeight?H*spec.dashHeight:0,dashMoved:0,wallStopped:false});
@@ -2131,7 +2151,7 @@
 <script id="galaxy-snow-boss-js">/* Issue #9: first-playtest attacks only; existing boss motion/HP stay in the engine. */
 (() => {
   'use strict';
-  const settings=Object.freeze({firstDelay:1.8,rest:3.2,fanSpeed:80,fanSpread:Math.PI/10,
+  const settings=Object.freeze({firstDelay:1.8,rest:gameRegionDifficulty.get('world-2:snowfield').bossRest,fanSpeed:80,fanSpread:Math.PI/10,
     radialSpeed:65,radialStep:Math.PI/12,radiusRatio:.18,minRadius:56,maxRadius:74,warning:1.4,burst:.25,bulletLife:3.4,bulletRadius:5,maxBullets:9});
   const names=['fan','radial','blast'],epsilon=1e-9;
   let active=null,validateHazard=false;

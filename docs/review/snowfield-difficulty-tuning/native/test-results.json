@@ -1,0 +1,3295 @@
+{
+  "baseline": "0441a88f7c494719f2ccab99caaf100d35cd86ee",
+  "standalone": false,
+  "passed": [
+    "Only regional config and exact3 consumer deltas/source inclusion differ from0441a88;World1,players,controls,items,score,audio,PNG/115frames remain byte-protected;all JS parses.",
+    "Frozen one-place snow tuning has1.06 chase/.95 interval/3s boss rest and exact Issue11 weights;unknown World1 regions receive no implicit override.",
+    "All4 real spawned species at60/120Hz chase exactly+6%,interval exactly−5%,with HP,r16,bullet85/76.5,art IDs and aimed shot events unchanged.",
+    "150,000 draws across3seeds/5phases match new weights within1.5pp;phase1 stays80/20 and late stronger species increase without guaranteed diversity.",
+    "35s before/after60/120Hz:3.0s rest yields10 attacks/7 complete projectile waves,never skipped by9bullet cap;first1.8s,3/6 shots,speeds,1.4s AOE and other settings are identical.",
+    "Same seed,input,character and upgrades compare desert/snow1–5;all18 desert comparisons exactly match baseline,all3 characters at0/3 upgrades kill both bosses for2000points with no stored test results.",
+    "Actual original tactics,spawn cadence/cap/6kills,player physics and Penguin full1.05H/.8/1.2/boundary/recovery profile match baseline;HP/damage/boss scaling unchanged.",
+    "Three landscape sizes render unchanged4species art,controls/HUD and Tanko/fixed AOE;6 real screenshots saved per mode.",
+    "Developer comparisons write no rankings/analysis/settings;no uncaught JS,native dialogs,failed assets or offline external requests."
+  ],
+  "limits": [
+    "Controlled real Chromium,not physical Galaxy/Samsung Internet or subjective difficulty proof.",
+    "60/120Hz denote deterministic update steps,not hardware refresh rates.",
+    "Scripted combat uses invulnerability,instant auto-aim and normalized sinusoidal flight,with item opportunities0 to isolate combat. It proves weapons can complete encounters,not human survival or10–15% harder difficulty.",
+    "Exact standalone HTML at a blank localhost origin with networking disabled;managed file policy not bypassed."
+  ],
+  "regional_config": {
+    "config": {
+      "chaseSpeedScale": 1.06,
+      "shotIntervalScale": 0.95,
+      "bossRest": 3,
+      "spawnWeights": [
+        [
+          80,
+          20,
+          0,
+          0
+        ],
+        [
+          45,
+          40,
+          15,
+          0
+        ],
+        [
+          20,
+          30,
+          35,
+          15
+        ],
+        [
+          10,
+          20,
+          35,
+          35
+        ],
+        [
+          0,
+          15,
+          30,
+          55
+        ]
+      ]
+    },
+    "frozen": true,
+    "unknown": true
+  },
+  "normal_before_after_60_120": [
+    {
+      "before": {
+        "id": "snow_slime",
+        "hz": 60,
+        "initial": {
+          "hp": 1,
+          "r": 16,
+          "speed": 32.3,
+          "interval": 5.159999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 32.29999999999961,
+        "shots": [
+          0
+        ],
+        "pose": "snow_slime"
+      },
+      "after": {
+        "id": "snow_slime",
+        "hz": 60,
+        "initial": {
+          "hp": 1,
+          "r": 16,
+          "speed": 34.238,
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 34.23799999999915,
+        "shots": [
+          0
+        ],
+        "pose": "snow_slime"
+      }
+    },
+    {
+      "before": {
+        "id": "snow_slime",
+        "hz": 120,
+        "initial": {
+          "hp": 1,
+          "r": 16,
+          "speed": 32.3,
+          "interval": 5.159999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 32.30000000000132,
+        "shots": [
+          0
+        ],
+        "pose": "snow_slime"
+      },
+      "after": {
+        "id": "snow_slime",
+        "hz": 120,
+        "initial": {
+          "hp": 1,
+          "r": 16,
+          "speed": 34.238,
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 34.23799999999915,
+        "shots": [
+          0
+        ],
+        "pose": "snow_slime"
+      }
+    },
+    {
+      "before": {
+        "id": "penguin_raider",
+        "hz": 60,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 36.1,
+          "interval": 4.3,
+          "bulletSpeed": 85
+        },
+        "distance": 36.09999999999957,
+        "shots": [
+          0,
+          4.29999999999999
+        ],
+        "pose": "penguin_raider"
+      },
+      "after": {
+        "id": "penguin_raider",
+        "hz": 60,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 38.266000000000005,
+          "interval": 4.085,
+          "bulletSpeed": 85
+        },
+        "distance": 38.26599999999985,
+        "shots": [
+          0,
+          4.085
+        ],
+        "pose": "penguin_raider"
+      }
+    },
+    {
+      "before": {
+        "id": "penguin_raider",
+        "hz": 120,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 36.1,
+          "interval": 4.3,
+          "bulletSpeed": 85
+        },
+        "distance": 36.10000000000127,
+        "shots": [
+          0,
+          4.3
+        ],
+        "pose": "penguin_raider"
+      },
+      "after": {
+        "id": "penguin_raider",
+        "hz": 120,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 38.266000000000005,
+          "interval": 4.085,
+          "bulletSpeed": 85
+        },
+        "distance": 38.26599999999985,
+        "shots": [
+          0,
+          4.085
+        ],
+        "pose": "penguin_raider"
+      }
+    },
+    {
+      "before": {
+        "id": "ice_yeti",
+        "hz": 60,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 28.5,
+          "interval": 6.02,
+          "bulletSpeed": 76.5
+        },
+        "distance": 28.49999999999966,
+        "shots": [
+          0
+        ],
+        "pose": "ice_yeti"
+      },
+      "after": {
+        "id": "ice_yeti",
+        "hz": 60,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 30.21,
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5
+        },
+        "distance": 30.21000000000015,
+        "shots": [
+          0
+        ],
+        "pose": "ice_yeti"
+      }
+    },
+    {
+      "before": {
+        "id": "ice_yeti",
+        "hz": 120,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 28.5,
+          "interval": 6.02,
+          "bulletSpeed": 76.5
+        },
+        "distance": 28.500000000001364,
+        "shots": [
+          0
+        ],
+        "pose": "ice_yeti"
+      },
+      "after": {
+        "id": "ice_yeti",
+        "hz": 120,
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 30.21,
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5
+        },
+        "distance": 30.209999999998445,
+        "shots": [
+          0
+        ],
+        "pose": "ice_yeti"
+      }
+    },
+    {
+      "before": {
+        "id": "frost_turtle",
+        "hz": 60,
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 20.900000000000002,
+          "interval": 6.449999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 20.89999999999975,
+        "shots": [
+          0
+        ],
+        "pose": "frost_turtle"
+      },
+      "after": {
+        "id": "frost_turtle",
+        "hz": 60,
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 22.15400000000045,
+        "shots": [
+          0
+        ],
+        "pose": "frost_turtle"
+      }
+    },
+    {
+      "before": {
+        "id": "frost_turtle",
+        "hz": 120,
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 20.900000000000002,
+          "interval": 6.449999999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 20.900000000001455,
+        "shots": [
+          0
+        ],
+        "pose": "frost_turtle"
+      },
+      "after": {
+        "id": "frost_turtle",
+        "hz": 120,
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85
+        },
+        "distance": 22.15400000000045,
+        "shots": [
+          0
+        ],
+        "pose": "frost_turtle"
+      }
+    }
+  ],
+  "weighted_draws": [
+    {
+      "seed": 1,
+      "step": 1,
+      "counts": [
+        8036,
+        1964,
+        0,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 1,
+      "step": 2,
+      "counts": [
+        4491,
+        4023,
+        1486,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 1,
+      "step": 3,
+      "counts": [
+        2080,
+        2904,
+        3530,
+        1486
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 1,
+      "step": 4,
+      "counts": [
+        1043,
+        1996,
+        3450,
+        3511
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 1,
+      "step": 5,
+      "counts": [
+        0,
+        1538,
+        2953,
+        5509
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 12345,
+      "step": 1,
+      "counts": [
+        7946,
+        2054,
+        0,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 12345,
+      "step": 2,
+      "counts": [
+        4489,
+        3949,
+        1562,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 12345,
+      "step": 3,
+      "counts": [
+        2021,
+        2971,
+        3446,
+        1562
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 12345,
+      "step": 4,
+      "counts": [
+        1009,
+        2026,
+        3445,
+        3520
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 12345,
+      "step": 5,
+      "counts": [
+        0,
+        1518,
+        2971,
+        5511
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 3735928559,
+      "step": 1,
+      "counts": [
+        8022,
+        1978,
+        0,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 3735928559,
+      "step": 2,
+      "counts": [
+        4582,
+        3962,
+        1456,
+        0
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 3735928559,
+      "step": 3,
+      "counts": [
+        2055,
+        3015,
+        3474,
+        1456
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 3735928559,
+      "step": 4,
+      "counts": [
+        1014,
+        2076,
+        3447,
+        3463
+      ],
+      "total": 10000
+    },
+    {
+      "seed": 3735928559,
+      "step": 5,
+      "counts": [
+        0,
+        1553,
+        3029,
+        5418
+      ],
+      "total": 10000
+    }
+  ],
+  "boss_timeline_60_120": [
+    {
+      "before": {
+        "hz": 60,
+        "events": [
+          {
+            "age": 1.7999999999999985,
+            "kind": "fan"
+          },
+          {
+            "age": 4.999999999999988,
+            "kind": "radial"
+          },
+          {
+            "age": 9.600000000000055,
+            "kind": "blast"
+          },
+          {
+            "age": 13.050000000000226,
+            "kind": "fan"
+          },
+          {
+            "age": 16.25000000000036,
+            "kind": "radial"
+          },
+          {
+            "age": 20.850000000000097,
+            "kind": "blast"
+          },
+          {
+            "age": 24.2999999999999,
+            "kind": "fan"
+          },
+          {
+            "age": 27.49999999999972,
+            "kind": "radial"
+          },
+          {
+            "age": 32.09999999999946,
+            "kind": "blast"
+          }
+        ],
+        "warnings": [
+          {
+            "age": 8.199999999999987,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 19.450000000000177,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 30.699999999999537,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          }
+        ],
+        "waves": [
+          {
+            "event": {
+              "age": 1.7999999999999985,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 4.999999999999988,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 13.050000000000226,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 16.25000000000036,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 24.2999999999999,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 27.49999999999972,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          }
+        ],
+        "cap": 9,
+        "settings": {
+          "firstDelay": 1.8,
+          "rest": 3.2,
+          "fanSpeed": 80,
+          "fanSpread": 0.3141592653589793,
+          "radialSpeed": 65,
+          "radialStep": 0.2617993877991494,
+          "radiusRatio": 0.18,
+          "minRadius": 56,
+          "maxRadius": 74,
+          "warning": 1.4,
+          "burst": 0.25,
+          "bulletLife": 3.4,
+          "bulletRadius": 5,
+          "maxBullets": 9
+        }
+      },
+      "after": {
+        "hz": 60,
+        "events": [
+          {
+            "age": 1.7999999999999985,
+            "kind": "fan"
+          },
+          {
+            "age": 4.799999999999988,
+            "kind": "radial"
+          },
+          {
+            "age": 9.200000000000035,
+            "kind": "blast"
+          },
+          {
+            "age": 12.450000000000196,
+            "kind": "fan"
+          },
+          {
+            "age": 15.450000000000346,
+            "kind": "radial"
+          },
+          {
+            "age": 19.850000000000154,
+            "kind": "blast"
+          },
+          {
+            "age": 23.09999999999997,
+            "kind": "fan"
+          },
+          {
+            "age": 26.0999999999998,
+            "kind": "radial"
+          },
+          {
+            "age": 30.49999999999955,
+            "kind": "blast"
+          },
+          {
+            "age": 33.74999999999937,
+            "kind": "fan"
+          }
+        ],
+        "warnings": [
+          {
+            "age": 7.799999999999978,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 18.450000000000234,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 29.09999999999963,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          }
+        ],
+        "waves": [
+          {
+            "event": {
+              "age": 1.7999999999999985,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 4.799999999999988,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 12.450000000000196,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 15.450000000000346,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 23.09999999999997,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 26.0999999999998,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 33.74999999999937,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          }
+        ],
+        "cap": 9,
+        "settings": {
+          "firstDelay": 1.8,
+          "rest": 3,
+          "fanSpeed": 80,
+          "fanSpread": 0.3141592653589793,
+          "radialSpeed": 65,
+          "radialStep": 0.2617993877991494,
+          "radiusRatio": 0.18,
+          "minRadius": 56,
+          "maxRadius": 74,
+          "warning": 1.4,
+          "burst": 0.25,
+          "bulletLife": 3.4,
+          "bulletRadius": 5,
+          "maxBullets": 9
+        }
+      }
+    },
+    {
+      "before": {
+        "hz": 120,
+        "events": [
+          {
+            "age": 1.799999999999996,
+            "kind": "fan"
+          },
+          {
+            "age": 5.000000000000038,
+            "kind": "radial"
+          },
+          {
+            "age": 9.600000000000096,
+            "kind": "blast"
+          },
+          {
+            "age": 13.0499999999999,
+            "kind": "fan"
+          },
+          {
+            "age": 16.24999999999972,
+            "kind": "radial"
+          },
+          {
+            "age": 20.849999999999458,
+            "kind": "blast"
+          },
+          {
+            "age": 24.29999999999926,
+            "kind": "fan"
+          },
+          {
+            "age": 27.49999999999908,
+            "kind": "radial"
+          },
+          {
+            "age": 32.09999999999882,
+            "kind": "blast"
+          }
+        ],
+        "warnings": [
+          {
+            "age": 8.200000000000175,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 19.449999999999537,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 30.699999999998898,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          }
+        ],
+        "waves": [
+          {
+            "event": {
+              "age": 1.799999999999996,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 5.000000000000038,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 13.0499999999999,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 16.24999999999972,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 24.29999999999926,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 27.49999999999908,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          }
+        ],
+        "cap": 9,
+        "settings": {
+          "firstDelay": 1.8,
+          "rest": 3.2,
+          "fanSpeed": 80,
+          "fanSpread": 0.3141592653589793,
+          "radialSpeed": 65,
+          "radialStep": 0.2617993877991494,
+          "radiusRatio": 0.18,
+          "minRadius": 56,
+          "maxRadius": 74,
+          "warning": 1.4,
+          "burst": 0.25,
+          "bulletLife": 3.4,
+          "bulletRadius": 5,
+          "maxBullets": 9
+        }
+      },
+      "after": {
+        "hz": 120,
+        "events": [
+          {
+            "age": 1.799999999999996,
+            "kind": "fan"
+          },
+          {
+            "age": 4.800000000000028,
+            "kind": "radial"
+          },
+          {
+            "age": 9.200000000000118,
+            "kind": "blast"
+          },
+          {
+            "age": 12.449999999999934,
+            "kind": "fan"
+          },
+          {
+            "age": 15.449999999999763,
+            "kind": "radial"
+          },
+          {
+            "age": 19.849999999999515,
+            "kind": "blast"
+          },
+          {
+            "age": 23.09999999999933,
+            "kind": "fan"
+          },
+          {
+            "age": 26.09999999999916,
+            "kind": "radial"
+          },
+          {
+            "age": 30.49999999999891,
+            "kind": "blast"
+          },
+          {
+            "age": 33.74999999999873,
+            "kind": "fan"
+          }
+        ],
+        "warnings": [
+          {
+            "age": 7.8000000000001775,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 18.449999999999594,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          },
+          {
+            "age": 29.09999999999899,
+            "hazard": {
+              "x": 713.7,
+              "y": 255.44,
+              "target": {
+                "x": 713.7,
+                "y": 255.44
+              },
+              "r": 74
+            }
+          }
+        ],
+        "waves": [
+          {
+            "event": {
+              "age": 1.799999999999996,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 4.800000000000028,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65.00000000000001,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 12.449999999999934,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 15.449999999999763,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 64.99999999999999,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 23.09999999999933,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 26.09999999999916,
+              "kind": "radial"
+            },
+            "shots": [
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              },
+              {
+                "kind": "radial",
+                "speed": 65,
+                "r": 5
+              }
+            ]
+          },
+          {
+            "event": {
+              "age": 33.74999999999873,
+              "kind": "fan"
+            },
+            "shots": [
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              },
+              {
+                "kind": "fan",
+                "speed": 80,
+                "r": 5
+              }
+            ]
+          }
+        ],
+        "cap": 9,
+        "settings": {
+          "firstDelay": 1.8,
+          "rest": 3,
+          "fanSpeed": 80,
+          "fanSpread": 0.3141592653589793,
+          "radialSpeed": 65,
+          "radialStep": 0.2617993877991494,
+          "radiusRatio": 0.18,
+          "minRadius": 56,
+          "maxRadius": 74,
+          "warning": 1.4,
+          "burst": 0.25,
+          "bulletLife": 3.4,
+          "bulletRadius": 5,
+          "maxBullets": 9
+        }
+      }
+    }
+  ],
+  "scripted_desert_snow_comparison": [
+    {
+      "before": {
+        "region": 3,
+        "step": 1,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 2,
+        "playerShots": 91,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 1,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 2,
+        "playerShots": 91,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 1,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 1,
+        "playerShots": 52,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 1,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 1,
+        "playerShots": 52,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 1,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 0,
+        "playerShots": 39,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 1,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 0,
+        "playerShots": 39,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 2,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 77,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 2,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 77,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 2,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 45,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 2,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 45,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 2,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 27,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 2,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1400,
+        "kills": 9,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 27,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 3,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 84,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 3,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 84,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 3,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 48,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 3,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 48,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 3,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 29,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 3,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 29,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 4,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 80,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 4,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 80,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 4,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 47,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 4,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1600,
+        "kills": 11,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 47,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 4,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 28,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 4,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1500,
+        "kills": 10,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 28,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 7.733333333333311,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 40,
+        "playerShots": 67,
+        "bossDeathSeconds": 7.733333333333311,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 7.733333333333311,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 40,
+        "playerShots": 67,
+        "bossDeathSeconds": 7.733333333333311,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 4.033333333333324,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 20,
+        "playerShots": 41,
+        "bossDeathSeconds": 4.033333333333324,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 4.033333333333324,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 20,
+        "playerShots": 41,
+        "bossDeathSeconds": 4.033333333333324,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 11.933333333333506,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 60,
+        "playerShots": 66,
+        "bossDeathSeconds": 11.933333333333506,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 11.933333333333506,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 60,
+        "playerShots": 66,
+        "bossDeathSeconds": 11.933333333333506,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 5.366666666666653,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 25,
+        "playerShots": 36,
+        "bossDeathSeconds": 5.366666666666653,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 5.366666666666653,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 25,
+        "playerShots": 36,
+        "bossDeathSeconds": 5.366666666666653,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 19.933333333333483,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 105,
+        "playerShots": 55,
+        "bossDeathSeconds": 19.933333333333483,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 19.933333333333483,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 105,
+        "playerShots": 55,
+        "bossDeathSeconds": 19.933333333333483,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 3,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 12.183333333333518,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 60,
+        "playerShots": 41,
+        "bossDeathSeconds": 12.183333333333518,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 3,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 12.183333333333518,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 60,
+        "playerShots": 41,
+        "bossDeathSeconds": 12.183333333333518,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 1,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1200,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 3,
+        "playerShots": 143,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 1,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1200,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 3,
+        "playerShots": 143,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 1,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 500,
+        "kills": 5,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 1,
+        "enemyShots": 0,
+        "playerShots": 38,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 1,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 500,
+        "kills": 5,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 1,
+        "enemyShots": 0,
+        "playerShots": 38,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 1,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 1,
+        "playerShots": 44,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 1,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 2,
+        "enemyShots": 2,
+        "playerShots": 44,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 2,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1200,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 3,
+        "playerShots": 126,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 2,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1200,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 3,
+        "playerShots": 125,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 2,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 3,
+        "enemyShots": 0,
+        "playerShots": 49,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 2,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 500,
+        "kills": 5,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 2,
+        "enemyShots": 0,
+        "playerShots": 41,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 2,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 600,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 2,
+        "enemyShots": 1,
+        "playerShots": 53,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 2,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 600,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 2,
+        "enemyShots": 2,
+        "playerShots": 53,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 3,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 120,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 3,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 118,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 3,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 52,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 3,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 0,
+        "playerShots": 52,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 3,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 44,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 3,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 1100,
+        "kills": 6,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 4,
+        "enemyShots": 1,
+        "playerShots": 43,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 4,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 700,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 161,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 4,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 4,
+        "score": 700,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 161,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 4,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1300,
+        "kills": 8,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 60,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 4,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 6,
+        "score": 1300,
+        "kills": 8,
+        "bossKills": 0,
+        "clearedPhases": 1,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 60,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 4,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 700,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 56,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 4,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 18.00000000000026,
+        "hp": 9,
+        "score": 700,
+        "kills": 7,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "finalPhase": 4,
+        "enemyShots": 2,
+        "playerShots": 56,
+        "bossDeathSeconds": null,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 2.5666666666666624,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 22,
+        "bossDeathSeconds": 2.5666666666666624,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 2.5666666666666624,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 22,
+        "bossDeathSeconds": 2.5666666666666624,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 1.3166666666666669,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 14,
+        "bossDeathSeconds": 1.3166666666666669,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 0,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 1.3166666666666669,
+        "hp": 4,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 0,
+        "playerShots": 14,
+        "bossDeathSeconds": 1.3166666666666669,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 3.7999999999999914,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 21,
+        "bossDeathSeconds": 3.7999999999999914,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 3.7999999999999914,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 21,
+        "bossDeathSeconds": 3.7999999999999914,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 1.8499999999999983,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 13,
+        "bossDeathSeconds": 1.8499999999999983,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 1,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 1.8499999999999983,
+        "hp": 6,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 13,
+        "bossDeathSeconds": 1.8499999999999983,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 4.949999999999988,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 14,
+        "bossDeathSeconds": 4.949999999999988,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 0,
+        "hz": 60,
+        "elapsed": 4.949999999999988,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 9,
+        "playerShots": 14,
+        "bossDeathSeconds": 4.949999999999988,
+        "bossHP": null,
+        "saved": false
+      }
+    },
+    {
+      "before": {
+        "region": 4,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 3.299999999999993,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 11,
+        "bossDeathSeconds": 3.299999999999993,
+        "bossHP": null,
+        "saved": false
+      },
+      "after": {
+        "region": 4,
+        "step": 5,
+        "kind": 2,
+        "upgrade": 3,
+        "hz": 60,
+        "elapsed": 3.299999999999993,
+        "hp": 9,
+        "score": 2000,
+        "kills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "finalPhase": 5,
+        "enemyShots": 3,
+        "playerShots": 11,
+        "bossDeathSeconds": 3.299999999999993,
+        "bossHP": null,
+        "saved": false
+      }
+    }
+  ],
+  "protected_parameters": {
+    "tactics": [
+      {
+        "move": 38,
+        "bullet": 85,
+        "interval": 4.3,
+        "spawn": 2
+      },
+      {
+        "move": 53,
+        "bullet": 110,
+        "interval": 3.6,
+        "spawn": 1.8
+      },
+      {
+        "move": 65,
+        "bullet": 130,
+        "interval": 3.1,
+        "spawn": 1.62
+      },
+      {
+        "move": 82,
+        "bullet": 155,
+        "interval": 2.7,
+        "spawn": 1.46
+      },
+      {
+        "move": 38,
+        "bullet": 85,
+        "interval": 4.3,
+        "spawn": 2
+      }
+    ],
+    "profiles": [
+      {
+        "accel": 950,
+        "drag": 2.75,
+        "turn": 3.05
+      },
+      {
+        "accel": 740,
+        "drag": 3.25,
+        "turn": 2.7
+      },
+      {
+        "accel": 473,
+        "drag": 4.25,
+        "turn": 2.35
+      }
+    ],
+    "speeds": [
+      265,
+      240,
+      204
+    ],
+    "requiredKills": 6,
+    "normalCap": [
+      3,
+      4,
+      4,
+      5,
+      5
+    ],
+    "hp": [
+      1,
+      2,
+      2,
+      3
+    ],
+    "penguin": {
+      "id": "penguin_raider",
+      "hp": 2,
+      "move": 0.95,
+      "interval": 1,
+      "bullet": 1,
+      "windup": 0.8,
+      "dash": 1.2,
+      "dashHeight": 1.05,
+      "rest": 0.8,
+      "initialDelay": 4.5,
+      "recovery": 4.5
+    },
+    "bossScaling": [
+      1,
+      1.1,
+      1.4,
+      1.6,
+      1.9,
+      2.2
+    ]
+  },
+  "landscape_captures": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "boss": {
+        "age": 8.533300000000155,
+        "phase": "warning",
+        "remaining": 0.6667000000000234,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "boss": {
+        "age": 8.516700000000156,
+        "phase": "warning",
+        "remaining": 0.6833000000000216,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 400,
+          "y": 223.2,
+          "target": {
+            "x": 400,
+            "y": 223.2
+          },
+          "r": 64.8
+        },
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "boss": {
+        "age": 8.516700000000156,
+        "phase": "warning",
+        "remaining": 0.6833000000000216,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 284,
+          "y": 198.4,
+          "target": {
+            "x": 284,
+            "y": 198.4
+          },
+          "r": 57.599999999999994
+        },
+        "bullets": 0
+      }
+    }
+  ]
+}

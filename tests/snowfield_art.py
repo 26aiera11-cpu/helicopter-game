@@ -109,7 +109,7 @@ try:
    row=page.evaluate('''step=>{artScene(step);const entity=boss||enemies[0];return {step,pose:gameSnowfield.pose(entity,!!boss),hp:entity.hp,r:entity.r,speed:entity.speed,boss:!!boss,profile:gameWorlds.profile(stage),name:gameWorlds.region(stage).bossName}}''',step)
    assert row['pose']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle','blizzard_king'][step-1]
    assert row['hp']==[1,2,2,3,20][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
-   if step<5:assert abs(row['speed']-[32.3,36.1,28.5,20.9][step-1])<1e-8
+   if step<5:assert abs(row['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-8
    else:assert row['name']=='❄ 눈보라 거인왕 (시험)'
    mapping.append(row)
   report['stage_mapping']=mapping
@@ -144,8 +144,8 @@ try:
 
   movement=page.evaluate('''() => {artScene(1);const e=enemies[0],before={x:e.x,y:e.y};update(.1);const moved=gameSnowfield.pose(e);update(.101);return {before,after:{x:e.x,y:e.y},moved,frame:gameSnowfield.pose(e),hp:e.hp,r:e.r,speed:e.speed};}''')
   assert movement['moved']['name']==movement['frame']['name']=='move' and movement['frame']['index']==1
-  assert movement['hp']==1 and movement['r']==16 and abs(movement['speed']-32.3)<1e-8
-  report['actual_movement']=movement;passed('Actual slime pursuit at32.3px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.')
+  assert movement['hp']==1 and movement['r']==16 and abs(movement['speed']-32.3*1.06)<1e-8
+  report['actual_movement']=movement;passed('Actual slime pursuit at34.238px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.')
   attacks=page.evaluate('''() => {const rows=[];for(let step=1;step<=5;step++){artScene(step);const e=boss||enemies[0];e.shot=0;if(step===5){for(let n=0;n<180;n++)update(.01);}else update(0);const start=gameSnowfield.pose(e,!!boss);update(.121);rows.push({step,start,after:gameSnowfield.pose(e,!!boss),bullets:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),interval:e.shot});}return rows;}''')
   assert all(r['start']['name']==r['after']['name']=='attack' and r['after']['index']==1 and r['bullets']==(3 if r['step']==5 else 1) and abs(r['speed']-[85,85,76.5,85,80][r['step']-1])<1e-8 for r in attacks),attacks
   report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while using the Issue9 boss3-shot fan at80px/s after its1.8s delay.')

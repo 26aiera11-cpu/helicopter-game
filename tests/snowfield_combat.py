@@ -66,17 +66,17 @@ try:
    page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option(str(step));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap()
    row=page.evaluate('''() => {gameSnowfieldSpawns.reset(12345);gameExitDialogOpen=false;transition=0;spawn=999;invuln=999;enemies=[];warnings=[];warnEnemy();const before=warnings.length;update(.7);const half={warning:warnings.length,actors:enemies.length};update(.7);const e=enemies[0];return {before,half,after:combatSample(e),boss:!!boss};}''')
    assert row['before']==1 and row['half']=={'warning':1,'actors':0} and not row['boss']
-   after=row['after'];assert after['hp']==[1,2,2,3][step-1] and after['r']==16 and abs(after['speed']-[32.3,36.1,28.5,20.9][step-1])<1e-8
+   after=row['after'];assert after['hp']==[1,2,2,3][step-1] and after['r']==16 and abs(after['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-8
    assert after['state']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle'][step-1] and after['state']['mode']=='pursue' and after['score']==0
    initial.append(row)
   report['real_help_entries_and_warning']=initial
-  passed('Real Help controls enter snow1–4; original1.4s spawn warning precedes the correct species, HP1/2/2/3,r16,speeds32.3/36.1/28.5/20.9 with no immediate charge or boss.')
+  passed('Real Help controls enter snow1–4; original1.4s spawn warning precedes the correct species, HP1/2/2/3,r16,Issue11 chase speeds34.238/38.266/30.21/22.154 with no immediate charge or boss.')
 
   rates=[]
   for step in range(1,5):
    for hz in [60,120]:
     r=page.evaluate('''({step,hz})=>{const e=combatScene(step);e.x=150;e.y=150;player.x=700;player.y=250;const before={x:e.x,y:e.y};combatAdvance(1,hz);return {step,hz,distance:Math.hypot(e.x-before.x,e.y-before.y),after:combatSample(e),x:e.x,y:e.y};}''',{'step':step,'hz':hz})
-    assert abs(r['distance']-[32.3,36.1,28.5,20.9][step-1])<1e-7 and r['after']['pose']['name']=='move';rates.append(r)
+    assert abs(r['distance']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-7 and r['after']['pose']['name']=='move';rates.append(r)
   report['one_second_movement_60_120']=rates;passed('All4 species pursue the player at their exact first-trial speeds at60/120Hz; turtle is slowest and animation follows actual movement.')
 
   shots=[]
@@ -87,12 +87,12 @@ try:
      try{combatAdvance(.02,hz);const first=gameSnowfield.pose(e);combatAdvance(16,hz);return {step,hz,first,shots:log.map(v=>({age:v.age,speed:Math.hypot(v.b.vx,v.b.vy),angle:Math.atan2(v.b.vy,v.b.vx),aim:v.angle,ice:!!v.b.snowIce,r:v.b.r})),state:gameSnowfieldCombat.snapshot(e)};}finally{emitEnemyShot=old;}}''',{'step':step,'hz':hz})
     assert len(r['shots'])>=2 and r['first']['name']=='attack'
     assert all(abs(b['speed']-[85,85,76.5,85][step-1])<1e-8 and abs(b['angle']-b['aim'])<1e-8 and b['r']==5 and b['ice']==(step==3) for b in r['shots'])
-    assert abs(r['state']['interval']-[5.16,4.3,6.02,6.45][step-1])<1e-8
-    if step!=2:assert all(abs(b['age']-a['age']-[5.16,4.3,6.02,6.45][step-1])<1e-7 for a,b in zip(r['shots'],r['shots'][1:]))
+    assert abs(r['state']['interval']-[5.16*.95,4.3*.95,6.02*.95,6.45*.95][step-1])<1e-8
+    if step!=2:assert all(abs(b['age']-a['age']-[5.16*.95,4.3*.95,6.02*.95,6.45*.95][step-1])<1e-7 for a,b in zip(r['shots'],r['shots'][1:]))
     shots.append(r)
   for sixty,hundred_twenty in zip(shots[::2],shots[1::2]):
    assert len(sixty['shots'])==len(hundred_twenty['shots']) and all(abs(a['age']-b['age'])<1e-7 for a,b in zip(sixty['shots'],hundred_twenty['shots']))
-  report['actual_shots']=shots;passed('Actual aimed single shots trigger attack art only on emission:85/85/76.5/85px/s,intervals5.16/4.3/6.02/6.45s,r5; only Yeti shots carry ice color and no status effect.')
+  report['actual_shots']=shots;passed('Actual aimed single shots trigger attack art only on emission:85/85/76.5/85px/s,Issue11 intervals4.902/4.085/5.719/6.1275s,r5; only Yeti shots carry ice color and no status effect.')
 
   charges=[]
   for hz in [60,120]:
@@ -100,7 +100,7 @@ try:
     e.shot=0;player.x=100;player.y=330;combatAdvance(.8,hz);const begin={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
     combatAdvance(.6,hz);const half={x:e.x,y:e.y,shots:enemyBullets.length};player.x=800;player.y=300;combatAdvance(.6,hz);const end={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
     combatAdvance(.8,hz);const rest={...combatSample(e),x:e.x,y:e.y};combatAdvance(3.7,hz);return {hz,start,warn,begin,half,end,rest,next:combatSample(e)};}''',hz)
-   assert r['warn']['state']['mode']=='windup' and abs(r['warn']['x']-150-36.1*4.5)<1e-7
+   assert r['warn']['state']['mode']=='windup' and abs(r['warn']['x']-150-36.1*1.06*4.5)<1e-7
    assert r['begin']['state']['mode']=='dash' and r['begin']['x']==r['warn']['x'] and r['begin']['y']==r['warn']['y'] and r['begin']['shots']==0
    assert abs(r['half']['x']-r['begin']['x']-432.6*.5)<1e-7 and r['half']['y']==r['begin']['y'] and r['half']['shots']==0
    assert r['end']['state']['mode']=='rest' and abs(r['end']['x']-r['begin']['x']-432.6)<1e-7 and r['end']['y']==r['begin']['y'] and r['end']['shots']==0 and not r['end']['state']['wallStopped']
@@ -141,7 +141,7 @@ try:
   passed('All normal-enemy developer entries/attacks/deaths retain the original storage bytes with0 TOP10/analysis writes.')
 
   gate=page.evaluate('''()=>{combatScene(4);enemies=[];phase=5;phaseKills=0;bullets=[];const rows=[];for(let i=0;i<6;i++){warnEnemy();warnings[0].time=0;update(0);const e=enemies[0],initial=combatSample(e);while(e.hp>0)combatHit(e);rows.push({initial,boss:!!boss,kills:phaseKills});}update(0);return {rows,boss:boss&&{hp:boss.hp,r:boss.r},score:runScore,result:gameScoring.getLastResult()};}''')
-  species={'penguin_raider':(2,36.1),'ice_yeti':(2,28.5),'frost_turtle':(3,20.9)}
+  species={'penguin_raider':(2,36.1*1.06),'ice_yeti':(2,28.5*1.06),'frost_turtle':(3,20.9*1.06)}
   assert all(v['initial']['state']['id'] in species and v['initial']['hp']==species[v['initial']['state']['id']][0] and abs(v['initial']['speed']-species[v['initial']['state']['id']][1])<1e-8 and not v['boss'] and v['kills']==i+1 for i,v in enumerate(gate['rows']))
   assert gate['boss']=={'hp':20,'r':48} and gate['score']==600 and gate['result'] is None
   report['ordinary_phase5_gate']=gate

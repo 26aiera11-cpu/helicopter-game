@@ -41,7 +41,7 @@ helpers='''() => {
  window.mixPreBoss=()=>{mixScene(4);for(let i=0;i<6;i++){transition=0;const e=mixSpawn();while(e.hp>0)mixHit(e);}transition=0;if(phase!==5||boss)throw Error('Wrong ordinary boss gate');};
  window.mixSeedFor=(step,id)=>{for(let i=1;i<10000;i++){let seed=(Math.imul(i,0x9e3779b1))>>>0,x=seed;x^=x<<13;x^=x>>>17;x^=x<<5;if(gameSnowfieldSpawns.chooseForRoll(step,(x>>>0)/4294967296)===id)return seed;}throw Error('No seed for '+id);};
  window.mixPenguin=(angle=0)=>{mixScene(2,0,mixSeedFor(2,'penguin_raider'));const e=mixSpawn();e.shot=999;mixAdvance(4.49);const nx=Math.cos(angle),ny=Math.sin(angle),x=nx<-.5?W-50:Math.abs(nx)<.01?W*.45:50,y=ny<-.5?H-50:Math.abs(ny)<.01?H*.45:50;
-  e.x=x-nx*36.1*.01;e.y=y-ny*36.1*.01;player.x=x+nx*100;player.y=y+ny*100;mixAdvance(.01);return e;};
+  e.x=x-nx*36.1*1.06*.01;e.y=y-ny*36.1*1.06*.01;player.x=x+nx*100;player.y=y+ny*100;mixAdvance(.01);return e;};
  window.mixFreeze=()=>{invuln=0;rotorSpin=.35;gameExitDialogOpen=true;draw();};
 }'''
 server=serve(ROOT);reference=None;temp=tempfile.TemporaryDirectory(prefix='heli-mixed-before-')
@@ -56,7 +56,7 @@ try:
   else:page.goto(url,wait_until='load')
   page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameSnowfieldSpawns');page.evaluate(helpers);initial_storage=page.evaluate('mixStorage()')
   assert not page.evaluate('gameWorlds.isDeveloper()||gameWorlds.isTrial()')
-  table=page.evaluate('gameSnowfieldSpawns.weights');assert table==[[80,20,0,0],[50,40,10,0],[25,30,35,10],[10,25,35,30],[0,20,30,50]]
+  table=page.evaluate('gameSnowfieldSpawns.weights');assert table==[[80,20,0,0],[45,40,15,0],[20,30,35,15],[10,20,35,35],[0,15,30,55]]
   boundaries=page.evaluate('''()=>{const rows=[];for(let phase=1;phase<=5;phase++){let cursor=0;for(let i=0;i<4;i++){const weight=gameSnowfieldSpawns.weights[phase-1][i];if(weight){rows.push({phase,id:gameSnowfieldSpawns.ids[i],start:gameSnowfieldSpawns.chooseForRoll(phase,cursor/100),inside:gameSnowfieldSpawns.chooseForRoll(phase,(cursor+weight*.5)/100),last:gameSnowfieldSpawns.chooseForRoll(phase,(cursor+weight-1e-8)/100)});}cursor+=weight;}}return rows;}''')
   assert all(v['id']==v['start']==v['inside']==v['last'] for v in boundaries);report['weight_boundaries']=boundaries
   passed('All5 exact weight rows and every nonzero interval boundary/midpoint select the correct species; boss is excluded and zero-weight intervals are skipped.')
@@ -80,8 +80,8 @@ try:
      const rng=gameSnowfieldSpawns.snapshot();gameSnowfieldCombat.prepare(e);const sameRng=JSON.stringify(rng)===JSON.stringify(gameSnowfieldSpawns.snapshot());try{e.snowSpeciesId='snow_slime';}catch{}const stable=e.snowSpeciesId===id;const calls=[];gameSnowfield.drawActor({drawImage:(im,...args)=>calls.push({id:im.id,args})},e);
      const hits=[];while(e.hp>0){mixHit(e);hits.push({hp:e.hp,pose:gameSnowfield.pose(e).name});}const duplicate=gameScoring.enemyDefeated(e),ghost=gameSnowfield.snapshot().ghosts.at(-1);phase=step===1?4:1;gameSnowfield.tick(.34);return {before,sameRng,stable,draw:calls[0],hits,duplicate,score:runScore-score,kills:phaseKills-kills,ghost:ghost.id,defeat:gameSnowfield.snapshot().ghosts.at(-1)?.pose};}''',{'step':step,'id':id})
     assert r['before']['id']==r['before']['pose']['id']==r['before']['state']['id']==r['ghost']==r['defeat']['id']==id
-    assert r['before']['hp']==[1,2,2,3][index] and r['before']['r']==16 and abs(r['before']['speed']-[32.3,36.1,28.5,20.9][index])<1e-8
-    assert abs(r['before']['shot']-[5.16,4.3,6.02,6.45][index])<1e-8 and r['sameRng'] and r['stable'] and r['draw']['id']==f'snowfield-{id}-atlas'
+    assert r['before']['hp']==[1,2,2,3][index] and r['before']['r']==16 and abs(r['before']['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][index])<1e-8
+    assert abs(r['before']['shot']-[5.16*.95,4.3*.95,6.02*.95,6.45*.95][index])<1e-8 and r['sameRng'] and r['stable'] and r['draw']['id']==f'snowfield-{id}-atlas'
     assert r['score']==100 and r['kills']==1 and not r['duplicate'] and len(r['hits'])==[1,2,2,3][index] and r['defeat']['name']=='defeat';roles.append({'step':step,**r})
   report['actual_species_roles']=roles;assert len(roles)==16
   passed('All16 allowed phase/species pairs pass actual engine warning/spawn/HP/speed/shot/atlas/hit/death checks; assigned ID is immutable,prepare does not reroll and ghosts keep the species across phase changes with100points/one kill.')
@@ -134,8 +134,8 @@ try:
     for kind in [0,1,2]:
      for edge in [False,True]:
       for delay in ([.15,.2,.35,.5,.55,.6,.65,.7,.8] if kind==2 else [.2]):
-       r=page.evaluate('''({kind,hz,edge,delay})=>{mixScene(5,kind);player.x=W*.5;player.y=H*.62;mixAdvance(8.2);const r=gameSnowfieldBoss.radiusForHeight();
-        if(edge){const p=gameSnowfieldBoss.safeTarget(12,H*.55,r);mixScene(5,kind);player.x=p.x;player.y=p.y;mixAdvance(8.2);}
+       r=page.evaluate('''({kind,hz,edge,delay})=>{mixScene(5,kind);player.x=W*.5;player.y=H*.62;mixAdvance(7.8);const r=gameSnowfieldBoss.radiusForHeight();
+        if(edge){const p=gameSnowfieldBoss.safeTarget(12,H*.55,r);mixScene(5,kind);player.x=p.x;player.y=p.y;mixAdvance(7.8);}
         const state=gameSnowfieldBoss.snapshot(),hazard={...state.hazard};player.x=hazard.x;player.y=hazard.y;player.vx=player.vy=0;tilt={x:0,y:0};sensorOn=true;neutral={x:0,y:0};Object.defineProperty(screen.orientation,'angle',{configurable:true,value:90});invuln=0;const hpBefore=hp,x=player.x;let time=0,acted=false;
         while(time<1.4-1e-10&&started){const dt=Math.min(1/hz,1.4-time,time<delay-1e-10?delay-time:Infinity);if(time>=delay-1e-10&&!acted){dispatchEvent(new DeviceOrientationEvent('deviceorientation',{gamma:0,beta:17}));acted=true;}enemyBullets=[];boss.x=W*.85;boss.y=H*.25;update(dt);time+=dt;}
         return {viewport:[W,H],kind,hz,edge,delay,radius:hazard.r,warning:gameSnowfieldBoss.settings.warning,hpBefore,hp,distance:player.x-x,tilt:{...tilt},vx:player.vx,config:flightProfiles[kind],cap:playerSpeed[kind],state:gameSnowfieldBoss.snapshot()};}''',{'kind':kind,'hz':hz,'edge':edge,'delay':delay})

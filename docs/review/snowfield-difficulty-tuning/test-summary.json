@@ -1,0 +1,369 @@
+{
+  "date": "2026-11-04 KST",
+  "branch": "feature/snowfield-difficulty-tuning",
+  "baseline": "0441a88f7c494719f2ccab99caaf100d35cd86ee",
+  "suite_count": 38,
+  "passed_suite_count": 36,
+  "incomplete_suite_count": 2,
+  "passed_groups": 508,
+  "suites": [
+    {
+      "suite": "snowfield_mixed-native",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 20.0,
+      "phase": "final regression",
+      "report": "regression/snowfield_mixed-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_mixed-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 35.92,
+      "phase": "final regression",
+      "report": "regression/snowfield_mixed-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_art",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 22.99,
+      "phase": "targeted retry after expectation/comparison-fixture updates",
+      "report": "regression/snowfield_art/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 28.51,
+      "phase": "targeted retry after expectation/comparison-fixture updates",
+      "report": "regression/snowfield_art-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 27.1,
+      "phase": "final regression",
+      "report": "regression/worlds/test-results.json",
+      "observed_groups_before_failure": 16
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 66.27,
+      "phase": "final regression",
+      "report": "regression/worlds-offline/test-results.json",
+      "observed_groups_before_failure": 16
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "seconds": 6.74,
+      "phase": "final regression",
+      "report": "regression/game_audit/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "seconds": 46.45,
+      "phase": "final regression",
+      "report": "regression/scoring/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "seconds": 131.57,
+      "phase": "final regression",
+      "report": "regression/scoring-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "seconds": 31.99,
+      "phase": "final regression",
+      "report": "regression/selection_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "seconds": 15.29,
+      "phase": "final regression",
+      "report": "regression/exit_dialog/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 27.06,
+      "phase": "final regression",
+      "report": "regression/game_over/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 6.33,
+      "phase": "final regression",
+      "report": "regression/item_persistence/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "seconds": 18.06,
+      "phase": "final regression",
+      "report": "regression/boss_reward/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 13.6,
+      "phase": "final regression",
+      "report": "regression/item_spawn_rules/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 26.87,
+      "phase": "final regression",
+      "report": "regression/item_spawn_rules-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_monsters",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 15.12,
+      "phase": "final regression",
+      "report": "regression/item_monsters/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_monsters-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 27.44,
+      "phase": "final regression",
+      "report": "regression/item_monsters-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 30.24,
+      "phase": "final regression",
+      "report": "regression/tanko_combat/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 42.41,
+      "phase": "final regression",
+      "report": "regression/tanko_combat-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_cadence",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 16.12,
+      "phase": "final regression",
+      "report": "regression/tanko_cadence/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 74.73,
+      "phase": "final regression",
+      "report": "regression/selection_bgm/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 59.46,
+      "phase": "final regression",
+      "report": "regression/selection_bgm-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 76.68,
+      "phase": "final regression",
+      "report": "regression/bgm_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 10.35,
+      "phase": "final regression",
+      "report": "regression/fullscreen_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 34.35,
+      "phase": "final regression",
+      "report": "regression/galaxy_standalone/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "seconds": 24.16,
+      "phase": "final regression",
+      "report": "regression/mobile_controls/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "exit_code": 0,
+      "groups": 23,
+      "seconds": 37.09,
+      "phase": "final regression",
+      "report": "regression/mobile_controls-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "joystick_design",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 26.52,
+      "phase": "final regression",
+      "report": "regression/joystick_design/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "joystick_design-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 34.78,
+      "phase": "final regression",
+      "report": "regression/joystick_design-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "seconds": 42.51,
+      "phase": "final regression",
+      "report": "regression/developer_start-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "seconds": 70.72,
+      "phase": "final regression",
+      "report": "regression/developer_start-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 15.91,
+      "report": "regression/snowfield_combat-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 23.18,
+      "phase": "final regression",
+      "report": "regression/snowfield_combat-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 28.77,
+      "report": "regression/snowfield_boss-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_boss-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 40.21,
+      "phase": "final regression",
+      "report": "regression/snowfield_boss-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 14.07,
+      "phase": "targeted retry after expectation/comparison-fixture updates",
+      "report": "native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_difficulty-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 27.13,
+      "phase": "targeted retry after expectation/comparison-fixture updates",
+      "report": "offline/test-results.json",
+      "observed_groups_before_failure": 0
+    }
+  ],
+  "incomplete_suites": [
+    "worlds",
+    "worlds-offline"
+  ],
+  "targeted_reruns": [
+    "snowfield_art",
+    "snowfield_art-offline",
+    "snowfield_difficulty-native",
+    "snowfield_difficulty-offline"
+  ],
+  "scope_notes": [
+    "First focused normal16/boss19/new tuning9 groups;final regression covers every remaining suite once. Focused results reused only with identical product hashes.",
+    "Only old art speed expectations and new comparison initial conditions were refined;only those4 suites rerun. No complete regression restart.",
+    "Comparison fixes:seed before scene entry,zero initial fire cooldown,stop background ticks after measurement and refresh fixture HUD. No gameplay input/fire-start code changed.",
+    "Known long mixed-touch→exit failure retained;no speculative input change or hidden skip.",
+    "Internal infinite timer sentinels serialized as null."
+  ],
+  "physical_galaxy_tested": false
+}

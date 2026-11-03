@@ -3,6 +3,7 @@
  */
 (() => {
   'use strict';
+  const tuning=gameRegionDifficulty.get('world-2:snowfield');
   const profiles=Object.freeze([
     {id:'snow_slime',hp:1,move:.85,interval:1.2,bullet:1},
     {id:'penguin_raider',hp:2,move:.95,interval:1,bullet:1,
@@ -17,7 +18,7 @@
     if(!enabled())return actor;
     if(states.has(actor))return actor;
     const spec=byId.get(actor.snowSpeciesId)||byId.get(gameSnowfieldSpawns.select(phase)),base=tactics[0];
-    actor.hp=spec.hp;actor.speed=base.move*spec.move;actor.shot=base.interval*spec.interval;
+    actor.hp=spec.hp;actor.speed=base.move*spec.move*tuning.chaseSpeedScale;actor.shot=base.interval*spec.interval*tuning.shotIntervalScale;
     Object.defineProperty(actor,'snowSpeciesId',{value:spec.id,enumerable:true});
     states.set(actor,{spec,mode:'pursue',remaining:spec.initialDelay??Infinity,age:0,
       direction:{x:0,y:1},interval:actor.shot,bulletSpeed:base.bullet*spec.bullet,dashSpeed:spec.dashHeight?H*spec.dashHeight/spec.dash:0,plannedDistance:spec.dashHeight?H*spec.dashHeight:0,dashMoved:0,wallStopped:false});
