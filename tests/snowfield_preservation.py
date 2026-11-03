@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+from mixed_preservation import without_mixed_asset
 from snow_combat_preservation import COMBAT_ASSETS,assert_combat_asset
 from developer_start_preservation import without_developer_start_source, without_developer_start_asset
 ROOT=Path(__file__).resolve().parents[1]
@@ -10,7 +11,7 @@ def assert_snowfield_asset(path):
     path=Path(path);name=str(path.relative_to(ROOT)) if path.is_absolute() else str(path)
     if name in COMBAT_ASSETS:
         assert_combat_asset(path);return
-    assert name in SNOWFIELD_ASSETS and hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==json.loads((ROOT/'tests/snowfield_asset_hashes.json').read_text())[name],name
+    assert name in SNOWFIELD_ASSETS and hashlib.sha256(without_mixed_asset((ROOT/name).read_text(),name).encode() if (ROOT/name).suffix in ['.js','.css'] else (ROOT/name).read_bytes()).hexdigest()==json.loads((ROOT/'tests/snowfield_asset_hashes.json').read_text())[name],name
 
 def without_snowfield_source(source):
     source=without_developer_start_source(source)

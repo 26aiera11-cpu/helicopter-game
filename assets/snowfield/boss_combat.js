@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const settings=Object.freeze({firstDelay:1.8,rest:3.2,fanSpeed:80,fanSpread:Math.PI/10,
-    radialSpeed:65,radialStep:Math.PI/12,radius:38,warning:1.1,burst:.25,bulletLife:3.4,bulletRadius:5,maxBullets:9});
+    radialSpeed:65,radialStep:Math.PI/12,radiusRatio:.18,minRadius:56,maxRadius:74,warning:1.4,burst:.25,bulletLife:3.4,bulletRadius:5,maxBullets:9});
   const names=['fan','radial','blast'],epsilon=1e-9;
   let active=null,validateHazard=false;
   const inRegion=()=>typeof stage!=='undefined'&&gameWorlds.region(stage)?.key==='world-2:snowfield'&&phase===5;
@@ -24,18 +24,19 @@
     rects.push({left:W*.3,right:W*.7,top:31,bottom:66}); // Existing canvas boss name/HP.
     return rects;
   }
-  function safeCircle(x,y,rects=blockedRects()) {
-    const r=settings.radius,gap=4;
+  const radiusForHeight=(height=H)=>Math.max(settings.minRadius,Math.min(settings.maxRadius,height*settings.radiusRatio));
+  function safeCircle(x,y,r,rects=blockedRects()) {
+    const gap=4;
     return x>=r+gap&&x<=W-r-gap&&y>=r+gap&&y<=H-r-gap&&rects.every(b=>{
       const dx=x-Math.max(b.left,Math.min(b.right,x)),dy=y-Math.max(b.top,Math.min(b.bottom,y));
       return dx*dx+dy*dy>(r+gap)**2;
     });
   }
-  function safeTarget(x,y) {
-    const r=settings.radius+4,rects=blockedRects(),xs=[Math.max(r,Math.min(W-r,x)),r,W-r],ys=[Math.max(r,Math.min(H-r,y)),r,H-r];
+  function safeTarget(x,y,radius=radiusForHeight()) {
+    const r=radius+4,rects=blockedRects(),xs=[Math.max(r,Math.min(W-r,x)),r,W-r],ys=[Math.max(r,Math.min(H-r,y)),r,H-r];
     for(const b of rects){xs.push(b.left-r-1,b.right+r+1);ys.push(b.top-r-1,b.bottom+r+1);}
     let best=null,distance=Infinity;
-    for(const cx of xs)for(const cy of ys)if(safeCircle(cx,cy,rects)){
+    for(const cx of xs)for(const cy of ys)if(safeCircle(cx,cy,radius,rects)){
       const d=(cx-x)**2+(cy-y)**2;
       if(d<distance){best={x:cx,y:cy};distance=d;}
     }
@@ -56,8 +57,8 @@
   function beginAttack(state) {
     const pattern=names[state.next];state.next=(state.next+1)%names.length;
     if(pattern==='blast'){
-      const target={x:player.x,y:player.y},point=safeTarget(target.x,target.y);
-      if(point){state.hazard={...point,target,r:settings.radius};state.phase='warning';state.remaining=settings.warning;return;}
+      const target={x:player.x,y:player.y},radius=radiusForHeight(),point=safeTarget(target.x,target.y,radius);
+      if(point){state.hazard={...point,target,r:radius};state.phase='warning';state.remaining=settings.warning;return;}
     }else fire(state,pattern);
     state.phase='rest';state.remaining=settings.rest;
   }
@@ -79,7 +80,7 @@
     if(!started||gameOverPending||window.gameExitDialogOpen||document.hidden)return true;
     if(active?.actor!==actor)prepare(actor);
     const state=active;
-    if(validateHazard&&state.hazard&&!safeCircle(state.hazard.x,state.hazard.y)){
+    if(validateHazard&&state.hazard&&(!safeCircle(state.hazard.x,state.hazard.y,state.hazard.r)||Math.abs(state.hazard.r-radiusForHeight())>epsilon)){
       state.hazard=null;state.phase='rest';state.remaining=settings.rest;
     }
     validateHazard=false;
@@ -117,7 +118,7 @@
     }
     ctx.restore();
   }
-  window.gameSnowfieldBoss=Object.freeze({settings,prepare,update,reset,draw,drawBullet,backgroundPaused,safeTarget,
+  window.gameSnowfieldBoss=Object.freeze({settings,prepare,update,reset,draw,drawBullet,backgroundPaused,safeTarget,radiusForHeight,
     snapshot:()=>active?{age:active.age,phase:active.phase,remaining:active.remaining,next:names[active.next],radialAngle:active.radialAngle,
       hazard:active.hazard?{...active.hazard,target:{...active.hazard.target}}:null,
       bullets:enemyBullets.filter(b=>b.snowBossPattern&&b.life>0).length}:null});

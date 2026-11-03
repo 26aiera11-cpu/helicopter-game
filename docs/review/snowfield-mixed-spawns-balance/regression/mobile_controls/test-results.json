@@ -1,0 +1,1329 @@
+{
+  "baseline": "da8c0e8f58b62bf1f6061d93db72ca29cf70ca60",
+  "standalone": false,
+  "passed": [
+    "Seven exact control/help deltas and one exit-input reset reverse to the latest remote baseline; sensor/flight/attack, item manager, images, scores and audio stay byte-identical; syntax passes.",
+    "Old rotation buttons are removed; one labelled horizontal slider appears only in play and retains the existing fire/sensor controls.",
+    "Center and jitter inside the8% dead zone produce zero rotation input.",
+    "Real touch positions yield signed, smoothly remapped analog speeds; all3 full-deflection rates exactly match baseline3.05/2.7/2.35rad/s.",
+    "Overflow beyond the track inside the control clamps to1 and keeps the round knob within its track limits.",
+    "Release springs only the knob to center and leaves helicopter heading unchanged.",
+    "Leaving the joystick bounds ends ownership and clears rotation even before finger release outside.",
+    "Native touchCancel and actual lost pointer capture both reset rotation without a held input.",
+    "A second joystick finger cannot steal or release the first pointer owner.",
+    "Fire also has one pointer owner; releasing another finger never stops the held shot control.",
+    "Native three-finger drag+rotation+fire moves, rotates and shoots together; unrelated fingers/releases never overwrite auxiliary movement or other owners.",
+    "All36 character/orientation/sample sensor mappings, gravity fallback and actual acceleration velocities exactly match the old browser page.",
+    "Existing sensor activation/permission path plus orientation events drives movement while separate joystick/fire fingers rotate and shoot; their releases do not clear sensor tilt.",
+    "Denied permission or absent sensor interfaces leaves the original no-signal/drag fallback usable; canvas cancellation clears only its own drag.",
+    "Window blur resets held inputs without changing sensor calibration, flight constants or character heading.",
+    "Game-only contextmenu/selectstart are cancelled and CSS disables selection/callout; native right-click/long-touch leaves no text selection, while real inputs/ranking stay outside the event guard.",
+    "Fatal health immediately clears joystick/fire/drag, game-over text cannot select, and the existing3-second selection return completes.",
+    "Exit modal resets held joystick before pausing; Continue and selection return buttons work with native fullscreen preserved.",
+    "Existing final-clear return also clears joystick ownership and preserves the original result flow.",
+    "TOP10 opens/closes and scrolls by an actual touch swipe; the new event guard/CSS does not consume ranking gestures or leak them to gameplay.",
+    "915×412,800×360,568×320 screenshots show the blue horizontal control/round thumb without overlap with fire or HUD; source selection and art stay unchanged.",
+    "Focusable slider exposes direction/value text and supports momentary keyboard rotation with a separate visible focus marker.",
+    "No uncaught errors, native dialogs or failed assets; standalone controls work offline with zero external requests."
+  ],
+  "limits": [
+    "Real Chromium pointer/touch/fullscreen/media state; not physical Galaxy or Samsung Internet browser chrome.",
+    "Sensor matrix dispatches controlled orientation/motion events and simulates permission results; hardware sensors/permissions remain device checks.",
+    "Offline injects the actual standalone HTML; managed file:// policy is not bypassed."
+  ],
+  "old_max_turns": [
+    {
+      "type": 0,
+      "rate": 3.0499999999999994
+    },
+    {
+      "type": 1,
+      "rate": 2.7
+    },
+    {
+      "type": 2,
+      "rate": 2.350000000000001
+    }
+  ],
+  "analog_matrix": [
+    {
+      "type": 0,
+      "raw": -1,
+      "input": -1,
+      "delta": -0.6099999999999999,
+      "state": {
+        "raw": -1,
+        "value": -1,
+        "deadZone": 0.08,
+        "rotationPointer": 8,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": -0.75,
+      "input": -0.7282608695652174,
+      "delta": -0.4442391304347826,
+      "state": {
+        "raw": -0.75,
+        "value": -0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 9,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": -0.5,
+      "input": -0.45652173913043476,
+      "delta": -0.2784782608695653,
+      "state": {
+        "raw": -0.5,
+        "value": -0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 10,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": -0.25,
+      "input": -0.18478260869565216,
+      "delta": -0.11271739130434777,
+      "state": {
+        "raw": -0.25,
+        "value": -0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 11,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": -0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": -0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 12,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 0,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 13,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 14,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 0.25,
+      "input": 0.18478260869565216,
+      "delta": 0.11271739130434777,
+      "state": {
+        "raw": 0.25,
+        "value": 0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 15,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 0.5,
+      "input": 0.45652173913043476,
+      "delta": 0.27847826086956506,
+      "state": {
+        "raw": 0.5,
+        "value": 0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 16,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 0.75,
+      "input": 0.7282608695652174,
+      "delta": 0.4442391304347828,
+      "state": {
+        "raw": 0.75,
+        "value": 0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 17,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 0,
+      "raw": 1,
+      "input": 1,
+      "delta": 0.6099999999999999,
+      "state": {
+        "raw": 1,
+        "value": 1,
+        "deadZone": 0.08,
+        "rotationPointer": 18,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": -1,
+      "input": -1,
+      "delta": -0.54,
+      "state": {
+        "raw": -1,
+        "value": -1,
+        "deadZone": 0.08,
+        "rotationPointer": 19,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": -0.75,
+      "input": -0.7282608695652174,
+      "delta": -0.39326086956521733,
+      "state": {
+        "raw": -0.75,
+        "value": -0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 20,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": -0.5,
+      "input": -0.45652173913043476,
+      "delta": -0.24652173913043485,
+      "state": {
+        "raw": -0.5,
+        "value": -0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 21,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": -0.25,
+      "input": -0.18478260869565216,
+      "delta": -0.09978260869565214,
+      "state": {
+        "raw": -0.25,
+        "value": -0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 22,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": -0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": -0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 23,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 0,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 24,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 25,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 0.25,
+      "input": 0.18478260869565216,
+      "delta": 0.09978260869565214,
+      "state": {
+        "raw": 0.25,
+        "value": 0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 26,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 0.5,
+      "input": 0.45652173913043476,
+      "delta": 0.24652173913043463,
+      "state": {
+        "raw": 0.5,
+        "value": 0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 27,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 0.75,
+      "input": 0.7282608695652174,
+      "delta": 0.39326086956521733,
+      "state": {
+        "raw": 0.75,
+        "value": 0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 28,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 1,
+      "raw": 1,
+      "input": 1,
+      "delta": 0.54,
+      "state": {
+        "raw": 1,
+        "value": 1,
+        "deadZone": 0.08,
+        "rotationPointer": 29,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": -1,
+      "input": -1,
+      "delta": -0.4700000000000002,
+      "state": {
+        "raw": -1,
+        "value": -1,
+        "deadZone": 0.08,
+        "rotationPointer": 30,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": -0.75,
+      "input": -0.7282608695652174,
+      "delta": -0.3422826086956521,
+      "state": {
+        "raw": -0.75,
+        "value": -0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 31,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": -0.5,
+      "input": -0.45652173913043476,
+      "delta": -0.2145652173913044,
+      "state": {
+        "raw": -0.5,
+        "value": -0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 32,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": -0.25,
+      "input": -0.18478260869565216,
+      "delta": -0.08684782608695651,
+      "state": {
+        "raw": -0.25,
+        "value": -0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 33,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": -0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": -0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 34,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 0,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 35,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 0.08,
+      "input": 0,
+      "delta": 0,
+      "state": {
+        "raw": 0.07999998988542206,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": 36,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 0.25,
+      "input": 0.18478260869565216,
+      "delta": 0.08684782608695651,
+      "state": {
+        "raw": 0.25,
+        "value": 0.18478260869565216,
+        "deadZone": 0.08,
+        "rotationPointer": 37,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 0.5,
+      "input": 0.45652173913043476,
+      "delta": 0.2145652173913044,
+      "state": {
+        "raw": 0.5,
+        "value": 0.45652173913043476,
+        "deadZone": 0.08,
+        "rotationPointer": 38,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 0.75,
+      "input": 0.7282608695652174,
+      "delta": 0.3422826086956521,
+      "state": {
+        "raw": 0.75,
+        "value": 0.7282608695652174,
+        "deadZone": 0.08,
+        "rotationPointer": 39,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    },
+    {
+      "type": 2,
+      "raw": 1,
+      "input": 1,
+      "delta": 0.4700000000000002,
+      "state": {
+        "raw": 1,
+        "value": 1,
+        "deadZone": 0.08,
+        "rotationPointer": 40,
+        "firePointer": null,
+        "dragPointer": null
+      }
+    }
+  ],
+  "three_pointer_owners": {
+    "raw": 1,
+    "value": 1,
+    "deadZone": 0.08,
+    "rotationPointer": 51,
+    "firePointer": 52,
+    "dragPointer": 50
+  },
+  "sensor_matrix": [
+    {
+      "type": 0,
+      "angle": 0,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      },
+      "velocity": [
+        7.282807844196967,
+        -4.551754902623105
+      ],
+      "gravity": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      }
+    },
+    {
+      "type": 0,
+      "angle": 0,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": 1
+      },
+      "velocity": [
+        -15.475966668918556,
+        15.475966668918556
+      ],
+      "gravity": {
+        "x": -1,
+        "y": 1
+      }
+    },
+    {
+      "type": 0,
+      "angle": 0,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": 0,
+      "angle": 90,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      },
+      "velocity": [
+        -4.551754902623105,
+        -7.282807844196967
+      ],
+      "gravity": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      }
+    },
+    {
+      "type": 0,
+      "angle": 90,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": 1
+      },
+      "velocity": [
+        15.475966668918556,
+        15.475966668918556
+      ],
+      "gravity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": 0,
+      "angle": 90,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 0,
+      "angle": 180,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      },
+      "velocity": [
+        -7.282807844196967,
+        4.551754902623105
+      ],
+      "gravity": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      }
+    },
+    {
+      "type": 0,
+      "angle": 180,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": -1
+      },
+      "velocity": [
+        15.475966668918556,
+        -15.475966668918556
+      ],
+      "gravity": {
+        "x": 1,
+        "y": -1
+      }
+    },
+    {
+      "type": 0,
+      "angle": 180,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 0,
+      "angle": 270,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      },
+      "velocity": [
+        4.551754902623105,
+        7.282807844196967
+      ],
+      "gravity": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      }
+    },
+    {
+      "type": 0,
+      "angle": 270,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": -1
+      },
+      "velocity": [
+        -15.475966668918556,
+        -15.475966668918556
+      ],
+      "gravity": {
+        "x": -1,
+        "y": -1
+      }
+    },
+    {
+      "type": 0,
+      "angle": 270,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": 0
+      }
+    },
+    {
+      "type": 1,
+      "angle": 0,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      },
+      "velocity": [
+        5.649532150083686,
+        -3.5309575938023032
+      ],
+      "gravity": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      }
+    },
+    {
+      "type": 1,
+      "angle": 0,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": 1
+      },
+      "velocity": [
+        -12.00525581892783,
+        12.00525581892783
+      ],
+      "gravity": {
+        "x": -1,
+        "y": 1
+      }
+    },
+    {
+      "type": 1,
+      "angle": 0,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": 1,
+      "angle": 90,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      },
+      "velocity": [
+        -3.5309575938023032,
+        -5.649532150083686
+      ],
+      "gravity": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      }
+    },
+    {
+      "type": 1,
+      "angle": 90,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": 1
+      },
+      "velocity": [
+        12.00525581892783,
+        12.00525581892783
+      ],
+      "gravity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": 1,
+      "angle": 90,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 1,
+      "angle": 180,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      },
+      "velocity": [
+        -5.649532150083686,
+        3.5309575938023032
+      ],
+      "gravity": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      }
+    },
+    {
+      "type": 1,
+      "angle": 180,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": -1
+      },
+      "velocity": [
+        12.00525581892783,
+        -12.00525581892783
+      ],
+      "gravity": {
+        "x": 1,
+        "y": -1
+      }
+    },
+    {
+      "type": 1,
+      "angle": 180,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 1,
+      "angle": 270,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      },
+      "velocity": [
+        3.5309575938023032,
+        5.649532150083686
+      ],
+      "gravity": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      }
+    },
+    {
+      "type": 1,
+      "angle": 270,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": -1
+      },
+      "velocity": [
+        -12.00525581892783,
+        -12.00525581892783
+      ],
+      "gravity": {
+        "x": -1,
+        "y": -1
+      }
+    },
+    {
+      "type": 1,
+      "angle": 270,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": 0
+      }
+    },
+    {
+      "type": 2,
+      "angle": 0,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      },
+      "velocity": [
+        3.5814631040323794,
+        -2.2384144400202373
+      ],
+      "gravity": {
+        "x": 0.47058823529411764,
+        "y": -0.29411764705882354
+      }
+    },
+    {
+      "type": 2,
+      "angle": 0,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": 1
+      },
+      "velocity": [
+        -7.610609096068806,
+        7.610609096068806
+      ],
+      "gravity": {
+        "x": -1,
+        "y": 1
+      }
+    },
+    {
+      "type": 2,
+      "angle": 0,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "type": 2,
+      "angle": 90,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      },
+      "velocity": [
+        -2.2384144400202373,
+        -3.5814631040323794
+      ],
+      "gravity": {
+        "x": -0.29411764705882354,
+        "y": -0.47058823529411764
+      }
+    },
+    {
+      "type": 2,
+      "angle": 90,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": 1
+      },
+      "velocity": [
+        7.610609096068806,
+        7.610609096068806
+      ],
+      "gravity": {
+        "x": 1,
+        "y": 1
+      }
+    },
+    {
+      "type": 2,
+      "angle": 90,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": 0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": 0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 2,
+      "angle": 180,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      },
+      "velocity": [
+        -3.5814631040323794,
+        2.2384144400202373
+      ],
+      "gravity": {
+        "x": -0.47058823529411764,
+        "y": 0.29411764705882354
+      }
+    },
+    {
+      "type": 2,
+      "angle": 180,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": 1,
+        "y": -1
+      },
+      "velocity": [
+        7.610609096068806,
+        -7.610609096068806
+      ],
+      "gravity": {
+        "x": 1,
+        "y": -1
+      }
+    },
+    {
+      "type": 2,
+      "angle": 180,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": -0.0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": -0.0
+      }
+    },
+    {
+      "type": 2,
+      "angle": 270,
+      "sample": [
+        8,
+        -5
+      ],
+      "tilt": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      },
+      "velocity": [
+        2.2384144400202373,
+        3.5814631040323794
+      ],
+      "gravity": {
+        "x": 0.29411764705882354,
+        "y": 0.47058823529411764
+      }
+    },
+    {
+      "type": 2,
+      "angle": 270,
+      "sample": [
+        -30,
+        21
+      ],
+      "tilt": {
+        "x": -1,
+        "y": -1
+      },
+      "velocity": [
+        -7.610609096068806,
+        -7.610609096068806
+      ],
+      "gravity": {
+        "x": -1,
+        "y": -1
+      }
+    },
+    {
+      "type": 2,
+      "angle": 270,
+      "sample": [
+        0,
+        0
+      ],
+      "tilt": {
+        "x": -0.0,
+        "y": 0
+      },
+      "velocity": [
+        0,
+        0
+      ],
+      "gravity": {
+        "x": -0.0,
+        "y": 0
+      }
+    }
+  ],
+  "long_press_event_scope": [
+    {
+      "id": "game",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "game",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "rotationJoystick",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "rotationJoystick",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "fire",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "fire",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "hud",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "hud",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "sensor",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "sensor",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "exitGame",
+      "type": "contextmenu",
+      "prevented": true
+    },
+    {
+      "id": "exitGame",
+      "type": "selectstart",
+      "prevented": true
+    },
+    {
+      "id": "unrelatedInput",
+      "type": "contextmenu",
+      "prevented": false
+    },
+    {
+      "id": "unrelatedInput",
+      "type": "selectstart",
+      "prevented": false
+    },
+    {
+      "id": "leaderboardDialog",
+      "type": "contextmenu",
+      "prevented": false
+    },
+    {
+      "id": "leaderboardDialog",
+      "type": "selectstart",
+      "prevented": false
+    }
+  ],
+  "ranking_scroll_top": 105,
+  "uncaught_errors": [],
+  "native_dialogs": [],
+  "failed_resources": [],
+  "external_requests": []
+}

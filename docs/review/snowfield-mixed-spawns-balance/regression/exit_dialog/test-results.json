@@ -1,0 +1,20 @@
+{
+  "passed": [
+    "Existing selection animations/fullscreen controls are unchanged; active source contains no confirm() or alert() calls.",
+    "The centered in-game modal opens in native fullscreen, focuses Continue, and pauses gameplay state without a native browser prompt.",
+    "Modal backdrop blocks underlying touch controls; focus stays in the modal and no fire/movement input remains held.",
+    "Continue resumes the same game in fullscreen; actual held touch rotation/fire still work after cancellation.",
+    "Confirm runs the existing exit cleanup and returns to character selection while native fullscreen remains active.",
+    "All three helicopters survive repeated start/cancel/confirm cycles; immediate dialog reopening leaves no stale close state.",
+    "The modal remains centered, unclipped and usable at three landscape sizes (915×412, 800×360, 568×320).",
+    "If fullscreen ends while the modal is open, neither action forces re-entry; the existing manual fullscreen button works again.",
+    "Game over and final clear return to the selection screen without exiting native fullscreen (controlled game-state checks).",
+    "Escape safely cancels in normal screen; all tested paths produce zero browser confirm/alert dialogs and zero uncaught JavaScript errors."
+  ],
+  "native_dialogs": [],
+  "limits": [
+    "Actual headless Chromium with the standard Fullscreen API and mobile touch emulation.",
+    "Physical Galaxy/Samsung Internet address-bar, Android navigation and audio/sensor behavior need device testing.",
+    "Game-over and final-clear paths use controlled game state, not a manual full playthrough."
+  ]
+}

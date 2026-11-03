@@ -70,11 +70,11 @@ try:
     emitEnemyShot=function(actor,...args){if(actor===boss)legacyCalls++;return legacy(actor,...args);};hurt=function(){hurtCalls++;return hit();};
     try{for(let n=0;n<35*hz;n++){boss.x=W*.22;boss.y=H*.24;player.x=W*.78;player.y=H*.62;update(1/hz);const state=gameSnowfieldBoss.snapshot();if(state.phase==='warning'&&oldPhase!=='warning')warnings.push({age:state.age,hazard:state.hazard});oldPhase=state.phase;const fresh=enemyBullets.filter(b=>b.snowBossPattern&&!seen.has(b));for(const b of fresh)seen.add(b);if(fresh.length)waves.push({age:events.at(-1).age,event:events.at(-1),shots:fresh.map(b=>({angle:Math.atan2(b.vy,b.vx),speed:Math.hypot(b.vx,b.vy),r:b.r,kind:b.snowBossPattern}))});max=Math.max(max,state.bullets);}return {hz,events,warnings,waves,max,legacyCalls,hurtCalls,hp,state:gameSnowfieldBoss.snapshot()};}
     finally{window.gameSnowfield=art;emitEnemyShot=legacy;hurt=hit;}}''',hz)
-   expected=[1.8,5,9.3,12.75,15.95,20.25,23.7,26.9,31.2,34.65]
+   expected=[1.8,5,9.6,13.05,16.25,20.85,24.3,27.5,32.1]
    assert len(r['events'])==len(expected) and all(abs(e['age']-t)<1e-7 for e,t in zip(r['events'],expected)),r['events']
-   assert [e['kind'] for e in r['events']]==['fan','radial','blast']*3+['fan'] and all(e['pose']=='attack' for e in r['events'])
+   assert [e['kind'] for e in r['events']]==['fan','radial','blast']*3 and all(e['pose']=='attack' for e in r['events'])
    assert r['max']==9 and r['legacyCalls']==0 and r['hurtCalls']==3 and r['hp']==4
-   assert [round(w['age'],2) for w in r['warnings']]==[8.2,19.15,30.1]
+   assert [round(w['age'],2) for w in r['warnings']]==[8.2,19.45,30.7]
    for wave in r['waves']:
     shots=wave['shots'];fan=wave['event']['kind']=='fan';assert len(shots)==(3 if fan else 6) and all(abs(s['speed']-(80 if fan else 65))<1e-8 and s['r']==5 for s in shots)
     if fan:
@@ -84,23 +84,23 @@ try:
      index=sum(w['event']['kind']=='radial' for w in r['waves'][:r['waves'].index(wave)])
      assert all(abs(__import__('math').atan2(__import__('math').sin(s['angle']-(index*__import__('math').pi/12+i*__import__('math').pi/3)),__import__('math').cos(s['angle']-(index*__import__('math').pi/12+i*__import__('math').pi/3))))<1e-8 for i,s in enumerate(shots))
    sequences.append(r)
-  report['sequence_60_120']=sequences;passed('60/120Hz match35s fan→radial→blast sequence:1.8s initial delay,3.2s rest after completion,1.1s warning+.25s burst; old forest shot path is never called and active owned bullets cap at9.')
+  report['sequence_60_120']=sequences;passed('60/120Hz match35s fan→radial→blast sequence:1.8s initial delay,3.2s rest after completion,1.4s warning+.25s burst; old forest shot path is never called and active owned bullets cap at9.')
   passed('Actual fan is3 aimed shots at±18°/80px/s; radial is6 shots at60°/65px/s with0→15→30° starts,one attack art event per emitted burst/detonation and no warning-loop attack.')
 
-  fixed=page.evaluate('''()=>{const before=kingWarning();const h=before.hazard;player.x=h.x+80;player.y=h.y;kingAdvance(.55);const middle=gameSnowfieldBoss.snapshot(),pose=gameSnowfield.pose(boss,true).name;kingAdvance(.55);return {before,middle,after:gameSnowfieldBoss.snapshot(),pose,hp,player:{x:player.x,y:player.y}};}''')
+  fixed=page.evaluate('''()=>{const before=kingWarning();const h=before.hazard;player.x=h.x+80;player.y=h.y;kingAdvance(.7);const middle=gameSnowfieldBoss.snapshot(),pose=gameSnowfield.pose(boss,true).name;kingAdvance(.7);return {before,middle,after:gameSnowfieldBoss.snapshot(),pose,hp,player:{x:player.x,y:player.y}};}''')
   assert fixed['before']['phase']==fixed['middle']['phase']=='warning' and fixed['before']['hazard']==fixed['middle']['hazard'] and fixed['pose']!='attack'
-  assert fixed['after']['phase']=='burst' and fixed['hp']==4 and abs(fixed['middle']['remaining']-.55)<1e-8 and fixed['before']['hazard']['r']==38
-  report['fixed_warning_and_dodge']=fixed;passed('Warning lasts1.1s at its original fixed coordinate/r38; moving80px away does not drag the marker and avoids damage; warning alone does not trigger attack art.')
+  assert fixed['after']['phase']=='burst' and fixed['hp']==4 and abs(fixed['middle']['remaining']-.7)<1e-8 and fixed['before']['hazard']['r']==74
+  report['fixed_warning_and_dodge']=fixed;passed('Warning lasts1.4s at its original fixed coordinate/height-scaled56–74px; moving80px away does not drag the marker and avoids damage; warning alone does not trigger attack art.')
 
   damage=[]
   for kind in range(3):
-   r=page.evaluate('''kind=>{const state=kingWarning(kind);player.x=state.hazard.x;player.y=state.hazard.y;invuln=0;const old=hurt;let calls=0;hurt=()=>{calls++;old();};try{kingAdvance(1.1);const first={hp,invuln,state:gameSnowfieldBoss.snapshot()};kingAdvance(.25);for(let i=0;i<20;i++)update(0);return {kind,first,after:hp,calls,state:gameSnowfieldBoss.snapshot()};}finally{hurt=old;}}''',kind)
+   r=page.evaluate('''kind=>{const state=kingWarning(kind);player.x=state.hazard.x;player.y=state.hazard.y;invuln=0;const old=hurt;let calls=0;hurt=()=>{calls++;old();};try{kingAdvance(1.4);const first={hp,invuln,state:gameSnowfieldBoss.snapshot()};kingAdvance(.25);for(let i=0;i<20;i++)update(0);return {kind,first,after:hp,calls,state:gameSnowfieldBoss.snapshot()};}finally{hurt=old;}}''',kind)
    assert r['first']['hp']==r['after']==[4,6,9][kind]-1 and abs(r['first']['invuln']-1.55)<1e-8 and r['calls']==1 and r['first']['state']['phase']=='burst' and r['state']['phase']=='rest' and r['state']['hazard'] is None and abs(r['state']['remaining']-3.2)<1e-8;damage.append(r)
   report['blast_damage_all_characters']=damage;passed('All3 characters take exactly1HP at detonation through existing hurt()/1.55s invulnerability; .25s effect/repeated update(0) never deals another hit and next rest starts only after effect completion.')
   boundaries=[]
-  for distance,invuln,expected in [(38,0,3),(38.1,0,4),(0,1.55,4)]:
-   r=page.evaluate('''({distance,inv})=>{const s=kingWarning();player.x=s.hazard.x+distance;player.y=s.hazard.y;invuln=inv;kingAdvance(1.1);return {hp,invuln,state:gameSnowfieldBoss.snapshot()};}''',{'distance':distance,'inv':invuln});assert r['hp']==expected,r;boundaries.append({'distance':distance,'initialInvuln':invuln,**r})
-  report['aoe_boundary_and_invulnerability']=boundaries;passed('Blast damages within the displayed38px center radius,not38.1px outside; an existing invulnerability window blocks damage without extra status effects.')
+  for distance,invuln,expected in [(74,0,3),(74.1,0,4),(0,1.55,4)]:
+   r=page.evaluate('''({distance,inv})=>{const s=kingWarning();player.x=s.hazard.x+distance;player.y=s.hazard.y;invuln=inv;kingAdvance(1.4);return {hp,invuln,state:gameSnowfieldBoss.snapshot()};}''',{'distance':distance,'inv':invuln});assert r['hp']==expected,r;boundaries.append({'distance':distance,'initialInvuln':invuln,**r})
+  report['aoe_boundary_and_invulnerability']=boundaries;passed('Blast damages within the displayed74px center radius,not74.1px outside; an existing invulnerability window blocks damage without extra status effects.')
 
   projectiles=[]
   for pattern,age in [('fan',1.8),('radial',5)]:
@@ -118,13 +118,13 @@ try:
 
   hidden=page.evaluate('''()=>{kingWarning();const before={state:gameSnowfieldBoss.snapshot(),x:boss.x,y:boss.y,bullets:enemyBullets.map(b=>({...b})),hp};Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));update(5);gameSnowfieldBoss.update(boss,5);const frozen={state:gameSnowfieldBoss.snapshot(),x:boss.x,y:boss.y,bullets:enemyBullets.map(b=>({...b})),hp};delete document.hidden;document.dispatchEvent(new Event('visibilitychange'));update(0);return {before,frozen,resumed:gameSnowfieldBoss.snapshot()};}''')
   assert hidden['before']==hidden['frozen'] and hidden['before']['state']==hidden['resumed'];report['background_pause']=hidden
-  passed('Scoped background pause freezes boss motion,all owned bullets,hazard and cooldown; visibility return validates geometry without advancing or restarting the1.1s timer.')
+  passed('Scoped background pause freezes boss motion,all owned bullets,hazard and cooldown; visibility return validates geometry without advancing or restarting the1.4s timer.')
 
   restarted=page.evaluate('''()=>{kingWarning();const previous=boss;start(1);return {different:boss!==previous,state:gameSnowfieldBoss.snapshot(),type:player.type,hp,score:runScore,owned:enemyBullets.filter(b=>b.snowBossPattern).length};}''')
   assert restarted['different'] and restarted['type']==1 and restarted['hp']==6 and restarted['score']==restarted['owned']==0 and restarted['state']['phase']=='rest' and restarted['state']['hazard'] is None and abs(restarted['state']['remaining']-1.8)<1e-8
   report['defensive_restart']=restarted;passed('A defensive new game during a warning creates a new boss with fresh1.8s delay and clears every old danger/projectile without carrying score or damage.')
 
-  page.evaluate('kingWarning();hp=1;invuln=0;kingAdvance(1.1)');expect(page.locator('#gameOverOverlay')).to_be_visible()
+  page.evaluate('kingWarning();hp=1;invuln=0;kingAdvance(1.4)');expect(page.locator('#gameOverOverlay')).to_be_visible()
   dead=page.evaluate('''()=>({hp,started,state:gameSnowfieldBoss.snapshot(),owned:enemyBullets.filter(b=>b.snowBossPattern).length,result:gameScoring.getLastResult(),playing:kingAudio.filter(a=>a.loop&&!a.paused).length})''')
   assert dead['hp']==0 and not dead['started'] and dead['state'] is None and dead['owned']==dead['playing']==0 and dead['result']['developerTest'] and not dead['result']['saved']
   expect(page.locator('#menu')).to_be_visible(timeout=5000);delay=page.evaluate('kingReturnAt-kingDeathAt');assert 2990<=delay<4000,delay
@@ -150,16 +150,16 @@ try:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('W===innerWidth&&H===innerHeight')
    page.evaluate('kingScene()')
    page.wait_for_function('getComputedStyle(document.getElementById("rotationJoystick")).visibility==="visible"&&document.getElementById("fullscreenToggle").getBoundingClientRect().left>W*.5')
-   safe=page.evaluate('''()=>{const rows=[],r=38;const ids=['rotationJoystick','fire','hud','fullscreenToggle','exitGame','sensor','sensorStatus','worldPrototypeNotice'];const rects=ids.map(id=>document.getElementById(id)).filter(e=>e&&!e.hidden&&e.getClientRects().length).map(e=>e.getBoundingClientRect());rects.push({left:W*.3,right:W*.7,top:31,bottom:66});
-    const fire=document.getElementById('fire').getBoundingClientRect(),joy=document.getElementById('rotationJoystick').getBoundingClientRect();for(const target of [[12,12],[W-12,H-12],[fire.x+fire.width/2,fire.y+fire.height/2],[joy.x+joy.width/2,joy.y+joy.height/2],[W/2,H/2],[0,H/2]]){const p=gameSnowfieldBoss.safeTarget(...target);if(!p)throw Error('No safe target');const clear=rects.every(b=>Math.hypot(p.x-Math.max(b.left,Math.min(b.right,p.x)),p.y-Math.max(b.top,Math.min(b.bottom,p.y)))>r);rows.push({target,point:p,clear,bounds:p.x>=42&&p.x<=W-42&&p.y>=42&&p.y<=H-42});}return rows;}''')
+   safe=page.evaluate('''()=>{const rows=[],r=gameSnowfieldBoss.radiusForHeight();const ids=['rotationJoystick','fire','hud','fullscreenToggle','exitGame','sensor','sensorStatus','worldPrototypeNotice'];const rects=ids.map(id=>document.getElementById(id)).filter(e=>e&&!e.hidden&&e.getClientRects().length).map(e=>e.getBoundingClientRect());rects.push({left:W*.3,right:W*.7,top:31,bottom:66});
+    const fire=document.getElementById('fire').getBoundingClientRect(),joy=document.getElementById('rotationJoystick').getBoundingClientRect();for(const target of [[12,12],[W-12,H-12],[fire.x+fire.width/2,fire.y+fire.height/2],[joy.x+joy.width/2,joy.y+joy.height/2],[W/2,H/2],[0,H/2]]){const p=gameSnowfieldBoss.safeTarget(...target);if(!p)throw Error('No safe target');const clear=rects.every(b=>Math.hypot(p.x-Math.max(b.left,Math.min(b.right,p.x)),p.y-Math.max(b.top,Math.min(b.bottom,p.y)))>r);rows.push({target,point:p,clear,bounds:p.x>=r+4&&p.x<=W-r-4&&p.y>=r+4&&p.y<=H-r-4});}return rows;}''')
    assert all(r['clear'] and r['bounds'] for r in safe),safe
-   for name,age in [('entry',1.55),('fan',2.4),('radial',6.2),('warning',8.75),('burst',9.38)]:
+   for name,age in [('entry',1.55),('fan',2.4),('radial',6.2),('warning',8.9),('burst',9.68)]:
     state=page.evaluate('''age=>{kingScene();kingAdvance(age);const state=gameSnowfieldBoss.snapshot();kingFreeze();return state;}''',age);assert state is not None
-    if name in ['warning','burst']:assert state['phase']==name and state['hazard']['r']==38
+    if name in ['warning','burst']:assert state['phase']==name and abs(state['hazard']['r']-max(56,min(74,height*.18)))<1e-8
     page.screenshot(path=str(args.artifacts/f'{name}-{width}x{height}.png'))
    page.evaluate('kingScene();kingKill()');page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending');page.screenshot(path=str(args.artifacts/f'clear-{width}x{height}.png'));layouts.append({'viewport':[width,height],'safeTargets':safe})
-  report['landscape_geometry']=layouts;passed('915×412,800×360,568×320 capture direct entry/all3 patterns/clear; r38 warnings remain fully on-canvas and disjoint from HUD/boss name/HP and actual joystick/fire/sensor/fullscreen/exit rectangles.')
-  page.set_viewport_size({'width':915,'height':412});page.evaluate('kingWarning();gameExitDialogOpen=true');page.set_viewport_size({'width':568,'height':320});page.wait_for_function('W===568');resize=page.evaluate('''()=>{gameExitDialogOpen=false;update(0);return gameSnowfieldBoss.snapshot();}''');assert resize['hazard'] is None or 42<=resize['hazard']['x']<=526;report['resize_safety']=resize
+  report['landscape_geometry']=layouts;passed('915×412,800×360,568×320 capture direct entry/all3 patterns/clear; height-scaled56–74px warnings remain fully on-canvas and disjoint from HUD/boss name/HP and actual joystick/fire/sensor/fullscreen/exit rectangles.')
+  page.set_viewport_size({'width':915,'height':412});page.evaluate('kingWarning();gameExitDialogOpen=true');page.set_viewport_size({'width':568,'height':320});page.wait_for_function('W===568');resize=page.evaluate('''()=>{gameExitDialogOpen=false;update(0);return gameSnowfieldBoss.snapshot();}''');assert resize['hazard'] is None or resize['hazard']['r']+4<=resize['hazard']['x']<=568-resize['hazard']['r']-4;report['resize_safety']=resize
   passed('Resize/fullscreen/visibility validation cancels an unsafe warning rather than moving it to follow the player or allowing off-canvas damage.')
 
   # Separate native contexts compare World1 against the previous product; the tested offline page stays offline.

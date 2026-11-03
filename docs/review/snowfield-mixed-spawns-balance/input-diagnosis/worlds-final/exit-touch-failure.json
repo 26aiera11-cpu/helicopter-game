@@ -1,0 +1,357 @@
+{
+  "viewport": [
+    800,
+    360
+  ],
+  "started": true,
+  "hp": 4,
+  "dialog": false,
+  "inert": false,
+  "disabled": false,
+  "pointerEvents": "auto",
+  "hit": "exitGame",
+  "rect": {
+    "x": 718.5625,
+    "y": 9,
+    "width": 71.4375,
+    "height": 31,
+    "top": 9,
+    "right": 790,
+    "bottom": 40,
+    "left": 718.5625
+  },
+  "controls": {
+    "raw": 0,
+    "value": 0,
+    "deadZone": 0.08,
+    "rotationPointer": null,
+    "firePointer": null,
+    "dragPointer": null
+  },
+  "finale": {
+    "active": false,
+    "pending": false
+  },
+  "trace": [
+    {
+      "name": "pointerdown",
+      "x": 457.4800109863281,
+      "y": 372.6400146484375,
+      "id": 8,
+      "primary": true,
+      "target": "startSelected",
+      "time": 5960.200000000186,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 457.4800109863281,
+      "y": 372.6400146484375,
+      "id": 8,
+      "primary": true,
+      "target": "startSelected",
+      "time": 5960.5,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 457,
+      "y": 373,
+      "id": 8,
+      "primary": false,
+      "target": "startSelected",
+      "time": 5961,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 112.34375,
+      "y": 361,
+      "id": 9,
+      "primary": true,
+      "target": "rotationJoystick",
+      "time": 6143.5,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 857.5,
+      "y": 359.5,
+      "id": 10,
+      "primary": false,
+      "target": "fire",
+      "time": 6226.0999999996275,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 503.25,
+      "y": 164.8000030517578,
+      "id": 11,
+      "primary": false,
+      "target": "game",
+      "time": 6243.799999999814,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 172.84375,
+      "y": 361,
+      "id": 9,
+      "primary": true,
+      "target": "rotationJoystick",
+      "time": 6296.5,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 857.5,
+      "y": 359.5,
+      "id": 10,
+      "primary": false,
+      "target": "fire",
+      "time": 6310.299999999814,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 578.25,
+      "y": 164.8000030517578,
+      "id": 11,
+      "primary": false,
+      "target": "game",
+      "time": 6328.299999999814,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 869.280029296875,
+      "y": 24.5,
+      "id": 12,
+      "primary": true,
+      "target": "exitGame",
+      "time": 7059.5,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 869.280029296875,
+      "y": 24.5,
+      "id": 12,
+      "primary": true,
+      "target": "exitGame",
+      "time": 7060.200000000186,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 869,
+      "y": 25,
+      "id": 12,
+      "primary": false,
+      "target": "exitGame",
+      "time": 7060.9000000003725,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 374.2099914550781,
+      "y": 234.5399932861328,
+      "id": 13,
+      "primary": true,
+      "target": "gameExitCancel",
+      "time": 7110,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 374.2099914550781,
+      "y": 234.5399932861328,
+      "id": 13,
+      "primary": true,
+      "target": "gameExitCancel",
+      "time": 7110.700000000186,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 374,
+      "y": 235,
+      "id": 13,
+      "primary": false,
+      "target": "gameExitCancel",
+      "time": 7111.0999999996275,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 869.280029296875,
+      "y": 24.5,
+      "id": 14,
+      "primary": true,
+      "target": "exitGame",
+      "time": 7159.9000000003725,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 869.280029296875,
+      "y": 24.5,
+      "id": 14,
+      "primary": true,
+      "target": "exitGame",
+      "time": 7160.299999999814,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 869,
+      "y": 25,
+      "id": 14,
+      "primary": false,
+      "target": "exitGame",
+      "time": 7160.9000000003725,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 540.780029296875,
+      "y": 234.5399932861328,
+      "id": 15,
+      "primary": true,
+      "target": "gameExitConfirm",
+      "time": 7210.700000000186,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 540.780029296875,
+      "y": 234.5399932861328,
+      "id": 15,
+      "primary": true,
+      "target": "gameExitConfirm",
+      "time": 7210.799999999814,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 541,
+      "y": 235,
+      "id": 15,
+      "primary": false,
+      "target": "gameExitConfirm",
+      "time": 7211.700000000186,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 400,
+      "y": 325.6000061035156,
+      "id": 16,
+      "primary": true,
+      "target": "startSelected",
+      "time": 7275.0999999996275,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 400,
+      "y": 325.6000061035156,
+      "id": 16,
+      "primary": true,
+      "target": "startSelected",
+      "time": 7275.5999999996275,
+      "prevented": false
+    },
+    {
+      "name": "click",
+      "x": 400,
+      "y": 326,
+      "id": 16,
+      "primary": false,
+      "target": "startSelected",
+      "time": 7277.5999999996275,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 102,
+      "y": 309,
+      "id": 17,
+      "primary": true,
+      "target": "rotationJoystick",
+      "time": 7426,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 742.5,
+      "y": 307.5,
+      "id": 18,
+      "primary": false,
+      "target": "fire",
+      "time": 7508.5,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 440,
+      "y": 144,
+      "id": 19,
+      "primary": false,
+      "target": "game",
+      "time": 7525.700000000186,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 152,
+      "y": 309,
+      "id": 17,
+      "primary": true,
+      "target": "rotationJoystick",
+      "time": 7576.299999999814,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 742.5,
+      "y": 307.5,
+      "id": 18,
+      "primary": false,
+      "target": "fire",
+      "time": 7592.4000000003725,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 515,
+      "y": 144,
+      "id": 19,
+      "primary": false,
+      "target": "game",
+      "time": 7608.9000000003725,
+      "prevented": false
+    },
+    {
+      "name": "pointerdown",
+      "x": 754.280029296875,
+      "y": 24.5,
+      "id": 20,
+      "primary": true,
+      "target": "exitGame",
+      "time": 8326.099999999627,
+      "prevented": false
+    },
+    {
+      "name": "pointerup",
+      "x": 754.280029296875,
+      "y": 24.5,
+      "id": 20,
+      "primary": true,
+      "target": "exitGame",
+      "time": 8326.400000000373,
+      "prevented": false
+    }
+  ]
+}

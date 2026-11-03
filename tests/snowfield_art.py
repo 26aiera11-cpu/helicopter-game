@@ -69,7 +69,7 @@ class Touch:
 helpers='''() => {
  window.artEnemy=(x=160,y=150)=>({x,y,r:16,hp:1,special:false,t:0,speed:38,shot:999,charge:999,kind:0,mode:'chase',vx:0,vy:0});
  window.artScene=(step=1,type=0)=>{
-  gameExitDialogOpen=false;itemMonsters.configure({opportunitiesPerRegion:0});start(type);stage=4;phase=step;transition=0;spawn=999;invuln=999;player.x=W*.55;player.y=H*.72;
+  gameExitDialogOpen=false;itemMonsters.configure({opportunitiesPerRegion:0});start(type);gameSnowfieldSpawns.reset(12345);stage=4;phase=step;transition=0;spawn=999;invuln=999;player.x=W*.55;player.y=H*.72;
   if(step<5)enemies=[gameSnowfieldCombat.prepare(artEnemy(W*.45,H*.42))];else{phaseKills=requiredKills;update(0);transition=0;boss.shot=999;}
   gameSnowfield.observe(enemies,boss);gameScoring.updateHUD();
  };
@@ -100,7 +100,7 @@ try:
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
   assert '승인 그래픽' in page.locator('#worldTrialSettings').inner_text()
-  assert '일반 적/보스 1차 전투 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
+  assert '혼합 등장/전투 밸런스 시험 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
 

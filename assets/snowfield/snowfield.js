@@ -19,7 +19,7 @@
   function track(actor,isBoss=false) {
     let state=states.get(actor);
     if(!state){
-      const id=isBoss?bossId:normalIds[Math.max(0,Math.min(3,phase-1))];
+      const id=isBoss?bossId:normalIds.includes(actor.snowSpeciesId)?actor.snowSpeciesId:normalIds[Math.max(0,Math.min(3,phase-1))];
       state={id,actor,x:actor.x,y:actor.y,base:'idle',baseAt:clock,attackUntil:0,hitUntil:0};
       states.set(actor,state);observed.add(state);
     }

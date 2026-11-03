@@ -37,7 +37,7 @@ helpers='''() => {
   combatExit();if(!gameWorlds.setDeveloperStart({enabled:true,regionId:4,phase:step}))throw Error('Entry rejected');
   itemMonsters.configure({opportunitiesPerRegion:0});start(type);transition=0;spawn=999;invuln=999;player.x=W*.8;player.y=H*.75;fireCooldown=0;
   if(step===5)return boss;
-  warnEnemy();warnings[0].x=150;warnings[0].y=120;warnings[0].time=0;update(0);return enemies[0];
+  gameSnowfieldSpawns.reset(12345);warnEnemy();warnings[0].x=150;warnings[0].y=120;warnings[0].time=0;update(0);return enemies[0];
  };
  window.combatAdvance=(seconds,hz=120)=>{let t=0;while(t<seconds-1e-10){const dt=Math.min(1/hz,seconds-t);update(dt);t+=dt;}};
  window.combatHit=e=>{bullets=[];shoot();const b=bullets[0];Object.assign(b,{x:e.x,y:e.y,vx:0,vy:0});const damage=b.damage;update(0);return {hp:e.hp,damage,score:runScore,kills:phaseKills,pose:gameSnowfield.pose(e),alive:enemies.includes(e),remaining:b.pierce};};
@@ -64,7 +64,7 @@ try:
   for step in range(1,5):
    if step>1:page.evaluate('combatExit()')
    page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option(str(step));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap()
-   row=page.evaluate('''() => {gameExitDialogOpen=false;transition=0;spawn=999;invuln=999;enemies=[];warnings=[];warnEnemy();const before=warnings.length;update(.7);const half={warning:warnings.length,actors:enemies.length};update(.7);const e=enemies[0];return {before,half,after:combatSample(e),boss:!!boss};}''')
+   row=page.evaluate('''() => {gameSnowfieldSpawns.reset(12345);gameExitDialogOpen=false;transition=0;spawn=999;invuln=999;enemies=[];warnings=[];warnEnemy();const before=warnings.length;update(.7);const half={warning:warnings.length,actors:enemies.length};update(.7);const e=enemies[0];return {before,half,after:combatSample(e),boss:!!boss};}''')
    assert row['before']==1 and row['half']=={'warning':1,'actors':0} and not row['boss']
    after=row['after'];assert after['hp']==[1,2,2,3][step-1] and after['r']==16 and abs(after['speed']-[32.3,36.1,28.5,20.9][step-1])<1e-8
    assert after['state']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle'][step-1] and after['state']['mode']=='pursue' and after['score']==0
@@ -96,21 +96,21 @@ try:
 
   charges=[]
   for hz in [60,120]:
-   r=page.evaluate('''hz=>{const e=combatScene(2);e.x=150;e.y=150;player.x=700;player.y=150;e.shot=999;const start={x:e.x,y:e.y};combatAdvance(3.75,hz);const warn={...combatSample(e),x:e.x,y:e.y};
-    e.shot=0;player.x=100;player.y=330;combatAdvance(.45,hz);const begin={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
-    combatAdvance(.2,hz);const half={x:e.x,y:e.y,shots:enemyBullets.length};player.x=800;player.y=300;combatAdvance(.2,hz);const end={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
-    combatAdvance(.65,hz);const rest={...combatSample(e),x:e.x,y:e.y};combatAdvance(2.25,hz);return {hz,start,warn,begin,half,end,rest,next:combatSample(e)};}''',hz)
-   assert r['warn']['state']['mode']=='windup' and abs(r['warn']['x']-150-36.1*3.75)<1e-7
+   r=page.evaluate('''hz=>{const e=combatScene(2);e.x=150;e.y=150;player.x=700;player.y=150;e.shot=999;const start={x:e.x,y:e.y};combatAdvance(4.5,hz);const warn={...combatSample(e),x:e.x,y:e.y};
+    e.shot=0;player.x=100;player.y=330;combatAdvance(.8,hz);const begin={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
+    combatAdvance(.6,hz);const half={x:e.x,y:e.y,shots:enemyBullets.length};player.x=800;player.y=300;combatAdvance(.6,hz);const end={...combatSample(e),x:e.x,y:e.y,shots:enemyBullets.length};
+    combatAdvance(.8,hz);const rest={...combatSample(e),x:e.x,y:e.y};combatAdvance(3.7,hz);return {hz,start,warn,begin,half,end,rest,next:combatSample(e)};}''',hz)
+   assert r['warn']['state']['mode']=='windup' and abs(r['warn']['x']-150-36.1*4.5)<1e-7
    assert r['begin']['state']['mode']=='dash' and r['begin']['x']==r['warn']['x'] and r['begin']['y']==r['warn']['y'] and r['begin']['shots']==0
-   assert abs(r['half']['x']-r['begin']['x']-68.4*.2)<1e-7 and r['half']['y']==r['begin']['y'] and r['half']['shots']==0
-   assert r['end']['state']['mode']=='rest' and abs(r['end']['x']-r['begin']['x']-27.36)<1e-7 and r['end']['y']==r['begin']['y'] and r['end']['shots']==0
+   assert abs(r['half']['x']-r['begin']['x']-432.6*.5)<1e-7 and r['half']['y']==r['begin']['y'] and r['half']['shots']==0
+   assert r['end']['state']['mode']=='rest' and abs(r['end']['x']-r['begin']['x']-432.6)<1e-7 and r['end']['y']==r['begin']['y'] and r['end']['shots']==0 and not r['end']['state']['wallStopped']
    assert r['rest']['state']['mode']=='pursue' and r['rest']['x']==r['end']['x'] and r['rest']['y']==r['end']['y']
-   assert r['next']['state']['mode']=='windup' and abs(r['next']['state']['age']-7.5)<1e-7;charges.append(r)
-  report['penguin_60_120']=charges;passed('Penguin60/120Hz:3.75s initial grace,.45s visible windup,.4s fixed vector at68.4px/s/27.36px,.65s stationary rest,3.75s windup-to-windup; moving target cannot redirect charge and expired shot cooldown cannot fire during windup/dash.')
+   assert r['next']['state']['mode']=='windup' and abs(r['next']['state']['age']-11)<1e-7;charges.append(r)
+  report['penguin_60_120']=charges;passed('Penguin60/120Hz:4.5s grace,.8s warning,1.2s locked dash of1.05H=432.6px,.8s rest and3.7s pursuit before next warning; no shooting/tracking while charging.')
 
-  edge=page.evaluate('''()=>{const rows=[];for(const side of [-1,1]){const e=combatScene(2);e.x=side<0?17:W-17;e.y=side<0?18:H-18;player.x=side<0?12:W-12;player.y=side<0?12:H-12;e.shot=999;combatAdvance(5);rows.push({x:e.x,y:e.y,r:e.r,state:gameSnowfieldCombat.snapshot(e)});}return rows;}''')
+  edge=page.evaluate('''()=>{const rows=[];for(const side of [-1,1]){const e=combatScene(2);e.x=side<0?17:W-17;e.y=side<0?18:H-18;player.x=side<0?12:W-12;player.y=side<0?12:H-12;e.shot=999;combatAdvance(7);rows.push({x:e.x,y:e.y,r:e.r,state:gameSnowfieldCombat.snapshot(e)});}return rows;}''')
   assert all(17<=v['x']<=898 and 18<=v['y']<=394 and v['r']==16 for v in edge)
-  dodge=page.evaluate('''()=>{const e=combatScene(2);e.x=150;e.y=150;player.x=700;player.y=150;e.shot=999;combatAdvance(3.75);player.x=e.x+13.68;player.y=e.y+80;const before=hp;invuln=0;combatAdvance(.85);return {before,after:hp,player:{x:player.x,y:player.y},enemy:{x:e.x,y:e.y}};}''')
+  dodge=page.evaluate('''()=>{const e=combatScene(2);e.x=150;e.y=150;player.x=700;player.y=150;e.shot=999;combatAdvance(4.5);player.x=e.x+13.68;player.y=e.y+80;const before=hp;invuln=0;combatAdvance(2);return {before,after:hp,player:{x:player.x,y:player.y},enemy:{x:e.x,y:e.y}};}''')
   assert dodge['before']==dodge['after'];report['penguin_boundaries']=edge;report['dodge_after_warning']=dodge
   passed('Penguin charge clamps to existing17/18px arena bounds without changing r16; perpendicular displacement during the warning avoids the locked path with no damage or input restriction.')
 
@@ -141,10 +141,11 @@ try:
   passed('All normal-enemy developer entries/attacks/deaths retain the original storage bytes with0 TOP10/analysis writes.')
 
   gate=page.evaluate('''()=>{combatScene(4);enemies=[];phase=5;phaseKills=0;bullets=[];const rows=[];for(let i=0;i<6;i++){warnEnemy();warnings[0].time=0;update(0);const e=enemies[0],initial=combatSample(e);while(e.hp>0)combatHit(e);rows.push({initial,boss:!!boss,kills:phaseKills});}update(0);return {rows,boss:boss&&{hp:boss.hp,r:boss.r},score:runScore,result:gameScoring.getLastResult()};}''')
-  assert all(v['initial']['hp']==3 and v['initial']['state']['id']=='frost_turtle' and abs(v['initial']['speed']-20.9)<1e-8 and not v['boss'] and v['kills']==i+1 for i,v in enumerate(gate['rows']))
+  species={'penguin_raider':(2,36.1),'ice_yeti':(2,28.5),'frost_turtle':(3,20.9)}
+  assert all(v['initial']['state']['id'] in species and v['initial']['hp']==species[v['initial']['state']['id']][0] and abs(v['initial']['speed']-species[v['initial']['state']['id']][1])<1e-8 and not v['boss'] and v['kills']==i+1 for i,v in enumerate(gate['rows']))
   assert gate['boss']=={'hp':20,'r':48} and gate['score']==600 and gate['result'] is None
   report['ordinary_phase5_gate']=gate
-  passed('Reaching ordinary phase5 retains six actual3HP turtles/600points before the unchanged20HP boss, while direct5 keeps the separate skip behavior.')
+  passed('Reaching ordinary phase5 retains six actual weighted penguin/yeti/turtle kills/600points before the unchanged20HP boss, while direct5 keeps the separate skip behavior.')
 
   # Compare protected fights against the exact previous code, using identical RNG/input.
   refctx=browser.new_context(viewport={'width':915,'height':412});old=refctx.new_page();old.goto(f'http://127.0.0.1:{reference.server_port}/');old.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()')
@@ -181,7 +182,7 @@ try:
    page.set_viewport_size({'width':width,'height':height})
    for step in range(1,5):
     scene=page.evaluate('''step=>{const e=combatScene(step);e.x=W*.5;e.y=H*.43;player.x=W*.75;player.y=H*.7;
-     if(step===2){e.shot=999;combatAdvance(3.9);}
+     if(step===2){e.shot=999;combatAdvance(4.9);}
      if(step===3){e.shot=0;update(0);combatAdvance(.75);}
      gameSnowfield.observe(enemies,boss);combatFreeze();const spec=gameSnowfield.species.find(s=>s.id===e.snowSpeciesId);return {step,state:gameSnowfieldCombat.snapshot(e),geometry:gameSnowfield.geometry(spec,e.x,e.y,W,H),actor:{x:e.x,y:e.y,r:e.r}};}''',step)
     box=scene['geometry'];assert box['x']>=0 and box['y']>=0 and box['x']+box['w']<=width and box['y']+box['h']<=height

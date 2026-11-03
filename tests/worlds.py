@@ -153,7 +153,7 @@ try:
   report['reward_order']=reward_order;passed('Both unchanged50:50 boss rewards are checked for all3 characters: HP reward precedes region healing; power+1 precedes healing, no extra world/region points.')
 
   snow_combat=page.evaluate('''() => {
-   worldReset();worldSnow();warnEnemy();for(let i=0;i<36;i++)update(.04);const e=enemies[0];const normal={hp:e.hp,speed:e.speed,special:e.special};worldHit(e);
+   worldReset();worldSnow();gameSnowfieldSpawns.reset(1);warnEnemy();for(let i=0;i<36;i++)update(.04);const e=enemies[0];const normal={hp:e.hp,speed:e.speed,special:e.special};worldHit(e);
    phase=5;phaseKills=requiredKills;player.upgrade=5;update(0);transition=0;const hpAtSpawn=boss.hp;player.upgrade=0;boss.shot=0;for(let n=0;n<180;n++)update(.01);
    return {normal,profile:gameWorlds.profile(stage),tactics:tactics[4],sameSprites:enemySprites[4]===enemySprites[0]&&bossSprites[4]===bossSprites[0],hpAtSpawn,hpAfter:boss.hp,shots:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),points:runScore};
   }''')

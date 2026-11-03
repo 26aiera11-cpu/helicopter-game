@@ -95,7 +95,7 @@
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·일반 몬스터/보스 전용 공격은 1차 전투 시험이며 BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·단계별 혼합 몬스터/장거리 돌진/확장 폭발은 밸런스 시험이며 BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -124,7 +124,7 @@
     devPhase.addEventListener('change',()=>{setDeveloperStart({phase:Number(devPhase.value)});syncUI();});
     new MutationObserver(syncUI).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 일반 적/보스 1차 전투 / BGM 숲 임시';notice.hidden=true;document.body.append(notice);
+    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';notice.hidden=true;document.body.append(notice);
     new MutationObserver(syncUI).observe(document.getElementById('menu'),{attributes:true,attributeFilter:['class']});syncUI();
   }
   window.gameWorlds=Object.freeze({worlds,regions,region,isTrial,setTrialEnabled,isDeveloper,setDeveloperStart,
