@@ -1,0 +1,14 @@
+PASS: After reversing reviewed selection-BGM changes, only the exact Tanko cooldown multiplier differs from f622f3f; reviewed penetration/mutual-interception deltas still match287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, other-character cooldowns, boss HP/reward and other-character source is preserved; JS syntax passes.
+PASS: All six upgrades keep original speed410, lifetime1.9, counts; new monster penetration2/3/3/4/4/5; damage is1.5 and requested upgrade1..5 widths are exact with height29.
+PASS: 48 actual draws across 0..5 upgrades and eight directions preserve a rectangular29px height with width perpendicular to travel; side/end/corner hit boundaries match the same oriented rectangle.
+PASS: Actual ordinary-enemy HP falls by exactly1.5; same-target overlap across frames is ignored, and each distinct enemy consumes one shared penetration without resetting lifetime.
+PASS: All upgrades exhaust exactly2/3/3/4/4/5 distinct monster hits, apply1.5 each, remove the shot immediately and leave the next monster untouched without duplicate damage.
+PASS: Actual boss HP falls10→8.5 once per projectile; boss contact consumes one monster penetration; a later hostile collision destroys both bullets despite one charge left, without repeated boss damage.
+PASS: Ordinary bullets and one projectile from the actual desert boss five-shot volley mutually annihilate the Tanko shot; the other four hostile bullets remain.
+PASS: After one enemy hit leaves two charges, the first hostile contact destroys the Tanko shot that frame; subsequent hostile bullets are not intercepted.
+PASS: One hostile bullet overlapping two Tanko shots destroys exactly one shot; the other survives, and retrying the removed hostile target has no effect.
+PASS: At every upgrade, one Tanko projectile blocks exactly one of20 incoming bullets and vanishes despite2/3/3/4/4/5 charges; the other19 remain, and original lifetime expiry still works.
+PASS: After interception a dead shot cannot damage a later monster; normal penetration still preserves remaining lifetime, skips repeat damage and later mutually annihilates with a hostile bullet.
+PASS: Actual rear/side hostile hits still reduce Tanko HP9→8 when they miss the shot rectangle; unused projectile charges do not create a global player shield.
+PASS: Trio/Bingle upgrades0..5 retain damage1, original volley counts, speed535/480, piercing/homing and cannot intercept hostile bullets.
+PASS: 915×412/800×360/568×320 real gameplay fits all touch/fullscreen/exit controls, exits via the original modal with fullscreen retained, and has no native dialogs, asset requests or JS errors.

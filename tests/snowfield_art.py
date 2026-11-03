@@ -99,7 +99,7 @@ try:
   assert not page.evaluate('gameWorlds.isTrial()')
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
-  assert '승인 그래픽' in page.locator('#worldTrialSettings').inner_text()
+  assert '설원→화산' in page.locator('#worldTrialSettings').inner_text() and '30단계' in page.locator('#worldTrialSettings').inner_text()
   assert '혼합 등장/전투 밸런스 시험 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
@@ -208,20 +208,21 @@ try:
   expect(page.locator('#menu')).to_be_visible(timeout=4000);expect(page.locator('#selectionResult')).to_have_text('');assert page.evaluate('gameSnowfield.snapshot().clock===0&&gameSnowfield.snapshot().ghosts.length===0')
   passed('Game over still freezes immediately for3s, returns to clean selection and resets all art state; no animation continues behind the death overlay.')
 
-  page.evaluate('artScene(5);boss.hp=1;artHit(boss);gameSnowfield.tickFinale(0);artHoldFinale()');result=page.evaluate('gameScoring.getLastResult()');assert result['record']['outcome']=='clear' and result['record']['score']==2000
+  page.evaluate('gameWorlds.setDeveloperStart({enabled:true,regionId:4,phase:5});artScene(5);boss.hp=1;artHit(boss);gameSnowfield.tickFinale(0);artHoldFinale()');result=page.evaluate('gameScoring.getLastResult()');assert result['record']['outcome']=='clear' and result['record']['score']==2000
   page.wait_for_function('gameSnowfield.snapshot().finale.active');assert page.evaluate('!started&&boss===null&&getComputedStyle(menu).visibility==="hidden"&&!!document.fullscreenElement')
   page.screenshot(path=str(args.artifacts/'boss-fatal-hit.png'))
   page.evaluate('artReleaseFinale();gameSnowfield.tick(.331);artHoldFinale()')
   assert page.evaluate('gameSnowfield.snapshot().ghosts[0].pose.name')=='defeat';page.screenshot(path=str(args.artifacts/'boss-defeat.png'))
   page.evaluate('artReleaseFinale()')
-  expect(page.locator('#menu')).to_be_visible(timeout=2500);expect(page.locator('#selectionResult')).to_contain_text('설원 시험 완료')
+  expect(page.locator('#menu')).to_be_visible(timeout=2500);expect(page.locator('#selectionResult')).to_contain_text('지역 테스트 완료')
   saved=page.evaluate('gameScoring.getLastResult()');assert saved==result and page.evaluate('!gameSnowfield.snapshot().finale.active&&gameSnowfield.snapshot().ghosts.length===0&&gameSnowfield.snapshot().clock===0')
   page.screenshot(path=str(args.artifacts/'snow-clear-after-defeat.png'))
   report['final_boss_result']=result
-  passed('Real boss death awards/saves clear immediately once, removes combat, shows visual-only330ms hit+720ms defeat, then reveals the existing trial-clear selection with identical score/fullscreen.')
+  passed('Real developer snow boss death awards a nonpersisted clear immediately once, removes combat, shows visual-only330ms hit+720ms defeat, then reveals the existing developer-clear selection with identical score/fullscreen.')
   page.evaluate('artScene(5);boss.hp=1;artHit(boss)');page.wait_for_function('gameSnowfield.snapshot().finale.active');page.evaluate('start(1);spawn=999;invuln=999');page.wait_for_timeout(1100)
-  assert page.evaluate('started&&player.type===1&&stage===0&&menu.classList.contains("hidden")&&!gameSnowfield.snapshot().finale.active&&gameSnowfield.snapshot().ghosts.length===0')
+  assert page.evaluate('started&&player.type===1&&stage===4&&menu.classList.contains("hidden")&&!gameSnowfield.snapshot().finale.active&&gameSnowfield.snapshot().ghosts.length===0')
   passed('A defensive restart during the art outro cancels it synchronously; no stale timer/class/corpse can cover or terminate the new game.')
+  page.evaluate('artExit();gameWorlds.setDeveloperStart({enabled:false});gameWorlds.setTrialEnabled(true)')
 
   music=page.evaluate('''() => {artScene(1);gameAudio.tick(0);return {count:artAudio.length,media:document.getElementById('selectionBgm')!==null,profile:gameWorlds.musicProfile(stage)};}''')
   assert music=={'count':12,'media':True,'profile':0}

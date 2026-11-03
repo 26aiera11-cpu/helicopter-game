@@ -1,0 +1,44 @@
+PASS: Exact name/title-only changes reverse to4831903;original background,all character/115frame assets,combat/region tuning,input,audio,score logic/IDs/keys preserved;all JS parses.
+PASS: All40 legacy normal/trial TOP10/history records retain IDs,scores,dates,order,region,stats and ties;ID0 displays뾰코,others unchanged;reading/scope switches/table opening do not rewrite a single stored byte.
+PASS: Reload/reopen preserves all original version1 storage keys and raw records while resolving the new display name by characterId0;no destructive migration.
+PASS: All3 characters fit3landscapes;isolated background-layer pixel differences from title correction stay entirely inside the first vowel ROI37–41.8%×2.4–11.2%,with other title letters/background/layout unchanged and no pointer interception.
+PASS: Enlarged before/after title screenshot uses actual CSS layers in browser;visibleㅔ has separate vertical strokes and its short stroke extends left,with original yellow/orange bevel and navy outline.
+PASS: All3 actual start→HP0→3s game-over→clean menu paths show canonical names,retain fullscreen and preserve every old analysis record;new ID0 results save뾰코,without changing keys/scores.
+PASS: All3 names appear in real bullet-kill desert/snow developer clear results;score2000/rewards/finale preserved and all4 ranking/history storage strings remain untouched.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/ppyoko_title.py", line 102, in <module>
+    expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어',timeout=4000)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22016, in to_contain_text
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '뾰코'
+Actual value:  
+Call log:
+  - Expect "to_contain_text" with timeout 4000ms
+  - waiting for locator("#selectionResult")
+    12 × locator resolved to <p role="status" aria-live="polite" id="selectionResult" class="selection-result"></p>
+       - unexpected value ""
+
+Aria snapshot:
+- heading "🏁 월드 2 시험 완료! · 뾰코 · 2,000점" [level=1]
+- paragraph: 설원과 화산 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.
+- group "헬기를 선택하세요":
+  - 'button "뾰코 선택: 세모 헬기 · 속사형, 체력 4, 빠른 연사 · 다방향, 이동 빠름" [pressed]'
+  - 'button "빙글 선택: 동그라미 헬기 · 균형형, 체력 6, 강화 시 유도탄, 이동 균형"'
+  - 'button "탱코 선택: 네모 헬기 · 튼튼형, 체력 9, 강력한 관통탄, 이동 묵직함"'
+  - button "선택한 헬기로 게임 시작"
+  - button "점수 순위표": 🏆 점수 순위표
+  - button "게임 방법"
+- group "사운드 설정":
+  - button "🎵 음악 ON" [pressed]
+  - button "🔊 효과음 ON" [pressed]
+- button "전체화면 해제" [pressed]: ⛶ 화면 복원

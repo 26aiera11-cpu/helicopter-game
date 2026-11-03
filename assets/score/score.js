@@ -172,8 +172,8 @@
   document.body.append(dialog);
   function render() {
     selectStorage();refresh();
-    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 설원 시험 TOP 10' : '🏆 TOP 10';
-    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '설원 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
+    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 월드 2 시험 TOP 10' : '🏆 TOP 10';
+    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
     const rows = dialog.querySelector('#leaderboardRows');
     rows.replaceChildren();
     top.forEach((record, index) => {

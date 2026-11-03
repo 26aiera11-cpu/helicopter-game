@@ -1,0 +1,58 @@
+{
+  "assets/worlds/worlds.js": [
+    [
+      "/* World/region registry. Snowfield is an opt-in prototype, never a default route. */\n",
+      "/* World/region registry. World 2 is opt-in, never part of the default route. */\n",
+      1
+    ],
+    [
+      "    [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved']\n",
+      "    [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],\n    [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved']\n",
+      1
+    ],
+    [
+      "    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏁 설원 시험 완료!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;\n",
+      "    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏁 월드 2 시험 완료!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;\n",
+      1
+    ],
+    [
+      "  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }\n",
+      "  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원과 화산 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }\n",
+      1
+    ],
+    [
+      "      data.terrainImgs[r.id]=r.prototypeBackground==='snowfield-approved'?snowImage():data.terrainImgs[r.assetProfile];data.enemySprites[r.id]=r.prototypeBackground==='snowfield-approved'?gameSnowfield.species.filter(s=>s.id!==gameSnowfield.bossId).map(s=>s.baseImage):data.enemySprites[r.assetProfile];data.bossSprites[r.id]=r.prototypeBackground==='snowfield-approved'?gameSnowfield.species.find(s=>s.id===gameSnowfield.bossId).baseImage:data.bossSprites[r.assetProfile];\n      data.tactics[r.id]=data.tactics[r.combatProfile];data.stageNames[r.id]=r.name;data.stageColors[r.id]=['#e3f3fa','#b8d9eb','#7eaaca'];\n",
+      "      const art=r.prototypeBackground==='snowfield-approved'?gameSnowfield:r.prototypeBackground==='volcano-approved'?gameVolcano:null;\n      data.terrainImgs[r.id]=art?art.backgroundImage:data.terrainImgs[r.assetProfile];data.enemySprites[r.id]=art?art.species.filter(s=>s.id!==art.bossId).map(s=>s.baseImage):data.enemySprites[r.assetProfile];data.bossSprites[r.id]=art?art.species.find(s=>s.id===art.bossId).baseImage:data.bossSprites[r.assetProfile];\n      data.tactics[r.id]=data.tactics[r.combatProfile];data.stageNames[r.id]=r.name;data.stageColors[r.id]=r.key==='world-2:volcano'?['#422728','#742b23','#f7a025']:['#e3f3fa','#b8d9eb','#7eaaca'];\n",
+      1
+    ],
+    [
+      "",
+      "    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 시험 · 그래픽 적용 / 전투·BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';\n",
+      1
+    ],
+    [
+      "    settings.innerHTML='<label><input id=\"worldTrialToggle\" type=\"checkbox\"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·단계별 혼합 몬스터/장거리 돌진/확장 폭발은 밸런스 시험이며 BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';\n",
+      "    settings.innerHTML='<label><input id=\"worldTrialToggle\" type=\"checkbox\"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 그래픽 적용과 숲 전투·BGM 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';\n",
+      1
+    ],
+    [
+      "      '<p id=\"developerStartPriority\" hidden>개발 테스트가 켜져 있어 설원 25단계 시험은 OFF입니다.</p>';\n",
+      "      '<p id=\"developerStartPriority\" hidden>개발 테스트가 켜져 있어 월드 2 포함 30단계 시험은 OFF입니다.</p>';\n",
+      1
+    ]
+  ],
+  "assets/score/score.js": [
+    [
+      "    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 설원 시험 TOP 10' : '🏆 TOP 10';\n    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '설원 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';\n",
+      "    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 월드 2 시험 TOP 10' : '🏆 TOP 10';\n    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';\n",
+      1
+    ]
+  ],
+  "assets/selection/selection.js": [
+    [
+      "    result.textContent = /모든 지역 클리어|설원 시험 완료|지역 테스트 완료/.test(message) ? message : '';\n",
+      "    result.textContent = /모든 지역 클리어|설원 시험 완료|월드 2 시험 완료|지역 테스트 완료/.test(message) ? message : '';\n",
+      1
+    ]
+  ]
+}

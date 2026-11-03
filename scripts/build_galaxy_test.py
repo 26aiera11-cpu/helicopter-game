@@ -20,6 +20,15 @@ def build():
     embedded_manifest = re.search(r'<template id="snowfieldManifest">(.*?)</template>', source, re.S)
     assert embedded_manifest and unescape(embedded_manifest[1]) == manifest_text, 'Native/standalone must use the supplied manifest unchanged'
     assert hashlib.sha256((manifest_path.parent / manifest['background']['path']).read_bytes()).hexdigest() == manifest['background']['sha256'], 'Preserve the approved snowfield background'
+    volcano_path = ROOT / 'assets/volcano/asset_manifest.json'
+    volcano_text = volcano_path.read_text()
+    volcano_template = re.search(r'<template id="volcanoManifest">(.*?)</template>', source, re.S)
+    assert volcano_template and unescape(volcano_template[1]) == volcano_text, 'Preserve the exact volcano frame manifest'
+    volcano_manifest = json.loads(volcano_text)
+    assert hashlib.sha256((volcano_path.parent / volcano_manifest['background']['path']).read_bytes()).hexdigest() == volcano_manifest['background']['sha256']
+    for actor in volcano_manifest['monsters']:
+        for kind in ['base', 'atlas']:
+            assert hashlib.sha256((volcano_path.parent / actor[kind]).read_bytes()).hexdigest() == actor[kind+'_sha256']
     css_path = ROOT / 'assets/selection/selection.css'
     js_path = ROOT / 'assets/selection/selection.js'
     embedded = {}
@@ -52,10 +61,11 @@ def build():
     world_javascript = (ROOT / 'assets/worlds/worlds.js').read_text()
     difficulty_javascript = (ROOT / 'assets/worlds/difficulty.js').read_text()
     snowfield_javascript = (ROOT / 'assets/snowfield/snowfield.js').read_text()
+    volcano_javascript = (ROOT / 'assets/volcano/volcano.js').read_text()
     snow_spawns_javascript = (ROOT / 'assets/snowfield/spawns.js').read_text()
     snow_combat_javascript = (ROOT / 'assets/snowfield/combat.js').read_text()
     snow_boss_javascript = (ROOT / 'assets/snowfield/boss_combat.js').read_text()
-    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + difficulty_javascript + snowfield_javascript + snow_combat_javascript + snow_boss_javascript + snow_spawns_javascript).lower()
+    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + difficulty_javascript + snowfield_javascript + volcano_javascript + snow_combat_javascript + snow_boss_javascript + snow_spawns_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -83,6 +93,8 @@ def build():
                             '<script id="galaxy-difficulty-js">' + difficulty_javascript + '</script>')
     result = result.replace('<script src="assets/snowfield/snowfield.js"></script>',
                             '<script id="galaxy-snowfield-js">' + snowfield_javascript + '</script>')
+    result = result.replace('<script src="assets/volcano/volcano.js"></script>',
+                            '<script id="galaxy-volcano-js">' + volcano_javascript + '</script>')
     result = result.replace('<script src="assets/snowfield/spawns.js"></script>',
                             '<script id="galaxy-snow-spawns-js">' + snow_spawns_javascript + '</script>')
     result = result.replace('<script src="assets/snowfield/combat.js"></script>',
@@ -93,10 +105,10 @@ def build():
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
-    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield)/[^\"\']+)([\"\'])', inline_resource, result)
+    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield|volcano)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [world_javascript, difficulty_javascript, snowfield_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, difficulty_javascript, snowfield_javascript, volcano_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -127,6 +139,9 @@ def build():
         'inlined_world_scripts': 1,
         'inlined_regional_difficulty_scripts': 1,
         'inlined_snowfield_scripts': 1,
+        'inlined_volcano_scripts': 1,
+        'embedded_volcano_manifest': True,
+        'embedded_volcano_frames': sum(actor['frame_count'] for actor in volcano_manifest['monsters']),
         'inlined_snow_combat_scripts': 1,
         'inlined_snow_spawns_scripts': 1,
         'inlined_snow_boss_scripts': 1,

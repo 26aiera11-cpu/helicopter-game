@@ -1,0 +1,43 @@
+PASS: Exact approved world hooks reverse to80aee39; all other gameplay, controls, PNG/audio bytes remain identical and every JS script parses.
+PASS: Two worlds register only6 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, and default route is exactly20 phases.
+PASS: Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the30-phase route and rejects mode changes during play.
+PASS: Real desert boss defeat rewards once, heals+2 then region+2 capped at4, enters snow1/5, preserves player/upgrade/items/actors/lifetimes/warning, and keeps fullscreen.
+PASS: Forest0, desert3 and snow4 have independent reservation keys; an old warning materializes against its original quota and snow gets3 distinct phases/kill thresholds.
+PASS: Both unchanged50:50 boss rewards are checked for all3 characters: HP reward precedes region healing; power+1 precedes healing, no extra world/region points.
+PASS: Snow uses approved monster sprites with Issue8 slimeHP1/chase34.238 and the Issue9 delayed3-shot fan with unchanged boss HP/upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/worlds.py", line 179, in <module>
+    expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어')
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 22016, in to_contain_text
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 303, in to_contain_text
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to contain text '월드 2 시험 완료'
+Actual value:  
+Call log:
+  - Expect "to_contain_text" with timeout 5000ms
+  - waiting for locator("#selectionResult")
+    13 × locator resolved to <p role="status" aria-live="polite" id="selectionResult" class="selection-result"></p>
+       - unexpected value ""
+
+Aria snapshot:
+- heading "🏁 월드 2 시험 완료! · 뾰코 · 42,000점" [level=1]
+- paragraph: 설원과 화산 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.
+- group "헬기를 선택하세요":
+  - 'button "뾰코 선택: 세모 헬기 · 속사형, 체력 4, 빠른 연사 · 다방향, 이동 빠름" [pressed]'
+  - 'button "빙글 선택: 동그라미 헬기 · 균형형, 체력 6, 강화 시 유도탄, 이동 균형"'
+  - 'button "탱코 선택: 네모 헬기 · 튼튼형, 체력 9, 강력한 관통탄, 이동 묵직함"'
+  - button "선택한 헬기로 게임 시작"
+  - button "점수 순위표": 🏆 점수 순위표
+  - button "게임 방법"
+- group "사운드 설정":
+  - button "🎵 음악 ON" [pressed]
+  - button "🔊 효과음 ON" [pressed]
+- button "전체화면 해제" [pressed]: ⛶ 화면 복원
