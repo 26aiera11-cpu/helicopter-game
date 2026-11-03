@@ -22,6 +22,7 @@ def package():
     assert b'id="galaxy-worlds-js"' in payload and b'world-2:snowfield' in payload and b'heliTrio.world2Trial.top10.v1' in payload, 'Include opt-in snowfield routing and isolated trial records'
     assert b'id="galaxy-snowfield-js"' in payload and b'id="snowfieldManifest"' in payload and b'blizzard_king' in payload, 'Include the approved snowfield atlas renderer and original manifest'
     assert b'id="galaxy-snow-combat-js"' in payload and b'penguin_raider' in payload, 'Include first-trial snowfield normal combat'
+    assert b'id="galaxy-snow-boss-js"' in payload and b'gameSnowfieldBoss' in payload, 'Include snow boss patterns'
     assert b'developerStartToggle' in payload and b'developerTest' in payload, "Include the developer region start and disabled-recording guard"
     assert b'id="left"' not in payload and b'id="right"' not in payload, 'Do not package retired rotation buttons'
     info=zipfile.ZipInfo.from_file(html,arcname=html.name)
@@ -39,7 +40,7 @@ def package():
             'html_sha256':hashlib.sha256(payload).hexdigest(),'compression':'ZIP DEFLATE',
             'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed',
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
-            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
+            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 
 
 if __name__=='__main__':

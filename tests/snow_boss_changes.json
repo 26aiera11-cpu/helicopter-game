@@ -1,0 +1,52 @@
+[
+  [
+    "<script src=\"assets/snowfield/combat.js\"></script>",
+    "<script src=\"assets/snowfield/combat.js\"></script>\n<script src=\"assets/snowfield/boss_combat.js\"></script>",
+    1
+  ],
+  [
+    "function start(type){gameSnowfield.reset();",
+    "function start(type){gameSnowfieldBoss.reset();gameSnowfield.reset();",
+    1
+  ],
+  [
+    "showGameExitDialog(()=>{gameScoring.finish('abandoned');",
+    "showGameExitDialog(()=>{gameSnowfieldBoss.reset();gameScoring.finish('abandoned');",
+    1
+  ],
+  [
+    " if(!started||gameOverPending)return;\n started=false;",
+    " if(!started||gameOverPending)return;\n gameSnowfieldBoss.reset();started=false;",
+    1
+  ],
+  [
+    "function nextPhase(){gameScoring.phaseCleared",
+    "function nextPhase(){gameSnowfieldBoss.reset();gameScoring.phaseCleared",
+    1
+  ],
+  [
+    "orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}",
+    "orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameAudio.fx('boss')}",
+    1
+  ],
+  [
+    " if(hp<=0){beginGameOver();return;}\n const profile",
+    " if(hp<=0){beginGameOver();return;}\n if(gameSnowfieldBoss.backgroundPaused())return;\n const profile",
+    1
+  ],
+  [
+    " if(boss.shot<=0&&transition<=0){emitEnemyShot(boss);",
+    " if(!gameSnowfieldBoss.update(boss,dt)&&boss.shot<=0&&transition<=0){emitEnemyShot(boss);",
+    1
+  ],
+  [
+    "boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}\n for(let b",
+    "boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}\n if(!started)return;\n for(let b",
+    1
+  ],
+  [
+    "itemMonsters.draw();\nfor(let b of enemyBullets){",
+    "itemMonsters.draw();gameSnowfieldBoss.draw(ctx);\nfor(let b of enemyBullets){if(gameSnowfieldBoss.drawBullet(ctx,b))continue;",
+    1
+  ]
+]

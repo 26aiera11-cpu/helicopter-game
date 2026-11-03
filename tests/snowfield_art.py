@@ -21,7 +21,7 @@ ROOT=Path(__file__).resolve().parents[1];BASELINE='0cbfe8205a761890a17b0cb9b77d1
 parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--standalone',action='store_true');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':[
  'Real Chromium canvas/pointer/fullscreen/media with controlled combat fixtures, not physical Galaxy/Samsung Internet or a manual difficulty playthrough.',
- 'The supplied atlas animations are prototypes; original PNG/manifest bytes are preserved. Boss/BGM retain the forest trial profile; Issue8 normal-enemy behavior is tested in snowfield_combat.py.',
+ 'The supplied atlas animations are prototypes; original PNG/manifest bytes are preserved. Boss HP/motion and BGM retain the forest trial profile; Issue9 attacks are tested separately; Issue8 normal-enemy behavior is tested in snowfield_combat.py.',
  'Offline injects the exact one-file HTML into a blank origin with networking disabled; no managed file policy bypass.',
  'PNG screenshots are actual browser captures; game state/animation time is controlled for comparisons, without image editing.'
 ]}
@@ -100,7 +100,7 @@ try:
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
   assert '승인 그래픽' in page.locator('#worldTrialSettings').inner_text()
-  assert '일반 적 1차 전투 / 보스·BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
+  assert '일반 적/보스 1차 전투 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
 
@@ -146,9 +146,9 @@ try:
   assert movement['moved']['name']==movement['frame']['name']=='move' and movement['frame']['index']==1
   assert movement['hp']==1 and movement['r']==16 and abs(movement['speed']-32.3)<1e-8
   report['actual_movement']=movement;passed('Actual slime pursuit at32.3px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.')
-  attacks=page.evaluate('''() => {const rows=[];for(let step=1;step<=5;step++){artScene(step);const e=boss||enemies[0];e.shot=0;update(0);const start=gameSnowfield.pose(e,!!boss);update(.121);rows.push({step,start,after:gameSnowfield.pose(e,!!boss),bullets:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),interval:e.shot});}return rows;}''')
-  assert all(r['start']['name']==r['after']['name']=='attack' and r['after']['index']==1 and r['bullets']==1 and abs(r['speed']-[85,85,76.5,85,117][r['step']-1])<1e-8 for r in attacks),attacks
-  report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while preserving the boss117px/s single-shot profile.')
+  attacks=page.evaluate('''() => {const rows=[];for(let step=1;step<=5;step++){artScene(step);const e=boss||enemies[0];e.shot=0;if(step===5){for(let n=0;n<180;n++)update(.01);}else update(0);const start=gameSnowfield.pose(e,!!boss);update(.121);rows.push({step,start,after:gameSnowfield.pose(e,!!boss),bullets:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),interval:e.shot});}return rows;}''')
+  assert all(r['start']['name']==r['after']['name']=='attack' and r['after']['index']==1 and r['bullets']==(3 if r['step']==5 else 1) and abs(r['speed']-[85,85,76.5,85,80][r['step']-1])<1e-8 for r in attacks),attacks
+  report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while using the Issue9 boss3-shot fan at80px/s after its1.8s delay.')
 
   hit=page.evaluate('''() => {artScene(5);const target=boss;artHit(target);const first=gameSnowfield.pose(target,true);update(.111);const middle=gameSnowfield.pose(target,true);update(.111);const last=gameSnowfield.pose(target,true);return {hp:target.hp,r:target.r,first,middle,last,score:runScore};}''')
   assert hit['hp']==19 and hit['r']==48 and hit['score']==0 and [hit[k]['index'] for k in ['first','middle','last']]==[0,1,2] and all(hit[k]['name']=='hit' for k in ['first','middle','last'])
@@ -198,7 +198,7 @@ try:
   reference_context.close();passed('Actual before/after snow normal/boss PNGs are captured at all3 landscape sizes from the baseline and new engine; no images are edited or composited.')
 
   # Real pause/menu/fullscreen and native animation-event captures.
-  page.set_viewport_size({'width':915,'height':412});page.evaluate('artScene(5);gameExitDialogOpen=false;boss.shot=0;update(0);artFreeze()');touch=Touch(context,page)
+  page.set_viewport_size({'width':915,'height':412});page.evaluate('artScene(5);gameExitDialogOpen=false;boss.shot=0;for(let n=0;n<180;n++)update(.01);artFreeze()');touch=Touch(context,page)
   page.screenshot(path=str(args.artifacts/'boss-attack.png'));page.evaluate('gameExitDialogOpen=false;artHit(boss);artFreeze()');page.screenshot(path=str(args.artifacts/'boss-hit.png'))
   page.evaluate('gameExitDialogOpen=false')
   touch.tap('#exitGame');expect(page.locator('#gameExitDialog')).to_be_visible();frozen=page.evaluate('gameSnowfield.snapshot()');page.wait_for_timeout(300);assert page.evaluate('gameSnowfield.snapshot()')==frozen

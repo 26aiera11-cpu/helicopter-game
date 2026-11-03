@@ -157,9 +157,15 @@ try:
   for area in range(5):
    for king in [False,True]:
     if area==4 and not king:continue
-    cfg={'area':area,'king':king};expected=old.evaluate(fixture,cfg);actual=page.evaluate(fixture,cfg);assert actual==expected,cfg;comparisons.append(cfg)
+    cfg={'area':area,'king':king};expected=old.evaluate(fixture,cfg);actual=page.evaluate(fixture,cfg)
+    if area==4:
+     # Only Issue9 snow attacks change: retain exact motion/HP/counter comparison.
+     def movement(rows):return [{k:({q:v for q,v in value.items() if q!='shot'} if k=='boss' and value else value) for k,value in row.items() if k!='bullets'} for row in rows]
+     assert movement(actual)==movement(expected),cfg
+    else:assert actual==expected,cfg
+    comparisons.append(cfg)
   report['protected_combat_trace_equal']=comparisons;refctx.close()
-  passed('Identical seeded native traces match6154812 for all4 World1 normal fights,all4 World1 bosses and snow boss: positions/HP/shot counts/bullet vectors and collision counters are exact.')
+  passed('Identical seeded native traces match6154812 for all4 World1 normal fights,all4 World1 bosses with exact positions/HP/shot counts/bullet vectors/counters; snow boss retains exact motion/HP/counters with Issue9 attacks tested separately.')
 
   # Restore a developer-only scope after the reference fixtures, without completing a real run.
   page.evaluate('combatExit()');before_dev=page.evaluate('JSON.stringify(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))');before_writes=page.evaluate('combatWrites.length')

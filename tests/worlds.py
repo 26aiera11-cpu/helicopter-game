@@ -154,12 +154,12 @@ try:
 
   snow_combat=page.evaluate('''() => {
    worldReset();worldSnow();warnEnemy();for(let i=0;i<36;i++)update(.04);const e=enemies[0];const normal={hp:e.hp,speed:e.speed,special:e.special};worldHit(e);
-   phase=5;phaseKills=requiredKills;player.upgrade=5;update(0);transition=0;const hpAtSpawn=boss.hp;player.upgrade=0;boss.shot=0;update(0);
+   phase=5;phaseKills=requiredKills;player.upgrade=5;update(0);transition=0;const hpAtSpawn=boss.hp;player.upgrade=0;boss.shot=0;for(let n=0;n<180;n++)update(.01);
    return {normal,profile:gameWorlds.profile(stage),tactics:tactics[4],sameSprites:enemySprites[4]===enemySprites[0]&&bossSprites[4]===bossSprites[0],hpAtSpawn,hpAfter:boss.hp,shots:enemyBullets.length,speed:Math.hypot(enemyBullets[0].vx,enemyBullets[0].vy),points:runScore};
   }''')
   assert snow_combat['normal']=={'hp':1,'speed':32.3,'special':False} and snow_combat['hpAtSpawn']==snow_combat['hpAfter']==44
-  assert not snow_combat['sameSprites'] and snow_combat['shots']==1 and snow_combat['speed']==117 and snow_combat['points']==100
-  report['snow_prototype_combat']=snow_combat;passed('Snow uses approved monster sprites with Issue8 slimeHP1/speed32.3 and the unchanged forest boss pattern and upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.')
+  assert not snow_combat['sameSprites'] and snow_combat['shots']==3 and abs(snow_combat['speed']-80)<1e-8 and snow_combat['points']==100
+  report['snow_prototype_combat']=snow_combat;passed('Snow uses approved monster sprites with Issue8 slimeHP1/speed32.3 and the Issue9 delayed3-shot fan with unchanged boss HP/upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.')
 
   routes=[]
   for trial in [False,True]:

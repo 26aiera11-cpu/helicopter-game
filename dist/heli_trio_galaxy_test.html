@@ -1834,7 +1834,7 @@
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·일반 몬스터 1차 전투 시험, 보스/BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 설원 시험 모드</label><p>기본 OFF · 사막 다음 설원 5단계를 시험합니다. 승인 그래픽·일반 몬스터/보스 전용 공격은 1차 전투 시험이며 BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -1863,7 +1863,7 @@
     devPhase.addEventListener('change',()=>{setDeveloperStart({phase:Number(devPhase.value)});syncUI();});
     new MutationObserver(syncUI).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 일반 적 1차 전투 / 보스·BGM 숲 임시';notice.hidden=true;document.body.append(notice);
+    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 일반 적/보스 1차 전투 / BGM 숲 임시';notice.hidden=true;document.body.append(notice);
     new MutationObserver(syncUI).observe(document.getElementById('menu'),{attributes:true,attributeFilter:['class']});syncUI();
   }
   window.gameWorlds=Object.freeze({worlds,regions,region,isTrial,setTrialEnabled,isDeveloper,setDeveloperStart,
@@ -2088,6 +2088,134 @@
     snapshot:actor=>{const s=states.get(actor);return s?{id:s.spec.id,mode:s.mode,remaining:s.remaining,age:s.age,
       direction:{...s.direction},interval:s.interval,bulletSpeed:s.bulletSpeed,dashSpeed:s.dashSpeed}:null;}
   });
+})();
+</script>
+<script id="galaxy-snow-boss-js">/* Issue #9: first-playtest attacks only; existing boss motion/HP stay in the engine. */
+(() => {
+  'use strict';
+  const settings=Object.freeze({firstDelay:1.8,rest:3.2,fanSpeed:80,fanSpread:Math.PI/10,
+    radialSpeed:65,radialStep:Math.PI/12,radius:38,warning:1.1,burst:.25,bulletLife:3.4,bulletRadius:5,maxBullets:9});
+  const names=['fan','radial','blast'],epsilon=1e-9;
+  let active=null,validateHazard=false;
+  const inRegion=()=>typeof stage!=='undefined'&&gameWorlds.region(stage)?.key==='world-2:snowfield'&&phase===5;
+  const enabled=actor=>inRegion()&&actor&&actor===boss&&actor.hp>0;
+  function reset() {
+    if(active)enemyBullets=enemyBullets.filter(b=>!b.snowBossPattern);
+    active=null;validateHazard=false;
+  }
+  function prepare(actor) {
+    if(!enabled(actor))return false;
+    reset();active={actor,age:0,phase:'rest',remaining:settings.firstDelay,next:0,radialAngle:0,hazard:null};return true;
+  }
+  function blockedRects() {
+    const rects=['rotationJoystick','fire','hud','fullscreenToggle','exitGame','sensor','sensorStatus','worldPrototypeNotice'].flatMap(id=>{
+      const e=document.getElementById(id);
+      if(!e||e.hidden||!e.getClientRects().length||getComputedStyle(e).visibility==='hidden')return [];
+      const r=e.getBoundingClientRect();return r.width&&r.height?[{left:r.left,right:r.right,top:r.top,bottom:r.bottom}]:[];
+    });
+    rects.push({left:W*.3,right:W*.7,top:31,bottom:66}); // Existing canvas boss name/HP.
+    return rects;
+  }
+  function safeCircle(x,y,rects=blockedRects()) {
+    const r=settings.radius,gap=4;
+    return x>=r+gap&&x<=W-r-gap&&y>=r+gap&&y<=H-r-gap&&rects.every(b=>{
+      const dx=x-Math.max(b.left,Math.min(b.right,x)),dy=y-Math.max(b.top,Math.min(b.bottom,y));
+      return dx*dx+dy*dy>(r+gap)**2;
+    });
+  }
+  function safeTarget(x,y) {
+    const r=settings.radius+4,rects=blockedRects(),xs=[Math.max(r,Math.min(W-r,x)),r,W-r],ys=[Math.max(r,Math.min(H-r,y)),r,H-r];
+    for(const b of rects){xs.push(b.left-r-1,b.right+r+1);ys.push(b.top-r-1,b.bottom+r+1);}
+    let best=null,distance=Infinity;
+    for(const cx of xs)for(const cy of ys)if(safeCircle(cx,cy,rects)){
+      const d=(cx-x)**2+(cy-y)**2;
+      if(d<distance){best={x:cx,y:cy};distance=d;}
+    }
+    return best;
+  }
+  function fire(state,pattern) {
+    const count=pattern==='fan'?3:6;
+    if(enemyBullets.filter(b=>b.snowBossPattern&&b.life>0).length+count>settings.maxBullets)return;
+    const center=pattern==='fan'?Math.atan2(player.y-state.actor.y,player.x-state.actor.x):state.radialAngle;
+    gameSnowfield.attack(state.actor,true);
+    for(let i=0;i<count;i++){
+      const angle=center+(pattern==='fan'?(i-1)*settings.fanSpread:i*Math.PI/3),speed=pattern==='fan'?settings.fanSpeed:settings.radialSpeed;
+      enemyBullets.push({x:state.actor.x,y:state.actor.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,
+        life:settings.bulletLife,r:settings.bulletRadius,snowBossPattern:pattern});
+    }
+    if(pattern==='radial')state.radialAngle=(state.radialAngle+settings.radialStep)%(Math.PI*2);
+  }
+  function beginAttack(state) {
+    const pattern=names[state.next];state.next=(state.next+1)%names.length;
+    if(pattern==='blast'){
+      const target={x:player.x,y:player.y},point=safeTarget(target.x,target.y);
+      if(point){state.hazard={...point,target,r:settings.radius};state.phase='warning';state.remaining=settings.warning;return;}
+    }else fire(state,pattern);
+    state.phase='rest';state.remaining=settings.rest;
+  }
+  function resolve(state) {
+    if(state.phase==='rest'){beginAttack(state);return;}
+    if(state.phase==='warning'){
+      state.phase='burst';state.remaining=settings.burst;
+      gameSnowfield.attack(state.actor,true);
+      const h=state.hazard;
+      // One existing hurt() call at detonation, never once per burst frame.
+      if(h&&Math.hypot(player.x-h.x,player.y-h.y)<=h.r)hurt();
+      return;
+    }
+    state.hazard=null;state.phase='rest';state.remaining=settings.rest;
+  }
+  function backgroundPaused() {return Boolean(inRegion()&&boss&&document.hidden);}
+  function update(actor,dt) {
+    if(!enabled(actor)){if(active)reset();return false;}
+    if(!started||gameOverPending||window.gameExitDialogOpen||document.hidden)return true;
+    if(active?.actor!==actor)prepare(actor);
+    const state=active;
+    if(validateHazard&&state.hazard&&!safeCircle(state.hazard.x,state.hazard.y)){
+      state.hazard=null;state.phase='rest';state.remaining=settings.rest;
+    }
+    validateHazard=false;
+    let left=Math.max(0,dt);
+    for(let guard=0;guard<64;guard++){
+      if(state.remaining<=epsilon){
+        if(transition>0)break;
+        resolve(state);
+        if(!started||active!==state)return true;
+      }
+      if(left<=epsilon)break;
+      const slice=Math.min(left,state.remaining);state.age+=slice;state.remaining-=slice;left-=slice;
+    }
+    return true;
+  }
+  function drawBullet(ctx,b) {
+    if(!b.snowBossPattern)return false;
+    ctx.save();ctx.translate(b.x,b.y);ctx.fillStyle='#55b8f4';ctx.strokeStyle='#174e82';ctx.lineWidth=1.3;
+    ctx.beginPath();ctx.arc(0,0,b.r,0,Math.PI*2);ctx.fill();ctx.stroke();
+    if(b.snowBossPattern==='radial'){
+      ctx.strokeStyle='#e9fbff';ctx.lineWidth=1.2;ctx.beginPath();
+      for(let i=0;i<6;i++){const a=i*Math.PI/3;ctx.moveTo(0,0);ctx.lineTo(Math.cos(a)*b.r*.82,Math.sin(a)*b.r*.82);}ctx.stroke();
+    }
+    ctx.restore();return true;
+  }
+  function draw(ctx) {
+    if(!active||!enabled(active.actor)||!active.hazard)return;
+    const h=active.hazard,progress=1-active.remaining/(active.phase==='warning'?settings.warning:settings.burst);
+    ctx.save();ctx.translate(h.x,h.y);ctx.lineWidth=3;
+    if(active.phase==='warning'){
+      ctx.fillStyle='#247bcb55';ctx.strokeStyle='#174e82';ctx.beginPath();ctx.arc(0,0,h.r,0,Math.PI*2);ctx.fill();ctx.stroke();
+      ctx.strokeStyle='#68d9ff';ctx.lineWidth=4;ctx.beginPath();ctx.arc(0,0,h.r-5,-Math.PI/2,-Math.PI/2+Math.PI*2*progress);ctx.stroke();
+    }else{
+      ctx.globalAlpha=1-progress;ctx.fillStyle='#9de8ff';ctx.strokeStyle='#14558c';ctx.beginPath();ctx.arc(0,0,h.r*(.6+.4*progress),0,Math.PI*2);ctx.fill();ctx.stroke();
+    }
+    ctx.restore();
+  }
+  window.gameSnowfieldBoss=Object.freeze({settings,prepare,update,reset,draw,drawBullet,backgroundPaused,safeTarget,
+    snapshot:()=>active?{age:active.age,phase:active.phase,remaining:active.remaining,next:names[active.next],radialAngle:active.radialAngle,
+      hazard:active.hazard?{...active.hazard,target:{...active.hazard.target}}:null,
+      bullets:enemyBullets.filter(b=>b.snowBossPattern&&b.life>0).length}:null});
+  addEventListener('resize',()=>{validateHazard=true;});
+  document.addEventListener('fullscreenchange',()=>{validateHazard=true;});
+  document.addEventListener('visibilitychange',()=>{validateHazard=true;});
 })();
 </script><script id="galaxy-item-monster-js">/* Independent item helicopters: regional kill-count reservations and carried lifetime. */
 (() => {
@@ -2466,7 +2594,7 @@ function clearGameOver(){
 }
 function beginGameOver(){
  if(!started||gameOverPending)return;
- started=false;window.gameAudioStarted=false;gameAudio.pause();
+ gameSnowfieldBoss.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();
  keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};
  document.getElementById('exitGame').classList.add('hidden');
  draw();gameOverPending=true;
@@ -2479,7 +2607,7 @@ function beginGameOver(){
  },3000);
 }
 addEventListener('resize',()=>{if(gameOverPending)draw()});
-function start(type){gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 귀염 헬기 슈팅";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
+function start(type){gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 귀염 헬기 슈팅";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
 addEventListener('deviceorientation',e=>{if(e.gamma==null||e.beta==null)return;applyTilt(e.gamma,e.beta,'방향')});addEventListener('devicemotion',e=>{if(Date.now()-lastSensor<700&&sensorKind==='방향')return;const a=e.accelerationIncludingGravity;if(!a||a.x==null||a.y==null)return;applyTilt(a.x*3,a.y*3,'중력')});sensorBtn.onclick=async()=>{if(sensorOn){neutral=null;tilt={x:0,y:0};if(player){player.vx=0;player.vy=0}sensorStatus.textContent='중앙 보정 완료';return}try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){let r=await DeviceOrientationEvent.requestPermission();if(r!=='granted')throw Error('센서 권한이 거부됐어요')}if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){let r=await DeviceMotionEvent.requestPermission();if(r!=='granted')throw Error('동작 센서 권한이 거부됐어요')}sensorOn=true;neutral=null;sensorBtn.textContent='🎯 중앙 보정';sensorStatus.textContent='센서 신호 확인 중…';setTimeout(()=>{if(!lastSensor)sensorStatus.textContent='센서 신호 없음 · HTTPS에서 열거나 드래그 사용'},1800)}catch(e){sensorStatus.textContent=e.message+' · 드래그 사용'}};addEventListener('orientationchange',()=>{neutral=null;tilt={x:0,y:0}});
 /* Auxiliary drag pointer ownership is managed by gameControls. */// Tanko uses the same local rectangle for drawing, damage and bullet interception.
 function tankoBulletWidth(upgrade=0){
@@ -2573,10 +2701,11 @@ gameWorlds.installLegacyRegions({terrainImgs,enemySprites,bossSprites,tactics,st
 function warnEnemy(){const edge=Math.floor(Math.random()*4),pad=27;let x=edge===0?pad:edge===1?W-pad:pad+Math.random()*(W-2*pad),y=edge===2?pad:edge===3?H-pad:pad+Math.random()*(H-2*pad);if(edge<2)y=pad+Math.random()*(H-2*pad);else x=pad+Math.random()*(W-2*pad);warnings.push({x,y,time:1.4,kind:Math.floor(Math.random()*enemySprites[stage].length),edge,special:false})}
 function emitEnemyShot(e,spread=0){gameSnowfield.attack(e,e===boss);let a=Math.atan2(player.y-e.y,player.x-e.x)+spread,v=tactics[stage].bullet+(phase-1)*8;enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:3.4,r:5})}
 function hurt(){if(invuln<=0){hp--;invuln=1.55;gameAudio.fx('hurt');if(hp<=0)beginGameOver()}}
-function nextPhase(){gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}
+function nextPhase(){gameSnowfieldBoss.reset();gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameAudio.fx('boss')}
 function update(dt){
  if(!started||window.gameExitDialogOpen)return;
  if(hp<=0){beginGameOver();return;}
+ if(gameSnowfieldBoss.backgroundPaused())return;
  const profile=gameWorlds.profile(stage);
  gameSnowfield.tick(dt);gameScoring.tick(dt);itemMonsters.update(dt);
  worldScroll+=dt*9;rotorSpin+=dt*17;transition=Math.max(0,transition-dt);invuln=Math.max(0,invuln-dt);
@@ -2618,7 +2747,8 @@ function update(dt){
  if(boss){boss.t+=dt;boss.shot-=dt;let dx=player.x-boss.x,dy=player.y-boss.y,d=Math.hypot(dx,dy)||1;
  let desired=Math.min(W*.35,160);let radial=(d-desired)*.9;let speed=profile===0?45:profile===1?65:profile===2?85:105;
  boss.x=Math.max(72,Math.min(W-72,boss.x+(dx/d*radial-dy/d*speed*.48)*dt));boss.y=Math.max(85,Math.min(H-80,boss.y+(dy/d*radial+dx/d*speed*.48)*dt));
- if(boss.shot<=0&&transition<=0){emitEnemyShot(boss);if(profile>=1){emitEnemyShot(boss,-.23);emitEnemyShot(boss,.23)}if(profile===3){emitEnemyShot(boss,-.43);emitEnemyShot(boss,.43)}boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}
+ if(!gameSnowfieldBoss.update(boss,dt)&&boss.shot<=0&&transition<=0){emitEnemyShot(boss);if(profile>=1){emitEnemyShot(boss,-.23);emitEnemyShot(boss,.23)}if(profile===3){emitEnemyShot(boss,-.43);emitEnemyShot(boss,.43)}boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}
+ if(!started)return;
  for(let b of bullets)if(b.life>0&&(b.kind!==2||!(b.hit||[]).includes(boss))&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){if(b.kind===2){if(!consumeTankoPierce(b,boss))continue;}else b.life=0;boss.hp-=(b.damage||1);gameSnowfield.hit(boss,true);gameAudio.fx('hit');if(boss.hp<=0){gameAudio.fx('boss_defeat');grantBossReward(boss);gameScoring.bossDefeated(boss);boss=null;nextPhase();break}}
  if(boss&&Math.hypot(player.x-boss.x,player.y-boss.y)<boss.r+14){hurt();if(!started)return;}
  }
@@ -2668,8 +2798,8 @@ function seamlessTerrain(img){
   seamlessTerrainCache.set(img,canvas);return canvas;
 }
 let rotorSpin=0;function draw(){let c=stageColors[stage],im=terrainImgs[stage];ctx.fillStyle=c[0];ctx.fillRect(0,0,W,H);if(!gameSnowfield.drawBackground(ctx,W,H)&&im&&im.complete&&im.naturalWidth){let tile=seamlessTerrain(im);let scale=W/tile.width;let th=tile.height*scale;let shift=worldScroll%th;for(let y=shift-th;y<H;y+=th)ctx.drawImage(tile,0,Math.round(y),W,Math.ceil(th)+1);}for(let w of warnings){let pulse=.65+.35*Math.sin(performance.now()/90);ctx.save();ctx.globalAlpha=pulse;ctx.fillStyle='#ff4545';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(w.x,w.y,15,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='white';ctx.font='bold 18px system-ui';ctx.textAlign='center';ctx.fillText('!',w.x,w.y+6);ctx.restore()}
-itemMonsters.draw();
-for(let b of enemyBullets){ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
+itemMonsters.draw();gameSnowfieldBoss.draw(ctx);
+for(let b of enemyBullets){if(gameSnowfieldBoss.drawBullet(ctx,b))continue;ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
 for(let it of items){ctx.save();ctx.translate(it.x,it.y+Math.sin(it.t*5)*3);ctx.fillStyle=it.type==='hp'?'#e94b65':'#ffd349';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,14,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.font='bold 19px system-ui';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(it.type==='hp'?'♥':'⚡',0,7);ctx.restore()}for(let e of enemies){gameSnowfieldCombat.drawTelegraph(ctx,e);if(gameSnowfield.drawActor(ctx,e))continue;let im=enemySprites[stage][e.kind||0];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,e.x-22,e.y-22,44,44);else{ctx.fillStyle=['#4f9d36','#686579','#267bca','#bd6d37'][gameWorlds.profile(stage)];ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,7);ctx.fill()}}if(boss){if(!gameSnowfield.drawActor(ctx,boss,true)){let im=bossSprites[stage];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,boss.x-77,boss.y-67,154,134);}ctx.fillStyle='#16243acb';ctx.fillRect(W*.3,53,W*.4,12);ctx.fillStyle='#ff6767';ctx.fillRect(W*.3,53,W*.4*Math.max(0,boss.hp/boss.maxHp),12);ctx.fillStyle=stage===4?'#173b59':'white';ctx.font='bold 16px system-ui';ctx.textAlign='center';ctx.fillText(gameWorlds.region(stage).bossName,W/2,47)}gameSnowfield.drawDefeats(ctx);for(let b of bullets){
   if(b.kind===2&&b.life<=0)continue;
   const img=bulletSprites[b.kind ?? player.type];
