@@ -61,7 +61,7 @@
       if (help.open) help.close();
     }
     const message = heading.textContent || '';
-    result.textContent = /모든 지역 클리어|설원 시험 완료/.test(message) ? message : '';
+    result.textContent = /모든 지역 클리어|설원 시험 완료|지역 테스트 완료/.test(message) ? message : '';
     syncCharacters();
   }
 
@@ -256,7 +256,7 @@
     const { record, isTop10, rank, saved: recordSaved } = event.detail.result;
     overlay.querySelector('#gameOverScore').textContent = '🏆 ' + gameScoring.format(record.score) + '점';
     overlay.querySelector('#gameOverCharacter').textContent = record.characterName;
-    overlay.querySelector('#gameOverRank').textContent = (isTop10 ? `새로운 TOP 10 기록 · ${rank}위` : 'TOP 10 진입 안됨') + (recordSaved ? '' : ' · 기록 저장 불가');
+    overlay.querySelector('#gameOverRank').textContent = event.detail.result.developerTest ? '🧪 개발 테스트 · 기록 저장 안 함' : (isTop10 ? `새로운 TOP 10 기록 · ${rank}위` : 'TOP 10 진입 안됨') + (recordSaved ? '' : ' · 기록 저장 불가');
     saved = controls.map(element => [element, element.inert]);
     controls.forEach(element => { element.inert = true; });
     document.activeElement?.blur();

@@ -104,7 +104,7 @@
     if (activeRun && !activeRun.result) finish('abandoned');
     gameWorlds.beginRun();selectStorage();
     activeRun = {
-      id: newId(), characterId: type, normalKills: 0, itemKills: 0, bossKills: 0,
+      id: newId(), characterId: type, developerTest: gameWorlds.isDeveloperRun(), normalKills: 0, itemKills: 0, bossKills: 0,
       clearedPhases: new Set(), enemies: new WeakSet(), bosses: new WeakSet(), playTimeSeconds: 0, result: null
     };
     updateHUD();
@@ -135,15 +135,20 @@
   function finish(outcome) {
     if (!activeRun) return null;
     if (activeRun.result) return activeRun.result;
-    refresh();
+    if(!activeRun.developerTest)refresh();
     const record = {
       id: activeRun.id, score: runScore, characterId: activeRun.characterId,
       characterName: names[activeRun.characterId], regionId: stage, regionName: stageNames[stage], ...gameWorlds.recordFields(stage), phase,
-      order: Math.max(0, ...top.map(row => row.order), ...history.map(row => row.order)) + 1,
+      order: activeRun.developerTest ? 0 : Math.max(0, ...top.map(row => row.order), ...history.map(row => row.order)) + 1,
       createdAt: new Date().toISOString(), outcome, normalKills: activeRun.normalKills,
       itemKills: activeRun.itemKills, bossKills: activeRun.bossKills, clearedPhases: activeRun.clearedPhases.size,
       playTimeSeconds: Math.round(activeRun.playTimeSeconds * 1000) / 1000, finalUpgrade: player.upgrade
     };
+    if(activeRun.developerTest){
+      record.developerTest=true;
+      activeRun.result={record,rank:0,isTop10:false,saved:false,developerTest:true};
+      return activeRun.result;
+    }
     history = recent([...history, record]);
     if (outcome !== 'abandoned') top = ranked([...top, record]);
     const rank = top.findIndex(row => row.id === record.id) + 1;
@@ -223,6 +228,6 @@
     start: startRun, enemyDefeated, bossDefeated, phaseCleared, tick, finish, format, updateHUD,
     getTop: () => { selectStorage();refresh(); return top.map(row => ({ ...row })); },
     getHistory: () => { selectStorage();refresh(); return history.map(row => ({ ...row })); },
-    getLastResult: () => lastResult, get storageKeys() { selectStorage();return storageKeys; }
+    getLastResult: () => activeRun?.developerTest ? activeRun.result : lastResult, get storageKeys() { selectStorage();return storageKeys; }
   });
 })();

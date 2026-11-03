@@ -1,0 +1,52 @@
+[
+  [
+    "gameScoring.start(type);clearGameOver();",
+    "gameScoring.start(type);const entry=gameWorlds.runStart();clearGameOver();",
+    1
+  ],
+  [
+    "gameAudio.init();gameAudio.resume();gameAudio.reset();window.gameAudioStarted=true;",
+    "gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;",
+    1
+  ],
+  [
+    "spawn=0;stage=0;phase=1;phaseKills=0;boss=null;",
+    "spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;",
+    1
+  ],
+  [
+    "document.getElementById('exitGame').classList.remove('hidden')};document.getElementById('exitGame')",
+    "document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)update(0)};document.getElementById('exitGame')",
+    1
+  ],
+  [
+    "gameAudio.resume=function(){",
+    "gameAudio.resume=function(startRegion=0,startBoss=false){",
+    1
+  ],
+  [
+    "current=null;currentStage=0;bossMode=false;appearancePending=-1;",
+    "current=null;currentStage=gameWorlds.musicProfile(startRegion);bossMode=Boolean(startBoss);appearancePending=-1;",
+    1
+  ],
+  [
+    "      play(stageTracks[0],.42);\n      stageTracks[0].volume=.42;",
+    "      const firstTrack=bossMode?bossTracks[currentStage]:stageTracks[currentStage];\n      const volume=bossMode?.58:.42;play(firstTrack,volume);firstTrack.volume=volume;",
+    1
+  ],
+  [
+    " if(phase===5&&phaseKills>=requiredKills&&!boss){const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}",
+    " if(phase===5&&phaseKills>=requiredKills&&!boss)spawnBossEncounter(profile);",
+    1
+  ],
+  [
+    "function update(dt){",
+    "function spawnBossEncounter(profile=gameWorlds.profile(stage)){const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameAudio.fx('boss')}\nfunction update(dt){",
+    1
+  ],
+  [
+    "if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)update(0)",
+    "if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()",
+    1
+  ]
+]

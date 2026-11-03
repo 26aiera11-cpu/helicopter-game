@@ -1,15 +1,15 @@
 # 갤럭시 테스트 빌드 — ZIP 다운로드
 
-2026-11-03(KST) · `feature/snowfield-art-integration` · 월드1 보호 + 승인 설원 그래픽/애니메이션 최신 빌드
+2026-11-03(KST) · `feature/developer-region-start` · 개발자 지역 바로 시작 + 기존 월드/설원 아트 보호 최신 빌드
 
 ## 다운로드와 실행
 
-**[heli_trio_galaxy_test.zip 다운로드 — 약 31.8MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/snowfield-art-integration/dist/heli_trio_galaxy_test.zip?download=1)**
+**[heli_trio_galaxy_test.zip 다운로드 — 약 31.8MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/developer-region-start/dist/heli_trio_galaxy_test.zip?download=1)**
 
 [ZIP 파일 페이지](../../../dist/heli_trio_galaxy_test.zip)에서도 Download raw file 메뉴를 사용할 수 있다. ZIP에는 최신 [단일 HTML](../../../dist/heli_trio_galaxy_test.html) 하나만 들어 있다.
 
-1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **31,829,714바이트, 약 31.8MB**다.
-2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **43,571,515바이트, 약 43.6MB**다.
+1. 갤럭시에서 위 ZIP 다운로드 링크를 연다. ZIP 크기는 **31,831,669바이트, 약 31.8MB**다.
+2. ‘내 파일 → 다운로드’에서 `heli_trio_galaxy_test.zip`을 선택해 **압축 풀기**를 누른다. 안의 HTML은 **43,578,495바이트, 약 43.6MB**다.
 3. 로컬 HTML 실행을 지원하는 브라우저로 파일을 연다. Chrome 또는 Samsung Internet의 지원 여부는 기기의 파일 열기 방식에 따라 직접 확인해야 한다.
 4. 휴대폰을 가로로 돌리고 왼쪽 위 **⛶ 전체화면**을 누른 뒤 캐릭터를 선택해 **게임 시작**을 누른다. 선택·게임·선택화면 복귀 중 전체화면이 유지되며 **⛶ 화면 복원**으로 해제할 수 있다. 미지원·거부 시 일반 화면에서 시작한다.
 5. **센서 켜기**로 자이로센서 이동을 사용한다. 화면 드래그는 보조 이동이다. 왼쪽 아래 가로 조이스틱을 좌우로 밀어 회전하고 발사 버튼을 길게 눌러 공격한다. 멀리 밀수록 빨라지며 중앙8%는 회전하지 않는다. 끝에서 기존 최대 회전 속도이고 손을 떼면 방향은 그대로다. 센서 또는 드래그 이동·회전·발사를 함께 사용할 수 있다. 음악·효과음은 선택화면에서 각각 켜고 끌 수 있다. 첫 터치 후 선택 음악을 재생하고, 캐릭터를 변경해도 계속 이어진다. 게임 시작 시 선택 곡을 멈추고 스테이지 곡으로 전환한다.
@@ -34,11 +34,13 @@ HTML의 GitHub raw 응답은 브라우저에서 소스 텍스트로 표시될 �
 
 상세 결과·ZIP/HTML 크기 및 해시: [zip-results.json](zip-results.json).
 
-현재 ZIP은 실행 스크립트9개/모든 리소스와 승인 설원 아트·월드2 시험 기능을 포함하며 HTML1개·CRC·실제 압축 해제 바이트 일치를 검증했다. [현재 소스·패키지 일치](../snowfield-art/package-source-verification.json).
+현재 ZIP은 실행 스크립트9개/모든 리소스와 개발자 지역 시작·승인 설원 아트·월드2 시험 기능을 포함하며 HTML1개·CRC·실제 압축 해제 바이트 일치를 검증했다. [현재 소스·패키지 일치](../developer-region-start/package-source-verification.json).
 
 최초 ZIP 추가 때는 포장만 검사했다. 이번에는 조이스틱·터치 보호와 기존 아이템 개선을 포함한 브라우저 검사를 실행하고 HTML·ZIP을 함께 재생성했다. HTML을 재생성할 때는 ZIP도 같은 HTML로 다시 만들고 검증해야 한다.
 
 ## 포함한 기능과 보호 범위
+
+- **최신 개발 테스트:** 게임 방법을 열고 아래로 스크롤해 **🧪 지역 바로 시작 (개발 테스트)**를 켠다. **월드 → 지역 → 시작 단계(1~5) → 닫기 → 캐릭터 선택 → 게임 시작**으로 바로 입장한다. 직접5단계는 일반 몬스터 없이 보스전이다. 최대체력·강화0·점수0으로 시작하고 선택 지역 보스 후 종료한다. **TOP10·분석은 정상/설원 시험 어느 저장소에도 기록하지 않는다.** 게임 오버에도 기록 저장 안 함을 안내한다. 기본OFF이며 새로고침하면 잊는다. 개발ON 동안 설원25 시험은OFF/비활성이다. 정상20단계는 개발OFF로, 기존 설원25단계는 개발OFF 뒤 별도 설원 시험을 켜 사용한다. **[30개 모음427개 검사·75조건×일반/오프라인·실제 화면](../developer-region-start/README.md)**. 실제 휴대폰 검증은 남아 있다.
 
 - **최신 월드 확장:** 기본은 월드1의 기존20단계 클리어다. 선택화면의 **게임 방법 → 월드2 설원 시험 모드 체크 → 닫기 → 게임 시작**으로만25단계 경로를 켠다. 사막 다음 설원 일반4+보스1을 시험하고 안전 종료한다. 다시 접속하면 기본OFF이며 진행 중에는 전환할 수 없다. 시험 TOP10/분석은 기존 저장소와 분리한다. 설원은 승인 배경과 눈슬라임/펭귄 돌격병/아이스 예티/빙결 거북이/눈보라 거인왕·제공 아틀라스115프레임을 사용한다. 전투 수치/패턴과 BGM만 숲 시험 프로필을 유지하며 최종 전투 난이도는 확정하지 않았다. 체력/강화·일반 아이템·생존 아이템 몬스터/예고의 남은 수명을 넘긴다. **[최신391개 검사·승인 아트·전후 화면](../snowfield-art/README.md)**. [이전 월드 확장 기반](../world2-snowfield/README.md).
 
@@ -89,12 +91,14 @@ python scripts/package_galaxy_test.py
 SHA-256:
 
 ```text
-b0b45f168a7f8cb6b447df99c8e7d309558e1556f4bddebd0f782251edc38d7d
+fadee08104fef3fe8cf82c91375ae7e8d2c15fa21d98043ae46d57014ea814c6
 ```
 
 빌드 상세: [build-results.json](build-results.json).
 
 ## 실제 브라우저 검사
+
+최신 전체 검사는 **30개 모음427그룹**이다. 개발 기능 일반/오프라인 각18그룹(각75조건)과 기존28모음391그룹을 포함한다. 기존 독립HTML 점수 검사의 병렬 실행1회는 복귀 대기가 시간 초과했고 같은 모음을 단독 재실행해17그룹을 통과했다. 제품3초 타이머/검사 제한을 변경하지 않았으며 초회 로그도 보존한다. [현재 집계·재실행 이력·세 가로 화면](../developer-region-start/test-summary.json)을 따른다. 아래 개별 기능별 수치는 해당 모음 또는 이전 작업 이력이다.
 
 ```sh
 python tests/galaxy_standalone.py --artifacts /absolute/path/to/galaxy-review
@@ -133,6 +137,8 @@ Chromium·Playwright·Pillow·Node.js 환경에서 **19개 검사 그룹**을 �
 
 ## 실기기에서 확인해야 하는 항목
 
+- 새 개발 설정의 삼성 인터넷/Chrome 네이티브 select 팝업·도움말 스크롤·닫기, 선택한 지역/단계 진입과 테스트 결과의 기록 제외. 자동 Chromium에서 세 가로 크기·실제 UI·저장0회는 확인했다.
+
 - 새40%/70% 조이스틱의 실기기 밝기·야외 가시성·32px 표시/44px 터치 감각. 자동 검사는 숲·바위·바다·사막과 세 가로 크기의 실제 브라우저 렌더링을 확인했다.
 
 - **삼성 인터넷 길게 누르기:** 캔버스/조이스틱/발사/게임 오버에서 복사·번역·모두 선택 메뉴가 나타나지 않는지, 이동/회전/발사3중 조작·영역 이탈/취소가 자연스러운지. 자동 Chromium에서는 이벤트 취소/선택 방지와 조작을 검사했고 물리 갤럭시에서는 아직 확인하지 못했다.
@@ -154,6 +160,14 @@ Chromium·Playwright·Pillow·Node.js 환경에서 **19개 검사 그룹**을 �
 전 스테이지 수동 연속 완주는 수행하지 않았다. N1(BGM 게임 오버 정지 누락)에 이어 N2(보스 보상 소실)도 수정했다. 다른 미대응 사항은 `DEVELOPMENT_LOG.md`를 따른다. 오디오 상태 검사는 실제 스피커 청취와 구분한다.
 
 ## 스크린샷
+
+최신 개발자 지역 바로 시작의 동일 단일HTML 오프라인 실행 화면:
+
+![개발 설정](../developer-region-start/offline/help-snow-boss-915x412.png)
+
+![선택한 설원5단계 보스 직접 입장](../developer-region-start/offline/direct-snow-boss-915x412.png)
+
+[세 가로 화면·기본OFF·테스트 완료·기록 금지 결과](../developer-region-start/README.md).
 
 최신 승인 설원 그래픽의 오프라인 실행 화면:
 
