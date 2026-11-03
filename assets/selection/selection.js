@@ -61,7 +61,7 @@
       if (help.open) help.close();
     }
     const message = heading.textContent || '';
-    result.textContent = /모든 지역 클리어/.test(message) ? message : '';
+    result.textContent = /모든 지역 클리어|설원 시험 완료/.test(message) ? message : '';
     syncCharacters();
   }
 

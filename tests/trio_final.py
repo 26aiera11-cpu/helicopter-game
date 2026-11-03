@@ -1,3 +1,4 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
 from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
@@ -46,6 +47,8 @@ def passed(message):
 
 assert without_final_trio_changes(without_tanko_restore(preserved_source)) == before
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+        assert_world_asset(path);continue
     if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
         assert_controls_asset(path);continue
     if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):

@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+from world_preservation import without_world_source, without_world_ui
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTROLS_ASSETS = {'assets/controls/controls.js', 'assets/controls/controls.css'}
@@ -22,8 +23,10 @@ def reverse(source, filename):
 
 
 def without_controls_changes(source):
+    source = without_world_source(source)
     return reverse(source, 'controls_changes.json')
 
 
 def without_controls_ui(source, name):
+    source = without_world_ui(source, name)
     return reverse(source, 'controls_ui_changes.json') if name == 'assets/selection/selection.js' else source

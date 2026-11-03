@@ -1,3 +1,4 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
 """Native browser design inspection, touch-halo checks and review screenshots."""
 import argparse
 import io
@@ -20,12 +21,14 @@ BASELINE='cb59d8e99dbc209045de2b9b59a05fbfcaf18e3f'
 parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--standalone',action='store_true');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'baseline':BASELINE,'standalone':args.standalone,'passed':[],'limits':['Native Chromium/mobile touch emulation, not physical Galaxy/Samsung Internet or outdoor display visibility.','Backdrop scenes use a frozen native game frame; screenshots are not image edits.','Standalone injects the actual embedded HTML offline; no managed file:// policy bypass.']}
 def passed(message):report['passed'].append(message);print('PASS:',message,flush=True)
-assert (ROOT/'index.html').read_bytes()==subprocess.check_output(['git','show',BASELINE+':index.html'],cwd=ROOT)
+assert without_world_source((ROOT/'index.html').read_text()).encode()==subprocess.check_output(['git','show',BASELINE+':index.html'],cwd=ROOT)
 for path in (ROOT/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(ROOT)) in WORLD_ASSETS:
+     assert_world_asset(path);continue
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
  if name=='assets/controls/controls.css':assert_controls_asset(path);continue
- assert path.read_bytes()==subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT),name
+ assert (without_world_ui(path.read_text(),name).encode() if path.suffix in ('.js','.css') else path.read_bytes())==subprocess.check_output(['git','show',BASELINE+':'+name],cwd=ROOT),name
 old_css=subprocess.check_output(['git','show',BASELINE+':assets/controls/controls.css'],cwd=ROOT).decode()
 assert (ROOT/'assets/controls/controls.css').read_text().split('.rotation-joystick{')[0]==old_css.split('.rotation-joystick{')[0]
 assert (ROOT/'assets/controls/controls.css').read_text().replace('position:fixed;left:30px;bottom:22px;','position:relative;',1)==old_css

@@ -43,7 +43,7 @@
       [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     const selected = shuffled.slice(0, settings.opportunitiesPerRegion);
-    const plan = { region, opportunities: selected.length, spawned: 0, phases: [1, 2, 3, 4].map(step => ({
+    const plan = { region, regionKey: gameWorlds.region(region).key, worldId: gameWorlds.region(region).worldId, opportunities: selected.length, spawned: 0, phases: [1, 2, 3, 4].map(step => ({
       phase: step, selected: selected.includes(step),
       requiredKills: selected.includes(step) ? 1 + Math.floor(random() * 4) : null,
       normalKills: 0, status: selected.includes(step) ? 'waiting' : 'not-selected'
@@ -106,7 +106,7 @@
         if (Math.abs(Math.atan2(Math.sin(angle - monster.angle), Math.cos(angle - monster.angle))) > Math.PI / 8) monster.turnLeft = groups.directions.duration;
         monster.angle = angle;
       }
-      const speed = 45 + stage * 8;
+      const speed = 45 + gameWorlds.profile(stage) * 8;
       monster.x += vx * speed * dt; monster.y += vy * speed * dt;
       const pad = HIT_RADIUS + 2;
       if (monster.x < pad || monster.x > W - pad) monster.vx *= -1;

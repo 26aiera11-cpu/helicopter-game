@@ -1,3 +1,4 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
 from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 """Native browser verification of the independent item monster system."""
 import argparse
@@ -39,6 +40,8 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_item_monsters(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)) in WORLD_ASSETS:
+        assert_world_asset(path);continue
     if path.is_file() and str(path.relative_to(ROOT)) in CONTROLS_ASSETS:
         assert_controls_asset(path);continue
     if not path.is_file():

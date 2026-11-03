@@ -1,0 +1,70 @@
+{
+  "passed": [
+    "The supplied990740-byte MP3 matches its exact hash; only reviewed audio routing/hidden source differ from dcd2fe2, all earlier assets/gameplay and12WAV bytes remain unchanged, and syntax passes.",
+    "No music/play attempts occur before user interaction;13 native media elements load, and the supplied MP3 resolves at the GitHub Pages project-prefix path (or byte-identical offline data URL).",
+    "A trusted first touch starts native MP3 playback at volume0.34; changing characters preserves the same element/play request and advancing clock without rewinding.",
+    "Native loop crosses the file end without a paused state and its playback clock recovers within1s (measured in the report); online includes one full natural30.9s pass, offline tests the real end boundary. Musical seam quality still needs listening.",
+    "SFX toggles leave selection music running; fullscreen/menu start stops and rewinds the MP3 before exactly one forest track starts, with native fullscreen retained.",
+    "Zero HP immediately silences all game BGM; the existing3s overlay stays silent, then selection music returns with clean selection UI and the original ON setting.",
+    "The unchanged exit dialog cancels back to game music or confirms back to selection music, keeping fullscreen and avoiding browser dialogs.",
+    "Music OFF immediately stops both scene types and persists through new-game/game-over return; ON resumes the current selection using the existing button, without altering SFX.",
+    "All four stage/boss themes keep their switches, existing music toggle selects the current boss theme, and final-clear UI/effects path is retained; final return starts selection music after game music stops.",
+    "Twelve additional starts/returns across all characters reuse exactly13 media elements; synchronous play-call/event/frame monitoring detects no overlapping BGM or duplicate selection tracks.",
+    "Three Galaxy landscape sizes retain the existing selection/fullscreen/touch layout and one music toggle; the hidden audio element adds no visible controls.",
+    "A separately denied stage play stays silent without per-frame retries; the next real gameplay touch resumes the native stage track without overlapping selection music.",
+    "A simulated rejected play promise is caught without unhandled errors, and a subsequent trusted click/touch retries native playback using the same audio element.",
+    "No uncaught JavaScript errors, browser dialogs or external requests in standalone mode; online MP3 requests return200/206 under the project prefix."
+  ],
+  "standalone": false,
+  "baseline": "dcd2fe20ced91447a5410e27f5929e421712f6c5",
+  "supplied_mp3_sha256": "ca7e760a474db29eed29f0e0f6e34406d0415f0143aa3075953e98096ff8ba53",
+  "limits": [
+    "Native Chromium media playback clocks/states, not physical Galaxy Samsung Internet/Chrome or speaker listening.",
+    "Autoplay-rejection branch is separately simulated once; main playback/loop/transition tests use real native play().",
+    "Pages project-prefix routing is checked on HTTP locally; no GitHub Pages deployment is performed."
+  ],
+  "native_duration": 30.890917,
+  "loop_boundaries": [
+    {
+      "previous": 30.890917,
+      "current": 0,
+      "wall": 39773,
+      "paused": false,
+      "readyState": 4,
+      "recoveryMs": 163.40000000596046,
+      "resumedTime": 0.043159
+    },
+    {
+      "previous": 30.890917,
+      "current": 0,
+      "wall": 40471.5,
+      "paused": false,
+      "readyState": 1,
+      "recoveryMs": 174.2000000178814,
+      "resumedTime": 0.049752
+    }
+  ],
+  "stage_boss_switches": [
+    "forest",
+    "rock",
+    "sea",
+    "desert"
+  ],
+  "native_monitor": {
+    "elements": 13,
+    "maxActive": 1,
+    "overlaps": [],
+    "attempts": 44
+  },
+  "mp3_responses": [
+    {
+      "url": "http://127.0.0.1:33917/helicopter-game/assets/audio/heli_trio_selection_bgm_track2.mp3",
+      "status": 206
+    },
+    {
+      "url": "http://127.0.0.1:33917/helicopter-game/assets/audio/heli_trio_selection_bgm_track2.mp3",
+      "status": 206
+    }
+  ],
+  "external_requests": []
+}

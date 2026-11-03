@@ -1,3 +1,4 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
 from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
@@ -18,6 +19,8 @@ assert without_tanko_cadence_changes(s)==subprocess.check_output(['git','show','
 assert without_tanko_interception_changes(s)==before
 assert without_tanko_combat_changes(s)==subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+     assert_world_asset(path);continue
  if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
      assert_controls_asset(path);continue
  if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):

@@ -1,3 +1,4 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
 """Native Pointer Events/CDP multitouch and baseline sensor/flight comparisons."""
 import argparse
 import io
@@ -35,6 +36,8 @@ def passed(message):
 source = (ROOT / 'index.html').read_text()
 assert without_controls_changes(source) == subprocess.check_output(['git', 'show', BASELINE + ':index.html'], cwd=ROOT).decode()
 for path in (ROOT / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(ROOT)) in WORLD_ASSETS:
+        assert_world_asset(path);continue
     if not path.is_file():continue
     name = str(path.relative_to(ROOT))
     if name in CONTROLS_ASSETS:assert_controls_asset(path);continue

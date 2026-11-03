@@ -41,7 +41,9 @@ def build():
     item_javascript = (ROOT / 'assets/item_monster/item_monster.js').read_text()
     controls_css = (ROOT / 'assets/controls/controls.css').read_text()
     controls_javascript = (ROOT / 'assets/controls/controls.js').read_text()
-    assert '</style' not in (css + score_css + controls_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript).lower()
+    world_css = (ROOT / 'assets/worlds/worlds.css').read_text()
+    world_javascript = (ROOT / 'assets/worlds/worlds.js').read_text()
+    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -60,6 +62,10 @@ def build():
                             '<style id="galaxy-controls-css">' + controls_css + '</style>')
     result = result.replace('<script src="assets/controls/controls.js"></script>',
                             '<script id="galaxy-controls-js">' + controls_javascript + '</script>')
+    result = result.replace('<link rel="stylesheet" href="assets/worlds/worlds.css">',
+                            '<style id="galaxy-worlds-css">' + world_css + '</style>')
+    result = result.replace('<script src="assets/worlds/worlds.js"></script>',
+                            '<script id="galaxy-worlds-js">' + world_javascript + '</script>')
 
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
@@ -67,7 +73,7 @@ def build():
     result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -95,6 +101,8 @@ def build():
         'inlined_item_monster_scripts': 1,
         'inlined_controls_scripts': 1,
         'inlined_controls_stylesheets': 1,
+        'inlined_world_scripts': 1,
+        'inlined_world_stylesheets': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],
         'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.mp3'],
         'external_dependencies': 0,

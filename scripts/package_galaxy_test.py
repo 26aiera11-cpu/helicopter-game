@@ -19,6 +19,7 @@ def package():
     assert b'id="galaxy-score-js"' in payload and b'heliTrio.top10.v1' in payload, 'Include the current local TOP 10 implementation'
     assert b'id="galaxy-item-monster-js"' in payload and b'id="itemMonsterAtlas" src="data:image/png;base64,' in payload, 'Embed independent item monster code and supplied atlas'
     assert b'id="galaxy-controls-js"' in payload and b'id="rotationJoystick"' in payload, 'Embed current analog controls'
+    assert b'id="galaxy-worlds-js"' in payload and b'world-2:snowfield' in payload and b'heliTrio.world2Trial.top10.v1' in payload, 'Include opt-in snowfield routing and isolated trial records'
     assert b'id="left"' not in payload and b'id="right"' not in payload, 'Do not package retired rotation buttons'
     info=zipfile.ZipInfo.from_file(html,arcname=html.name)
     info.compress_type=zipfile.ZIP_DEFLATED
@@ -35,7 +36,7 @@ def package():
             'html_sha256':hashlib.sha256(payload).hexdigest(),'compression':'ZIP DEFLATE',
             'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed',
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
-            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'native_exit_confirm_absent':True}
+            'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 
 
 if __name__=='__main__':
