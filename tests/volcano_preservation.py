@@ -5,7 +5,7 @@ from pathlib import Path
 from visual_fix_preservation import VISUAL_FIX_ASSETS,assert_visual_fix_asset,without_visual_fix_asset
 
 ROOT=Path(__file__).resolve().parents[1]
-VOLCANO_ASSETS=set(json.loads((ROOT/'tests/volcano_asset_hashes.json').read_text()))
+VOLCANO_ASSETS=set(json.loads((ROOT/'tests/volcano_asset_hashes.json').read_text()))|VISUAL_FIX_ASSETS
 
 
 def assert_volcano_asset(path):

@@ -1,0 +1,4227 @@
+{
+  "baseline": "dc9d5594650cfb700dd0a96f28dd10fc0fde5d87",
+  "standalone": false,
+  "passed": [
+    "Only two native integration hooks and the reviewed item manager change; every PNG/scoring/audio/UI/attack file remains unchanged and JS syntax passes.",
+    "Actual drawImage geometry is80×64 with unchanged anchor/ratio; body and collision radius both scale exactly1.25 from64×51.2/r16.",
+    "All3 bullet kinds use the enlarged collider through the existing circle/rotated-rectangle helper; the newly expanded edge hits while far targets do not.",
+    "256 new-run plans each choose3 distinct phases among1–4, exercise all4 possible omissions and kill thresholds1–4, and never select the boss phase.",
+    "Plans/thresholds are fixed at region entry before combat; repeated context entry never rerolls, and quota configuration applies to the next region/run.",
+    "Elapsed time alone cannot create an item actor: the old interval/22% item generator is completely removed.",
+    "Actual normal bullet kills reserve exactly at each chosen1–4 threshold; unselected phases never reserve and subsequent kills cannot duplicate a reservation.",
+    "Six kills in one update trigger and clear a phase before the next tick; the reserved appearance still completes once with ten full seconds.",
+    "A genuinely scheduled live actor survives boss entry with the same object/remaining life and can be killed for its existing drop without damaging the boss or advancing normal kills.",
+    "An already-triggered warning finishes during the boss; expiration never refunds its opportunity or generates a replacement.",
+    "A reservation survives an instant boss kill/region change and is charged to its original region; an existing loose item retains identity and remaining lifetime.",
+    "A separately simulated not-ready atlas cannot discard a triggered warning; readiness recovery in the boss materializes it once with full lifetime.",
+    "A fresh boss phase creates no new reservation or actor even after20 seconds; only earlier reservations can arrive.",
+    "Missing or allowing an actor to expire still consumes that phase opportunity; extra ordinary kills/time never respawn it and expiry awards nothing.",
+    "Item kills keep200 points and neither advance phaseKills nor count toward any spawn threshold; boss kills use their separate existing path.",
+    "All20 real combat phases and4 boss kills complete with exactly3 item actors per region/12 per run; existing scores total30,400 and match the saved clear/kill counters.",
+    "Actual boss/item/HUD/touch layout screenshots are captured at915×412,800×360,568×320 with the enlarged sprite.",
+    "Exit confirmation/game-over freeze actors and reservations; a new game clears every old reservation/quota and generates a fresh first-region plan.",
+    "No uncaught errors, native dialogs, failed assets or standalone external requests; original art/resources remain embedded and playable."
+  ],
+  "limits": [
+    "Native Chromium with controlled game-state fixtures, not physical Galaxy hardware or a human balance playthrough.",
+    "Offline uses the actual standalone HTML injected into an offline document; managed file navigation restrictions are unchanged."
+  ],
+  "geometry": {
+    "old": [
+      64,
+      51.2,
+      16
+    ],
+    "new": [
+      80,
+      64,
+      20
+    ],
+    "draw": [
+      0,
+      0,
+      320,
+      256,
+      -40,
+      -31.75,
+      80,
+      64
+    ]
+  },
+  "collision_geometry": {
+    "rows": [
+      {
+        "kind": 0,
+        "offset": 0,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 0,
+        "offset": 0.7853981633974483,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 0,
+        "offset": 1.5707963267948966,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 0,
+        "offset": 2.356194490192345,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 1,
+        "offset": 0,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 1,
+        "offset": 0.7853981633974483,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 1,
+        "offset": 1.5707963267948966,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 1,
+        "offset": 2.356194490192345,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 2,
+        "offset": 0,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 2,
+        "offset": 0.7853981633974483,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 2,
+        "offset": 1.5707963267948966,
+        "inside": true,
+        "far": false
+      },
+      {
+        "kind": 2,
+        "offset": 2.356194490192345,
+        "inside": true,
+        "far": false
+      }
+    ],
+    "newEdge": true,
+    "oldEdge": false
+  },
+  "native_random_plans": [
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 3
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 3
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 3,
+        "kills": 2
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 2
+      },
+      {
+        "phase": 2,
+        "kills": 1
+      },
+      {
+        "phase": 3,
+        "kills": 4
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 4
+      },
+      {
+        "phase": 2,
+        "kills": 4
+      },
+      {
+        "phase": 4,
+        "kills": 1
+      }
+    ],
+    [
+      {
+        "phase": 1,
+        "kills": 1
+      },
+      {
+        "phase": 2,
+        "kills": 3
+      },
+      {
+        "phase": 3,
+        "kills": 3
+      }
+    ]
+  ],
+  "actual_kill_thresholds": [
+    {
+      "step": 1,
+      "kill": 1,
+      "selected": true,
+      "threshold": 3,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 1,
+      "kill": 2,
+      "selected": true,
+      "threshold": 3,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 1,
+      "kill": 3,
+      "selected": true,
+      "threshold": 3,
+      "status": "reserved",
+      "reservations": 1
+    },
+    {
+      "step": 1,
+      "kill": 4,
+      "selected": true,
+      "threshold": 3,
+      "status": "reserved",
+      "reservations": 1
+    },
+    {
+      "step": 2,
+      "kill": 1,
+      "selected": true,
+      "threshold": 4,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 2,
+      "kill": 2,
+      "selected": true,
+      "threshold": 4,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 2,
+      "kill": 3,
+      "selected": true,
+      "threshold": 4,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 2,
+      "kill": 4,
+      "selected": true,
+      "threshold": 4,
+      "status": "reserved",
+      "reservations": 1
+    },
+    {
+      "step": 3,
+      "kill": 1,
+      "selected": false,
+      "threshold": null,
+      "status": "not-selected",
+      "reservations": 0
+    },
+    {
+      "step": 3,
+      "kill": 2,
+      "selected": false,
+      "threshold": null,
+      "status": "not-selected",
+      "reservations": 0
+    },
+    {
+      "step": 3,
+      "kill": 3,
+      "selected": false,
+      "threshold": null,
+      "status": "not-selected",
+      "reservations": 0
+    },
+    {
+      "step": 3,
+      "kill": 4,
+      "selected": false,
+      "threshold": null,
+      "status": "not-selected",
+      "reservations": 0
+    },
+    {
+      "step": 4,
+      "kill": 1,
+      "selected": true,
+      "threshold": 2,
+      "status": "waiting",
+      "reservations": 0
+    },
+    {
+      "step": 4,
+      "kill": 2,
+      "selected": true,
+      "threshold": 2,
+      "status": "reserved",
+      "reservations": 1
+    },
+    {
+      "step": 4,
+      "kill": 3,
+      "selected": true,
+      "threshold": 2,
+      "status": "reserved",
+      "reservations": 1
+    },
+    {
+      "step": 4,
+      "kill": 4,
+      "selected": true,
+      "threshold": 2,
+      "status": "reserved",
+      "reservations": 1
+    }
+  ],
+  "same_frame_phase_clear": {
+    "oldPhase": 1,
+    "phase": 2,
+    "pending": 1,
+    "origin": "0:1",
+    "life": 10,
+    "spawned": 1
+  },
+  "pending_into_boss": {
+    "entry": {
+      "x": 888,
+      "y": 110.12076893029734,
+      "time": 0.9999999999999999,
+      "region": 0,
+      "phase": 1,
+      "id": "0:1"
+    },
+    "preserved": {
+      "x": 888,
+      "y": 110.12076893029734,
+      "time": 0.9999999999999999,
+      "region": 0,
+      "phase": 1,
+      "id": "0:1"
+    },
+    "origin": "0:1",
+    "lifeAtArrival": 10,
+    "spawned": 1,
+    "afterExpiry": 0,
+    "pending": 0,
+    "score": 100,
+    "kills": 6
+  },
+  "reservation_across_region": {
+    "atTransition": {
+      "stage": 1,
+      "phase": 1,
+      "same": true,
+      "life": 7.25,
+      "pending": "0:1"
+    },
+    "origin": "0:1",
+    "oldSpawned": 1,
+    "newSpawned": 0
+  },
+  "controlled_full_clear": {
+    "summary": [
+      {
+        "initial": {
+          "region": 0,
+          "regionKey": "world-1:forest",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 0,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 2,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 0,
+              "status": "not-selected"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 4,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 4,
+              "normalKills": 0,
+              "status": "waiting"
+            }
+          ]
+        },
+        "after": {
+          "region": 0,
+          "regionKey": "world-1:forest",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 3,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 2,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 6,
+              "status": "not-selected"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 4,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 4,
+              "normalKills": 6,
+              "status": "spawned"
+            }
+          ]
+        }
+      },
+      {
+        "initial": {
+          "region": 1,
+          "regionKey": "world-1:rock",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 0,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 2,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 4,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 0,
+              "status": "not-selected"
+            }
+          ]
+        },
+        "after": {
+          "region": 1,
+          "regionKey": "world-1:rock",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 3,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 2,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 4,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 6,
+              "status": "not-selected"
+            }
+          ]
+        }
+      },
+      {
+        "initial": {
+          "region": 2,
+          "regionKey": "world-1:sea",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 0,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 2,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 0,
+              "status": "not-selected"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 1,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 0,
+              "status": "waiting"
+            }
+          ]
+        },
+        "after": {
+          "region": 2,
+          "regionKey": "world-1:sea",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 3,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 2,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 6,
+              "status": "not-selected"
+            },
+            {
+              "phase": 3,
+              "selected": true,
+              "requiredKills": 1,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 6,
+              "status": "spawned"
+            }
+          ]
+        }
+      },
+      {
+        "initial": {
+          "region": 3,
+          "regionKey": "world-1:desert",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 0,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 2,
+              "selected": true,
+              "requiredKills": 1,
+              "normalKills": 0,
+              "status": "waiting"
+            },
+            {
+              "phase": 3,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 0,
+              "status": "not-selected"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 0,
+              "status": "waiting"
+            }
+          ]
+        },
+        "after": {
+          "region": 3,
+          "regionKey": "world-1:desert",
+          "worldId": 0,
+          "opportunities": 3,
+          "spawned": 3,
+          "phases": [
+            {
+              "phase": 1,
+              "selected": true,
+              "requiredKills": 2,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 2,
+              "selected": true,
+              "requiredKills": 1,
+              "normalKills": 6,
+              "status": "spawned"
+            },
+            {
+              "phase": 3,
+              "selected": false,
+              "requiredKills": null,
+              "normalKills": 6,
+              "status": "not-selected"
+            },
+            {
+              "phase": 4,
+              "selected": true,
+              "requiredKills": 3,
+              "normalKills": 6,
+              "status": "spawned"
+            }
+          ]
+        }
+      }
+    ],
+    "result": {
+      "id": "dd424fad-fc05-4f6b-9b14-a9c658bbf2d3",
+      "score": 30400,
+      "characterId": 0,
+      "characterName": "뾰코",
+      "regionId": 3,
+      "regionName": "🏜️ 사막 지역",
+      "worldId": 0,
+      "worldName": "월드 1",
+      "regionKey": "world-1:desert",
+      "localRegionIndex": 3,
+      "trialMode": false,
+      "phase": 5,
+      "order": 14,
+      "createdAt": "2026-11-04T15:48:09.785Z",
+      "outcome": "clear",
+      "normalKills": 120,
+      "itemKills": 12,
+      "bossKills": 4,
+      "clearedPhases": 16,
+      "playTimeSeconds": 0,
+      "finalUpgrade": 3
+    },
+    "score": 30400,
+    "started": false
+  },
+  "uncaught_errors": [],
+  "native_dialogs": [],
+  "failed_resources": [],
+  "external_requests": []
+}

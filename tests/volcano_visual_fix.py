@@ -6,6 +6,7 @@ from pathlib import Path
 from PIL import Image
 from playwright.sync_api import sync_playwright
 from visual_fix_preservation import VISUAL_FIX_ASSETS,assert_visual_fix_asset,without_visual_fix_asset
+from volcano_combat_preservation import without_volcano_combat
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE='5fe31bbbde7f9aa46d25aba03d64731485c2c70b'
@@ -28,7 +29,7 @@ for path in (ROOT/'assets').rglob('*'):
     if not path.is_file():continue
     name=str(path.relative_to(ROOT))
     if name in VISUAL_FIX_ASSETS:assert_visual_fix_asset(name)
-    else:assert path.read_bytes()==old(name),name
+    else:assert (without_volcano_combat(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes())==old(name),name
 passed('Exact two-loader deltas and embedded manifest only; all character sources, render geometry, combat, controls, music and other assets byte-preserved.')
 manifest=json.loads((ROOT/'assets/volcano/asset_manifest.json').read_text());before=json.loads(old('assets/volcano/asset_manifest.json'))
 assert manifest['background']==before['background']

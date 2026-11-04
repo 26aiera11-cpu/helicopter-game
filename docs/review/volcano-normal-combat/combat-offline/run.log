@@ -1,0 +1,13 @@
+PASS: Exact scoped normal-combat hooks only; every existing PNG/atlas/manifest/audio and protected module preserved; all JavaScript parses.
+PASS: Real developer Help -> World2 -> Volcano -> phase4 starts the new normal combat without changing route/default trial settings.
+PASS: 36 real spawns/kills:3 helicopters x3 viewports x4 species, HP1/2/2/4, configured speed/aimed shot, hit/death art,100points and single phase credit.
+PASS: 30/60/120Hz trajectories agree within.08px over4s; both strafe directions/irregular smooth zigzag observed; no teleport, speed overshoot or boundary escape.
+PASS: Guard blocks exactly one contact then ends:3 characters at upgrades0/2/3/5, homing/multishot and Tanko1.5 damage; repeat bullet cannot re-hit, volley remainder applies normal damage.
+PASS: Guard .25s warning/.7s maximum/4.5s cooldown expires and rearms; Tanko spends shared pierce on block then damages next enemy and vanishes; dead actors cannot fire/rearm/block.
+PASS: 12s normal-engine firing gives4/3/3/2 single shots, finite3.4s life and separated cooldowns; forced load caps at28 total/3 per owner and permits shots after expiry.
+PASS: Flame hit uses existing1HP hurt/invulnerability; Tanko and flame cancel each other immediately with unchanged projectile rules.
+PASS: Actual4-species flame/guard screenshots fit915x412,800x360,568x320; warmup/guard/blocked states use original69-frame art and bounded decorative overlays.
+PASS: Normal phase5 still requires6 beetles withHP4 and600kill points; developer5 remains direct dragon; dragon receives no normal-combat state/guard.
+PASS: World1/snow/item actors never opt in; explicit cleanup drops normal combat state without touching art or item systems.
+PASS: In-page exit pauses/resumes combat timers; confirmed exit clears state and developer runs leave all4 ranking/history keys unchanged.
+PASS: Native/embedded module loads with no JS/dialog/resource errors; offline external requests0.

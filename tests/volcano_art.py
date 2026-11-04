@@ -147,7 +147,7 @@ try:
                     page.locator(f'.select-hit[data-heli="{kind}"]').tap();page.locator('#startSelected').tap()
                     state=page.evaluate('vScene()');expected=['ember_bean','lava_lizard','volcano_bat','magma_beetle','magma_dragon'][step-1]
                     assert state['stage']==5 and state['phase']==step and state['type']==kind and state['actor']['id']==expected
-                    assert state['actor']['r']==(48 if step==5 else 16) and state['actor']['hp']==(20 if step==5 else 1)
+                    assert state['actor']['r']==(48 if step==5 else 16) and state['actor']['hp']==[1,2,2,4,20][step-1]
                     assert state['profile']==state['music']==0 and state['score']==0 and state['hp']==[4,6,9][kind]
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth&&!!document.fullscreenElement')
                     if kind==0 and (not args.standalone or width==568):page.screenshot(path=str(args.artifacts/f'volcano-phase{step}-{width}x{height}.png'))
@@ -156,7 +156,7 @@ try:
                     event=page.evaluate('''()=>{const actor=boss||enemies[0],king=actor===boss;
                         update(.1);const movement=gameVolcano.pose(actor,king).name;
                         actor.shot=0;update(0);const attack=gameVolcano.pose(actor,king).name,enemyShots=enemyBullets.length;
-                        vHit(actor);draw();return {movement,attack,hit:gameVolcano.snapshot(),score:runScore,enemyShots};}''')
+                        if(king)vHit(actor);else{let hits=0;while(actor.hp>0&&hits++<8)vHit(actor);if(actor.hp>0)throw Error('Normal kill stalled');}draw();return {movement,attack,hit:gameVolcano.snapshot(),score:runScore,enemyShots};}''')
                     entries[-1]['events']=event
                     assert event['movement']=='move' and event['attack']=='attack' and event['enemyShots']>=1,entries[-1]
                     if step<5:assert event['score']==100 and event['hit']['ghosts'][0]['pose']['name']=='hit'
@@ -174,7 +174,7 @@ try:
         page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
         # Normal phase5 prelude is beetles, not an extra normal species or direct boss.
         prelude=page.evaluate('''()=>{gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase:4});start(0);nextPhase();transition=0;spawn=999;warnEnemy();warnings.forEach(w=>w.time=0);update(0);return {boss:!!boss,id:gameVolcano.pose(enemies[0]).id,hp:enemies[0].hp,phaseKills};}''')
-        assert prelude=={'boss':False,'id':'magma_beetle','hp':1,'phaseKills':0}
+        assert prelude=={'boss':False,'id':'magma_beetle','hp':4,'phaseKills':0}
         passed('Normal entry to phase5 retains the6-kill prelude with beetle visuals; only developer phase5 bypasses it.')
         page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
         # Boss rewards/clear stay singular and wait for the real death animation.

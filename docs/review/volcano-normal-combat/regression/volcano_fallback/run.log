@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_fallback.py", line 36, in <module>
+    assert result['started'] and result['hp']==4 and result['normalHP']==(20 if phase==5 else 1) and not result['ready']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

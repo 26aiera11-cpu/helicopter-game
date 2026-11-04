@@ -1,0 +1,15 @@
+{
+  "passed": [
+    "After reversing reviewed selection-BGM changes, reviewed Tanko combat and progression deltas are the only source/UI differences from 9c3c5a8; all images/audio and unrelated behavior remain byte-identical.",
+    "Lethal collision immediately stops simulation and BGM flag, preserves the last canvas, blocks simultaneous healing/exit/input, and produces one overlay/timer with the correct stars.",
+    "Overlay remains at 2.7 seconds and returns at three seconds to the original title/three-character selection with no residual result and fullscreen intact.",
+    "Legacy death headings cannot leak into selectionResult; normal character restart clears frozen input and restores gameplay.",
+    "Restart cancels the pending return timer; a stale game-over timeout cannot pull a new game back into selection.",
+    "Three landscape sizes fit the centered overlay and return normally through repeated death/restart cycles.",
+    "Final-clear results and native fullscreen are retained; no browser dialogs or uncaught JavaScript errors occur."
+  ],
+  "limits": [
+    "Native Chromium fullscreen and touch emulation; physical Galaxy, Samsung Internet and speaker listening are not tested."
+  ],
+  "return_delay_ms": 3012.7000000029802
+}
