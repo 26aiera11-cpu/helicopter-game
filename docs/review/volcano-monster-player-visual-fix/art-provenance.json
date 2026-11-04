@@ -1,0 +1,115 @@
+{
+  "issue": 17,
+  "date": "2026-11-04 Asia/Seoul",
+  "baseline": "5fe31bbbde7f9aa46d25aba03d64731485c2c70b",
+  "reference_zip": {
+    "name": "heli_trio_volcano_character_visual_fix_refs.zip",
+    "bytes": 4070879,
+    "sha256": "a740407f6f9565b53f9cb16814560fd4edd6fe2e5d7ecbc26d333851147bf82d",
+    "crc_passed": true,
+    "reference_files_copied_unchanged": true
+  },
+  "reference_files": [
+    {
+      "path": "docs/review/volcano-monster-player-visual-fix/references/README.md",
+      "sha256": "2090166be5c798bde0275e44ace6727aa0b25cdcd98ef2cbd59cd2b7a892bdd2",
+      "bytes": 1559
+    },
+    {
+      "path": "docs/review/volcano-monster-player-visual-fix/references/01_approved_lizard_dragon_revision.png",
+      "sha256": "8031d7b122ab8d13a88ee506e72bd1660ff486f8ffea3b62db7e28657d91bfde",
+      "bytes": 1793022
+    },
+    {
+      "path": "docs/review/volcano-monster-player-visual-fix/references/02_user_selected_dragon_reference.png",
+      "sha256": "648a18b5ebf0324af46ebc84a129bb150d86d9cf5937c03e0f2f73cd466ed710",
+      "bytes": 2418194
+    }
+  ],
+  "art": [
+    {
+      "path": "assets/volcano/monsters/lava_lizard.png",
+      "imagegen_output_basename": "exec-48938529-f02a-47a4-a337-4ad30831e4da.png",
+      "sha256": "f4af8d3070abc8a5c6b5d97793efeb3d33f3a15dbc3e8f9c0ea8f8a9d389815d",
+      "bytes": 468354,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "raw_edge_max_alpha": 1,
+      "copied_unmodified": true
+    },
+    {
+      "path": "assets/volcano/monsters/magma_dragon.png",
+      "imagegen_output_basename": "exec-5209139b-4aa8-435c-ad26-5097573b9c65.png",
+      "sha256": "459f5dd4626e6b7ca474d6c0c94786dd4a49f18c1c958aa480fd96b4537dd842",
+      "bytes": 795942,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "raw_edge_max_alpha": 1,
+      "copied_unmodified": true
+    },
+    {
+      "path": "assets/volcano/animations/lava_lizard_atlas.png",
+      "imagegen_output_basename": "exec-6be89a4a-2762-4d56-8f7c-387f679a502a.png",
+      "sha256": "4ef0738833203f742a3f215339a7005ef5900e6c71dec9703f048259d0b1a08d",
+      "bytes": 816268,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "raw_edge_max_alpha": 1,
+      "copied_unmodified": true
+    },
+    {
+      "path": "assets/volcano/animations/magma_dragon_atlas.png",
+      "imagegen_output_basename": "exec-efcdb65b-b236-4d53-b552-ee6043763633.png",
+      "sha256": "7940d7b1c906b42ca02cf803c6ce9613db962c94c14b46159eb7cc4a0b2a3f86",
+      "bytes": 1327761,
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "raw_edge_max_alpha": 1,
+      "copied_unmodified": true
+    }
+  ],
+  "workflow": "Reference-guided imagegen creation/editing. Generated PNG bytes copied unchanged. PIL/numpy only read/validate pixels and metadata; no artwork editing outside imagegen.",
+  "approval": "User approved removal of whole connector/flame below dragon jaw before generation. Upper tail and spread wings retained. See confirmed-removal.json.",
+  "visual_review": {
+    "lizard": "Slender body, hornless head silhouette, four toe-bearing legs, long upper tail in body poses.",
+    "dragon": "Small downward head, long upper tail, outward spread wings, no chin appendage in body poses.",
+    "frames": {
+      "lizard": 12,
+      "dragon": 21,
+      "region_total": 69
+    }
+  },
+  "limitations": [
+    "Reference guidance is not pixel-identical tracing; final anatomy/line quality is subject to user visual review.",
+    "Raw generated PNGs retain alpha1–7 residual pixels; existing renderer clears below alpha8 only in render cache.",
+    "No physical Galaxy Samsung Internet/Chrome performance or sensor validation."
+  ]
+}
