@@ -116,7 +116,7 @@
     if(!enabled())return false;
     const selected=pose(actor,isBoss);paint(ctx,byId.get(selected.id),actor,selected);return true;
   }
-  function drawDefeats(ctx) {if(enabled())for(const g of ghosts)paint(ctx,byId.get(g.id),g,ghostPose(g));}
+  function drawDefeats(ctx) {if(enabled())for(const g of ghosts){const selected=ghostPose(g);if(window.gameVolcanoBoss?.drawDefeat(ctx,g,selected,paint))continue;paint(ctx,byId.get(g.id),g,selected);}}
   function backgroundGeometry(width,height) {
     const scale=Math.max(width/backgroundImage.naturalWidth,height/backgroundImage.naturalHeight);
     const w=backgroundImage.naturalWidth*scale,h=backgroundImage.naturalHeight*scale;

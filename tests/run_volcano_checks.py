@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--workers',type=int,default=2);parser.add_argument('--only',nargs='+')
 args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 known=[r['suite'] for r in json.loads((ROOT/'docs/review/volcano-monster-player-visual-fix/test-summary.json').read_text())['suites']]
-known+=['volcano_combat-native','volcano_combat-offline']
+known+=['volcano_combat-native','volcano_combat-offline','volcano_boss-native','volcano_boss-offline','volcano_boss_masks']
 names=args.only or known
 assert set(names)<=set(known) and 1<=args.workers<=3
 def run(name):

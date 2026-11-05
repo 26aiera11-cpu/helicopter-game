@@ -1,0 +1,9 @@
+PASS: After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.
+PASS: All12 original WAV files and the supplied MP3 load native metadata; nine BGM elements are paused before the first gesture.
+PASS: A real touch start plays the forest BGM at nonzero volume and its native playback clock advances.
+PASS: Zero health immediately pauses every BGM, resets gameAudioStarted and freezes the playback clocks after game over.
+PASS: Selection resumes only its MP3 after game over and a visible-page notification; old game tracks stay paused and music ON persists.
+PASS: Restarting with Bingle starts exactly one forest BGM again, with the original character and music settings.
+PASS: Music OFF survives game over and two different-character restarts; turning it ON in selection starts only the selection MP3.
+PASS: All four stage/boss themes retain their original switches, boss appearance effect and next-stage progression; final clear stops game BGM before selection MP3 resumes.
+PASS: Twelve additional game-over/restart cycles across all characters reuse the same13 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.

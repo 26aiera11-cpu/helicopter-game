@@ -1,25 +1,25 @@
-# 갤럭시 테스트 — 화산 일반 몬스터 전투 시험 버전
+# 갤럭시 테스트 — 마그마 드래곤 보스 전투 시험 버전
 
-2026-11-05 KST · `feature/volcano-normal-combat` · [Issue #18](https://github.com/26aiera11-cpu/helicopter-game/issues/18).
+2026-11-05 KST · `feature/volcano-boss-combat` · [Issue #19](https://github.com/26aiera11-cpu/helicopter-game/issues/19).
 
-**[최신 heli_trio_galaxy_test.zip 다운로드 — 약 43.7MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/volcano-normal-combat/dist/heli_trio_galaxy_test.zip?download=1)**
+**[최신 heli_trio_galaxy_test.zip 다운로드 — 약 43.7MB](https://github.com/26aiera11-cpu/helicopter-game/raw/refs/heads/feature/volcano-boss-combat/dist/heli_trio_galaxy_test.zip?download=1)**
 
 ZIP에는 `heli_trio_galaxy_test.html` 하나만 있다. GitHub에서HTML을 바로 열면 소스가 보일 수 있으므로 ZIP을 다운로드해 압축을 푼다.
 
 ## 실행과 화산 직접 시험
 
-1. 갤럭시에서 ZIP을 다운로드한다. 크기는 **43,714,723바이트**다.
-2. ‘내 파일→다운로드’에서 압축을 풀고 안의HTML을 로컬파일 실행이 가능한 브라우저로 연다. HTML은 **60,060,497바이트, 약60.1MB**다. 실제Android 파일 연결/로컬 실행 지원 여부는 기기에서 확인해야 한다.
+1. 갤럭시에서 ZIP을 다운로드한다. 크기는 **43,718,282바이트**다.
+2. ‘내 파일→다운로드’에서 압축을 풀고 안의HTML을 로컬파일 실행이 가능한 브라우저로 연다. HTML은 **60,079,227바이트, 약60.1MB**다. 실제Android 파일 연결/로컬 실행 지원 여부는 기기에서 확인해야 한다.
 3. 가로 화면에서 캐릭터를 고른다. 상단 **⛶ 전체화면**을 사용하면 선택→플레이→메뉴 복귀까지 표준 전체화면을 사용할 수 있다. 브라우저가 거부하면 일반 화면에서 실행된다.
 4. **게임 방법→🧪 지역 바로 시작→월드2→화산→시작 단계1~5**를 고른다. 도움말을 닫고 게임 시작을 누른다. 1불씨콩·2도마뱀·3박쥐·4갑충·5마그마 드래곤을 확인한다. 직접5단계는 일반전 없이 보스가 바로 나온다.
 5. 개발 테스트는 선택한 지역의 보스 처치 후 끝나며 TOP10/분석 기록에 저장하지 않는다. 새로 열면 개발/시험 모드는 기본OFF다.
 6. **월드2 시험 모드(설원→화산)**를 따로 켜면 숲→바위→바다→사막→설원→화산의30단계를 플레이한다. 시험 기록은 기존world2Trial 키에 일반과 분리해서 저장한다. 기본OFF는 원래 월드1의20단계다.
 
-이번 버전은 화산 일반 몬스터의 고유 전투를 연결했다. 불씨콩HP1/빠른 추적, 도마뱀HP2/횡이동, 박쥐HP2/지그재그·주황/보라 화염탄, 갑충HP4/느린 추적·짧은1회 방어를 확인할 수 있다. 원본 그래픽69프레임과 최종 헬기 이미지는 그대로다. [실제 화면/수치/검사 보고서](../volcano-normal-combat/README.md)
+이번 버전은 화산5단계 마그마 드래곤의 **화염구 연사 → 용암 분출 → 회전 브레스**를 연결했다. 개발자 바로 시작5단계에서 즉시 보스가 등장한다. 승인된 드래곤/도마뱀/모든63PNG와 화산69프레임, 기존 화산 일반4종 전투는 그대로다. [실제 화면/수치/검사 보고서](../volcano-boss-combat/README.md)
 
-갑충은0.25초 예고 뒤 최대0.7초 동안 한 발만 막고, 즉시 방어가 끝나며4.5초 대기한다. 기존 탱코 관통과 캐릭터 공격 수치는 유지한다. 생성 간격·일반6킬 목표·단계별 종 배치는 그대로이며 혼합 등장은 아직 없다.
+브레스는 안전한 위치로 이동한 뒤1초 예고하고,3.8초 동안 몸·날개·머리·꼬리와 입 화염이 한 바퀴 돈다. 화염 길이는 화면 높이에 따라85~115px이며 UI 영역을 표시/판정에서 함께 제외한다. 용암 경고1.25초에는 피해가 없고 분출 순간 한 번만 판정한다. 화염구는3발×3연사이며 유한 수명/상한을 둔다.
 
-**드래곤 보스와 BGM은 기존 숲 임시 프로필**이다. 보스 전용 새 패턴·화산 최종 난이도/혼합 스폰/전용 음악은 이번 작업에 포함하지 않는다. 배경 용암에는 피해/장애물 판정이 없다.
+보스HP/강화 보정·보상/점수·0.94초 소멸은 기존 규칙이다. 화산 **BGM은 숲 임시 프로필**이며 최종 월드 난이도·혼합 등장·전용 음악은 이번 작업에서 확정하지 않았다. 배경 용암에는 피해/장애물 판정이 없다.
 
 ## 조작과 기존 기능
 
@@ -32,16 +32,16 @@ ZIP에는 `heli_trio_galaxy_test.html` 하나만 있다. GitHub에서HTML을 바
 
 ## 확인한 내용과 한계
 
-현재15개 스크립트, 화산PNG11개·갱신된69프레임 매니페스트, 기존 설원/캐릭터/선택화면/아이템 이미지와CSS·음원을 HTML에 포함했다. HTML/CSS 외부 의존성0, 원본 소스/자산 바이트 일치, ZIP의HTML1개·CRC·실제 별도 압축 해제 일치를 검사했다.
+현재16개 스크립트, 화산PNG11개·갱신된69프레임 매니페스트, 기존 설원/캐릭터/선택화면/아이템 이미지와CSS·음원을 HTML에 포함했다. HTML/CSS 외부 의존성0, 원본 소스/자산 바이트 일치, ZIP의HTML1개·CRC·실제 별도 압축 해제 일치를 검사했다.
 
-- [최종 검사·한계·스크린샷 보고서](../volcano-normal-combat/README.md)
-- [빌드 정보](build-results.json), [ZIP 정보](zip-results.json), [최신 파일/소스 검증](../volcano-normal-combat/package-source-verification.json)
-- ZIP SHA-256: `5e8807affdf73be5fdfdf469da9c54ce22d385e398f2b708004c42296ad83159`
-- HTML SHA-256: `2229828fbe4aafc3995856301420649603372177825112a360f9604df1683d7e`
+- [최종 검사·한계·스크린샷 보고서](../volcano-boss-combat/README.md)
+- [빌드 정보](build-results.json), [ZIP 정보](zip-results.json), [최신 파일/소스 검증](../volcano-boss-combat/package-source-verification.json)
+- ZIP SHA-256: `3dd0242a10aef7f7dd760ebecfc8077bd6b8f962f1af0954d3b4c4c677505986`
+- HTML SHA-256: `7e37d917af13eb1331016964b2d739a28ab1ba452283b9770456ea673daa13e7`
 
-![오프라인 화산 보스](../volcano-normal-combat/offline/volcano-phase5-568x320.png)
+![오프라인 회전 브레스](../volcano-boss-combat/boss-offline/breath-180-568x320.png)
 
-[화산1단계](../volcano-normal-combat/offline/volcano-phase1-568x320.png) · [2단계](../volcano-normal-combat/offline/volcano-phase2-568x320.png) · [3단계](../volcano-normal-combat/offline/volcano-phase3-568x320.png) · [4단계](../volcano-normal-combat/offline/volcano-phase4-568x320.png) · [개발자 경로](../volcano-normal-combat/offline/developer-volcano-help.png)
+[화산1단계](../volcano-boss-combat/offline/volcano-phase1-568x320.png) · [2단계](../volcano-boss-combat/offline/volcano-phase2-568x320.png) · [3단계](../volcano-boss-combat/offline/volcano-phase3-568x320.png) · [4단계](../volcano-boss-combat/offline/volcano-phase4-568x320.png) · [개발자 경로](../volcano-boss-combat/offline/developer-volcano-help.png)
 
 위 화면은 실제Chromium의 동일 게임 렌더러를 모바일/터치 환경에서 검사한 캡처이며 실제 갤럭시 촬영본은 아니다. 관리 환경의file:// 보안 정책을 우회하지 않고 빈localhost origin에서 네트워크를 차단한 HTML을 검사했다. 물리Galaxy Samsung Internet/Chrome의 파일 다운로드/열기·로컬 저장 정책·센서 권한/감도·손가락 조작·음향 청취·성능/발열은 아직 확인하지 않았다.
 

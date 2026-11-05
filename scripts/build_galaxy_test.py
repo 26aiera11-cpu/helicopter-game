@@ -63,10 +63,11 @@ def build():
     snowfield_javascript = (ROOT / 'assets/snowfield/snowfield.js').read_text()
     volcano_javascript = (ROOT / 'assets/volcano/volcano.js').read_text()
     volcano_combat_javascript = (ROOT / 'assets/volcano/combat.js').read_text()
+    volcano_boss_javascript = (ROOT / 'assets/volcano/boss_combat.js').read_text()
     snow_spawns_javascript = (ROOT / 'assets/snowfield/spawns.js').read_text()
     snow_combat_javascript = (ROOT / 'assets/snowfield/combat.js').read_text()
     snow_boss_javascript = (ROOT / 'assets/snowfield/boss_combat.js').read_text()
-    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + difficulty_javascript + snowfield_javascript + volcano_javascript + volcano_combat_javascript + snow_combat_javascript + snow_boss_javascript + snow_spawns_javascript).lower()
+    assert '</style' not in (css + score_css + controls_css + world_css).lower() and '</script' not in (javascript + score_javascript + item_javascript + controls_javascript + world_javascript + difficulty_javascript + snowfield_javascript + volcano_javascript + volcano_combat_javascript + volcano_boss_javascript + snow_combat_javascript + snow_boss_javascript + snow_spawns_javascript).lower()
     stylesheet = '<link rel="stylesheet" href="assets/selection/selection.css">'
     script = '<script src="assets/selection/selection.js"></script>'
     assert source.count(stylesheet) == 1 and source.count(script) == 1
@@ -98,6 +99,8 @@ def build():
                             '<script id="galaxy-volcano-js">' + volcano_javascript + '</script>')
     result = result.replace('<script src="assets/volcano/combat.js"></script>',
                             '<script id="galaxy-volcano-combat-js">' + volcano_combat_javascript + '</script>')
+    result = result.replace('<script src="assets/volcano/boss_combat.js"></script>',
+                            '<script id="galaxy-volcano-boss-js">' + volcano_boss_javascript + '</script>')
     result = result.replace('<script src="assets/snowfield/spawns.js"></script>',
                             '<script id="galaxy-snow-spawns-js">' + snow_spawns_javascript + '</script>')
     result = result.replace('<script src="assets/snowfield/combat.js"></script>',
@@ -111,7 +114,7 @@ def build():
     result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield|volcano)/[^\"\']+)([\"\'])', inline_resource, result)
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [world_javascript, difficulty_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, difficulty_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, volcano_boss_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -144,6 +147,7 @@ def build():
         'inlined_snowfield_scripts': 1,
         'inlined_volcano_scripts': 1,
         'inlined_volcano_combat_scripts': 1,
+        'inlined_volcano_boss_scripts': 1,
         'embedded_volcano_manifest': True,
         'embedded_volcano_frames': sum(actor['frame_count'] for actor in volcano_manifest['monsters']),
         'inlined_snow_combat_scripts': 1,

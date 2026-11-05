@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_boss_masks.py", line 31, in <module>
+    assert result['before']>128 and result['after']==0 and result['overlap']>=2 and not result['hit'] and result['unmaskedHit'] and result['phase']=='breath' and not errors,(result,errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ({'before': 249, 'after': 249, 'overlap': 0, 'hit': True, 'unmaskedHit': True, 'phase': 'breath'}, [])

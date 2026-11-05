@@ -155,7 +155,7 @@ try:
                     # Real movement, firing and hit hooks, without inventing combat stats.
                     event=page.evaluate('''()=>{const actor=boss||enemies[0],king=actor===boss;
                         update(.1);const movement=gameVolcano.pose(actor,king).name;
-                        actor.shot=0;update(0);const attack=gameVolcano.pose(actor,king).name,enemyShots=enemyBullets.length;
+                        if(king){let i=0;while(gameVolcanoBoss.snapshot().volleys===0&&i++<400)update(.01);if(i>=400)throw Error('Dragon shot stalled');}else{actor.shot=0;update(0);}const attack=gameVolcano.pose(actor,king).name,enemyShots=enemyBullets.length;
                         if(king)vHit(actor);else{let hits=0;while(actor.hp>0&&hits++<8)vHit(actor);if(actor.hp>0)throw Error('Normal kill stalled');}draw();return {movement,attack,hit:gameVolcano.snapshot(),score:runScore,enemyShots};}''')
                     entries[-1]['events']=event
                     assert event['movement']=='move' and event['attack']=='attack' and event['enemyShots']>=1,entries[-1]
