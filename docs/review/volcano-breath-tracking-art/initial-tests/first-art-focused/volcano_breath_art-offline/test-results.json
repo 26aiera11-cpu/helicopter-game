@@ -1,0 +1,27 @@
+{
+  "passed": [
+    "Supplied SHA256/768x230 RGBA resource loads intact; source alpha read exactly once and cached, no per-frame getImageData."
+  ],
+  "standalone": true,
+  "limits": [
+    "Controlled Chromium gameplay fixtures; no physical Galaxy Samsung Internet, hardware tilt, finger input or performance/heat measurements.",
+    "Alpha96 collision ignores weak glow/antialias fringe; player center uses original hurt/invulnerability rules."
+  ],
+  "asset": {
+    "art": {
+      "status": "ready",
+      "width": 768,
+      "height": 230,
+      "maskReady": true
+    },
+    "metadata": {
+      "width": 768,
+      "height": 230,
+      "anchorX": 35,
+      "anchorY": 158,
+      "tipX": 766,
+      "alphaThreshold": 96
+    },
+    "reads": 1
+  }
+}

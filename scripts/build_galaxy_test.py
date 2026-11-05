@@ -29,6 +29,8 @@ def build():
     for actor in volcano_manifest['monsters']:
         for kind in ['base', 'atlas']:
             assert hashlib.sha256((volcano_path.parent / actor[kind]).read_bytes()).hexdigest() == actor[kind+'_sha256']
+    breath_path = ROOT / 'assets/volcano/effects/magma_dragon_breath_static.png'
+    assert hashlib.sha256(breath_path.read_bytes()).hexdigest() == 'a9600ff8d4c827d8d5ac200c5c508ff636d008398ec985a5fb259c65913fa979', 'Preserve the supplied static breath PNG'
     css_path = ROOT / 'assets/selection/selection.css'
     js_path = ROOT / 'assets/selection/selection.js'
     embedded = {}
@@ -148,6 +150,7 @@ def build():
         'inlined_volcano_scripts': 1,
         'inlined_volcano_combat_scripts': 1,
         'inlined_volcano_boss_scripts': 1,
+        'embedded_static_breath_png': True,
         'embedded_volcano_manifest': True,
         'embedded_volcano_frames': sum(actor['frame_count'] for actor in volcano_manifest['monsters']),
         'inlined_snow_combat_scripts': 1,

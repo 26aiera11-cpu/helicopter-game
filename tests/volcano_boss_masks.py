@@ -23,8 +23,8 @@ try:
    if offline:
     page.goto(f'http://127.0.0.1:{server.server_port}/offline-origin');context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:page.goto(f'http://127.0.0.1:{server.server_port}/')
-   page.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()');page.evaluate(helpers)
-   result=page.evaluate('''()=>vbRun(()=>{vbBegin(0);vbGo('breath');const geo=gameVolcanoBoss.frameGeometry(boss),point={x:geo.origin.x+Math.cos(geo.direction)*geo.length*.85,y:geo.origin.y+Math.sin(geo.direction)*geo.length*.85};
+   page.wait_for_function('gameVolcanoBoss.artSnapshot().status==="ready"&&gameVolcano.ready()&&gameSnowfield.ready()');page.evaluate(helpers)
+   result=page.evaluate('''()=>vbRun(()=>{vbBegin(0);vbGo('breath_warning');let p=gameVolcanoBoss.snapshot().center;player.x=p.x+180;player.y=p.y;player.vx=player.vy=0;vbAdvance(1.8);const geo=gameVolcanoBoss.frameGeometry(boss);let point=null;for(let y=70;y<H-50&&!point;y+=2)for(let x=40;x<W-40;x+=2)if(Math.hypot(x-geo.pivot.x,y-geo.pivot.y)>gameVolcanoBoss.bodyRadius+30&&gameVolcanoBoss.contains({x,y},geo)){point={x,y};break;}if(!point)throw Error('No safe visible flame sample');
     const sample=()=>{const c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');gameVolcanoBoss.draw(g);return g.getImageData(Math.floor(point.x),Math.floor(point.y),1,1).data[3];};const before=sample(),saved=[];
     try{for(const id of ['hud','sensor']){const original=document.getElementById(id);original.id=id+'-fixture-original';const el=document.createElement('div');el.id=id;el.style.cssText=`position:fixed!important;left:${point.x-8}px!important;top:${point.y-8}px!important;width:16px!important;height:16px!important;padding:0!important;margin:0!important;border:0!important;overflow:hidden!important;display:block!important;visibility:visible!important;`;document.body.append(el);saved.push([original,id,el]);}
       update(0);const after=sample(),rects=gameVolcanoBoss.blockedRects(),overlap=rects.filter(b=>point.x>=b.left&&point.x<=b.right&&point.y>=b.top&&point.y<=b.bottom).length;

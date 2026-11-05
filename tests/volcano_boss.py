@@ -1,4 +1,4 @@
-"""Issue19 actual dragon cycle, rotation/mouth, raster collision, lifecycle and package checks."""
+"""Issues19/20 actual dragon cycle, tracking/mouth/PNG alpha, lifecycle and offline checks."""
 import argparse,hashlib,json,re,shutil,subprocess,threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
@@ -62,7 +62,7 @@ try:
   if args.standalone:
    page.goto(f'http://127.0.0.1:{server.server_port}/offline-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
   else:page.goto(f'http://127.0.0.1:{server.server_port}/')
-  page.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()&&sprites.length===3&&sprites.every(i=>i.complete&&i.naturalWidth>0)');page.evaluate(helpers)
+  page.wait_for_function('gameVolcanoBoss.artSnapshot().status==="ready"&&gameVolcano.ready()&&gameSnowfield.ready()&&sprites.length===3&&sprites.every(i=>i.complete&&i.naturalWidth>0)');page.evaluate(helpers)
   assert page.evaluate('gameVolcanoBoss.mouthAnchors')==anchors['anchors'];initial=page.evaluate('vbStorage()')
   page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('5');page.locator('#developerStartPhase').select_option('5');page.locator('#selectionHelpClose').tap()
   starts=[]
@@ -89,17 +89,17 @@ try:
     if kind==0:page.screenshot(path=str(args.artifacts/f'eruption-burst-{width}x{height}.png'))
     breath_warning=page.evaluate("vbRun(()=>vbGo('breath_warning'))");assert breath_warning['center'] and breath_warning['skipped']==0,breath_warning
     if kind==0:page.screenshot(path=str(args.artifacts/f'breath-warning-{width}x{height}.png'))
-    beginning=page.evaluate("vbRun(()=>{vbGo('breath');return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y],geo:gameVolcanoBoss.frameGeometry(boss)};})");assert abs(beginning['state']['angle'])<1e-8
+    beginning=page.evaluate("vbRun(()=>{vbGo('breath');return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y],geo:gameVolcanoBoss.frameGeometry(boss)};})");assert beginning['state']['center']
     if kind==0:page.screenshot(path=str(args.artifacts/f'breath-000-{width}x{height}.png'))
-    half=page.evaluate('vbRun(()=>{vbAdvance(1.9);return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y],geo:gameVolcanoBoss.frameGeometry(boss)};})');assert abs(half['state']['angle']-3.141592653589793)<1e-8 and half['actor']==beginning['actor']
-    assert beginning['geo']['origin']['y']>beginning['geo']['pivot']['y'] and half['geo']['origin']['y']<half['geo']['pivot']['y']
+    half=page.evaluate('vbRun(()=>{vbAdvance(1.9);return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y],geo:gameVolcanoBoss.frameGeometry(boss)};})');assert half['actor']==beginning['actor'] and abs(half['state']['angle']-beginning['state']['angle'])<.02
+    assert beginning['geo']['origin']['y']>beginning['geo']['pivot']['y'] and half['geo']['origin']['y']>half['geo']['pivot']['y']
     if kind==0:page.screenshot(path=str(args.artifacts/f'breath-180-{width}x{height}.png'))
-    end=page.evaluate('vbRun(()=>{vbAdvance(1.9);return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y]};})');assert abs(end['state']['swept']-6.283185307179586)<1e-8 and end['state']['phase']=='rest' and end['actor']==beginning['actor'] and end['state']['shots']==9,end
+    end=page.evaluate('vbRun(()=>{vbAdvance(1.9);return {state:gameVolcanoBoss.snapshot(),actor:[boss.x,boss.y]};})');assert abs(end['state']['angle']-half['state']['angle'])<.02 and end['state']['phase']=='rest' and end['actor']==beginning['actor'] and end['state']['shots']==9,end
     if kind==0:page.screenshot(path=str(args.artifacts/f'breath-360-{width}x{height}.png'))
     repeated=page.evaluate("vbRun(()=>vbGo('fire_aim'))");assert repeated['next']=='eruption' and repeated['shots']==9
     entries.append({'viewport':[width,height],'kind':kind,'aim':aim,'fire':first,'eruption':warning,'breathWarning':breath_warning,'start':beginning,'half':half,'end':end})
   report['entries']=entries
-  passed('9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,3.8s exact360deg fixed pivot, rest then repeat.')
+  passed('9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,3.8s tracking at a fixed pivot without forced full turn, rest then repeat.')
   render=page.evaluate('''()=>vbRun(()=>{vbBegin(0);vbGo('breath');const rows=[];for(let i=0;i<8;i++){
     const selected=gameVolcano.pose(boss,true),spec=gameVolcano.species.find(s=>s.id==='magma_dragon'),frame=spec.animations[selected.name].frames[selected.index];
     const geo=gameVolcanoBoss.frameGeometry(boss),call=vbBodyCall(),anchor=gameVolcanoBoss.mouthAnchors[selected.name][selected.index],px=call.a[0]+anchor[0]*call.a[2]/frame.rect_px[2],py=call.a[1]+anchor[1]*call.a[3]/frame.rect_px[3],m=call.m;
@@ -110,44 +110,58 @@ try:
    }return rows;})''')
   assert len(render)==8;report['render']=render
   passed('8 actual boss draw matrices rotate the whole cached frame without squashing; transformed source-mouth pixels equal flame origins and canvas transform restores exactly.')
-  raster=page.evaluate('''()=>vbRun(()=>{vbBegin(0);vbGo('breath');const rows=[];for(let n=0;n<8;n++){
-    const geo=gameVolcanoBoss.frameGeometry(boss),rects=gameVolcanoBoss.blockedRects(),probe=document.createElement('canvas');probe.width=W;probe.height=H;const g=probe.getContext('2d');gameVolcanoBoss.draw(g);const p=g.getImageData(0,0,W,H).data;
-    const cross=(a,b,q)=>(b.x-a.x)*(q.y-a.y)-(b.y-a.y)*(q.x-a.x),near=(a,b,q)=>Math.abs(cross(a,b,q))/Math.hypot(b.x-a.x,b.y-a.y)<2;
-    let checked=0,mismatch=0,masked=0,overlap=0;
-    for(let y=2;y<H-2;y+=3)for(let x=2;x<W-2;x+=3){const q={x:x+.5,y:y+.5},edges=geo.polygon.map((a,i)=>[a,geo.polygon[(i+1)%3]]);if(edges.some(([a,b])=>near(a,b,q))||rects.some(b=>Math.min(Math.abs(q.x-b.left),Math.abs(q.x-b.right),Math.abs(q.y-b.top),Math.abs(q.y-b.bottom))<2))continue;
-      const signs=edges.map(([a,b])=>cross(a,b,q)),triangle=signs.every(v=>v>=0)||signs.every(v=>v<=0),masks=rects.filter(b=>q.x>=b.left&&q.x<=b.right&&q.y>=b.top&&q.y<=b.bottom).length,expected=triangle&&!masks,drawn=p[(y*W+x)*4+3]>=8,hit=gameVolcanoBoss.contains(q,geo,rects);
-      if(expected!==drawn||expected!==hit)mismatch++;if(triangle&&masks){masked++;if(masks>1)overlap++;}checked++;
-    }if(mismatch)throw Error('Raster vs hit geometry mismatch '+mismatch);rows.push({angle:geo.angle,checked,mismatch,masked,overlap});vbAdvance(.475);
-   }return rows;})''')
-  report['raster']=raster;assert sum(r['checked'] for r in raster)>10000
-  passed('Independent triangle oracle, actual flame canvas pixels and hit predicate agree away from antialias edges; UI cutouts, including overlapping masks, have no hidden damaging flame.')
+  raster=page.evaluate(r'''()=>vbRun(()=>{vbBegin(0);vbGo('breath');const art=gameVolcanoBoss.breathArt,im=document.getElementById('volcano-magma-breath'),source=document.createElement('canvas');source.width=im.naturalWidth;source.height=im.naturalHeight;const sg=source.getContext('2d');sg.drawImage(im,0,0);const alpha=sg.getImageData(0,0,source.width,source.height).data,rows=[];
+    for(let n=0;n<8;n++){
+     const geo=gameVolcanoBoss.frameGeometry(boss),rects=gameVolcanoBoss.blockedRects(),probe=document.createElement('canvas');probe.width=W;probe.height=H;const g=probe.getContext('2d');gameVolcanoBoss.draw(g);const pixels=g.getImageData(0,0,W,H).data;let checked=0,mismatch=0,transparent=0,lit=0;
+     for(let y=2;y<H-2;y+=2)for(let x=2;x<W-2;x+=2){const q={x:x+.5,y:y+.5},dx=q.x-geo.origin.x,dy=q.y-geo.origin.y,c=Math.cos(geo.direction),sn=Math.sin(geo.direction),px=Math.floor((dx*c+dy*sn)/geo.artScale+35),py=Math.floor((-dx*sn+dy*c)/geo.artScale+158),inside=px>=0&&px<768&&py>=0&&py<230,ui=rects.some(b=>q.x>=b.left&&q.x<=b.right&&q.y>=b.top&&q.y<=b.bottom),expected=inside&&!ui&&alpha[(py*768+px)*4+3]>=96,hit=gameVolcanoBoss.contains(q,geo,rects);
+      if(expected!==hit)mismatch++;checked++;
+      if(!inside||ui||px<3||py<3||px>764||py>226)continue;
+      let min=255,max=0;for(let yy=py-2;yy<=py+2;yy++)for(let xx=px-2;xx<=px+2;xx++){const v=alpha[(yy*768+xx)*4+3];min=Math.min(min,v);max=Math.max(max,v);}
+      if(min>=150){if(pixels[(y*W+x)*4+3]<96)mismatch++;lit++;}if(max===0){if(pixels[(y*W+x)*4+3]>=96||hit)mismatch++;transparent++;}
+     }
+     if(mismatch)throw Error('PNG alpha/draw/hit mismatch '+mismatch);rows.push({angle:geo.angle,checked,mismatch,transparent,lit});player.x=geo.pivot.x+Math.cos(n*Math.PI/4)*150;player.y=geo.pivot.y+Math.sin(n*Math.PI/4)*100;vbAdvance(.2);
+    }return rows;})''')
+  report['raster']=raster;assert sum(r['checked'] for r in raster)>10000 and sum(r['transparent'] for r in raster)>1000
+  passed('Independent original PNG alpha inverse-transform oracle matches damage; opaque interiors render and transparent holes remain harmless across8 orientations, including UI masks.')
   eruption=page.evaluate('''()=>vbRun(()=>{vbBegin(2);vbGo('eruption_warning');const before=gameVolcanoBoss.snapshot(),h=before.hazard;enemyBullets=[];player.x=h.x;player.y=h.y;invuln=0;const hpBefore=hp;
     vbAdvance(before.remaining-.0001);const warningHP=hp;player.x+=3;const unchanged=JSON.stringify(gameVolcanoBoss.snapshot().hazard)===JSON.stringify(h);player.x=h.x;vbAdvance(.0001);const burstHP=hp,s=gameVolcanoBoss.snapshot();vbAdvance(.25);return {hpBefore,warningHP,burstHP,finalHP:hp,unchanged,damageCalls:s.damageCalls,resolved:s.hazard.resolved};})''')
   assert eruption=={'hpBefore':9,'warningHP':9,'burstHP':8,'finalHP':8,'unchanged':True,'damageCalls':1,'resolved':True},eruption
   report['eruption_damage']=eruption
   passed('Standing inside eruption warning gives0 damage; fixed target does not track movement; exactly one1HP detonation, no repeated burst damage.')
-  fps=page.evaluate('''()=>{const rows=[];for(const hz of [30,60,120])for(const outside of [false,true])vbRun(()=>{
-    vbBegin(2);vbGo('breath',1/hz);invuln=0;const before=hp;let elapsed=0;
-    while(elapsed<3.8-1e-9){const dt=Math.min(1/hz,3.8-elapsed),s=gameVolcanoBoss.snapshot(),selected=gameVolcano.pose(boss,true),next=gameVolcanoBoss.frameGeometry(boss,selected,Math.min(Math.PI*2,s.angle+Math.PI*2*dt/3.8),s.center),distance=outside?next.length+10:25;
-      player.x=next.origin.x+Math.cos(next.direction)*distance;player.y=next.origin.y+Math.sin(next.direction)*distance;player.vx=player.vy=0;update(dt);elapsed+=dt;}
-    const s=gameVolcanoBoss.snapshot();rows.push({hz,outside,hpBefore:before,hpAfter:hp,swept:s.swept,damageCalls:s.damageCalls,age:s.age,phase:s.phase,trace:[...vbTrace]});
+  fps=page.evaluate(r'''()=>{const rows=[];for(const hz of [30,60,120])for(const outside of [false,true])vbRun(()=>{
+    vbBegin(2);vbGo('breath_warning',1/hz);let p=gameVolcanoBoss.snapshot().center;player.x=p.x+180;player.y=p.y;player.vx=player.vy=0;vbAdvance(1,1/hz);const startState=gameVolcanoBoss.snapshot();vbTrace.push({phase:'breath',time:startState.age-(3.8-startState.remaining),shots:startState.shots});invuln=0;enemyBullets=[];const before=hp;let elapsed=0;const geo=gameVolcanoBoss.frameGeometry(boss),c=Math.cos(geo.direction),sn=Math.sin(geo.direction),along=outside?geo.length+10:geo.artScale*(350-35),across=outside?0:geo.artScale*(140-158);
+    player.x=geo.origin.x+c*along-sn*across;player.y=geo.origin.y+sn*along+c*across;player.vx=player.vy=0;
+    while(elapsed<3.8-1e-9){const dt=Math.min(1/hz,3.8-elapsed);update(dt);elapsed+=dt;}
+    const s=gameVolcanoBoss.snapshot();rows.push({hz,outside,hpBefore:before,hpAfter:hp,angle:s.angle,damageCalls:s.damageCalls,age:s.age,phase:s.phase,trace:[...vbTrace]});
    });return rows;}''')
-  for row in fps:assert abs(row['swept']-6.283185307179586)<1e-8 and row['phase']=='rest' and row['hpBefore']-row['hpAfter']==(0 if row['outside'] else 3) and row['damageCalls']==(0 if row['outside'] else 3),row
+  for row in fps:assert row['phase']=='rest' and row['hpBefore']-row['hpAfter']==(0 if row['outside'] else 3) and row['damageCalls']==(0 if row['outside'] else 3),row
   for row in fps:
    events=row['trace'];volleys=[e for e in events if e['shots'] in [3,6,9] and e['phase'] in ['fire_burst','rest']][:3]
    assert len(volleys)==3 and all(abs(e['time']-t)<1e-7 for e,t in zip(volleys,[2.2,2.52,2.84])),volleys
-   times={e['phase']:e['time'] for e in events}
-   assert abs(times['eruption_burst']-times['eruption_warning']-1.25)<1e-7 and abs(times['breath']-times['breath_warning']-1)<1e-7,times
+   times={e['phase']:e['time'] for e in events};assert abs(times['eruption_burst']-times['eruption_warning']-1.25)<1e-7 and abs(times['breath']-times['breath_warning']-1)<1e-7,times
   report['fps_damage']=fps
-  passed('30/60/120Hz agree on3 volley times, eruption/breath warnings and exactly360deg/3.8s; following the inner flame uses existing invulnerability for3 total hits, range+10px takes0 hits.')
-  escapes=[]
+  passed('30/60/120Hz preserve3 volley times,1.25s eruption/1s breath warning/3.8s duration; flame core uses original invulnerability for3 hits, beyond visual tip+10px gives0.')
+  tracking=page.evaluate(r'''()=>{const rows=[];for(const hz of [30,60,120])vbRun(()=>{
+    vbBegin(2);vbGo('breath_warning',1/hz);enemyBullets=[];const pivot=gameVolcanoBoss.snapshot().center;let before=gameVolcanoBoss.snapshot().angle;const steps=[];
+    for(const [x,y]of [[pivot.x-150,pivot.y],[pivot.x+150,pivot.y],[pivot.x,pivot.y+120],[pivot.x,pivot.y-120],[pivot.x+150,pivot.y],[pivot.x-150,pivot.y]]){
+      player.x=x;player.y=y;player.vx=player.vy=0;const target=Math.atan2(y-pivot.y,x-pivot.x)-Math.PI/2,diff=Math.atan2(Math.sin(target-before),Math.cos(target-before));
+      update(1/hz);const after=gameVolcanoBoss.snapshot().angle,change=after-before;
+      if(Math.abs(change)>70*Math.PI/180/hz+1e-8||Math.sign(change)!==Math.sign(diff))throw Error('Wrong shortest direction/speed');
+      steps.push({before,after,target,change,diff});before=after;
+    }
+    rows.push({hz,steps});
+   });return rows;}''')
+  report['tracking']=tracking
+  for row in tracking:assert any(s['change']>0 for s in row['steps']) and any(s['change']<0 for s in row['steps'])
+  passed('Player left/right/up/down and opposite-side teleports choose shortest CW/CCW turn; every30/60/120Hz step respects70deg/s, without snapping.')
+  dynamic=[]
   for width,height in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('([w,h])=>W===w&&H===h',arg=[width,height])
-   row=page.evaluate('''()=>vbRun(()=>{vbBegin(2);vbGo('breath_warning');const geo=gameVolcanoBoss.frameGeometry(boss);enemyBullets=[];invuln=0;player.x=geo.origin.x;player.y=geo.origin.y+35;player.vx=player.vy=0;tilt={x:1,y:0};const beginning={x:player.x,y:player.y,hp};vbAdvance(1);const afterCue={x:player.x,y:player.y,hp};vbAdvance(3.8);return {viewport:[W,H],beginning,afterCue,after:{x:player.x,y:player.y,hp},calls:gameVolcanoBoss.snapshot().damageCalls};})''')
-   assert row['beginning']['hp']==row['afterCue']['hp']==row['after']['hp']==9 and row['calls']==0 and row['afterCue']['x']>row['beginning']['x']+80,row
-   escapes.append(row)
-  report['tanko_escape']=escapes
-  passed('Actual unchanged Tanko acceleration/drag escapes the warned breath via lateral tilt at all3 sizes, with0 health loss; control code/sensitivity unchanged.')
+   row=page.evaluate(r'''()=>vbRun(()=>{vbBegin(2);vbGo('breath_warning');enemyBullets=[];invuln=0;const geo=gameVolcanoBoss.frameGeometry(boss);player.x=geo.pivot.x+160;player.y=geo.pivot.y;player.vx=player.vy=0;tilt={x:1,y:0};const start={x:player.x,y:player.y,hp};vbAdvance(1);const cue={x:player.x,y:player.y,hp,angle:gameVolcanoBoss.snapshot().angle};vbAdvance(3.8);return {viewport:[W,H],length:geo.length,start,cue,end:{x:player.x,y:player.y,hp,angle:gameVolcanoBoss.snapshot().angle},calls:gameVolcanoBoss.snapshot().damageCalls};})''')
+   assert row['length']==max(165,min(205,height*.52)) and row['start']['hp']==row['cue']['hp']==row['end']['hp']==9 and row['calls']==0 and row['cue']['x']>row['start']['x']+80 and row['end']['x']>row['start']['x']+90,row
+   dynamic.append(row)
+  report['tanko_escape']=dynamic
+  passed('166.4/187.2/205px visual reach scales with landscape height; actual unchanged Tanko acceleration/drag can escape tracking flame from160px center-distance with lateral tilt at all3 sizes,0HP loss.')
   capacity=page.evaluate('''()=>vbRun(()=>{vbBegin(0);enemyBullets=Array.from({length:18},()=>({x:40,y:H*.4,vx:0,vy:0,life:3.2,r:5.5,volcanoBossPattern:'fireball'}));vbGo('fire_burst');const capped={count:enemyBullets.filter(b=>b.volcanoBossPattern).length,shots:gameVolcanoBoss.snapshot().shots};
     enemyBullets.forEach(b=>b.life=0);vbAdvance(.32);const resumed=gameVolcanoBoss.snapshot().shots;vbBegin(0);enemyBullets=Array.from({length:28},()=>({x:40,y:H*.4,vx:0,vy:0,life:999,r:5,volcanoFire:'ember_bean'}));vbGo('fire_burst');const separate={normal:enemyBullets.filter(b=>b.volcanoFire).length,boss:enemyBullets.filter(b=>b.volcanoBossPattern).length};enemyBullets=enemyBullets.filter(b=>b.volcanoBossPattern);vbAdvance(4);return {capped,resumed,separate,expired:enemyBullets.filter(b=>b.volcanoBossPattern&&b.life>0).length};})''')
   assert capacity=={'capped':{'count':18,'shots':0},'resumed':3,'separate':{'normal':28,'boss':3},'expired':0},capacity
@@ -163,7 +177,7 @@ try:
    row=page.evaluate('''kind=>vbRun(()=>{vbBegin(kind);if(kind===0){vbGo('breath');vbAdvance(1.9);}const actor=boss,angle=gameVolcanoBoss.snapshot().angle;let hits=0;while(boss&&hits++<50)vbHit();if(boss)throw Error('Boss kill stalled');
     const immediate={started,score:runScore,state:gameVolcanoBoss.snapshot(),death:gameVolcanoBoss.deathSnapshot(),advancing:gameVolcano.snapshot().advancing,angle};grantBossReward(actor);gameScoring.bossDefeated(actor);vbAdvance(.93);const waiting=started;vbAdvance(.02);return {kind,hits,immediate,waiting,after:{started,score:runScore,state:gameVolcanoBoss.snapshot(),death:gameVolcanoBoss.deathSnapshot()}};})''',kind)
    assert row['immediate']['started'] and row['immediate']['score']==2000 and row['immediate']['state'] is None and row['immediate']['advancing'] and row['waiting'] and row['after']=={'started':False,'score':2000,'state':None,'death':None},row
-   if kind==0:assert abs(row['immediate']['death']['angle']-3.141592653589793)<1e-8
+   if kind==0:assert abs(row['immediate']['death']['angle']-row['immediate']['angle'])<1e-8
    deaths.append(row)
   report['deaths']=deaths
   passed('All3 characters kill the dragon through actual bullets; death immediately cancels hazards/rotation, preserves last angle and.94s art outro, awards2000/reward once and leaves developer records unsaved.')
@@ -171,7 +185,7 @@ try:
   page.evaluate("vbRun(()=>{vbBegin(0);vbGo('breath');})")
   hidden=page.evaluate('''()=>{const before=gameVolcanoBoss.snapshot();Object.defineProperty(document,'hidden',{configurable:true,get:()=>true});window.gameExitDialogOpen=false;update(.5);const after=gameVolcanoBoss.snapshot();delete document.hidden;window.gameExitDialogOpen=true;return {before,after};}''');assert hidden['before']==hidden['after']
   page.evaluate('window.gameExitDialogOpen=false');page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible();paused=page.evaluate('gameVolcanoBoss.snapshot()');page.wait_for_timeout(150);assert page.evaluate('gameVolcanoBoss.snapshot()')==paused
-  page.locator('#gameExitCancel').tap();page.wait_for_timeout(70);assert page.evaluate('gameVolcanoBoss.snapshot().angle')>paused['angle']
+  page.locator('#gameExitCancel').tap();page.wait_for_timeout(70);assert page.evaluate('gameVolcanoBoss.snapshot().age')>paused['age']
   page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap();assert page.evaluate('gameVolcanoBoss.snapshot()===null&&gameVolcanoBoss.deathSnapshot()===null&&!enemyBullets.some(b=>b.volcanoBossPattern)')
   passed('Hidden-tab fixture and real exit dialog freeze angle/time/damage; Continue resumes, confirmed exit clears hazard state and boss bullets without native dialogs.')
   page.evaluate("vbRun(()=>{vbBegin(0);vbGo('breath');vbAdvance(.95);})")

@@ -24,6 +24,7 @@ def package():
     assert b'id="galaxy-volcano-js"' in payload and b'id="volcanoManifest"' in payload and b'world-2:volcano' in payload and b'magma_dragon' in payload, 'Include the volcano region and individual-frame renderer'
     assert b'id="galaxy-volcano-combat-js"' in payload and b'gameVolcanoCombat' in payload, 'Include volcano normal combat'
     assert b'id="galaxy-volcano-boss-js"' in payload and b'gameVolcanoBoss' in payload and b'breathDuration' in payload, 'Include volcano dragon patterns/rotation'
+    assert b'id="volcano-magma-breath" src="data:image/png;base64,' in payload and b'breathTurnSpeed' in payload and b'alphaThreshold' in payload, 'Include the supplied static PNG and bounded tracking/alpha mask'
     assert b'id="galaxy-snow-combat-js"' in payload and b'penguin_raider' in payload, 'Include first-trial snowfield normal combat'
     assert b'id="galaxy-snow-boss-js"' in payload and b'gameSnowfieldBoss' in payload, 'Include snow boss patterns'
     assert b'id="galaxy-snow-spawns-js"' in payload and b'gameSnowfieldSpawns' in payload, 'Include independently weighted snow species'
@@ -45,7 +46,7 @@ def package():
             'archive_sha256':hashlib.sha256(output.read_bytes()).hexdigest(),
             'entries':[html.name],'entry_count':1,'html_bytes':len(payload),
             'html_sha256':hashlib.sha256(payload).hexdigest(),'compression':'ZIP DEFLATE',
-            'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed','volcano_art_included':True,'volcano_normal_combat_included':True,'volcano_boss_combat_included':True,
+            'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed','volcano_art_included':True,'volcano_normal_combat_included':True,'volcano_boss_combat_included':True,'static_breath_tracking_included':True,
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
             'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'snowfield_mixed_spawns_included':True,'regional_difficulty_included':True,'ppyoko_name_included':True,'corrected_hel_title_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 

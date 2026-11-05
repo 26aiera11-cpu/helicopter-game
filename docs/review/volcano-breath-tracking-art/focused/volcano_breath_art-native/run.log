@@ -1,0 +1,8 @@
+PASS: Supplied SHA256/768x230 RGBA resource loads intact; source alpha read exactly once and cached, no per-frame getImageData.
+PASS: 12 real drawImage matrices: original static image, uniform aspect scale, anchor exactly at animated mouth, visible tip at configured reach, body/flame direction identical; Canvas restored.
+PASS: Standing in the upcoming fire silhouette during0.99s warning causes no damage; full1.0s warning retained.
+PASS: Dynamic player reversals during active breath turn both ways at<=70deg/s; deterministic final angle matches30/60/120Hz without mandatory full revolution.
+PASS: Alternating target jitter inside0.5deg deadzone does not rotate the dragon; no direction noise near a stationary player.
+PASS: After3.8s fire stops immediately; whole body returns smoothly at<=70deg/s during unchanged2.8s rest, then original fireball aiming resumes without a heading snap.
+PASS: Actual current game captures3 heroes x3 landscape sizes: active breath turns right then reverses left with the whole dragon; PNG/UI clipping at screen boundaries is safe.
+PASS: Real invalid PNG load safely skips only breath, no invisible damage or crash; fireball/eruption cycles continue, native and fully offline.

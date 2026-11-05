@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "volcano_breath_art-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 1,
+    "seconds": 3.77,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/art-focused/volcano_breath_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_breath_art-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 1,
+    "seconds": 19.66,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/art-focused/volcano_breath_art-offline",
+      "--standalone"
+    ]
+  }
+]

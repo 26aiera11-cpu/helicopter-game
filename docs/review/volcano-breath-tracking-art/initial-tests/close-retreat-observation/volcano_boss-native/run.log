@@ -1,0 +1,14 @@
+PASS: Exact dragon-only hooks/UI notices/ghost transform; all existing PNGs/manifests, normal combat, snow, player/control/score/audio bytes protected; JavaScript parses.
+PASS: All21 approved frame mouth landmarks lie on visible source pixels; original atlas SHA, per-frame crop/pivot and132px rendering width retained.
+PASS: Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP20 dragon, no normal prelude, unchanged fullscreen/exit UI.
+PASS: 9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,3.8s tracking at a fixed pivot without forced full turn, rest then repeat.
+PASS: 8 actual boss draw matrices rotate the whole cached frame without squashing; transformed source-mouth pixels equal flame origins and canvas transform restores exactly.
+PASS: Independent original PNG alpha inverse-transform oracle matches damage; opaque interiors render and transparent holes remain harmless across8 orientations, including UI masks.
+PASS: Standing inside eruption warning gives0 damage; fixed target does not track movement; exactly one1HP detonation, no repeated burst damage.
+PASS: 30/60/120Hz preserve3 volley times,1.25s eruption/1s breath warning/3.8s duration; flame core uses original invulnerability for3 hits, beyond visual tip+10px gives0.
+PASS: Player left/right/up/down and opposite-side teleports choose shortest CW/CCW turn; every30/60/120Hz step respects70deg/s, without snapping.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_boss.py", line 161, in <module>
+    assert row['length']==max(165,min(205,height*.52)) and row['start']['hp']==row['cue']['hp']==row['end']['hp']==9 and row['calls']==0 and row['end']['x']>row['start']['x']+150,row
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'viewport': [915, 412], 'length': 205, 'start': {'x': 555.6019628798776, 'y': 218.56809159641554, 'hp': 9}, 'cue': {'x': 641.9861942980503, 'y': 218.56809159641554, 'hp': 9, 'angle': -1.2217304763960308}, 'end': {'x': 903, 'y': 218.56809159641554, 'hp': 8, 'angle': -1.5678874447082431}, 'calls': 1}

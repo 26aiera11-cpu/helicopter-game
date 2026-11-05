@@ -1,0 +1,18 @@
+PASS: Exact developer startup/UI/volatile-score hooks reverse to c5e8fa2; every image, atlas, manifest, sound, input and item asset is unchanged and all JavaScript parses.
+PASS: Fresh launch defaults to developerOFF/forest1 without changing any of the4 legacy storage values; Help lists only registered worlds/regions and phases1–5.
+PASS: Actual Help/select/start controls enter snow boss immediately at fullHP/upgrade0/score0 with no normal enemy, shot, item or old item-plan state; trial25 is excluded and fullscreen remains active.
+PASS: Run start is a fixed copy: live mode/region/phase changes and mutations of returned snapshots cannot change the active encounter.
+PASS: All6 regions×5 starting phases×3 characters=90 actual encounter paths start at the exact target and finish at that region boss, with fullHP/upgrade0 and no traversal to other regions.
+PASS: Direct boss starts spawn20/35/50/65/20/20HP bosses with zero normal kills/cleared-phase bonuses; other starts credit only actual remaining phases, producing7000/5900/4800/3700/2000 points.
+PASS: Every matrix start selects the correct native stage/boss Audio target first, including forest-profile snow; no brief forest start is inserted for rock/sea/desert or direct bosses.
+PASS: After90 clears, all4 persistent record strings are byte-identical with0 storage writes; normal/trial TOP10 and memory/history caches contain only their original valid records.
+PASS: Actual3s game over clearly reports no recording, exits/cancels/restarts and duplicate finish save neither TOP10 nor analytics; all three characters retain their original selection/start/fullscreen flows.
+PASS: Selected-region item planning starts with one fresh3-opportunity/1–4-kill plan, no forest carryover; actual item spawn/HP5 kill still gives200+one drop without advancing normal kills or saving records.
+PASS: All6 regions normal/direct-boss starts play the expected native BGM with increasing currentTime, selection paused and exactly one looping track.
+PASS: MusicOFF remains silent for developer normal/boss starts; exit/ON restores the same selection BGM with no new music control or audio resource.
+PASS: All3 landscape sizes fit the developer selectors with44px targets and scrollable Help; real close/start/exit work and gameplay retains30px/22px joystick and nonoverlapping HUD/fire/fullscreen.
+PASS: Unknown regionIDs, phases outside1–5 and invalid switches are rejected without changing the chosen entry or any saved data.
+PASS: Reload forgets all developer settings and restores ordinary forest1/defaultOFF while preserving all original record bytes.
+PASS: Turning developerOFF restores the unchanged20-phase normal and30-phase world2-trial routes; their legitimate results still save to their original distinct stores without losing prior records.
+PASS: An isolated future registry fixture automatically adds worldID7/regionID42 to the selectors and starts its boss correctly; no option-name/index mapping or product region was hardcoded.
+PASS: No uncaught JavaScript errors, native dialogs, failed assets or standalone external requests occur.

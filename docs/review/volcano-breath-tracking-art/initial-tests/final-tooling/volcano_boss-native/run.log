@@ -1,0 +1,12 @@
+PASS: Exact dragon-only hooks/UI notices/ghost transform; all existing PNGs/manifests, normal combat, snow, player/control/score/audio bytes protected; JavaScript parses.
+PASS: All21 approved frame mouth landmarks lie on visible source pixels; original atlas SHA, per-frame crop/pivot and132px rendering width retained.
+PASS: Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP20 dragon, no normal prelude, unchanged fullscreen/exit UI.
+PASS: 9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,3.8s tracking at a fixed pivot without forced full turn, rest then repeat.
+PASS: 8 actual boss draw matrices rotate the whole cached frame without squashing; transformed source-mouth pixels equal flame origins and canvas transform restores exactly.
+PASS: Independent original PNG alpha inverse-transform oracle matches damage; opaque interiors render and transparent holes remain harmless across8 orientations, including UI masks.
+PASS: Standing inside eruption warning gives0 damage; fixed target does not track movement; exactly one1HP detonation, no repeated burst damage.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_boss.py", line 139, in <module>
+    events=row['trace'];volleys=[e for e in events if e['shots'] in [3,6,9] and e['phase'] in ['fire_burst','rest']][:3]
+                                                      ~^^^^^^^^^
+KeyError: 'shots'
