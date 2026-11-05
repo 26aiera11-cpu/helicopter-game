@@ -37,7 +37,7 @@ passed('Exact approved world hooks reverse to80aee39; all other gameplay, contro
 
 probe='''() => {
  window.worldAudio=[];const NativeAudio=Audio;window.Audio=new Proxy(NativeAudio,{construct(target,args){const a=new target(...args);worldAudio.push(a);return a}});
- window.worldActive=()=>[...worldAudio,document.getElementById('selectionBgm')].filter(a=>a&&a.loop&&!a.paused&&!a.ended);
+ window.worldActive=()=>[...worldAudio,...['selectionBgm','volcanoStageBgm','volcanoBossBgm'].map(id=>document.getElementById(id))].filter(a=>a&&a.loop&&!a.paused&&!a.ended);
  window.worldAudioOverlaps=[];const sample=()=>{const a=worldActive();if(a.length>1)worldAudioOverlaps.push(a.map(x=>worldAudio.indexOf(x)));requestAnimationFrame(sample)};
  document.addEventListener('DOMContentLoaded',sample,{once:true});
 }'''
@@ -296,7 +296,7 @@ try:
   report['landscape_layouts']=layouts
   passed('915×412,800×360,568×320 snow entry/boss screenshots fit HUD/notice/controls; joystick remains30/22px,8% deadzone/max input and3-contact drag/rotate/fire/release/context-menu protection work.')
   assert page.evaluate('worldAudio.length===12&&worldAudioOverlaps.length===0')
-  passed('Snow adds no media clones: exactly12 original Audio objects plus selection media, never more than one active looping BGM during all tested transitions.')
+  passed('Snow adds no media clones:12 original constructed Audio objects plus3 shared DOM music players; all15 observed with at most one active looping BGM.')
   if not args.standalone:
    page.goto(url+'?world2=1',wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('gameWorlds.isTrial()&&worldTrialToggle.checked')
    page.goto(url,wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('!gameWorlds.isTrial()&&!worldTrialToggle.checked')

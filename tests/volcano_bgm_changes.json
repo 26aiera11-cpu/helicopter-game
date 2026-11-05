@@ -1,0 +1,51 @@
+{
+  "index.html": [
+    [
+      "<audio id=\"selectionBgm\" src=\"assets/audio/heli_trio_selection_bgm_track2.mp3\" preload=\"auto\" loop hidden></audio>",
+      "<audio id=\"selectionBgm\" src=\"assets/audio/heli_trio_selection_bgm_track2.mp3\" preload=\"auto\" loop hidden></audio><audio id=\"volcanoStageBgm\" src=\"assets/audio/volcano_stage.wav\" preload=\"auto\" loop hidden></audio><audio id=\"volcanoBossBgm\" src=\"assets/audio/volcano_boss.wav\" preload=\"auto\" loop hidden></audio>",
+      1
+    ],
+    [
+      "const stageTracks=names.map(n=>audio('stage_'+n,true));",
+      "const stageTracks=[...names.map(n=>audio('stage_'+n,true)),document.getElementById('volcanoStageBgm')];",
+      1
+    ],
+    [
+      "const bossTracks=names.map(n=>audio('boss_'+n,true));",
+      "const bossTracks=[...names.map(n=>audio('boss_'+n,true)),document.getElementById('volcanoBossBgm')];",
+      1
+    ],
+    [
+      "const idx=Math.max(0,Math.min(3,st|0));",
+      "const idx=Math.max(0,Math.min(stageTracks.length-1,st|0));",
+      1
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "'🐉 마그마 드래곤 (시험)','volcano-approved']",
+      "'🐉 마그마 드래곤 (시험)','volcano-approved',4]",
+      1
+    ],
+    [
+      "profile,bossName,prototypeBackground],idIndex)",
+      "profile,bossName,prototypeBackground,musicProfile=profile],idIndex)",
+      1
+    ],
+    [
+      "combatProfile:profile,assetProfile:profile,musicProfile:profile,",
+      "combatProfile:profile,assetProfile:profile,musicProfile,",
+      1
+    ],
+    [
+      "화산 혼합 등장·일반/보스 전투 시험 / BGM 숲 임시",
+      "화산 혼합·전투 시험 / 전용 BGM 2곡 시험",
+      1
+    ],
+    [
+      "설원은 기존 전투, 화산은 혼합 등장·일반/보스 전투 시험, BGM은 숲 임시값입니다.",
+      "설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전투와 전용 BGM 2곡 시험입니다.",
+      1
+    ]
+  ]
+}

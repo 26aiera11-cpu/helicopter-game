@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "volcano_bgm-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 16,
+    "seconds": 42.19,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/initial/volcano_bgm-native"
+    ]
+  },
+  {
+    "suite": "volcano_bgm-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 16,
+    "seconds": 61.53,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/initial/volcano_bgm-offline",
+      "--standalone"
+    ]
+  }
+]

@@ -55,7 +55,7 @@ class Quiet(SimpleHTTPRequestHandler):
         elif self.path=='/offline-origin':data=b'<!doctype html><title>offline</title>';mime='text/html'
         elif self.path.startswith('/before/'):
             name=self.path[len('/before/'):].split('?')[0]
-            if name in VISUAL_FIX_ASSETS or name=='assets/volcano/volcano.js':data=old(name)
+            if name in VISUAL_FIX_ASSETS or name in ['assets/volcano/volcano.js','assets/worlds/worlds.js']:data=old(name)
             else:
                 path=(ROOT/name).resolve()
                 if not path.is_relative_to(ROOT) or not path.is_file():self.send_error(404);return

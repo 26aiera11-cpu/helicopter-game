@@ -117,6 +117,9 @@ def build():
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
     result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield|volcano)/[^\"\']+)([\"\'])', inline_resource, result)
+    volcano_audio = ['assets/audio/volcano_stage.wav', 'assets/audio/volcano_boss.wav']
+    for name in volcano_audio:
+        assert data_url(ROOT / name) in result, 'Embed the current Volcano WAV unchanged'
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
     assert built_scripts == [world_javascript, difficulty_javascript, volcano_spawns_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, volcano_boss_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
@@ -163,7 +166,8 @@ def build():
         'embedded_snowfield_manifest': True,
         'inlined_world_stylesheets': 1,
         'embedded_external_png_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.png'],
-        'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower()=='.mp3'],
+        'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower() in ['.mp3', '.wav']],
+        'embedded_volcano_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in volcano_audio},
         'external_dependencies': 0,
         'galaxy_only_style': 'Disable the browser native selection-button tap flash; packaging does not edit source files.',
     }

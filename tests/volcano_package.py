@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--focus-artifacts',type=Path,default=ROOT/'docs/review/volcano-mixed-spawns');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--focus-artifacts',type=Path,default=ROOT/'docs/review/volcano-bgm');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'passed':[]}
 def passed(text):report['passed'].append(text);print('PASS:',text,flush=True)
 class Resources(HTMLParser):
@@ -40,7 +40,7 @@ with zipfile.ZipFile(archive_path) as archive,tempfile.TemporaryDirectory(prefix
 passed('ZIP contains only latest HTML; CRC, real separate extraction, full byte equality andSHA-256 match.')
 actors={a['id']:a for a in manifest['monsters']};pivot_checks=[]
 for mode in ['native','offline']:
-    focus=json.loads((args.focus_artifacts/('compatibility' if mode=='native' else 'focused')/('volcano_art-'+mode)/'test-results.json').read_text());assert focus['all_passed']
+    focus=json.loads((args.focus_artifacts/'focused'/('volcano_art-'+mode)/'test-results.json').read_text());assert focus['all_passed']
     assert len(focus['frames'])==69
     for f in focus['frames']:
         md=actors[f['id']]['animations'][f['state']]['frames'][f['index']];x,y,w,h=f['drawn'];sx,sy,sw,sh=md['sprite_source_rect_px'];cell=md['source_size_px'];scale=w/sw

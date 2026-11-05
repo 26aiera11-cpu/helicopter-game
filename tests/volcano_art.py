@@ -123,7 +123,7 @@ try:
         load()
         registry=page.evaluate('({worlds:gameWorlds.worlds,regions:gameWorlds.regions,mode:gameWorlds.snapshot(),keys:vStorage()})')
         assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5]] and not registry['mode']['trialEnabled']
-        assert registry['regions'][5]['key']=='world-2:volcano' and all(registry['regions'][5][k]==0 for k in ['combatProfile','assetProfile','musicProfile'])
+        assert registry['regions'][5]['key']=='world-2:volcano' and all(registry['regions'][5][k]==0 for k in ['combatProfile','assetProfile']) and registry['regions'][5]['musicProfile']==4
         report['registry']=registry
         page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1')
         assert page.locator('#developerStartRegion').evaluate('(e)=>[...e.options].map(o=>Number(o.value))')==[4,5]
@@ -131,7 +131,7 @@ try:
         page.screenshot(path=str(args.artifacts/'developer-volcano-help.png'));page.locator('#selectionHelpClose').tap()
         initial=page.evaluate('vStorage()');page.locator('#startSelected').tap()
         assert page.evaluate('stage===5&&phase===5&&!!boss&&phaseKills===6&&enemies.length===0&&boss.maxHp===20')
-        passed('RegistryIDs0–4 stable, volcano5; defaultOFF20-stage mode; actual Help world2/volcano/phase5 starts dragon directly with forest profile0.')
+        passed('RegistryIDs0–4 stable, volcano5; defaultOFF20-stage mode; actual Help world2/volcano/phase5 starts dragon directly with combat profile0 and dedicated music profile4.')
         page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible()
         before=page.evaluate('gameVolcano.snapshot()');page.wait_for_timeout(200)
         assert page.evaluate('gameVolcano.snapshot()')==before
@@ -149,7 +149,7 @@ try:
                     state=page.evaluate('vScene()');expected=['ember_bean','lava_lizard','volcano_bat','magma_beetle','magma_dragon'][step-1]
                     assert state['stage']==5 and state['phase']==step and state['type']==kind and state['actor']['id']==expected
                     assert state['actor']['r']==(48 if step==5 else 16) and state['actor']['hp']==[1,2,2,4,20][step-1]
-                    assert state['profile']==state['music']==0 and state['score']==0 and state['hp']==[4,6,9][kind]
+                    assert state['profile']==0 and state['music']==4 and state['score']==0 and state['hp']==[4,6,9][kind]
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth&&!!document.fullscreenElement')
                     if kind==0 and (not args.standalone or width==568):page.screenshot(path=str(args.artifacts/f'volcano-phase{step}-{width}x{height}.png'))
                     entries.append({'viewport':[width,height],'type':kind,'phase':step,'species':expected,'collider':state['actor']['r'],'hp':state['actor']['hp']})

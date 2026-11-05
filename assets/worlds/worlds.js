@@ -7,10 +7,10 @@
     [2,'world-1:sea',0,2,'🌊 바다 지역',2,'🐙 바다의 문어 대왕'],
     [3,'world-1:desert',0,3,'🏜️ 사막 지역',3,'🦂 사막 전갈왕'],
     [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],
-    [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved']
-  ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground],idIndex) => Object.freeze({
+    [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved',4]
+  ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground,musicProfile=profile],idIndex) => Object.freeze({
     id,key,worldId,worldName:`월드 ${worldId+1}`,localIndex,name,
-    combatProfile:profile,assetProfile:profile,musicProfile:profile,
+    combatProfile:profile,assetProfile:profile,musicProfile,
     normalPhases:4,bossPhase:5,bossName,prototypeBackground,prototype:Boolean(prototypeBackground)
   })));
   const worlds = Object.freeze([...new Set(regions.map(r=>r.worldId))].map(id => Object.freeze({
@@ -93,12 +93,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 혼합 등장·일반/보스 전투 시험 / BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 혼합 등장·일반/보스 전투 시험, BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전투와 전용 BGM 2곡 시험입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';

@@ -4,6 +4,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright,expect
+from volcano_bgm_preservation import VOLCANO_BGM_ASSETS,assert_volcano_bgm_asset
 from volcano_mixed_preservation import without_volcano_mixed,assert_volcano_mixed_asset
 ROOT=Path(__file__).resolve().parents[1];BASE='19c3f603870c602b508944275fb51a00dce0ec8d'
 IDS=['ember_bean','lava_lizard','volcano_bat','magma_beetle'];WEIGHTS=[[80,20,0,0],[45,40,15,0],[20,35,35,10],[10,25,35,30],[5,15,35,45]]
@@ -15,6 +16,7 @@ for name in ['index.html','assets/worlds/difficulty.js','assets/worlds/worlds.js
 for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
+ if name in VOLCANO_BGM_ASSETS:assert_volcano_bgm_asset(name);continue
  if name=='assets/volcano/spawns.js':assert_volcano_mixed_asset(name);continue
  actual=without_volcano_mixed(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes()
  assert actual==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name

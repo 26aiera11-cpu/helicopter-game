@@ -1,0 +1,10 @@
+PASS: Supplied SHA256/768x230 RGBA resource loads intact; source alpha read exactly once and cached, no per-frame getImageData.
+PASS: 12 real drawImage matrices: original static image, uniform aspect scale, anchor exactly at animated mouth, visible tip at configured reach, body/flame direction identical; Canvas restored.
+PASS: Standing in the upcoming fire silhouette during0.99s warning causes no damage; full1.0s warning retained.
+PASS: Actual effect draw calls: harmless downward warning -> full downward PNG at0s/.199s -> rotation after.2s ->90/180/270/360; PNG stops exactly at the downward360 endpoint.
+PASS: Alpha damage begins in the same update as the first visible held PNG; warning causes0, initial fire causes1, existing invulnerability blocks repeated hold damage.
+PASS: Sample is taken after the.2s hold, not during warning: left CW/right CCW/up-down ties CW; mid-sweep player teleports never change sign/angle rate or observation at30/60/120Hz.
+PASS: At4.0s total fire time, full360 ends facing down with no residual flame; unchanged2.8s rest then original fireball aiming resumes, no extra home turn.
+PASS: Actual screenshots3 heroes x3 landscape sizes x2 sides show downward PNG before rotation and correct half-turn body/flame, with original dimensions/alpha/UI clipping.
+PASS: Unpaused production requestAnimationFrame loop draws multiple full downward-PNG frames before the first moving frame; first visible fire is not pre-rotated.
+PASS: Real invalid PNG load safely skips only breath, no invisible damage or crash; fireball/eruption cycles continue, native and fully offline.
