@@ -1,3 +1,4 @@
+from volcano_spawn_fixtures import FIXED_VOLCANO_SPECIES
 """Issue18: actual spawn/combat/guard/projectile/lifecycle tests, native and offline."""
 import argparse,hashlib,json,re,shutil,subprocess,threading
 from functools import partial
@@ -47,7 +48,7 @@ helpers=r'''()=>{
    itemMonsters.configure({opportunitiesPerRegion:0});itemMonsters.reset();
    player.x=W*.5;player.y=H*.8;player.vx=player.vy=0;
  };
- window.vcSpawn=()=>{warnEnemy();warnings.forEach(w=>w.time=0);update(0);const e=enemies[enemies.length-1];e.x=W*.5;e.y=H*.25;return e;};
+ window.vcSpawn=()=>{vmFixedPhase();warnEnemy();warnings.forEach(w=>w.time=0);update(0);const e=enemies[enemies.length-1];e.x=W*.5;e.y=H*.25;return e;};
  window.vcHit=(e,all=false)=>{bullets=[];shoot();if(!all)bullets=[bullets[0]];for(const b of bullets)Object.assign(b,{x:e.x,y:e.y,vx:0,vy:0});const shots=[...bullets];update(0);return shots;};
  window.vcAdvance=(seconds,step=1/120)=>{let left=seconds;while(left>1e-9){const dt=Math.min(step,left);update(dt);left-=dt;}};
  window.vcArm=e=>{e.shot=999;vcAdvance(2.8);if(gameVolcanoCombat.snapshot(e).mode!=='guard')throw Error('Guard did not arm');};
@@ -58,7 +59,7 @@ try:
  with sync_playwright() as pw:
   browser=pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox'])
   context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True)
-  page=context.new_page();errors=[];dialogs=[];failed=[];external=[]
+  page=context.new_page();page.add_init_script(FIXED_VOLCANO_SPECIES);errors=[];dialogs=[];failed=[];external=[]
   page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
   page.on('requestfailed',lambda r:failed.append(r.url));page.on('request',lambda r:external.append(r.url) if r.url.startswith('http') else None)
   if args.standalone:
@@ -167,7 +168,7 @@ try:
     const result={entries,scoreDelta:runScore-initial,phaseKills,bossHP:boss.maxHp,bossCombat:gameVolcanoCombat.snapshot(boss),bossGuard:gameVolcanoCombat.blockHit(boss)};vcPause();return result;}''')
   assert prelude['entries']==[{'id':'magma_beetle','hp':4}]*6 and prelude['scoreDelta']==600 and prelude['phaseKills']==6 and prelude['bossHP']==20 and prelude['bossCombat'] is None and not prelude['bossGuard'],prelude
   report['prelude']=prelude
-  passed('Normal phase5 still requires6 beetles withHP4 and600kill points; developer5 remains direct dragon; dragon receives no normal-combat state/guard.')
+  passed('Seeded normal phase5 audit requires6 beetles withHP4 and600kill points; developer5 remains direct dragon; dragon receives no normal-combat state/guard.')
   scoped=page.evaluate('''()=>{const rows=[];for(const region of [0,3,4,5]){vcBegin(0,1);stage=region;const e={x:100,y:100,hp:7,r:16,t:0,shot:999,special:region===5,volcanoSpeciesId:'magma_beetle'};gameVolcanoCombat.prepare(e);rows.push({region,hp:e.hp,state:gameVolcanoCombat.snapshot(e),blocked:gameVolcanoCombat.blockHit(e)});}vcBegin(0,4);const e=vcSpawn();vcArm(e);gameVolcanoCombat.cleanup();const cleared=gameVolcanoCombat.snapshot(e)===null;vcPause();return {rows,cleared};}''')
   assert scoped['cleared'] and all(x['hp']==7 and x['state'] is None and not x['blocked'] for x in scoped['rows']),scoped
   report['scope']=scoped

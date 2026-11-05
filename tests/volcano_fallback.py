@@ -1,3 +1,4 @@
+from volcano_spawn_fixtures import FIXED_VOLCANO_SPECIES
 """Deliberately failed volcano PNG requests must not stop or show forest art."""
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -17,7 +18,7 @@ try:
         for mode,pattern in [('atlas','**/assets/volcano/animations/*.png'),('all','**/assets/volcano/**/*.png')]:
             context=browser.new_context(viewport={'width':568,'height':320});blocked=[]
             def abort(route):blocked.append(route.request.url);route.abort()
-            context.route(pattern,abort);page=context.new_page();errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
+            context.route(pattern,abort);page=context.new_page();page.add_init_script(FIXED_VOLCANO_SPECIES);errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
             page.goto(f'http://127.0.0.1:{server.server_port}/',wait_until='load')
             page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()')
             rows=[]
@@ -25,7 +26,7 @@ try:
                 result=page.evaluate('''({phase,mode})=>{
                     if(started){started=false;gameVolcano.reset();menu.classList.remove('hidden');}
                     gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase});start(0);transition=0;spawn=999;invuln=999;
-                    if(phase<5){warnEnemy();warnings.forEach(w=>w.time=0);update(0);}
+                    if(phase<5){vmFixedPhase();warnEnemy();warnings.forEach(w=>w.time=0);update(0);}
                     const actor=boss||enemies[0],id=gameVolcano.pose(actor,!!boss).id;
                     const drawImage=ctx.drawImage,arc=ctx.arc,seen=[],colors=[];
                     ctx.drawImage=function(im,...a){seen.push(im.id||'canvas');return drawImage.call(ctx,im,...a);};

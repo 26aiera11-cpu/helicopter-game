@@ -1,3 +1,4 @@
+from volcano_spawn_fixtures import FIXED_VOLCANO_SPECIES
 """Issue17: approved art scope, player load ownership and actual 8-direction draws."""
 import argparse,base64,hashlib,io,json,re,shutil,subprocess,threading
 from functools import partial
@@ -54,7 +55,7 @@ class Quiet(SimpleHTTPRequestHandler):
         elif self.path=='/offline-origin':data=b'<!doctype html><title>offline</title>';mime='text/html'
         elif self.path.startswith('/before/'):
             name=self.path[len('/before/'):].split('?')[0]
-            if name in VISUAL_FIX_ASSETS:data=old(name)
+            if name in VISUAL_FIX_ASSETS or name=='assets/volcano/volcano.js':data=old(name)
             else:
                 path=(ROOT/name).resolve()
                 if not path.is_relative_to(ROOT) or not path.is_file():self.send_error(404);return
@@ -82,7 +83,7 @@ try:
     all_rows={};failures=[];dialogs=[]
     for variant in (['after'] if args.standalone else ['before','after']):
         context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True)
-        page=context.new_page();page.on('pageerror',lambda e:failures.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
+        page=context.new_page();page.add_init_script(FIXED_VOLCANO_SPECIES);page.on('pageerror',lambda e:failures.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
         if args.standalone:
             page.goto(f'http://127.0.0.1:{server.server_port}/offline-origin');context.set_offline(True)
             page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
@@ -113,7 +114,7 @@ try:
                     gameVolcano.reset();gameSnowfield.reset();gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase:step});start(0);
                     transition=0;spawn=999;invuln=0;rotorSpin=.35;player.a=Math.PI;player.x=W*.5;player.y=H*.72;
                     warnings=[];enemies=[];enemyBullets=[];bullets=[];particles=[];items=[];itemMonsters.configure({opportunitiesPerRegion:0});itemMonsters.reset();
-                    if(boss){boss.x=W*.5;boss.y=H*.36;}else{warnEnemy();warnings.forEach(w=>w.time=0);update(0);enemies.forEach((e,i)=>{e.x=W*.5+i*70;e.y=H*.35;});}
+                    if(boss){boss.x=W*.5;boss.y=H*.36;}else{vmFixedPhase();warnEnemy();warnings.forEach(w=>w.time=0);update(0);enemies.forEach((e,i)=>{e.x=W*.5+i*70;e.y=H*.35;});}
                     gameVolcano.observe(enemies,boss);window.gameExitDialogOpen=true;draw();
                 }''',step)
                 page.screenshot(path=str(args.artifacts/f'{variant}-{width}x{height}-phase{step}.png'))

@@ -17,7 +17,8 @@
   let clock=0,states=new WeakMap(),observed=new Set(),defeated=new WeakSet(),ghosts=[],advance=null;
   const frameCache=new Map();
   function prepare(actor) {
-    if(enabled())actor.volcanoSpeciesId=normalIds[Math.max(0,Math.min(3,phase-1))];
+    if(enabled()&&actor&&actor!==boss&&!actor.special&&!normalIds.includes(actor.volcanoSpeciesId))
+      Object.defineProperty(actor,'volcanoSpeciesId',{value:gameVolcanoSpawns.select(phase),enumerable:true});
     return actor;
   }
   function track(actor,isBoss=false) {

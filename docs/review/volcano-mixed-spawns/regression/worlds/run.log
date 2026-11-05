@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/worlds.py", line 31, in <module>
+    if name in WORLD_ASSETS:assert_world_asset(path);continue
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/world_preservation.py", line 12, in assert_world_asset
+    assert_snowfield_asset(path);return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/snowfield_preservation.py", line 13, in assert_snowfield_asset
+    assert_combat_asset(path);return
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/snow_combat_preservation.py", line 10, in assert_combat_asset
+    if name in BOSS_ASSETS:assert_boss_asset(path);return
+                           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/snow_boss_preservation.py", line 9, in assert_boss_asset
+    if name in MIXED_ASSETS:assert_mixed_asset(path);return
+                            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/mixed_preservation.py", line 9, in assert_mixed_asset
+    if name in DIFFICULTY_ASSETS:assert_difficulty_asset(path);return
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/difficulty_preservation.py", line 11, in assert_difficulty_asset
+    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==json.loads((ROOT/'tests/difficulty_asset_hashes.json').read_text())[name],name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/worlds/difficulty.js

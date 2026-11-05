@@ -93,12 +93,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 일반·보스 전투 시험 / BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 혼합 등장·일반/보스 전투 시험 / BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 일반 몬스터와 드래곤3패턴 전투 시험, BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 혼합 등장·일반/보스 전투 시험, BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';

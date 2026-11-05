@@ -1,0 +1,67 @@
+[
+  {
+    "suite": "volcano_combat-native",
+    "exit_code": 0,
+    "groups": 14,
+    "observed_groups_before_failure": 0,
+    "seconds": 14.13,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_combat.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/compatibility/volcano_combat-native"
+    ]
+  },
+  {
+    "suite": "volcano_fallback",
+    "exit_code": 0,
+    "groups": 2,
+    "observed_groups_before_failure": 0,
+    "seconds": 4.11,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_fallback.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/compatibility/volcano_fallback"
+    ]
+  },
+  {
+    "suite": "volcano_art-native",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 32.09,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/compatibility/volcano_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_visual_fix-native",
+    "exit_code": 0,
+    "groups": 4,
+    "observed_groups_before_failure": 0,
+    "seconds": 18.9,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_visual_fix.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/compatibility/volcano_visual_fix-native"
+    ]
+  },
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 8,
+    "seconds": 16.0,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/compatibility/volcano_boss-native"
+    ]
+  }
+]

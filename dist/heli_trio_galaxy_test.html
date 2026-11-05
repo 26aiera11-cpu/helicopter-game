@@ -4391,12 +4391,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 일반·보스 전투 시험 / BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:volcano'?'화산 혼합 등장·일반/보스 전투 시험 / BGM 숲 임시':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 일반 몬스터와 드래곤3패턴 전투 시험, BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산)</label><p>기본 OFF · 월드 1 다음 설원→화산, 총 30단계를 시험합니다. 설원은 기존 전투, 화산은 혼합 등장·일반/보스 전투 시험, BGM은 숲 임시값입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -4439,6 +4439,15 @@
 (() => {
   'use strict';
   const regions=Object.freeze({
+    'world-2:volcano':Object.freeze({
+      spawnWeights:Object.freeze([
+        [80,20,0,0],
+        [45,40,15,0],
+        [20,35,35,10],
+        [10,25,35,30],
+        [5,15,35,45]
+      ].map(Object.freeze))
+    }),
     'world-2:snowfield':Object.freeze({
       chaseSpeedScale:1.06,
       shotIntervalScale:.95,
@@ -4453,6 +4462,34 @@
     })
   });
   window.gameRegionDifficulty=Object.freeze({regions,get:key=>regions[key]});
+})();
+</script>
+<script id="galaxy-volcano-spawns-js">/* Issue22: independent per-actor volcano species draws; no shared RNG consumption. */
+(() => {
+  'use strict';
+  const ids=Object.freeze(['ember_bean','lava_lizard','volcano_bat','magma_beetle']);
+  const weights=gameRegionDifficulty.get('world-2:volcano').spawnWeights;
+  let state=0x6d2b79f5,serial=0,draws=0;
+  function reset(seed) {
+    if(seed===undefined){
+      if(globalThis.crypto?.getRandomValues){const word=new Uint32Array(1);crypto.getRandomValues(word);seed=word[0];}
+      else seed=(Date.now()^Math.floor(performance.now()*1000)^++serial)>>>0;
+    }
+    if(!Number.isInteger(seed))throw new TypeError('Volcano spawn seed must be an integer');
+    state=(seed>>>0)||0x6d2b79f5;draws=0;return state;
+  }
+  function chooseForRoll(phase,roll) {
+    if(!Number.isInteger(phase)||phase<1||phase>weights.length||!Number.isFinite(roll)||roll<0||roll>=1)throw new RangeError('Invalid volcano spawn draw');
+    let cumulative=0;
+    for(let i=0;i<ids.length;i++){cumulative+=weights[phase-1][i];if(roll*100<cumulative)return ids[i];}
+    return ids[ids.length-1];
+  }
+  function select(phase) {
+    if(!Number.isInteger(phase)||phase<1||phase>weights.length)throw new RangeError('Invalid volcano phase');
+    state^=state<<13;state^=state>>>17;state^=state<<5;state>>>=0;draws++;
+    return chooseForRoll(phase,state/4294967296);
+  }
+  window.gameVolcanoSpawns=Object.freeze({ids,weights,reset,chooseForRoll,select,snapshot:()=>({state,draws})});
 })();
 </script><script id="galaxy-snowfield-js">/* Approved snowfield art only. No combat, score, RNG or input configuration. */
 (() => {
@@ -4601,7 +4638,8 @@
   let clock=0,states=new WeakMap(),observed=new Set(),defeated=new WeakSet(),ghosts=[],advance=null;
   const frameCache=new Map();
   function prepare(actor) {
-    if(enabled())actor.volcanoSpeciesId=normalIds[Math.max(0,Math.min(3,phase-1))];
+    if(enabled()&&actor&&actor!==boss&&!actor.special&&!normalIds.includes(actor.volcanoSpeciesId))
+      Object.defineProperty(actor,'volcanoSpeciesId',{value:gameVolcanoSpawns.select(phase),enumerable:true});
     return actor;
   }
   function track(actor,isBoss=false) {
@@ -5765,7 +5803,7 @@ function beginGameOver(){
  },3000);
 }
 addEventListener('resize',()=>{if(gameOverPending)draw()});
-function start(type){gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
+function start(type){gameVolcanoSpawns.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
 addEventListener('deviceorientation',e=>{if(e.gamma==null||e.beta==null)return;applyTilt(e.gamma,e.beta,'방향')});addEventListener('devicemotion',e=>{if(Date.now()-lastSensor<700&&sensorKind==='방향')return;const a=e.accelerationIncludingGravity;if(!a||a.x==null||a.y==null)return;applyTilt(a.x*3,a.y*3,'중력')});sensorBtn.onclick=async()=>{if(sensorOn){neutral=null;tilt={x:0,y:0};if(player){player.vx=0;player.vy=0}sensorStatus.textContent='중앙 보정 완료';return}try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){let r=await DeviceOrientationEvent.requestPermission();if(r!=='granted')throw Error('센서 권한이 거부됐어요')}if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){let r=await DeviceMotionEvent.requestPermission();if(r!=='granted')throw Error('동작 센서 권한이 거부됐어요')}sensorOn=true;neutral=null;sensorBtn.textContent='🎯 중앙 보정';sensorStatus.textContent='센서 신호 확인 중…';setTimeout(()=>{if(!lastSensor)sensorStatus.textContent='센서 신호 없음 · HTTPS에서 열거나 드래그 사용'},1800)}catch(e){sensorStatus.textContent=e.message+' · 드래그 사용'}};addEventListener('orientationchange',()=>{neutral=null;tilt={x:0,y:0}});
 /* Auxiliary drag pointer ownership is managed by gameControls. */// Tanko uses the same local rectangle for drawing, damage and bullet interception.
 function tankoBulletWidth(upgrade=0){
@@ -5859,7 +5897,7 @@ gameWorlds.installLegacyRegions({terrainImgs,enemySprites,bossSprites,tactics,st
 function warnEnemy(){const edge=Math.floor(Math.random()*4),pad=27;let x=edge===0?pad:edge===1?W-pad:pad+Math.random()*(W-2*pad),y=edge===2?pad:edge===3?H-pad:pad+Math.random()*(H-2*pad);if(edge<2)y=pad+Math.random()*(H-2*pad);else x=pad+Math.random()*(W-2*pad);warnings.push({x,y,time:1.4,kind:Math.floor(Math.random()*enemySprites[stage].length),edge,special:false})}
 function emitEnemyShot(e,spread=0){gameSnowfield.attack(e,e===boss);gameVolcano.attack(e,e===boss);let a=Math.atan2(player.y-e.y,player.x-e.x)+spread,v=tactics[stage].bullet+(phase-1)*8;enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:3.4,r:5})}
 function hurt(){if(invuln<=0){hp--;invuln=1.55;gameAudio.fx('hurt');if(hp<=0)beginGameOver()}}
-function nextPhase(){gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameSnowfieldBoss.reset();gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){gameVolcanoCombat.cleanup();const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameVolcanoBoss.prepare(boss);gameAudio.fx('boss')}
+function nextPhase(){gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameSnowfieldBoss.reset();gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;if(gameWorlds.region(stage).key==='world-2:volcano')gameVolcanoSpawns.reset();itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){gameVolcanoCombat.cleanup();const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameVolcanoBoss.prepare(boss);gameAudio.fx('boss')}
 function update(dt){
  if(!started||window.gameExitDialogOpen)return;
  if(hp<=0){beginGameOver();return;}

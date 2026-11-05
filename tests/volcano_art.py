@@ -1,3 +1,4 @@
+from volcano_spawn_fixtures import FIXED_VOLCANO_SPECIES
 """Issue15: actual volcano entry/render/events/outro and exact offline packaging."""
 import argparse
 import hashlib
@@ -50,7 +51,7 @@ helpers=r'''()=>{
  window.vStorage=()=>Object.fromEntries(vKeys.map(k=>[k,localStorage.getItem(k)]));
  window.vScene=()=>{
    transition=0;spawn=999;invuln=999;keys.fire=false;
-   if(phase<5){warnEnemy();warnings.forEach(w=>w.time=0);update(0);}
+   if(phase<5){vmFixedPhase();warnEnemy();warnings.forEach(w=>w.time=0);update(0);}
    gameVolcano.observe(enemies,boss);draw();
    const actor=boss||enemies[0];
    return {stage,phase,type:player.type,hp,upgrade:player.upgrade,score:runScore,
@@ -110,7 +111,7 @@ try:
     with sync_playwright() as pw:
         browser=pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox'])
         context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True)
-        page=context.new_page();errors=[];dialogs=[];failed=[];requests=[]
+        page=context.new_page();page.add_init_script(FIXED_VOLCANO_SPECIES);errors=[];dialogs=[];failed=[];requests=[]
         page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
         page.on('requestfailed',lambda r:failed.append(r.url));page.on('request',lambda r:requests.append(r.url) if r.url.startswith('http') else None)
         def load():
@@ -172,10 +173,10 @@ try:
         assert report['cache']['cachedFrames']==69
         passed('All69 production-rendered frames match exact manifest source pixels after render-only alpha cleanup; aspect, virtual pivots, edge clamp/collider immutability and bounded69-frame cache verified.')
         page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
-        # Normal phase5 prelude is beetles, not an extra normal species or direct boss.
-        prelude=page.evaluate('''()=>{gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase:4});start(0);nextPhase();transition=0;spawn=999;warnEnemy();warnings.forEach(w=>w.time=0);update(0);return {boss:!!boss,id:gameVolcano.pose(enemies[0]).id,hp:enemies[0].hp,phaseKills};}''')
+        # Seeded normal phase5 art fixture is beetle, not an extra normal species or direct boss.
+        prelude=page.evaluate('''()=>{gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase:4});start(0);nextPhase();transition=0;spawn=999;vmFixedPhase();warnEnemy();warnings.forEach(w=>w.time=0);update(0);return {boss:!!boss,id:gameVolcano.pose(enemies[0]).id,hp:enemies[0].hp,phaseKills};}''')
         assert prelude=={'boss':False,'id':'magma_beetle','hp':4,'phaseKills':0}
-        passed('Normal entry to phase5 retains the6-kill prelude with beetle visuals; only developer phase5 bypasses it.')
+        passed('Normal entry to phase5 retains the6-kill prelude with seeded beetle visuals; only developer phase5 bypasses it.')
         page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
         # Boss rewards/clear stay singular and wait for the real death animation.
         finale=page.evaluate('''()=>{gameWorlds.setDeveloperStart({enabled:true,regionId:5,phase:5});start(2);transition=0;spawn=999;invuln=999;window.vRewards=0;document.addEventListener('bossreward',()=>vRewards++);while(boss)vHit(boss);const before={started,score:runScore,advance:gameVolcano.snapshot().advancing,rewards:vRewards};update(.3);const during=started;vSettle();return {before,during,after:{started,score:runScore,rewards:vRewards,art:gameVolcano.snapshot(),heading:menu.querySelector('h1').textContent,bullets:bullets.length,enemy:enemyBullets.length,particles:particles.length}};}''')

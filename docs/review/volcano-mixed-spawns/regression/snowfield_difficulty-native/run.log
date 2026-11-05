@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/snowfield_difficulty.py", line 16, in <module>
+    if name in DIFFICULTY_ASSETS:assert_difficulty_asset(path);continue
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/helicopter-game/tests/difficulty_preservation.py", line 11, in assert_difficulty_asset
+    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==json.loads((ROOT/'tests/difficulty_asset_hashes.json').read_text())[name],name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/worlds/difficulty.js
