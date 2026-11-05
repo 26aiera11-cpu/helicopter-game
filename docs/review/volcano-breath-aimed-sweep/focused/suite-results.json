@@ -1,0 +1,96 @@
+[
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 27.39,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_boss-native"
+    ]
+  },
+  {
+    "suite": "volcano_boss-offline",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 50.43,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_boss-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_boss_masks",
+    "exit_code": 0,
+    "groups": 2,
+    "observed_groups_before_failure": 0,
+    "seconds": 27.19,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss_masks.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_boss_masks"
+    ]
+  },
+  {
+    "suite": "volcano_breath_art-native",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 23.29,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_breath_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_art-native",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 31.52,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_breath_art-offline",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 56.5,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_breath_art-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_art-offline",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 41.49,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-aimed-sweep/focused/volcano_art-offline",
+      "--standalone"
+    ]
+  }
+]

@@ -1,12 +1,12 @@
-/* Issues19/20: volcano dragon only; approved frame pixels/HP/rewards stay unchanged. */
+/* Issues19/20/21: volcano dragon only; approved frame pixels/HP/rewards stay unchanged. */
 (()=>{
   'use strict';
   const mouthAnchors=Object.freeze({"idle":[[109.0,168],[111.0,169],[109.5,168],[111.0,167]],"move":[[113.0,160],[114.0,161],[117.5,170],[116.0,174],[115.0,172],[114.5,176]],"attack":[[114.5,168],[115.0,169],[116.0,169],[114.0,173]],"hit":[[114.0,152],[113.0,157],[113.0,163]],"defeat":[[109.5,165],[110.0,164],[110.0,163],[106.0,165]]});
   Object.values(mouthAnchors).forEach(rows=>{rows.forEach(Object.freeze);Object.freeze(rows);});
   const settings=Object.freeze({firstDelay:1.8,rest:2.8,fireAim:.4,fireWaves:3,fireGap:.32,fireSpread:Math.PI/15,
     fireSpeed:88,bulletRadius:5.5,bulletLife:3.2,maxBullets:18,eruptionRatio:.16,eruptionMin:48,eruptionMax:64,
-    eruptionLead:.18,eruptionWarning:1.25,eruptionBurst:.25,breathWarning:1,breathDuration:3.8,
-    breathRatio:.52,breathMin:165,breathMax:205,breathTurnSpeed:70*Math.PI/180,breathDeadZone:.5*Math.PI/180,fade:.18,positionSpeed:45,positionLimit:3,step:1/120});
+    eruptionLead:.18,eruptionWarning:1.25,eruptionBurst:.25,breathWarning:1,breathHold:.2,breathDuration:3.8,
+    breathRatio:.52,breathMin:165,breathMax:205,fade:.18,positionSpeed:45,positionLimit:3,step:1/120});
   const patterns=['fireball','eruption','rotating_breath'],tau=Math.PI*2,epsilon=1e-9;
   const spec=gameVolcano.species.find(s=>s.id==='magma_dragon');
   const scale=gameVolcano.renderWidths.magma_dragon/(spec.animations.idle.frames[0].rect_px[2]-2*gameVolcano.manifest.frame_format.trim_padding_px);
@@ -49,7 +49,7 @@
   function prepare(actor){
     if(!enabled(actor))return false;
     reset();active={actor,age:0,phase:'rest',remaining:settings.firstDelay,next:0,pattern:null,
-      angle:0,targetAngle:0,turnDelta:0,center:null,hazard:null,fade:0,waves:0,volleys:0,shots:0,damageCalls:0,skipped:0,rects:blockedRects()};return true;
+      angle:0,sweepDirection:0,sweepProgress:0,observedPlayer:null,center:null,hazard:null,fade:0,waves:0,volleys:0,shots:0,damageCalls:0,skipped:0,rects:blockedRects()};return true;
   }
   function blockedRects(){
     const canvasBox=canvas.getBoundingClientRect(),sx=canvasBox.width?W/canvasBox.width:1,sy=canvasBox.height?H/canvasBox.height:1;
@@ -96,7 +96,7 @@
   function startBreath(state){
     if(artStatus!=='ready'){state.skipped++;rest(state);return;}
     if(!safeCircle(state.actor.x,state.actor.y,bodyRadius+2,state.rects)){state.phase='position';state.remaining=settings.positionLimit;return;}
-    state.center={x:state.actor.x,y:state.actor.y};state.phase='breath_warning';state.remaining=settings.breathWarning;state.turnDelta=0;
+    state.center={x:state.actor.x,y:state.actor.y};state.phase='breath_warning';state.remaining=settings.breathWarning;state.angle=0;state.sweepDirection=0;state.sweepProgress=0;state.observedPlayer=null;
   }
   function begin(state){
     state.pattern=patterns[state.next];state.next=(state.next+1)%patterns.length;
@@ -127,20 +127,21 @@
       if(Math.hypot(player.x-state.hazard.x,player.y-state.hazard.y)<=state.hazard.r)damage();
     }else if(state.phase==='eruption_burst')rest(state);
     else if(state.phase==='position'){state.skipped++;state.center=null;rest(state);}
-    else if(state.phase==='breath_warning'){state.phase='breath';state.remaining=settings.breathDuration;state.attackElapsed=0;gameVolcano.attack(state.actor,true);}
-    else if(state.phase==='breath'){state.fade=settings.fade;rest(state);}
-  }
-  function trackPlayer(state,dt){
-    const dx=player.x-state.center.x,dy=player.y-state.center.y;
-    if(Math.hypot(dx,dy)<1)return;
-    state.targetAngle=Math.atan2(dy,dx)-Math.PI/2;
-    const difference=Math.atan2(Math.sin(state.targetAngle-state.angle),Math.cos(state.targetAngle-state.angle));
-    state.turnDelta=Math.abs(difference)>settings.breathDeadZone?Math.max(-settings.breathTurnSpeed*dt,Math.min(settings.breathTurnSpeed*dt,difference)):0;
-    state.angle+=state.turnDelta;
+    else if(state.phase==='breath_warning'){
+      // First show the full downward PNG, with live alpha damage, before any turn.
+      state.phase='breath_hold';state.remaining=settings.breathHold;state.attackElapsed=0;gameVolcano.attack(state.actor,true);
+      if(contains(player,frameGeometry(state.actor),state.rects))damage();
+    }else if(state.phase==='breath_hold'){
+      // Sample once at the end of the visible hold. Right -> CCW, left/tie -> CW.
+      state.observedPlayer={x:player.x,y:player.y,age:state.age};
+      state.sweepDirection=player.x-state.center.x>epsilon?-1:1;
+      state.phase='breath';state.remaining=settings.breathDuration;
+    }
+    else if(state.phase==='breath'){state.angle=state.sweepDirection*tau;state.sweepProgress=tau;state.fade=settings.fade;rest(state);}
   }
   function move(state,dt){
     const actor=state.actor;actor.t+=dt;actor.shot=Math.max(0,actor.shot-dt);
-    if(state.phase==='breath_warning'||state.phase==='breath'||state.fade>0)return;
+    if(state.phase==='breath_warning'||state.phase==='breath_hold'||state.phase==='breath'||state.fade>0)return;
     if(state.phase==='position'||state.phase==='rest'&&state.next===2){
       const target=safeTarget(W*.5,H*.53,bodyRadius+2,state.rects);
       if(!target)return;
@@ -173,20 +174,18 @@
       if(state.remaining<=epsilon){if(transition>0)break;resolve(state,damage);if(!started||active!==state)return true;}
       if(left<=epsilon)break;
       const slice=Math.min(left,state.remaining,settings.step);move(state,slice);state.age+=slice;state.remaining-=slice;left-=slice;
-      if(state.phase==='breath_warning'||state.phase==='breath')trackPlayer(state,slice);
       if(state.phase==='breath'){
+        state.sweepProgress=tau*Math.min(1,Math.max(0,1-state.remaining/settings.breathDuration));
+        state.angle=state.sweepDirection*state.sweepProgress;
+      }
+      if(state.phase==='breath_hold'||state.phase==='breath'){
         if(contains(player,frameGeometry(actor),state.rects))damage();
         if(!started||active!==state)return true;
         state.attackElapsed+=slice;
         const attackDuration=spec.animations.attack.frame_count*spec.animations.attack.frame_duration_ms/1000;
         if(state.attackElapsed>=attackDuration-epsilon){state.attackElapsed%=attackDuration;gameVolcano.attack(actor,true);}
       }
-      // Return the body smoothly after tracking instead of snapping from its last heading.
-      if(state.phase==='rest'&&state.angle){
-        const difference=Math.atan2(Math.sin(-state.angle),Math.cos(-state.angle)),limit=settings.breathTurnSpeed*slice;
-        state.angle=Math.abs(difference)<=limit?0:state.angle+Math.sign(difference)*limit;
-      }
-      if(state.fade>0){state.fade=Math.max(0,state.fade-slice);if(state.fade<=epsilon){state.fade=0;state.center=null;}}
+      if(state.fade>0){state.fade=Math.max(0,state.fade-slice);if(state.fade<=epsilon){state.fade=0;state.center=null;state.angle=0;}}
     }
     return true;
   }
@@ -229,7 +228,7 @@
         ctx.fillStyle='#ff742ecc';ctx.fill();ctx.strokeStyle='#ffe69a';ctx.lineWidth=2;ctx.stroke();ctx.beginPath();ctx.arc(h.x,h.y,h.r*.55,0,tau);ctx.fillStyle='#ffe28ecc';ctx.fill();
       }
     }
-    if(artStatus==='ready'&&(state.phase==='breath_warning'||state.phase==='breath')){
+    if(artStatus==='ready'&&(state.phase==='breath_warning'||state.phase==='breath_hold'||state.phase==='breath')){
       const geo=frameGeometry(state.actor),o=geo.origin;
       if(state.phase==='breath_warning'){
         // Same cached alpha silhouette/direction as the coming damage, harmless.
@@ -251,7 +250,8 @@
   window.gameVolcanoBoss=Object.freeze({settings,mouthAnchors,bodyRadius,enabled,prepare,reset,freeze,update,defeated,draw,drawActor,drawDefeat,drawBullet,backgroundPaused,
     blockedRects,safeCircle,safeTarget,eruptionRadius,breathLength,frameGeometry,contains,breathArt,
     artSnapshot:()=>({status:artStatus,width:breathImage?.naturalWidth||0,height:breathImage?.naturalHeight||0,maskReady:Boolean(alphaMask)}),
-    snapshot:()=>active?{age:active.age,phase:active.phase,remaining:active.remaining,pattern:active.pattern,next:patterns[active.next],angle:active.angle,targetAngle:active.targetAngle,turnDelta:active.turnDelta,
+    snapshot:()=>active?{age:active.age,phase:active.phase,remaining:active.remaining,pattern:active.pattern,next:patterns[active.next],angle:active.angle,sweepDirection:active.sweepDirection,sweepProgress:active.sweepProgress,
+      observedPlayer:active.observedPlayer?{...active.observedPlayer}:null,
       center:active.center?{...active.center}:null,hazard:active.hazard?{...active.hazard,target:{...active.hazard.target}}:null,fade:active.fade,
       shots:active.shots,volleys:active.volleys,damageCalls:active.damageCalls,skipped:active.skipped,bullets:enemyBullets.filter(b=>b.volcanoBossPattern&&b.life>0).length}:null,
     deathSnapshot:()=>death?{angle:death.angle,center:death.center?{...death.center}:null}:null});
