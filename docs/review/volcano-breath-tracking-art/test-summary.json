@@ -1,0 +1,804 @@
+{
+  "baseline": "54ce63653dcf632736bcb360b68f13e1946e97db",
+  "branch": "feature/volcano-breath-tracking-art",
+  "suite_count": 54,
+  "passed_suites": 54,
+  "passed_groups": 680,
+  "failed_suites": [],
+  "suites": [
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 38.09,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/game_over.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/game_over"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/game_over/test-results.json"
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 42.97,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/selection_smoke"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/selection_smoke/test-results.json"
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 61.71,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/scoring.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/scoring"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/scoring/test-results.json"
+    },
+    {
+      "suite": "snowfield_mixed-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.48,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_mixed-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_mixed-native/test-results.json"
+    },
+    {
+      "suite": "snowfield_art",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 36.94,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_art"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_art/test-results.json"
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 42.29,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/worlds.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/worlds"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/worlds/test-results.json"
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.16,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/game_audit.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/game_audit"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/game_audit/test-results.json"
+    },
+    {
+      "suite": "snowfield_mixed-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 67.61,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_mixed-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_mixed-offline/test-results.json"
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.71,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_persistence.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/item_persistence"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/item_persistence/test-results.json"
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 18.98,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/exit_dialog.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/exit_dialog"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/exit_dialog/test-results.json"
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 22.64,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/item_spawn_rules"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/item_spawn_rules/test-results.json"
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 99.16,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/galaxy_standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/galaxy_standalone/test-results.json"
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 30.35,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/boss_reward.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/boss_reward"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/boss_reward/test-results.json"
+    },
+    {
+      "suite": "item_monsters",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 22.22,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_monsters.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/item_monsters"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/item_monsters/test-results.json"
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 70.77,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_art-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_art-offline/test-results.json"
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.56,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/item_spawn_rules-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/item_spawn_rules-offline/test-results.json"
+    },
+    {
+      "suite": "item_monsters-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 63.34,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_monsters.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/item_monsters-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/item_monsters-offline/test-results.json"
+    },
+    {
+      "suite": "tanko_cadence",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 28.3,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_cadence.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/tanko_cadence"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/tanko_cadence/test-results.json"
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 66.66,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/tanko_combat"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/tanko_combat/test-results.json"
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.19,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/fullscreen_smoke"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/fullscreen_smoke/test-results.json"
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 95.37,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/tanko_combat-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/tanko_combat-offline/test-results.json"
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 177.99,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/worlds.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/worlds-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/worlds-offline/test-results.json"
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 83.05,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_bgm.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/selection_bgm"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/selection_bgm/test-results.json"
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 85.48,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/bgm_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/bgm_smoke"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/bgm_smoke/test-results.json"
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.62,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/mobile_controls.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/mobile_controls"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/mobile_controls/test-results.json"
+    },
+    {
+      "suite": "joystick_design",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 37.98,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/joystick_design.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/joystick_design"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/joystick_design/test-results.json"
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 123.7,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_bgm.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/selection_bgm-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/selection_bgm-offline/test-results.json"
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 86.76,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/mobile_controls.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/mobile_controls-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/mobile_controls-offline/test-results.json"
+    },
+    {
+      "suite": "joystick_design-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 86.25,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/joystick_design.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/joystick_design-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/joystick_design-offline/test-results.json"
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.07,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_combat-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_combat-native/test-results.json"
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 304.14,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/scoring.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/scoring-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/scoring-offline/test-results.json"
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 56.65,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/developer_start.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/developer_start-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/developer_start-native/test-results.json"
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 21.25,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_difficulty-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_difficulty-native/test-results.json"
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 50.05,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_boss-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_boss-native/test-results.json"
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 64.4,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_combat-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_combat-offline/test-results.json"
+    },
+    {
+      "suite": "snowfield_difficulty-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 54.24,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_difficulty-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_difficulty-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_lifecycle",
+      "exit_code": 0,
+      "groups": 3,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.0,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_lifecycle.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_lifecycle"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_lifecycle/test-results.json"
+    },
+    {
+      "suite": "volcano_fallback",
+      "exit_code": 0,
+      "groups": 2,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.9,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_fallback.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/retest/volcano_fallback"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/retest/volcano_fallback/test-results.json"
+    },
+    {
+      "suite": "volcano_package",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 2.25,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_package.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_package"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_package/test-results.json"
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 46.24,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/ppyoko_title.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/ppyoko_title-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/ppyoko_title-native/test-results.json"
+    },
+    {
+      "suite": "snowfield_boss-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 76.6,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/snowfield_boss-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/snowfield_boss-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_visual_fix-native",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.64,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_visual_fix.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_visual_fix-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_visual_fix-native/test-results.json"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 157.16,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/ppyoko_title.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/ppyoko_title-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/ppyoko_title-offline/test-results.json"
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 171.35,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/developer_start.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/developer_start-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/developer_start-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_visual_fix-offline",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 91.69,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_visual_fix.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_visual_fix-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_visual_fix-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_combat-native",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.65,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_combat-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_combat-native/test-results.json"
+    },
+    {
+      "suite": "volcano_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 30.5,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_combat-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/regression/volcano_combat-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_boss_masks",
+      "exit_code": 0,
+      "groups": 2,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.64,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_boss_masks.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_boss_masks"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/focused/volcano_boss_masks/test-results.json"
+    },
+    {
+      "suite": "volcano_breath_art-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.99,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_breath_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-native/test-results.json"
+    },
+    {
+      "suite": "volcano_breath_art-offline",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 50.85,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_breath_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.75,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/art/volcano_art-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/art/volcano_art-native/test-results.json"
+    },
+    {
+      "suite": "volcano_art-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 60.75,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/art/volcano_art-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/art/volcano_art-offline/test-results.json"
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.37,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-native"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-native/test-results.json"
+    },
+    {
+      "suite": "volcano_boss-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.6,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-offline",
+        "--standalone"
+      ],
+      "report": "docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-offline/test-results.json"
+    }
+  ],
+  "initial_failed_regression_suites": [
+    {
+      "suite": "volcano_fallback",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 1,
+      "seconds": 7.15,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_fallback.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/regression/volcano_fallback"
+      ]
+    }
+  ],
+  "initial_results": "initial-tests and original regression/suite-results.json; fallback-only retest supersedes obsolete11-PNG expectation; initial results not included in final counts",
+  "regression_policy": "Focused boss/static-PNG/masks/art checks, then47 other suites once on final production sources. Only volcano_fallback repeated after correcting old11-PNG resource count to12; no product change or blanket repeated regression.",
+  "hardware_limit": "Chromium controlled game and mobile/touch emulation;30/60/120Hz uses dt simulation, not display hardware. Physical Galaxy/Samsung Internet/sensors/performance/speaker listening not verified."
+}

@@ -1,3 +1,6 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
@@ -28,6 +31,12 @@ preserved_source=without_progression_changes(source)
 original=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode()
 assert without_tanko_restore(preserved_source)==original
 for path in (root/'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+        assert_world_asset(path);continue
+    if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
+    if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+     assert_item_asset(path);continue
     if str(path.relative_to(root)) in SCORE_ASSETS:
      assert_scoring_asset(path);continue
     if path.is_file() and str(path.relative_to(root))!=TANKO_ASSET:
@@ -158,8 +167,8 @@ try:
         page.evaluate('gameExitDialogOpen=false;delete window.restoredTanko;invuln=999')
         cdp=context.new_cdp_session(page)
         def hold(control,condition):
-            box=page.locator('#'+control).bounding_box();cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+box['width']/2,'y':box['y']+box['height']/2,'id':1}]});page.wait_for_function(condition,timeout=15000);cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
-        old_spin=page.evaluate('rotorSpin');hold('right','player.a>Math.PI+.4');assert page.evaluate('rotorSpin')>old_spin
+            box=page.locator('#'+control).bounding_box();cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':box['x']+(box['width']-26 if control=='rotationJoystick' else box['width']/2),'y':box['y']+box['height']/2,'id':1}]});page.wait_for_function(condition,timeout=15000);cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
+        old_spin=page.evaluate('rotorSpin');hold('rotationJoystick','player.a>Math.PI+.4');assert page.evaluate('rotorSpin')>old_spin
         page.evaluate('player.a=Math.PI;bullets=[];fireCooldown=0');hold('fire','bullets.length>0')
         assert page.evaluate('bullets.every(b=>b.kind===2&&Math.abs(b.vx)<1e-8&&b.vy<0)')
         x,y=page.evaluate('[W/2,H/2]');old_x=page.evaluate('player.x')

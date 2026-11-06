@@ -1,0 +1,8 @@
+PASS: After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.
+PASS: The original Math.random()<0.5 split is preserved at both boundaries: one 50/50 health/power draw per boss, with no extra no-reward branch.
+PASS: All 24 character×stage×reward cases defeat bosses through real bullets/collision: payout precedes original next-region +2 HP; desert final clear adds no region healing and no item is dropped.
+PASS: Health 4/6/9 and upgrade 5 caps hold; partially useful health rewards report +1 and full caps report 0 without rerolling the reward type.
+PASS: Ten attempts against the same defeated boss pay once; living bosses and ended games pay nothing; actual multi-bullet kills in the stage matrix also pay once.
+PASS: Ordinary special-enemy kills still drop one 13px health/power item; bonuses apply only on contact with the same effects and no boss notice or double pickup.
+PASS: The 1.8-second notice displays actual +2/+1/cap text, replaces earlier messages without stale timeouts, fits three landscape sizes and overlaps no HUD/touch/fullscreen/exit controls.
+PASS: Final-clear rewards remain visible in fullscreen selection; a new game clears old text and its new boss can pay again; no native dialogs or uncaught JS errors occur.

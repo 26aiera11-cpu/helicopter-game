@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 24.37,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-native"
+    ]
+  },
+  {
+    "suite": "volcano_boss-offline",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 45.6,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/boss-final/volcano_boss-offline",
+      "--standalone"
+    ]
+  }
+]

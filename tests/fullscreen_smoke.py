@@ -52,19 +52,19 @@ try:
         assert page.evaluate('!!document.fullscreenElement&&hp===9')
         controls=page.evaluate('''() => {
             const r=id=>{const b=document.getElementById(id).getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height,right:b.right,bottom:b.bottom}};
-            return {full:r('fullscreenToggle'),exit:r('exitGame'),hud:r('hud'),fire:r('fire'),right:r('right'),W,H};
+            return {full:r('fullscreenToggle'),exit:r('exitGame'),hud:r('hud'),fire:r('fire'),rotation:r('rotationJoystick'),W,H};
         }''')
         assert controls['hud']['right']<=controls['full']['x'] and controls['full']['right']<controls['exit']['x']
-        for key in ['full','fire','right']:
+        for key in ['full','fire','rotation']:
             b=controls[key];assert b['x']>=0 and b['y']>=0 and b['right']<=controls['W']+1 and b['bottom']<=controls['H']+1
         cdp=context.new_cdp_session(page)
         def hold(id,condition):
             b=page.locator('#'+id).bounding_box()
-            cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':b['x']+b['width']/2,'y':b['y']+b['height']/2,'id':1}]})
+            cdp.send('Input.dispatchTouchEvent',{'type':'touchStart','touchPoints':[{'x':b['x']+(b['width']-26 if id=='rotationJoystick' else b['width']/2),'y':b['y']+b['height']/2,'id':1}]})
             page.wait_for_function(condition)
             cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[]})
         angle=page.evaluate('player.a')
-        hold('right',f'player.a>{angle}+.1')
+        hold('rotationJoystick',f'player.a>{angle}+.1')
         hold('fire','bullets.length>0')
         page.screenshot(path=str(args.artifacts/'fullscreen-gameplay.png'))
         passed('Character selection and game start retain fullscreen; touch rotation/fire work and the fullscreen control does not overlap HUD/exit controls.')

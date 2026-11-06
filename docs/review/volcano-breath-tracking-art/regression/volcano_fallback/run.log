@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_fallback.py", line 42, in <module>
+    assert len(blocked)==(5 if mode=='atlas' else 11) and not errors,(blocked,errors)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (['http://127.0.0.1:36497/assets/volcano/effects/magma_dragon_breath_static.png', 'http://127.0.0.1:36497/assets/volcano/background/volcano_1920x864.png', 'http://127.0.0.1:36497/assets/volcano/monsters/ember_bean.png', 'http://127.0.0.1:36497/assets/volcano/animations/ember_bean_atlas.png', 'http://127.0.0.1:36497/assets/volcano/monsters/lava_lizard.png', 'http://127.0.0.1:36497/assets/volcano/animations/lava_lizard_atlas.png', 'http://127.0.0.1:36497/assets/volcano/monsters/volcano_bat.png', 'http://127.0.0.1:36497/assets/volcano/animations/volcano_bat_atlas.png', 'http://127.0.0.1:36497/assets/volcano/monsters/magma_beetle.png', 'http://127.0.0.1:36497/assets/volcano/animations/magma_beetle_atlas.png', 'http://127.0.0.1:36497/assets/volcano/monsters/magma_dragon.png', 'http://127.0.0.1:36497/assets/volcano/animations/magma_dragon_atlas.png'], [])

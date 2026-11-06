@@ -1,3 +1,6 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Actual three-second last-frame lifecycle, input, audio and stale-result regression."""
@@ -14,6 +17,12 @@ def passed(message):report['passed'].append(message);print('PASS:',message,flush
 source=(root/'index.html').read_text()
 assert without_progression_changes(source).encode()==subprocess.check_output(['git','show','9c3c5a8:index.html'],cwd=root)
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+     assert_world_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+     assert_controls_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+  assert_item_asset(path);continue
  if str(path.relative_to(root)) in SCORE_ASSETS:
   assert_scoring_asset(path);continue
  if path.is_file():
@@ -51,7 +60,7 @@ try:
   expect(page.locator('#gameOverOverlay')).to_be_visible();expect(page.locator('#menu')).to_be_hidden()
   expect(page.locator('#menu')).to_be_visible(timeout=1500);expect(page.locator('#gameOverOverlay')).to_be_hidden()
   timing=page.evaluate('returnAt-deathAt');report['return_delay_ms']=timing;assert 2990<=timing<3400,timing
-  assert page.evaluate('!gameOverPending&&gameOverTimer===null&&!!document.fullscreenElement&&menu.querySelector("h1").textContent==="🚁 귀염 헬기 슈팅"')
+  assert page.evaluate('!gameOverPending&&gameOverTimer===null&&!!document.fullscreenElement&&menu.querySelector("h1").textContent==="🚁 헬리 트리오"')
   expect(page.locator('#selectionResult')).to_have_text('');page.screenshot(path=str(args.artifacts/'clean-selection-after-game-over.png'))
   passed('Overlay remains at 2.7 seconds and returns at three seconds to the original title/three-character selection with no residual result and fullscreen intact.')
   # Even legacy title mutations must never repopulate selectionResult.

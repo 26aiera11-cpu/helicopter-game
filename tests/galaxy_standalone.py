@@ -53,7 +53,7 @@ for url in re.findall(r'url\(([^)]+)\)', html):
 passed('All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.')
 old_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
 scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.S)
-assert scripts == old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
+assert scripts == [(root / 'assets/worlds/worlds.js').read_text(), (root / 'assets/worlds/difficulty.js').read_text(), (root / 'assets/volcano/spawns.js').read_text(), (root / 'assets/snowfield/snowfield.js').read_text(), (root / 'assets/volcano/volcano.js').read_text(), (root / 'assets/volcano/combat.js').read_text(), (root / 'assets/volcano/boss_combat.js').read_text(), (root / 'assets/snowfield/spawns.js').read_text(), (root / 'assets/snowfield/combat.js').read_text(), (root / 'assets/snowfield/boss_combat.js').read_text(), (root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
 for script in scripts:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.')
@@ -115,7 +115,7 @@ with sync_playwright() as playwright:
         page.evaluate(audio_probe)
         page.set_content(html, wait_until='load', timeout=30000)
 
-    page.evaluate('if(!__galaxyAudio.includes(selectionBgm))__galaxyAudio.push(selectionBgm)')
+    page.evaluate('for(const a of [selectionBgm,volcanoStageBgm,volcanoBossBgm])if(!__galaxyAudio.includes(a))__galaxyAudio.push(a)')
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
         .every(image=>image.complete&&image.naturalWidth>0)''')
@@ -131,10 +131,10 @@ with sync_playwright() as playwright:
     assert len(dimensions['layers']) == 6 and dimensions['background'] == [1672,941]
     report['decoded_selection_images'] = dimensions
     passed('Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.')
-    page.wait_for_function('''() => window.__galaxyAudio.length===13 &&
+    page.wait_for_function('''() => window.__galaxyAudio.length===15 &&
         window.__galaxyAudio.every(audio=>!audio.error&&audio.readyState>=1&&audio.duration>0)''')
     report['audio_durations'] = page.evaluate('window.__galaxyAudio.map(audio=>audio.duration)')
-    passed('All12 original WAV tracks/effects plus the supplied selection MP3 load native metadata offline.')
+    passed('All12 original WAV tracks/effects plus the supplied selection MP3 and two Volcano WAVs load native metadata offline.')
 
     fullscreen = page.locator('#fullscreenToggle')
     expect(fullscreen).to_be_visible()
@@ -205,8 +205,8 @@ with sync_playwright() as playwright:
         expect(page.locator('#menu')).to_be_hidden()
         page.wait_for_function('worldScroll>1')
         angle=page.evaluate('player.a')
-        box=page.locator('#right').bounding_box()
-        touch_start(box['x']+box['width']/2,box['y']+box['height']/2)
+        box=page.locator('#rotationJoystick').bounding_box()
+        touch_start(box['x']+box['width']-26,box['y']+box['height']/2)
         page.wait_for_function('(angle)=>player.a>angle+.12',arg=angle)
         touch_end()
         x,y=page.evaluate('[W/2,H/2]');old_x=page.evaluate('player.x')

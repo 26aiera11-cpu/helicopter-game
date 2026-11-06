@@ -1,0 +1,11 @@
+PASS: All three helicopters and upgrade levels 0–5 produce the expected shot counts, damage, speed, homing and piercing configuration.
+PASS: Continuous-fire timing preserves Trio/Bingle/Tanko rate ordering and first-upgrade fire-rate increase.
+PASS: Actual collision updates support Tanko piercing, upgraded projectile width and Bingle homing turns.
+PASS: The four bosses emit their original one/three/three/five-shot patterns with the configured stage/phase projectile speeds.
+PASS: Health pickups heal by two and respect max HP; upgrades cap at five; special-enemy destruction scores, drops an item and emits particles.
+PASS: Enemy bullet/body damage and invulnerability work; zero health freezes gameplay, then returns to a clean selection after the three-second overlay and resets the audio-started flag (N1 fixed).
+PASS: All 20 waves and four bosses clear through real warning/spawn, shooting/collision and update-driven transitions; score reaches 28,000 without a progression blocker.
+PASS: N2 fixed: boss power reward applies immediately, produces no dropped item, and next-region HP healing/progression remains intact.
+PASS: Synthetic sensor samples calibrate a neutral point, clamp motion and reset; physical sensor permission remains untested.
+PASS: Restart after defeat/clear resets stage, runScore, health and weapon upgrades.
+PASS: No uncaught JavaScript errors in the controlled full-function audit.

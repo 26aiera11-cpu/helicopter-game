@@ -1,0 +1,864 @@
+{
+  "name": "헬리 트리오 - 아이템 몬스터",
+  "source": "2026-11-02 approved oblique top-view sprite concept",
+  "canvas_px": [
+    320,
+    256
+  ],
+  "atlas_px": [
+    2560,
+    1280
+  ],
+  "atlas_columns": 8,
+  "atlas_rows": 5,
+  "transparent_background": true,
+  "notes": [
+    "Sprite is drawn in a slightly oblique overhead viewpoint, per approved design.",
+    "Movement frames include decorative cyan acceleration trails.",
+    "Eight directional frames were resized to approximate the same sprite scale.",
+    "This is art asset preparation; game code is not modified."
+  ],
+  "frames": [
+    {
+      "name": "idle_01",
+      "group": "idle",
+      "file": "frames/idle_01.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        177,
+        0,
+        377,
+        190
+      ],
+      "source_anchor": [
+        270,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        0,
+        0
+      ]
+    },
+    {
+      "name": "idle_02",
+      "group": "idle",
+      "file": "frames/idle_02.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        390,
+        0,
+        597,
+        190
+      ],
+      "source_anchor": [
+        488,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        1,
+        0
+      ]
+    },
+    {
+      "name": "idle_03",
+      "group": "idle",
+      "file": "frames/idle_03.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        606,
+        0,
+        808,
+        190
+      ],
+      "source_anchor": [
+        702,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        2,
+        0
+      ]
+    },
+    {
+      "name": "idle_04",
+      "group": "idle",
+      "file": "frames/idle_04.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        826,
+        0,
+        1025,
+        190
+      ],
+      "source_anchor": [
+        924,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        3,
+        0
+      ]
+    },
+    {
+      "name": "idle_05",
+      "group": "idle",
+      "file": "frames/idle_05.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        1046,
+        0,
+        1253,
+        190
+      ],
+      "source_anchor": [
+        1149,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        4,
+        0
+      ]
+    },
+    {
+      "name": "idle_06",
+      "group": "idle",
+      "file": "frames/idle_06.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 115,
+      "source_bbox": [
+        1274,
+        0,
+        1524,
+        190
+      ],
+      "source_anchor": [
+        1370,
+        102
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        5,
+        0
+      ]
+    },
+    {
+      "name": "move_01",
+      "group": "move",
+      "file": "frames/move_01.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        162,
+        228,
+        372,
+        407
+      ],
+      "source_anchor": [
+        276,
+        324
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        0,
+        1
+      ]
+    },
+    {
+      "name": "move_02",
+      "group": "move",
+      "file": "frames/move_02.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        374,
+        227,
+        586,
+        408
+      ],
+      "source_anchor": [
+        501,
+        324
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        1,
+        1
+      ]
+    },
+    {
+      "name": "move_03",
+      "group": "move",
+      "file": "frames/move_03.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        587,
+        228,
+        818,
+        408
+      ],
+      "source_anchor": [
+        723,
+        323
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        2,
+        1
+      ]
+    },
+    {
+      "name": "move_04",
+      "group": "move",
+      "file": "frames/move_04.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        818,
+        228,
+        1045,
+        408
+      ],
+      "source_anchor": [
+        943,
+        323
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        3,
+        1
+      ]
+    },
+    {
+      "name": "move_05",
+      "group": "move",
+      "file": "frames/move_05.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        1046,
+        228,
+        1275,
+        408
+      ],
+      "source_anchor": [
+        1164,
+        323
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        4,
+        1
+      ]
+    },
+    {
+      "name": "move_06",
+      "group": "move",
+      "file": "frames/move_06.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 105,
+      "source_bbox": [
+        1277,
+        227,
+        1536,
+        408
+      ],
+      "source_anchor": [
+        1415,
+        323
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        5,
+        1
+      ]
+    },
+    {
+      "name": "direction_up",
+      "group": "directions",
+      "file": "frames/direction_up.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        183,
+        450,
+        342,
+        594
+      ],
+      "source_anchor": [
+        262,
+        528
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        0,
+        2
+      ]
+    },
+    {
+      "name": "direction_up_right",
+      "group": "directions",
+      "file": "frames/direction_up_right.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        358,
+        450,
+        505,
+        594
+      ],
+      "source_anchor": [
+        428,
+        528
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        1,
+        2
+      ]
+    },
+    {
+      "name": "direction_right",
+      "group": "directions",
+      "file": "frames/direction_right.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        518,
+        450,
+        674,
+        594
+      ],
+      "source_anchor": [
+        594,
+        528
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        2,
+        2
+      ]
+    },
+    {
+      "name": "direction_down_right",
+      "group": "directions",
+      "file": "frames/direction_down_right.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        691,
+        450,
+        844,
+        594
+      ],
+      "source_anchor": [
+        768,
+        530
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        3,
+        2
+      ]
+    },
+    {
+      "name": "direction_down",
+      "group": "directions",
+      "file": "frames/direction_down.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        850,
+        450,
+        1009,
+        594
+      ],
+      "source_anchor": [
+        931,
+        525
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        4,
+        2
+      ]
+    },
+    {
+      "name": "direction_down_left",
+      "group": "directions",
+      "file": "frames/direction_down_left.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        1012,
+        451,
+        1170,
+        594
+      ],
+      "source_anchor": [
+        1089,
+        528
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        5,
+        2
+      ]
+    },
+    {
+      "name": "direction_left",
+      "group": "directions",
+      "file": "frames/direction_left.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        1178,
+        451,
+        1341,
+        594
+      ],
+      "source_anchor": [
+        1260,
+        529
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        6,
+        2
+      ]
+    },
+    {
+      "name": "direction_up_left",
+      "group": "directions",
+      "file": "frames/direction_up_left.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        1354,
+        451,
+        1536,
+        594
+      ],
+      "source_anchor": [
+        1434,
+        526
+      ],
+      "scale": 1.3,
+      "atlas_cell": [
+        7,
+        2
+      ]
+    },
+    {
+      "name": "hit_01",
+      "group": "hit",
+      "file": "frames/hit_01.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        184,
+        640,
+        335,
+        802
+      ],
+      "source_anchor": [
+        262,
+        728
+      ],
+      "scale": 1.14,
+      "atlas_cell": [
+        0,
+        3
+      ]
+    },
+    {
+      "name": "hit_02",
+      "group": "hit",
+      "file": "frames/hit_02.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        332,
+        637,
+        501,
+        802
+      ],
+      "source_anchor": [
+        427,
+        729
+      ],
+      "scale": 1.14,
+      "atlas_cell": [
+        1,
+        3
+      ]
+    },
+    {
+      "name": "hit_03",
+      "group": "hit",
+      "file": "frames/hit_03.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        504,
+        637,
+        682,
+        802
+      ],
+      "source_anchor": [
+        585,
+        730
+      ],
+      "scale": 1.14,
+      "atlas_cell": [
+        2,
+        3
+      ]
+    },
+    {
+      "name": "explosion_01",
+      "group": "explosion",
+      "file": "frames/explosion_01.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        892,
+        637,
+        1057,
+        804
+      ],
+      "source_anchor": [
+        974,
+        732
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        3,
+        3
+      ]
+    },
+    {
+      "name": "explosion_02",
+      "group": "explosion",
+      "file": "frames/explosion_02.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        1054,
+        637,
+        1213,
+        804
+      ],
+      "source_anchor": [
+        1134,
+        730
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        4,
+        3
+      ]
+    },
+    {
+      "name": "explosion_03",
+      "group": "explosion",
+      "file": "frames/explosion_03.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        1210,
+        637,
+        1392,
+        804
+      ],
+      "source_anchor": [
+        1296,
+        735
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        5,
+        3
+      ]
+    },
+    {
+      "name": "explosion_04",
+      "group": "explosion",
+      "file": "frames/explosion_04.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 95,
+      "source_bbox": [
+        1386,
+        637,
+        1536,
+        804
+      ],
+      "source_anchor": [
+        1449,
+        730
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        6,
+        3
+      ]
+    },
+    {
+      "name": "drop_health",
+      "group": "drop",
+      "file": "frames/drop_health.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        185,
+        846,
+        353,
+        1024
+      ],
+      "source_anchor": [
+        270,
+        932
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        0,
+        4
+      ]
+    },
+    {
+      "name": "drop_upgrade",
+      "group": "drop",
+      "file": "frames/drop_upgrade.png",
+      "canvas": [
+        320,
+        256
+      ],
+      "anchor": [
+        160,
+        127
+      ],
+      "duration_ms": 120,
+      "source_bbox": [
+        350,
+        846,
+        542,
+        1024
+      ],
+      "source_anchor": [
+        443,
+        932
+      ],
+      "scale": 1.0,
+      "atlas_cell": [
+        1,
+        4
+      ]
+    }
+  ]
+}

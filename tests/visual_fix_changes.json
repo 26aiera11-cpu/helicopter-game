@@ -1,0 +1,12 @@
+[
+  [
+    "spriteURLs.forEach((src,i)=>{const img=new Image();img.onload=()=>{sprites[i]=img;drawChoices()};img.src=src});",
+    "/* Legacy sprite data is retained for history; gameplay slots are owned only by gameplayHeliImages below. */",
+    1
+  ],
+  [
+    "gameplayHeliImages.forEach((url,i)=>{const img=new Image();img.onload=()=>{sprites[i]=img;drawChoices()};img.src=url;});",
+    "gameplayHeliImages.forEach((url,i)=>{const img=new Image();sprites[i]=img;img.onload=drawChoices;img.src=url;});",
+    1
+  ]
+]

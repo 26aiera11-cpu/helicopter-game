@@ -1,0 +1,2157 @@
+{
+  "baseline": "80aee3931b0425d314fafcb9b515f71ec5bac873",
+  "standalone": false,
+  "passed": [
+    "Exact approved world hooks reverse to80aee39; all other gameplay, controls, PNG/audio bytes remain identical and every JS script parses.",
+    "Two worlds register only6 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, and default route is exactly20 phases.",
+    "Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the30-phase route and rejects mode changes during play.",
+    "Real desert boss defeat rewards once, heals+2 then region+2 capped at4, enters snow1/5, preserves player/upgrade/items/actors/lifetimes/warning, and keeps fullscreen.",
+    "Forest0, desert3 and snow4 have independent reservation keys; an old warning materializes against its original quota and snow gets3 distinct phases/kill thresholds.",
+    "Both unchanged50:50 boss rewards are checked for all3 characters: HP reward precedes region healing; power+1 precedes healing, no extra world/region points.",
+    "Snow uses approved monster sprites with Issue8 slimeHP1/chase34.238 and the Issue9 delayed3-shot fan with unchanged boss HP/upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.",
+    "All3 helicopters complete default20 and opt-in30 phases through real warnings/spawns/shots/collisions:28,000 vs42,000,4 vs6 bosses; no undefined future region or duplicate clear credit.",
+    "Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; default desert still uses the original World1 clear title.",
+    "Trial TOP10/analysis namespaces are separate, preserve normal storage bytes, retain all3 character results/tie order and store a repeated finish exactly once.",
+    "Trial leaderboard labels World2/snow and reload preserves fifth-region results; normal launch resets opt-in OFF and displays only original normal scores.",
+    "Existing version1 records without world fields load as World1 without migrating, converting, discarding or rewriting the original stored record bytes.",
+    "Corrupt trial JSON and denied/quota-like storage errors cannot stop play; volatile trial results survive scope switches without contaminating the normal TOP10.",
+    "A further30-phase combat run exercises exactly3 item spawns per region/18 total:45,600 points,180 normal kills,18 item kills,6 bosses, with no item contribution to the6-kill phase goal.",
+    "Snow normal/boss reuse forest media with increasing native playback times; death stops BGM immediately, keeps the3s overlay and resumes selection music on a clean menu.",
+    "Existing music OFF/ON persists across trial start/exit and selection return; the original in-page exit confirmation stays intact.",
+    "915×412,800×360,568×320 snow entry/boss screenshots fit HUD/notice/controls; joystick remains30/22px,8% deadzone/max input and3-contact drag/rotate/fire/release/context-menu protection work.",
+    "Snow adds no media clones: exactly12 original Audio objects plus selection media, never more than one active looping BGM during all tested transitions.",
+    "Explicit?world2=1 opts into trial without persisting a default override; a normal URL always launches World1-only mode.",
+    "No uncaught JS errors, native dialogs, failed assets or offline external requests occur."
+  ],
+  "limits": [
+    "Native Chromium controlled combat/input/media/fullscreen checks, not a human balance playthrough.",
+    "Snowfield uses approved background/monster art with prototype atlas animation and Issue8 first-trial normal combat with the unchanged forest boss/audio profile; final balance is not approved.",
+    "Physical Galaxy/Samsung Internet, actual sensors, audible output and file opening are not tested.",
+    "Offline injects the exact standalone HTML into a blank local origin then disables networking; managed file policy is unchanged."
+  ],
+  "registry": {
+    "worlds": [
+      {
+        "id": 0,
+        "key": "world-1",
+        "name": "월드 1",
+        "regionIds": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 1,
+        "key": "world-2",
+        "name": "월드 2",
+        "regionIds": [
+          4,
+          5
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "id": 0,
+        "key": "world-1:forest",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 0,
+        "name": "🌲 숲 지역",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🌳 숲의 수호괴물",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 1,
+        "key": "world-1:rock",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 1,
+        "name": "🪨 바위 지역",
+        "combatProfile": 1,
+        "assetProfile": 1,
+        "musicProfile": 1,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🪨 거대 바위 골렘",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 2,
+        "key": "world-1:sea",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 2,
+        "name": "🌊 바다 지역",
+        "combatProfile": 2,
+        "assetProfile": 2,
+        "musicProfile": 2,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐙 바다의 문어 대왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 3,
+        "key": "world-1:desert",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 3,
+        "name": "🏜️ 사막 지역",
+        "combatProfile": 3,
+        "assetProfile": 3,
+        "musicProfile": 3,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🦂 사막 전갈왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 4,
+        "key": "world-2:snowfield",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 0,
+        "name": "❄ 설원 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "❄ 눈보라 거인왕 (시험)",
+        "prototypeBackground": "snowfield-approved",
+        "prototype": true
+      },
+      {
+        "id": 5,
+        "key": "world-2:volcano",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 1,
+        "name": "🌋 화산 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐉 마그마 드래곤 (시험)",
+        "prototypeBackground": "volcano-approved",
+        "prototype": true
+      }
+    ],
+    "snapshot": {
+      "trialEnabled": false,
+      "activeTrial": false,
+      "route": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "assets": 6,
+    "enemies": 6,
+    "bosses": 6
+  },
+  "desert_to_snow_carry": {
+    "after": {
+      "stage": 4,
+      "phase": 1,
+      "hp": 4,
+      "upgrade": 3,
+      "samePlayer": true,
+      "sameItem": true,
+      "item": {
+        "x": 40,
+        "y": 50,
+        "type": "hp",
+        "life": 7.25,
+        "r": 13,
+        "t": 0,
+        "vx": 0,
+        "vy": 0,
+        "turn": 999
+      },
+      "sameActor": true,
+      "actorLife": 6.75,
+      "pending": {
+        "x": 198.99666589451954,
+        "y": 27,
+        "time": 0.9999999999999999,
+        "region": 3,
+        "phase": 1,
+        "id": "3:1"
+      },
+      "rewardGranted": true,
+      "score": 2300,
+      "duplicateHP": 4,
+      "duplicateScore": 2300
+    },
+    "pending": {
+      "x": 198.99666589451954,
+      "y": 27,
+      "time": 0.9999999999999999,
+      "region": 3,
+      "phase": 1,
+      "id": "3:1"
+    },
+    "arrival": {
+      "origin": "3:1",
+      "life": 10
+    },
+    "plans": [
+      {
+        "region": 0,
+        "regionKey": "world-1:forest",
+        "worldId": 0,
+        "opportunities": 3,
+        "spawned": 0,
+        "phases": [
+          {
+            "phase": 1,
+            "selected": true,
+            "requiredKills": 3,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 2,
+            "selected": true,
+            "requiredKills": 3,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 3,
+            "selected": true,
+            "requiredKills": 3,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 4,
+            "selected": false,
+            "requiredKills": null,
+            "normalKills": 0,
+            "status": "not-selected"
+          }
+        ]
+      },
+      {
+        "region": 3,
+        "regionKey": "world-1:desert",
+        "worldId": 0,
+        "opportunities": 3,
+        "spawned": 1,
+        "phases": [
+          {
+            "phase": 1,
+            "selected": true,
+            "requiredKills": 3,
+            "normalKills": 3,
+            "status": "spawned"
+          },
+          {
+            "phase": 2,
+            "selected": true,
+            "requiredKills": 4,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 3,
+            "selected": true,
+            "requiredKills": 1,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 4,
+            "selected": false,
+            "requiredKills": null,
+            "normalKills": 0,
+            "status": "not-selected"
+          }
+        ]
+      },
+      {
+        "region": 4,
+        "regionKey": "world-2:snowfield",
+        "worldId": 1,
+        "opportunities": 3,
+        "spawned": 0,
+        "phases": [
+          {
+            "phase": 1,
+            "selected": true,
+            "requiredKills": 1,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 2,
+            "selected": true,
+            "requiredKills": 4,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 3,
+            "selected": true,
+            "requiredKills": 2,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 4,
+            "selected": false,
+            "requiredKills": null,
+            "normalKills": 0,
+            "status": "not-selected"
+          }
+        ]
+      }
+    ]
+  },
+  "reward_order": [
+    {
+      "type": 0,
+      "roll": 0.1,
+      "hp": 4,
+      "upgrade": 3,
+      "stage": 4,
+      "score": 2000
+    },
+    {
+      "type": 0,
+      "roll": 0.9,
+      "hp": 3,
+      "upgrade": 4,
+      "stage": 4,
+      "score": 2000
+    },
+    {
+      "type": 1,
+      "roll": 0.1,
+      "hp": 5,
+      "upgrade": 3,
+      "stage": 4,
+      "score": 2000
+    },
+    {
+      "type": 1,
+      "roll": 0.9,
+      "hp": 3,
+      "upgrade": 4,
+      "stage": 4,
+      "score": 2000
+    },
+    {
+      "type": 2,
+      "roll": 0.1,
+      "hp": 5,
+      "upgrade": 3,
+      "stage": 4,
+      "score": 2000
+    },
+    {
+      "type": 2,
+      "roll": 0.9,
+      "hp": 3,
+      "upgrade": 4,
+      "stage": 4,
+      "score": 2000
+    }
+  ],
+  "snow_prototype_combat": {
+    "normal": {
+      "hp": 1,
+      "speed": 34.238,
+      "special": false
+    },
+    "profile": 0,
+    "tactics": {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    },
+    "sameSprites": false,
+    "hpAtSpawn": 44,
+    "hpAfter": 44,
+    "shots": 3,
+    "speed": 80,
+    "points": 100
+  },
+  "controlled_full_routes": [
+    {
+      "trial": false,
+      "character": 0,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 38.5
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 70
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 104
+        }
+      ],
+      "score": 28000,
+      "started": false,
+      "stage": 3,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "33eb08af-038e-4fe7-bf70-05eae330e290",
+          "score": 28000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 3,
+          "regionName": "🏜️ 사막 지역",
+          "worldId": 0,
+          "worldName": "월드 1",
+          "regionKey": "world-1:desert",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 1,
+          "createdAt": "2026-11-04T14:34:27.919Z",
+          "outcome": "clear",
+          "normalKills": 120,
+          "itemKills": 0,
+          "bossKills": 4,
+          "clearedPhases": 16,
+          "playTimeSeconds": 172.8,
+          "finalUpgrade": 4
+        },
+        "rank": 1,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏆 모든 지역 클리어! · 뾰코 · 28,000점"
+    },
+    {
+      "trial": false,
+      "character": 1,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 35
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 50
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 71.5
+        }
+      ],
+      "score": 28000,
+      "started": false,
+      "stage": 3,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "84255fae-b0d9-49e7-bcba-333520c2197f",
+          "score": 28000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 3,
+          "regionName": "🏜️ 사막 지역",
+          "worldId": 0,
+          "worldName": "월드 1",
+          "regionKey": "world-1:desert",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 2,
+          "createdAt": "2026-11-04T14:34:28.584Z",
+          "outcome": "clear",
+          "normalKills": 120,
+          "itemKills": 0,
+          "bossKills": 4,
+          "clearedPhases": 16,
+          "playTimeSeconds": 172.8,
+          "finalUpgrade": 2
+        },
+        "rank": 2,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏆 모든 지역 클리어! · 빙글 · 28,000점"
+    },
+    {
+      "trial": false,
+      "character": 2,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 38.5
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 55.00000000000001
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 71.5
+        }
+      ],
+      "score": 28000,
+      "started": false,
+      "stage": 3,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "18d20fbc-6317-4adb-a8ab-e41db9e127cd",
+          "score": 28000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 3,
+          "regionName": "🏜️ 사막 지역",
+          "worldId": 0,
+          "worldName": "월드 1",
+          "regionKey": "world-1:desert",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 3,
+          "createdAt": "2026-11-04T14:34:28.798Z",
+          "outcome": "clear",
+          "normalKills": 120,
+          "itemKills": 0,
+          "bossKills": 4,
+          "clearedPhases": 16,
+          "playTimeSeconds": 172.8,
+          "finalUpgrade": 1
+        },
+        "rank": 3,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏆 모든 지역 클리어! · 탱코 · 28,000점"
+    },
+    {
+      "trial": true,
+      "character": 0,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 38.5
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 55.00000000000001
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 91
+        },
+        {
+          "stage": 4,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 5,
+          "bossHP": 28
+        },
+        {
+          "stage": 5,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 5,
+          "bossHP": 28
+        }
+      ],
+      "score": 42000,
+      "started": false,
+      "stage": 5,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "a7a8bba3-63bb-47c6-ba30-260f38817e38",
+          "score": 42000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 5,
+          "regionName": "🌋 화산 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:volcano",
+          "localRegionIndex": 1,
+          "trialMode": true,
+          "phase": 5,
+          "order": 10,
+          "createdAt": "2026-11-04T14:34:29.210Z",
+          "outcome": "clear",
+          "normalKills": 180,
+          "itemKills": 0,
+          "bossKills": 6,
+          "clearedPhases": 24,
+          "playTimeSeconds": 259.2,
+          "finalUpgrade": 3
+        },
+        "rank": 1,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏁 월드 2 시험 완료! · 뾰코 · 42,000점"
+    },
+    {
+      "trial": true,
+      "character": 1,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 38.5
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 55.00000000000001
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 71.5
+        },
+        {
+          "stage": 4,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 5,
+          "bossHP": 28
+        },
+        {
+          "stage": 5,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 5,
+          "bossHP": 28
+        }
+      ],
+      "score": 42000,
+      "started": false,
+      "stage": 5,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "1a54dcc4-b56f-4477-8d59-b13196e05ba0",
+          "score": 42000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 5,
+          "regionName": "🌋 화산 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:volcano",
+          "localRegionIndex": 1,
+          "trialMode": true,
+          "phase": 5,
+          "order": 11,
+          "createdAt": "2026-11-04T14:34:29.984Z",
+          "outcome": "clear",
+          "normalKills": 180,
+          "itemKills": 0,
+          "bossKills": 6,
+          "clearedPhases": 24,
+          "playTimeSeconds": 259.2,
+          "finalUpgrade": 3
+        },
+        "rank": 2,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏁 월드 2 시험 완료! · 빙글 · 42,000점"
+    },
+    {
+      "trial": true,
+      "character": 2,
+      "waves": [
+        {
+          "stage": 0,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 0,
+          "phase": 5,
+          "bossHP": 20
+        },
+        {
+          "stage": 1,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 1,
+          "phase": 5,
+          "bossHP": 38.5
+        },
+        {
+          "stage": 2,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 2,
+          "phase": 5,
+          "bossHP": 55.00000000000001
+        },
+        {
+          "stage": 3,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 3,
+          "phase": 5,
+          "bossHP": 71.5
+        },
+        {
+          "stage": 4,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 4,
+          "phase": 5,
+          "bossHP": 22
+        },
+        {
+          "stage": 5,
+          "phase": 1,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 2,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 3,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 4,
+          "bossHP": null
+        },
+        {
+          "stage": 5,
+          "phase": 5,
+          "bossHP": 22
+        }
+      ],
+      "score": 42000,
+      "started": false,
+      "stage": 5,
+      "phase": 5,
+      "result": {
+        "record": {
+          "id": "0ed46ca0-bc4e-498e-8da5-2b6e3f1f99f6",
+          "score": 42000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 5,
+          "regionName": "🌋 화산 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:volcano",
+          "localRegionIndex": 1,
+          "trialMode": true,
+          "phase": 5,
+          "order": 12,
+          "createdAt": "2026-11-04T14:34:30.286Z",
+          "outcome": "clear",
+          "normalKills": 180,
+          "itemKills": 0,
+          "bossKills": 6,
+          "clearedPhases": 24,
+          "playTimeSeconds": 259.2,
+          "finalUpgrade": 1
+        },
+        "rank": 3,
+        "isTop10": true,
+        "saved": true
+      },
+      "title": "🏁 월드 2 시험 완료! · 탱코 · 42,000점"
+    }
+  ],
+  "storage_isolation": {
+    "normalUnchanged": true,
+    "trial": [
+      {
+        "id": "a7a8bba3-63bb-47c6-ba30-260f38817e38",
+        "score": 42000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 10,
+        "createdAt": "2026-11-04T14:34:29.210Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "1a54dcc4-b56f-4477-8d59-b13196e05ba0",
+        "score": 42000,
+        "characterId": 1,
+        "characterName": "빙글",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 11,
+        "createdAt": "2026-11-04T14:34:29.984Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "0ed46ca0-bc4e-498e-8da5-2b6e3f1f99f6",
+        "score": 42000,
+        "characterId": 2,
+        "characterName": "탱코",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 12,
+        "createdAt": "2026-11-04T14:34:30.286Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 1
+      }
+    ],
+    "trialHistory": [
+      {
+        "id": "96d581da-18e3-46d6-9321-fca91ee87653",
+        "score": 0,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 0,
+        "regionName": "🌲 숲 지역",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "regionKey": "world-1:forest",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 1,
+        "createdAt": "2026-11-04T14:34:27.221Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0.057,
+        "finalUpgrade": 0
+      },
+      {
+        "id": "86d3232d-1d3c-4900-bd4b-b25f7fda14f2",
+        "score": 2300,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 2,
+        "createdAt": "2026-11-04T14:34:27.423Z",
+        "outcome": "abandoned",
+        "normalKills": 3,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0.073,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "af5371f8-f167-4f11-815a-e4cda9c15bf0",
+        "score": 2000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 3,
+        "createdAt": "2026-11-04T14:34:27.432Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "8126f80a-b78b-43c6-b299-c21381e31954",
+        "score": 2000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 4,
+        "createdAt": "2026-11-04T14:34:27.475Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0,
+        "finalUpgrade": 4
+      },
+      {
+        "id": "e0f834a4-0999-4d04-928e-f66f631c2ba3",
+        "score": 2000,
+        "characterId": 1,
+        "characterName": "빙글",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 5,
+        "createdAt": "2026-11-04T14:34:27.483Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "b834f5bd-cb7a-43ed-b09c-214f862d38b0",
+        "score": 2000,
+        "characterId": 1,
+        "characterName": "빙글",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 6,
+        "createdAt": "2026-11-04T14:34:27.489Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0,
+        "finalUpgrade": 4
+      },
+      {
+        "id": "2f7c0db8-170a-40fa-a62c-725f8eb51c17",
+        "score": 2000,
+        "characterId": 2,
+        "characterName": "탱코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 7,
+        "createdAt": "2026-11-04T14:34:27.493Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "6fd0f31d-d24d-497d-97f4-5ae4b5021e88",
+        "score": 2000,
+        "characterId": 2,
+        "characterName": "탱코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 1,
+        "order": 8,
+        "createdAt": "2026-11-04T14:34:27.530Z",
+        "outcome": "abandoned",
+        "normalKills": 0,
+        "itemKills": 0,
+        "bossKills": 1,
+        "clearedPhases": 0,
+        "playTimeSeconds": 0.017,
+        "finalUpgrade": 4
+      },
+      {
+        "id": "30d84e8e-536d-43d8-a493-40e28e3de31a",
+        "score": 100,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 4,
+        "regionName": "❄ 설원 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:snowfield",
+        "localRegionIndex": 0,
+        "trialMode": true,
+        "phase": 5,
+        "order": 9,
+        "createdAt": "2026-11-04T14:34:27.705Z",
+        "outcome": "abandoned",
+        "normalKills": 1,
+        "itemKills": 0,
+        "bossKills": 0,
+        "clearedPhases": 0,
+        "playTimeSeconds": 3.28,
+        "finalUpgrade": 0
+      },
+      {
+        "id": "a7a8bba3-63bb-47c6-ba30-260f38817e38",
+        "score": 42000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 10,
+        "createdAt": "2026-11-04T14:34:29.210Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "1a54dcc4-b56f-4477-8d59-b13196e05ba0",
+        "score": 42000,
+        "characterId": 1,
+        "characterName": "빙글",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 11,
+        "createdAt": "2026-11-04T14:34:29.984Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 3
+      },
+      {
+        "id": "0ed46ca0-bc4e-498e-8da5-2b6e3f1f99f6",
+        "score": 42000,
+        "characterId": 2,
+        "characterName": "탱코",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 12,
+        "createdAt": "2026-11-04T14:34:30.286Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 0,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 1
+      }
+    ],
+    "base": [
+      {
+        "id": "33eb08af-038e-4fe7-bf70-05eae330e290",
+        "score": 28000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 3,
+        "regionName": "🏜️ 사막 지역",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "regionKey": "world-1:desert",
+        "localRegionIndex": 3,
+        "trialMode": false,
+        "phase": 5,
+        "order": 1,
+        "createdAt": "2026-11-04T14:34:27.919Z",
+        "outcome": "clear",
+        "normalKills": 120,
+        "itemKills": 0,
+        "bossKills": 4,
+        "clearedPhases": 16,
+        "playTimeSeconds": 172.8,
+        "finalUpgrade": 4
+      },
+      {
+        "id": "84255fae-b0d9-49e7-bcba-333520c2197f",
+        "score": 28000,
+        "characterId": 1,
+        "characterName": "빙글",
+        "regionId": 3,
+        "regionName": "🏜️ 사막 지역",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "regionKey": "world-1:desert",
+        "localRegionIndex": 3,
+        "trialMode": false,
+        "phase": 5,
+        "order": 2,
+        "createdAt": "2026-11-04T14:34:28.584Z",
+        "outcome": "clear",
+        "normalKills": 120,
+        "itemKills": 0,
+        "bossKills": 4,
+        "clearedPhases": 16,
+        "playTimeSeconds": 172.8,
+        "finalUpgrade": 2
+      },
+      {
+        "id": "18d20fbc-6317-4adb-a8ab-e41db9e127cd",
+        "score": 28000,
+        "characterId": 2,
+        "characterName": "탱코",
+        "regionId": 3,
+        "regionName": "🏜️ 사막 지역",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "regionKey": "world-1:desert",
+        "localRegionIndex": 3,
+        "trialMode": false,
+        "phase": 5,
+        "order": 3,
+        "createdAt": "2026-11-04T14:34:28.798Z",
+        "outcome": "clear",
+        "normalKills": 120,
+        "itemKills": 0,
+        "bossKills": 4,
+        "clearedPhases": 16,
+        "playTimeSeconds": 172.8,
+        "finalUpgrade": 1
+      }
+    ],
+    "duplicate": 1,
+    "keys": {
+      "top": "heliTrio.world2Trial.top10.v1",
+      "history": "heliTrio.world2Trial.playHistory.v1"
+    }
+  },
+  "full_trial_with_item_monsters": {
+    "waves": [
+      {
+        "stage": 0,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 0,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 0,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 0,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 0,
+        "phase": 5,
+        "bossHP": 20
+      },
+      {
+        "stage": 1,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 1,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 1,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 1,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 1,
+        "phase": 5,
+        "bossHP": 38.5
+      },
+      {
+        "stage": 2,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 2,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 2,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 2,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 2,
+        "phase": 5,
+        "bossHP": 55.00000000000001
+      },
+      {
+        "stage": 3,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 3,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 3,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 3,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 3,
+        "phase": 5,
+        "bossHP": 71.5
+      },
+      {
+        "stage": 4,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 4,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 4,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 4,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 4,
+        "phase": 5,
+        "bossHP": 28
+      },
+      {
+        "stage": 5,
+        "phase": 1,
+        "bossHP": null
+      },
+      {
+        "stage": 5,
+        "phase": 2,
+        "bossHP": null
+      },
+      {
+        "stage": 5,
+        "phase": 3,
+        "bossHP": null
+      },
+      {
+        "stage": 5,
+        "phase": 4,
+        "bossHP": null
+      },
+      {
+        "stage": 5,
+        "phase": 5,
+        "bossHP": 32
+      }
+    ],
+    "score": 45600,
+    "started": false,
+    "stage": 5,
+    "phase": 5,
+    "result": {
+      "record": {
+        "id": "fb19f064-df54-4ad6-b5cc-21b21aba8061",
+        "score": 45600,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 5,
+        "regionName": "🌋 화산 (시험)",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "regionKey": "world-2:volcano",
+        "localRegionIndex": 1,
+        "trialMode": true,
+        "phase": 5,
+        "order": 2,
+        "createdAt": "2026-11-04T14:34:36.912Z",
+        "outcome": "clear",
+        "normalKills": 180,
+        "itemKills": 18,
+        "bossKills": 6,
+        "clearedPhases": 24,
+        "playTimeSeconds": 259.2,
+        "finalUpgrade": 4
+      },
+      "rank": 1,
+      "isTop10": true,
+      "saved": true
+    },
+    "title": "🏁 월드 2 시험 완료! · 뾰코 · 45,600점"
+  },
+  "snow_game_over_delay_ms": 3006.8999999910593,
+  "landscape_layouts": [
+    {
+      "joystick": {
+        "x": 30,
+        "y": 332,
+        "w": 164.6875,
+        "h": 58,
+        "right": 194.6875,
+        "bottom": 390
+      },
+      "fire": {
+        "x": 815,
+        "y": 317,
+        "w": 85,
+        "h": 85,
+        "right": 900,
+        "bottom": 402
+      },
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "w": 705,
+        "h": 17.5,
+        "right": 715,
+        "bottom": 27.5
+      },
+      "full": {
+        "x": 725,
+        "y": 9,
+        "w": 94,
+        "h": 26,
+        "right": 819,
+        "bottom": 35
+      },
+      "exit": {
+        "x": 833.5625,
+        "y": 9,
+        "w": 71.4375,
+        "h": 31,
+        "right": 905,
+        "bottom": 40
+      },
+      "notice": {
+        "x": 10,
+        "y": 90,
+        "w": 242.109375,
+        "h": 21.5,
+        "right": 252.109375,
+        "bottom": 111.5
+      },
+      "W": 915,
+      "H": 412
+    },
+    {
+      "joystick": {
+        "x": 30,
+        "y": 280,
+        "w": 144,
+        "h": 58,
+        "right": 174,
+        "bottom": 338
+      },
+      "fire": {
+        "x": 700,
+        "y": 265,
+        "w": 85,
+        "h": 85,
+        "right": 785,
+        "bottom": 350
+      },
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "w": 590,
+        "h": 15.984375,
+        "right": 600,
+        "bottom": 25.984375
+      },
+      "full": {
+        "x": 610,
+        "y": 9,
+        "w": 94,
+        "h": 26,
+        "right": 704,
+        "bottom": 35
+      },
+      "exit": {
+        "x": 718.5625,
+        "y": 9,
+        "w": 71.4375,
+        "h": 31,
+        "right": 790,
+        "bottom": 40
+      },
+      "notice": {
+        "x": 10,
+        "y": 90,
+        "w": 242.109375,
+        "h": 21.5,
+        "right": 252.109375,
+        "bottom": 111.5
+      },
+      "W": 800,
+      "H": 360
+    },
+    {
+      "joystick": {
+        "x": 30,
+        "y": 240,
+        "w": 135,
+        "h": 58,
+        "right": 165,
+        "bottom": 298
+      },
+      "fire": {
+        "x": 468,
+        "y": 225,
+        "w": 85,
+        "h": 85,
+        "right": 553,
+        "bottom": 310
+      },
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "w": 358,
+        "h": 12.5,
+        "right": 368,
+        "bottom": 22.5
+      },
+      "full": {
+        "x": 378,
+        "y": 9,
+        "w": 94,
+        "h": 26,
+        "right": 472,
+        "bottom": 35
+      },
+      "exit": {
+        "x": 486.5625,
+        "y": 9,
+        "w": 71.4375,
+        "h": 31,
+        "right": 558,
+        "bottom": 40
+      },
+      "notice": {
+        "x": 10,
+        "y": 90,
+        "w": 242.109375,
+        "h": 21.5,
+        "right": 252.109375,
+        "bottom": 111.5
+      },
+      "W": 568,
+      "H": 320
+    }
+  ]
+}

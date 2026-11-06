@@ -1,3 +1,6 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 from progression_preservation import without_progression_changes, without_progression_ui
@@ -48,6 +51,12 @@ old_audio, new_audio = re.findall(audio_pattern, before), re.findall(audio_patte
 assert old_audio == new_audio and len(new_audio) == 12
 report['unchanged_wav_sha256'] = [hashlib.sha256(base64.b64decode(url.split(',')[1])).hexdigest() for url in new_audio]
 for path in (root / 'assets').rglob('*'):
+    if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+        assert_world_asset(path);continue
+    if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+        assert_controls_asset(path);continue
+    if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+     assert_item_asset(path);continue
     if path.is_file():
         if str(path.relative_to(root)) in SCORE_ASSETS:
             assert_scoring_asset(path);continue
@@ -90,9 +99,11 @@ probe = '''(() => {
         return a;
     }});
     probe.attachSelection=()=>{
-        const a=document.getElementById('selectionBgm');if(probe.elements.includes(a))return;
-        a.__probeName='selection';probe.elements.push(a);
-        for(const type of ['play','playing','pause','ended'])a.addEventListener(type,()=>{probe.events.push({type,name:a.__probeName,time:a.currentTime});probe.sample(type)});
+        for(const [id,name] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano']]){
+            const a=document.getElementById(id);if(probe.elements.includes(a))continue;
+            a.__probeName=name;probe.elements.push(a);
+            for(const type of ['play','playing','pause','ended'])a.addEventListener(type,()=>{probe.events.push({type,name:a.__probeName,time:a.currentTime});probe.sample(type)});
+        }
     };
     const sample=()=>{probe.sample('frame');requestAnimationFrame(sample)};requestAnimationFrame(sample);
 })()'''
@@ -109,9 +120,9 @@ try:
         page.on('dialog', lambda dialog: (native_dialogs.append(dialog.type), dialog.dismiss()))
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
         page.evaluate('__bgmProbe.attachSelection()')
-        page.wait_for_function('__bgmProbe.elements.length===13 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
-        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===9 && __bgmProbe.active().length===0')
-        passed('All12 original WAV files and the supplied MP3 load native metadata; nine BGM elements are paused before the first gesture.')
+        page.wait_for_function('__bgmProbe.elements.length===15 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
+        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===11 && __bgmProbe.active().length===0')
+        passed('All12 original WAV files the supplied MP3 and two Volcano WAVs load native metadata; eleven BGM elements are paused before the first gesture.')
 
         def start(kind):
             page.locator(f'.select-hit[data-heli="{kind}"]').tap()
@@ -207,9 +218,9 @@ try:
         report['audio_monitor'] = page.evaluate('({max_simultaneous_bgm:__bgmProbe.maxActive,overlap_events:__bgmProbe.overlaps,base_audio_elements:__bgmProbe.elements.length,play_events:__bgmProbe.events.filter(e=>e.type==="play").length})')
         assert report['audio_monitor']['max_simultaneous_bgm'] == 1
         assert not report['audio_monitor']['overlap_events']
-        assert report['audio_monitor']['base_audio_elements'] == 13
+        assert report['audio_monitor']['base_audio_elements'] == 15
         assert not errors and not native_dialogs, (errors, native_dialogs)
-        passed('Twelve additional game-over/restart cycles across all characters reuse the same13 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
+        passed('Twelve additional game-over/restart cycles across all characters reuse the same15 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
         browser.close()
 finally:
     server.shutdown();server.server_close()

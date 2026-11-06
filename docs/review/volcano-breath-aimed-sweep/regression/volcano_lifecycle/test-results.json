@@ -1,0 +1,45 @@
+{
+  "passed": [
+    "Exit modal freezes boss outro; Continue finishes the same once-only2000point/reward clear in fullscreen.",
+    "Confirm exit cancels pending advance; next Bingle run survives past old outro deadline without stale clear, ghost or fullscreen loss.",
+    "Defensive start during outro also cancels callback synchronously; fresh Tanko boss remains alive and new run is not terminated."
+  ],
+  "limits": [
+    "Real Chromium touch/modal/fullscreen with controlled boss hits; not physical Galaxy."
+  ],
+  "paused_outro": {
+    "clock": 0.22319999999999987,
+    "ghosts": [
+      {
+        "id": "magma_dragon",
+        "x": 284,
+        "y": 86.4,
+        "at": 0,
+        "pose": {
+          "id": "magma_dragon",
+          "name": "hit",
+          "index": 2,
+          "rect": [
+            273,
+            745,
+            222,
+            175
+          ],
+          "source": [
+            49,
+            72.5,
+            222,
+            175
+          ],
+          "cell": [
+            320,
+            320
+          ]
+        }
+      }
+    ],
+    "advancing": true
+  },
+  "page_errors": [],
+  "all_passed": true
+}

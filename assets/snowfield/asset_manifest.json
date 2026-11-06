@@ -1,0 +1,1472 @@
+{
+  "title": "헬리 트리오 월드 2 - 설원 1차 게임 에셋",
+  "version": "v2-2026-11-03",
+  "world": 2,
+  "region": "snowfield",
+  "background": {
+    "path": "background/snowfield_1920x864.png",
+    "source_approved": "first snowfield background concept",
+    "seamless": false,
+    "note": "원본 승인 배경 유지, 반복 타일 이음새는 별도 개발 필요",
+    "sha256": "54e4463a5c9e44b30e8e736b6c9d980e5d2cf7f4f7f9a17d9c9578ac6cb32e0a",
+    "identical_to_first_approved_file": true
+  },
+  "prototype_animation": true,
+  "notes": [
+    "몬스터는 승인한 귀여운 몬스터형 2D 원화에서 추출한 투명 PNG입니다.",
+    "애니메이션은 이미지 변형과 파티클 합성 기반의 프로토타입이며 전용 손그림 동작/8방향 시트는 아닙니다.",
+    "월드 2 소스 코드, 전투 AI, 스폰/충돌, 사운드 또는 게임 진행은 변경하지 않았습니다."
+  ],
+  "monsters": [
+    {
+      "id": "snow_slime",
+      "name_ko": "눈슬라임",
+      "role": "기본형",
+      "base": "monsters/snow_slime.png",
+      "base_pixels": [
+        229,
+        165
+      ],
+      "atlas": "animations/snow_slime_atlas.png",
+      "cell": [
+        256,
+        256
+      ],
+      "cols": 6,
+      "rows": 5,
+      "suggested_render_width_px": 38,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frame_count": 4,
+          "frame_duration_ms": 140,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/idle_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/idle_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/idle_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/idle_03.png"
+            }
+          ]
+        },
+        "move": {
+          "row": 1,
+          "frame_count": 6,
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1024,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1280,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/move_05.png"
+            }
+          ]
+        },
+        "attack": {
+          "row": 2,
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/attack_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/attack_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/attack_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/attack_03.png"
+            }
+          ]
+        },
+        "hit": {
+          "row": 3,
+          "frame_count": 3,
+          "frame_duration_ms": 110,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/hit_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/hit_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/hit_02.png"
+            }
+          ]
+        },
+        "defeat": {
+          "row": 4,
+          "frame_count": 6,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1024,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1280,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/snow_slime/defeat_05.png"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "penguin_raider",
+      "name_ko": "펭귄 돌격병",
+      "role": "근접 돌진형",
+      "base": "monsters/penguin_raider.png",
+      "base_pixels": [
+        230,
+        190
+      ],
+      "atlas": "animations/penguin_raider_atlas.png",
+      "cell": [
+        256,
+        256
+      ],
+      "cols": 6,
+      "rows": 5,
+      "suggested_render_width_px": 42,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frame_count": 4,
+          "frame_duration_ms": 140,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/idle_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/idle_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/idle_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                0,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/idle_03.png"
+            }
+          ]
+        },
+        "move": {
+          "row": 1,
+          "frame_count": 6,
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1024,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1280,
+                256,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/move_05.png"
+            }
+          ]
+        },
+        "attack": {
+          "row": 2,
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/attack_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/attack_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/attack_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                512,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/attack_03.png"
+            }
+          ]
+        },
+        "hit": {
+          "row": 3,
+          "frame_count": 3,
+          "frame_duration_ms": 110,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/hit_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/hit_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                768,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/hit_02.png"
+            }
+          ]
+        },
+        "defeat": {
+          "row": 4,
+          "frame_count": 6,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                256,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                512,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                768,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1024,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1280,
+                1024,
+                256,
+                256
+              ],
+              "path": "animations/penguin_raider/defeat_05.png"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "ice_yeti",
+      "name_ko": "아이스 예티",
+      "role": "원거리 공격형",
+      "base": "monsters/ice_yeti.png",
+      "base_pixels": [
+        303,
+        207
+      ],
+      "atlas": "animations/ice_yeti_atlas.png",
+      "cell": [
+        320,
+        256
+      ],
+      "cols": 6,
+      "rows": 5,
+      "suggested_render_width_px": 54,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frame_count": 4,
+          "frame_duration_ms": 140,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/idle_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/idle_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/idle_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/idle_03.png"
+            }
+          ]
+        },
+        "move": {
+          "row": 1,
+          "frame_count": 6,
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1280,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1600,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/move_05.png"
+            }
+          ]
+        },
+        "attack": {
+          "row": 2,
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/attack_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/attack_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/attack_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/attack_03.png"
+            }
+          ]
+        },
+        "hit": {
+          "row": 3,
+          "frame_count": 3,
+          "frame_duration_ms": 110,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/hit_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/hit_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/hit_02.png"
+            }
+          ]
+        },
+        "defeat": {
+          "row": 4,
+          "frame_count": 6,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1280,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1600,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/ice_yeti/defeat_05.png"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "frost_turtle",
+      "name_ko": "빙결 거북이",
+      "role": "방어·고체력형",
+      "base": "monsters/frost_turtle.png",
+      "base_pixels": [
+        266,
+        209
+      ],
+      "atlas": "animations/frost_turtle_atlas.png",
+      "cell": [
+        320,
+        256
+      ],
+      "cols": 6,
+      "rows": 5,
+      "suggested_render_width_px": 58,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frame_count": 4,
+          "frame_duration_ms": 140,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/idle_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/idle_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/idle_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                0,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/idle_03.png"
+            }
+          ]
+        },
+        "move": {
+          "row": 1,
+          "frame_count": 6,
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1280,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1600,
+                256,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/move_05.png"
+            }
+          ]
+        },
+        "attack": {
+          "row": 2,
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/attack_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/attack_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/attack_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                512,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/attack_03.png"
+            }
+          ]
+        },
+        "hit": {
+          "row": 3,
+          "frame_count": 3,
+          "frame_duration_ms": 110,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/hit_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/hit_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                768,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/hit_02.png"
+            }
+          ]
+        },
+        "defeat": {
+          "row": 4,
+          "frame_count": 6,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                320,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                640,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                960,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1280,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                1600,
+                1024,
+                320,
+                256
+              ],
+              "path": "animations/frost_turtle/defeat_05.png"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "blizzard_king",
+      "name_ko": "눈보라 거인왕",
+      "role": "보스",
+      "base": "monsters/blizzard_king.png",
+      "base_pixels": [
+        444,
+        254
+      ],
+      "atlas": "animations/blizzard_king_atlas.png",
+      "cell": [
+        448,
+        320
+      ],
+      "cols": 6,
+      "rows": 5,
+      "suggested_render_width_px": 132,
+      "animations": {
+        "idle": {
+          "row": 0,
+          "frame_count": 4,
+          "frame_duration_ms": 140,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                0,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/idle_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                448,
+                0,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/idle_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                896,
+                0,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/idle_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                1344,
+                0,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/idle_03.png"
+            }
+          ]
+        },
+        "move": {
+          "row": 1,
+          "frame_count": 6,
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                448,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                896,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                1344,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1792,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                2240,
+                320,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/move_05.png"
+            }
+          ]
+        },
+        "attack": {
+          "row": 2,
+          "frame_count": 4,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                640,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/attack_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                448,
+                640,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/attack_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                896,
+                640,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/attack_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                1344,
+                640,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/attack_03.png"
+            }
+          ]
+        },
+        "hit": {
+          "row": 3,
+          "frame_count": 3,
+          "frame_duration_ms": 110,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                960,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/hit_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                448,
+                960,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/hit_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                896,
+                960,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/hit_02.png"
+            }
+          ]
+        },
+        "defeat": {
+          "row": 4,
+          "frame_count": 6,
+          "frame_duration_ms": 120,
+          "loop": false,
+          "frames": [
+            {
+              "index": 0,
+              "rect_px": [
+                0,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_00.png"
+            },
+            {
+              "index": 1,
+              "rect_px": [
+                448,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_01.png"
+            },
+            {
+              "index": 2,
+              "rect_px": [
+                896,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_02.png"
+            },
+            {
+              "index": 3,
+              "rect_px": [
+                1344,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_03.png"
+            },
+            {
+              "index": 4,
+              "rect_px": [
+                1792,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_04.png"
+            },
+            {
+              "index": 5,
+              "rect_px": [
+                2240,
+                1280,
+                448,
+                320
+              ],
+              "path": "animations/blizzard_king/defeat_05.png"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

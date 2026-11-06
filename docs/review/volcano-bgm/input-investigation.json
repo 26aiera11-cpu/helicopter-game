@@ -1,0 +1,95 @@
+{
+  "baseline": "d9f538e7e335a72b8140aebc77f7e3bfb31b25cc",
+  "result": "Same full-world long-history failure reproduces before new BGM and after; root cause unresolved. No gameplay/input changes.",
+  "runs": [
+    {
+      "run": "regression/worlds",
+      "viewport": [
+        915,
+        412
+      ],
+      "started": true,
+      "hit": "exitGame",
+      "controls": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": null,
+        "firePointer": null,
+        "dragPointer": null
+      },
+      "exit_events": [
+        "pointerdown",
+        "pointerup"
+      ],
+      "passed_groups_before_failure": 16,
+      "exit_code": 1
+    },
+    {
+      "run": "retest/worlds",
+      "viewport": [
+        568,
+        320
+      ],
+      "started": true,
+      "hit": "exitGame",
+      "controls": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": null,
+        "firePointer": null,
+        "dragPointer": null
+      },
+      "exit_events": [
+        "pointerdown",
+        "pointerup",
+        "click",
+        "pointerdown",
+        "pointerup",
+        "click",
+        "pointerdown",
+        "pointerup",
+        "click",
+        "pointerdown",
+        "pointerup",
+        "click",
+        "pointerdown",
+        "pointerup"
+      ],
+      "passed_groups_before_failure": 16,
+      "exit_code": 1
+    },
+    {
+      "run": "baseline-worlds",
+      "viewport": [
+        915,
+        412
+      ],
+      "started": true,
+      "hit": "exitGame",
+      "controls": {
+        "raw": 0,
+        "value": 0,
+        "deadZone": 0.08,
+        "rotationPointer": null,
+        "firePointer": null,
+        "dragPointer": null
+      },
+      "exit_events": [
+        "pointerdown",
+        "pointerup"
+      ],
+      "passed_groups_before_failure": 16,
+      "exit_code": 1
+    }
+  ],
+  "baseline_http_method": "Serve exact git-show baseline index.html and worlds.js; all other referenced assets are byte-identical to baseline. Current test source guards still audit the authorized current files.",
+  "baseline_served_sources": {
+    "index.html": "0f00291fc89685a240c5db81d933b50cc88000d34f4713686d3ab51b6e62bd2c",
+    "assets/worlds/worlds.js": "6a6899d874648241d784817f7e2e1fba3b3080770436740cc9c64011546b033a"
+  },
+  "isolated_comparison": "touch-fixture-diagnostic/results.json: all8 fresh-page cases succeed for before/after and either final touchEnd form; this does not resolve the failure after full-world test history.",
+  "reproduce_baseline": "PYTHONPATH=tests python docs/review/volcano-bgm/baseline_worlds_diagnostic.py --artifacts /tmp/heli-bgm-before",
+  "reproduce_isolated": "python docs/review/volcano-bgm/touch_diagnostic.py"
+}

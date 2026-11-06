@@ -1,0 +1,51 @@
+PASS: Only two native integration hooks and the reviewed item manager change; every PNG/scoring/audio/UI/attack file remains unchanged and JS syntax passes.
+PASS: Actual drawImage geometry is80×64 with unchanged anchor/ratio; body and collision radius both scale exactly1.25 from64×51.2/r16.
+PASS: All3 bullet kinds use the enlarged collider through the existing circle/rotated-rectangle helper; the newly expanded edge hits while far targets do not.
+PASS: 256 new-run plans each choose3 distinct phases among1–4, exercise all4 possible omissions and kill thresholds1–4, and never select the boss phase.
+PASS: Plans/thresholds are fixed at region entry before combat; repeated context entry never rerolls, and quota configuration applies to the next region/run.
+PASS: Elapsed time alone cannot create an item actor: the old interval/22% item generator is completely removed.
+PASS: Actual normal bullet kills reserve exactly at each chosen1–4 threshold; unselected phases never reserve and subsequent kills cannot duplicate a reservation.
+PASS: Six kills in one update trigger and clear a phase before the next tick; the reserved appearance still completes once with ten full seconds.
+PASS: A genuinely scheduled live actor survives boss entry with the same object/remaining life and can be killed for its existing drop without damaging the boss or advancing normal kills.
+PASS: An already-triggered warning finishes during the boss; expiration never refunds its opportunity or generates a replacement.
+PASS: A reservation survives an instant boss kill/region change and is charged to its original region; an existing loose item retains identity and remaining lifetime.
+PASS: A separately simulated not-ready atlas cannot discard a triggered warning; readiness recovery in the boss materializes it once with full lifetime.
+PASS: A fresh boss phase creates no new reservation or actor even after20 seconds; only earlier reservations can arrive.
+PASS: Missing or allowing an actor to expire still consumes that phase opportunity; extra ordinary kills/time never respawn it and expiry awards nothing.
+PASS: Item kills keep200 points and neither advance phaseKills nor count toward any spawn threshold; boss kills use their separate existing path.
+PASS: All20 real combat phases and4 boss kills complete with exactly3 item actors per region/12 per run; existing scores total30,400 and match the saved clear/kill counters.
+PASS: Actual boss/item/HUD/touch layout screenshots are captured at915×412,800×360,568×320 with the enlarged sprite.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/item_spawn_rules.py", line 276, in <module>
+    expect(page.locator('#menu')).to_be_visible(timeout=4000)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 23332, in to_be_visible
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 852, in to_be_visible
+    await self._expect_impl(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 128, in _expect_impl
+    _record_soft_or_raise(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_assertions.py", line 60, in _record_soft_or_raise
+    raise error
+AssertionError: Locator expected to be visible
+Actual value: hidden
+Call log:
+  - Expect "to_be_visible" with timeout 4000ms
+  - waiting for locator("#menu")
+    9 × locator resolved to <div id="menu" class="menu new-select hidden">…</div>
+      - unexpected value "hidden"
+
+Aria snapshot:
+- text: 🌲 숲 지역 · 1/5 🏆 300 ❤️ 4/4 ⚡ 0/5
+- button "📱 센서 켜기"
+- text: 센서 대기 중 · 드래그 이동 가능
+- slider "헬기 회전"
+- button "탄환 발사"
+- button "전체화면으로 보기": ⛶ 전체화면
+- status:
+  - heading "GAME OVER" [level=2]
+  - paragraph: 🏆 300점
+  - paragraph: 트리오
+  - paragraph: 새로운 TOP 10 기록 · 2위 · 기록 저장 불가

@@ -102,12 +102,12 @@ try:
         def hold(control, condition):
             box = page.locator('#' + control).bounding_box()
             cdp.send('Input.dispatchTouchEvent', {'type': 'touchStart', 'touchPoints': [
-                {'x': box['x'] + box['width'] / 2, 'y': box['y'] + box['height'] / 2, 'id': 1}]})
+                {'x': box['x'] + (box['width'] - 26 if control == 'rotationJoystick' else box['width'] / 2), 'y': box['y'] + box['height'] / 2, 'id': 1}]})
             page.wait_for_function(condition)
             cdp.send('Input.dispatchTouchEvent', {'type': 'touchEnd', 'touchPoints': []})
 
         angle = page.evaluate('player.a')
-        hold('right', f'player.a > {angle} + .05')
+        hold('rotationJoystick', f'player.a > {angle} + .05')
         hold('fire', 'bullets.length > 0')
         passed('Continue resumes the same game in fullscreen; actual held touch rotation/fire still work after cancellation.')
 

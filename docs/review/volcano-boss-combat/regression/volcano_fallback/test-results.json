@@ -1,0 +1,194 @@
+{
+  "passed": [
+    "atlas: all5 phases stay playable; base/symbol fallbacks preserve ratios and no forest/snow sprites",
+    "all: all5 phases stay playable; base/symbol fallbacks preserve ratios and no forest/snow sprites"
+  ],
+  "cases": [
+    {
+      "mode": "atlas",
+      "expected_failed_requests": [
+        "http://127.0.0.1:42241/assets/volcano/animations/ember_bean_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/lava_lizard_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/volcano_bat_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/magma_beetle_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/magma_dragon_atlas.png"
+      ],
+      "page_errors": [],
+      "rows": [
+        {
+          "phase": 1,
+          "id": "ember_bean",
+          "seen": [
+            "volcanoBackground",
+            "volcano-ember_bean-base",
+            "canvas",
+            "canvas"
+          ],
+          "colors": [],
+          "started": true,
+          "hp": 4,
+          "normalHP": 1,
+          "ready": false
+        },
+        {
+          "phase": 2,
+          "id": "lava_lizard",
+          "seen": [
+            "volcanoBackground",
+            "volcano-lava_lizard-base",
+            "canvas",
+            "canvas"
+          ],
+          "colors": [],
+          "started": true,
+          "hp": 4,
+          "normalHP": 2,
+          "ready": false
+        },
+        {
+          "phase": 3,
+          "id": "volcano_bat",
+          "seen": [
+            "volcanoBackground",
+            "volcano-volcano_bat-base",
+            "canvas",
+            "canvas"
+          ],
+          "colors": [],
+          "started": true,
+          "hp": 4,
+          "normalHP": 2,
+          "ready": false
+        },
+        {
+          "phase": 4,
+          "id": "magma_beetle",
+          "seen": [
+            "volcanoBackground",
+            "volcano-magma_beetle-base",
+            "canvas",
+            "canvas"
+          ],
+          "colors": [],
+          "started": true,
+          "hp": 4,
+          "normalHP": 4,
+          "ready": false
+        },
+        {
+          "phase": 5,
+          "id": "magma_dragon",
+          "seen": [
+            "volcanoBackground",
+            "volcano-magma_dragon-base",
+            "canvas",
+            "canvas"
+          ],
+          "colors": [],
+          "started": true,
+          "hp": 4,
+          "normalHP": 20,
+          "ready": false
+        }
+      ]
+    },
+    {
+      "mode": "all",
+      "expected_failed_requests": [
+        "http://127.0.0.1:42241/assets/volcano/background/volcano_1920x864.png",
+        "http://127.0.0.1:42241/assets/volcano/monsters/ember_bean.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/ember_bean_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/monsters/lava_lizard.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/lava_lizard_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/monsters/volcano_bat.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/volcano_bat_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/monsters/magma_beetle.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/magma_beetle_atlas.png",
+        "http://127.0.0.1:42241/assets/volcano/monsters/magma_dragon.png",
+        "http://127.0.0.1:42241/assets/volcano/animations/magma_dragon_atlas.png"
+      ],
+      "page_errors": [],
+      "rows": [
+        {
+          "phase": 1,
+          "id": "ember_bean",
+          "seen": [
+            "canvas",
+            "canvas"
+          ],
+          "colors": [
+            "#e88426"
+          ],
+          "started": true,
+          "hp": 4,
+          "normalHP": 1,
+          "ready": false
+        },
+        {
+          "phase": 2,
+          "id": "lava_lizard",
+          "seen": [
+            "canvas",
+            "canvas"
+          ],
+          "colors": [
+            "#e88426"
+          ],
+          "started": true,
+          "hp": 4,
+          "normalHP": 2,
+          "ready": false
+        },
+        {
+          "phase": 3,
+          "id": "volcano_bat",
+          "seen": [
+            "canvas",
+            "canvas"
+          ],
+          "colors": [
+            "#9240b8"
+          ],
+          "started": true,
+          "hp": 4,
+          "normalHP": 2,
+          "ready": false
+        },
+        {
+          "phase": 4,
+          "id": "magma_beetle",
+          "seen": [
+            "canvas",
+            "canvas"
+          ],
+          "colors": [
+            "#e88426"
+          ],
+          "started": true,
+          "hp": 4,
+          "normalHP": 4,
+          "ready": false
+        },
+        {
+          "phase": 5,
+          "id": "magma_dragon",
+          "seen": [
+            "canvas",
+            "canvas"
+          ],
+          "colors": [
+            "#e88426"
+          ],
+          "started": true,
+          "hp": 4,
+          "normalHP": 20,
+          "ready": false
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Intentional request-abort fixtures in Chromium; not natural network/device-failure measurements."
+  ],
+  "all_passed": true
+}

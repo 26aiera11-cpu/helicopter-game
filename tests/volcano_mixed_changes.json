@@ -1,0 +1,45 @@
+{
+  "assets/worlds/difficulty.js": [
+    [
+      "    'world-2:snowfield':Object.freeze({",
+      "    'world-2:volcano':Object.freeze({\n      spawnWeights:Object.freeze([\n        [80,20,0,0],\n        [45,40,15,0],\n        [20,35,35,10],\n        [10,25,35,30],\n        [5,15,35,45]\n      ].map(Object.freeze))\n    }),\n    'world-2:snowfield':Object.freeze({",
+      1
+    ]
+  ],
+  "assets/volcano/volcano.js": [
+    [
+      "    if(enabled())actor.volcanoSpeciesId=normalIds[Math.max(0,Math.min(3,phase-1))];",
+      "    if(enabled()&&actor&&actor!==boss&&!actor.special&&!normalIds.includes(actor.volcanoSpeciesId))\n      Object.defineProperty(actor,'volcanoSpeciesId',{value:gameVolcanoSpawns.select(phase),enumerable:true});",
+      1
+    ]
+  ],
+  "index.html": [
+    [
+      "<script src=\"assets/worlds/difficulty.js\"></script>",
+      "<script src=\"assets/worlds/difficulty.js\"></script>\n<script src=\"assets/volcano/spawns.js\"></script>",
+      1
+    ],
+    [
+      "function start(type){gameVolcanoBoss.reset();",
+      "function start(type){gameVolcanoSpawns.reset();gameVolcanoBoss.reset();",
+      1
+    ],
+    [
+      "stage=gameWorlds.nextRegion(stage);phase=1;itemMonsters.enterRegion(stage);",
+      "stage=gameWorlds.nextRegion(stage);phase=1;if(gameWorlds.region(stage).key==='world-2:volcano')gameVolcanoSpawns.reset();itemMonsters.enterRegion(stage);",
+      1
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "화산 일반·보스 전투 시험 / BGM 숲 임시",
+      "화산 혼합 등장·일반/보스 전투 시험 / BGM 숲 임시",
+      1
+    ],
+    [
+      "화산은 일반 몬스터와 드래곤3패턴 전투 시험",
+      "화산은 혼합 등장·일반/보스 전투 시험",
+      1
+    ]
+  ]
+}

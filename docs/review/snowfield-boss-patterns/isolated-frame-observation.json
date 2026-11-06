@@ -1,0 +1,50 @@
+{
+  "baseline": "c5daee93966ea926a17c1501c5b3a2d07f0c3600",
+  "condition": "One Chromium page at a time after other browser suites finish,915x412,snow direct boss phase5,simulate6.8s then observe warning/blast window; player firing disabled,invulnerability,auto item generation disabled,1000ms warmup,180RAF intervals. Observational only, not physical Galaxy.",
+  "scenarios": [
+    {
+      "version": "before",
+      "setup": {
+        "bossHP": 20,
+        "ready": true,
+        "viewport": [
+          915,
+          412
+        ],
+        "patterns": null
+      },
+      "samples": 180,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.700000000000728,
+      "maxMs": 16.800000000000182,
+      "meanFps": 60.00200006666888,
+      "allImagesLoaded": true
+    },
+    {
+      "version": "after",
+      "setup": {
+        "bossHP": 20,
+        "ready": true,
+        "viewport": [
+          915,
+          412
+        ],
+        "patterns": {
+          "age": 6.799999999999981,
+          "phase": "rest",
+          "remaining": 1.4000000000000066,
+          "next": "blast",
+          "radialAngle": 0.2617993877991494,
+          "hazard": null,
+          "bullets": 6
+        }
+      },
+      "samples": 180,
+      "medianMs": 16.699999999999818,
+      "p95Ms": 16.800000000000182,
+      "maxMs": 16.800000000000182,
+      "meanFps": 60.00200006666888,
+      "allImagesLoaded": true
+    }
+  ]
+}

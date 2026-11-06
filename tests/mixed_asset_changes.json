@@ -1,0 +1,130 @@
+{
+  "assets/snowfield/combat.js": [
+    [
+      "windup:.45,dash:.4,dashSpeed:1.8,rest:.65,cooldown:3.75",
+      "windup:.8,dash:1.2,dashHeight:1.05,rest:.8,initialDelay:4.5,recovery:4.5",
+      1
+    ],
+    [
+      "  const states=new WeakMap(),epsilon=1e-9;",
+      "  const byId=new Map(profiles.map(p=>[p.id,p]));\n  const states=new WeakMap(),epsilon=1e-9;",
+      1
+    ],
+    [
+      "    const spec=profiles[Math.max(0,Math.min(profiles.length-1,phase-1))],base=tactics[0];",
+      "    if(states.has(actor))return actor;\n    const spec=byId.get(actor.snowSpeciesId)||byId.get(gameSnowfieldSpawns.select(phase)),base=tactics[0];",
+      1
+    ],
+    [
+      "    actor.snowSpeciesId=spec.id;",
+      "    Object.defineProperty(actor,'snowSpeciesId',{value:spec.id,enumerable:true});",
+      1
+    ],
+    [
+      "remaining:spec.cooldown??Infinity,age:0",
+      "remaining:spec.initialDelay??Infinity,age:0",
+      1
+    ],
+    [
+      "dashSpeed:base.move*(spec.dashSpeed??0)});",
+      "dashSpeed:spec.dashHeight?H*spec.dashHeight/spec.dash:0,plannedDistance:spec.dashHeight?H*spec.dashHeight:0,dashMoved:0,wallStopped:false});",
+      1
+    ],
+    [
+      "      state.mode='windup';state.remaining=spec.windup;",
+      "      state.plannedDistance=H*spec.dashHeight;state.dashSpeed=state.plannedDistance/spec.dash;state.dashMoved=0;state.wallStopped=false;\n      state.mode='windup';state.remaining=spec.windup;",
+      1
+    ],
+    [
+      "state.remaining=spec.cooldown-spec.windup-spec.dash-spec.rest;",
+      "state.remaining=spec.recovery-spec.rest;",
+      1
+    ],
+    [
+      "  function shoot(actor,state) {",
+      "  function wallTime(actor,state) {\n    const vx=state.direction.x*state.dashSpeed,vy=state.direction.y*state.dashSpeed;\n    const tx=Math.abs(vx)>epsilon?(vx>0?W-17-actor.x:17-actor.x)/vx:Infinity;\n    const ty=Math.abs(vy)>epsilon?(vy>0?H-18-actor.y:18-actor.y)/vy:Infinity;\n    return Math.max(0,Math.min(tx,ty));\n  }\n  function shoot(actor,state) {",
+      1
+    ],
+    [
+      "      const slice=Math.min(left,state.remaining,canShoot?actor.shot:Infinity);",
+      "      const wall=state.mode==='dash'?wallTime(actor,state):Infinity;\n      const slice=Math.min(left,state.remaining,canShoot?actor.shot:Infinity,wall);",
+      1
+    ],
+    [
+      "      state.age+=slice;state.remaining-=slice;left-=slice;",
+      "      if(state.mode==='dash')state.dashMoved+=state.dashSpeed*slice;\n      state.age+=slice;state.remaining-=slice;left-=slice;\n      if(state.mode==='dash'&&wall<=slice+epsilon){state.mode='rest';state.remaining=state.spec.rest;state.wallStopped=true;}",
+      1
+    ],
+    [
+      "    ctx.strokeStyle='#fff3a6';ctx.lineWidth=3;ctx.beginPath();ctx.arc(0,0,25,0,Math.PI*2);ctx.stroke();\n    ctx.beginPath();ctx.moveTo(29,-7);ctx.lineTo(38,0);ctx.lineTo(29,7);ctx.stroke();ctx.restore();",
+      "    ctx.beginPath();ctx.arc(0,0,25,0,Math.PI*2);ctx.moveTo(29,0);ctx.lineTo(64,0);ctx.moveTo(54,-8);ctx.lineTo(64,0);ctx.lineTo(54,8);\n    ctx.strokeStyle='#174e82';ctx.lineWidth=6;ctx.stroke();ctx.strokeStyle='#fff3a6';ctx.lineWidth=3;ctx.stroke();ctx.restore();",
+      1
+    ],
+    [
+      "direction:{...s.direction},interval:s.interval,bulletSpeed:s.bulletSpeed,dashSpeed:s.dashSpeed}:null;",
+      "direction:{...s.direction},interval:s.interval,bulletSpeed:s.bulletSpeed,dashSpeed:s.dashSpeed,plannedDistance:s.plannedDistance,dashMoved:s.dashMoved,wallStopped:s.wallStopped}:null;",
+      1
+    ]
+  ],
+  "assets/snowfield/snowfield.js": [
+    [
+      "const id=isBoss?bossId:normalIds[Math.max(0,Math.min(3,phase-1))];",
+      "const id=isBoss?bossId:normalIds.includes(actor.snowSpeciesId)?actor.snowSpeciesId:normalIds[Math.max(0,Math.min(3,phase-1))];",
+      1
+    ]
+  ],
+  "assets/snowfield/boss_combat.js": [
+    [
+      "radialStep:Math.PI/12,radius:38,warning:1.1,burst:.25",
+      "radialStep:Math.PI/12,radiusRatio:.18,minRadius:56,maxRadius:74,warning:1.4,burst:.25",
+      1
+    ],
+    [
+      "  function safeCircle(x,y,rects=blockedRects()) {\n    const r=settings.radius,gap=4;",
+      "  const radiusForHeight=(height=H)=>Math.max(settings.minRadius,Math.min(settings.maxRadius,height*settings.radiusRatio));\n  function safeCircle(x,y,r,rects=blockedRects()) {\n    const gap=4;",
+      1
+    ],
+    [
+      "  function safeTarget(x,y) {\n    const r=settings.radius+4,rects=blockedRects(),",
+      "  function safeTarget(x,y,radius=radiusForHeight()) {\n    const r=radius+4,rects=blockedRects(),",
+      1
+    ],
+    [
+      "if(safeCircle(cx,cy,rects))",
+      "if(safeCircle(cx,cy,radius,rects))",
+      1
+    ],
+    [
+      "const target={x:player.x,y:player.y},point=safeTarget(target.x,target.y);",
+      "const target={x:player.x,y:player.y},radius=radiusForHeight(),point=safeTarget(target.x,target.y,radius);",
+      1
+    ],
+    [
+      "state.hazard={...point,target,r:settings.radius}",
+      "state.hazard={...point,target,r:radius}",
+      1
+    ],
+    [
+      "if(validateHazard&&state.hazard&&!safeCircle(state.hazard.x,state.hazard.y)){",
+      "if(validateHazard&&state.hazard&&(!safeCircle(state.hazard.x,state.hazard.y,state.hazard.r)||Math.abs(state.hazard.r-radiusForHeight())>epsilon)){",
+      1
+    ],
+    [
+      "drawBullet,backgroundPaused,safeTarget,",
+      "drawBullet,backgroundPaused,safeTarget,radiusForHeight,",
+      1
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "승인 그래픽·일반 몬스터/보스 전용 공격은 1차 전투 시험이며 BGM은 숲 임시값입니다.",
+      "승인 그래픽·단계별 혼합 몬스터/장거리 돌진/확장 폭발은 밸런스 시험이며 BGM은 숲 임시값입니다.",
+      1
+    ],
+    [
+      "설원 시험 · 일반 적/보스 1차 전투 / BGM 숲 임시",
+      "설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시",
+      1
+    ]
+  ]
+}

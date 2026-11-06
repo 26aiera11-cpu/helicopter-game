@@ -1,0 +1,23 @@
+/* Gameplay interaction surfaces only; dialogs retain their native scrolling. */
+#game,.controls,.controls *,#hud,#sensor,#sensorStatus,#exitGame,#fullscreenToggle,
+#gameOverOverlay,#gameOverOverlay *,#bossRewardNotice,#gameExitDialog,#gameExitDialog *{
+  -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+  -webkit-tap-highlight-color:transparent;
+}
+#game,.controls,.controls *,#hud,#sensor,#sensorStatus,#exitGame,#gameOverOverlay,#gameOverOverlay *{touch-action:none}
+#gameExitDialog button{touch-action:manipulation}
+:is(.controls,#hud,#sensorStatus,#gameOverOverlay,#gameExitDialog) :is(input,textarea,select,[contenteditable]:not([contenteditable="false"])){
+  -webkit-user-select:text;user-select:text;-webkit-touch-callout:default;touch-action:auto;
+}
+.rotation-joystick{
+  --stick-inset:22px;--stick-offset:0px;
+  position:fixed;left:30px;bottom:22px;box-sizing:border-box;pointer-events:auto;cursor:ew-resize;
+  width:clamp(135px,18vw,165px);height:58px;border:0;background:none;box-shadow:none;
+  opacity:.4;transition:opacity .12s ease;
+}
+.rotation-joystick:focus-visible{outline:3px dashed #fff;outline-offset:4px}
+.rotation-direction,.rotation-caption{display:none}
+.rotation-track{position:absolute;left:var(--stick-inset);right:var(--stick-inset);top:50%;height:2px;transform:translateY(-50%);border-radius:2px;background:#fff;box-shadow:0 1px 1px #08213b66;pointer-events:none}
+.rotation-knob{position:absolute;left:calc(50% + var(--stick-offset));top:50%;width:32px;height:32px;box-sizing:border-box;transform:translate(-50%,-50%);border:1px solid #eefaffc9;border-radius:50%;background:#87d8ff;box-shadow:0 1px 2px #06213b66;pointer-events:none;transition:left .12s ease-out}
+.rotation-joystick.is-held{opacity:.7}
+.rotation-joystick.is-held .rotation-knob{transition:none}

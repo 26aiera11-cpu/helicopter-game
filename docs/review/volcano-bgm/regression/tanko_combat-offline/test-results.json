@@ -1,0 +1,1643 @@
+{
+  "passed": [
+    "After reversing reviewed selection-BGM changes, only the exact Tanko cooldown multiplier differs from f622f3f; reviewed penetration/mutual-interception deltas still match287629f; earlier authorized deltas still match71bce18; every asset, audio/UI, movement, other-character cooldowns, boss HP/reward and other-character source is preserved; JS syntax passes.",
+    "All six upgrades keep original speed410, lifetime1.9, counts; new monster penetration2/3/3/4/4/5; damage is1.5 and requested upgrade1..5 widths are exact with height29.",
+    "48 actual draws across 0..5 upgrades and eight directions preserve a rectangular29px height with width perpendicular to travel; side/end/corner hit boundaries match the same oriented rectangle.",
+    "Actual ordinary-enemy HP falls by exactly1.5; same-target overlap across frames is ignored, and each distinct enemy consumes one shared penetration without resetting lifetime.",
+    "All upgrades exhaust exactly2/3/3/4/4/5 distinct monster hits, apply1.5 each, remove the shot immediately and leave the next monster untouched without duplicate damage.",
+    "Actual boss HP falls10→8.5 once per projectile; boss contact consumes one monster penetration; a later hostile collision destroys both bullets despite one charge left, without repeated boss damage.",
+    "Ordinary bullets and one projectile from the actual desert boss five-shot volley mutually annihilate the Tanko shot; the other four hostile bullets remain.",
+    "After one enemy hit leaves two charges, the first hostile contact destroys the Tanko shot that frame; subsequent hostile bullets are not intercepted.",
+    "One hostile bullet overlapping two Tanko shots destroys exactly one shot; the other survives, and retrying the removed hostile target has no effect.",
+    "At every upgrade, one Tanko projectile blocks exactly one of20 incoming bullets and vanishes despite2/3/3/4/4/5 charges; the other19 remain, and original lifetime expiry still works.",
+    "After interception a dead shot cannot damage a later monster; normal penetration still preserves remaining lifetime, skips repeat damage and later mutually annihilates with a hostile bullet.",
+    "Actual rear/side hostile hits still reduce Tanko HP9→8 when they miss the shot rectangle; unused projectile charges do not create a global player shield.",
+    "Trio/Bingle upgrades0..5 retain damage1, original volley counts, speed535/480, piercing/homing and cannot intercept hostile bullets.",
+    "915×412/800×360/568×320 real gameplay fits all touch/fullscreen/exit controls, exits via the original modal with fullscreen retained, and has no native dialogs, asset requests or JS errors."
+  ],
+  "standalone": true,
+  "baseline_commit": "f622f3f9c8e82f390b40883abd1abd8f6b9e7f71",
+  "width_basis": "Existing upgrade-1 width 22.75 CSS px; 0 remains 17.5, upgrades1..5 use 200/225/250/275/300%; height29.",
+  "limits": [
+    "Chromium native fullscreen/touch emulation, not physical Galaxy/Samsung Internet or speaker/performance measurement.",
+    "Standalone mode injects identical built HTML into a fresh offline document; managed policy blocks file://, checked by galaxy_standalone.py."
+  ],
+  "weapon_matrix": [
+    {
+      "level": 0,
+      "width": 17.5,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 2,
+      "count": 1,
+      "speed": 410,
+      "life": 1.9
+    },
+    {
+      "level": 1,
+      "width": 45.5,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 3,
+      "count": 1,
+      "speed": 410,
+      "life": 1.9
+    },
+    {
+      "level": 2,
+      "width": 51.1875,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 3,
+      "count": 2,
+      "speed": 410,
+      "life": 1.9
+    },
+    {
+      "level": 3,
+      "width": 56.875,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 4,
+      "count": 2,
+      "speed": 410,
+      "life": 1.9
+    },
+    {
+      "level": 4,
+      "width": 62.5625,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 4,
+      "count": 2,
+      "speed": 410,
+      "life": 1.9
+    },
+    {
+      "level": 5,
+      "width": 68.25,
+      "height": 29,
+      "damage": 1.5,
+      "pierce": 5,
+      "count": 2,
+      "speed": 410,
+      "life": 1.9
+    }
+  ],
+  "geometry": [
+    {
+      "level": 0,
+      "direction": 0,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        1,
+        -2.220446049250313e-16,
+        2.220446049250313e-16,
+        1,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -7.531577814756222e-14,
+      "vy": -410,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 1,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        0.7071067811865477,
+        0.7071067811865474,
+        -0.7071067811865474,
+        0.7071067811865477,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 289.91378028648444,
+      "vy": -289.91378028648455,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 2,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        2.83276944882399e-16,
+        1,
+        -1,
+        2.83276944882399e-16,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 410,
+      "vy": -1.0042103753008296e-13,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 3,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        -0.7071067811865475,
+        0.7071067811865476,
+        -0.7071067811865476,
+        -0.7071067811865475,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 289.91378028648455,
+      "vy": 289.91378028648444,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 4,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        -1,
+        1.2246467991473532e-16,
+        -1.2246467991473532e-16,
+        -1,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 1.255262969126037e-13,
+      "vy": 410,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 5,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        -0.7071067811865482,
+        -0.7071067811865468,
+        0.7071067811865468,
+        -0.7071067811865482,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -289.91378028648415,
+      "vy": 289.91378028648484,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 6,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        -1.8369701987210297e-16,
+        -1,
+        1,
+        -1.8369701987210297e-16,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -410,
+      "vy": 1.5063155629512443e-13,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 0,
+      "direction": 7,
+      "values": [
+        -8.75,
+        -14.5,
+        17.5,
+        29
+      ],
+      "m": [
+        0.7071067811865466,
+        -0.7071067811865485,
+        0.7071067811865485,
+        0.7071067811865466,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -289.9137802864849,
+      "vy": -289.9137802864841,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 0,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        1,
+        -2.220446049250313e-16,
+        2.220446049250313e-16,
+        1,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -7.531577814756222e-14,
+      "vy": -410,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 1,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        0.7071067811865477,
+        0.7071067811865474,
+        -0.7071067811865474,
+        0.7071067811865477,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 289.91378028648444,
+      "vy": -289.91378028648455,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 2,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        2.83276944882399e-16,
+        1,
+        -1,
+        2.83276944882399e-16,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 410,
+      "vy": -1.0042103753008296e-13,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 3,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        -0.7071067811865475,
+        0.7071067811865476,
+        -0.7071067811865476,
+        -0.7071067811865475,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 289.91378028648455,
+      "vy": 289.91378028648444,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 4,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        -1,
+        1.2246467991473532e-16,
+        -1.2246467991473532e-16,
+        -1,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 1.255262969126037e-13,
+      "vy": 410,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 5,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        -0.7071067811865482,
+        -0.7071067811865468,
+        0.7071067811865468,
+        -0.7071067811865482,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -289.91378028648415,
+      "vy": 289.91378028648484,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 6,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        -1.8369701987210297e-16,
+        -1,
+        1,
+        -1.8369701987210297e-16,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -410,
+      "vy": 1.5063155629512443e-13,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 1,
+      "direction": 7,
+      "values": [
+        -22.75,
+        -14.5,
+        45.5,
+        29
+      ],
+      "m": [
+        0.7071067811865466,
+        -0.7071067811865485,
+        0.7071067811865485,
+        0.7071067811865466,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -289.9137802864849,
+      "vy": -289.9137802864841,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 0,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        0.9928086358538663,
+        -0.11971220728891968,
+        0.11971220728891968,
+        0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -49.08200498845706,
+      "vy": -407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 1,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        0.7866710323976392,
+        0.6173724052680297,
+        -0.6173724052680297,
+        0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 253.1226861598922,
+      "vy": -322.5351232830321,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 2,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        0.11971220728891975,
+        0.9928086358538663,
+        -0.9928086358538663,
+        0.11971220728891975,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 407.0515407000852,
+      "vy": -49.08200498845708,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 3,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        -0.6173724052680298,
+        0.7866710323976391,
+        -0.7866710323976391,
+        -0.6173724052680298,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 322.53512328303214,
+      "vy": 253.1226861598922,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 4,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        -0.9928086358538663,
+        0.11971220728891958,
+        -0.11971220728891958,
+        -0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 49.0820049884571,
+      "vy": 407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 5,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        -0.7866710323976392,
+        -0.6173724052680298,
+        0.6173724052680298,
+        -0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -253.1226861598922,
+      "vy": 322.53512328303214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 6,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        -0.11971220728891876,
+        -0.9928086358538664,
+        0.9928086358538664,
+        -0.11971220728891876,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -407.0515407000852,
+      "vy": 49.08200498845677,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 2,
+      "direction": 7,
+      "values": [
+        -25.59375,
+        -14.5,
+        51.1875,
+        29
+      ],
+      "m": [
+        0.6173724052680296,
+        -0.7866710323976394,
+        0.7866710323976394,
+        0.6173724052680296,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -322.53512328303214,
+      "vy": -253.12268615989214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 0,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        0.9928086358538663,
+        -0.11971220728891968,
+        0.11971220728891968,
+        0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -49.08200498845706,
+      "vy": -407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 1,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        0.7866710323976392,
+        0.6173724052680297,
+        -0.6173724052680297,
+        0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 253.1226861598922,
+      "vy": -322.5351232830321,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 2,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        0.11971220728891975,
+        0.9928086358538663,
+        -0.9928086358538663,
+        0.11971220728891975,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 407.0515407000852,
+      "vy": -49.08200498845708,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 3,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        -0.6173724052680298,
+        0.7866710323976391,
+        -0.7866710323976391,
+        -0.6173724052680298,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 322.53512328303214,
+      "vy": 253.1226861598922,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 4,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        -0.9928086358538663,
+        0.11971220728891958,
+        -0.11971220728891958,
+        -0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 49.0820049884571,
+      "vy": 407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 5,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        -0.7866710323976392,
+        -0.6173724052680298,
+        0.6173724052680298,
+        -0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -253.1226861598922,
+      "vy": 322.53512328303214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 6,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        -0.11971220728891876,
+        -0.9928086358538664,
+        0.9928086358538664,
+        -0.11971220728891876,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -407.0515407000852,
+      "vy": 49.08200498845677,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 3,
+      "direction": 7,
+      "values": [
+        -28.4375,
+        -14.5,
+        56.875,
+        29
+      ],
+      "m": [
+        0.6173724052680296,
+        -0.7866710323976394,
+        0.7866710323976394,
+        0.6173724052680296,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -322.53512328303214,
+      "vy": -253.12268615989214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 0,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        0.9928086358538663,
+        -0.11971220728891968,
+        0.11971220728891968,
+        0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -49.08200498845706,
+      "vy": -407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 1,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        0.7866710323976392,
+        0.6173724052680297,
+        -0.6173724052680297,
+        0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 253.1226861598922,
+      "vy": -322.5351232830321,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 2,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        0.11971220728891975,
+        0.9928086358538663,
+        -0.9928086358538663,
+        0.11971220728891975,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 407.0515407000852,
+      "vy": -49.08200498845708,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 3,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        -0.6173724052680298,
+        0.7866710323976391,
+        -0.7866710323976391,
+        -0.6173724052680298,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 322.53512328303214,
+      "vy": 253.1226861598922,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 4,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        -0.9928086358538663,
+        0.11971220728891958,
+        -0.11971220728891958,
+        -0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 49.0820049884571,
+      "vy": 407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 5,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        -0.7866710323976392,
+        -0.6173724052680298,
+        0.6173724052680298,
+        -0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -253.1226861598922,
+      "vy": 322.53512328303214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 6,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        -0.11971220728891876,
+        -0.9928086358538664,
+        0.9928086358538664,
+        -0.11971220728891876,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -407.0515407000852,
+      "vy": 49.08200498845677,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 4,
+      "direction": 7,
+      "values": [
+        -31.28125,
+        -14.5,
+        62.5625,
+        29
+      ],
+      "m": [
+        0.6173724052680296,
+        -0.7866710323976394,
+        0.7866710323976394,
+        0.6173724052680296,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -322.53512328303214,
+      "vy": -253.12268615989214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 0,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        0.9928086358538663,
+        -0.11971220728891968,
+        0.11971220728891968,
+        0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -49.08200498845706,
+      "vy": -407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 1,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        0.7866710323976392,
+        0.6173724052680297,
+        -0.6173724052680297,
+        0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 253.1226861598922,
+      "vy": -322.5351232830321,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 2,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        0.11971220728891975,
+        0.9928086358538663,
+        -0.9928086358538663,
+        0.11971220728891975,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 407.0515407000852,
+      "vy": -49.08200498845708,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 3,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        -0.6173724052680298,
+        0.7866710323976391,
+        -0.7866710323976391,
+        -0.6173724052680298,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 322.53512328303214,
+      "vy": 253.1226861598922,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 4,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        -0.9928086358538663,
+        0.11971220728891958,
+        -0.11971220728891958,
+        -0.9928086358538663,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": 49.0820049884571,
+      "vy": 407.0515407000852,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 5,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        -0.7866710323976392,
+        -0.6173724052680298,
+        0.6173724052680298,
+        -0.7866710323976392,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -253.1226861598922,
+      "vy": 322.53512328303214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 6,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        -0.11971220728891876,
+        -0.9928086358538664,
+        0.9928086358538664,
+        -0.11971220728891876,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -407.0515407000852,
+      "vy": 49.08200498845677,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "level": 5,
+      "direction": 7,
+      "values": [
+        -34.125,
+        -14.5,
+        68.25,
+        29
+      ],
+      "m": [
+        0.6173724052680296,
+        -0.7866710323976394,
+        0.7866710323976394,
+        0.6173724052680296,
+        457.5,
+        206
+      ],
+      "dpr": 1,
+      "vx": -322.53512328303214,
+      "vy": -253.12268615989214,
+      "boundaries": [
+        true,
+        false,
+        true,
+        false,
+        true,
+        false
+      ]
+    }
+  ],
+  "monster_depletion": [
+    {
+      "level": 0,
+      "budget": 2,
+      "hp": [
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    },
+    {
+      "level": 1,
+      "budget": 3,
+      "hp": [
+        8.5,
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    },
+    {
+      "level": 2,
+      "budget": 3,
+      "hp": [
+        8.5,
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    },
+    {
+      "level": 3,
+      "budget": 4,
+      "hp": [
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    },
+    {
+      "level": 4,
+      "budget": 4,
+      "hp": [
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    },
+    {
+      "level": 5,
+      "budget": 5,
+      "hp": [
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        10
+      ],
+      "pierce": 0,
+      "life": 0,
+      "removed": true,
+      "noRepeat": true
+    }
+  ],
+  "interception": [
+    {
+      "source": "ordinary",
+      "left": 0,
+      "pierce": 5,
+      "life": 0,
+      "removed": true,
+      "hit": 0,
+      "bossHp": null
+    },
+    {
+      "source": "boss",
+      "left": 4,
+      "pierce": 4,
+      "life": 0,
+      "removed": true,
+      "hit": 1,
+      "bossHp": 141.5
+    }
+  ],
+  "finite_limits": {
+    "rows": [
+      {
+        "level": 0,
+        "initial": 2,
+        "pierce": 2,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      },
+      {
+        "level": 1,
+        "initial": 3,
+        "pierce": 3,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      },
+      {
+        "level": 2,
+        "initial": 3,
+        "pierce": 3,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      },
+      {
+        "level": 3,
+        "initial": 4,
+        "pierce": 4,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      },
+      {
+        "level": 4,
+        "initial": 4,
+        "pierce": 4,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      },
+      {
+        "level": 5,
+        "initial": 5,
+        "pierce": 5,
+        "life": 0,
+        "removed": true,
+        "remaining": 19
+      }
+    ],
+    "expired": true
+  }
+}

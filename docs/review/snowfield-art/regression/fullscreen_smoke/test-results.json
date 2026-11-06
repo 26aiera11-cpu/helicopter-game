@@ -1,0 +1,19 @@
+{
+  "passed": [
+    "Selection screen provides a small fullscreen control and does not request fullscreen automatically.",
+    "A real touch gesture enters native document-element fullscreen from the selection screen.",
+    "Character selection and game start retain fullscreen; touch rotation/fire work and the fullscreen control does not overlap HUD/exit controls.",
+    "Exit/re-enter fullscreen during play preserves the game; returning to selection keeps fullscreen; the selection control exits it normally.",
+    "Four landscape aspect ratios retain controls, panel fit and selection effects in fullscreen; portrait rotation notice remains intact.",
+    "Simulated unsupported and rejected API paths allow normal-screen game start/return without crashes or automatic retry loops.",
+    "No uncaught JavaScript errors; no browser policy, security flags or fullscreen permissions were bypassed."
+  ],
+  "limits": [
+    "Headless Chromium with real standard Fullscreen API; physical Galaxy Chrome/Samsung Internet address-bar behavior and permissions require device testing."
+  ],
+  "real_fullscreen_entry": {
+    "active": true,
+    "width": 915,
+    "height": 412
+  }
+}

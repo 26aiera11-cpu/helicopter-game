@@ -1,0 +1,7 @@
+PASS: Exact art-only hooks reverse to0cbfe82; every earlier image/audio/input/score/item/combat asset is byte-identical and all JS syntax passes.
+PASS: Approved1920×864 background hash matches Issue6; all5 RGBA atlases have their distinct manifest cells, transparent padding and115 nonempty, in-bounds frames.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/snowfield_art.py", line 102, in <module>
+    assert '승인 그래픽' in page.locator('#worldTrialSettings').inner_text()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

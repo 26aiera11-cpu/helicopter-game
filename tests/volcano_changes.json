@@ -1,0 +1,97 @@
+[
+  [
+    "<script src=\"assets/snowfield/snowfield.js\"></script>",
+    "<script src=\"assets/snowfield/snowfield.js\"></script><script src=\"assets/volcano/volcano.js\"></script>",
+    1
+  ],
+  [
+    "gameSnowfieldBoss.reset();started=false;",
+    "gameSnowfieldBoss.reset();gameVolcano.cancelAdvance();started=false;",
+    1
+  ],
+  [
+    "function start(type){gameSnowfieldSpawns.reset();",
+    "function start(type){gameVolcano.reset();gameSnowfieldSpawns.reset();",
+    1
+  ],
+  [
+    "showGameExitDialog(()=>{gameSnowfieldBoss.reset();",
+    "showGameExitDialog(()=>{gameVolcano.reset();gameSnowfieldBoss.reset();",
+    1
+  ],
+  [
+    "function emitEnemyShot(e,spread=0){gameSnowfield.attack(e,e===boss);",
+    "function emitEnemyShot(e,spread=0){gameSnowfield.attack(e,e===boss);gameVolcano.attack(e,e===boss);",
+    1
+  ],
+  [
+    "if(gameSnowfieldBoss.backgroundPaused())return;",
+    "if(gameSnowfieldBoss.backgroundPaused())return;\n if(gameVolcano.tickAdvance(dt))return;",
+    1
+  ],
+  [
+    "gameSnowfield.tick(dt);gameScoring.tick(dt);",
+    "gameSnowfield.tick(dt);gameVolcano.tick(dt);gameScoring.tick(dt);",
+    1
+  ],
+  [
+    "enemies.push(gameSnowfieldCombat.prepare({",
+    "enemies.push(gameVolcano.prepare(gameSnowfieldCombat.prepare({",
+    1
+  ],
+  [
+    "vx:0,vy:0}))}}warnings=warnings.filter",
+    "vx:0,vy:0})))}}warnings=warnings.filter",
+    1
+  ],
+  [
+    "gameSnowfield.hit(e);",
+    "gameSnowfield.hit(e);gameVolcano.hit(e);",
+    1
+  ],
+  [
+    "gameSnowfield.hit(other);",
+    "gameSnowfield.hit(other);gameVolcano.hit(other);",
+    1
+  ],
+  [
+    "gameSnowfield.hit(boss,true);",
+    "gameSnowfield.hit(boss,true);gameVolcano.hit(boss,true);",
+    1
+  ],
+  [
+    "gameScoring.bossDefeated(boss);boss=null;nextPhase();break",
+    "gameScoring.bossDefeated(boss);boss=null;if(gameVolcano.deferAdvance(nextPhase)){bullets=[];enemyBullets=[];warnings=[];particles=[];return;}nextPhase();break",
+    1
+  ],
+  [
+    "gameSnowfield.observe(enemies,boss);",
+    "gameSnowfield.observe(enemies,boss);gameVolcano.observe(enemies,boss);",
+    1
+  ],
+  [
+    "if(!gameSnowfield.drawBackground(ctx,W,H)&&im&&",
+    "if(!gameSnowfield.drawBackground(ctx,W,H)&&!gameVolcano.drawBackground(ctx,W,H)&&im&&",
+    1
+  ],
+  [
+    "if(gameSnowfield.drawActor(ctx,e))continue;",
+    "if(gameSnowfield.drawActor(ctx,e)||gameVolcano.drawActor(ctx,e))continue;",
+    1
+  ],
+  [
+    "if(!gameSnowfield.drawActor(ctx,boss,true)){",
+    "if(!gameSnowfield.drawActor(ctx,boss,true)&&!gameVolcano.drawActor(ctx,boss,true)){",
+    1
+  ],
+  [
+    "gameSnowfield.drawDefeats(ctx);",
+    "gameSnowfield.drawDefeats(ctx);gameVolcano.drawDefeats(ctx);",
+    1
+  ],
+  [
+    "stage===4?'설원 몬스터 혼합 등장!':'적을 물리치고 다음 단계로!'",
+    "stage===4?'설원 몬스터 혼합 등장!':stage===5?'화산 그래픽 시험 · 숲 전투 임시':'적을 물리치고 다음 단계로!'",
+    1
+  ]
+]

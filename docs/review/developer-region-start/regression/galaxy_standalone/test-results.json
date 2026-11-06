@@ -1,0 +1,103 @@
+{
+  "artifact": "dist/heli_trio_galaxy_test.html",
+  "bytes": 43578495,
+  "sha256": "fadee08104fef3fe8cf82c91375ae7e8d2c15fa21d98043ae46d57014ea814c6",
+  "passed": [
+    "All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.",
+    "The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.",
+    "All five selection PNGs are embedded without changing their bytes, alpha, colors or geometry.",
+    "Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.",
+    "All12 original WAV tracks/effects plus the supplied selection MP3 load native metadata offline.",
+    "All three touch selections retain no yellow rectangle, colored circular lighting, panel accents, floating and front-view rotor/stop behavior.",
+    "Original music and SFX toggles work with touch input.",
+    "The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.",
+    "The supplied restored Tanko PNG is embedded byte-for-byte and used offline with the unchanged 503×490 source and original gameplay draw rectangle.",
+    "Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.",
+    "The rebuilt offline HTML includes the in-page exit modal, gameplay pause/resume and fullscreen-preserving selection return without native dialogs.",
+    "The original embedded background track starts after a user gesture; audible speaker output remains a device test.",
+    "The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.",
+    "The latest standalone HTML pauses all BGM during the3s game-over overlay, resumes selection MP3 on return, freezes the old game clock and restarts one stage track offline.",
+    "The rebuilt offline HTML applies both boss rewards before existing region HP healing, drops no boss item and displays the compact reward notice.",
+    "All four original stage/boss configurations and final-clear return pass controlled-state regression checks.",
+    "The latest offline build preserves ordinary items and remaining life through phase/region changes, snapshots scaled boss HP once and clears items in a fresh game.",
+    "915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.",
+    "No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run."
+  ],
+  "limits": [
+    "Physical Galaxy/Samsung Internet, hardware sensors, audible speaker output and device fullscreen/orientation permissions were not tested.",
+    "Direct file:// navigation is blocked by this environment browser policy. The same HTML was tested offline without a server; actual Galaxy local-file opening still requires device validation."
+  ],
+  "local_file_navigation": "blocked_by_browser_administrator_policy",
+  "execution_mode": "identical HTML injected into about:blank with browser offline",
+  "decoded_selection_images": {
+    "layers": [
+      [
+        2172,
+        724
+      ],
+      [
+        1536,
+        1024
+      ],
+      [
+        2172,
+        724
+      ],
+      [
+        1402,
+        1122
+      ],
+      [
+        2172,
+        724
+      ],
+      [
+        1402,
+        1122
+      ]
+    ],
+    "background": [
+      1672,
+      941
+    ]
+  },
+  "audio_durations": [
+    15.745442,
+    17.751701,
+    16.937687,
+    15.113016,
+    27.581814,
+    30.199955,
+    26.227574,
+    24.625805,
+    2.4,
+    2.1,
+    0.6,
+    3.2,
+    30.890917
+  ],
+  "standalone_selection_fullscreen": true,
+  "final_trio_draw": {
+    "width": 1402,
+    "height": 1122,
+    "args": [
+      -21.086229946524064,
+      -16.468917112299465,
+      42.17245989304813,
+      33.75
+    ]
+  },
+  "restored_tanko_draw": {
+    "width": 503,
+    "height": 490,
+    "args": [
+      -16.33,
+      -16.33,
+      32.67,
+      32.67
+    ],
+    "approvedSprite": true
+  },
+  "external_requests": 0,
+  "failed_asset_requests": 0
+}

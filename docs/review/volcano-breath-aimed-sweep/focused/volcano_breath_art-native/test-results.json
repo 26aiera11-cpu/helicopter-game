@@ -1,0 +1,2860 @@
+{
+  "passed": [
+    "Supplied SHA256/768x230 RGBA resource loads intact; source alpha read exactly once and cached, no per-frame getImageData.",
+    "12 real drawImage matrices: original static image, uniform aspect scale, anchor exactly at animated mouth, visible tip at configured reach, body/flame direction identical; Canvas restored.",
+    "Standing in the upcoming fire silhouette during0.99s warning causes no damage; full1.0s warning retained.",
+    "Actual effect draw calls: harmless downward warning -> full downward PNG at0s/.199s -> rotation after.2s ->90/180/270/360; PNG stops exactly at the downward360 endpoint.",
+    "Alpha damage begins in the same update as the first visible held PNG; warning causes0, initial fire causes1, existing invulnerability blocks repeated hold damage.",
+    "Sample is taken after the.2s hold, not during warning: left CW/right CCW/up-down ties CW; mid-sweep player teleports never change sign/angle rate or observation at30/60/120Hz.",
+    "At4.0s total fire time, full360 ends facing down with no residual flame; unchanged2.8s rest then original fireball aiming resumes, no extra home turn.",
+    "Actual screenshots3 heroes x3 landscape sizes x2 sides show downward PNG before rotation and correct half-turn body/flame, with original dimensions/alpha/UI clipping.",
+    "Unpaused production requestAnimationFrame loop draws multiple full downward-PNG frames before the first moving frame; first visible fire is not pre-rotated.",
+    "Real invalid PNG load safely skips only breath, no invisible damage or crash; fireball/eruption cycles continue, native and fully offline."
+  ],
+  "standalone": false,
+  "limits": [
+    "Controlled Chromium gameplay fixtures; no physical Galaxy Samsung Internet, hardware tilt, finger input or performance/heat measurements.",
+    "Alpha96 collision ignores weak glow/antialias fringe; player center uses original hurt/invulnerability rules."
+  ],
+  "asset": {
+    "art": {
+      "status": "ready",
+      "width": 768,
+      "height": 230,
+      "maskReady": true
+    },
+    "metadata": {
+      "width": 768,
+      "height": 230,
+      "anchorX": 35,
+      "anchorY": 158,
+      "tipX": 766,
+      "alphaThreshold": 96
+    },
+    "reads": 1
+  },
+  "matrices": {
+    "rows": [
+      {
+        "angle": 0,
+        "direction": 1.5707963267948966,
+        "origin": {
+          "x": 455.9254922916424,
+          "y": 269.36220924347435
+        },
+        "anchor": {
+          "x": 455.9255065917969,
+          "y": 269.3622131347656
+        },
+        "tip": {
+          "x": 455.9255065917969,
+          "y": 474.36222118139267
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            1.7171860716790935e-17,
+            0.28043776750564575,
+            -0.28043776750564575,
+            1.7171860716790935e-17,
+            455.9255065917969,
+            269.3622131347656
+          ]
+        }
+      },
+      {
+        "angle": -0.19841637812145985,
+        "direction": 1.3723799486734367,
+        "origin": {
+          "x": 466.5658936234828,
+          "y": 268.17430745405954
+        },
+        "anchor": {
+          "x": 466.5658874511719,
+          "y": 268.17431640625
+        },
+        "tip": {
+          "x": 506.9748796648524,
+          "y": 469.15221729933785
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.05527905911584203,
+            0.27493556893719273,
+            -0.27493556893719273,
+            0.05527905911584203,
+            466.5658874511719,
+            268.17431640625
+          ]
+        }
+      },
+      {
+        "angle": -0.39683275624292036,
+        "direction": 1.1739635705519762,
+        "origin": {
+          "x": 475.43563468905944,
+          "y": 266.7335812119204
+        },
+        "anchor": {
+          "x": 475.4356384277344,
+          "y": 266.73358154296875
+        },
+        "tip": {
+          "x": 554.6679712427016,
+          "y": 455.8029887346544
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.10838896417916173,
+            0.2586448798791869,
+            -0.2586448798791869,
+            0.10838896417916173,
+            475.4356384277344,
+            266.73358154296875
+          ]
+        }
+      },
+      {
+        "angle": -0.5952491343643802,
+        "direction": 0.9755471924305164,
+        "origin": {
+          "x": 483.9015816568032,
+          "y": 260.3581843684745
+        },
+        "anchor": {
+          "x": 483.9015808105469,
+          "y": 260.3581848144531
+        },
+        "tip": {
+          "x": 598.8481720795045,
+          "y": 430.10000186247566
+        },
+        "length": 205,
+        "scale": 0.2804377675056457,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.15724567889050284,
+            0.23220494808211017,
+            -0.23220494808211017,
+            0.15724567889050284,
+            483.9015808105469,
+            260.3581848144531
+          ]
+        }
+      },
+      {
+        "angle": -0.79366551248584,
+        "direction": 0.7771308143090565,
+        "origin": {
+          "x": 492.0414050806494,
+          "y": 253.9561419936916
+        },
+        "anchor": {
+          "x": 492.0414123535156,
+          "y": 253.95614624023438
+        },
+        "tip": {
+          "x": 638.1917499899209,
+          "y": 397.70969265868575
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.1999320624301031,
+            0.19665327827421533,
+            -0.19665327827421533,
+            0.1999320624301031,
+            492.0414123535156,
+            253.95614624023438
+          ]
+        }
+      },
+      {
+        "angle": -0.9920818906073006,
+        "direction": 0.578714436187596,
+        "origin": {
+          "x": 498.65595691450784,
+          "y": 245.5372967521441
+        },
+        "anchor": {
+          "x": 498.65594482421875,
+          "y": 245.53729248046875
+        },
+        "tip": {
+          "x": 670.2750796044032,
+          "y": 357.6616692966545
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.23477309819450684,
+            0.1533849204051789,
+            -0.1533849204051789,
+            0.23477309819450684,
+            498.65594482421875,
+            245.53729248046875
+          ]
+        }
+      },
+      {
+        "angle": -1.1904982687287604,
+        "direction": 0.38029805806613615,
+        "origin": {
+          "x": 503.84861089244146,
+          "y": 238.20351578046146
+        },
+        "anchor": {
+          "x": 503.8486022949219,
+          "y": 238.20352172851562
+        },
+        "tip": {
+          "x": 694.2021876570396,
+          "y": 314.29896074363734
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.2604016215624046,
+            0.10409772779086417,
+            -0.10409772779086417,
+            0.2604016215624046,
+            503.8486022949219,
+            238.20352172851562
+          ]
+        }
+      },
+      {
+        "angle": -1.3889146468502203,
+        "direction": 0.1818816799446763,
+        "origin": {
+          "x": 505.24004254108377,
+          "y": 227.69723856447163
+        },
+        "anchor": {
+          "x": 505.24005126953125,
+          "y": 227.69723510742188
+        },
+        "tip": {
+          "x": 706.858599532268,
+          "y": 264.7777461009834
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.27581196752768367,
+            0.05072573323332632,
+            -0.05072573323332632,
+            0.27581196752768367,
+            505.24005126953125,
+            227.69723510742188
+          ]
+        }
+      },
+      {
+        "angle": -1.5873310249716808,
+        "direction": -0.016534698176784213,
+        "origin": {
+          "x": 506.38378800721785,
+          "y": 217.40477927387406
+        },
+        "anchor": {
+          "x": 506.3837890625,
+          "y": 217.40478515625
+        },
+        "tip": {
+          "x": 711.3557746314832,
+          "y": 214.01532634610487
+        },
+        "length": 205,
+        "scale": 0.2804377675056458,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.2803994330629046,
+            -0.004636742558338053,
+            0.004636742558338053,
+            0.2803994330629046,
+            506.3837890625,
+            217.40478515625
+          ]
+        }
+      },
+      {
+        "angle": -1.7857474030931406,
+        "direction": -0.21495107629824406,
+        "origin": {
+          "x": 505.02012079013457,
+          "y": 206.78547313434785
+        },
+        "anchor": {
+          "x": 505.0201110839844,
+          "y": 206.7854766845703
+        },
+        "tip": {
+          "x": 705.3024192560711,
+          "y": 163.05905066576062
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.27398400570736897,
+            -0.05981727225555361,
+            0.05981727225555361,
+            0.27398400570736897,
+            505.0201110839844,
+            206.7854766845703
+          ]
+        }
+      },
+      {
+        "angle": -1.9841637812146005,
+        "direction": -0.4133674544197039,
+        "origin": {
+          "x": 503.4329396792099,
+          "y": 197.94076540620395
+        },
+        "anchor": {
+          "x": 503.4329528808594,
+          "y": 197.94076538085938
+        },
+        "tip": {
+          "x": 691.166492214033,
+          "y": 115.59320009470845
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.25681742726836343,
+            -0.11265056810690961,
+            0.11265056810690961,
+            0.25681742726836343,
+            503.4329528808594,
+            197.94076538085938
+          ]
+        }
+      },
+      {
+        "angle": -2.182580159336061,
+        "direction": -0.6117838325411644,
+        "origin": {
+          "x": 496.9184388211239,
+          "y": 189.5813861504178
+        },
+        "anchor": {
+          "x": 496.9184265136719,
+          "y": 189.58139038085938
+        },
+        "tip": {
+          "x": 664.7365201116131,
+          "y": 71.84400990944836
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.22957331545545992,
+            -0.16106344797730646,
+            0.16106344797730646,
+            0.22957331545545992,
+            496.9184265136719,
+            189.58139038085938
+          ]
+        }
+      }
+    ],
+    "reads": 1
+  },
+  "warning": {
+    "before": 9,
+    "after": 9,
+    "phase": "breath_warning",
+    "remaining": 0.010000000000002458
+  },
+  "ordered_frames": {
+    "warning": {
+      "age": 10.939000000000018,
+      "phase": "breath_warning",
+      "remaining": 0.0010000000000024468,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": 0,
+      "sweepDirection": 0,
+      "sweepProgress": 0,
+      "observedPlayer": null,
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 0
+    },
+    "first": {
+      "age": 10.940000000000017,
+      "phase": "breath_hold",
+      "remaining": 0.2,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": 0,
+      "sweepDirection": 0,
+      "sweepProgress": 0,
+      "observedPlayer": null,
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "hold": {
+      "age": 11.139000000000006,
+      "phase": "breath_hold",
+      "remaining": 0.0010000000000000044,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": 0,
+      "sweepDirection": 0,
+      "sweepProgress": 0,
+      "observedPlayer": null,
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "zero": {
+      "age": 11.140000000000006,
+      "phase": "breath",
+      "remaining": 3.8,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": 0,
+      "sweepDirection": -1,
+      "sweepProgress": 0,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "moving": {
+      "age": 11.141000000000005,
+      "phase": "breath",
+      "remaining": 3.799,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": -0.0016534698176789134,
+      "sweepDirection": -1,
+      "sweepProgress": 0.0016534698176789134,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "quarter": {
+      "age": 12.08999999999995,
+      "phase": "breath",
+      "remaining": 2.8500000000000045,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": -1.5707963267948888,
+      "sweepDirection": -1,
+      "sweepProgress": 1.5707963267948888,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "half": {
+      "age": 13.039999999999896,
+      "phase": "breath",
+      "remaining": 1.9000000000000092,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": -3.1415926535897776,
+      "sweepDirection": -1,
+      "sweepProgress": 3.1415926535897776,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "threeQuarter": {
+      "age": 13.989999999999842,
+      "phase": "breath",
+      "remaining": 0.9500000000000138,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": -4.712388980384667,
+      "sweepDirection": -1,
+      "sweepProgress": 4.712388980384667,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "last": {
+      "age": 14.938999999999787,
+      "phase": "breath",
+      "remaining": 0.0010000000000159916,
+      "pattern": "rotating_breath",
+      "next": "fireball",
+      "angle": -6.2815318373618805,
+      "sweepDirection": -1,
+      "sweepProgress": 6.2815318373618805,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 1
+    },
+    "end": {
+      "age": 14.939999999999786,
+      "phase": "rest",
+      "remaining": 2.8,
+      "pattern": null,
+      "next": "fireball",
+      "angle": -6.283185307179586,
+      "sweepDirection": -1,
+      "sweepProgress": 6.283185307179586,
+      "observedPlayer": {
+        "x": 605.6019628798776,
+        "y": 218.56809159641554,
+        "age": 11.140000000000006
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0.18,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0,
+      "png": 0
+    }
+  },
+  "initial_damage": {
+    "before": 9,
+    "warning": 9,
+    "first": 8,
+    "held": 8,
+    "phase": "breath_hold",
+    "calls": 1
+  },
+  "direction_samples": [
+    {
+      "hz": 30,
+      "side": "left",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 30,
+      "side": "right",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 30,
+      "side": "up",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 30,
+      "side": "down",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 60,
+      "side": "left",
+      "hold": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000006,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.93999999999979,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 60,
+      "side": "right",
+      "hold": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000006,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.93999999999979,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 60,
+      "side": "up",
+      "hold": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000006,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.93999999999979,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 60,
+      "side": "down",
+      "hold": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000006,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.93999999999979,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 120,
+      "side": "left",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 315.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 120,
+      "side": "right",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 595.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 120,
+      "side": "up",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 118.56809159641554,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    },
+    {
+      "hz": 120,
+      "side": "down",
+      "hold": {
+        "age": 10.940000000000019,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "age": 11.140000000000008,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 14.939999999999792,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 455.6019628798777,
+          "y": 318.56809159641557,
+          "age": 11.140000000000008
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "maxError": 1.9539925233402755e-14,
+      "signChanges": 0
+    }
+  ],
+  "return": {
+    "start": {
+      "age": 14.939999999999792,
+      "phase": "rest",
+      "remaining": 2.8,
+      "pattern": null,
+      "next": "fireball",
+      "angle": -6.283185307179586,
+      "sweepDirection": -1,
+      "sweepProgress": 6.283185307179586,
+      "observedPlayer": {
+        "x": 457.5,
+        "y": 329.6,
+        "age": 11.140000000000008
+      },
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0.18,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0
+    },
+    "end": {
+      "age": 17.739999999999633,
+      "phase": "fire_aim",
+      "remaining": 0.4,
+      "pattern": "fireball",
+      "next": "eruption",
+      "angle": 0,
+      "sweepDirection": -1,
+      "sweepProgress": 6.283185307179586,
+      "observedPlayer": {
+        "x": 457.5,
+        "y": 329.6,
+        "age": 11.140000000000008
+      },
+      "center": null,
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0
+    },
+    "downward": -1.8369701987210297e-16,
+    "vertical": 1
+  },
+  "screens": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 305.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 605.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 305.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 605.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 305.6019628798777,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 605.6019628798776,
+          "y": 218.56809159641554,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 246.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 546.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 246.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 546.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 246.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 546.9379600209977,
+          "y": 190.85921617309157,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 129.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 429.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 129.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 429.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "side": "left",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 129.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "side": "right",
+      "first": {
+        "age": 10.940000000000017,
+        "phase": "breath_hold",
+        "remaining": 0.2,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.039999999999898,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 429.21742214966724,
+          "y": 169.37993937757452,
+          "age": 11.140000000000006
+        },
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    }
+  ],
+  "real_raf_frames": [
+    {
+      "phase": "breath_hold",
+      "age": 10.946700000000023,
+      "angle": 0,
+      "clock": 19689.80000000447
+    },
+    {
+      "phase": "breath_hold",
+      "age": 10.963300000000022,
+      "angle": 0,
+      "clock": 19706.40000000596
+    },
+    {
+      "phase": "breath_hold",
+      "age": 10.980000000000022,
+      "angle": 0,
+      "clock": 19722.90000000596
+    },
+    {
+      "phase": "breath_hold",
+      "age": 10.996700000000022,
+      "angle": 0,
+      "clock": 19739.60000000149
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.013400000000022,
+      "angle": 0,
+      "clock": 19756.30000000447
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.03000000000002,
+      "angle": 0,
+      "clock": 19773
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.04670000000002,
+      "angle": 0,
+      "clock": 19789.60000000149
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.063400000000021,
+      "angle": 0,
+      "clock": 19806.30000000447
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.080100000000018,
+      "angle": 0,
+      "clock": 19823.40000000596
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.09670000000002,
+      "angle": 0,
+      "clock": 19839.60000000149
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.113300000000018,
+      "angle": 0,
+      "clock": 19856.20000000298
+    },
+    {
+      "phase": "breath_hold",
+      "age": 11.130000000000019,
+      "angle": 0,
+      "clock": 19872.90000000596
+    },
+    {
+      "phase": "breath",
+      "age": 11.146700000000019,
+      "angle": -0.01107824777844586,
+      "clock": 19889.60000000149
+    },
+    {
+      "phase": "breath",
+      "age": 11.163300000000017,
+      "angle": -0.03852584675191247,
+      "clock": 19906.40000000596
+    },
+    {
+      "phase": "breath",
+      "age": 11.180000000000017,
+      "angle": -0.06613879270715026,
+      "clock": 19923.10000000149
+    },
+    {
+      "phase": "breath",
+      "age": 11.196700000000018,
+      "angle": -0.09375173866238734,
+      "clock": 19939.70000000298
+    },
+    {
+      "phase": "breath",
+      "age": 11.213400000000018,
+      "angle": -0.12136468461762513,
+      "clock": 19956.30000000447
+    },
+    {
+      "phase": "breath",
+      "age": 11.230000000000016,
+      "angle": -0.14881228359109175,
+      "clock": 19973
+    },
+    {
+      "phase": "breath",
+      "age": 11.246700000000017,
+      "angle": -0.17642522954632883,
+      "clock": 19989.60000000149
+    },
+    {
+      "phase": "breath",
+      "age": 11.263300000000015,
+      "angle": -0.20387282851979543,
+      "clock": 20008.20000000298
+    }
+  ],
+  "failed_resource": {
+    "status": {
+      "status": "failed",
+      "width": 0,
+      "height": 0,
+      "maskReady": false
+    },
+    "angles": 0,
+    "skipped": 2,
+    "shots": 18,
+    "hit": false,
+    "started": true
+  },
+  "all_passed": true
+}

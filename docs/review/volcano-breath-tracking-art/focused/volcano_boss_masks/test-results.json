@@ -1,0 +1,32 @@
+{
+  "passed": [
+    "native: two overlapping UI cutouts remove actual flame pixels and damage together; no even-odd cancellation hole",
+    "offline: two overlapping UI cutouts remove actual flame pixels and damage together; no even-odd cancellation hole"
+  ],
+  "cases": [
+    {
+      "offline": false,
+      "before": 247,
+      "after": 0,
+      "overlap": 2,
+      "hit": false,
+      "unmaskedHit": true,
+      "phase": "breath",
+      "errors": []
+    },
+    {
+      "offline": true,
+      "before": 247,
+      "after": 0,
+      "overlap": 2,
+      "hit": false,
+      "unmaskedHit": true,
+      "phase": "breath",
+      "errors": []
+    }
+  ],
+  "limits": [
+    "Two temporary visible boxes replace UI IDs only inside isolated fixtures and are restored before returning; no shipped UI changes."
+  ],
+  "all_passed": true
+}

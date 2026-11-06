@@ -3,8 +3,11 @@
   'use strict';
   const VERSION = 1;
   const HISTORY_LIMIT = 100;
-  const storageKeys = Object.freeze({ top: 'heliTrio.top10.v1', history: 'heliTrio.playHistory.v1' });
-  const names = ['트리오', '빙글', '탱코'];
+  const normalKeys = Object.freeze({ top: 'heliTrio.top10.v1', history: 'heliTrio.playHistory.v1' });
+  const trialKeys = Object.freeze({ top: 'heliTrio.world2Trial.top10.v1', history: 'heliTrio.world2Trial.playHistory.v1' });
+  let storageKeys = normalKeys, scope = 'normal';
+  const stores = new Map();
+  const names = ['뾰코', '빙글', '탱코'];
   const number = new Intl.NumberFormat('en-US');
   const format = value => number.format(value);
   let storageMessage = '';
@@ -16,7 +19,7 @@
     return record && typeof record.id === 'string' && record.id.length > 0 && record.id.length < 160 &&
       Number.isSafeInteger(record.score) && record.score >= 0 &&
       Number.isInteger(record.characterId) && record.characterId >= 0 && record.characterId < 3 &&
-      Number.isInteger(record.regionId) && record.regionId >= 0 && record.regionId < 4 &&
+      Boolean(gameWorlds.region(record.regionId)) && (scope === 'trial' || gameWorlds.region(record.regionId).worldId === 0) &&
       Number.isInteger(record.phase) && record.phase >= 1 && record.phase <= 5 &&
       Number.isSafeInteger(record.order) && record.order > 0 &&
       typeof record.createdAt === 'string' && Number.isFinite(Date.parse(record.createdAt)) &&
@@ -41,7 +44,8 @@
       const records = data.records.filter(validRecord).map(record => ({
         id: record.id, score: record.score, characterId: record.characterId,
         characterName: names[record.characterId], regionId: record.regionId,
-        regionName: stageNames[record.regionId], phase: record.phase, order: record.order,
+        regionName: stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,
+        regionKey: gameWorlds.region(record.regionId).key, localRegionIndex: gameWorlds.region(record.regionId).localIndex, trialMode: scope === 'trial', phase: record.phase, order: record.order,
         createdAt: record.createdAt, outcome: record.outcome, normalKills: record.normalKills,
         itemKills: record.itemKills, bossKills: record.bossKills, clearedPhases: record.clearedPhases,
         playTimeSeconds: record.playTimeSeconds, finalUpgrade: record.finalUpgrade
@@ -68,6 +72,15 @@
   const recent = records => unique(records).sort((a, b) => a.order - b.order).slice(-HISTORY_LIMIT);
   let top = ranked(read(storageKeys.top));
   let history = recent(read(storageKeys.history));
+  function selectStorage() {
+    const next = gameWorlds.isTrial() ? 'trial' : 'normal';
+    if (scope === next) return;
+    stores.set(scope, { top, history, storageMessage, lastResult });
+    scope = next;storageKeys = next === 'trial' ? trialKeys : normalKeys;storageMessage = '';
+    const cached = stores.get(next);
+    if (cached) ({ top, history, storageMessage, lastResult } = cached);
+    else { top = ranked(read(storageKeys.top));history = recent(read(storageKeys.history));lastResult = null; }
+  }
   function refresh() {
     top = ranked([...read(storageKeys.top), ...top]);
     history = recent([...read(storageKeys.history), ...history]);
@@ -80,7 +93,8 @@
   }
   function updateHUD() {
     if (!player) return;
-    hud.textContent = `${stageNames[stage]} · ${phase}/5　🏆 ${format(runScore)}　❤️ ${Math.max(0, hp)}/${maxHP[player.type]}　⚡ ${player.upgrade}/5`;
+    gameWorlds.syncUI();
+    hud.textContent = `${gameWorlds.regionLabel(stage)} · ${phase}/5　🏆 ${format(runScore)}　❤️ ${Math.max(0, hp)}/${maxHP[player.type]}　⚡ ${player.upgrade}/5`;
   }
   function add(points) {
     runScore = Math.min(Number.MAX_SAFE_INTEGER, runScore + points);
@@ -88,8 +102,9 @@
   }
   function startRun(type) {
     if (activeRun && !activeRun.result) finish('abandoned');
+    gameWorlds.beginRun();selectStorage();
     activeRun = {
-      id: newId(), characterId: type, normalKills: 0, itemKills: 0, bossKills: 0,
+      id: newId(), characterId: type, developerTest: gameWorlds.isDeveloperRun(), normalKills: 0, itemKills: 0, bossKills: 0,
       clearedPhases: new Set(), enemies: new WeakSet(), bosses: new WeakSet(), playTimeSeconds: 0, result: null
     };
     updateHUD();
@@ -120,15 +135,20 @@
   function finish(outcome) {
     if (!activeRun) return null;
     if (activeRun.result) return activeRun.result;
-    refresh();
+    if(!activeRun.developerTest)refresh();
     const record = {
       id: activeRun.id, score: runScore, characterId: activeRun.characterId,
-      characterName: names[activeRun.characterId], regionId: stage, regionName: stageNames[stage], phase,
-      order: Math.max(0, ...top.map(row => row.order), ...history.map(row => row.order)) + 1,
+      characterName: names[activeRun.characterId], regionId: stage, regionName: stageNames[stage], ...gameWorlds.recordFields(stage), phase,
+      order: activeRun.developerTest ? 0 : Math.max(0, ...top.map(row => row.order), ...history.map(row => row.order)) + 1,
       createdAt: new Date().toISOString(), outcome, normalKills: activeRun.normalKills,
       itemKills: activeRun.itemKills, bossKills: activeRun.bossKills, clearedPhases: activeRun.clearedPhases.size,
       playTimeSeconds: Math.round(activeRun.playTimeSeconds * 1000) / 1000, finalUpgrade: player.upgrade
     };
+    if(activeRun.developerTest){
+      record.developerTest=true;
+      activeRun.result={record,rank:0,isTop10:false,saved:false,developerTest:true};
+      return activeRun.result;
+    }
     history = recent([...history, record]);
     if (outcome !== 'abandoned') top = ranked([...top, record]);
     const rank = top.findIndex(row => row.id === record.id) + 1;
@@ -151,7 +171,9 @@
     '<p id="leaderboardStorage" role="status"></p><p class="leaderboard-note">이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외</p>';
   document.body.append(dialog);
   function render() {
-    refresh();
+    selectStorage();refresh();
+    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 월드 2 시험 TOP 10' : '🏆 TOP 10';
+    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
     const rows = dialog.querySelector('#leaderboardRows');
     rows.replaceChildren();
     top.forEach((record, index) => {
@@ -163,7 +185,7 @@
         row.setAttribute('aria-label', '방금 달성한 TOP 10 기록');
       }
       const values = [String(index + 1), record.characterName, format(record.score),
-        `${record.regionName} · ${record.phase}/5`, new Date(record.createdAt).toLocaleString('ko-KR', {
+        `${gameWorlds.recordLabel(record)} · ${record.phase}/5`, new Date(record.createdAt).toLocaleString('ko-KR', {
           year: '2-digit', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false
         })];
       values.forEach((value, column) => {
@@ -198,13 +220,14 @@
   new MutationObserver(() => {
     if (menu.classList.contains('hidden') && dialog.open) dialog.close();
   }).observe(menu, { attributes: true, attributeFilter: ['class'] });
+  document.addEventListener('worldmodechange', () => { selectStorage();if (dialog.open) render(); });
   addEventListener('storage', event => {
     if (Object.values(storageKeys).includes(event.key) && dialog.open) render();
   });
   window.gameScoring = Object.freeze({
     start: startRun, enemyDefeated, bossDefeated, phaseCleared, tick, finish, format, updateHUD,
-    getTop: () => { refresh(); return top.map(row => ({ ...row })); },
-    getHistory: () => { refresh(); return history.map(row => ({ ...row })); },
-    getLastResult: () => lastResult, storageKeys
+    getTop: () => { selectStorage();refresh(); return top.map(row => ({ ...row })); },
+    getHistory: () => { selectStorage();refresh(); return history.map(row => ({ ...row })); },
+    getLastResult: () => activeRun?.developerTest ? activeRun.result : lastResult, get storageKeys() { selectStorage();return storageKeys; }
   });
 })();

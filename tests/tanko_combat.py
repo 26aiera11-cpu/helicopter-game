@@ -1,3 +1,6 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Tanko real damage, monster penetration/mutual interception, 8-direction dimensions and finite defense."""
@@ -16,6 +19,12 @@ assert without_tanko_cadence_changes(s)==subprocess.check_output(['git','show','
 assert without_tanko_interception_changes(s)==before
 assert without_tanko_combat_changes(s)==subprocess.check_output(['git','show','71bce18:index.html'],cwd=root).decode()
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+     assert_world_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+     assert_controls_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+  assert_item_asset(path);continue
  if str(path.relative_to(root)) in SCORE_ASSETS:
   assert_scoring_asset(path);continue
  if str(path.relative_to(root))==BGM_ASSET:
@@ -160,7 +169,7 @@ try:
   for width,height in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('size=>W===size[0]&&H===size[1]',arg=[width,height]);page.evaluate('resetCombat(5);player.a=Math.PI;keys.fire=true')
    page.wait_for_timeout(600);page.evaluate('keys.fire=false;gameExitDialogOpen=true;draw()');page.screenshot(path=str(args.artifacts/f'tanko-combat-{width}.png'));page.evaluate('gameExitDialogOpen=false')
-   for selector in ['#fire','#left','#right','#fullscreenToggle','#exitGame']:
+   for selector in ['#fire','#rotationJoystick','#fullscreenToggle','#exitGame']:
     box=page.locator(selector).bounding_box();assert box and box['x']>=0 and box['y']>=0 and box['x']+box['width']<=width+1 and box['y']+box['height']<=height+1
   page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible();page.locator('#gameExitConfirm').tap();expect(page.locator('#menu')).to_be_visible();assert page.evaluate('!!document.fullscreenElement')
   assert not errors and not dialogs and not external,(errors,dialogs,external)

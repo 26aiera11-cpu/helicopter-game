@@ -1,0 +1,7 @@
+PASS: All 20 direct phase/region/final-clear transitions preserve ordinary item object identity, exact positions/types, movement fields and remaining lifetime without resetting them.
+PASS: The sixth ordinary monster dies through actual bullet collision and advances the phase while retaining its existing item with only the normal elapsed tick/movement deducted.
+PASS: All four actual boss-kill paths retain ordinary items; automatic boss rewards still occur once before existing next-region +2 healing (no region healing after final clear).
+PASS: Transitions add no lifetime: a 0.25s item loses exactly 0.1s during update, keeps that remainder through two more phases and expires normally after another 0.16s.
+PASS: Carried health/power pickups apply the existing +2/+1 once, respect max HP/upgrade5, and disappear normally on contact.
+PASS: The unchanged normal drop generator still creates one 16-second, 13px item and the new transition preserves it exactly.
+PASS: After the actual three-second game-over return, a new user-started game resets items and the original stage/runScore/upgrade state.

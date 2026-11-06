@@ -1,0 +1,566 @@
+{
+  "passed": true,
+  "check_groups": [
+    "All resource PNG chunks CRC and Pillow decode",
+    "Exact background dimensions, export/source hashes, non-tiled cover metadata",
+    "All four uploaded reference files preserved by hash",
+    "ember_bean: RGBA, 5states, all frame bounds/pivots/padding/mapping/counts",
+    "lava_lizard: RGBA, 5states, all frame bounds/pivots/padding/mapping/counts",
+    "volcano_bat: RGBA, 5states, all frame bounds/pivots/padding/mapping/counts",
+    "magma_beetle: RGBA, 5states, all frame bounds/pivots/padding/mapping/counts",
+    "magma_dragon: RGBA, 5states, all frame bounds/pivots/padding/mapping/counts",
+    "Total 69 frames / 5 distinct actors",
+    "Existing game code/assets/sound/dist/test files unchanged against Ppyoko base"
+  ],
+  "actors": [
+    {
+      "id": "ember_bean",
+      "states": {
+        "idle": [
+          {
+            "index": 0,
+            "visible_pixels": 26780,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "move": [
+          {
+            "index": 1,
+            "visible_pixels": 27158,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 2,
+            "visible_pixels": 27726,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 3,
+            "visible_pixels": 26991,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 4,
+            "visible_pixels": 25837,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "attack": [
+          {
+            "index": 5,
+            "visible_pixels": 27439,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "hit": [
+          {
+            "index": 6,
+            "visible_pixels": 26701,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 7,
+            "visible_pixels": 28161,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "defeat": [
+          {
+            "index": 8,
+            "visible_pixels": 28043,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 9,
+            "visible_pixels": 25066,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 10,
+            "visible_pixels": 14905,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 11,
+            "visible_pixels": 6706,
+            "minimum_visible_padding_px": 8
+          }
+        ]
+      },
+      "warnings": [
+        "Alpha1–7 source antialias/noise is retained; thresholds measure visible bounds only."
+      ],
+      "base_alpha_1_to_7_pixels": 4187,
+      "atlas_alpha_1_to_7_pixels": 30454,
+      "idle_move_visible_center_range_px": {
+        "x": [
+          159.0,
+          161.5
+        ],
+        "y": [
+          158.5,
+          170.5
+        ],
+        "note": "Visible silhouette bounds, not face/body landmarks; includes intended flame/wing/leg motion. Final micro-alignment needs visual approval."
+      }
+    },
+    {
+      "id": "lava_lizard",
+      "states": {
+        "idle": [
+          {
+            "index": 0,
+            "visible_pixels": 26586,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "move": [
+          {
+            "index": 1,
+            "visible_pixels": 27880,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 2,
+            "visible_pixels": 26637,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 3,
+            "visible_pixels": 27798,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 4,
+            "visible_pixels": 26558,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "attack": [
+          {
+            "index": 5,
+            "visible_pixels": 26621,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "hit": [
+          {
+            "index": 6,
+            "visible_pixels": 26909,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 7,
+            "visible_pixels": 27153,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "defeat": [
+          {
+            "index": 8,
+            "visible_pixels": 28422,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 9,
+            "visible_pixels": 27693,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 10,
+            "visible_pixels": 23369,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 11,
+            "visible_pixels": 7202,
+            "minimum_visible_padding_px": 8
+          }
+        ]
+      },
+      "warnings": [
+        "Alpha1–7 source antialias/noise is retained; thresholds measure visible bounds only."
+      ],
+      "base_alpha_1_to_7_pixels": 6790,
+      "atlas_alpha_1_to_7_pixels": 55565,
+      "idle_move_visible_center_range_px": {
+        "x": [
+          158.5,
+          164.0
+        ],
+        "y": [
+          170.0,
+          170.5
+        ],
+        "note": "Visible silhouette bounds, not face/body landmarks; includes intended flame/wing/leg motion. Final micro-alignment needs visual approval."
+      }
+    },
+    {
+      "id": "volcano_bat",
+      "states": {
+        "idle": [
+          {
+            "index": 0,
+            "visible_pixels": 12518,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "move": [
+          {
+            "index": 1,
+            "visible_pixels": 11834,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 2,
+            "visible_pixels": 12378,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 3,
+            "visible_pixels": 11897,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 4,
+            "visible_pixels": 12901,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "attack": [
+          {
+            "index": 5,
+            "visible_pixels": 13546,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "hit": [
+          {
+            "index": 6,
+            "visible_pixels": 12927,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 7,
+            "visible_pixels": 12596,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "defeat": [
+          {
+            "index": 8,
+            "visible_pixels": 14520,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 9,
+            "visible_pixels": 10127,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 10,
+            "visible_pixels": 6629,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 11,
+            "visible_pixels": 633,
+            "minimum_visible_padding_px": 8
+          }
+        ]
+      },
+      "warnings": [
+        "Alpha1–7 source antialias/noise is retained; thresholds measure visible bounds only."
+      ],
+      "base_alpha_1_to_7_pixels": 6072,
+      "atlas_alpha_1_to_7_pixels": 61312,
+      "idle_move_visible_center_range_px": {
+        "x": [
+          155.0,
+          161.0
+        ],
+        "y": [
+          176.0,
+          186.0
+        ],
+        "note": "Visible silhouette bounds, not face/body landmarks; includes intended flame/wing/leg motion. Final micro-alignment needs visual approval."
+      }
+    },
+    {
+      "id": "magma_beetle",
+      "states": {
+        "idle": [
+          {
+            "index": 0,
+            "visible_pixels": 36084,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "move": [
+          {
+            "index": 1,
+            "visible_pixels": 34607,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 2,
+            "visible_pixels": 35764,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 3,
+            "visible_pixels": 35012,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 4,
+            "visible_pixels": 36312,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "attack": [
+          {
+            "index": 5,
+            "visible_pixels": 37054,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "hit": [
+          {
+            "index": 6,
+            "visible_pixels": 32877,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 7,
+            "visible_pixels": 36024,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "defeat": [
+          {
+            "index": 8,
+            "visible_pixels": 33630,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 9,
+            "visible_pixels": 24397,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 10,
+            "visible_pixels": 18089,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 11,
+            "visible_pixels": 4074,
+            "minimum_visible_padding_px": 8
+          }
+        ]
+      },
+      "warnings": [
+        "Alpha1–7 source antialias/noise is retained; thresholds measure visible bounds only."
+      ],
+      "base_alpha_1_to_7_pixels": 8541,
+      "atlas_alpha_1_to_7_pixels": 36264,
+      "idle_move_visible_center_range_px": {
+        "x": [
+          160.0,
+          160.0
+        ],
+        "y": [
+          160.0,
+          160.0
+        ],
+        "note": "Visible silhouette bounds, not face/body landmarks; includes intended flame/wing/leg motion. Final micro-alignment needs visual approval."
+      }
+    },
+    {
+      "id": "magma_dragon",
+      "states": {
+        "idle": [
+          {
+            "index": 0,
+            "visible_pixels": 18696,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 1,
+            "visible_pixels": 19397,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 2,
+            "visible_pixels": 19247,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 3,
+            "visible_pixels": 18952,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "move": [
+          {
+            "index": 4,
+            "visible_pixels": 19053,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 5,
+            "visible_pixels": 19033,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 6,
+            "visible_pixels": 19543,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 7,
+            "visible_pixels": 19113,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 8,
+            "visible_pixels": 18803,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 9,
+            "visible_pixels": 18557,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "attack": [
+          {
+            "index": 10,
+            "visible_pixels": 18291,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 11,
+            "visible_pixels": 18355,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 12,
+            "visible_pixels": 18371,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 13,
+            "visible_pixels": 18180,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "hit": [
+          {
+            "index": 14,
+            "visible_pixels": 18057,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 15,
+            "visible_pixels": 18194,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 16,
+            "visible_pixels": 18299,
+            "minimum_visible_padding_px": 8
+          }
+        ],
+        "defeat": [
+          {
+            "index": 17,
+            "visible_pixels": 18648,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 18,
+            "visible_pixels": 19845,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 19,
+            "visible_pixels": 19727,
+            "minimum_visible_padding_px": 8
+          },
+          {
+            "index": 20,
+            "visible_pixels": 19284,
+            "minimum_visible_padding_px": 8
+          }
+        ]
+      },
+      "warnings": [
+        "Alpha1–7 source antialias/noise is retained; thresholds measure visible bounds only."
+      ],
+      "base_alpha_1_to_7_pixels": 13225,
+      "atlas_alpha_1_to_7_pixels": 131346,
+      "idle_move_visible_center_range_px": {
+        "x": [
+          158.0,
+          164.0
+        ],
+        "y": [
+          159.0,
+          163.5
+        ],
+        "note": "Visible silhouette bounds, not face/body landmarks; includes intended flame/wing/leg motion. Final micro-alignment needs visual approval."
+      }
+    }
+  ],
+  "total_frames": 69,
+  "base_commit": "b5eeb114452956786b831c5589428ceb777e052e",
+  "scope_checked": [
+    "DEVELOPMENT_LOG.md",
+    "assets/volcano/README.md",
+    "assets/volcano/animations/ember_bean_atlas.png",
+    "assets/volcano/animations/lava_lizard_atlas.png",
+    "assets/volcano/animations/magma_beetle_atlas.png",
+    "assets/volcano/animations/magma_dragon_atlas.png",
+    "assets/volcano/animations/volcano_bat_atlas.png",
+    "assets/volcano/asset_manifest.json",
+    "assets/volcano/background/volcano_1920x864.png",
+    "assets/volcano/background/volcano_generated_original.png",
+    "assets/volcano/monsters/ember_bean.png",
+    "assets/volcano/monsters/lava_lizard.png",
+    "assets/volcano/monsters/magma_beetle.png",
+    "assets/volcano/monsters/magma_dragon.png",
+    "assets/volcano/monsters/volcano_bat.png",
+    "docs/review/volcano-art-assets/README.md",
+    "docs/review/volcano-art-assets/art-provenance.json",
+    "docs/review/volcano-art-assets/asset-validation.json",
+    "docs/review/volcano-art-assets/browser-validation.json",
+    "docs/review/volcano-art-assets/package-verification.json",
+    "docs/review/volcano-art-assets/preservation-verification.json",
+    "docs/review/volcano-art-assets/preview.html",
+    "docs/review/volcano-art-assets/preview.js",
+    "docs/review/volcano-art-assets/references/01_approved_topdown_volcano_concept.png",
+    "docs/review/volcano-art-assets/references/02_approved_normal_monster_animation_first_option.png",
+    "docs/review/volcano-art-assets/references/03_approved_boss_wings_up_sprite_sheet.png",
+    "docs/review/volcano-art-assets/references/README_approved_design.md",
+    "docs/review/volcano-art-assets/screenshots/all-69-frames.png",
+    "docs/review/volcano-art-assets/screenshots/alpha-17212b.png",
+    "docs/review/volcano-art-assets/screenshots/alpha-ffffff.png",
+    "docs/review/volcano-art-assets/screenshots/animation-gallery.png",
+    "docs/review/volcano-art-assets/screenshots/original-game-unchanged.png",
+    "docs/review/volcano-art-assets/screenshots/scene-568x320.png",
+    "docs/review/volcano-art-assets/screenshots/scene-800x360.png",
+    "docs/review/volcano-art-assets/screenshots/scene-915x412.png",
+    "docs/review/volcano-art-assets/tools/browser_review.py",
+    "docs/review/volcano-art-assets/tools/package_assets.py",
+    "docs/review/volcano-art-assets/tools/verify_assets.py",
+    "docs/review/volcano-art-assets/volcano-art-assets-review-v1.zip"
+  ],
+  "threshold_alpha": 8,
+  "limitations": [
+    "Visual reference matching/no text/no propellers/wings-up are manual review checks, not image recognition assertions.",
+    "Not a game integration, combat or physical Galaxy test.",
+    "Generated animation is a review draft, not final approved hand-keyed animation."
+  ]
+}

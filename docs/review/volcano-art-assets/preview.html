@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>화산 그래픽 검토 — 게임 미적용</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#17212b;color:#eef3f7;font:14px system-ui,sans-serif}header{padding:16px 20px}h1{font-size:20px;margin:0 0 8px}p{margin:8px 0;line-height:1.5}button,select{font:inherit;padding:8px;border-radius:6px;border:1px solid #8294a4;color:inherit;background:#263544}button:focus-visible,select:focus-visible{outline:2px solid #ffbd4a}main{padding:0 20px 20px}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}.card{margin:0;padding:10px;background:#24313e;border:1px solid #465767;border-radius:8px}.card canvas{width:100%;aspect-ratio:1;display:block;background-color:#bdc3c9;background-image:conic-gradient(#dce1e6 25%,transparent 0 50%,#dce1e6 0 75%,transparent 0);background-size:20px 20px}.card figcaption{padding-top:6px;font-weight:bold}.card small{display:block;color:#c3ccd6;margin-top:4px}#scene{display:block;width:100%;height:100%;object-fit:contain}.scene-wrap{position:relative;width:100%;height:412px;overflow:hidden;border:1px solid #647582;margin:16px 0}.note{position:absolute;left:8px;top:8px;background:#14212de8;padding:5px 8px;border-radius:5px;pointer-events:none;font-size:12px}#contact{max-width:100%;height:auto;display:block;background:#c9cfd4}.scene-only header,.scene-only main{display:none}.scene-only .scene-wrap{margin:0;border:0;position:fixed;inset:0;height:100dvh}.scene-only main{display:block;padding:0}.scene-only main>:not(.scene-wrap){display:none}.scene-only #scene{width:100vw;height:100dvh}
+</style>
+<header>
+<h1>월드 2 화산 · 그래픽 검토용</h1>
+<p>승인 시안 기반 분리 리소스 초안입니다. 게임·전투·월드 등록은 연결하지 않았습니다.</p>
+<label>애니메이션 <select id="state"><option value="idle">대기</option><option value="move" selected>이동</option><option value="attack">공격 동작</option><option value="hit">피격</option><option value="defeat">소멸</option></select></label>
+<button id="pause" type="button">일시 정지</button>
+<p id="status" role="status">리소스 읽는 중…</p>
+</header>
+<main>
+<section id="cards" class="cards" aria-label="투명 배경 애니메이션"></section>
+<div class="scene-wrap"><canvas id="scene" aria-label="화산 배경 크기와 대비 샘플"></canvas><span class="note">게임 미적용 · 원본 헬기 + 탄환 대비 샘플</span></div>
+<p>아래는 69프레임 전체 확인용입니다. 회색 체크는 검토 화면에만 그리며 PNG에는 포함하지 않습니다. 샘플 크기와 재생 시간은 아트 검토값이며 게임 능력치를 뜻하지 않습니다.</p>
+<canvas id="contact" aria-label="전체 애니메이션 프레임"></canvas>
+</main>
+<script src="preview.js"></script>
+</html>

@@ -1,0 +1,48 @@
+{
+  "index.html": [
+    [
+      "<div class=\"character-name\">트리오</div>",
+      "<div class=\"character-name\">뾰코</div>",
+      1
+    ],
+    [
+      "aria-label=\"트리오 선택:",
+      "aria-label=\"뾰코 선택:",
+      1
+    ],
+    [
+      "<title>귀염 헬기 슈팅</title>",
+      "<title>헬리 트리오</title>",
+      1
+    ],
+    [
+      "<h1 class=\"sr-only\">🚁 귀염 헬기 슈팅</h1>",
+      "<h1 class=\"sr-only\">🚁 헬리 트리오</h1>",
+      1
+    ],
+    [
+      "menu.querySelector('h1').textContent='🚁 귀염 헬기 슈팅';",
+      "menu.querySelector('h1').textContent='🚁 헬리 트리오';",
+      1
+    ],
+    [
+      "menu.querySelector(\"h1\").textContent=\"🚁 귀염 헬기 슈팅\"",
+      "menu.querySelector(\"h1\").textContent=\"🚁 헬리 트리오\"",
+      1
+    ]
+  ],
+  "assets/score/score.js": [
+    [
+      "const names = ['트리오', '빙글', '탱코'];",
+      "const names = ['뾰코', '빙글', '탱코'];",
+      1
+    ]
+  ],
+  "assets/selection/selection.css": [
+    [
+      "#menu .select-screen{overflow:hidden;background-image:url('background-clean.png');background-size:100% 100%;background-position:center}\n",
+      "#menu .select-screen{overflow:hidden;background-image:url('background-clean.png');background-size:100% 100%;background-position:center}\n/* Keep the original artwork; reveal only the corrected ㅔ in the first 헬. */\n#menu .select-screen::before{content:\"\";position:absolute;inset:0;z-index:0;pointer-events:none;background-image:url('title/hel-corrected.png');background-size:100% 100%;background-position:center;clip-path:polygon(37% 2.4%,41.8% 2.4%,41.8% 11.2%,37% 11.2%)}\n",
+      1
+    ]
+  ]
+}

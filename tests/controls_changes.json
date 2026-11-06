@@ -1,0 +1,30 @@
+[
+  [
+    "<link rel=\"stylesheet\" href=\"assets/selection/selection.css\">",
+    "<link rel=\"stylesheet\" href=\"assets/controls/controls.css\"><link rel=\"stylesheet\" href=\"assets/selection/selection.css\">"
+  ],
+  [
+    "<button class=\"btn\" id=\"left\">↶</button><button class=\"btn\" id=\"right\">↷</button>",
+    "<div class=\"rotation-joystick\" id=\"rotationJoystick\" role=\"slider\" tabindex=\"0\" aria-label=\"헬기 회전\" aria-orientation=\"horizontal\" aria-valuemin=\"-100\" aria-valuemax=\"100\" aria-valuenow=\"0\" aria-valuetext=\"회전 정지\"><span class=\"rotation-direction\" aria-hidden=\"true\">↶</span><span class=\"rotation-direction\" aria-hidden=\"true\">↷</span><span class=\"rotation-caption\" aria-hidden=\"true\">회전</span><span class=\"rotation-track\" aria-hidden=\"true\"></span><span class=\"rotation-knob\" aria-hidden=\"true\"></span></div>"
+  ],
+  [
+    "<script src=\"assets/item_monster/item_monster.js\"></script>",
+    "<script src=\"assets/item_monster/item_monster.js\"></script><script src=\"assets/controls/controls.js\"></script>"
+  ],
+  [
+    "function bind(id,k){let b=document.getElementById(id);b.addEventListener('pointerdown',e=>{e.preventDefault();b.setPointerCapture(e.pointerId);keys[k]=true});for(let ev of ['pointerup','pointercancel','lostpointercapture'])b.addEventListener(ev,()=>keys[k]=false)}bind('left','left');bind('right','right');bind('fire','fire');",
+    "/* Pointer controls are managed independently in assets/controls/controls.js. */"
+  ],
+  [
+    "canvas.addEventListener('pointerdown',e=>{drag={id:e.pointerId,x:e.clientX,y:e.clientY};canvas.setPointerCapture(e.pointerId)});canvas.addEventListener('pointermove',e=>{if(drag&&drag.id===e.pointerId){tilt.x=Math.max(-1,Math.min(1,(e.clientX-drag.x)/75));tilt.y=Math.max(-1,Math.min(1,(e.clientY-drag.y)/75))}});canvas.addEventListener('pointerup',()=>{drag=null;tilt={x:0,y:0}});",
+    "/* Auxiliary drag pointer ownership is managed by gameControls. */"
+  ],
+  [
+    "player.a+=(Number(keys.right)-Number(keys.left))*dt*flightProfiles[player.type].turn;",
+    "player.a+=gameControls.rotation()*dt*flightProfiles[player.type].turn;"
+  ],
+  [
+    "화면을 드래그하거나 센서를 켜서 이동하고, ↶ ↷ 버튼으로 방향을 바꿔요. 발사 버튼을 길게 누르면 연속으로 공격해요.",
+    "센서를 켜고 휴대폰을 기울여 이동해요. 화면 드래그로도 이동할 수 있어요. 왼쪽 아래 조이스틱을 좌우로 밀어 방향을 바꾸고, 발사 버튼을 길게 누르면 연속으로 공격해요."
+  ]
+]

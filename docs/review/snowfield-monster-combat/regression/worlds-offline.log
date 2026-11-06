@@ -1,0 +1,11 @@
+PASS: Exact approved world hooks reverse to80aee39; all other gameplay, controls, PNG/audio bytes remain identical and every JS script parses.
+PASS: Two worlds register only5 stable regions; World1 IDs0–3 remain unchanged, snow is4, and default route is exactly20 phases.
+PASS: Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the25-phase route and rejects mode changes during play.
+PASS: Real desert boss defeat rewards once, heals+2 then region+2 capped at4, enters snow1/5, preserves player/upgrade/items/actors/lifetimes/warning, and keeps fullscreen.
+PASS: Forest0, desert3 and snow4 have independent reservation keys; an old warning materializes against its original quota and snow gets3 distinct phases/kill thresholds.
+PASS: Both unchanged50:50 boss rewards are checked for all3 characters: HP reward precedes region healing; power+1 precedes healing, no extra world/region points.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/worlds.py", line 159, in <module>
+    assert snow_combat['normal']=={'hp':1,'speed':38,'special':False} and snow_combat['hpAtSpawn']==snow_combat['hpAfter']==44
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,72 @@
+{
+  "assets/item_monster/item_monster.js": [
+    [
+      "const plan = { region, opportunities:",
+      "const plan = { region, regionKey: gameWorlds.region(region).key, worldId: gameWorlds.region(region).worldId, opportunities:"
+    ],
+    [
+      "const speed = 45 + stage * 8;",
+      "const speed = 45 + gameWorlds.profile(stage) * 8;"
+    ]
+  ],
+  "assets/selection/selection.js": [
+    [
+      "/모든 지역 클리어/.test(message)",
+      "/모든 지역 클리어|설원 시험 완료/.test(message)"
+    ]
+  ],
+  "assets/score/score.js": [
+    [
+      "const storageKeys = Object.freeze({ top: 'heliTrio.top10.v1', history: 'heliTrio.playHistory.v1' });",
+      "const normalKeys = Object.freeze({ top: 'heliTrio.top10.v1', history: 'heliTrio.playHistory.v1' });\n  const trialKeys = Object.freeze({ top: 'heliTrio.world2Trial.top10.v1', history: 'heliTrio.world2Trial.playHistory.v1' });\n  let storageKeys = normalKeys, scope = 'normal';\n  const stores = new Map();"
+    ],
+    [
+      "Number.isInteger(record.regionId) && record.regionId >= 0 && record.regionId < 4 &&",
+      "Boolean(gameWorlds.region(record.regionId)) && (scope === 'trial' || gameWorlds.region(record.regionId).worldId === 0) &&"
+    ],
+    [
+      "regionName: stageNames[record.regionId], phase: record.phase, order: record.order,",
+      "regionName: stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,\n        regionKey: gameWorlds.region(record.regionId).key, localRegionIndex: gameWorlds.region(record.regionId).localIndex, trialMode: scope === 'trial', phase: record.phase, order: record.order,"
+    ],
+    [
+      "  function refresh() {\n",
+      "  function selectStorage() {\n    const next = gameWorlds.isTrial() ? 'trial' : 'normal';\n    if (scope === next) return;\n    stores.set(scope, { top, history, storageMessage, lastResult });\n    scope = next;storageKeys = next === 'trial' ? trialKeys : normalKeys;storageMessage = '';\n    const cached = stores.get(next);\n    if (cached) ({ top, history, storageMessage, lastResult } = cached);\n    else { top = ranked(read(storageKeys.top));history = recent(read(storageKeys.history));lastResult = null; }\n  }\n  function refresh() {\n"
+    ],
+    [
+      "hud.textContent = `${stageNames[stage]} ·",
+      "gameWorlds.syncUI();\n    hud.textContent = `${gameWorlds.regionLabel(stage)} ·"
+    ],
+    [
+      "if (activeRun && !activeRun.result) finish('abandoned');\n    activeRun =",
+      "if (activeRun && !activeRun.result) finish('abandoned');\n    gameWorlds.beginRun();selectStorage();\n    activeRun ="
+    ],
+    [
+      "characterName: names[activeRun.characterId], regionId: stage, regionName: stageNames[stage], phase,",
+      "characterName: names[activeRun.characterId], regionId: stage, regionName: stageNames[stage], ...gameWorlds.recordFields(stage), phase,"
+    ],
+    [
+      "  function render() {\n    refresh();",
+      "  function render() {\n    selectStorage();refresh();\n    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 설원 시험 TOP 10' : '🏆 TOP 10';\n    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '설원 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';"
+    ],
+    [
+      "`${record.regionName} · ${record.phase}/5`",
+      "`${gameWorlds.recordLabel(record)} · ${record.phase}/5`"
+    ],
+    [
+      "  addEventListener('storage', event => {",
+      "  document.addEventListener('worldmodechange', () => { selectStorage();if (dialog.open) render(); });\n  addEventListener('storage', event => {"
+    ],
+    [
+      "getTop: () => { refresh();",
+      "getTop: () => { selectStorage();refresh();"
+    ],
+    [
+      "getHistory: () => { refresh();",
+      "getHistory: () => { selectStorage();refresh();"
+    ],
+    [
+      "getLastResult: () => lastResult, storageKeys",
+      "getLastResult: () => lastResult, get storageKeys() { selectStorage();return storageKeys; }"
+    ]
+  ]
+}

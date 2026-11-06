@@ -1,0 +1,110 @@
+[
+  {
+    "suite": "volcano_art-native",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 42.92,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_bgm-native",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 57.01,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_bgm-native"
+    ]
+  },
+  {
+    "suite": "volcano_bgm-offline",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 109.17,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_bgm-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_art-offline",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 69.56,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_art-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 30.54,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_boss-native"
+    ]
+  },
+  {
+    "suite": "selection_bgm",
+    "exit_code": 0,
+    "groups": 14,
+    "observed_groups_before_failure": 0,
+    "seconds": 86.61,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/selection_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/selection_bgm"
+    ]
+  },
+  {
+    "suite": "volcano_boss-offline",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 42.61,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/volcano_boss-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "selection_bgm-offline",
+    "exit_code": 0,
+    "groups": 14,
+    "observed_groups_before_failure": 0,
+    "seconds": 90.59,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/selection_bgm.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-bgm/focused/selection_bgm-offline",
+      "--standalone"
+    ]
+  }
+]

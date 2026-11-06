@@ -1,0 +1,11 @@
+PASS: Exact name/title-only changes reverse to4831903;original background,all character/115frame assets,combat/region tuning,input,audio,score logic/IDs/keys preserved;all JS parses.
+PASS: All40 legacy normal/trial TOP10/history records retain IDs,scores,dates,order,region,stats and ties;ID0 displays뾰코,others unchanged;reading/scope switches/table opening do not rewrite a single stored byte.
+PASS: Reload/reopen preserves all original version1 storage keys and raw records while resolving the new display name by characterId0;no destructive migration.
+PASS: All3 characters fit3landscapes;pixel differences from title correction stay entirely inside the first vowel ROI37–41.8%×2.4–11.2%,with other title letters/background/layout unchanged and no pointer interception.
+PASS: Enlarged before/after title screenshot uses actual CSS layers in browser;visibleㅔ has separate vertical strokes and its short stroke extends left,with original yellow/orange bevel and navy outline.
+PASS: All3 actual start→HP0→3s game-over→clean menu paths show canonical names,retain fullscreen and preserve every old analysis record;new ID0 results save뾰코,without changing keys/scores.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/ppyoko_title.py", line 82, in <module>
+    assert page.evaluate('r=>gameWorlds.setDeveloperStart({enabled:true,regionId:r,phase:5})',region)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

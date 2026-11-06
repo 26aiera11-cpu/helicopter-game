@@ -1,0 +1,111 @@
+{
+  "assets/volcano/boss_combat.js": [
+    [
+      "/* Issue19: volcano dragon only; approved frame pixels/HP/rewards stay unchanged. */",
+      "/* Issues19/20: volcano dragon only; approved frame pixels/HP/rewards stay unchanged. */",
+      1
+    ],
+    [
+      "breathRatio:.26,breathMin:85,breathMax:115,breathHalfAngle:Math.PI/10,fade:",
+      "breathRatio:.52,breathMin:165,breathMax:205,breathTurnSpeed:70*Math.PI/180,breathDeadZone:.5*Math.PI/180,fade:",
+      1
+    ],
+    [
+      "  let active=null,death=null,frozen=null,layoutChanged=false;",
+      "  // Original uploaded PNG is never altered. Read alpha once, then only sample memory.\n  const breathArt=Object.freeze({width:768,height:230,anchorX:35,anchorY:158,tipX:766,alphaThreshold:96});\n  const breathImage=document.getElementById('volcano-magma-breath');\n  let artStatus='loading',alphaMask=null,warningMask=null;\n  function loadBreathArt(){\n    if(artStatus!=='loading')return;\n    try{\n      if(!breathImage||breathImage.naturalWidth!==breathArt.width||breathImage.naturalHeight!==breathArt.height)throw Error('Invalid breath image');\n      const c=document.createElement('canvas');c.width=breathArt.width;c.height=breathArt.height;\n      const g=c.getContext('2d',{willReadFrequently:true});g.drawImage(breathImage,0,0);\n      const pixels=g.getImageData(0,0,c.width,c.height),mask=new Uint8Array(c.width*c.height);\n      for(let i=0;i<mask.length;i++){\n        mask[i]=pixels.data[i*4+3]>=breathArt.alphaThreshold?1:0;\n        pixels.data.set([255,176,74,mask[i]?255:0],i*4);\n      }\n      if(!mask.some(Boolean))throw Error('Empty breath image');\n      g.putImageData(pixels,0,0);alphaMask=mask;warningMask=c;artStatus='ready';\n    }catch(_){alphaMask=null;warningMask=null;artStatus='failed';}\n  }\n  if(breathImage){\n    breathImage.addEventListener('load',loadBreathArt,{once:true});\n    breathImage.addEventListener('error',()=>{artStatus='failed';alphaMask=null;warningMask=null;},{once:true});\n    if(breathImage.complete)loadBreathArt();\n  }else artStatus='failed';\n  let active=null,death=null,frozen=null,layoutChanged=false;",
+      1
+    ],
+    [
+      "      angle:0,swept:0,center:null",
+      "      angle:0,targetAngle:0,turnDelta:0,center:null",
+      1
+    ],
+    [
+      "    const length=breathLength(),direction=Math.PI/2+angle,ux=Math.cos(direction),uy=Math.sin(direction),halfWidth=length*Math.tan(settings.breathHalfAngle);\n    return {pivot:{x:pivot.x,y:pivot.y},local,origin,angle,direction,length,halfWidth,body:box,\n      polygon:[origin,{x:origin.x+ux*length-uy*halfWidth,y:origin.y+uy*length+ux*halfWidth},{x:origin.x+ux*length+uy*halfWidth,y:origin.y+uy*length-ux*halfWidth}]};",
+      "    const length=breathLength(),direction=Math.PI/2+angle,artScale=length/(breathArt.tipX-breathArt.anchorX);\n    return {pivot:{x:pivot.x,y:pivot.y},local,origin,angle,direction,length,artScale,body:box};",
+      1
+    ],
+    [
+      "    if(!outsideUI(point.x,point.y,rects))return false;",
+      "    if(artStatus!=='ready'||!alphaMask||!outsideUI(point.x,point.y,rects))return false;",
+      1
+    ],
+    [
+      "    const along=x*cos+y*sin,across=-x*sin+y*cos;\n    return along>=-epsilon&&along<=geometry.length+epsilon&&Math.abs(across)<=along*Math.tan(settings.breathHalfAngle)+epsilon;",
+      "    const px=Math.floor((x*cos+y*sin)/geometry.artScale+breathArt.anchorX),py=Math.floor((-x*sin+y*cos)/geometry.artScale+breathArt.anchorY);\n    return px>=0&&px<breathArt.width&&py>=0&&py<breathArt.height&&alphaMask[py*breathArt.width+px]===1;",
+      1
+    ],
+    [
+      "  function startBreath(state){\n",
+      "  function startBreath(state){\n    if(artStatus!=='ready'){state.skipped++;rest(state);return;}\n",
+      1
+    ],
+    [
+      "state.remaining=settings.breathWarning;state.angle=0;state.swept=0;",
+      "state.remaining=settings.breathWarning;state.turnDelta=0;",
+      1
+    ],
+    [
+      "    else if(state.phase==='breath'){state.angle=tau;state.swept=tau;state.fade=settings.fade;rest(state);}",
+      "    else if(state.phase==='breath'){state.fade=settings.fade;rest(state);}",
+      1
+    ],
+    [
+      "  function move(state,dt){",
+      "  function trackPlayer(state,dt){\n    const dx=player.x-state.center.x,dy=player.y-state.center.y;\n    if(Math.hypot(dx,dy)<1)return;\n    state.targetAngle=Math.atan2(dy,dx)-Math.PI/2;\n    const difference=Math.atan2(Math.sin(state.targetAngle-state.angle),Math.cos(state.targetAngle-state.angle));\n    state.turnDelta=Math.abs(difference)>settings.breathDeadZone?Math.max(-settings.breathTurnSpeed*dt,Math.min(settings.breathTurnSpeed*dt,difference)):0;\n    state.angle+=state.turnDelta;\n  }\n  function move(state,dt){",
+      1
+    ],
+    [
+      "      if(state.phase==='breath'){\n        state.angle=tau*Math.min(1,Math.max(0,1-state.remaining/settings.breathDuration));state.swept=state.angle;",
+      "      if(state.phase==='breath_warning'||state.phase==='breath')trackPlayer(state,slice);\n      if(state.phase==='breath'){",
+      1
+    ],
+    [
+      "  function triangle(ctx,geometry,ratio=1,widthRatio=1){\n    const [o,a,b]=geometry.polygon,m={x:(a.x+b.x)/2,y:(a.y+b.y)/2},side={x:(a.x-b.x)/2,y:(a.y-b.y)/2};\n    ctx.beginPath();ctx.moveTo(o.x,o.y);ctx.lineTo(o.x+(m.x-o.x)*ratio+side.x*ratio*widthRatio,o.y+(m.y-o.y)*ratio+side.y*ratio*widthRatio);ctx.lineTo(o.x+(m.x-o.x)*ratio-side.x*ratio*widthRatio,o.y+(m.y-o.y)*ratio-side.y*ratio*widthRatio);ctx.closePath();\n  }\n",
+      "  function paintBreath(ctx,geometry,image,opacity=1){\n    ctx.save();ctx.translate(geometry.origin.x,geometry.origin.y);ctx.rotate(geometry.direction);\n    ctx.scale(geometry.artScale,geometry.artScale);ctx.globalAlpha=opacity;\n    ctx.drawImage(image,-breathArt.anchorX,-breathArt.anchorY);ctx.restore();\n  }\n",
+      1
+    ],
+    [
+      "    if(state.phase==='breath_warning'||state.phase==='breath'||state.fade>0){\n      const geo=frameGeometry(state.actor),o=geo.origin;\n      if(state.phase==='breath_warning'){\n        triangle(ctx,geo);ctx.fillStyle='#ff8b3428';ctx.fill();ctx.setLineDash([5,5]);ctx.strokeStyle='#ffd58a';ctx.lineWidth=2;ctx.stroke();ctx.setLineDash([]);\n        ctx.beginPath();ctx.arc(geo.pivot.x,geo.pivot.y,bodyRadius*.85,Math.PI/2,Math.PI*1.2);ctx.strokeStyle='#ffbf6b';ctx.stroke();\n        const a=Math.PI*1.2,r=bodyRadius*.85,x=geo.pivot.x+Math.cos(a)*r,y=geo.pivot.y+Math.sin(a)*r;\n        ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+12,y+2);ctx.lineTo(x+4,y+10);ctx.closePath();ctx.fillStyle='#ffd58a';ctx.fill();\n        ctx.beginPath();ctx.arc(o.x,o.y,6+3*(1-state.remaining/settings.breathWarning),0,tau);ctx.fillStyle='#ff5b36bb';ctx.fill();\n      }else if(state.phase==='breath'){\n        const end={x:(geo.polygon[1].x+geo.polygon[2].x)/2,y:(geo.polygon[1].y+geo.polygon[2].y)/2},gradient=ctx.createLinearGradient(o.x,o.y,end.x,end.y);\n        gradient.addColorStop(0,'#fff2b3');gradient.addColorStop(.18,'#ffd06a');gradient.addColorStop(.6,'#ff9a39');gradient.addColorStop(1,'#e8481ddd');triangle(ctx,geo);ctx.fillStyle=gradient;ctx.fill();\n        triangle(ctx,geo,.9,.42);ctx.fillStyle='#fff2a8bb';ctx.fill();\n        // Moving tongues stay clipped inside the exact damaging outer cone.\n        ctx.save();triangle(ctx,geo);ctx.clip();const ux=Math.cos(geo.direction),uy=Math.sin(geo.direction);\n        for(let j=-2;j<=2;j++){\n          ctx.beginPath();ctx.moveTo(o.x,o.y);\n          for(let k=1;k<=8;k++){const t=k/8,side=geo.halfWidth*t*(j*.25+Math.sin(state.age*22-k*1.3+j)*.12);ctx.lineTo(o.x+ux*geo.length*t-uy*side,o.y+uy*geo.length*t+ux*side);}\n          ctx.strokeStyle=j%2?'#ffdb78aa':'#ffeebbaa';ctx.lineWidth=1.5;ctx.stroke();\n        }\n        ctx.restore();\n      }else{triangle(ctx,geo);ctx.globalAlpha=state.fade/settings.fade*.2;ctx.fillStyle='#dcb5a0';ctx.fill();}\n    }\n",
+      "    if(artStatus==='ready'&&(state.phase==='breath_warning'||state.phase==='breath')){\n      const geo=frameGeometry(state.actor),o=geo.origin;\n      if(state.phase==='breath_warning'){\n        // Same cached alpha silhouette/direction as the coming damage, harmless.\n        paintBreath(ctx,geo,warningMask,.26);\n        ctx.beginPath();ctx.arc(o.x,o.y,6+3*(1-state.remaining/settings.breathWarning),0,tau);ctx.fillStyle='#ff5b36bb';ctx.fill();\n      }else paintBreath(ctx,geo,breathImage);\n    }\n",
+      1
+    ],
+    [
+      "    blockedRects,safeCircle,safeTarget,eruptionRadius,breathLength,frameGeometry,contains,",
+      "    blockedRects,safeCircle,safeTarget,eruptionRadius,breathLength,frameGeometry,contains,breathArt,\n    artSnapshot:()=>({status:artStatus,width:breathImage?.naturalWidth||0,height:breathImage?.naturalHeight||0,maskReady:Boolean(alphaMask)}),",
+      1
+    ],
+    [
+      "angle:active.angle,swept:active.swept,",
+      "angle:active.angle,targetAngle:active.targetAngle,turnDelta:active.turnDelta,",
+      1
+    ],
+    [
+      "const saved=active?.center?{actor:active.actor,angle:active.angle,center:{...active.center}}:null;",
+      "const saved=active?{actor:active.actor,angle:active.angle,center:{...frameGeometry(active.actor).pivot}}:null;",
+      1
+    ],
+    [
+      "      if(state.fade>0){state.fade=Math.max(0,state.fade-slice);if(state.fade<=epsilon){state.fade=0;state.center=null;state.angle=0;}}",
+      "      // Return the body smoothly after tracking instead of snapping from its last heading.\n      if(state.phase==='rest'&&state.angle){\n        const difference=Math.atan2(Math.sin(-state.angle),Math.cos(-state.angle)),limit=settings.breathTurnSpeed*slice;\n        state.angle=Math.abs(difference)<=limit?0:state.angle+Math.sign(difference)*limit;\n      }\n      if(state.fade>0){state.fade=Math.max(0,state.fade-slice);if(state.fade<=epsilon){state.fade=0;state.center=null;}}",
+      1
+    ],
+    [
+      "death={angle:active.angle,center:active.center?{...active.center}:null};",
+      "death={angle:active.angle,center:{...frameGeometry(actor).pivot}};",
+      1
+    ],
+    [
+      "if(!enabled(actor)||!state?.center)return false;",
+      "if(!enabled(actor)||!state||!state.center&&Math.abs(state.angle)<epsilon)return false;",
+      1
+    ]
+  ],
+  "index.html": [
+    [
+      "<img id=\"volcanoBackground\"",
+      "<img id=\"volcano-magma-breath\" src=\"assets/volcano/effects/magma_dragon_breath_static.png\" alt=\"\">\n<img id=\"volcanoBackground\"",
+      1
+    ]
+  ]
+}

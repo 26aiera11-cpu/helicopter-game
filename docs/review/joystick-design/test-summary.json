@@ -1,0 +1,96 @@
+{
+  "total_passed_groups": 175,
+  "suites": [
+    {
+      "suite": "design browser",
+      "passed_groups": 5,
+      "report": "browser/test-results.json"
+    },
+    {
+      "suite": "design offline",
+      "passed_groups": 5,
+      "report": "offline/test-results.json"
+    },
+    {
+      "suite": "galaxy standalone",
+      "passed_groups": 19,
+      "report": "../galaxy-test/test-results.json"
+    },
+    {
+      "suite": "controls-offline",
+      "passed_groups": 23,
+      "report": "regression/controls-offline.json"
+    },
+    {
+      "suite": "controls",
+      "passed_groups": 23,
+      "report": "regression/controls.json"
+    },
+    {
+      "suite": "exit-dialog",
+      "passed_groups": 10,
+      "report": "regression/exit-dialog.json"
+    },
+    {
+      "suite": "fullscreen",
+      "passed_groups": 7,
+      "report": "regression/fullscreen.json"
+    },
+    {
+      "suite": "game-audit",
+      "passed_groups": 11,
+      "report": "regression/game-audit.json"
+    },
+    {
+      "suite": "game-over",
+      "passed_groups": 7,
+      "report": "regression/game-over.json"
+    },
+    {
+      "suite": "item-rules",
+      "passed_groups": 19,
+      "report": "regression/item-rules.json"
+    },
+    {
+      "suite": "scoring",
+      "passed_groups": 17,
+      "report": "regression/scoring.json"
+    },
+    {
+      "suite": "selection",
+      "passed_groups": 15,
+      "report": "regression/selection.json"
+    },
+    {
+      "suite": "tanko",
+      "passed_groups": 14,
+      "report": "regression/tanko.json"
+    }
+  ],
+  "baseline_feature": "22191f996908195937ebef7c220e871e487d7712",
+  "current_branch": "feature/minimal-rotation-joystick",
+  "runtime_javascript_unchanged": true,
+  "width_range": [
+    135,
+    165
+  ],
+  "height": 58,
+  "knob_diameter": 32,
+  "minimum_knob_touch_square": 44,
+  "idle_opacity": 0.4,
+  "held_opacity": 0.7,
+  "dead_zone": 0.08,
+  "maximum_turn_radians_per_second": [
+    3.05,
+    2.7,
+    2.35
+  ],
+  "html_sha256": "cf6cd31a3e612ef486751432e6268f2c2ed1356f31a2a58a8c5bbf7c53adb755",
+  "zip_sha256": "204a37155d59d24a487c0e682e97bce7a5cdc245b403f6557305e4762b53df66",
+  "limits": [
+    "Physical Galaxy/Samsung Internet, display in outdoor light, sensor hardware/permissions, local file opening and audible/performance checks remain unverified.",
+    "Offline HTML is injected without bypassing managed file navigation policy.",
+    "Screenshots use frozen native game scenes; pixel differences confirm rendering, not a display contrast certification.",
+    "No main merge or GitHub Pages deployment."
+  ]
+}

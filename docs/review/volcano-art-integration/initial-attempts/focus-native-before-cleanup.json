@@ -1,0 +1,6320 @@
+{
+  "baseline": "7c99b909ce0d34cce3b8dcebd5042e9ee72ca7bb",
+  "standalone": false,
+  "passed": [
+    "Only exact integration hooks/UI labels/new module; original volcano/snow art, manifest, combat, characters, controls, audio and score rules byte-protected; all JS parses.",
+    "RegistryIDs0–4 stable, volcano5; defaultOFF20-stage mode; actual Help world2/volcano/phase5 starts dragon directly with forest profile0.",
+    "45 real starts (3characters×3viewports×5phases): correct species/profile/HP/radius, movement/fire/hit events,100point kills, fullscreen and exit/reset; developer writes0.",
+    "All69 production-rendered frames match exact manifest source pixels after render-only alpha cleanup; aspect, virtual pivots, edge clamp/collider immutability and bounded69-frame cache verified.",
+    "Normal entry to phase5 retains the6-kill prelude with beetle visuals; only developer phase5 bypasses it.",
+    "Dragon reward/2000score exactly once; hit+defeat holds play then clears without bullets/effects; test result remains unsaved.",
+    "Snow boss retains its death animation then enters volcano1; old snow-finale active/pending is cleared, without changing snow combat files.",
+    "Volcano HP0 freezes immediately, retains3s GAME OVER, returns clean menu in fullscreen; native dialogs0.",
+    "Native GitHub-project subpath/offline exact HTML resources load; no JS/request failures, offline external requests0."
+  ],
+  "limits": [
+    "Chromium mobile/touch emulation; not physical Galaxy/Samsung Internet, sensor hardware or audible speaker testing.",
+    "Entry matrix uses real UI/start/spawn/hit hooks with controlled transition/spawn/aim/invulnerability for deterministic screenshots.",
+    "The69-frame audit drives controlled art-state fixtures through the production renderer; it is separate from actual battle-hook checks.",
+    "Offline runs the exact single HTML on a blank localhost origin with networking disabled; file security policy is not bypassed."
+  ],
+  "registry": {
+    "worlds": [
+      {
+        "id": 0,
+        "key": "world-1",
+        "name": "월드 1",
+        "regionIds": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 1,
+        "key": "world-2",
+        "name": "월드 2",
+        "regionIds": [
+          4,
+          5
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "id": 0,
+        "key": "world-1:forest",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 0,
+        "name": "🌲 숲 지역",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🌳 숲의 수호괴물",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 1,
+        "key": "world-1:rock",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 1,
+        "name": "🪨 바위 지역",
+        "combatProfile": 1,
+        "assetProfile": 1,
+        "musicProfile": 1,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🪨 거대 바위 골렘",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 2,
+        "key": "world-1:sea",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 2,
+        "name": "🌊 바다 지역",
+        "combatProfile": 2,
+        "assetProfile": 2,
+        "musicProfile": 2,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐙 바다의 문어 대왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 3,
+        "key": "world-1:desert",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 3,
+        "name": "🏜️ 사막 지역",
+        "combatProfile": 3,
+        "assetProfile": 3,
+        "musicProfile": 3,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🦂 사막 전갈왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 4,
+        "key": "world-2:snowfield",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 0,
+        "name": "❄ 설원 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "❄ 눈보라 거인왕 (시험)",
+        "prototypeBackground": "snowfield-approved",
+        "prototype": true
+      },
+      {
+        "id": 5,
+        "key": "world-2:volcano",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 1,
+        "name": "🌋 화산 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐉 마그마 드래곤 (시험)",
+        "prototypeBackground": "volcano-approved",
+        "prototype": true
+      }
+    ],
+    "mode": {
+      "trialEnabled": false,
+      "activeTrial": false,
+      "route": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "keys": {
+      "heliTrio.top10.v1": null,
+      "heliTrio.playHistory.v1": null,
+      "heliTrio.world2Trial.top10.v1": null,
+      "heliTrio.world2Trial.playHistory.v1": null
+    }
+  },
+  "entry_progress": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26670000000000005,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 878.1807732268218,
+              "y": 98.5266260439258,
+              "at": 0.26670000000000005,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 6,
+          "cachedPixels": 289452
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2666999999999998,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 877.2659663985081,
+              "y": 48.12647645741501,
+              "at": 0.2666999999999998,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 10,
+          "cachedPixels": 507803
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.25,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 165.86494812898044,
+              "y": 378.8807988936942,
+              "at": 0.25,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 14,
+          "cachedPixels": 610274
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26659999999999995,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 874.0800019086022,
+              "y": 278.5986974900277,
+              "at": 0.26659999999999995,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 18,
+          "cachedPixels": 838195
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26659999999999995,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 451.414928648683,
+              "y": 97.1870222171851,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.11669999999999983,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 110.83761342646294,
+              "y": 29.01643373661126,
+              "at": 0.11669999999999983,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 411.4322552226071,
+              "y": 27.512992413647602,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 883.201424695817,
+              "y": 195.6257370436968,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 742.2045202207465,
+              "y": 382.21072034141525,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 455.34,
+              "y": 105.36840000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.11679999999999928,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 224.5138329171849,
+              "y": 29.678394794047936,
+              "at": 0.11679999999999928,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 883.7043980506321,
+              "y": 225.29132938745008,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 883.445668209978,
+              "y": 64.22149090339124,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 866.9933229310241,
+              "y": 29.101826990262303,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 455.34,
+              "y": 105.36840000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.23319999999999982,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 35.306925788477734,
+              "y": 315.4792161052587,
+              "at": 0.23319999999999982,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 764.8079377669345,
+              "y": 63.44792459571136,
+              "at": 0.2,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2166999999999998,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 404.6850480647244,
+              "y": 322.60400897352287,
+              "at": 0.2166999999999998,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 658.0625033001025,
+              "y": 32.266310644552505,
+              "at": 0.2,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.19989999999999966,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 395.45597090005475,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 78.89492508909453,
+              "y": 28.620406104716096,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 621.4056872069865,
+              "y": 29.418217667030774,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 752.730622745932,
+              "y": 28.890173898139654,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 185.62876836867144,
+              "y": 329.96198055237727,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 397.84,
+              "y": 90.25200000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 215.79204718683755,
+              "y": 29.405148266883494,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 768.7170817942216,
+              "y": 212.96383315145664,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 213.89071281062738,
+              "y": 329.98800674866976,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 32.134891932214416,
+              "y": 85.96589087512064,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 397.84,
+              "y": 90.25200000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16679999999999928,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 421.84201452304717,
+              "y": 288.6747943547115,
+              "at": 0.16679999999999928,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.18339999999999965,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 34.66352479518258,
+              "y": 220.5416889717859,
+              "at": 0.18339999999999965,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16670000000000074,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 359.80547969465056,
+              "y": 286.14157754271434,
+              "at": 0.16670000000000074,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16670000000000074,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 149.1143589070451,
+              "y": 33.05510635300602,
+              "at": 0.16670000000000074,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16660000000000036,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 280.21438980680995,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 537.4649199798941,
+              "y": 60.05101308937845,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 536.9162018654897,
+              "y": 243.38011882115586,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 79.29695261416921,
+              "y": 29.579187073301746,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 32.14906497834674,
+              "y": 98.57446881594628,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 281.84,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 260.1822409498785,
+              "y": 289.2629096704762,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 31.233521571407415,
+              "y": 204.96993074207654,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 374.34448926985795,
+              "y": 289.06764580523486,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 74.58469758671767,
+              "y": 29.79843048591362,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 281.84,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    }
+  ],
+  "entries": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26670000000000005,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 878.1807732268218,
+              "y": 98.5266260439258,
+              "at": 0.26670000000000005,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 6,
+          "cachedPixels": 289452
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2666999999999998,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 877.2659663985081,
+              "y": 48.12647645741501,
+              "at": 0.2666999999999998,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 10,
+          "cachedPixels": 507803
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.25,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 165.86494812898044,
+              "y": 378.8807988936942,
+              "at": 0.25,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 14,
+          "cachedPixels": 610274
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26659999999999995,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 874.0800019086022,
+              "y": 278.5986974900277,
+              "at": 0.26659999999999995,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 18,
+          "cachedPixels": 838195
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.26659999999999995,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 451.414928648683,
+              "y": 97.1870222171851,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.11669999999999983,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 110.83761342646294,
+              "y": 29.01643373661126,
+              "at": 0.11669999999999983,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 411.4322552226071,
+              "y": 27.512992413647602,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 883.201424695817,
+              "y": 195.6257370436968,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 742.2045202207465,
+              "y": 382.21072034141525,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 20,
+          "cachedPixels": 921936
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 455.34,
+              "y": 105.36840000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.11679999999999928,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 224.5138329171849,
+              "y": 29.678394794047936,
+              "at": 0.11679999999999928,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 883.7043980506321,
+              "y": 225.29132938745008,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 883.445668209978,
+              "y": 64.22149090339124,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 866.9933229310241,
+              "y": 29.101826990262303,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 455.34,
+              "y": 105.36840000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.23319999999999982,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 35.306925788477734,
+              "y": 315.4792161052587,
+              "at": 0.23319999999999982,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 764.8079377669345,
+              "y": 63.44792459571136,
+              "at": 0.2,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2166999999999998,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 404.6850480647244,
+              "y": 322.60400897352287,
+              "at": 0.2166999999999998,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.2,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 658.0625033001025,
+              "y": 32.266310644552505,
+              "at": 0.2,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.19989999999999966,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 395.45597090005475,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 78.89492508909453,
+              "y": 28.620406104716096,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 621.4056872069865,
+              "y": 29.418217667030774,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 752.730622745932,
+              "y": 28.890173898139654,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 185.62876836867144,
+              "y": 329.96198055237727,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 397.84,
+              "y": 90.25200000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 215.79204718683755,
+              "y": 29.405148266883494,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 768.7170817942216,
+              "y": 212.96383315145664,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 213.89071281062738,
+              "y": 329.98800674866976,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 32.134891932214416,
+              "y": 85.96589087512064,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 397.84,
+              "y": 90.25200000000001,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16679999999999928,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 421.84201452304717,
+              "y": 288.6747943547115,
+              "at": 0.16679999999999928,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.18339999999999965,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 34.66352479518258,
+              "y": 220.5416889717859,
+              "at": 0.18339999999999965,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16670000000000074,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 359.80547969465056,
+              "y": 286.14157754271434,
+              "at": 0.16670000000000074,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16670000000000074,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 149.1143589070451,
+              "y": 33.05510635300602,
+              "at": 0.16670000000000074,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 0,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.16660000000000036,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 280.21438980680995,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 537.4649199798941,
+              "y": 60.05101308937845,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 536.9162018654897,
+              "y": 243.38011882115586,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 79.29695261416921,
+              "y": 29.579187073301746,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 32.14906497834674,
+              "y": 98.57446881594628,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 1,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 281.84,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 1,
+      "species": "ember_bean",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "ember_bean",
+              "x": 260.1822409498785,
+              "y": 289.2629096704762,
+              "at": 0.1,
+              "pose": {
+                "id": "ember_bean",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  669,
+                  369,
+                  233,
+                  218
+                ],
+                "source": [
+                  45.5,
+                  58.5,
+                  233,
+                  218
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 2,
+      "species": "lava_lizard",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "lava_lizard",
+              "x": 31.233521571407415,
+              "y": 204.96993074207654,
+              "at": 0.1,
+              "pose": {
+                "id": "lava_lizard",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  680,
+                  351,
+                  209,
+                  263
+                ],
+                "source": [
+                  56.5,
+                  40.5,
+                  209,
+                  263
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 3,
+      "species": "volcano_bat",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "volcano_bat",
+              "x": 374.34448926985795,
+              "y": 289.06764580523486,
+              "at": 0.1,
+              "pose": {
+                "id": "volcano_bat",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  675,
+                  437,
+                  210,
+                  122
+                ],
+                "source": [
+                  51.5,
+                  126.5,
+                  210,
+                  122
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 4,
+      "species": "magma_beetle",
+      "collider": 16,
+      "hp": 1,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [],
+          "ghosts": [
+            {
+              "id": "magma_beetle",
+              "x": 74.58469758671767,
+              "y": 29.79843048591362,
+              "at": 0.1,
+              "pose": {
+                "id": "magma_beetle",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  665,
+                  359,
+                  240,
+                  221
+                ],
+                "source": [
+                  40,
+                  49.5,
+                  240,
+                  221
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 100,
+        "enemyShots": 1
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "type": 2,
+      "phase": 5,
+      "species": "magma_dragon",
+      "collider": 48,
+      "hp": 20,
+      "events": {
+        "movement": "move",
+        "attack": "attack",
+        "hit": {
+          "clock": 0.1,
+          "actors": [
+            {
+              "id": "magma_dragon",
+              "x": 281.84,
+              "y": 85,
+              "pose": {
+                "id": "magma_dragon",
+                "name": "hit",
+                "index": 0,
+                "rect": [
+                  1001,
+                  518,
+                  199,
+                  205
+                ],
+                "source": [
+                  61,
+                  65,
+                  199,
+                  205
+                ],
+                "cell": [
+                  320,
+                  320
+                ]
+              }
+            }
+          ],
+          "ghosts": [],
+          "advancing": false,
+          "cachedFrames": 21,
+          "cachedPixels": 979953
+        },
+        "score": 0,
+        "enemyShots": 1
+      }
+    }
+  ],
+  "frames": [
+    {
+      "id": "ember_bean",
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        42,
+        55,
+        230,
+        218
+      ],
+      "drawn": [
+        263.57943925233644,
+        141.88785046728972,
+        40.8411214953271,
+        38.71028037383177
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 0,
+      "rect": [
+        354,
+        59,
+        231,
+        213
+      ],
+      "drawn": [
+        264.3130841121495,
+        142.5981308411215,
+        41.018691588785046,
+        37.822429906542055
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 1,
+      "rect": [
+        669,
+        38,
+        230,
+        235
+      ],
+      "drawn": [
+        264.6682242990654,
+        138.86915887850466,
+        40.8411214953271,
+        41.72897196261682
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 2,
+      "rect": [
+        983,
+        62,
+        231,
+        211
+      ],
+      "drawn": [
+        264.7570093457944,
+        143.13084112149534,
+        41.018691588785046,
+        37.467289719626166
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "move",
+      "index": 3,
+      "rect": [
+        44,
+        375,
+        228,
+        211
+      ],
+      "drawn": [
+        264.93457943925233,
+        143.04205607476635,
+        40.48598130841121,
+        37.467289719626166
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "attack",
+      "index": 0,
+      "rect": [
+        356,
+        363,
+        230,
+        228
+      ],
+      "drawn": [
+        264.6682242990654,
+        140.91121495327104,
+        40.8411214953271,
+        40.48598130841121
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "hit",
+      "index": 0,
+      "rect": [
+        669,
+        369,
+        233,
+        218
+      ],
+      "drawn": [
+        264.6682242990654,
+        141.97663551401868,
+        41.373831775700936,
+        38.71028037383177
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "hit",
+      "index": 1,
+      "rect": [
+        983,
+        364,
+        230,
+        223
+      ],
+      "drawn": [
+        264.7570093457944,
+        141.08878504672896,
+        40.8411214953271,
+        39.598130841121495
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 0,
+      "rect": [
+        42,
+        680,
+        237,
+        212
+      ],
+      "drawn": [
+        264.57943925233644,
+        141.6214953271028,
+        42.08411214953271,
+        37.64485981308411
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 1,
+      "rect": [
+        367,
+        686,
+        217,
+        199
+      ],
+      "drawn": [
+        266.6214953271028,
+        142.68691588785046,
+        38.53271028037383,
+        35.336448598130836
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 2,
+      "rect": [
+        684,
+        706,
+        195,
+        171
+      ],
+      "drawn": [
+        267.3317757009346,
+        146.23831775700936,
+        34.626168224299064,
+        30.36448598130841
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "ember_bean",
+      "state": "defeat",
+      "index": 3,
+      "rect": [
+        1021,
+        731,
+        153,
+        134
+      ],
+      "drawn": [
+        271.50467289719626,
+        150.67757009345794,
+        27.168224299065418,
+        23.794392523364486
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        58,
+        34,
+        206,
+        266
+      ],
+      "drawn": [
+        262.11578947368423,
+        132.81052631578947,
+        45.536842105263155,
+        58.8
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 0,
+      "rect": [
+        371,
+        35,
+        206,
+        265
+      ],
+      "drawn": [
+        263.0052631578947,
+        133.03157894736842,
+        45.536842105263155,
+        58.57894736842105
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 1,
+      "rect": [
+        681,
+        34,
+        203,
+        266
+      ],
+      "drawn": [
+        262.3421052631579,
+        132.81052631578947,
+        44.873684210526314,
+        58.8
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 2,
+      "rect": [
+        995,
+        35,
+        201,
+        265
+      ],
+      "drawn": [
+        262.4526315789474,
+        133.03157894736842,
+        44.43157894736842,
+        58.57894736842105
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "move",
+      "index": 3,
+      "rect": [
+        58,
+        348,
+        205,
+        266
+      ],
+      "drawn": [
+        263.11578947368423,
+        132.92105263157896,
+        45.31578947368421,
+        58.8
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "attack",
+      "index": 0,
+      "rect": [
+        372,
+        348,
+        205,
+        266
+      ],
+      "drawn": [
+        263.2263157894737,
+        132.92105263157896,
+        45.31578947368421,
+        58.8
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "hit",
+      "index": 0,
+      "rect": [
+        680,
+        351,
+        209,
+        263
+      ],
+      "drawn": [
+        262.12105263157895,
+        133.5842105263158,
+        46.199999999999996,
+        58.136842105263156
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "hit",
+      "index": 1,
+      "rect": [
+        995,
+        348,
+        206,
+        268
+      ],
+      "drawn": [
+        262.4526315789474,
+        132.92105263157896,
+        45.536842105263155,
+        59.242105263157896
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 0,
+      "rect": [
+        50,
+        662,
+        226,
+        264
+      ],
+      "drawn": [
+        261.34736842105264,
+        133.1421052631579,
+        49.95789473684211,
+        58.357894736842105
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 1,
+      "rect": [
+        362,
+        685,
+        217,
+        214
+      ],
+      "drawn": [
+        261.0157894736842,
+        138.2263157894737,
+        47.96842105263158,
+        47.305263157894736
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 2,
+      "rect": [
+        679,
+        691,
+        212,
+        191
+      ],
+      "drawn": [
+        261.9,
+        139.55263157894737,
+        46.863157894736844,
+        42.22105263157895
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "lava_lizard",
+      "state": "defeat",
+      "index": 3,
+      "rect": [
+        1011,
+        719,
+        175,
+        153
+      ],
+      "drawn": [
+        265.9894736842105,
+        145.7421052631579,
+        38.68421052631579,
+        33.821052631578944
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        50,
+        116,
+        214,
+        122
+      ],
+      "drawn": [
+        254.8181818181818,
+        148.8181818181818,
+        58.36363636363636,
+        33.27272727272727
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 0,
+      "rect": [
+        361,
+        114,
+        213,
+        123
+      ],
+      "drawn": [
+        255.13636363636363,
+        148.27272727272728,
+        58.090909090909086,
+        33.54545454545454
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 1,
+      "rect": [
+        676,
+        119,
+        208,
+        118
+      ],
+      "drawn": [
+        255.6818181818182,
+        149.63636363636363,
+        56.72727272727272,
+        32.18181818181818
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 2,
+      "rect": [
+        992,
+        128,
+        200,
+        110
+      ],
+      "drawn": [
+        256.3636363636364,
+        152.0909090909091,
+        54.54545454545454,
+        29.999999999999996
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "move",
+      "index": 3,
+      "rect": [
+        51,
+        424,
+        214,
+        125
+      ],
+      "drawn": [
+        256.0909090909091,
+        147.3181818181818,
+        58.36363636363636,
+        34.090909090909086
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "attack",
+      "index": 0,
+      "rect": [
+        362,
+        427,
+        214,
+        136
+      ],
+      "drawn": [
+        255.4090909090909,
+        148.13636363636363,
+        58.36363636363636,
+        37.090909090909086
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "hit",
+      "index": 0,
+      "rect": [
+        675,
+        437,
+        210,
+        122
+      ],
+      "drawn": [
+        255.4090909090909,
+        150.86363636363637,
+        57.272727272727266,
+        33.27272727272727
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "hit",
+      "index": 1,
+      "rect": [
+        988,
+        424,
+        211,
+        125
+      ],
+      "drawn": [
+        255.27272727272728,
+        147.3181818181818,
+        57.54545454545454,
+        34.090909090909086
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 0,
+      "rect": [
+        52,
+        705,
+        211,
+        167
+      ],
+      "drawn": [
+        256.3636363636364,
+        138.5909090909091,
+        57.54545454545454,
+        45.54545454545454
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 1,
+      "rect": [
+        397,
+        719,
+        139,
+        140
+      ],
+      "drawn": [
+        264.95454545454544,
+        142.4090909090909,
+        37.90909090909091,
+        38.18181818181818
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 2,
+      "rect": [
+        705,
+        731,
+        139,
+        124
+      ],
+      "drawn": [
+        263.5909090909091,
+        145.6818181818182,
+        37.90909090909091,
+        33.81818181818181
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "volcano_bat",
+      "state": "defeat",
+      "index": 3,
+      "rect": [
+        1038,
+        750,
+        122,
+        99
+      ],
+      "drawn": [
+        268.90909090909093,
+        150.86363636363637,
+        33.27272727272727,
+        26.999999999999996
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        49,
+        52,
+        245,
+        235
+      ],
+      "drawn": [
+        252.97379912663757,
+        130.24017467248908,
+        62.05240174672488,
+        59.51965065502183
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 0,
+      "rect": [
+        346,
+        54,
+        252,
+        238
+      ],
+      "drawn": [
+        253.0873362445415,
+        129.86026200873363,
+        63.82532751091703,
+        60.279475982532745
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 1,
+      "rect": [
+        662,
+        54,
+        245,
+        234
+      ],
+      "drawn": [
+        253.97379912663757,
+        130.36681222707423,
+        62.05240174672488,
+        59.266375545851524
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 2,
+      "rect": [
+        974,
+        55,
+        248,
+        235
+      ],
+      "drawn": [
+        253.5938864628821,
+        130.24017467248908,
+        62.8122270742358,
+        59.51965065502183
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "move",
+      "index": 3,
+      "rect": [
+        49,
+        349,
+        244,
+        236
+      ],
+      "drawn": [
+        254.1004366812227,
+        130.11353711790395,
+        61.79912663755458,
+        59.77292576419214
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "attack",
+      "index": 0,
+      "rect": [
+        354,
+        348,
+        251,
+        240
+      ],
+      "drawn": [
+        253.21397379912665,
+        129.6069868995633,
+        63.57205240174672,
+        60.78602620087336
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "hit",
+      "index": 0,
+      "rect": [
+        665,
+        359,
+        240,
+        221
+      ],
+      "drawn": [
+        254.6069868995633,
+        132.0131004366812,
+        60.78602620087336,
+        55.97379912663755
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "hit",
+      "index": 1,
+      "rect": [
+        973,
+        351,
+        249,
+        233
+      ],
+      "drawn": [
+        253.46724890829694,
+        130.4934497816594,
+        63.06550218340611,
+        59.01310043668122
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 0,
+      "rect": [
+        46,
+        661,
+        240,
+        227
+      ],
+      "drawn": [
+        254.6069868995633,
+        131.25327510917032,
+        60.78602620087336,
+        57.493449781659386
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 1,
+      "rect": [
+        374,
+        675,
+        205,
+        202
+      ],
+      "drawn": [
+        259.0393013100437,
+        134.41921397379912,
+        51.92139737991266,
+        51.161572052401745
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 2,
+      "rect": [
+        690,
+        687,
+        190,
+        171
+      ],
+      "drawn": [
+        260.93886462882097,
+        138.34497816593887,
+        48.122270742358076,
+        43.31004366812227
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_beetle",
+      "state": "defeat",
+      "index": 3,
+      "rect": [
+        1016,
+        691,
+        163,
+        148
+      ],
+      "drawn": [
+        264.3580786026201,
+        141.25764192139738,
+        41.28384279475982,
+        37.484716157205234
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        58,
+        34,
+        195,
+        215
+      ],
+      "drawn": [
+        211.731843575419,
+        81.83240223463687,
+        143.79888268156424,
+        158.54748603351956
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 1,
+      "rect": [
+        298,
+        29,
+        196,
+        220
+      ],
+      "drawn": [
+        214.68156424581005,
+        78.14525139664805,
+        144.53631284916202,
+        162.23463687150837
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 2,
+      "rect": [
+        532,
+        30,
+        198,
+        220
+      ],
+      "drawn": [
+        213.20670391061452,
+        78.88268156424581,
+        146.01117318435755,
+        162.23463687150837
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "idle",
+      "index": 3,
+      "rect": [
+        767,
+        34,
+        201,
+        216
+      ],
+      "drawn": [
+        209.51955307262568,
+        81.83240223463687,
+        148.22346368715083,
+        159.2849162011173
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 0,
+      "rect": [
+        1003,
+        30,
+        197,
+        220
+      ],
+      "drawn": [
+        213.46927374301674,
+        78.88268156424581,
+        145.27374301675977,
+        162.23463687150837
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 1,
+      "rect": [
+        58,
+        269,
+        197,
+        218
+      ],
+      "drawn": [
+        212.731843575419,
+        81.09497206703911,
+        145.27374301675977,
+        160.75977653631284
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 2,
+      "rect": [
+        295,
+        267,
+        200,
+        220
+      ],
+      "drawn": [
+        213.46927374301674,
+        79.62011173184358,
+        147.48603351955308,
+        162.23463687150837
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 3,
+      "rect": [
+        529,
+        269,
+        201,
+        218
+      ],
+      "drawn": [
+        211.99441340782124,
+        81.09497206703911,
+        148.22346368715083,
+        160.75977653631284
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 4,
+      "rect": [
+        765,
+        272,
+        202,
+        215
+      ],
+      "drawn": [
+        209.04469273743018,
+        83.3072625698324,
+        148.9608938547486,
+        158.54748603351956
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "move",
+      "index": 5,
+      "rect": [
+        1001,
+        273,
+        202,
+        213
+      ],
+      "drawn": [
+        211.99441340782124,
+        84.04469273743017,
+        148.9608938547486,
+        157.07262569832403
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 0,
+      "rect": [
+        57,
+        509,
+        198,
+        213
+      ],
+      "drawn": [
+        211.99441340782124,
+        83.3072625698324,
+        146.01117318435755,
+        157.07262569832403
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 1,
+      "rect": [
+        294,
+        509,
+        198,
+        214
+      ],
+      "drawn": [
+        212.731843575419,
+        83.3072625698324,
+        146.01117318435755,
+        157.81005586592178
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 2,
+      "rect": [
+        529,
+        509,
+        199,
+        214
+      ],
+      "drawn": [
+        211.99441340782124,
+        83.3072625698324,
+        146.7486033519553,
+        157.81005586592178
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "attack",
+      "index": 3,
+      "rect": [
+        765,
+        513,
+        198,
+        210
+      ],
+      "drawn": [
+        209.04469273743018,
+        86.25698324022346,
+        146.01117318435755,
+        154.86033519553072
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 0,
+      "rect": [
+        1001,
+        518,
+        199,
+        205
+      ],
+      "drawn": [
+        211.99441340782124,
+        89.94413407821229,
+        146.7486033519553,
+        151.1731843575419
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 1,
+      "rect": [
+        58,
+        748,
+        197,
+        209
+      ],
+      "drawn": [
+        212.731843575419,
+        84.04469273743017,
+        145.27374301675977,
+        154.12290502793297
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "hit",
+      "index": 2,
+      "rect": [
+        295,
+        749,
+        197,
+        208
+      ],
+      "drawn": [
+        213.46927374301674,
+        84.78212290502793,
+        145.27374301675977,
+        153.3854748603352
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 0,
+      "rect": [
+        530,
+        749,
+        198,
+        208
+      ],
+      "drawn": [
+        212.731843575419,
+        84.78212290502793,
+        146.01117318435755,
+        153.3854748603352
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 1,
+      "rect": [
+        765,
+        749,
+        197,
+        208
+      ],
+      "drawn": [
+        209.04469273743018,
+        84.78212290502793,
+        145.27374301675977,
+        153.3854748603352
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 2,
+      "rect": [
+        1002,
+        750,
+        197,
+        207
+      ],
+      "drawn": [
+        212.731843575419,
+        85.5195530726257,
+        145.27374301675977,
+        152.64804469273744
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    },
+    {
+      "id": "magma_dragon",
+      "state": "defeat",
+      "index": 3,
+      "rect": [
+        59,
+        986,
+        196,
+        209
+      ],
+      "drawn": [
+        213.46927374301674,
+        82.56983240223464,
+        144.53631284916202,
+        154.12290502793297
+      ],
+      "exactSourcePixels": true,
+      "aspectPreserved": true
+    }
+  ],
+  "cache": {
+    "clock": 2.5466009999999994,
+    "actors": [],
+    "ghosts": [
+      {
+        "id": "magma_dragon",
+        "x": 285,
+        "y": 160,
+        "at": 1.7500000000000004,
+        "pose": {
+          "id": "magma_dragon",
+          "name": "defeat",
+          "index": 3,
+          "rect": [
+            59,
+            986,
+            196,
+            209
+          ],
+          "source": [
+            63,
+            55,
+            196,
+            209
+          ],
+          "cell": [
+            320,
+            320
+          ]
+        }
+      }
+    ],
+    "advancing": false,
+    "cachedFrames": 69,
+    "cachedPixels": 2954690
+  },
+  "finale": {
+    "before": {
+      "started": true,
+      "score": 2000,
+      "advance": true,
+      "rewards": 1
+    },
+    "during": true,
+    "after": {
+      "started": false,
+      "score": 2000,
+      "rewards": 1,
+      "art": {
+        "clock": 0,
+        "actors": [],
+        "ghosts": [],
+        "advancing": false,
+        "cachedFrames": 69,
+        "cachedPixels": 2954690
+      },
+      "heading": "🧪 지역 테스트 완료! · 탱코 · 2,000점",
+      "bullets": 0,
+      "enemy": 0,
+      "particles": 0
+    }
+  },
+  "continuation": {
+    "before": {
+      "stage": 4,
+      "phase": 5,
+      "started": true,
+      "advance": true
+    },
+    "after": {
+      "stage": 5,
+      "phase": 1,
+      "started": true,
+      "snowFinale": {
+        "active": false,
+        "pending": false
+      },
+      "volcano": {
+        "clock": 0,
+        "actors": [],
+        "ghosts": [],
+        "advancing": false,
+        "cachedFrames": 69,
+        "cachedPixels": 2954690
+      }
+    }
+  },
+  "page_errors": [],
+  "native_dialogs": [],
+  "failed_requests": [],
+  "offline_external_requests": [],
+  "all_passed": true
+}

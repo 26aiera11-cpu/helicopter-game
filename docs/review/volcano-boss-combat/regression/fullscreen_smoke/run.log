@@ -1,0 +1,7 @@
+PASS: Selection screen provides a small fullscreen control and does not request fullscreen automatically.
+PASS: A real touch gesture enters native document-element fullscreen from the selection screen.
+PASS: Character selection and game start retain fullscreen; touch rotation/fire work and the fullscreen control does not overlap HUD/exit controls.
+PASS: Exit/re-enter fullscreen during play preserves the game; returning to selection keeps fullscreen; the selection control exits it normally.
+PASS: Four landscape aspect ratios retain controls, panel fit and selection effects in fullscreen; portrait rotation notice remains intact.
+PASS: Simulated unsupported and rejected API paths allow normal-screen game start/return without crashes or automatic retry loops.
+PASS: No uncaught JavaScript errors; no browser policy, security flags or fullscreen permissions were bypassed.

@@ -1,0 +1,8 @@
+PASS: Exact art-only hooks reverse to0cbfe82; every earlier image/audio/input/score/item/combat asset is byte-identical and all JS syntax passes.
+PASS: Approved1920×864 background hash matches Issue6; all5 RGBA atlases have their distinct manifest cells, transparent padding and115 nonempty, in-bounds frames.
+PASS: Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/snowfield_art.py", line 112, in <module>
+    if step<5:assert abs(row['speed']-[32.3,36.1,28.5,20.9][step-1])<1e-8
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

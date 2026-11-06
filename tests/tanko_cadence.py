@@ -1,3 +1,6 @@
+from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_source, without_world_ui
+from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
+from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
 from selection_bgm_preservation import BGM_ASSET,assert_selection_bgm_asset,without_selection_bgm_changes
 """Exact type-specific interval, first-trigger preservation and native-timestep counts."""
@@ -11,6 +14,12 @@ root=Path(__file__).resolve().parents[1];p=argparse.ArgumentParser();p.add_argum
 baseline='f622f3f9c8e82f390b40883abd1abd8f6b9e7f71';before=subprocess.check_output(['git','show',baseline+':index.html'],cwd=root).decode();after=(root/'index.html').read_text()
 assert without_tanko_cadence_changes(after)==before
 for path in (root/'assets').rglob('*'):
+ if path.is_file() and str(path.relative_to(root)) in WORLD_ASSETS:
+     assert_world_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)) in CONTROLS_ASSETS:
+     assert_controls_asset(path);continue
+ if path.is_file() and str(path.relative_to(root)).startswith('assets/item_monster/'):
+  assert_item_asset(path);continue
  if str(path.relative_to(root)) in SCORE_ASSETS:
   assert_scoring_asset(path);continue
  if str(path.relative_to(root))==BGM_ASSET:

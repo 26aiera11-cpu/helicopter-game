@@ -1,0 +1,23 @@
+PASS: Seven exact control/help deltas and one exit-input reset reverse to the latest remote baseline; sensor/flight/attack, item manager, images, scores and audio stay byte-identical; syntax passes.
+PASS: Old rotation buttons are removed; one labelled horizontal slider appears only in play and retains the existing fire/sensor controls.
+PASS: Center and jitter inside the8% dead zone produce zero rotation input.
+PASS: Real touch positions yield signed, smoothly remapped analog speeds; all3 full-deflection rates exactly match baseline3.05/2.7/2.35rad/s.
+PASS: Overflow beyond the track inside the control clamps to1 and keeps the round knob within its track limits.
+PASS: Release springs only the knob to center and leaves helicopter heading unchanged.
+PASS: Leaving the joystick bounds ends ownership and clears rotation even before finger release outside.
+PASS: Native touchCancel and actual lost pointer capture both reset rotation without a held input.
+PASS: A second joystick finger cannot steal or release the first pointer owner.
+PASS: Fire also has one pointer owner; releasing another finger never stops the held shot control.
+PASS: Native three-finger drag+rotation+fire moves, rotates and shoots together; unrelated fingers/releases never overwrite auxiliary movement or other owners.
+PASS: All36 character/orientation/sample sensor mappings, gravity fallback and actual acceleration velocities exactly match the old browser page.
+PASS: Existing sensor activation/permission path plus orientation events drives movement while separate joystick/fire fingers rotate and shoot; their releases do not clear sensor tilt.
+PASS: Denied permission or absent sensor interfaces leaves the original no-signal/drag fallback usable; canvas cancellation clears only its own drag.
+PASS: Window blur resets held inputs without changing sensor calibration, flight constants or character heading.
+PASS: Game-only contextmenu/selectstart are cancelled and CSS disables selection/callout; native right-click/long-touch leaves no text selection, while real inputs/ranking stay outside the event guard.
+PASS: Fatal health immediately clears joystick/fire/drag, game-over text cannot select, and the existing3-second selection return completes.
+PASS: Exit modal resets held joystick before pausing; Continue and selection return buttons work with native fullscreen preserved.
+PASS: Existing final-clear return also clears joystick ownership and preserves the original result flow.
+PASS: TOP10 opens/closes and scrolls by an actual touch swipe; the new event guard/CSS does not consume ranking gestures or leak them to gameplay.
+PASS: 915×412,800×360,568×320 screenshots show the blue horizontal control/round thumb without overlap with fire or HUD; source selection and art stay unchanged.
+PASS: Focusable slider exposes direction/value text and supports momentary keyboard rotation with a separate visible focus marker.
+PASS: No uncaught errors, native dialogs or failed assets; standalone controls work offline with zero external requests.

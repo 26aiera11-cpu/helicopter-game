@@ -1,0 +1,4930 @@
+{
+  "baseline": "0cbfe8205a761890a17b0cb9b77d161f2a283395",
+  "standalone": false,
+  "passed": [
+    "Exact art-only hooks reverse to0cbfe82; every earlier image/audio/input/score/item/combat asset is byte-identical and all JS syntax passes.",
+    "Approved1920×864 background hash matches Issue6; all5 RGBA atlases have their distinct manifest cells, transparent padding and115 nonempty, in-bounds frames.",
+    "Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.",
+    "Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.",
+    "All115 supplied frames are selected through the runtime renderer with exact manifest source rectangles/counts/times and equal X/Y scaling; no adjacent-cell bleed, rotation or square distortion.",
+    "Actual slime pursuit at34.238px/s changes idle to move and advances its frame; HP1 and the original collider remain exact.",
+    "Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while using the Issue9 boss3-shot fan at80px/s after its1.8s delay.",
+    "A real nonlethal boss collision removes exactly1HP, awards no kill points and plays all3 hit frames; hit has priority over attack/movement.",
+    "HP1 normal kill immediately removes collision/awards100+phase500, then a visual-only3-frame hit→6-frame defeat survives the phase change with the original species and cannot duplicate score or corpses.",
+    "At both viewport corners every complete cell stays visible; visual offsets do not move or resize original enemy/boss colliders.",
+    "Three landscape sizes use exactly one static1920×864 cover draw, unchanged by scroll: no repeated seam, no nonuniform scale or excessive zoom; all5 phase screenshots are saved.",
+    "All4 World1 normal scenes and4 boss scenes render byte-identical canvas PNGs to0cbfe82, proving old backgrounds/sprites/character drawing are unchanged.",
+    "Actual before/after snow normal/boss PNGs are captured at all3 landscape sizes from the baseline and new engine; no images are edited or composited.",
+    "Existing in-page exit modal freezes animation clock/frames exactly and preserves fullscreen; Continue resumes the same entities without resetting their poses.",
+    "Game over still freezes immediately for3s, returns to clean selection and resets all art state; no animation continues behind the death overlay.",
+    "Real boss death awards/saves clear immediately once, removes combat, shows visual-only330ms hit+720ms defeat, then reveals the existing trial-clear selection with identical score/fullscreen.",
+    "A defensive restart during the art outro cancels it synchronously; no stale timer/class/corpse can cover or terminate the new game.",
+    "Snow still uses the original forest BGM with increasing native playback time and one looping track; art adds no Audio objects, music files or control buttons.",
+    "No uncaught JS errors/native dialogs/failed resources/offline network requests occur across art, events, clear, pause, restart and reference comparisons."
+  ],
+  "limits": [
+    "Real Chromium canvas/pointer/fullscreen/media with controlled combat fixtures, not physical Galaxy/Samsung Internet or a manual difficulty playthrough.",
+    "The supplied atlas animations are prototypes; original PNG/manifest bytes are preserved. Boss HP/motion and BGM retain the forest trial profile; Issue9 attacks are tested separately; Issue8 normal-enemy behavior is tested in snowfield_combat.py.",
+    "Offline injects the exact one-file HTML into a blank origin with networking disabled; no managed file policy bypass.",
+    "PNG screenshots are actual browser captures; game state/animation time is controlled for comparisons, without image editing."
+  ],
+  "source_atlases": [
+    {
+      "id": "snow_slime",
+      "cell": [
+        256,
+        256
+      ],
+      "atlas": [
+        1536,
+        1280
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "frames": 23
+    },
+    {
+      "id": "penguin_raider",
+      "cell": [
+        256,
+        256
+      ],
+      "atlas": [
+        1536,
+        1280
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "frames": 23
+    },
+    {
+      "id": "ice_yeti",
+      "cell": [
+        320,
+        256
+      ],
+      "atlas": [
+        1920,
+        1280
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "frames": 23
+    },
+    {
+      "id": "frost_turtle",
+      "cell": [
+        320,
+        256
+      ],
+      "atlas": [
+        1920,
+        1280
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "frames": 23
+    },
+    {
+      "id": "blizzard_king",
+      "cell": [
+        448,
+        320
+      ],
+      "atlas": [
+        2688,
+        1600
+      ],
+      "alpha": [
+        0,
+        255
+      ],
+      "frames": 23
+    }
+  ],
+  "stage_mapping": [
+    {
+      "step": 1,
+      "pose": {
+        "id": "snow_slime",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          256,
+          256
+        ]
+      },
+      "hp": 1,
+      "r": 16,
+      "speed": 34.238,
+      "boss": false,
+      "profile": 0,
+      "name": "❄ 눈보라 거인왕 (시험)"
+    },
+    {
+      "step": 2,
+      "pose": {
+        "id": "penguin_raider",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          256,
+          256
+        ]
+      },
+      "hp": 2,
+      "r": 16,
+      "speed": 38.266000000000005,
+      "boss": false,
+      "profile": 0,
+      "name": "❄ 눈보라 거인왕 (시험)"
+    },
+    {
+      "step": 3,
+      "pose": {
+        "id": "ice_yeti",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          320,
+          256
+        ]
+      },
+      "hp": 2,
+      "r": 16,
+      "speed": 30.21,
+      "boss": false,
+      "profile": 0,
+      "name": "❄ 눈보라 거인왕 (시험)"
+    },
+    {
+      "step": 4,
+      "pose": {
+        "id": "frost_turtle",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          320,
+          256
+        ]
+      },
+      "hp": 3,
+      "r": 16,
+      "speed": 22.154000000000003,
+      "boss": false,
+      "profile": 0,
+      "name": "❄ 눈보라 거인왕 (시험)"
+    },
+    {
+      "step": 5,
+      "pose": {
+        "id": "blizzard_king",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          448,
+          320
+        ]
+      },
+      "hp": 20,
+      "r": 48,
+      "speed": null,
+      "boss": true,
+      "profile": 0,
+      "name": "❄ 눈보라 거인왕 (시험)"
+    }
+  ],
+  "actual_draw_frames": [
+    {
+      "id": "snow_slime",
+      "name": "idle",
+      "index": 0,
+      "selected": {
+        "id": "snow_slime",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          0,
+          0,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        0,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "idle",
+      "index": 1,
+      "selected": {
+        "id": "snow_slime",
+        "name": "idle",
+        "index": 1,
+        "rect": [
+          256,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          256,
+          0,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        256,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "idle",
+      "index": 2,
+      "selected": {
+        "id": "snow_slime",
+        "name": "idle",
+        "index": 2,
+        "rect": [
+          512,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          512,
+          0,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        512,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "idle",
+      "index": 3,
+      "selected": {
+        "id": "snow_slime",
+        "name": "idle",
+        "index": 3,
+        "rect": [
+          768,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          768,
+          0,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        768,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 0,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 0,
+        "rect": [
+          0,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          0,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        0,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 1,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 1,
+        "rect": [
+          256,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          256,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 2,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 2,
+        "rect": [
+          512,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          512,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        512,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 3,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 3,
+        "rect": [
+          768,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          768,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        768,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 4,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 4,
+        "rect": [
+          1024,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          1024,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        1024,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 5,
+      "selected": {
+        "id": "snow_slime",
+        "name": "move",
+        "index": 5,
+        "rect": [
+          1280,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          1280,
+          256,
+          256,
+          256,
+          393.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        1280,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "attack",
+      "index": 0,
+      "selected": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          0,
+          512,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        0,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "attack",
+      "index": 1,
+      "selected": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          256,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          256,
+          512,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        256,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "attack",
+      "index": 2,
+      "selected": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 2,
+        "rect": [
+          512,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          512,
+          512,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        512,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "attack",
+      "index": 3,
+      "selected": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 3,
+        "rect": [
+          768,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          768,
+          512,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        768,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "hit",
+      "index": 0,
+      "selected": {
+        "id": "snow_slime",
+        "name": "hit",
+        "index": 0,
+        "rect": [
+          0,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          0,
+          768,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        0,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "hit",
+      "index": 1,
+      "selected": {
+        "id": "snow_slime",
+        "name": "hit",
+        "index": 1,
+        "rect": [
+          256,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          256,
+          768,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        256,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "hit",
+      "index": 2,
+      "selected": {
+        "id": "snow_slime",
+        "name": "hit",
+        "index": 2,
+        "rect": [
+          512,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          512,
+          768,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        512,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 0,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          0,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        0,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 1,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 1,
+        "rect": [
+          256,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          256,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        256,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 2,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 2,
+        "rect": [
+          512,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          512,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        512,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 3,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 3,
+        "rect": [
+          768,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          768,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        768,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 4,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 4,
+        "rect": [
+          1024,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          1024,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        1024,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "snow_slime",
+      "name": "defeat",
+      "index": 5,
+      "selected": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 5,
+        "rect": [
+          1280,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-snow_slime-atlas",
+        "args": [
+          1280,
+          1024,
+          256,
+          256,
+          392.75,
+          154.04,
+          38,
+          38
+        ]
+      },
+      "expected": [
+        1280,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "idle",
+      "index": 0,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          0,
+          0,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        0,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "idle",
+      "index": 1,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "idle",
+        "index": 1,
+        "rect": [
+          256,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          256,
+          0,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        256,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "idle",
+      "index": 2,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "idle",
+        "index": 2,
+        "rect": [
+          512,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          512,
+          0,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        512,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "idle",
+      "index": 3,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "idle",
+        "index": 3,
+        "rect": [
+          768,
+          0,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          768,
+          0,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        768,
+        0,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 0,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 0,
+        "rect": [
+          0,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          0,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        0,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 1,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 1,
+        "rect": [
+          256,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          256,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 2,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 2,
+        "rect": [
+          512,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          512,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        512,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 3,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 3,
+        "rect": [
+          768,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          768,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        768,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 4,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 4,
+        "rect": [
+          1024,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          1024,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        1024,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "move",
+      "index": 5,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "move",
+        "index": 5,
+        "rect": [
+          1280,
+          256,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          1280,
+          256,
+          256,
+          256,
+          391.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        1280,
+        256,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "attack",
+      "index": 0,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          0,
+          512,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        0,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "attack",
+      "index": 1,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          256,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          256,
+          512,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        256,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "attack",
+      "index": 2,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 2,
+        "rect": [
+          512,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          512,
+          512,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        512,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "attack",
+      "index": 3,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 3,
+        "rect": [
+          768,
+          512,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          768,
+          512,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        768,
+        512,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "hit",
+      "index": 0,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "hit",
+        "index": 0,
+        "rect": [
+          0,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          0,
+          768,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        0,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "hit",
+      "index": 1,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "hit",
+        "index": 1,
+        "rect": [
+          256,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          256,
+          768,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        256,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "hit",
+      "index": 2,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "hit",
+        "index": 2,
+        "rect": [
+          512,
+          768,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          512,
+          768,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        512,
+        768,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 0,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          0,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        0,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 1,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 1,
+        "rect": [
+          256,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          256,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        256,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 2,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 2,
+        "rect": [
+          512,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          512,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        512,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 3,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 3,
+        "rect": [
+          768,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          768,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        768,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 4,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 4,
+        "rect": [
+          1024,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          1024,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        1024,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "penguin_raider",
+      "name": "defeat",
+      "index": 5,
+      "selected": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 5,
+        "rect": [
+          1280,
+          1024,
+          256,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-penguin_raider-atlas",
+        "args": [
+          1280,
+          1024,
+          256,
+          256,
+          390.75,
+          152.04,
+          42,
+          42
+        ]
+      },
+      "expected": [
+        1280,
+        1024,
+        256,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "idle",
+      "index": 0,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          0,
+          0,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        0,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "idle",
+      "index": 1,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "idle",
+        "index": 1,
+        "rect": [
+          320,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          320,
+          0,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        320,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "idle",
+      "index": 2,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "idle",
+        "index": 2,
+        "rect": [
+          640,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          640,
+          0,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        640,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "idle",
+      "index": 3,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "idle",
+        "index": 3,
+        "rect": [
+          960,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          960,
+          0,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        960,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 0,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 0,
+        "rect": [
+          0,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          0,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        0,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 1,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 1,
+        "rect": [
+          320,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          320,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        320,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 2,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 2,
+        "rect": [
+          640,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          640,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        640,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 3,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 3,
+        "rect": [
+          960,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          960,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        960,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 4,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 4,
+        "rect": [
+          1280,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          1280,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        1280,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "move",
+      "index": 5,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "move",
+        "index": 5,
+        "rect": [
+          1600,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          1600,
+          256,
+          320,
+          256,
+          385.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        1600,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "attack",
+      "index": 0,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          0,
+          512,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        0,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "attack",
+      "index": 1,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          320,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          320,
+          512,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        320,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "attack",
+      "index": 2,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 2,
+        "rect": [
+          640,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          640,
+          512,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        640,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "attack",
+      "index": 3,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 3,
+        "rect": [
+          960,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          960,
+          512,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        960,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "hit",
+      "index": 0,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "hit",
+        "index": 0,
+        "rect": [
+          0,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          0,
+          768,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        0,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "hit",
+      "index": 1,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "hit",
+        "index": 1,
+        "rect": [
+          320,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          320,
+          768,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        320,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "hit",
+      "index": 2,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "hit",
+        "index": 2,
+        "rect": [
+          640,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          640,
+          768,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        640,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 0,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          0,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        0,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 1,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 1,
+        "rect": [
+          320,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          320,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        320,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 2,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 2,
+        "rect": [
+          640,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          640,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        640,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 3,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 3,
+        "rect": [
+          960,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          960,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        960,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 4,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 4,
+        "rect": [
+          1280,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          1280,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        1280,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "ice_yeti",
+      "name": "defeat",
+      "index": 5,
+      "selected": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 5,
+        "rect": [
+          1600,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-ice_yeti-atlas",
+        "args": [
+          1600,
+          1024,
+          320,
+          256,
+          384.75,
+          151.44,
+          54,
+          43.2
+        ]
+      },
+      "expected": [
+        1600,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "idle",
+      "index": 0,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          0,
+          0,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        0,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "idle",
+      "index": 1,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "idle",
+        "index": 1,
+        "rect": [
+          320,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          320,
+          0,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        320,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "idle",
+      "index": 2,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "idle",
+        "index": 2,
+        "rect": [
+          640,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          640,
+          0,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        640,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "idle",
+      "index": 3,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "idle",
+        "index": 3,
+        "rect": [
+          960,
+          0,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          960,
+          0,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        960,
+        0,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 0,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 0,
+        "rect": [
+          0,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          0,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        0,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 1,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 1,
+        "rect": [
+          320,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          320,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        320,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 2,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 2,
+        "rect": [
+          640,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          640,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        640,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 3,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 3,
+        "rect": [
+          960,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          960,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        960,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 4,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 4,
+        "rect": [
+          1280,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          1280,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        1280,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "move",
+      "index": 5,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "move",
+        "index": 5,
+        "rect": [
+          1600,
+          256,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          1600,
+          256,
+          320,
+          256,
+          383.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        1600,
+        256,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "attack",
+      "index": 0,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          0,
+          512,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        0,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "attack",
+      "index": 1,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          320,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          320,
+          512,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        320,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "attack",
+      "index": 2,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 2,
+        "rect": [
+          640,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          640,
+          512,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        640,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "attack",
+      "index": 3,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 3,
+        "rect": [
+          960,
+          512,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          960,
+          512,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        960,
+        512,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "hit",
+      "index": 0,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "hit",
+        "index": 0,
+        "rect": [
+          0,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          0,
+          768,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        0,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "hit",
+      "index": 1,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "hit",
+        "index": 1,
+        "rect": [
+          320,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          320,
+          768,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        320,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "hit",
+      "index": 2,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "hit",
+        "index": 2,
+        "rect": [
+          640,
+          768,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          640,
+          768,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        640,
+        768,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 0,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          0,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        0,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 1,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 1,
+        "rect": [
+          320,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          320,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        320,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 2,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 2,
+        "rect": [
+          640,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          640,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        640,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 3,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 3,
+        "rect": [
+          960,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          960,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        960,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 4,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 4,
+        "rect": [
+          1280,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          1280,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        1280,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "frost_turtle",
+      "name": "defeat",
+      "index": 5,
+      "selected": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 5,
+        "rect": [
+          1600,
+          1024,
+          320,
+          256
+        ]
+      },
+      "call": {
+        "image": "snowfield-frost_turtle-atlas",
+        "args": [
+          1600,
+          1024,
+          320,
+          256,
+          382.75,
+          149.84,
+          58,
+          46.4
+        ]
+      },
+      "expected": [
+        1600,
+        1024,
+        320,
+        256
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "idle",
+      "index": 0,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "idle",
+        "index": 0,
+        "rect": [
+          0,
+          0,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          0,
+          0,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        0,
+        0,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "idle",
+      "index": 1,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "idle",
+        "index": 1,
+        "rect": [
+          448,
+          0,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          448,
+          0,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        448,
+        0,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "idle",
+      "index": 2,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "idle",
+        "index": 2,
+        "rect": [
+          896,
+          0,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          896,
+          0,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        896,
+        0,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "idle",
+      "index": 3,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "idle",
+        "index": 3,
+        "rect": [
+          1344,
+          0,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1344,
+          0,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1344,
+        0,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 0,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 0,
+        "rect": [
+          0,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          0,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        0,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 1,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 1,
+        "rect": [
+          448,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          448,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        448,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 2,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 2,
+        "rect": [
+          896,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          896,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        896,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 3,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 3,
+        "rect": [
+          1344,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1344,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1344,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 4,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 4,
+        "rect": [
+          1792,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1792,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1792,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "move",
+      "index": 5,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "move",
+        "index": 5,
+        "rect": [
+          2240,
+          320,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          2240,
+          320,
+          448,
+          320,
+          392.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        2240,
+        320,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "attack",
+      "index": 0,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          640,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          0,
+          640,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        0,
+        640,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "attack",
+      "index": 1,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          448,
+          640,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          448,
+          640,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        448,
+        640,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "attack",
+      "index": 2,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 2,
+        "rect": [
+          896,
+          640,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          896,
+          640,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        896,
+        640,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "attack",
+      "index": 3,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 3,
+        "rect": [
+          1344,
+          640,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1344,
+          640,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1344,
+        640,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 0,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "hit",
+        "index": 0,
+        "rect": [
+          0,
+          960,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          0,
+          960,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        0,
+        960,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 1,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "hit",
+        "index": 1,
+        "rect": [
+          448,
+          960,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          448,
+          960,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        448,
+        960,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 2,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "hit",
+        "index": 2,
+        "rect": [
+          896,
+          960,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          896,
+          960,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        896,
+        960,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 0,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          0,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        0,
+        1280,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 1,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 1,
+        "rect": [
+          448,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          448,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        448,
+        1280,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 2,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 2,
+        "rect": [
+          896,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          896,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        896,
+        1280,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 3,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 3,
+        "rect": [
+          1344,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1344,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1344,
+        1280,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 4,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 4,
+        "rect": [
+          1792,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          1792,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        1792,
+        1280,
+        448,
+        320
+      ]
+    },
+    {
+      "id": "blizzard_king",
+      "name": "defeat",
+      "index": 5,
+      "selected": {
+        "id": "blizzard_king",
+        "name": "defeat",
+        "index": 5,
+        "rect": [
+          2240,
+          1280,
+          448,
+          320
+        ]
+      },
+      "call": {
+        "image": "snowfield-blizzard_king-atlas",
+        "args": [
+          2240,
+          1280,
+          448,
+          320,
+          391.5,
+          64.09714285714287,
+          132,
+          94.28571428571429
+        ]
+      },
+      "expected": [
+        2240,
+        1280,
+        448,
+        320
+      ]
+    }
+  ],
+  "actual_movement": {
+    "before": {
+      "x": 411.75,
+      "y": 173.04
+    },
+    "after": {
+      "x": 415.84465410024484,
+      "y": 178.5711393091832
+    },
+    "moved": {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 0,
+      "rect": [
+        0,
+        256,
+        256,
+        256
+      ]
+    },
+    "frame": {
+      "id": "snow_slime",
+      "name": "move",
+      "index": 1,
+      "rect": [
+        256,
+        256,
+        256,
+        256
+      ]
+    },
+    "hp": 1,
+    "r": 16,
+    "speed": 34.238
+  },
+  "actual_attacks": [
+    {
+      "step": 1,
+      "start": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "after": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          256,
+          512,
+          256,
+          256
+        ]
+      },
+      "bullets": 1,
+      "speed": 85,
+      "interval": 4.780999999999999
+    },
+    {
+      "step": 2,
+      "start": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "after": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          256,
+          512,
+          256,
+          256
+        ]
+      },
+      "bullets": 1,
+      "speed": 85,
+      "interval": 3.964
+    },
+    {
+      "step": 3,
+      "start": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "after": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          320,
+          512,
+          320,
+          256
+        ]
+      },
+      "bullets": 1,
+      "speed": 76.5,
+      "interval": 5.597999999999999
+    },
+    {
+      "step": 4,
+      "start": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "after": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          320,
+          512,
+          320,
+          256
+        ]
+      },
+      "bullets": 1,
+      "speed": 85,
+      "interval": 6.006499999999999
+    },
+    {
+      "step": 5,
+      "start": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          640,
+          448,
+          320
+        ]
+      },
+      "after": {
+        "id": "blizzard_king",
+        "name": "attack",
+        "index": 1,
+        "rect": [
+          448,
+          640,
+          448,
+          320
+        ]
+      },
+      "bullets": 3,
+      "speed": 80,
+      "interval": -1.9210000000000014
+    }
+  ],
+  "actual_nonlethal_hit": {
+    "hp": 19,
+    "r": 48,
+    "first": {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 0,
+      "rect": [
+        0,
+        960,
+        448,
+        320
+      ]
+    },
+    "middle": {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 1,
+      "rect": [
+        448,
+        960,
+        448,
+        320
+      ]
+    },
+    "last": {
+      "id": "blizzard_king",
+      "name": "hit",
+      "index": 2,
+      "rect": [
+        896,
+        960,
+        448,
+        320
+      ]
+    },
+    "score": 0
+  },
+  "actual_fatal_hit": {
+    "atDeath": {
+      "phase": 2,
+      "phaseKills": 0,
+      "score": 600,
+      "remaining": 0,
+      "ghost": {
+        "id": "snow_slime",
+        "x": 411.75,
+        "y": 173.04,
+        "at": 0,
+        "pose": {
+          "id": "snow_slime",
+          "name": "hit",
+          "index": 0,
+          "rect": [
+            0,
+            768,
+            256,
+            256
+          ]
+        }
+      }
+    },
+    "count": 1,
+    "defeat": {
+      "id": "snow_slime",
+      "x": 411.75,
+      "y": 173.04,
+      "at": 0,
+      "pose": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      }
+    },
+    "ghosts": 0,
+    "score": 600,
+    "phase": 2,
+    "phaseKills": 0
+  },
+  "viewport_edge_cells": [
+    {
+      "step": 1,
+      "before": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "after": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        256,
+        256,
+        0,
+        0,
+        38,
+        38
+      ]
+    },
+    {
+      "step": 1,
+      "before": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "after": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        256,
+        256,
+        877,
+        374,
+        38,
+        38
+      ]
+    },
+    {
+      "step": 2,
+      "before": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "after": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        256,
+        256,
+        0,
+        0,
+        42,
+        42
+      ]
+    },
+    {
+      "step": 2,
+      "before": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "after": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        256,
+        256,
+        873,
+        370,
+        42,
+        42
+      ]
+    },
+    {
+      "step": 3,
+      "before": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "after": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        320,
+        256,
+        0,
+        0,
+        54,
+        43.2
+      ]
+    },
+    {
+      "step": 3,
+      "before": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "after": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        320,
+        256,
+        861,
+        368.79999999999995,
+        54,
+        43.2
+      ]
+    },
+    {
+      "step": 4,
+      "before": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "after": {
+        "x": 17,
+        "y": 18,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        320,
+        256,
+        0,
+        0,
+        58,
+        46.4
+      ]
+    },
+    {
+      "step": 4,
+      "before": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "after": {
+        "x": 898,
+        "y": 394,
+        "r": 16
+      },
+      "draw": [
+        0,
+        0,
+        320,
+        256,
+        857,
+        365.6,
+        58,
+        46.4
+      ]
+    },
+    {
+      "step": 5,
+      "before": {
+        "x": 17,
+        "y": 18,
+        "r": 48
+      },
+      "after": {
+        "x": 17,
+        "y": 18,
+        "r": 48
+      },
+      "draw": [
+        0,
+        0,
+        448,
+        320,
+        0,
+        0,
+        132,
+        94.28571428571429
+      ]
+    },
+    {
+      "step": 5,
+      "before": {
+        "x": 898,
+        "y": 394,
+        "r": 48
+      },
+      "after": {
+        "x": 898,
+        "y": 394,
+        "r": 48
+      },
+      "draw": [
+        0,
+        0,
+        448,
+        320,
+        783,
+        317.71428571428567,
+        132,
+        94.28571428571429
+      ]
+    }
+  ],
+  "backgrounds": [
+    {
+      "calls": [
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            -0.27777777777777146,
+            0,
+            915.5555555555555,
+            412
+          ]
+        },
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            -0.27777777777777146,
+            0,
+            915.5555555555555,
+            412
+          ]
+        }
+      ],
+      "actual": 1,
+      "geometry": {
+        "x": -0.27777777777777146,
+        "y": 0,
+        "w": 915.5555555555555,
+        "h": 412,
+        "scale": 0.47685185185185186
+      },
+      "size": [
+        915,
+        412
+      ],
+      "image": [
+        1920,
+        864
+      ]
+    },
+    {
+      "calls": [
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            0,
+            0,
+            800,
+            360
+          ]
+        },
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            0,
+            0,
+            800,
+            360
+          ]
+        }
+      ],
+      "actual": 1,
+      "geometry": {
+        "x": 0,
+        "y": 0,
+        "w": 800,
+        "h": 360,
+        "scale": 0.4166666666666667
+      },
+      "size": [
+        800,
+        360
+      ],
+      "image": [
+        1920,
+        864
+      ]
+    },
+    {
+      "calls": [
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            -71.55555555555554,
+            0,
+            711.1111111111111,
+            320
+          ]
+        },
+        {
+          "id": "snowfieldBackground",
+          "args": [
+            -71.55555555555554,
+            0,
+            711.1111111111111,
+            320
+          ]
+        }
+      ],
+      "actual": 1,
+      "geometry": {
+        "x": -71.55555555555554,
+        "y": 0,
+        "w": 711.1111111111111,
+        "h": 320,
+        "scale": 0.37037037037037035
+      },
+      "size": [
+        568,
+        320
+      ],
+      "image": [
+        1920,
+        864
+      ]
+    }
+  ],
+  "world1_exact_canvas_comparison": [
+    {
+      "region": 0,
+      "boss": false,
+      "canvas_sha256": "1fd63ac6ede59b425017665fe9ac1de663eb4e202b3bdba17107522f4d2b8011",
+      "pixel_equal": true
+    },
+    {
+      "region": 0,
+      "boss": true,
+      "canvas_sha256": "500ff577bd960470bc16e459bc940e64a9324449ef57bfbbcaa499bbcafef0ab",
+      "pixel_equal": true
+    },
+    {
+      "region": 1,
+      "boss": false,
+      "canvas_sha256": "f46c5841000d2e3291475fd07afd09ae86e83477b393623f1b5010114f06e8c0",
+      "pixel_equal": true
+    },
+    {
+      "region": 1,
+      "boss": true,
+      "canvas_sha256": "d4dc64330a3430bd3b165de28e56adfcc202416c04618dba65420be3df33793d",
+      "pixel_equal": true
+    },
+    {
+      "region": 2,
+      "boss": false,
+      "canvas_sha256": "9f3f6ecce4e0ab5da542877441b492d3a28cb77b8141ca09d99b49fa5aec1bd7",
+      "pixel_equal": true
+    },
+    {
+      "region": 2,
+      "boss": true,
+      "canvas_sha256": "28a0f4897ecdf92ed9d42f2b3d8fd1c1ef4797f6e216ba5ebdef5144b55afba3",
+      "pixel_equal": true
+    },
+    {
+      "region": 3,
+      "boss": false,
+      "canvas_sha256": "9e8b7ad6822310fd79433ab2bcc372af7f582b37b8cfd3e9645507256d5b0802",
+      "pixel_equal": true
+    },
+    {
+      "region": 3,
+      "boss": true,
+      "canvas_sha256": "435d65a16c010c61c4013455174e50b824a9e74344939c6c1b585274287a919a",
+      "pixel_equal": true
+    }
+  ],
+  "final_boss_result": {
+    "record": {
+      "id": "8cc12b8f-77ad-4dd6-a6f0-627491f4358d",
+      "score": 2000,
+      "characterId": 0,
+      "characterName": "뾰코",
+      "regionId": 4,
+      "regionName": "❄ 설원 (시험)",
+      "worldId": 1,
+      "worldName": "월드 2",
+      "regionKey": "world-2:snowfield",
+      "localRegionIndex": 0,
+      "trialMode": true,
+      "phase": 5,
+      "order": 70,
+      "createdAt": "2026-11-03T16:32:08.171Z",
+      "outcome": "clear",
+      "normalKills": 0,
+      "itemKills": 0,
+      "bossKills": 1,
+      "clearedPhases": 0,
+      "playTimeSeconds": 0,
+      "finalUpgrade": 1
+    },
+    "rank": 1,
+    "isTop10": true,
+    "saved": true
+  }
+}

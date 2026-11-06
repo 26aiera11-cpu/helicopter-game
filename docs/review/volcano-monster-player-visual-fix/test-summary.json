@@ -1,0 +1,620 @@
+{
+  "baseline": "5fe31bbbde7f9aa46d25aba03d64731485c2c70b",
+  "branch": "feature/volcano-monster-player-visual-fix",
+  "suite_count": 47,
+  "passed_suites": 47,
+  "passed_groups": 602,
+  "failed_suites": [],
+  "suites": [
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.44,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/game_over.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/game_over"
+      ]
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.28,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/selection_smoke"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 59.09,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/scoring.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/scoring"
+      ]
+    },
+    {
+      "suite": "snowfield_mixed-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 28.51,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_mixed-native"
+      ]
+    },
+    {
+      "suite": "snowfield_art",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.85,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_art"
+      ]
+    },
+    {
+      "suite": "snowfield_mixed-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 70.45,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_mixed-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.6,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/worlds.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/worlds"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 103.8,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 10.16,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/game_audit.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/game_audit"
+      ]
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 23.15,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/exit_dialog.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/exit_dialog"
+      ]
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.61,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_persistence.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/item_persistence"
+      ]
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 23.56,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/item_spawn_rules"
+      ]
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 79.94,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_art.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_art-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.26,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/boss_reward.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/boss_reward"
+      ]
+    },
+    {
+      "suite": "item_monsters",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 34.39,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_monsters.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/item_monsters"
+      ]
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 80.73,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/item_spawn_rules-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 213.36,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/worlds.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "item_monsters-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 61.0,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/item_monsters.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/item_monsters-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "tanko_cadence",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.1,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_cadence.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/tanko_cadence"
+      ]
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 82.78,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/tanko_combat"
+      ]
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 110.25,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/tanko_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/tanko_combat-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 14.65,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/fullscreen_smoke"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 108.2,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_bgm.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/selection_bgm"
+      ]
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 398.11,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/scoring.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/scoring-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 95.6,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/bgm_smoke.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/bgm_smoke"
+      ]
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 116.8,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/selection_bgm.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/selection_bgm-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 35.25,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/mobile_controls.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "joystick_design",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 36.56,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/joystick_design.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/joystick_design"
+      ]
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 70.95,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/mobile_controls.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/mobile_controls-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "joystick_design-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 69.75,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/joystick_design.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/joystick_design-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.15,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/developer_start.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 25.39,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 21.55,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_difficulty-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.31,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.09,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_combat.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_combat-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "snowfield_difficulty-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.95,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_difficulty-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 38.95,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/ppyoko_title.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/ppyoko_title-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 79.8,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/snowfield_boss.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/snowfield_boss-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_lifecycle",
+      "exit_code": 0,
+      "groups": 3,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.29,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_lifecycle.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/volcano_lifecycle"
+      ]
+    },
+    {
+      "suite": "volcano_fallback",
+      "exit_code": 0,
+      "groups": 2,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.09,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_fallback.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/volcano_fallback"
+      ]
+    },
+    {
+      "suite": "volcano_package",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 4.4,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/volcano_package.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/volcano_package"
+      ]
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 153.56,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/developer_start.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/developer_start-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 101.89,
+      "command": [
+        "python",
+        "/workspace/helicopter-game/tests/ppyoko_title.py",
+        "--artifacts",
+        "/workspace/helicopter-game/docs/review/volcano-monster-player-visual-fix/regression/ppyoko_title-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "report": "docs/review/volcano-monster-player-visual-fix/native/test-results.json"
+    },
+    {
+      "suite": "volcano_art-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "report": "docs/review/volcano-monster-player-visual-fix/offline/test-results.json"
+    },
+    {
+      "suite": "volcano_visual_fix-native",
+      "exit_code": 0,
+      "groups": 4,
+      "report": "docs/review/volcano-monster-player-visual-fix/visual-native/test-results.json"
+    },
+    {
+      "suite": "volcano_visual_fix-offline",
+      "exit_code": 0,
+      "groups": 4,
+      "report": "docs/review/volcano-monster-player-visual-fix/visual-offline/test-results.json"
+    }
+  ],
+  "execution": "Focused native/offline render checks, one full43 remaining-suite run with3 workers, and final player-specific native/offline checks. No duplicate full regression.",
+  "initial_probe_error": {
+    "included_in_pass_count": false,
+    "error": "4x4 DOMMatrix16 values were incorrectly sent to2D setTransform. Inspection canvas was blank.",
+    "correction": "Use six2D transform components; assert actual visible pixels; rerun only player-specific checks and review captures. Product renderer unchanged."
+  },
+  "known_limitations": [
+    "Physical Galaxy/Samsung Internet sensors, touch and performance untested.",
+    "Previous intermittent long-multitouch->Exit missing-click symptom did not occur in either current worlds suite; no input code changed and root cause not claimed solved.",
+    "Headless audio playback state is not speaker listening.",
+    "Art is reference-guided regeneration and subject to final visual review."
+  ]
+}

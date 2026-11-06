@@ -1,0 +1,14 @@
+PASS: The supplied990740-byte MP3 matches its exact hash; only reviewed audio routing/hidden source differ from dcd2fe2, all earlier assets/gameplay and12WAV bytes remain unchanged, and syntax passes.
+PASS: No music/play attempts occur before user interaction;13 native media elements load, and the supplied MP3 resolves at the GitHub Pages project-prefix path (or byte-identical offline data URL).
+PASS: A trusted first touch starts native MP3 playback at volume0.34; changing characters preserves the same element/play request and advancing clock without rewinding.
+PASS: Native loop crosses the file end without a paused state and its playback clock recovers within1s (measured in the report); online includes one full natural30.9s pass, offline tests the real end boundary. Musical seam quality still needs listening.
+PASS: SFX toggles leave selection music running; fullscreen/menu start stops and rewinds the MP3 before exactly one forest track starts, with native fullscreen retained.
+PASS: Zero HP immediately silences all game BGM; the existing3s overlay stays silent, then selection music returns with clean selection UI and the original ON setting.
+PASS: The unchanged exit dialog cancels back to game music or confirms back to selection music, keeping fullscreen and avoiding browser dialogs.
+PASS: Music OFF immediately stops both scene types and persists through new-game/game-over return; ON resumes the current selection using the existing button, without altering SFX.
+PASS: All four stage/boss themes keep their switches, existing music toggle selects the current boss theme, and final-clear UI/effects path is retained; final return starts selection music after game music stops.
+PASS: Twelve additional starts/returns across all characters reuse exactly13 media elements; synchronous play-call/event/frame monitoring detects no overlapping BGM or duplicate selection tracks.
+PASS: Three Galaxy landscape sizes retain the existing selection/fullscreen/touch layout and one music toggle; the hidden audio element adds no visible controls.
+PASS: A separately denied stage play stays silent without per-frame retries; the next real gameplay touch resumes the native stage track without overlapping selection music.
+PASS: A simulated rejected play promise is caught without unhandled errors, and a subsequent trusted click/touch retries native playback using the same audio element.
+PASS: No uncaught JavaScript errors, browser dialogs or external requests in standalone mode; online MP3 requests return200/206 under the project prefix.

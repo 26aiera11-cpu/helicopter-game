@@ -1,0 +1,4 @@
+PASS: Exact two-loader deltas and embedded manifest only; all character sources, render geometry, combat, controls, music and other assets byte-preserved.
+PASS: Four replacement PNGs decode/CRC/RGBA; other three species and background identical; all69 state counts and timing preserved.
+PASS: Three characters × three regions × eight directions: approved PNG source, exact layer pixels, alpha, dimensions, matrices and rotor pivot match; normal-loading baseline unchanged.
+PASS: Delayed legacy-load callbacks reproduce all three old sprite overwrites before; fixed loader retains all approved sources with no legacy Image requests.

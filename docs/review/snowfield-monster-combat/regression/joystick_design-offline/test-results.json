@@ -1,0 +1,1792 @@
+{
+  "baseline": "cb59d8e99dbc209045de2b9b59a05fbfcaf18e3f",
+  "standalone": true,
+  "passed": [
+    "Only one joystick position declaration changes; index, all JavaScript and every other style/resource exactly match the minimal joystick baseline.",
+    "All3 landscape sizes place the joystick exactly30px from left/22px from bottom without UI overlap;135–165×58,32px knob,44px touch area and.4/.7 opacity stay unchanged.",
+    "The entire control accepts touch; all44px square corners remain hittable at both ends/center, and native contacts outside the visible knob own the joystick without shrinking its usable range.",
+    "All12 region/viewport native scenes show distinct line/knob pixels through the translucent control with exact zero change in the empty panel corner; pressed/released opacity and endpoints work.",
+    "Unedited before/after native screenshots are saved; current web/offline game has no JS errors, failed assets or offline HTTP requests."
+  ],
+  "limits": [
+    "Native Chromium/mobile touch emulation, not physical Galaxy/Samsung Internet or outdoor display visibility.",
+    "Backdrop scenes use a frozen native game frame; screenshots are not image edits.",
+    "Standalone injects the actual embedded HTML offline; no managed file:// policy bypass."
+  ],
+  "layouts_and_backdrops": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "region": "forest",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "knob": {
+          "x": 96.34375,
+          "y": 345,
+          "width": 32,
+          "height": 32,
+          "top": 345,
+          "right": 128.34375,
+          "bottom": 377,
+          "left": 96.34375
+        },
+        "travel": 60.34375,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 815,
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 45.965,
+      "knob_rgb_difference": 43.0
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "region": "rock",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "knob": {
+          "x": 96.34375,
+          "y": 345,
+          "width": 32,
+          "height": 32,
+          "top": 345,
+          "right": 128.34375,
+          "bottom": 377,
+          "left": 96.34375
+        },
+        "travel": 60.34375,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 815,
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 33.386,
+      "knob_rgb_difference": 36.333
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "region": "sea",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "knob": {
+          "x": 96.34375,
+          "y": 345,
+          "width": 32,
+          "height": 32,
+          "top": 345,
+          "right": 128.34375,
+          "bottom": 377,
+          "left": 96.34375
+        },
+        "travel": 60.34375,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 815,
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 66.035,
+      "knob_rgb_difference": 48.667
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "region": "desert",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "knob": {
+          "x": 96.34375,
+          "y": 345,
+          "width": 32,
+          "height": 32,
+          "top": 345,
+          "right": 128.34375,
+          "bottom": 377,
+          "left": 96.34375
+        },
+        "travel": 60.34375,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 815,
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 43.175,
+      "knob_rgb_difference": 46.333
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "region": "forest",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "knob": {
+          "x": 86,
+          "y": 293,
+          "width": 32,
+          "height": 32,
+          "top": 293,
+          "right": 118,
+          "bottom": 325,
+          "left": 86
+        },
+        "travel": 50,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 700,
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 45.095,
+      "knob_rgb_difference": 48.0
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "region": "rock",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "knob": {
+          "x": 86,
+          "y": 293,
+          "width": 32,
+          "height": 32,
+          "top": 293,
+          "right": 118,
+          "bottom": 325,
+          "left": 86
+        },
+        "travel": 50,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 700,
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 34.095,
+      "knob_rgb_difference": 28.0
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "region": "sea",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "knob": {
+          "x": 86,
+          "y": 293,
+          "width": 32,
+          "height": 32,
+          "top": 293,
+          "right": 118,
+          "bottom": 325,
+          "left": 86
+        },
+        "travel": 50,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 700,
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 69.238,
+      "knob_rgb_difference": 26.333
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "region": "desert",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "knob": {
+          "x": 86,
+          "y": 293,
+          "width": 32,
+          "height": 32,
+          "top": 293,
+          "right": 118,
+          "bottom": 325,
+          "left": 86
+        },
+        "travel": 50,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 700,
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 41.726,
+      "knob_rgb_difference": 33.333
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "region": "forest",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "knob": {
+          "x": 81.5,
+          "y": 253,
+          "width": 32,
+          "height": 32,
+          "top": 253,
+          "right": 113.5,
+          "bottom": 285,
+          "left": 81.5
+        },
+        "travel": 45.5,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 468,
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 68.944,
+      "knob_rgb_difference": 10.0
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "region": "rock",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "knob": {
+          "x": 81.5,
+          "y": 253,
+          "width": 32,
+          "height": 32,
+          "top": 253,
+          "right": 113.5,
+          "bottom": 285,
+          "left": 81.5
+        },
+        "travel": 45.5,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 468,
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 64.403,
+      "knob_rgb_difference": 43.0
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "region": "sea",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "knob": {
+          "x": 81.5,
+          "y": 253,
+          "width": 32,
+          "height": 32,
+          "top": 253,
+          "right": 113.5,
+          "bottom": 285,
+          "left": 81.5
+        },
+        "travel": 45.5,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 468,
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 52.542,
+      "knob_rgb_difference": 20.667
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "region": "desert",
+      "idle": {
+        "rect": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "knob": {
+          "x": 81.5,
+          "y": 253,
+          "width": 32,
+          "height": 32,
+          "top": 253,
+          "right": 113.5,
+          "bottom": 285,
+          "left": 81.5
+        },
+        "travel": 45.5,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 468,
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "held_opacity": 0.7,
+      "uncovered_corner_rgb_difference": 0.0,
+      "track_rgb_difference": 69.944,
+      "knob_rgb_difference": 52.667
+    }
+  ],
+  "touch_halos": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "raw": -1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "raw": 0,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "raw": 1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "raw": -1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "raw": 0,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "raw": 1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "raw": -1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "raw": 0,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "raw": 1,
+      "all_44px_corners_hit": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "outside_visible_circle_contact": true
+    }
+  ],
+  "position_comparisons": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "before": {
+        "rect": {
+          "x": 15,
+          "y": 344,
+          "width": 164.6875,
+          "height": 58,
+          "top": 344,
+          "right": 179.6875,
+          "bottom": 402,
+          "left": 15
+        },
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "after": {
+        "rect": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "knob": {
+          "x": 96.34375,
+          "y": 345,
+          "width": 32,
+          "height": 32,
+          "top": 345,
+          "right": 128.34375,
+          "bottom": 377,
+          "left": 96.34375
+        },
+        "travel": 60.34375,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 815,
+        "otherUI": {
+          "fire": {
+            "x": 815,
+            "y": 317,
+            "width": 85,
+            "height": 85,
+            "top": 317,
+            "right": 900,
+            "bottom": 402,
+            "left": 815
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 705,
+            "height": 17.5,
+            "top": 10,
+            "right": 715,
+            "bottom": 27.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 832.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 905,
+            "bottom": 65,
+            "left": 832.671875
+          },
+          "exitGame": {
+            "x": 833.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 905,
+            "bottom": 40,
+            "left": 833.5625
+          },
+          "fullscreenToggle": {
+            "x": 725,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 819,
+            "bottom": 35,
+            "left": 725
+          }
+        }
+      },
+      "delta_right": 15,
+      "delta_up": 12,
+      "other_ui_unchanged": true
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "before": {
+        "rect": {
+          "x": 15,
+          "y": 292,
+          "width": 144,
+          "height": 58,
+          "top": 292,
+          "right": 159,
+          "bottom": 350,
+          "left": 15
+        },
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "after": {
+        "rect": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "knob": {
+          "x": 86,
+          "y": 293,
+          "width": 32,
+          "height": 32,
+          "top": 293,
+          "right": 118,
+          "bottom": 325,
+          "left": 86
+        },
+        "travel": 50,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 700,
+        "otherUI": {
+          "fire": {
+            "x": 700,
+            "y": 265,
+            "width": 85,
+            "height": 85,
+            "top": 265,
+            "right": 785,
+            "bottom": 350,
+            "left": 700
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 590,
+            "height": 15.984375,
+            "top": 10,
+            "right": 600,
+            "bottom": 25.984375,
+            "left": 10
+          },
+          "sensor": {
+            "x": 717.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 790,
+            "bottom": 65,
+            "left": 717.671875
+          },
+          "exitGame": {
+            "x": 718.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 790,
+            "bottom": 40,
+            "left": 718.5625
+          },
+          "fullscreenToggle": {
+            "x": 610,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 704,
+            "bottom": 35,
+            "left": 610
+          }
+        }
+      },
+      "delta_right": 15,
+      "delta_up": 12,
+      "other_ui_unchanged": true
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "before": {
+        "rect": {
+          "x": 15,
+          "y": 252,
+          "width": 135,
+          "height": 58,
+          "top": 252,
+          "right": 150,
+          "bottom": 310,
+          "left": 15
+        },
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "after": {
+        "rect": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "knob": {
+          "x": 81.5,
+          "y": 253,
+          "width": 32,
+          "height": 32,
+          "top": 253,
+          "right": 113.5,
+          "bottom": 285,
+          "left": 81.5
+        },
+        "travel": 45.5,
+        "opacity": 0.4,
+        "background": "rgba(0, 0, 0, 0)",
+        "image": "none",
+        "border": "0px",
+        "shadow": "none",
+        "trackHeight": 2,
+        "trackColor": "rgb(255, 255, 255)",
+        "knobColor": "rgb(135, 216, 255)",
+        "knobImage": "none",
+        "labelsHidden": true,
+        "fireX": 468,
+        "otherUI": {
+          "fire": {
+            "x": 468,
+            "y": 225,
+            "width": 85,
+            "height": 85,
+            "top": 225,
+            "right": 553,
+            "bottom": 310,
+            "left": 468
+          },
+          "hud": {
+            "x": 10,
+            "y": 10,
+            "width": 358,
+            "height": 12.5,
+            "top": 10,
+            "right": 368,
+            "bottom": 22.5,
+            "left": 10
+          },
+          "sensor": {
+            "x": 485.671875,
+            "y": 41,
+            "width": 72.328125,
+            "height": 24,
+            "top": 41,
+            "right": 558,
+            "bottom": 65,
+            "left": 485.671875
+          },
+          "exitGame": {
+            "x": 486.5625,
+            "y": 9,
+            "width": 71.4375,
+            "height": 31,
+            "top": 9,
+            "right": 558,
+            "bottom": 40,
+            "left": 486.5625
+          },
+          "fullscreenToggle": {
+            "x": 378,
+            "y": 9,
+            "width": 94,
+            "height": 26,
+            "top": 9,
+            "right": 472,
+            "bottom": 35,
+            "left": 378
+          }
+        }
+      },
+      "delta_right": 15,
+      "delta_up": 12,
+      "other_ui_unchanged": true
+    }
+  ],
+  "uncaught_errors": [],
+  "failed_resources": [],
+  "external_requests": []
+}

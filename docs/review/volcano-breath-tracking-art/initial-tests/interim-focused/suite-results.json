@@ -1,0 +1,69 @@
+[
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 7,
+    "seconds": 18.23,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_boss-native"
+    ]
+  },
+  {
+    "suite": "volcano_boss-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 7,
+    "seconds": 41.77,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_boss-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_boss_masks",
+    "exit_code": 0,
+    "groups": 2,
+    "observed_groups_before_failure": 0,
+    "seconds": 29.0,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_boss_masks.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_boss_masks"
+    ]
+  },
+  {
+    "suite": "volcano_breath_art-native",
+    "exit_code": 0,
+    "groups": 7,
+    "observed_groups_before_failure": 0,
+    "seconds": 12.5,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-native"
+    ]
+  },
+  {
+    "suite": "volcano_breath_art-offline",
+    "exit_code": 0,
+    "groups": 7,
+    "observed_groups_before_failure": 0,
+    "seconds": 42.14,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_breath_art.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-breath-tracking-art/focused/volcano_breath_art-offline",
+      "--standalone"
+    ]
+  }
+]

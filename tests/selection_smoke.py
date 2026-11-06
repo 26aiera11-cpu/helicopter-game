@@ -222,8 +222,8 @@ with sync_playwright() as playwright:
         assert page.evaluate('hp') == hp
         page.wait_for_function('worldScroll > 1')
         initial = page.evaluate('player.a')
-        right = page.locator('#right').bounding_box()
-        page.mouse.move(right['x'] + right['width']/2, right['y'] + right['height']/2)
+        right = page.locator('#rotationJoystick').bounding_box()
+        page.mouse.move(right['x'] + right['width'] - 26, right['y'] + right['height']/2)
         page.mouse.down()
         page.wait_for_function('(initial) => player.a > initial + .15', arg=initial)
         page.mouse.up()

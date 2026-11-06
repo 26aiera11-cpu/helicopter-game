@@ -1,0 +1,567 @@
+{
+  "anchors": {
+    "idle": [
+      [
+        109.0,
+        168
+      ],
+      [
+        111.0,
+        169
+      ],
+      [
+        109.5,
+        168
+      ],
+      [
+        111.0,
+        167
+      ]
+    ],
+    "move": [
+      [
+        113.0,
+        160
+      ],
+      [
+        114.0,
+        161
+      ],
+      [
+        117.5,
+        170
+      ],
+      [
+        116.0,
+        174
+      ],
+      [
+        115.0,
+        172
+      ],
+      [
+        114.5,
+        176
+      ]
+    ],
+    "attack": [
+      [
+        114.5,
+        168
+      ],
+      [
+        115.0,
+        169
+      ],
+      [
+        116.0,
+        169
+      ],
+      [
+        114.0,
+        173
+      ]
+    ],
+    "hit": [
+      [
+        114.0,
+        152
+      ],
+      [
+        113.0,
+        157
+      ],
+      [
+        113.0,
+        163
+      ]
+    ],
+    "defeat": [
+      [
+        109.5,
+        165
+      ],
+      [
+        110.0,
+        164
+      ],
+      [
+        110.0,
+        163
+      ],
+      [
+        106.0,
+        165
+      ]
+    ]
+  },
+  "samples": [
+    {
+      "state": "idle",
+      "index": 0,
+      "rect": [
+        32,
+        34,
+        220,
+        180
+      ],
+      "mouth_in_crop": [
+        109.0,
+        168
+      ],
+      "atlas_xy": [
+        141.0,
+        202
+      ],
+      "local_cell": [
+        -1.0,
+        78.0
+      ]
+    },
+    {
+      "state": "idle",
+      "index": 1,
+      "rect": [
+        273,
+        33,
+        222,
+        181
+      ],
+      "mouth_in_crop": [
+        111.0,
+        169
+      ],
+      "atlas_xy": [
+        384.0,
+        202
+      ],
+      "local_cell": [
+        0.0,
+        78.5
+      ]
+    },
+    {
+      "state": "idle",
+      "index": 2,
+      "rect": [
+        516,
+        33,
+        221,
+        180
+      ],
+      "mouth_in_crop": [
+        109.5,
+        168
+      ],
+      "atlas_xy": [
+        625.5,
+        201
+      ],
+      "local_cell": [
+        -1.0,
+        78.0
+      ]
+    },
+    {
+      "state": "idle",
+      "index": 3,
+      "rect": [
+        757,
+        33,
+        223,
+        179
+      ],
+      "mouth_in_crop": [
+        111.0,
+        167
+      ],
+      "atlas_xy": [
+        868.0,
+        200
+      ],
+      "local_cell": [
+        -0.5,
+        77.5
+      ]
+    },
+    {
+      "state": "move",
+      "index": 4,
+      "rect": [
+        998,
+        36,
+        226,
+        172
+      ],
+      "mouth_in_crop": [
+        113.0,
+        160
+      ],
+      "atlas_xy": [
+        1111.0,
+        196
+      ],
+      "local_cell": [
+        0.0,
+        74.0
+      ]
+    },
+    {
+      "state": "move",
+      "index": 5,
+      "rect": [
+        28,
+        279,
+        228,
+        173
+      ],
+      "mouth_in_crop": [
+        114.0,
+        161
+      ],
+      "atlas_xy": [
+        142.0,
+        440
+      ],
+      "local_cell": [
+        0.0,
+        74.5
+      ]
+    },
+    {
+      "state": "move",
+      "index": 6,
+      "rect": [
+        268,
+        272,
+        231,
+        182
+      ],
+      "mouth_in_crop": [
+        117.5,
+        170
+      ],
+      "atlas_xy": [
+        385.5,
+        442
+      ],
+      "local_cell": [
+        2.0,
+        79.0
+      ]
+    },
+    {
+      "state": "move",
+      "index": 7,
+      "rect": [
+        510,
+        270,
+        231,
+        186
+      ],
+      "mouth_in_crop": [
+        116.0,
+        174
+      ],
+      "atlas_xy": [
+        626.0,
+        444
+      ],
+      "local_cell": [
+        0.5,
+        81.0
+      ]
+    },
+    {
+      "state": "move",
+      "index": 8,
+      "rect": [
+        753,
+        272,
+        231,
+        184
+      ],
+      "mouth_in_crop": [
+        115.0,
+        172
+      ],
+      "atlas_xy": [
+        868.0,
+        444
+      ],
+      "local_cell": [
+        -0.5,
+        80.0
+      ]
+    },
+    {
+      "state": "move",
+      "index": 9,
+      "rect": [
+        996,
+        271,
+        229,
+        188
+      ],
+      "mouth_in_crop": [
+        114.5,
+        176
+      ],
+      "atlas_xy": [
+        1110.5,
+        447
+      ],
+      "local_cell": [
+        0.0,
+        82.0
+      ]
+    },
+    {
+      "state": "attack",
+      "index": 10,
+      "rect": [
+        27,
+        514,
+        229,
+        180
+      ],
+      "mouth_in_crop": [
+        114.5,
+        168
+      ],
+      "atlas_xy": [
+        141.5,
+        682
+      ],
+      "local_cell": [
+        0.0,
+        78.0
+      ]
+    },
+    {
+      "state": "attack",
+      "index": 11,
+      "rect": [
+        269,
+        513,
+        229,
+        181
+      ],
+      "mouth_in_crop": [
+        115.0,
+        169
+      ],
+      "atlas_xy": [
+        384.0,
+        682
+      ],
+      "local_cell": [
+        0.5,
+        78.5
+      ]
+    },
+    {
+      "state": "attack",
+      "index": 12,
+      "rect": [
+        512,
+        512,
+        229,
+        181
+      ],
+      "mouth_in_crop": [
+        116.0,
+        169
+      ],
+      "atlas_xy": [
+        628.0,
+        681
+      ],
+      "local_cell": [
+        1.5,
+        78.5
+      ]
+    },
+    {
+      "state": "attack",
+      "index": 13,
+      "rect": [
+        755,
+        509,
+        229,
+        185
+      ],
+      "mouth_in_crop": [
+        114.0,
+        173
+      ],
+      "atlas_xy": [
+        869.0,
+        682
+      ],
+      "local_cell": [
+        -0.5,
+        80.5
+      ]
+    },
+    {
+      "state": "hit",
+      "index": 14,
+      "rect": [
+        998,
+        512,
+        227,
+        164
+      ],
+      "mouth_in_crop": [
+        114.0,
+        152
+      ],
+      "atlas_xy": [
+        1112.0,
+        664
+      ],
+      "local_cell": [
+        0.5,
+        70.0
+      ]
+    },
+    {
+      "state": "hit",
+      "index": 15,
+      "rect": [
+        30,
+        742,
+        223,
+        169
+      ],
+      "mouth_in_crop": [
+        113.0,
+        157
+      ],
+      "atlas_xy": [
+        143.0,
+        899
+      ],
+      "local_cell": [
+        1.5,
+        72.5
+      ]
+    },
+    {
+      "state": "hit",
+      "index": 16,
+      "rect": [
+        273,
+        745,
+        222,
+        175
+      ],
+      "mouth_in_crop": [
+        113.0,
+        163
+      ],
+      "atlas_xy": [
+        386.0,
+        908
+      ],
+      "local_cell": [
+        2.0,
+        75.5
+      ]
+    },
+    {
+      "state": "defeat",
+      "index": 17,
+      "rect": [
+        516,
+        744,
+        221,
+        177
+      ],
+      "mouth_in_crop": [
+        109.5,
+        165
+      ],
+      "atlas_xy": [
+        625.5,
+        909
+      ],
+      "local_cell": [
+        -1.0,
+        76.5
+      ]
+    },
+    {
+      "state": "defeat",
+      "index": 18,
+      "rect": [
+        757,
+        745,
+        222,
+        176
+      ],
+      "mouth_in_crop": [
+        110.0,
+        164
+      ],
+      "atlas_xy": [
+        867.0,
+        909
+      ],
+      "local_cell": [
+        -1.0,
+        76.0
+      ]
+    },
+    {
+      "state": "defeat",
+      "index": 19,
+      "rect": [
+        1001,
+        745,
+        219,
+        175
+      ],
+      "mouth_in_crop": [
+        110.0,
+        163
+      ],
+      "atlas_xy": [
+        1111.0,
+        908
+      ],
+      "local_cell": [
+        0.5,
+        75.5
+      ]
+    },
+    {
+      "state": "defeat",
+      "index": 20,
+      "rect": [
+        34,
+        983,
+        211,
+        177
+      ],
+      "mouth_in_crop": [
+        106.0,
+        165
+      ],
+      "atlas_xy": [
+        140.0,
+        1148
+      ],
+      "local_cell": [
+        0.5,
+        76.5
+      ]
+    }
+  ],
+  "scale": 0.6470588235294118,
+  "all_frame_corner_radius": 95.9508822226662,
+  "atlas_sha256": "7940d7b1c906b42ca02cf803c6ce9613db962c94c14b46159eb7cc4a0b2a3f86",
+  "method": "Read alpha>=8 central head silhouette; choose3source pixels inside jaw tip; visually inspect all21 cropped frames. Mouth data are metadata only, not edits to PNG/manifest.",
+  "canvas_error_limit_px": 0.0001
+}

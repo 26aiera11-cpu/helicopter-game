@@ -1,0 +1,102 @@
+[
+  [
+    "<link rel=\"stylesheet\" href=\"assets/controls/controls.css\">",
+    "<link rel=\"stylesheet\" href=\"assets/worlds/worlds.css\"><link rel=\"stylesheet\" href=\"assets/controls/controls.css\">",
+    1
+  ],
+  [
+    "<script src=\"assets/item_monster/item_monster.js\"></script>",
+    "<script src=\"assets/worlds/worlds.js\"></script><script src=\"assets/item_monster/item_monster.js\"></script>",
+    1
+  ],
+  [
+    "function warnEnemy(){",
+    "gameWorlds.installLegacyRegions({terrainImgs,enemySprites,bossSprites,tactics,stageNames,stageColors});\nfunction warnEnemy(){",
+    1
+  ],
+  [
+    "else if(stage<3){stage++;phase=1;",
+    "else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;",
+    1
+  ],
+  [
+    "menu.querySelector('h1').textContent='🏆 모든 지역 클리어! · '+result.record.characterName+' · '+gameScoring.format(result.record.score)+'점';menu.querySelector('.hint').textContent='네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'",
+    "menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()",
+    1
+  ],
+  [
+    "gameScoring.tick(dt);itemMonsters.update(dt);",
+    "const profile=gameWorlds.profile(stage);\n gameScoring.tick(dt);itemMonsters.update(dt);",
+    1
+  ],
+  [
+    "(20+stage*15)",
+    "(20+profile*15)",
+    1
+  ],
+  [
+    "3+stage+Math.floor(phase/2)",
+    "3+profile+Math.floor(phase/2)",
+    1
+  ],
+  [
+    "Math.floor(stage/2)",
+    "Math.floor(profile/2)",
+    1
+  ],
+  [
+    "if(stage===1&&",
+    "if(profile===1&&",
+    2
+  ],
+  [
+    "if(stage===2){",
+    "if(profile===2){",
+    1
+  ],
+  [
+    "if(stage===3){",
+    "if(profile===3){",
+    2
+  ],
+  [
+    "stage===0?45:stage===1?65:stage===2?85:105",
+    "profile===0?45:profile===1?65:profile===2?85:105",
+    1
+  ],
+  [
+    "if(stage>=1){",
+    "if(profile>=1){",
+    1
+  ],
+  [
+    "1.8-stage*.2-phase*.055",
+    "1.8-profile*.2-phase*.055",
+    1
+  ],
+  [
+    "ctx.fillText(['🌳 숲의 수호괴물','🪨 거대 바위 골렘','🐙 바다의 문어 대왕','🦂 사막 전갈왕'][stage],W/2,47)",
+    "ctx.fillText(gameWorlds.region(stage).bossName,W/2,47)",
+    1
+  ],
+  [
+    "ctx.font='bold 23px system-ui';ctx.fillText(stageNames[stage]+'  '+phase+'/5'",
+    "ctx.font='bold '+(gameWorlds.isTrial()?Math.min(23,W*.028):23)+'px system-ui';ctx.fillText(gameWorlds.regionLabel(stage)+'  '+phase+'/5'",
+    1
+  ],
+  [
+    "gameAudio.tick(Math.max(0,Math.min(3,stage)))",
+    "gameAudio.tick(gameWorlds.musicProfile(stage))",
+    1
+  ],
+  [
+    "if(started)return boss?bossTracks[stage]:stageTracks[stage];",
+    "if(started)return boss?bossTracks[gameWorlds.musicProfile(stage)]:stageTracks[gameWorlds.musicProfile(stage)];",
+    1
+  ],
+  [
+    "['#4f9d36','#686579','#267bca','#bd6d37'][stage]",
+    "['#4f9d36','#686579','#267bca','#bd6d37'][gameWorlds.profile(stage)]",
+    1
+  ]
+]

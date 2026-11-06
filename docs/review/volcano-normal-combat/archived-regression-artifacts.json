@@ -1,0 +1,2439 @@
+{
+  "purpose": "Preserve new repeated regression screenshots and identical isolated HTML outside Git; requested volcano screenshots and all JSON/logs remain. Existing tracked history untouched.",
+  "deleted": false,
+  "moved_only_new_untracked_files": true,
+  "workspace_archive": "/workspace/volcano-normal-combat-work/archived-regression-artifacts",
+  "reproduce": "python tests/run_volcano_checks.py --artifacts docs/review/volcano-normal-combat/regression --workers 3",
+  "files": [
+    {
+      "path": "regression/bgm_smoke/game-over-music-stopped.png",
+      "bytes": 590012,
+      "sha256": "b1f7dfac7fdd975f8bd4c8bbbe5aa5c021de6be9f0775dc7a718d00061e2d9e7"
+    },
+    {
+      "path": "regression/boss_reward/compact-reward.png",
+      "bytes": 293647,
+      "sha256": "a159192119e806577e7d8bfb58f2445518a1ff44bba0b909938b8e69e60ea055"
+    },
+    {
+      "path": "regression/boss_reward/final-clear-reward.png",
+      "bytes": 577187,
+      "sha256": "8b74104d22f924dca683435971800b4bb270b87e58cafb68085d67db3d4a9d5a"
+    },
+    {
+      "path": "regression/boss_reward/health-reward.png",
+      "bytes": 490273,
+      "sha256": "32d5a63dbc01731eececac12c0d31882ae80564f4d09284fdd3be05c47873ce0"
+    },
+    {
+      "path": "regression/developer_start-native/default-off-help.png",
+      "bytes": 308673,
+      "sha256": "6b71c0ad813e0b642a2dfb953ff054dc614124b36506dbd22697c4bf01645889"
+    },
+    {
+      "path": "regression/developer_start-native/developer-complete.png",
+      "bytes": 577384,
+      "sha256": "d3042007ff3080ef0874764ce440a1625633b77f1965361d0f9186efa0273752"
+    },
+    {
+      "path": "regression/developer_start-native/developer-game-over.png",
+      "bytes": 306547,
+      "sha256": "a43c95a3dbc6e799c122ce8aa41721b2420b21e561d7b5d1c85e419d24ca9f6e"
+    },
+    {
+      "path": "regression/developer_start-native/direct-snow-boss-568x320.png",
+      "bytes": 234785,
+      "sha256": "a1c73fa5cc74a88ba8a3a9236949e8acec6acd278606fcd708901d88f5d1f81d"
+    },
+    {
+      "path": "regression/developer_start-native/direct-snow-boss-800x360.png",
+      "bytes": 375641,
+      "sha256": "13eb92624e4fd62bcaa7b0c1077d53b171a5231b46a43f2eec383a695ee23417"
+    },
+    {
+      "path": "regression/developer_start-native/direct-snow-boss-915x412.png",
+      "bytes": 464015,
+      "sha256": "26ee4127ccca6c5601890c0b97d97e047d2b7c384eb49b88ace946e3f5b627d6"
+    },
+    {
+      "path": "regression/developer_start-native/help-568x320.png",
+      "bytes": 122555,
+      "sha256": "2f56ab6080133d55f5bf9671c44ab538cd36544807b928c5206cf3679324325e"
+    },
+    {
+      "path": "regression/developer_start-native/help-800x360.png",
+      "bytes": 228655,
+      "sha256": "e9e06945cb3b78dd406023cbf2f397c17e166949c35d11e6c39618ac3eb49cbf"
+    },
+    {
+      "path": "regression/developer_start-native/help-915x412.png",
+      "bytes": 306719,
+      "sha256": "f9a3ec5b90aacb3dd5bd96d9944b340c367e835acc1be0cb3c895e078eeb1385"
+    },
+    {
+      "path": "regression/developer_start-native/help-snow-boss-915x412.png",
+      "bytes": 316417,
+      "sha256": "262b1a3ccaf072770a6ce2c66abeb3e45059693ec682fe6f75ebbd9232e825f7"
+    },
+    {
+      "path": "regression/developer_start-offline/default-off-help.png",
+      "bytes": 307604,
+      "sha256": "9f68fe6fec14f8ddc9dd7949446bf228b67b2eb91f52918a9a104c3e320ab93a"
+    },
+    {
+      "path": "regression/developer_start-offline/developer-complete.png",
+      "bytes": 577052,
+      "sha256": "0d767fb818ab2df6defdacd9ddd501d7e43403212223c3c55518a4e301ecc084"
+    },
+    {
+      "path": "regression/developer_start-offline/developer-game-over.png",
+      "bytes": 306665,
+      "sha256": "c3b9aa700542c0c285ae2fc73f743f6936845637159b3fa24ec699c8a8a4f12e"
+    },
+    {
+      "path": "regression/developer_start-offline/direct-snow-boss-568x320.png",
+      "bytes": 234720,
+      "sha256": "228e5459fe33d3473ecde7bcb658a061868ddbbd110388cd6467e0ff88155391"
+    },
+    {
+      "path": "regression/developer_start-offline/direct-snow-boss-800x360.png",
+      "bytes": 375624,
+      "sha256": "94854ef15cc44b2d913160224ace1aceb44e9fe74aa158bac2062068a4adcc30"
+    },
+    {
+      "path": "regression/developer_start-offline/direct-snow-boss-915x412.png",
+      "bytes": 463725,
+      "sha256": "6ea6fb32dc7062f46290cae98f69a763dcc7acdd9369e8f1dfa743e173c080fe"
+    },
+    {
+      "path": "regression/developer_start-offline/help-568x320.png",
+      "bytes": 122537,
+      "sha256": "5c1bc3f954506958b09386f8ed3888edf808f54c40b3f3789a765412e2531e4e"
+    },
+    {
+      "path": "regression/developer_start-offline/help-800x360.png",
+      "bytes": 227984,
+      "sha256": "a6e0b43e744fd00c7253d5be9cb1789907f7d69f7c6e38df1b27147778fb0847"
+    },
+    {
+      "path": "regression/developer_start-offline/help-915x412.png",
+      "bytes": 306228,
+      "sha256": "526a95c24f84e84276b65d6fe347474625010d90e7e4e00477b81bf57865c890"
+    },
+    {
+      "path": "regression/developer_start-offline/help-snow-boss-915x412.png",
+      "bytes": 316132,
+      "sha256": "44f3d44f5ad25912a765c12817d84faa22d7548af4d392077774b5716fc93d8c"
+    },
+    {
+      "path": "regression/exit_dialog/exit-confirm-compact.png",
+      "bytes": 196143,
+      "sha256": "049d18d10abfd8275f156338edc582dfcd857a3e2ce51da30a5a2215c6165238"
+    },
+    {
+      "path": "regression/exit_dialog/exit-confirm-fullscreen.png",
+      "bytes": 345334,
+      "sha256": "ef5c98ed7e66633737a6fa6e15fad2d9b8a6340e24f92069de8a53ad54934a96"
+    },
+    {
+      "path": "regression/exit_dialog/selection-after-exit.png",
+      "bytes": 589815,
+      "sha256": "4121205cc18d196245f1cd1109176fc684b88bb6a34e3026cba5044fd75cd22e"
+    },
+    {
+      "path": "regression/fullscreen_smoke/fullscreen-compact.png",
+      "bytes": 457584,
+      "sha256": "bd5bba17c9b563722a9a63dca0b161578b98972dc5593a2ed6374844e811aad4"
+    },
+    {
+      "path": "regression/fullscreen_smoke/fullscreen-gameplay.png",
+      "bytes": 531276,
+      "sha256": "9535ec86e4f1289b6e2689ec5ad452fba2ebb4df420aa599b2bbfcb8e9eaa324"
+    },
+    {
+      "path": "regression/fullscreen_smoke/fullscreen-selection.png",
+      "bytes": 588198,
+      "sha256": "ed429124c07571a38697247495b6818b6a8cc77e7510e67cdde5e80e5906264b"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-boss-reward.png",
+      "bytes": 489058,
+      "sha256": "fef917a42ea4ed702f0baecb6d775575418325b0c66ba079c52168480d757325"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-exit-confirm.png",
+      "bytes": 336196,
+      "sha256": "f5afc103f6dee310a0be60583f7c578419efa40689fb10bdcdb58a92b288f417"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-game-over.png",
+      "bytes": 367643,
+      "sha256": "2f37cfb2e58e44d972ed144d3d72114c87b083e9bade88e440773d91a280447b"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-gameplay.png",
+      "bytes": 528625,
+      "sha256": "e0a95998e693ea7222d5e9318f7cb8b845aca40ba6212147e5516ed2f9df0fe8"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-portrait-notice.png",
+      "bytes": 12716,
+      "sha256": "7489536b042fa7b34a999f2a6896f96e8b9663b5681a51368d80ee358983686e"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-selection-compact.png",
+      "bytes": 458089,
+      "sha256": "bd118be9bcd9cc070fa3941819190ff4d0e2032129694bd0ab56550a495a0390"
+    },
+    {
+      "path": "regression/galaxy_standalone/galaxy-selection.png",
+      "bytes": 588925,
+      "sha256": "f65d1600b28897e18ccf2a7ad601f507b6bdc374e3b5f082557358847658e330"
+    },
+    {
+      "path": "regression/galaxy_standalone/isolated-file/heli_trio_galaxy_test.html",
+      "bytes": 60060497,
+      "sha256": "2229828fbe4aafc3995856301420649603372177825112a360f9604df1683d7e"
+    },
+    {
+      "path": "regression/game_over/clean-selection-after-game-over.png",
+      "bytes": 589815,
+      "sha256": "4121205cc18d196245f1cd1109176fc684b88bb6a34e3026cba5044fd75cd22e"
+    },
+    {
+      "path": "regression/game_over/game-over-568x320.png",
+      "bytes": 214554,
+      "sha256": "ea89a62ac2b48253763de0e872715824c2d53d77b611d6f79a672a4a13c1732f"
+    },
+    {
+      "path": "regression/game_over/game-over-800x360.png",
+      "bytes": 288216,
+      "sha256": "8f5b02911ac16014b798e8d8443678dbe1a9caea5e3e7612b257edfe7db4db40"
+    },
+    {
+      "path": "regression/game_over/game-over-915x412.png",
+      "bytes": 366842,
+      "sha256": "e861150b5bb67b59b05d3e841ca7c67d01ef05b91a12c6f13c015e65a04f5804"
+    },
+    {
+      "path": "regression/item_monsters/eight-directions.png",
+      "bytes": 558876,
+      "sha256": "7d69e455815012d40a1c1678f1a4929265404f972ac8977da39ee559618592fe"
+    },
+    {
+      "path": "regression/item_monsters/item-monsters-568.png",
+      "bytes": 327962,
+      "sha256": "0126fd908fff9c235086bc77f4ac9e36025a514ee8bba4323b50386a03de23f0"
+    },
+    {
+      "path": "regression/item_monsters/item-monsters-800.png",
+      "bytes": 448271,
+      "sha256": "ae94cd2405f5a9c6207df3ccc5b4042fdec6c477a039ec8b6b67bc8db8a5e815"
+    },
+    {
+      "path": "regression/item_monsters/item-monsters-915.png",
+      "bytes": 549069,
+      "sha256": "fdf79520b6d2640d4448cef897a9db5e4b7b045dc5f5d2de8b94a01e8d6460f6"
+    },
+    {
+      "path": "regression/item_monsters-offline/eight-directions.png",
+      "bytes": 558909,
+      "sha256": "701a5799443161f56139da62ac3396d02e1c8e75b3449c4ad9d9582896af29bb"
+    },
+    {
+      "path": "regression/item_monsters-offline/item-monsters-568.png",
+      "bytes": 328057,
+      "sha256": "2e4a7d4c0820b597b0a217298b47ee3c8c75f1af7fb1c519874a5ee8580a52ce"
+    },
+    {
+      "path": "regression/item_monsters-offline/item-monsters-800.png",
+      "bytes": 447995,
+      "sha256": "87d10c35faa6cfa89668631ac13df6be80e2c78c718d6919c3f0c0ed3b8f07c2"
+    },
+    {
+      "path": "regression/item_monsters-offline/item-monsters-915.png",
+      "bytes": 549330,
+      "sha256": "23db9471964af5795976b7365e4c93295da45986fef860ae10e73d200a55657c"
+    },
+    {
+      "path": "regression/item_spawn_rules/boss-carry-568.png",
+      "bytes": 335197,
+      "sha256": "f2e538bcd60a1b702f632278128201631dfafeca8afa7a8f4189058715085cdc"
+    },
+    {
+      "path": "regression/item_spawn_rules/boss-carry-800.png",
+      "bytes": 468200,
+      "sha256": "4776ead022949dcdc54d12640b407964f0f68efd7dba2099948f8e8ca8ab78c0"
+    },
+    {
+      "path": "regression/item_spawn_rules/boss-carry-915.png",
+      "bytes": 570143,
+      "sha256": "2eb80cca8805fb498e49fcdb069f9d54874279adf09e006020feaf2899406a61"
+    },
+    {
+      "path": "regression/item_spawn_rules/size-after-915.png",
+      "bytes": 544764,
+      "sha256": "5beae2c37fde32ca48df5c48d1d1536fa17cfc816d5fee04ac86033a2281642f"
+    },
+    {
+      "path": "regression/item_spawn_rules-offline/boss-carry-568.png",
+      "bytes": 335509,
+      "sha256": "80dcebf275ebbc1799ed9d249586c9e83ca34479df86255b40c57dec1446835b"
+    },
+    {
+      "path": "regression/item_spawn_rules-offline/boss-carry-800.png",
+      "bytes": 467171,
+      "sha256": "b8b6471c4a04a5e40962f2c413598a089d71219b58291750a52272fe5d2c46fa"
+    },
+    {
+      "path": "regression/item_spawn_rules-offline/boss-carry-915.png",
+      "bytes": 570064,
+      "sha256": "baf8f46059ad07802337a67e95ddd88525c743c0164485c22bf9220893f15945"
+    },
+    {
+      "path": "regression/item_spawn_rules-offline/size-after-915.png",
+      "bytes": 544039,
+      "sha256": "dcef7214358b60b4a2beec9bf318bf7c1e0facdeade13af0527d8c84282e3d3d"
+    },
+    {
+      "path": "regression/joystick_design/before-568.png",
+      "bytes": 322915,
+      "sha256": "d32d18d9125dec046db3e004bc8f776cf3f7ef644ded5b2c36e08df9296f027c"
+    },
+    {
+      "path": "regression/joystick_design/before-800.png",
+      "bytes": 441011,
+      "sha256": "58029a6f3c027d0878dd6c0b170419f84bcc73e3d61aea315ad7e45499793f6c"
+    },
+    {
+      "path": "regression/joystick_design/before-915.png",
+      "bytes": 541698,
+      "sha256": "81796b09ddc0c071c252337b6b652e13afd6f1cc6893886a7f15a668e08d9838"
+    },
+    {
+      "path": "regression/joystick_design/desert-held-915.png",
+      "bytes": 459283,
+      "sha256": "92fd917c921180e42e5bd997a403ce17bfb3f09fffd4fd89406b95a6356d1429"
+    },
+    {
+      "path": "regression/joystick_design/desert-idle-915.png",
+      "bytes": 459291,
+      "sha256": "97edf76176ce18971dd4a6a3049669db816a11c516f085051b8476a5f7c6665c"
+    },
+    {
+      "path": "regression/joystick_design/forest-held-915.png",
+      "bytes": 541668,
+      "sha256": "cd8b74fa5fb4174341073366e9d4e366c5171062c172351802742ef54ac48ad5"
+    },
+    {
+      "path": "regression/joystick_design/forest-idle-568.png",
+      "bytes": 322889,
+      "sha256": "8cfa33d6d20ccf093d744f783716090c0eedbae3c7c53ce5d8f5a0f601ba4cd7"
+    },
+    {
+      "path": "regression/joystick_design/forest-idle-800.png",
+      "bytes": 441052,
+      "sha256": "4dc7bdeb2fe5810bd4c67240922e02bcb34b22b120118910631dcf9e88488162"
+    },
+    {
+      "path": "regression/joystick_design/forest-idle-915.png",
+      "bytes": 541768,
+      "sha256": "a8910ae58c5170281d90860d2b5b40f95720da2eb22d5f74198f538950e6917c"
+    },
+    {
+      "path": "regression/joystick_design/rock-held-915.png",
+      "bytes": 498454,
+      "sha256": "c9af9103fc829ea36eea71192d03f37b57dec5b0ab80b60adc80774463daeb6e"
+    },
+    {
+      "path": "regression/joystick_design/rock-idle-915.png",
+      "bytes": 498481,
+      "sha256": "d048b15e7ea381a08f303755d3a81625a4082b31484ea60929596312d10b057f"
+    },
+    {
+      "path": "regression/joystick_design/sea-held-915.png",
+      "bytes": 489443,
+      "sha256": "7af732e33c9c78c4774b33a7638f69486cbfe54eec2dc91db9daf0080b62d8c4"
+    },
+    {
+      "path": "regression/joystick_design/sea-idle-915.png",
+      "bytes": 489541,
+      "sha256": "45d2e8c39816990e898580b73e0ec48ad7fd3ef22219c6c30956a4d5d575fdc0"
+    },
+    {
+      "path": "regression/joystick_design-offline/before-568.png",
+      "bytes": 322915,
+      "sha256": "d32d18d9125dec046db3e004bc8f776cf3f7ef644ded5b2c36e08df9296f027c"
+    },
+    {
+      "path": "regression/joystick_design-offline/before-800.png",
+      "bytes": 441011,
+      "sha256": "58029a6f3c027d0878dd6c0b170419f84bcc73e3d61aea315ad7e45499793f6c"
+    },
+    {
+      "path": "regression/joystick_design-offline/before-915.png",
+      "bytes": 541698,
+      "sha256": "81796b09ddc0c071c252337b6b652e13afd6f1cc6893886a7f15a668e08d9838"
+    },
+    {
+      "path": "regression/joystick_design-offline/desert-held-915.png",
+      "bytes": 459283,
+      "sha256": "92fd917c921180e42e5bd997a403ce17bfb3f09fffd4fd89406b95a6356d1429"
+    },
+    {
+      "path": "regression/joystick_design-offline/desert-idle-915.png",
+      "bytes": 459291,
+      "sha256": "97edf76176ce18971dd4a6a3049669db816a11c516f085051b8476a5f7c6665c"
+    },
+    {
+      "path": "regression/joystick_design-offline/forest-held-915.png",
+      "bytes": 541668,
+      "sha256": "cd8b74fa5fb4174341073366e9d4e366c5171062c172351802742ef54ac48ad5"
+    },
+    {
+      "path": "regression/joystick_design-offline/forest-idle-568.png",
+      "bytes": 322889,
+      "sha256": "8cfa33d6d20ccf093d744f783716090c0eedbae3c7c53ce5d8f5a0f601ba4cd7"
+    },
+    {
+      "path": "regression/joystick_design-offline/forest-idle-800.png",
+      "bytes": 441052,
+      "sha256": "4dc7bdeb2fe5810bd4c67240922e02bcb34b22b120118910631dcf9e88488162"
+    },
+    {
+      "path": "regression/joystick_design-offline/forest-idle-915.png",
+      "bytes": 541768,
+      "sha256": "a8910ae58c5170281d90860d2b5b40f95720da2eb22d5f74198f538950e6917c"
+    },
+    {
+      "path": "regression/joystick_design-offline/rock-held-915.png",
+      "bytes": 498454,
+      "sha256": "c9af9103fc829ea36eea71192d03f37b57dec5b0ab80b60adc80774463daeb6e"
+    },
+    {
+      "path": "regression/joystick_design-offline/rock-idle-915.png",
+      "bytes": 498481,
+      "sha256": "d048b15e7ea381a08f303755d3a81625a4082b31484ea60929596312d10b057f"
+    },
+    {
+      "path": "regression/joystick_design-offline/sea-held-915.png",
+      "bytes": 489443,
+      "sha256": "7af732e33c9c78c4774b33a7638f69486cbfe54eec2dc91db9daf0080b62d8c4"
+    },
+    {
+      "path": "regression/joystick_design-offline/sea-idle-915.png",
+      "bytes": 489541,
+      "sha256": "45d2e8c39816990e898580b73e0ec48ad7fd3ef22219c6c30956a4d5d575fdc0"
+    },
+    {
+      "path": "regression/mobile_controls/exit-confirm.png",
+      "bytes": 348982,
+      "sha256": "4422480141047bc37b3f844bdc6a14c87d2c4f34484aed9c0424d634fb059098"
+    },
+    {
+      "path": "regression/mobile_controls/game-over-no-selection.png",
+      "bytes": 365996,
+      "sha256": "5faa809a757749375112b8ef109f86d057583eb05ac5f217aadfdf724c0d0393"
+    },
+    {
+      "path": "regression/mobile_controls/joystick-568.png",
+      "bytes": 325334,
+      "sha256": "4c7a722a3ac925dcd45e99ff5f2106f9c2702d6722d1287c1cdcd4f1ad583aa1"
+    },
+    {
+      "path": "regression/mobile_controls/joystick-800.png",
+      "bytes": 442870,
+      "sha256": "2c52b102d83d36c747c5fcb2aef29703b2af4a230f1e7ac4c5a7502ccdde6b89"
+    },
+    {
+      "path": "regression/mobile_controls/joystick-915.png",
+      "bytes": 542875,
+      "sha256": "996c0bb93041e0eeda2705237862e0316752ad0bed1bc11e59c16f0e1c0694a4"
+    },
+    {
+      "path": "regression/mobile_controls-offline/exit-confirm.png",
+      "bytes": 349009,
+      "sha256": "f712ccbbc891328790fea6722c1e3fad6d9f0a59f9e72fc1da0edbfbb248df72"
+    },
+    {
+      "path": "regression/mobile_controls-offline/game-over-no-selection.png",
+      "bytes": 366201,
+      "sha256": "e9eb4dd920b560c95ae859a9eadfd669dd41ff53edcad992663c83d140b143e7"
+    },
+    {
+      "path": "regression/mobile_controls-offline/joystick-568.png",
+      "bytes": 325276,
+      "sha256": "303ff26bb0220c2d1ae292c2558e8d01610577b61c8bbdcbfbfd60b5c351bfb4"
+    },
+    {
+      "path": "regression/mobile_controls-offline/joystick-800.png",
+      "bytes": 442433,
+      "sha256": "a58a66b26459502a9d70da3f04b10a80961337579a1e0231f6f7cfff97ae293d"
+    },
+    {
+      "path": "regression/mobile_controls-offline/joystick-915.png",
+      "bytes": 542866,
+      "sha256": "df98bfdb6d89de0be5675cec2554fe1c1a19156993fcefff19b3cf578db6e32a"
+    },
+    {
+      "path": "regression/ppyoko_title-native/clear-False.png",
+      "bytes": 577844,
+      "sha256": "7fed9c32aa1263515856264c470298366a5a85b0253f4da0b3bed9ec553e18be"
+    },
+    {
+      "path": "regression/ppyoko_title-native/clear-True.png",
+      "bytes": 577854,
+      "sha256": "a95ef5a5a4721d7b0def54e5e15a86106a65c129342f86689cd89348a35ced4a"
+    },
+    {
+      "path": "regression/ppyoko_title-native/game-over-0.png",
+      "bytes": 364158,
+      "sha256": "7e326a321548e33e3fe3f4d6293275d72a571edee4212350bda84a3b6489bdab"
+    },
+    {
+      "path": "regression/ppyoko_title-native/game-over-1.png",
+      "bytes": 365059,
+      "sha256": "08dcc515955d25c66b7e6b73481470764c2d7b8d6e1f9a2b604af36b4c217fb8"
+    },
+    {
+      "path": "regression/ppyoko_title-native/game-over-2.png",
+      "bytes": 365745,
+      "sha256": "181e3302df9d68fa31d381e6519a483aae36ba545f12b27eacc4ea0c0d1d87b9"
+    },
+    {
+      "path": "regression/ppyoko_title-native/legacy-normal-top10.png",
+      "bytes": 213419,
+      "sha256": "6d579e97a78c6108f82e1c35f8c8cec7c5ddcadfc8b6378839d4eb59fd7700ea"
+    },
+    {
+      "path": "regression/ppyoko_title-native/legacy-trial-top10.png",
+      "bytes": 221097,
+      "sha256": "77c6457c88459546191f1251890c41cffa8776fe01d94a6ba144f65e17ef0783"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-0-568x320.png",
+      "bytes": 313502,
+      "sha256": "26ea379f7d0010efd0b02175a8f9c58b1c80e3397a23f0e0c9119c8423f6c18a"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-0-800x360.png",
+      "bytes": 457005,
+      "sha256": "791dde0cd91650a5ce45c02ac2810605f811817ae0753b0c78c44a6832e1a7cb"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-0-915x412.png",
+      "bytes": 588070,
+      "sha256": "b901fbce82bf647e49434c19feaba3672bc23f401c04497570d14753708e7016"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-1-568x320.png",
+      "bytes": 314665,
+      "sha256": "49755f8cc4e670b878c0221c89127a8b91b0b09f02b64df75015117a32478f1a"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-1-800x360.png",
+      "bytes": 458292,
+      "sha256": "acc2bde936584f9704bb7c72c58ef223bbbeb6ac05c65647efc181c94a5b0468"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-1-915x412.png",
+      "bytes": 589893,
+      "sha256": "b28fb1d4fda5b39c316483403302da15a0b0e74629682761ff14948ca5774933"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-2-568x320.png",
+      "bytes": 314044,
+      "sha256": "52a375dcb97e70a5ec609176760b4bb3789c85abf7cfa40de3973066c9a683d2"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-2-800x360.png",
+      "bytes": 458207,
+      "sha256": "b298c98287989be2831b8caaede46bee2b2f27366bdaa77336104ca79edb04f7"
+    },
+    {
+      "path": "regression/ppyoko_title-native/selection-2-915x412.png",
+      "bytes": 589054,
+      "sha256": "05d1fd81caa477d70edbaa69534904774dccf1a07877517a3b73d18a05ff9442"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-after-568x320.png",
+      "bytes": 338447,
+      "sha256": "56071e5d6b151b680eb824b22a62621977aa591caf2281d5db5964fd228b6a20"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-after-800x360.png",
+      "bytes": 490456,
+      "sha256": "892a77d62b667fa96491f3c78e0386793743d491e78198b96ef83d6e1e54c235"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-after-915x412.png",
+      "bytes": 642398,
+      "sha256": "b26571cffe1a32c055c48d3f29e10c03b487a4d4fd42fd72e1e5088641297ef6"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-before-568x320.png",
+      "bytes": 338338,
+      "sha256": "c9fb11f5bc857de0a02a1bf255c9862b14d658e86c0be41921227ce658d9c347"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-before-800x360.png",
+      "bytes": 490163,
+      "sha256": "afe7e38c28247b60130f4f572c0d6de7d3deb8283bc1f89cdb0d2b4003ca63f5"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-before-915x412.png",
+      "bytes": 642132,
+      "sha256": "32f5d00209a10d837f297444f707a4eb18247423439b6df525819beaffa0c6be"
+    },
+    {
+      "path": "regression/ppyoko_title-native/title-enlarged-before-after.png",
+      "bytes": 325948,
+      "sha256": "41bfbcd6bec18a95f1833b10fa5572137a01cc3c3a4e77625d8cc3da08b509cc"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/clear-False.png",
+      "bytes": 578316,
+      "sha256": "e128d3c87891e7b0286dcbfafbefeed6c3f6a4ed1103e449ccf682e68b8af512"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/clear-True.png",
+      "bytes": 578691,
+      "sha256": "c116e75de1364577b456cc6d1de0391ef6a23b86bcdde59db614725fbf3bec7a"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/game-over-0.png",
+      "bytes": 364156,
+      "sha256": "67942662c5d753fc1fb7663a19d146b471e88665f399d0182adea82b710ab2f9"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/game-over-1.png",
+      "bytes": 365147,
+      "sha256": "891ffde7652eff2e3ed37a9c867f2de227878d02ee724a99d012b9d431613e69"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/game-over-2.png",
+      "bytes": 365675,
+      "sha256": "d148b1ca0a0a7b1961e5737b47a347b786768ccdbca26e460e955f8de3ee14d6"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/legacy-normal-top10.png",
+      "bytes": 213367,
+      "sha256": "c56f6a54182c38ea473140a1068d4d2ccb0edf74b0b1fc865d2ad5b072c13af5"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/legacy-trial-top10.png",
+      "bytes": 220933,
+      "sha256": "24b10a0be08ebf8162c4d6ae17ded6dd53f685e3f35caa39e4c710ec28667003"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-0-568x320.png",
+      "bytes": 313856,
+      "sha256": "1ad52faea65080d86a3cf011292c8fec56333416bfc480b0a343bb835632942b"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-0-800x360.png",
+      "bytes": 457017,
+      "sha256": "80ea8090daab35324dbb886c47b3979bc65bdf96d1fd4fa693e7f6f1f0d119f4"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-0-915x412.png",
+      "bytes": 587947,
+      "sha256": "2d762ee4fd822fd21d96adb2d88c3802eb568049c5747acfa6a76e3887d64060"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-1-568x320.png",
+      "bytes": 314395,
+      "sha256": "706ab08095dd6819ac894c700a055dc733b45080daa7a7c09a447c9c651c5656"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-1-800x360.png",
+      "bytes": 458338,
+      "sha256": "0bcc206282227ab3829cf3e5be024b32936a3ef9b7788d4c704fc89377281f8a"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-1-915x412.png",
+      "bytes": 589906,
+      "sha256": "02125bbc2ca3bea8850a090734e55c5f6f626fdf613747bfc0adc5517e005057"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-2-568x320.png",
+      "bytes": 314044,
+      "sha256": "52a375dcb97e70a5ec609176760b4bb3789c85abf7cfa40de3973066c9a683d2"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-2-800x360.png",
+      "bytes": 457367,
+      "sha256": "b0593ec59447b6ad7938e6b241e0a8c09f12437f0a9eaea645fba077a995b1b3"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/selection-2-915x412.png",
+      "bytes": 590298,
+      "sha256": "2bd724c1de047abea2a1bf9cf74a47637655dd44236c61439145c26c1dfb95e8"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-after-568x320.png",
+      "bytes": 338447,
+      "sha256": "56071e5d6b151b680eb824b22a62621977aa591caf2281d5db5964fd228b6a20"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-after-800x360.png",
+      "bytes": 490456,
+      "sha256": "892a77d62b667fa96491f3c78e0386793743d491e78198b96ef83d6e1e54c235"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-after-915x412.png",
+      "bytes": 642398,
+      "sha256": "b26571cffe1a32c055c48d3f29e10c03b487a4d4fd42fd72e1e5088641297ef6"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-before-568x320.png",
+      "bytes": 338338,
+      "sha256": "c9fb11f5bc857de0a02a1bf255c9862b14d658e86c0be41921227ce658d9c347"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-before-800x360.png",
+      "bytes": 490163,
+      "sha256": "afe7e38c28247b60130f4f572c0d6de7d3deb8283bc1f89cdb0d2b4003ca63f5"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-before-915x412.png",
+      "bytes": 642132,
+      "sha256": "32f5d00209a10d837f297444f707a4eb18247423439b6df525819beaffa0c6be"
+    },
+    {
+      "path": "regression/ppyoko_title-offline/title-enlarged-before-after.png",
+      "bytes": 274747,
+      "sha256": "5c7321115db7e1c26d77aa925bfeac0cd768f91b0873d174150948e43e158683"
+    },
+    {
+      "path": "regression/scoring/empty-top10.png",
+      "bytes": 319346,
+      "sha256": "5c344abf06b2a5a8be9fe48d09f0ac1f57ad5a8ed4a5396beed3f45bd5aaa46f"
+    },
+    {
+      "path": "regression/scoring/final-clear.png",
+      "bytes": 578667,
+      "sha256": "2a296f76bd79792c9b306d8c36907ca3c3f9fb5fd044a39c1105b3f9441406bd"
+    },
+    {
+      "path": "regression/scoring/game-over-915.png",
+      "bytes": 334662,
+      "sha256": "470925c7a28c945431471d227833ebd7f5d9bb8b02b6c06b66303e662eb02aaa"
+    },
+    {
+      "path": "regression/scoring/hud-568.png",
+      "bytes": 291438,
+      "sha256": "248f670fef2b56ab256064bb975b930f53ad71e17c1c92d8dbee073bbaf73b20"
+    },
+    {
+      "path": "regression/scoring/hud-800.png",
+      "bytes": 399450,
+      "sha256": "c7dad54fda4e9dd61af8215c2c70cae287b14270d9703c5c4207a6fa8c163fdd"
+    },
+    {
+      "path": "regression/scoring/hud-915.png",
+      "bytes": 490373,
+      "sha256": "f96aaff0e0a0e7d320f7da77bcea542d3e8328c370a5f7e3d5f338c6fd761135"
+    },
+    {
+      "path": "regression/scoring/selection-568.png",
+      "bytes": 314550,
+      "sha256": "7830f3343c5c5247c932022dcd143c98430378f91cb27e5abd0eef7e323b2966"
+    },
+    {
+      "path": "regression/scoring/selection-800.png",
+      "bytes": 457453,
+      "sha256": "e06cb1aac052041ddd3f4aaa30d8699e4e0837e4be1da6bc932ab50ff147ce0c"
+    },
+    {
+      "path": "regression/scoring/selection-915.png",
+      "bytes": 588855,
+      "sha256": "68cc19da4879ed37a7016c78e6f85af4bbe26499b8fbc834f55b956318e3ea90"
+    },
+    {
+      "path": "regression/scoring/top10-568.png",
+      "bytes": 110073,
+      "sha256": "7ef14dbfe4e97e4649a3c18557af1532c20152d731cc1488701fdc879539b927"
+    },
+    {
+      "path": "regression/scoring/top10-800.png",
+      "bytes": 140231,
+      "sha256": "341a5690c6e5213e4e351b7a652824220a9ea2737eab39d417688cbc11140072"
+    },
+    {
+      "path": "regression/scoring/top10-915.png",
+      "bytes": 211149,
+      "sha256": "6b8ac1a36ff939a6edab1cc92128f3407dd3099b5f93b272cc08ba5327c2a2de"
+    },
+    {
+      "path": "regression/scoring/top10-bottom-568.png",
+      "bytes": 110013,
+      "sha256": "166b709e77cecf6f759a408a3ba47ba468613c1300764291061ff3727e8ba31b"
+    },
+    {
+      "path": "regression/scoring/top10-bottom-800.png",
+      "bytes": 140872,
+      "sha256": "07f09f75b83ecf544ecc7eff23ff4254563109b52aca302a0d1ebb1f7d4c2219"
+    },
+    {
+      "path": "regression/scoring/top10-bottom-915.png",
+      "bytes": 211723,
+      "sha256": "54e315a36c1448602012e8bcfddfde6e3b586aeef86a7ddc7fa7413f95f98176"
+    },
+    {
+      "path": "regression/scoring-offline/empty-top10.png",
+      "bytes": 319309,
+      "sha256": "c775653570f64257627975ca75f7c38b6ef9bfb769a5b71255b8a41186a71dd1"
+    },
+    {
+      "path": "regression/scoring-offline/final-clear.png",
+      "bytes": 577696,
+      "sha256": "9c72c18bc1d01aa1b3e6a0828520a24254d7d4183b65550aef4138e3c84592f3"
+    },
+    {
+      "path": "regression/scoring-offline/game-over-915.png",
+      "bytes": 334799,
+      "sha256": "42e801bf210a700b003513eac28edbe65ceb7b2202ad8dcaf39c0dad5188661d"
+    },
+    {
+      "path": "regression/scoring-offline/hud-568.png",
+      "bytes": 291448,
+      "sha256": "a132fe58382c3935a27f86792e96aa7557d4fb63f2ecb4c478bf01334f9fbe13"
+    },
+    {
+      "path": "regression/scoring-offline/hud-800.png",
+      "bytes": 398861,
+      "sha256": "f9f3935edfd1fbf2aa5e72a25ef419e2f58ab95ee0f1b700c213de8d844a179a"
+    },
+    {
+      "path": "regression/scoring-offline/hud-915.png",
+      "bytes": 490607,
+      "sha256": "13696fc737991c1efcb5f0df539e751364812061fd10c5b1794745293ea8d0bd"
+    },
+    {
+      "path": "regression/scoring-offline/selection-568.png",
+      "bytes": 314642,
+      "sha256": "903b8238811ae19a1ad8fcbb8a76f8c89ccfdf32756335ec209607f12ba8ec88"
+    },
+    {
+      "path": "regression/scoring-offline/selection-800.png",
+      "bytes": 456997,
+      "sha256": "0ce714c43c7ccf22bf12bc05fb456fb5fa82238ce0fe8b3428e474782bfee30b"
+    },
+    {
+      "path": "regression/scoring-offline/selection-915.png",
+      "bytes": 590476,
+      "sha256": "67495a5bf38a2c94417fa632ca15ee67817cc8b85eaeb3b8eee35eae6cb7174e"
+    },
+    {
+      "path": "regression/scoring-offline/top10-568.png",
+      "bytes": 110152,
+      "sha256": "9ac577aacf81f1b37e7358b40f21ded2a932dd57513c4ca2a6ee43d8691cd2c5"
+    },
+    {
+      "path": "regression/scoring-offline/top10-800.png",
+      "bytes": 140451,
+      "sha256": "ee80802e5828cfd766dfb8ea18da214613c6721e6609eba5e0a41b83520690fc"
+    },
+    {
+      "path": "regression/scoring-offline/top10-915.png",
+      "bytes": 211262,
+      "sha256": "679c126c03196c51569529651d96ca56753b46cf1307c426521db2f531662be3"
+    },
+    {
+      "path": "regression/scoring-offline/top10-bottom-568.png",
+      "bytes": 109920,
+      "sha256": "cde56082b6c9b2230bf49ed57327c7df65cafe7791a53dc4c45a4469369be431"
+    },
+    {
+      "path": "regression/scoring-offline/top10-bottom-800.png",
+      "bytes": 140793,
+      "sha256": "43db276d8c4ec7f1a2a2139be0785ea322f91d304fc593cfae20182ef91ca449"
+    },
+    {
+      "path": "regression/scoring-offline/top10-bottom-915.png",
+      "bytes": 211608,
+      "sha256": "b6a87a86aa4bec558386113abffc353afb4c7d112f6e4f50613437de7530ddd7"
+    },
+    {
+      "path": "regression/selection_bgm/selection-music-568.png",
+      "bytes": 313797,
+      "sha256": "1b8d8e2b7206b1b0ab7a0a79a189172ec2fb28f49656cc67b0392fdca2b04050"
+    },
+    {
+      "path": "regression/selection_bgm/selection-music-800.png",
+      "bytes": 457067,
+      "sha256": "6ce3ef52fd4e290fd9620261ed8126c22aaa7b2d53abde38017dd2f858dcb609"
+    },
+    {
+      "path": "regression/selection_bgm/selection-music-915.png",
+      "bytes": 589008,
+      "sha256": "9c86da57243c3440de868ee294526e18cde9f417081277d62c3595882bc52800"
+    },
+    {
+      "path": "regression/selection_bgm-offline/selection-music-568.png",
+      "bytes": 313920,
+      "sha256": "e14e4ad92f901345a8263dfd562259e2214105039f1a13e367308465ef3b065e"
+    },
+    {
+      "path": "regression/selection_bgm-offline/selection-music-800.png",
+      "bytes": 457989,
+      "sha256": "565b843aac5f08a9097b5c3f065f748fb354e51eb27adaf63aa212c598109388"
+    },
+    {
+      "path": "regression/selection_bgm-offline/selection-music-915.png",
+      "bytes": 589168,
+      "sha256": "32a4012f614529a20264df3f9d49ff78ed3c5a25fde12019c499bcbd6d43e757"
+    },
+    {
+      "path": "regression/selection_smoke/selection-alpha-check.png",
+      "bytes": 432808,
+      "sha256": "24b518eb0737f46b2a4dc4dce04f0614ea09c0cc0c1cd27faadc37d49cae0152"
+    },
+    {
+      "path": "regression/selection_smoke/selection-background-only.png",
+      "bytes": 1341944,
+      "sha256": "09b29cfe92259897f3c1a4e22b7e5b2044db650b22e3b4fca5ec82ebbaf459d2"
+    },
+    {
+      "path": "regression/selection_smoke/selection-bingle.png",
+      "bytes": 1245130,
+      "sha256": "716b68147a1e0a6a3d94f1017df04bf43dac462ecbf216e072f42c8159367e28"
+    },
+    {
+      "path": "regression/selection_smoke/selection-desktop.png",
+      "bytes": 1247966,
+      "sha256": "bad6b0730417bc2420f09f2406c97d78f0b47acd1ece1058b02544729de27391"
+    },
+    {
+      "path": "regression/selection_smoke/selection-mobile.png",
+      "bytes": 525918,
+      "sha256": "8ad3c7777c8e906d783af234b4a4d855c90826b909ad26f9874103eca299fe0c"
+    },
+    {
+      "path": "regression/selection_smoke/selection-tanko.png",
+      "bytes": 1243046,
+      "sha256": "7f45059c18c38d699399571c2cff1fb020284bb61f770f57f1087d4a7de73355"
+    },
+    {
+      "path": "regression/selection_smoke/selection-trio.png",
+      "bytes": 1243804,
+      "sha256": "480b9652c6aa3595e74030bc56aaa0b734d6228642f9fea065b66832095d0f25"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-1-568x320.png",
+      "bytes": 227278,
+      "sha256": "b8324dbb4ae2a333a3ca8547e58ec48763e41fd09455d7bad5957763e3710366"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-1-800x360.png",
+      "bytes": 368517,
+      "sha256": "27f195395ba21567b8906a304a05a98f2697bc445bc594c096c391caa7f62d70"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-1-915x412.png",
+      "bytes": 456680,
+      "sha256": "ccc5d19bc60bc09f7da1ea065506d8b045649900472db2dbc6b553259e012844"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-5-568x320.png",
+      "bytes": 232803,
+      "sha256": "6a225a5205e07c05fbcde790278b4838b9e8c0e7b5e29b0507f2856d07392c04"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-5-800x360.png",
+      "bytes": 373759,
+      "sha256": "9fe5f14734ce032bf73c53536462f9c12e3999d7a26f03c84847eaf89eb47ebe"
+    },
+    {
+      "path": "regression/snowfield_art/after-phase-5-915x412.png",
+      "bytes": 461835,
+      "sha256": "15a181eaf1c01edf0733681f99e66eb9118cfbd8bf62a88766ca9237ee362771"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-1-568x320.png",
+      "bytes": 66188,
+      "sha256": "8663d7161debe8a4399f22fea101c09b6d5f200aef3ade90afd94999e97c09b8"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-1-800x360.png",
+      "bytes": 76841,
+      "sha256": "52eb5f1601932a36c1eaf5449842e85ccf67aeab21d0be925858f30d73978079"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-1-915x412.png",
+      "bytes": 129308,
+      "sha256": "f0010251aa4a0dd2a806fbedb34ebf136d97352e6aaaa532b27b85a2f63ea4d6"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-5-568x320.png",
+      "bytes": 103167,
+      "sha256": "8ac79290fa039e9c0947cf1ac5282264f6b38e2b4ecd0352a94af1865aaebfa0"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-5-800x360.png",
+      "bytes": 116060,
+      "sha256": "177edbe3b2d2c95af46ab943eabfc6daa7824fd5677cce31ea62c65836b649d1"
+    },
+    {
+      "path": "regression/snowfield_art/before-phase-5-915x412.png",
+      "bytes": 166514,
+      "sha256": "9fe7a0233cd279cb8d105e89f3c5d8b1ce866f91ee8ff602d72e1e6473eecbbb"
+    },
+    {
+      "path": "regression/snowfield_art/boss-attack.png",
+      "bytes": 460352,
+      "sha256": "a4a4f54590eb9c086fb42c0364c50b072dcbb378258f45bec0b601c1b6d126f0"
+    },
+    {
+      "path": "regression/snowfield_art/boss-defeat.png",
+      "bytes": 458020,
+      "sha256": "3b5517dadf3ead85a851dd9ad30fddfb50cfbda5871ed234f2c2e26648c089ea"
+    },
+    {
+      "path": "regression/snowfield_art/boss-fatal-hit.png",
+      "bytes": 457534,
+      "sha256": "2e8fbc0f11c987794596dd825587cab3a7602ea663581bde1abce4888a221c73"
+    },
+    {
+      "path": "regression/snowfield_art/boss-hit.png",
+      "bytes": 460089,
+      "sha256": "87ffe053db5449463f27b8fb8f04d2a57757ca63392c387c6080e9d9d25209eb"
+    },
+    {
+      "path": "regression/snowfield_art/snow-clear-after-defeat.png",
+      "bytes": 579037,
+      "sha256": "5c553a6f5a2ef5dbcfd160e6893c11fbeed4f82ba5c9c06ec33f52b758269050"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-1-568x320.png",
+      "bytes": 227278,
+      "sha256": "b8324dbb4ae2a333a3ca8547e58ec48763e41fd09455d7bad5957763e3710366"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-1-800x360.png",
+      "bytes": 368517,
+      "sha256": "27f195395ba21567b8906a304a05a98f2697bc445bc594c096c391caa7f62d70"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-1-915x412.png",
+      "bytes": 456674,
+      "sha256": "e8fbc0223244cc3afb4ea9c13b1c0c23c048761e62591d6a5c1320b39be02fdb"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-2-568x320.png",
+      "bytes": 227960,
+      "sha256": "3dbd22fc5a1c8feb663fee4396470e5babace1440cf7e2a570584e6844df6bdf"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-2-800x360.png",
+      "bytes": 369256,
+      "sha256": "69cb862d2e593d155dcc10cd40efaa158714346267459934c5a3733fda08ee3d"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-2-915x412.png",
+      "bytes": 457404,
+      "sha256": "88cfebdfa94682ee261ac5b0df302c0fc19e136ff5ecaf57b4d7e2a299942622"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-3-568x320.png",
+      "bytes": 228350,
+      "sha256": "7a131a5561f784382a1ac3a7c2c1cc16c81b36ab0da05476f9eb345caa78e7c1"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-3-800x360.png",
+      "bytes": 369497,
+      "sha256": "6bbd35031c755be3232d2f74601f4ea3f052eea3f1b4824aaaad78218dc10216"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-3-915x412.png",
+      "bytes": 457764,
+      "sha256": "33a0830d20c325a716a7e57d7da6807150b911e2e279769003360de4714305f4"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-4-568x320.png",
+      "bytes": 228502,
+      "sha256": "de71b7341d6df0010ed8644ce7b649a322e72509c77563c92b3b142ece0ed10a"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-4-800x360.png",
+      "bytes": 369714,
+      "sha256": "24b26111124a5f1ccbcf1137dfa8bc2452ab1517e61912722e5c3541bbdda714"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-4-915x412.png",
+      "bytes": 457821,
+      "sha256": "11f9fa42fe5d7fa81e86b6ed5001206dc39c5db874cc55650e0e7374f8624622"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-5-568x320.png",
+      "bytes": 232814,
+      "sha256": "0f42300856b6eb4b637cd6f109e3175d07efbe9df47cf2581b864f8741051afc"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-5-800x360.png",
+      "bytes": 373752,
+      "sha256": "9f1b753f1921fa9218106f70f57e9cb13ea92a138a6e6522cf75f075466bee30"
+    },
+    {
+      "path": "regression/snowfield_art/snow-phase-5-915x412.png",
+      "bytes": 461839,
+      "sha256": "34dbc616daafa6632b356df668e4207c61f960c109badfa2e343df7549bc5678"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-1-568x320.png",
+      "bytes": 227278,
+      "sha256": "b8324dbb4ae2a333a3ca8547e58ec48763e41fd09455d7bad5957763e3710366"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-1-800x360.png",
+      "bytes": 368517,
+      "sha256": "27f195395ba21567b8906a304a05a98f2697bc445bc594c096c391caa7f62d70"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-1-915x412.png",
+      "bytes": 456680,
+      "sha256": "ccc5d19bc60bc09f7da1ea065506d8b045649900472db2dbc6b553259e012844"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-5-568x320.png",
+      "bytes": 232803,
+      "sha256": "6a225a5205e07c05fbcde790278b4838b9e8c0e7b5e29b0507f2856d07392c04"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-5-800x360.png",
+      "bytes": 373759,
+      "sha256": "9fe5f14734ce032bf73c53536462f9c12e3999d7a26f03c84847eaf89eb47ebe"
+    },
+    {
+      "path": "regression/snowfield_art-offline/after-phase-5-915x412.png",
+      "bytes": 461835,
+      "sha256": "15a181eaf1c01edf0733681f99e66eb9118cfbd8bf62a88766ca9237ee362771"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-1-568x320.png",
+      "bytes": 66188,
+      "sha256": "8663d7161debe8a4399f22fea101c09b6d5f200aef3ade90afd94999e97c09b8"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-1-800x360.png",
+      "bytes": 76841,
+      "sha256": "52eb5f1601932a36c1eaf5449842e85ccf67aeab21d0be925858f30d73978079"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-1-915x412.png",
+      "bytes": 129308,
+      "sha256": "f0010251aa4a0dd2a806fbedb34ebf136d97352e6aaaa532b27b85a2f63ea4d6"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-5-568x320.png",
+      "bytes": 103167,
+      "sha256": "8ac79290fa039e9c0947cf1ac5282264f6b38e2b4ecd0352a94af1865aaebfa0"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-5-800x360.png",
+      "bytes": 116060,
+      "sha256": "177edbe3b2d2c95af46ab943eabfc6daa7824fd5677cce31ea62c65836b649d1"
+    },
+    {
+      "path": "regression/snowfield_art-offline/before-phase-5-915x412.png",
+      "bytes": 166514,
+      "sha256": "9fe7a0233cd279cb8d105e89f3c5d8b1ce866f91ee8ff602d72e1e6473eecbbb"
+    },
+    {
+      "path": "regression/snowfield_art-offline/boss-attack.png",
+      "bytes": 460352,
+      "sha256": "a4a4f54590eb9c086fb42c0364c50b072dcbb378258f45bec0b601c1b6d126f0"
+    },
+    {
+      "path": "regression/snowfield_art-offline/boss-defeat.png",
+      "bytes": 457679,
+      "sha256": "e83e16cafe1025e5bf2d0e0981759d32d2a7c2fcf0a556b2935c73a68ae2db6f"
+    },
+    {
+      "path": "regression/snowfield_art-offline/boss-fatal-hit.png",
+      "bytes": 457204,
+      "sha256": "cc161aa08837bb87cabd6ab03af8b21e3849b2ab42cd1b885b18b5a8906235bb"
+    },
+    {
+      "path": "regression/snowfield_art-offline/boss-hit.png",
+      "bytes": 460089,
+      "sha256": "87ffe053db5449463f27b8fb8f04d2a57757ca63392c387c6080e9d9d25209eb"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-clear-after-defeat.png",
+      "bytes": 578033,
+      "sha256": "847ebac4c6e7b786c0bf169487198cda1406938485a4b6cb92e55e784edb2ad6"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-1-568x320.png",
+      "bytes": 227278,
+      "sha256": "b8324dbb4ae2a333a3ca8547e58ec48763e41fd09455d7bad5957763e3710366"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-1-800x360.png",
+      "bytes": 368504,
+      "sha256": "2d81d3381b6110e101b86c4ac7211aab48f247b51ff2b083539df0e93c861bfc"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-1-915x412.png",
+      "bytes": 456674,
+      "sha256": "e8fbc0223244cc3afb4ea9c13b1c0c23c048761e62591d6a5c1320b39be02fdb"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-2-568x320.png",
+      "bytes": 227960,
+      "sha256": "3dbd22fc5a1c8feb663fee4396470e5babace1440cf7e2a570584e6844df6bdf"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-2-800x360.png",
+      "bytes": 369256,
+      "sha256": "69cb862d2e593d155dcc10cd40efaa158714346267459934c5a3733fda08ee3d"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-2-915x412.png",
+      "bytes": 457404,
+      "sha256": "88cfebdfa94682ee261ac5b0df302c0fc19e136ff5ecaf57b4d7e2a299942622"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-3-568x320.png",
+      "bytes": 228350,
+      "sha256": "7a131a5561f784382a1ac3a7c2c1cc16c81b36ab0da05476f9eb345caa78e7c1"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-3-800x360.png",
+      "bytes": 369497,
+      "sha256": "6bbd35031c755be3232d2f74601f4ea3f052eea3f1b4824aaaad78218dc10216"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-3-915x412.png",
+      "bytes": 457764,
+      "sha256": "33a0830d20c325a716a7e57d7da6807150b911e2e279769003360de4714305f4"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-4-568x320.png",
+      "bytes": 228502,
+      "sha256": "de71b7341d6df0010ed8644ce7b649a322e72509c77563c92b3b142ece0ed10a"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-4-800x360.png",
+      "bytes": 369714,
+      "sha256": "24b26111124a5f1ccbcf1137dfa8bc2452ab1517e61912722e5c3541bbdda714"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-4-915x412.png",
+      "bytes": 457821,
+      "sha256": "11f9fa42fe5d7fa81e86b6ed5001206dc39c5db874cc55650e0e7374f8624622"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-5-568x320.png",
+      "bytes": 232814,
+      "sha256": "0f42300856b6eb4b637cd6f109e3175d07efbe9df47cf2581b864f8741051afc"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-5-800x360.png",
+      "bytes": 373752,
+      "sha256": "9f1b753f1921fa9218106f70f57e9cb13ea92a138a6e6522cf75f075466bee30"
+    },
+    {
+      "path": "regression/snowfield_art-offline/snow-phase-5-915x412.png",
+      "bytes": 461839,
+      "sha256": "34dbc616daafa6632b356df668e4207c61f960c109badfa2e343df7549bc5678"
+    },
+    {
+      "path": "regression/snowfield_boss-native/burst-568x320.png",
+      "bytes": 235295,
+      "sha256": "aec0bdbd5b3cbfa7e8ded6a9131b40cb9c6c15dc6f0553ab00b88d3a5f0762da"
+    },
+    {
+      "path": "regression/snowfield_boss-native/burst-800x360.png",
+      "bytes": 376452,
+      "sha256": "0ab71121e79b8640080b4dcbe52ae84bb88721f7f3a37941ebee38323020d8fb"
+    },
+    {
+      "path": "regression/snowfield_boss-native/burst-915x412.png",
+      "bytes": 464454,
+      "sha256": "d198aa254dde5d7dcbda744020975ec01226fafc1eb8ce3ec0b1971461d67d6b"
+    },
+    {
+      "path": "regression/snowfield_boss-native/clear-568x320.png",
+      "bytes": 306895,
+      "sha256": "0f2176e8976c8db1ca93848bb5d1b63e221cf01a77a00519d50a6d7fe368c1b9"
+    },
+    {
+      "path": "regression/snowfield_boss-native/clear-800x360.png",
+      "bytes": 448538,
+      "sha256": "eb3e993112daa9d43fcfd72e6ccc0822a9780b1dedad3968f96347ccb9912a97"
+    },
+    {
+      "path": "regression/snowfield_boss-native/clear-915x412.png",
+      "bytes": 577846,
+      "sha256": "e2afa7faff3782e25fb979e7a1588ca312a40362da1a00a9301a672b3424783c"
+    },
+    {
+      "path": "regression/snowfield_boss-native/entry-568x320.png",
+      "bytes": 232527,
+      "sha256": "1bc075d11c9de9167e3a6f66c630ca235bc09c8c7ea638b91cc759b36c5e556f"
+    },
+    {
+      "path": "regression/snowfield_boss-native/entry-800x360.png",
+      "bytes": 373886,
+      "sha256": "4e6a641720069cd98f6b789bde6c4bcbf0639d28c9906e7192fe22fbcdfb694b"
+    },
+    {
+      "path": "regression/snowfield_boss-native/entry-915x412.png",
+      "bytes": 462240,
+      "sha256": "a8766db293c3adb8d196cf858fa428e6fa64a1ae5798b30a9d726d7baebfaff7"
+    },
+    {
+      "path": "regression/snowfield_boss-native/fan-568x320.png",
+      "bytes": 232984,
+      "sha256": "15e04bfc185c5279826cc70d0f4773c6cb03d679cd0b937f2d8002d98f73d666"
+    },
+    {
+      "path": "regression/snowfield_boss-native/fan-800x360.png",
+      "bytes": 374646,
+      "sha256": "3404f35a00dc8efe6fdc65152fff8669bb6fd0274bd608646cebca020e9fe37b"
+    },
+    {
+      "path": "regression/snowfield_boss-native/fan-915x412.png",
+      "bytes": 463078,
+      "sha256": "5aa8cef15eeec6640886f737e4a4f86f257fbc1cf46a6c01d63730e36fe3213d"
+    },
+    {
+      "path": "regression/snowfield_boss-native/radial-568x320.png",
+      "bytes": 236096,
+      "sha256": "d162a5188a0620a2bf7a77e9fcdfd5cb9cd45486cec6df8cf3535e5c40718135"
+    },
+    {
+      "path": "regression/snowfield_boss-native/radial-800x360.png",
+      "bytes": 376406,
+      "sha256": "de69bac6f4ed7f0000c2145043e0f1000e3ecb05be4921e150ec4815f2995fa4"
+    },
+    {
+      "path": "regression/snowfield_boss-native/radial-915x412.png",
+      "bytes": 465184,
+      "sha256": "627143367db7cd1f21674d76db484767c96dc3ea8a1e3ba9158fe3fd0c9bccc8"
+    },
+    {
+      "path": "regression/snowfield_boss-native/warning-568x320.png",
+      "bytes": 236251,
+      "sha256": "c1cc89da11ffd50970bdd8abf79070ef224792be533687e0995316d3838a4909"
+    },
+    {
+      "path": "regression/snowfield_boss-native/warning-800x360.png",
+      "bytes": 377204,
+      "sha256": "7b987382bc39558a30823404a0f08318744c6efcb6d2c55db29340870e5f9011"
+    },
+    {
+      "path": "regression/snowfield_boss-native/warning-915x412.png",
+      "bytes": 465739,
+      "sha256": "48b0055740b61e35ccf4d41b2a2b89e6e4f549866000d81d48fd593f5f335f76"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/burst-568x320.png",
+      "bytes": 235295,
+      "sha256": "aec0bdbd5b3cbfa7e8ded6a9131b40cb9c6c15dc6f0553ab00b88d3a5f0762da"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/burst-800x360.png",
+      "bytes": 376452,
+      "sha256": "0ab71121e79b8640080b4dcbe52ae84bb88721f7f3a37941ebee38323020d8fb"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/burst-915x412.png",
+      "bytes": 464454,
+      "sha256": "d198aa254dde5d7dcbda744020975ec01226fafc1eb8ce3ec0b1971461d67d6b"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/clear-568x320.png",
+      "bytes": 306867,
+      "sha256": "281b6b989b78487c08a80edfbfbc8266bc57d455ba133532d2091f81a54f380d"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/clear-800x360.png",
+      "bytes": 448324,
+      "sha256": "d12f32e48a4f021b3db7f30712808df384406f70987433543e75efae3cb996e3"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/clear-915x412.png",
+      "bytes": 577932,
+      "sha256": "97428354367f6c6f55e0586e77909877b9e43ef2aadb1d91330867de48035205"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/entry-568x320.png",
+      "bytes": 232527,
+      "sha256": "1bc075d11c9de9167e3a6f66c630ca235bc09c8c7ea638b91cc759b36c5e556f"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/entry-800x360.png",
+      "bytes": 373886,
+      "sha256": "4e6a641720069cd98f6b789bde6c4bcbf0639d28c9906e7192fe22fbcdfb694b"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/entry-915x412.png",
+      "bytes": 462240,
+      "sha256": "a8766db293c3adb8d196cf858fa428e6fa64a1ae5798b30a9d726d7baebfaff7"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/fan-568x320.png",
+      "bytes": 232984,
+      "sha256": "15e04bfc185c5279826cc70d0f4773c6cb03d679cd0b937f2d8002d98f73d666"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/fan-800x360.png",
+      "bytes": 374646,
+      "sha256": "3404f35a00dc8efe6fdc65152fff8669bb6fd0274bd608646cebca020e9fe37b"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/fan-915x412.png",
+      "bytes": 463078,
+      "sha256": "5aa8cef15eeec6640886f737e4a4f86f257fbc1cf46a6c01d63730e36fe3213d"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/radial-568x320.png",
+      "bytes": 236096,
+      "sha256": "d162a5188a0620a2bf7a77e9fcdfd5cb9cd45486cec6df8cf3535e5c40718135"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/radial-800x360.png",
+      "bytes": 376406,
+      "sha256": "de69bac6f4ed7f0000c2145043e0f1000e3ecb05be4921e150ec4815f2995fa4"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/radial-915x412.png",
+      "bytes": 465184,
+      "sha256": "627143367db7cd1f21674d76db484767c96dc3ea8a1e3ba9158fe3fd0c9bccc8"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/warning-568x320.png",
+      "bytes": 236251,
+      "sha256": "c1cc89da11ffd50970bdd8abf79070ef224792be533687e0995316d3838a4909"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/warning-800x360.png",
+      "bytes": 377204,
+      "sha256": "7b987382bc39558a30823404a0f08318744c6efcb6d2c55db29340870e5f9011"
+    },
+    {
+      "path": "regression/snowfield_boss-offline/warning-915x412.png",
+      "bytes": 465739,
+      "sha256": "48b0055740b61e35ccf4d41b2a2b89e6e4f549866000d81d48fd593f5f335f76"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-1-568x320.png",
+      "bytes": 225633,
+      "sha256": "c522ea75fd8ea773f247c858693b6cc5f7572c2af509920e939870945f546d40"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-1-800x360.png",
+      "bytes": 368386,
+      "sha256": "4cc7772cf1fd5588106f6429bf5dc5ed176503dc54e85162d34f80c9d431ea48"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-1-915x412.png",
+      "bytes": 457039,
+      "sha256": "dfb0fc283a56a108d10f54ecc57cb7a8d5a7b9f20c615a33ba5b64bd993897da"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-2-568x320.png",
+      "bytes": 230153,
+      "sha256": "f24834ad52a3bd3482bcfbf1aa8ed61b57c4eb5c8c4d168f0b0b64ab0f34759f"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-2-800x360.png",
+      "bytes": 372130,
+      "sha256": "84068d5b54b34fbaabde6b75056a245a6c81a2a05919985dcc385e0b6283cadf"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-2-915x412.png",
+      "bytes": 461234,
+      "sha256": "41a0ec09e54b12b5f5c4e166e4344243d525d6ac3b82b623180aeb042520e2ea"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-3-568x320.png",
+      "bytes": 228786,
+      "sha256": "143f075e4e360b512a48aee83bff75931ec29ef8c3605931d00cfed88a8abd5a"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-3-800x360.png",
+      "bytes": 370052,
+      "sha256": "faa257782715293ce93576fc7b4c816eb6c9db42fe2b1177b37096bf8dbc971f"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-3-915x412.png",
+      "bytes": 458207,
+      "sha256": "1ce59f7c2a7e73b8d8567f343cfc59396baddec4043a6a7c7299a3719554cb6c"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-4-568x320.png",
+      "bytes": 228968,
+      "sha256": "7687aec33a96df4127d996dc82b463e2cca408f9f63d1050bdf4ebe19d989044"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-4-800x360.png",
+      "bytes": 370096,
+      "sha256": "ae7b9fa9a98ef77af991f31c0d22a69495716491b4ab33919cfc74927384b8c3"
+    },
+    {
+      "path": "regression/snowfield_combat-native/snow-4-915x412.png",
+      "bytes": 458366,
+      "sha256": "eb4cc76cb4a14e294b4081e5511de1f67c39c470d28856d2bf1e00512867d8a8"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-1-568x320.png",
+      "bytes": 227679,
+      "sha256": "6ab53f02ea697c56619ce02bc2fc95cc84ce9911bafd22213b1546bfd2cedc9b"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-1-800x360.png",
+      "bytes": 368829,
+      "sha256": "a1f5cd262c0758cbde5f473c463177ca3ef7a86825dff90b5e0815937ba7e2ad"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-1-915x412.png",
+      "bytes": 457039,
+      "sha256": "dfb0fc283a56a108d10f54ecc57cb7a8d5a7b9f20c615a33ba5b64bd993897da"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-2-568x320.png",
+      "bytes": 230132,
+      "sha256": "fd8a20c3eaeb6dca5f60fd4c03f2aa6775329cd5f1961803b440e03027168d00"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-2-800x360.png",
+      "bytes": 372146,
+      "sha256": "5797c2edb26bee4664515c65ae6809d4e769561a2c2929ad327d50a5fcd52413"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-2-915x412.png",
+      "bytes": 461234,
+      "sha256": "41a0ec09e54b12b5f5c4e166e4344243d525d6ac3b82b623180aeb042520e2ea"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-3-568x320.png",
+      "bytes": 228786,
+      "sha256": "143f075e4e360b512a48aee83bff75931ec29ef8c3605931d00cfed88a8abd5a"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-3-800x360.png",
+      "bytes": 370052,
+      "sha256": "faa257782715293ce93576fc7b4c816eb6c9db42fe2b1177b37096bf8dbc971f"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-3-915x412.png",
+      "bytes": 458207,
+      "sha256": "1ce59f7c2a7e73b8d8567f343cfc59396baddec4043a6a7c7299a3719554cb6c"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-4-568x320.png",
+      "bytes": 228968,
+      "sha256": "7687aec33a96df4127d996dc82b463e2cca408f9f63d1050bdf4ebe19d989044"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-4-800x360.png",
+      "bytes": 370096,
+      "sha256": "ae7b9fa9a98ef77af991f31c0d22a69495716491b4ab33919cfc74927384b8c3"
+    },
+    {
+      "path": "regression/snowfield_combat-offline/snow-4-915x412.png",
+      "bytes": 458366,
+      "sha256": "eb4cc76cb4a14e294b4081e5511de1f67c39c470d28856d2bf1e00512867d8a8"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-boss-568x320.png",
+      "bytes": 237653,
+      "sha256": "fe82b437a76a1c4a34fee8b6648caf9432dd311b7d1527be504f3bb2febbaef3"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-boss-800x360.png",
+      "bytes": 378995,
+      "sha256": "6f02ea0dee0596db431774132764f5ae656723b47fa8ae00231e1e63fb31fcb3"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-boss-915x412.png",
+      "bytes": 466846,
+      "sha256": "ea92d388735782d8d2dc45fb60c43e4e73d7eb62bd774b5a24184b927ca42bad"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-mix-568x320.png",
+      "bytes": 235189,
+      "sha256": "a7e1ea41fda00c0fcc23eb93a7c113dd5d6c8e989ed13736be1678a5aa8ac8a4"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-mix-800x360.png",
+      "bytes": 376174,
+      "sha256": "7b8bee85df9804c6ebb114d5e11ca171e1c5021479e99f787f0857114ead5baf"
+    },
+    {
+      "path": "regression/snowfield_difficulty-native/tuned-mix-915x412.png",
+      "bytes": 464852,
+      "sha256": "d4c4e7d25341e61da8a54e9aedc63d13932581abc7d98076ab45de28860337be"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-boss-568x320.png",
+      "bytes": 237742,
+      "sha256": "1db765c5cc01c23ccfcf9c953a87c79e2902abf5a06420483fec8c841340fd87"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-boss-800x360.png",
+      "bytes": 378516,
+      "sha256": "23b89dbf6d6ebb26c2e1aa4e21385a3624735700bbbaa46c561e16f4049fb992"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-boss-915x412.png",
+      "bytes": 467203,
+      "sha256": "0ce128905764cf1ca12ce90c378548d016a20cd17b519ac4ad539f0f0e034127"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-mix-568x320.png",
+      "bytes": 235246,
+      "sha256": "712796f6c7234bbae4bd3ca03a4c85f4b14955638480704cf8e76bc9512ec9e0"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-mix-800x360.png",
+      "bytes": 376245,
+      "sha256": "b7cfeeedddb2f2eca06acbf70e2470ea7d8af3e08d15ca1d03912d1508882c8f"
+    },
+    {
+      "path": "regression/snowfield_difficulty-offline/tuned-mix-915x412.png",
+      "bytes": 464741,
+      "sha256": "bb4469bc68e6fb92bd0363e8ddbb2a9f9edf56833f097b188964213b20203b60"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/mixed-568x320.png",
+      "bytes": 232365,
+      "sha256": "9ddc2001b866ef284c0b4437924f38ec1f91f6c8acc023594c1c95ab82ac7dab"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/mixed-800x360.png",
+      "bytes": 372813,
+      "sha256": "d9b3bce71c62298fafc1defcb1d9e80fc4778c24d84ae2d8e8d55238254602ce"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/mixed-915x412.png",
+      "bytes": 461445,
+      "sha256": "e4621b2ea15e7350daedda41bae5bc586acd503d4839dbbef5aec510dadce729"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-dash-568x320.png",
+      "bytes": 228512,
+      "sha256": "8c95344631af2a671c9438168c21d4551dc8ef37f8a7b3072b9f50b02aa756aa"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-dash-800x360.png",
+      "bytes": 369922,
+      "sha256": "c61b578cfba588ac711b7e9517eaeef03b3214088d073666f242175e53f01a8d"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-dash-915x412.png",
+      "bytes": 458062,
+      "sha256": "9e7a7f6efbc8dce12f9972af97ead7de1c5049965103c75f7fa44957a7cc3b0a"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-warning-568x320.png",
+      "bytes": 230566,
+      "sha256": "e89362c9409bf45f2c29b46a87efc80920ac80c2758bfdbbd018d0fd2e84e647"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-warning-800x360.png",
+      "bytes": 370231,
+      "sha256": "cc3ba3a2f6510d3292af1a33d3f83d90e31314d281d850f0c99ad33325bb0238"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/penguin-warning-915x412.png",
+      "bytes": 458267,
+      "sha256": "167cc4eee0f85e172e885336f2733f6e81cb7b49b0a964be8dc518a334144e9f"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/tanko-aoe-568x320.png",
+      "bytes": 238447,
+      "sha256": "960d4a8ff71bc7d8bc604c469dbabeb7c9391eb1b8eacb1f3b3998f310d134f3"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/tanko-aoe-800x360.png",
+      "bytes": 379682,
+      "sha256": "0003f5e9b97bf06e596db8a81a39bf63745916950802c3c6c76ef181b18b7b95"
+    },
+    {
+      "path": "regression/snowfield_mixed-native/tanko-aoe-915x412.png",
+      "bytes": 468279,
+      "sha256": "39aafb441b84f0e4a99029965fef0a49c6d3429f43766bc924268e284d2e1424"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/mixed-568x320.png",
+      "bytes": 232365,
+      "sha256": "9ddc2001b866ef284c0b4437924f38ec1f91f6c8acc023594c1c95ab82ac7dab"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/mixed-800x360.png",
+      "bytes": 372813,
+      "sha256": "d9b3bce71c62298fafc1defcb1d9e80fc4778c24d84ae2d8e8d55238254602ce"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/mixed-915x412.png",
+      "bytes": 461445,
+      "sha256": "e4621b2ea15e7350daedda41bae5bc586acd503d4839dbbef5aec510dadce729"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-dash-568x320.png",
+      "bytes": 228512,
+      "sha256": "8c95344631af2a671c9438168c21d4551dc8ef37f8a7b3072b9f50b02aa756aa"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-dash-800x360.png",
+      "bytes": 369922,
+      "sha256": "c61b578cfba588ac711b7e9517eaeef03b3214088d073666f242175e53f01a8d"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-dash-915x412.png",
+      "bytes": 458062,
+      "sha256": "9e7a7f6efbc8dce12f9972af97ead7de1c5049965103c75f7fa44957a7cc3b0a"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-warning-568x320.png",
+      "bytes": 230566,
+      "sha256": "e89362c9409bf45f2c29b46a87efc80920ac80c2758bfdbbd018d0fd2e84e647"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-warning-800x360.png",
+      "bytes": 370231,
+      "sha256": "cc3ba3a2f6510d3292af1a33d3f83d90e31314d281d850f0c99ad33325bb0238"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/penguin-warning-915x412.png",
+      "bytes": 458267,
+      "sha256": "167cc4eee0f85e172e885336f2733f6e81cb7b49b0a964be8dc518a334144e9f"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/tanko-aoe-568x320.png",
+      "bytes": 238447,
+      "sha256": "960d4a8ff71bc7d8bc604c469dbabeb7c9391eb1b8eacb1f3b3998f310d134f3"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/tanko-aoe-800x360.png",
+      "bytes": 379674,
+      "sha256": "c2604ee359088137609337622afce499cdb59ab90015ba9a90082f021260c5d3"
+    },
+    {
+      "path": "regression/snowfield_mixed-offline/tanko-aoe-915x412.png",
+      "bytes": 468293,
+      "sha256": "fb3513544821478cf321c82a0b195e1a0eacee3e00b42817a2288ba6a2ec4053"
+    },
+    {
+      "path": "regression/tanko_combat/tanko-bullet-widths-eight-directions.png",
+      "bytes": 510907,
+      "sha256": "f4ed31a1f50efe71fcce352c8bb6f6b662d81a4c40bcaa3b2d5ef68386aadc01"
+    },
+    {
+      "path": "regression/tanko_combat/tanko-combat-568.png",
+      "bytes": 323128,
+      "sha256": "d20e2700aa22e33d7b65bf291f744e58f37d1962463fc63d85d45be879475e91"
+    },
+    {
+      "path": "regression/tanko_combat/tanko-combat-800.png",
+      "bytes": 440736,
+      "sha256": "8253c97b0d795b6886b27c54f6c5aef7065778a18caf8ec82f60e03204171a3d"
+    },
+    {
+      "path": "regression/tanko_combat/tanko-combat-915.png",
+      "bytes": 541810,
+      "sha256": "53898852bf33311a8173bfc2cc886d2bd1d35959bdbb9fa064062fcfbaccfaab"
+    },
+    {
+      "path": "regression/tanko_combat-offline/tanko-bullet-widths-eight-directions.png",
+      "bytes": 510907,
+      "sha256": "f4ed31a1f50efe71fcce352c8bb6f6b662d81a4c40bcaa3b2d5ef68386aadc01"
+    },
+    {
+      "path": "regression/tanko_combat-offline/tanko-combat-568.png",
+      "bytes": 322979,
+      "sha256": "6a457de5e99b6361c102eb53947d73dcdd39e41ffde628703dca84ec977fd2fa"
+    },
+    {
+      "path": "regression/tanko_combat-offline/tanko-combat-800.png",
+      "bytes": 440813,
+      "sha256": "88f8e05ff9a3dc6057691682b5b476d0366729699feb096bd22777b58311cfda"
+    },
+    {
+      "path": "regression/tanko_combat-offline/tanko-combat-915.png",
+      "bytes": 542027,
+      "sha256": "4ba8e2648a9f7b8940590d52dbac1d52551ec5c951df33c6357be13deb4c2cfc"
+    },
+    {
+      "path": "regression/volcano_combat-native/beetle-blocked.png",
+      "bytes": 342322,
+      "sha256": "dc2d6f9624127a68a2244906c818cbd446be4303b2f16d732e09c6fdb3c84287"
+    },
+    {
+      "path": "regression/volcano_combat-native/beetle-windup.png",
+      "bytes": 341741,
+      "sha256": "a853f145b6bc6a7062b2239d9ba527749e2ed6ba16544d56c50c4cbfd8323779"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-1-568x320.png",
+      "bytes": 338216,
+      "sha256": "3aabf3960c0b6d79f1d1eac48e04159151b0cd3a8e6b0bb19a675991161cb829"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-1-800x360.png",
+      "bytes": 541363,
+      "sha256": "8dba73e5662888557e8d766bc12f993ec43aed01c00e1ce91ae10e9209ba34da"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-1-915x412.png",
+      "bytes": 682551,
+      "sha256": "27082fd1aaecfaeda73ed58977ab92ab58aee1a368d51f1d462c3e0057d31066"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-2-568x320.png",
+      "bytes": 339731,
+      "sha256": "9022cc28dda79e1e49acc581e51932a4a8e8ca4979d1a28e71c06dc4a8e7996f"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-2-800x360.png",
+      "bytes": 543726,
+      "sha256": "9690ce6e7d89c71ddb8e734afc915f1c0d62e9a62cbddc08c056d369debca952"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-2-915x412.png",
+      "bytes": 684356,
+      "sha256": "4ab4236683f2e2d14bb75f8dd70ca61f8f86cca77546b0636af7d9562dde2a56"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-3-568x320.png",
+      "bytes": 338969,
+      "sha256": "78bd73885008aa5a0205a719611cde3fb1dacf5b7860ac3a7879af0948f4cbb9"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-3-800x360.png",
+      "bytes": 542797,
+      "sha256": "4aa9e07f016c009f0e11dbe75059e1036b62486d966857c12c1bd64923e1ab10"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-3-915x412.png",
+      "bytes": 683547,
+      "sha256": "afd47f419adb68bc5b3f14c5c534cea053fbf6d55f2e98645156ff013b4212c1"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-4-568x320.png",
+      "bytes": 341945,
+      "sha256": "0510afd7a4f5dd12c2e2a83dade30f8981ff2cd3fda9d4463c030d768d4e241f"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-4-800x360.png",
+      "bytes": 545628,
+      "sha256": "233a936d7e0ce95c6e3acb703575750f5267fccb00c77820554e99929c8e2905"
+    },
+    {
+      "path": "regression/volcano_combat-native/volcano-combat-4-915x412.png",
+      "bytes": 686636,
+      "sha256": "3d74719318128cdb4075387b39fbdaf548f0a5302a882d7f93df06a7597549a6"
+    },
+    {
+      "path": "regression/volcano_combat-offline/beetle-blocked.png",
+      "bytes": 342375,
+      "sha256": "7ef30786d9a17ca9a961b893910f71c8ac7369ce7968adb5afb8df1630587052"
+    },
+    {
+      "path": "regression/volcano_combat-offline/beetle-windup.png",
+      "bytes": 341728,
+      "sha256": "2f005e2e89c825e83dd91b485ec0a4f2100e75ddaeb5c4c94e9f67460bf5e475"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-1-568x320.png",
+      "bytes": 337609,
+      "sha256": "54c9aeb9b05c22bbe130391b9426e69fe36714db9aaa293dc96d201eeb24ab00"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-1-800x360.png",
+      "bytes": 541360,
+      "sha256": "f3d2d6d1118c37ee35d0456456da22bed9cfc3691907947325c80823b08bf62a"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-1-915x412.png",
+      "bytes": 682556,
+      "sha256": "fabc2d9a0f7a59a8977e5e27406603e5a96f1dffdb55ed057a36a9b316cd0855"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-2-568x320.png",
+      "bytes": 339762,
+      "sha256": "37f9a1a63106b444e01f711fb32e345a2a3d693091969c909b0a002f189fec9c"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-2-800x360.png",
+      "bytes": 543751,
+      "sha256": "98138b966be43c61eb1350b2cacab5d2eb429f60766c7d6248237b031db42fe8"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-2-915x412.png",
+      "bytes": 684300,
+      "sha256": "6fec6d2e1e49d80b7b5d8c3383a127f103d513a754b2b36baa1db65f67ed80cc"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-3-568x320.png",
+      "bytes": 338989,
+      "sha256": "e13a3263f27599fd36707abad80664eb3f774a7853cfb41439c0bd0314075c3e"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-3-800x360.png",
+      "bytes": 542829,
+      "sha256": "9210736e175b6d8bbf9d55ae83757081d9f748b50acff5035bf3bdfa9db70a59"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-3-915x412.png",
+      "bytes": 683541,
+      "sha256": "bd1493590e5df53f4179252bc7fdaaa738db166a887accc43bd35df837b94db1"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-4-568x320.png",
+      "bytes": 341959,
+      "sha256": "6bc4710a6c5ff8ab33620a51c10f9c58b5db2345cf8ed2538613e4ded6757f41"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-4-800x360.png",
+      "bytes": 545643,
+      "sha256": "61afed117db7a05d42f377886b30d4f472f10d3f087d665c91149c51031a83ec"
+    },
+    {
+      "path": "regression/volcano_combat-offline/volcano-combat-4-915x412.png",
+      "bytes": 686686,
+      "sha256": "340d68fea9f2c750d5d277af628de115cbc1d860e77b1365202561c8e9f0061d"
+    },
+    {
+      "path": "regression/volcano_lifecycle/boss-outro-exit-568x320.png",
+      "bytes": 224638,
+      "sha256": "07b4628810bbbc676501a71631056cb72b11bdb574e6b23c048122bf4d9eb77f"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-568x320-phase2.png",
+      "bytes": 339825,
+      "sha256": "9a794d23b7af47ef83518f1c2011b0cca9b9515fc71ad703101370d48c71bae4"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-568x320-phase5.png",
+      "bytes": 339909,
+      "sha256": "e4d0bdfe1b7130e2d33ba5a612c7d84710b2a9fc7fbb67dd9c166b4d7fdf4af9"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-800x360-phase2.png",
+      "bytes": 543561,
+      "sha256": "3156648edcf667a8819f2417cf28ca9c9fe1e0a8f40f7c1e72c9caf88f58219e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-800x360-phase5.png",
+      "bytes": 541189,
+      "sha256": "b596bfa045b709d710383fd5e712ee393026f8bad10faaa5040ff96b6b2b4ed6"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-915x412-phase2.png",
+      "bytes": 684432,
+      "sha256": "ce434fa0940ab0b814f9bb694d1279dffd6081adfe8b188106ea65de1ccfcfc4"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-915x412-phase5.png",
+      "bytes": 680999,
+      "sha256": "7539fbfd0d552153166462cf50ed5498a5c6d5a9270a53145ae0ff3748c3d4be"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-delayed-legacy-player-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-delayed-legacy-player-1.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-delayed-legacy-player-2.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-player-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-player-1.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/after-player-2.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-568x320-phase2.png",
+      "bytes": 340229,
+      "sha256": "e2f6f062844c7c6bb33a45a8cb3f745f0e908dba7d5a4cf96114f1903935f00c"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-568x320-phase5.png",
+      "bytes": 343764,
+      "sha256": "6410b113b4f229dbcb516cb655a76509d8525b2939717c5591b8d9f31c1dffc5"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-800x360-phase2.png",
+      "bytes": 543718,
+      "sha256": "a7b2383a4997f41638ea1559d2220ff4224e60e42b8d998f060caec541591dd7"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-800x360-phase5.png",
+      "bytes": 546188,
+      "sha256": "e8905a20fb70376026ad39844c9fc5b43ba3f0a3ad81a9eb0ab80ace2243936e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-915x412-phase2.png",
+      "bytes": 684123,
+      "sha256": "ad6c0d3330f0eaaa7fbfb893a8f5bbcee392fadb065a0d3f59be8c422826bd35"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-915x412-phase5.png",
+      "bytes": 686593,
+      "sha256": "224940c40cabcaf1832db51dcdba0fcd0845a50bc793bc75add35c9c5cbb69b6"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-delayed-legacy-player-0.png",
+      "bytes": 15079,
+      "sha256": "2ebf8c2ad779498608c6e4eafd9112f84677a3474dc764a3992d47635c3f47eb"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-delayed-legacy-player-1.png",
+      "bytes": 13464,
+      "sha256": "fbd90bcd776de9232f874b89e00271632d635c3e82250e72cc6a94b4ba2341de"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-delayed-legacy-player-2.png",
+      "bytes": 13435,
+      "sha256": "94fd1c5e501b09353272e8b16f8326987941ab9b1241786aa4fcfd0e16a26c78"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-player-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-player-1.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/before-player-2.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-1.png",
+      "bytes": 12806,
+      "sha256": "067adbef8384cd715b8fae35607e6e8db86cda03b34412a2729ab85f7cb8d787"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-2.png",
+      "bytes": 12783,
+      "sha256": "260deb3bb8a7abd79f8918dffbd9f516e9213edb6a848760ac919e857ea68bb2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-3.png",
+      "bytes": 12789,
+      "sha256": "766c9c95b5c492357bdd92b84ad40fab86a27ab6287ec57a3db7af044b6fc979"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-4.png",
+      "bytes": 12759,
+      "sha256": "e824b155c915880473a71b4b4d5fcb266f6bb14ccb2aa5171e97b5cd5fb11eb2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-5.png",
+      "bytes": 12801,
+      "sha256": "b4e0c8acf73e25d16cdf456988256043949f8f113778fe3a333cc40bcec003cc"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-6.png",
+      "bytes": 12802,
+      "sha256": "530e0b190c8a0aad72243d0567f5744c8e01d7cd2eaf702165a263a56f408100"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-0-7.png",
+      "bytes": 12767,
+      "sha256": "90b07473edf26fcf010d821c31d067f1bb089b3c36c743f606d857dcb78271c8"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-0.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-1.png",
+      "bytes": 12868,
+      "sha256": "f6ab41c9f1366b7c0b1ff26eae4733476e26d95bb485b79bb41c1e9701aaf5b4"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-2.png",
+      "bytes": 12834,
+      "sha256": "62edd1a8f770d188d35753ca3acf80b2bd078811f2a6f68c52395ae0897f7370"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-3.png",
+      "bytes": 12907,
+      "sha256": "d9fdb3a4857499e0df67453f0fb7bc872b9640ffd4be80e1b3c2619f69be99f0"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-4.png",
+      "bytes": 12856,
+      "sha256": "2ae77b33ae40f95e2c4b4efbd5ff4f1dbb062833b51a228e0d5d77106e979e93"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-5.png",
+      "bytes": 12890,
+      "sha256": "a53f7150965c7818b3d0ef11b222183cdde5940f69d1487c053cf638abd54682"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-6.png",
+      "bytes": 12827,
+      "sha256": "c00fe3f42cbe6f299263d1782f8480d086f62150fda23681fca94410d4eaedc9"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-1-7.png",
+      "bytes": 12887,
+      "sha256": "fffc7464edee4898e69fa03c062c3bae6c713b48c092673fc279d9de063b49d2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-0.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-1.png",
+      "bytes": 13196,
+      "sha256": "fadfd6eecc7e3cd70b3301dcb4247edab1e65ec481648651f39a34be38edc3f3"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-2.png",
+      "bytes": 13084,
+      "sha256": "f8278e1e47ab7cfccb202ae38ee3bd667c5f56dc789d58ab8f8364e44b7bd4b3"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-3.png",
+      "bytes": 13222,
+      "sha256": "0746de35b44de4263b30657b4599cf9bf6f1fbdb8b7fd5a47447b17e1b4793a5"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-4.png",
+      "bytes": 13088,
+      "sha256": "bf4b3abeb3157049a3743a8c53d2c65bf18936cfe3da16322ae5b45dd83f71c5"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-5.png",
+      "bytes": 13201,
+      "sha256": "3fccf2c394c66d1cb18f9316fe68d9bc1fefb79c2fda66b4d9b3d92a2170338c"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-6.png",
+      "bytes": 13103,
+      "sha256": "a1ef10e1911d85172dba69c0a0eae1a99a4bdf359e9474d31d7f7037fd55eb8f"
+    },
+    {
+      "path": "regression/volcano_visual_fix-native/rotation-2-7.png",
+      "bytes": 13201,
+      "sha256": "770381c6334f9b96e05194a0252076cf5bcb1a01709efe99312845ca19bf5c2c"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-568x320-phase2.png",
+      "bytes": 340570,
+      "sha256": "6d910498c59325d7ad335bb9300e6e61bc8c0793176e32403e4334759ebdc943"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-568x320-phase5.png",
+      "bytes": 339881,
+      "sha256": "948ea8ac3f939228199fecd02c0c0e98601db15e59f73b3656d5d43511e4e7a0"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-800x360-phase2.png",
+      "bytes": 543975,
+      "sha256": "0c909ae82d726d478de23f4bf93cb8ff2edd364964b6438925efaf7315b73b5a"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-800x360-phase5.png",
+      "bytes": 541163,
+      "sha256": "b2ec6f3bade87e64df94a3ff4f65ae6adb56dc55d42e604c6a60016f382f2ecb"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-915x412-phase2.png",
+      "bytes": 684432,
+      "sha256": "ce434fa0940ab0b814f9bb694d1279dffd6081adfe8b188106ea65de1ccfcfc4"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-915x412-phase5.png",
+      "bytes": 680999,
+      "sha256": "7539fbfd0d552153166462cf50ed5498a5c6d5a9270a53145ae0ff3748c3d4be"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-delayed-legacy-player-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-delayed-legacy-player-1.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-delayed-legacy-player-2.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-player-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-player-1.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/after-player-2.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-0.png",
+      "bytes": 12734,
+      "sha256": "ec1444d60de4177f610285c463fc8fdb9ada8665d991a4b12b885fd448ef037d"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-1.png",
+      "bytes": 12806,
+      "sha256": "067adbef8384cd715b8fae35607e6e8db86cda03b34412a2729ab85f7cb8d787"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-2.png",
+      "bytes": 12783,
+      "sha256": "260deb3bb8a7abd79f8918dffbd9f516e9213edb6a848760ac919e857ea68bb2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-3.png",
+      "bytes": 12789,
+      "sha256": "766c9c95b5c492357bdd92b84ad40fab86a27ab6287ec57a3db7af044b6fc979"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-4.png",
+      "bytes": 12759,
+      "sha256": "e824b155c915880473a71b4b4d5fcb266f6bb14ccb2aa5171e97b5cd5fb11eb2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-5.png",
+      "bytes": 12801,
+      "sha256": "b4e0c8acf73e25d16cdf456988256043949f8f113778fe3a333cc40bcec003cc"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-6.png",
+      "bytes": 12802,
+      "sha256": "530e0b190c8a0aad72243d0567f5744c8e01d7cd2eaf702165a263a56f408100"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-0-7.png",
+      "bytes": 12767,
+      "sha256": "90b07473edf26fcf010d821c31d067f1bb089b3c36c743f606d857dcb78271c8"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-0.png",
+      "bytes": 12856,
+      "sha256": "7e5f55346e5e6347af8e68e580d854414ca9949f879c35f57f0091e69fa4a151"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-1.png",
+      "bytes": 12868,
+      "sha256": "f6ab41c9f1366b7c0b1ff26eae4733476e26d95bb485b79bb41c1e9701aaf5b4"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-2.png",
+      "bytes": 12834,
+      "sha256": "62edd1a8f770d188d35753ca3acf80b2bd078811f2a6f68c52395ae0897f7370"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-3.png",
+      "bytes": 12907,
+      "sha256": "d9fdb3a4857499e0df67453f0fb7bc872b9640ffd4be80e1b3c2619f69be99f0"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-4.png",
+      "bytes": 12856,
+      "sha256": "2ae77b33ae40f95e2c4b4efbd5ff4f1dbb062833b51a228e0d5d77106e979e93"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-5.png",
+      "bytes": 12890,
+      "sha256": "a53f7150965c7818b3d0ef11b222183cdde5940f69d1487c053cf638abd54682"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-6.png",
+      "bytes": 12827,
+      "sha256": "c00fe3f42cbe6f299263d1782f8480d086f62150fda23681fca94410d4eaedc9"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-1-7.png",
+      "bytes": 12887,
+      "sha256": "fffc7464edee4898e69fa03c062c3bae6c713b48c092673fc279d9de063b49d2"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-0.png",
+      "bytes": 13084,
+      "sha256": "89eb8407019976d5aacf7ce2f62eee77db9d91b4008ddd440015f1b03e6a9d1e"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-1.png",
+      "bytes": 13196,
+      "sha256": "fadfd6eecc7e3cd70b3301dcb4247edab1e65ec481648651f39a34be38edc3f3"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-2.png",
+      "bytes": 13084,
+      "sha256": "f8278e1e47ab7cfccb202ae38ee3bd667c5f56dc789d58ab8f8364e44b7bd4b3"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-3.png",
+      "bytes": 13222,
+      "sha256": "0746de35b44de4263b30657b4599cf9bf6f1fbdb8b7fd5a47447b17e1b4793a5"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-4.png",
+      "bytes": 13088,
+      "sha256": "bf4b3abeb3157049a3743a8c53d2c65bf18936cfe3da16322ae5b45dd83f71c5"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-5.png",
+      "bytes": 13201,
+      "sha256": "3fccf2c394c66d1cb18f9316fe68d9bc1fefb79c2fda66b4d9b3d92a2170338c"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-6.png",
+      "bytes": 13103,
+      "sha256": "a1ef10e1911d85172dba69c0a0eae1a99a4bdf359e9474d31d7f7037fd55eb8f"
+    },
+    {
+      "path": "regression/volcano_visual_fix-offline/rotation-2-7.png",
+      "bytes": 13201,
+      "sha256": "770381c6334f9b96e05194a0252076cf5bcb1a01709efe99312845ca19bf5c2c"
+    },
+    {
+      "path": "regression/worlds/snow-boss-568x320.png",
+      "bytes": 232984,
+      "sha256": "3f1840b354aa2d9810c193a3db5b404ecabb8b1652624fff77e0ea45d23f6f05"
+    },
+    {
+      "path": "regression/worlds/snow-boss-800x360.png",
+      "bytes": 374163,
+      "sha256": "d68586993655cf490097b620456dc324dadc8d97b4080a73ee265ed2fde7d013"
+    },
+    {
+      "path": "regression/worlds/snow-boss-915x412.png",
+      "bytes": 461930,
+      "sha256": "748e516c04efdc21c4fe56b06008fac750afa8307a71d5b5065d127d99abe3cd"
+    },
+    {
+      "path": "regression/worlds/snow-entry-568x320.png",
+      "bytes": 226002,
+      "sha256": "9aa298c8df8824955042fb2dd3a95362f8b467263437ad9438dc8ea67bbcb7b5"
+    },
+    {
+      "path": "regression/worlds/snow-entry-800x360.png",
+      "bytes": 367213,
+      "sha256": "0d56ff44da377b2c31189e8c1fa1baaf7027e58c4f109b320ba2a6fac218bfe8"
+    },
+    {
+      "path": "regression/worlds/snow-entry-915x412.png",
+      "bytes": 455274,
+      "sha256": "9ac17b9b17dcf31c1f1c9d1bc21ea55223d5c88711eef6e8e01179959090a1b0"
+    },
+    {
+      "path": "regression/worlds/snow-game-over.png",
+      "bytes": 305697,
+      "sha256": "66a98c215e6ddf2fc57cb8104b8c64a8fbf676ce35df30e9442aa46a8226ed08"
+    },
+    {
+      "path": "regression/worlds/snow-trial-clear.png",
+      "bytes": 578739,
+      "sha256": "1ade6898a1b185aca6769865504e9c8e508d99afd748b19005193dd704be7764"
+    },
+    {
+      "path": "regression/worlds/trial-leaderboard.png",
+      "bytes": 281371,
+      "sha256": "e8f62fab5f43173ff80307e973c9ea73892af73e37946265ea0a0f26e99c1b3d"
+    },
+    {
+      "path": "regression/worlds/trial-opt-in-help.png",
+      "bytes": 307133,
+      "sha256": "098d25b2341e1bddddad155e12ddf709ecab74022095e86807d7962100d5153f"
+    },
+    {
+      "path": "regression/worlds/world1-default-clear.png",
+      "bytes": 576885,
+      "sha256": "22bc115ce7749b54991771aa32ae03a394b9d8dd5403f2d4c6788a15fd444894"
+    },
+    {
+      "path": "regression/worlds-offline/snow-boss-568x320.png",
+      "bytes": 233135,
+      "sha256": "82c34358210dc7c207a71e1c2351061d9eeaf7f7859cba43118c05a0b32d3162"
+    },
+    {
+      "path": "regression/worlds-offline/snow-boss-800x360.png",
+      "bytes": 373413,
+      "sha256": "0a234193bf375bb766108e92ba03fc6656427e6b5a1b22a58dc09d4af36aac37"
+    },
+    {
+      "path": "regression/worlds-offline/snow-boss-915x412.png",
+      "bytes": 461539,
+      "sha256": "b938482d40146c5ab42dfa428f57817a206933ded831e84d9e13f684757dac7e"
+    },
+    {
+      "path": "regression/worlds-offline/snow-entry-568x320.png",
+      "bytes": 225950,
+      "sha256": "1f1100a74ee5d401016b5dcc96890ed3aed324215028c78b070f27608f9b6b5f"
+    },
+    {
+      "path": "regression/worlds-offline/snow-entry-800x360.png",
+      "bytes": 367181,
+      "sha256": "a8e26ff6f8d2f146237f310dce121b0779cd15701af5bd7103fcb8bc6d5e0b21"
+    },
+    {
+      "path": "regression/worlds-offline/snow-entry-915x412.png",
+      "bytes": 455246,
+      "sha256": "70d7959cb8e29f0e812c9ac47fba867bde1b0a06ca01c5d057bb894b7e9c0bf4"
+    },
+    {
+      "path": "regression/worlds-offline/snow-game-over.png",
+      "bytes": 305993,
+      "sha256": "2a352050636c07f8b03d305cd9febd207bf110f3272b90e79c40dc0a3895b8c1"
+    },
+    {
+      "path": "regression/worlds-offline/snow-trial-clear.png",
+      "bytes": 577840,
+      "sha256": "c577782c5d808f18f2af8fb966a7cecac63f3b978b380755859f868de1f9ed1c"
+    },
+    {
+      "path": "regression/worlds-offline/trial-leaderboard.png",
+      "bytes": 282466,
+      "sha256": "59357bc0472e15770630aa26796f1342d4d07d2ea6ec25aa8dd60fd77455d745"
+    },
+    {
+      "path": "regression/worlds-offline/trial-opt-in-help.png",
+      "bytes": 306955,
+      "sha256": "ccf5754a6565373f47d9c521d50d6cb19f0eef45fc0a2088f14e70b6024d8494"
+    },
+    {
+      "path": "regression/worlds-offline/world1-default-clear.png",
+      "bytes": 578103,
+      "sha256": "3e09d2e9e86d300321226a34d94a9520a8fdd7c3b7dbb8bf921082ce3bfb0a35"
+    }
+  ]
+}

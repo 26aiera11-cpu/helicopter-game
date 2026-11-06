@@ -1,0 +1,10 @@
+PASS: Existing selection animations/fullscreen controls are unchanged; active source contains no confirm() or alert() calls.
+PASS: The centered in-game modal opens in native fullscreen, focuses Continue, and pauses gameplay state without a native browser prompt.
+PASS: Modal backdrop blocks underlying touch controls; focus stays in the modal and no fire/movement input remains held.
+PASS: Continue resumes the same game in fullscreen; actual held touch rotation/fire still work after cancellation.
+PASS: Confirm runs the existing exit cleanup and returns to character selection while native fullscreen remains active.
+PASS: All three helicopters survive repeated start/cancel/confirm cycles; immediate dialog reopening leaves no stale close state.
+PASS: The modal remains centered, unclipped and usable at three landscape sizes (915×412, 800×360, 568×320).
+PASS: If fullscreen ends while the modal is open, neither action forces re-entry; the existing manual fullscreen button works again.
+PASS: Game over and final clear return to the selection screen without exiting native fullscreen (controlled game-state checks).
+PASS: Escape safely cancels in normal screen; all tested paths produce zero browser confirm/alert dialogs and zero uncaught JavaScript errors.

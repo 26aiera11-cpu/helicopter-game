@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/snowfield_difficulty.py", line 17, in <module>
+    b=without_difficulty_asset(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes();assert b==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/selection/selection.css

@@ -1,0 +1,93 @@
+{
+  "index.html": [
+    [
+      "<script src=\"assets/volcano/combat.js\"></script>",
+      "<script src=\"assets/volcano/combat.js\"></script><script src=\"assets/volcano/boss_combat.js\"></script>",
+      1
+    ],
+    [
+      "function start(type){gameVolcanoCombat.cleanup();",
+      "function start(type){gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();",
+      1
+    ],
+    [
+      "showGameExitDialog(()=>{gameVolcanoCombat.cleanup();",
+      "showGameExitDialog(()=>{gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();",
+      1
+    ],
+    [
+      "gameSnowfieldBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.cancelAdvance();",
+      "gameSnowfieldBoss.reset();gameVolcanoBoss.freeze();gameVolcanoCombat.cleanup();gameVolcano.cancelAdvance();",
+      1
+    ],
+    [
+      "function nextPhase(){gameVolcanoCombat.cleanup();",
+      "function nextPhase(){gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();",
+      1
+    ],
+    [
+      "gameSnowfieldBoss.prepare(boss);gameAudio.fx('boss')",
+      "gameSnowfieldBoss.prepare(boss);gameVolcanoBoss.prepare(boss);gameAudio.fx('boss')",
+      1
+    ],
+    [
+      "if(gameSnowfieldBoss.backgroundPaused())return;",
+      "if(gameSnowfieldBoss.backgroundPaused()||gameVolcanoBoss.backgroundPaused())return;",
+      1
+    ],
+    [
+      "if(boss){boss.t+=dt;",
+      "if(boss){if(!gameVolcanoBoss.update(boss,dt)){boss.t+=dt;",
+      1
+    ],
+    [
+      "boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}\n if(!started)return;",
+      "boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}}\n if(!started)return;",
+      1
+    ],
+    [
+      "gameScoring.bossDefeated(boss);boss=null;",
+      "gameScoring.bossDefeated(boss);gameVolcanoBoss.defeated(boss);boss=null;",
+      1
+    ],
+    [
+      "itemMonsters.draw();gameSnowfieldBoss.draw(ctx);",
+      "itemMonsters.draw();gameSnowfieldBoss.draw(ctx);gameVolcanoBoss.draw(ctx);",
+      1
+    ],
+    [
+      "if(gameSnowfieldBoss.drawBullet(ctx,b)||gameVolcanoCombat.drawBullet(ctx,b))continue;",
+      "if(gameSnowfieldBoss.drawBullet(ctx,b)||gameVolcanoCombat.drawBullet(ctx,b)||gameVolcanoBoss.drawBullet(ctx,b))continue;",
+      1
+    ],
+    [
+      "if(!gameSnowfield.drawActor(ctx,boss,true)&&!gameVolcano.drawActor(ctx,boss,true))",
+      "if(!gameSnowfield.drawActor(ctx,boss,true)&&!gameVolcanoBoss.drawActor(ctx,boss)&&!gameVolcano.drawActor(ctx,boss,true))",
+      1
+    ],
+    [
+      "화산 일반 전투 시험 · 보스는 숲 임시",
+      "화산 일반·보스 전투 시험",
+      1
+    ]
+  ],
+  "assets/volcano/volcano.js": [
+    [
+      "function drawDefeats(ctx) {if(enabled())for(const g of ghosts)paint(ctx,byId.get(g.id),g,ghostPose(g));}",
+      "function drawDefeats(ctx) {if(enabled())for(const g of ghosts){const selected=ghostPose(g);if(window.gameVolcanoBoss?.drawDefeat(ctx,g,selected,paint))continue;paint(ctx,byId.get(g.id),g,selected);}}",
+      1
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "화산 일반 전투 시험 / 보스·BGM 숲 임시",
+      "화산 일반·보스 전투 시험 / BGM 숲 임시",
+      1
+    ],
+    [
+      "화산은 일반 몬스터 전투 시험, 보스·BGM은 숲 임시값입니다.",
+      "화산은 일반 몬스터와 드래곤3패턴 전투 시험, BGM은 숲 임시값입니다.",
+      1
+    ]
+  ]
+}

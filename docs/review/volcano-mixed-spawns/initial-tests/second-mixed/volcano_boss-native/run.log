@@ -1,0 +1,14 @@
+PASS: Exact dragon-only hooks/UI notices/ghost transform; all existing PNGs/manifests, normal combat, snow, player/control/score/audio bytes protected; JavaScript parses.
+PASS: All21 approved frame mouth landmarks lie on visible source pixels; original atlas SHA, per-frame crop/pivot and132px rendering width retained.
+PASS: Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP20 dragon, no normal prelude, unchanged fullscreen/exit UI.
+PASS: 9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,downward hold.2s then3.8s exact360deg fixed-direction sweep, rest then repeat.
+PASS: 8 actual boss draw matrices rotate the whole cached frame without squashing; transformed source-mouth pixels equal flame origins and canvas transform restores exactly.
+PASS: Independent original PNG alpha inverse-transform oracle matches damage; opaque interiors render and transparent holes remain harmless across8 orientations, including UI masks.
+PASS: Standing inside eruption warning gives0 damage; fixed target does not track movement; exactly one1HP detonation, no repeated burst damage.
+PASS: 30/60/120Hz preserve volley/eruption timing,1s warning,.2s flame-first hold,3.8s exact2pi; flame core retains3 invulnerable-spaced hits, screen-safe far point takes0.
+PASS: Left->CW, right->CCW, up/down ties->CW at rotation start; opposite-side movement cannot change direction, midpoint pi or exact2pi completion at30/60/120Hz.
+Traceback (most recent call last):
+  File "/workspace/helicopter-game/tests/volcano_boss.py", line 159, in <module>
+    assert row['length']==max(165,min(205,height*.52)) and row['start']['hp']==row['cue']['hp']==row['end']['hp']==9 and row['calls']==0 and row['cue']['x']>row['start']['x']+80 and row['end']['x']>row['start']['x']+90,row
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'viewport': [568, 320], 'length': 166.4, 'start': {'x': 481.62404332547595, 'y': 169.43538477480652, 'hp': 9}, 'cue': {'x': 556, 'y': 169.43538477480652, 'hp': 9, 'angle': 0}, 'end': {'x': 556, 'y': 169.43538477480652, 'hp': 9, 'angle': -6.283185307179586}, 'calls': 0}

@@ -1,0 +1,24 @@
+{
+  "prior_file": "docs/review/ppyoko-title/regression/worlds-offline/exit-touch-failure.json",
+  "current_file": "docs/review/volcano-art-integration/retest/worlds/exit-touch-failure.json",
+  "prior_viewport": [
+    800,
+    360
+  ],
+  "current_viewport": [
+    568,
+    320
+  ],
+  "prior_last_exit_events": [
+    "pointerdown",
+    "pointerup"
+  ],
+  "current_last_exit_events": [
+    "pointerdown",
+    "pointerup"
+  ],
+  "both_hit_correct_exit_button": true,
+  "both_still_playing_without_dialog": true,
+  "input_source_unchanged": true,
+  "conclusion": "Same observed missing-click symptom as earlier baseline. Root cause not established; latest offline suite passes, native long sequence remains incomplete. Do not claim fixed."
+}

@@ -1,0 +1,152 @@
+{
+  "baseline": "7c99b909ce0d34cce3b8dcebd5042e9ee72ca7bb",
+  "standalone": false,
+  "passed": [
+    "Only exact integration hooks/UI labels/new module; original volcano/snow art, manifest, combat, characters, controls, audio and score rules byte-protected; all JS parses.",
+    "RegistryIDs0–4 stable, volcano5; defaultOFF20-stage mode; actual Help world2/volcano/phase5 starts dragon directly with forest profile0."
+  ],
+  "limits": [
+    "Chromium mobile/touch emulation; not physical Galaxy/Samsung Internet, sensor hardware or audible speaker testing.",
+    "Entry matrix uses real UI/start/spawn/hit hooks with controlled transition/spawn/aim/invulnerability for deterministic screenshots.",
+    "The69-frame audit drives controlled art-state fixtures through the production renderer; it is separate from actual battle-hook checks.",
+    "Offline runs the exact single HTML on a blank localhost origin with networking disabled; file security policy is not bypassed."
+  ],
+  "registry": {
+    "worlds": [
+      {
+        "id": 0,
+        "key": "world-1",
+        "name": "월드 1",
+        "regionIds": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": 1,
+        "key": "world-2",
+        "name": "월드 2",
+        "regionIds": [
+          4,
+          5
+        ]
+      }
+    ],
+    "regions": [
+      {
+        "id": 0,
+        "key": "world-1:forest",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 0,
+        "name": "🌲 숲 지역",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🌳 숲의 수호괴물",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 1,
+        "key": "world-1:rock",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 1,
+        "name": "🪨 바위 지역",
+        "combatProfile": 1,
+        "assetProfile": 1,
+        "musicProfile": 1,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🪨 거대 바위 골렘",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 2,
+        "key": "world-1:sea",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 2,
+        "name": "🌊 바다 지역",
+        "combatProfile": 2,
+        "assetProfile": 2,
+        "musicProfile": 2,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐙 바다의 문어 대왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 3,
+        "key": "world-1:desert",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "localIndex": 3,
+        "name": "🏜️ 사막 지역",
+        "combatProfile": 3,
+        "assetProfile": 3,
+        "musicProfile": 3,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🦂 사막 전갈왕",
+        "prototypeBackground": null,
+        "prototype": false
+      },
+      {
+        "id": 4,
+        "key": "world-2:snowfield",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 0,
+        "name": "❄ 설원 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "❄ 눈보라 거인왕 (시험)",
+        "prototypeBackground": "snowfield-approved",
+        "prototype": true
+      },
+      {
+        "id": 5,
+        "key": "world-2:volcano",
+        "worldId": 1,
+        "worldName": "월드 2",
+        "localIndex": 1,
+        "name": "🌋 화산 (시험)",
+        "combatProfile": 0,
+        "assetProfile": 0,
+        "musicProfile": 0,
+        "normalPhases": 4,
+        "bossPhase": 5,
+        "bossName": "🐉 마그마 드래곤 (시험)",
+        "prototypeBackground": "volcano-approved",
+        "prototype": true
+      }
+    ],
+    "mode": {
+      "trialEnabled": false,
+      "activeTrial": false,
+      "route": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "keys": {
+      "heliTrio.top10.v1": null,
+      "heliTrio.playHistory.v1": null,
+      "heliTrio.world2Trial.top10.v1": null,
+      "heliTrio.world2Trial.playHistory.v1": null
+    }
+  }
+}

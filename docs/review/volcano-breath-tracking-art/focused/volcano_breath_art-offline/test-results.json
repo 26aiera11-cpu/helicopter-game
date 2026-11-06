@@ -1,0 +1,1177 @@
+{
+  "passed": [
+    "Supplied SHA256/768x230 RGBA resource loads intact; source alpha read exactly once and cached, no per-frame getImageData.",
+    "12 real drawImage matrices: original static image, uniform aspect scale, anchor exactly at animated mouth, visible tip at configured reach, body/flame direction identical; Canvas restored.",
+    "Standing in the upcoming fire silhouette during0.99s warning causes no damage; full1.0s warning retained.",
+    "Dynamic player reversals during active breath turn both ways at<=70deg/s; deterministic final angle matches30/60/120Hz without mandatory full revolution.",
+    "Alternating target jitter inside0.5deg deadzone does not rotate the dragon; no direction noise near a stationary player.",
+    "After3.8s fire stops immediately; whole body returns smoothly at<=70deg/s during unchanged2.8s rest, then original fireball aiming resumes without a heading snap.",
+    "Actual current game captures3 heroes x3 landscape sizes: active breath turns right then reverses left with the whole dragon; PNG/UI clipping at screen boundaries is safe.",
+    "Real invalid PNG load safely skips only breath, no invisible damage or crash; fireball/eruption cycles continue, native and fully offline."
+  ],
+  "standalone": true,
+  "limits": [
+    "Controlled Chromium gameplay fixtures; no physical Galaxy Samsung Internet, hardware tilt, finger input or performance/heat measurements.",
+    "Alpha96 collision ignores weak glow/antialias fringe; player center uses original hurt/invulnerability rules."
+  ],
+  "asset": {
+    "art": {
+      "status": "ready",
+      "width": 768,
+      "height": 230,
+      "maskReady": true
+    },
+    "metadata": {
+      "width": 768,
+      "height": 230,
+      "anchorX": 35,
+      "anchorY": 158,
+      "tipX": 766,
+      "alphaThreshold": 96
+    },
+    "reads": 1
+  },
+  "matrices": {
+    "rows": [
+      {
+        "angle": -0.010181087303300255,
+        "direction": 1.5606152394915962,
+        "origin": {
+          "x": 456.11579946792705,
+          "y": 269.036064101534
+        },
+        "anchor": {
+          "x": 456.1158142089844,
+          "y": 269.03607177734375
+        },
+        "tip": {
+          "x": 458.202901131643,
+          "y": 474.02545532511294
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            0.0028551120693004243,
+            0.28042323330748176,
+            -0.28042323330748176,
+            0.0028551120693004243,
+            456.1158142089844,
+            269.03607177734375
+          ]
+        }
+      },
+      {
+        "angle": 0.1364265698642234,
+        "direction": 1.70722289665912,
+        "origin": {
+          "x": 449.01429499368714,
+          "y": 268.93424779921486
+        },
+        "anchor": {
+          "x": 449.0142822265625,
+          "y": 268.9342346191406
+        },
+        "tip": {
+          "x": 421.1335096038376,
+          "y": 472.0294482926221
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.03814059182315312,
+            0.2778320296490854,
+            -0.2778320296490854,
+            -0.03814059182315312,
+            449.0142822265625,
+            268.9342346191406
+          ]
+        }
+      },
+      {
+        "angle": 0.2830342270317471,
+        "direction": 1.8538305538266435,
+        "origin": {
+          "x": 442.3486386301738,
+          "y": 267.6122943669567
+        },
+        "anchor": {
+          "x": 442.3486328125,
+          "y": 267.6123046875
+        },
+        "tip": {
+          "x": 385.0981919352541,
+          "y": 464.45587282849397
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.07831797657625983,
+            0.26927984697810387,
+            -0.26927984697810387,
+            -0.07831797657625983,
+            442.3486328125,
+            267.6123046875
+          ]
+        }
+      },
+      {
+        "angle": 0.42964188419927074,
+        "direction": 2.0004382109941674,
+        "origin": {
+          "x": 433.61072989497205,
+          "y": 265.7875219099976
+        },
+        "anchor": {
+          "x": 433.6107177734375,
+          "y": 265.78753662109375
+        },
+        "tip": {
+          "x": 348.2189359765769,
+          "y": 452.15611471481236
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.11681502297792146,
+            0.2549501752308052,
+            -0.2549501752308052,
+            -0.11681502297792146,
+            433.6107177734375,
+            265.78753662109375
+          ]
+        }
+      },
+      {
+        "angle": 0.5762495413667944,
+        "direction": 2.147045868161691,
+        "origin": {
+          "x": 428.10139879654,
+          "y": 260.8882906970205
+        },
+        "anchor": {
+          "x": 428.1014099121094,
+          "y": 260.8883056640625
+        },
+        "tip": {
+          "x": 316.40039640126196,
+          "y": 432.78329360660445
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.15280576403672697,
+            0.23515046230169898,
+            -0.23515046230169898,
+            -0.15280576403672697,
+            428.1014099121094,
+            260.8883056640625
+          ]
+        }
+      },
+      {
+        "angle": 0.7228571985343181,
+        "direction": 2.2936535253292147,
+        "origin": {
+          "x": 422.24274916022637,
+          "y": 256.8735731732102
+        },
+        "anchor": {
+          "x": 422.24273681640625,
+          "y": 256.8735656738281
+        },
+        "tip": {
+          "x": 286.6290741528542,
+          "y": 410.60689907323587
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.1855180063796882,
+            0.2103055176462486,
+            -0.2103055176462486,
+            -0.1855180063796882,
+            422.24273681640625,
+            256.8735656738281
+          ]
+        }
+      },
+      {
+        "angle": 0.8694648557018417,
+        "direction": 2.440261182496738,
+        "origin": {
+          "x": 417.42234024968667,
+          "y": 252.08377217852436
+        },
+        "anchor": {
+          "x": 417.4223327636719,
+          "y": 252.08377075195312
+        },
+        "tip": {
+          "x": 260.8056573848636,
+          "y": 384.3570495818292
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.21424989791902635,
+            0.1809483978520877,
+            -0.1809483978520877,
+            -0.21424989791902635,
+            417.4223327636719,
+            252.08377075195312
+          ]
+        }
+      },
+      {
+        "angle": 0.7228571985343181,
+        "direction": 2.2936535253292147,
+        "origin": {
+          "x": 420.90140997442825,
+          "y": 257.4160073113126
+        },
+        "anchor": {
+          "x": 420.9013977050781,
+          "y": 257.416015625
+        },
+        "tip": {
+          "x": 285.28773504152605,
+          "y": 411.14934902440774
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.1855180063796882,
+            0.2103055176462486,
+            -0.2103055176462486,
+            -0.1855180063796882,
+            420.9013977050781,
+            257.416015625
+          ]
+        }
+      },
+      {
+        "angle": 0.5762495413667944,
+        "direction": 2.147045868161691,
+        "origin": {
+          "x": 428.10139879654,
+          "y": 260.8882906970205
+        },
+        "anchor": {
+          "x": 428.1014099121094,
+          "y": 260.8883056640625
+        },
+        "tip": {
+          "x": 316.40039640126196,
+          "y": 432.78329360660445
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.15280576403672697,
+            0.23515046230169898,
+            -0.23515046230169898,
+            -0.15280576403672697,
+            428.1014099121094,
+            260.8883056640625
+          ]
+        }
+      },
+      {
+        "angle": 0.42964188419927074,
+        "direction": 2.0004382109941674,
+        "origin": {
+          "x": 434.7380393366806,
+          "y": 264.88054945828196
+        },
+        "anchor": {
+          "x": 434.738037109375,
+          "y": 264.88055419921875
+        },
+        "tip": {
+          "x": 349.3462553125144,
+          "y": 451.24913229293736
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.11681502297792146,
+            0.2549501752308052,
+            -0.2549501752308052,
+            -0.11681502297792146,
+            434.738037109375,
+            264.88055419921875
+          ]
+        }
+      },
+      {
+        "angle": 0.2830342270317471,
+        "direction": 1.8538305538266435,
+        "origin": {
+          "x": 442.3486386301738,
+          "y": 267.6122943669567
+        },
+        "anchor": {
+          "x": 442.3486328125,
+          "y": 267.6123046875
+        },
+        "tip": {
+          "x": 385.0981919352541,
+          "y": 464.45587282849397
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.07831797657625983,
+            0.26927984697810387,
+            -0.26927984697810387,
+            -0.07831797657625983,
+            442.3486328125,
+            267.6123046875
+          ]
+        }
+      },
+      {
+        "angle": 0.13642656986422344,
+        "direction": 1.70722289665912,
+        "origin": {
+          "x": 448.19724356288606,
+          "y": 270.1283384846163
+        },
+        "anchor": {
+          "x": 448.1972351074219,
+          "y": 270.1283264160156
+        },
+        "tip": {
+          "x": 420.31646248469696,
+          "y": 473.2235400894971
+        },
+        "length": 205,
+        "scale": 0.28043776750564575,
+        "matrix": {
+          "a": [
+            -35,
+            -158
+          ],
+          "m": [
+            -0.03814059182315312,
+            0.2778320296490854,
+            -0.2778320296490854,
+            -0.03814059182315312,
+            448.1972351074219,
+            270.1283264160156
+          ]
+        }
+      }
+    ],
+    "reads": 1
+  },
+  "warning": {
+    "before": 9,
+    "after": 9,
+    "phase": "breath_warning",
+    "remaining": 0.010000000000002458
+  },
+  "dynamic_paths": [
+    {
+      "hz": 30,
+      "maxSpeed": 1.2217304763960435,
+      "pos": 36,
+      "neg": 72,
+      "angle": -1.4762576589785417,
+      "samples": [
+        {
+          "time": 0.03333333333333333,
+          "angle": -0.05090543651650127,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.3333333333333333,
+          "angle": -0.41742457943531036,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.6333333333333333,
+          "angle": -0.7839437223541195,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.9333333333333333,
+          "angle": -1.15046286527293,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 1.2333333333333334,
+          "angle": -1.4355333097653402,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.5333333333333334,
+          "angle": -1.0690141668465272,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.8333333333333333,
+          "angle": -0.7024950239277175,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.1333333333333333,
+          "angle": -0.3359758810089084,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.433333333333333,
+          "angle": -0.05090543651650137,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 2.7333333333333334,
+          "angle": -0.4174245794353104,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.033333333333333,
+          "angle": -0.7839437223541195,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.3333333333333335,
+          "angle": -1.15046286527293,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        }
+      ]
+    },
+    {
+      "hz": 60,
+      "maxSpeed": 1.2217304763960435,
+      "pos": 72,
+      "neg": 144,
+      "angle": -1.4762576589785417,
+      "samples": [
+        {
+          "time": 0.016666666666666666,
+          "angle": -0.030543261909900764,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.31666666666666665,
+          "angle": -0.39706240482870986,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.6166666666666667,
+          "angle": -0.763581547747519,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.9166666666666666,
+          "angle": -1.1301006906663293,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 1.2166666666666666,
+          "angle": -1.455895484371941,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.5166666666666666,
+          "angle": -1.089376341453128,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.8166666666666667,
+          "angle": -0.722857198534318,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.1166666666666667,
+          "angle": -0.3563380556155089,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.4166666666666665,
+          "angle": -0.03054326190990086,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 2.716666666666667,
+          "angle": -0.3970624048287099,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.0166666666666666,
+          "angle": -0.763581547747519,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.316666666666667,
+          "angle": -1.1301006906663293,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        }
+      ]
+    },
+    {
+      "hz": 120,
+      "maxSpeed": 1.2217304763960435,
+      "pos": 144,
+      "neg": 288,
+      "angle": -1.4762576589785417,
+      "samples": [
+        {
+          "time": 0.008333333333333333,
+          "angle": -0.02036217460660051,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.30833333333333335,
+          "angle": -0.3868813175254096,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.6083333333333333,
+          "angle": -0.7534004604442187,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 0.9083333333333333,
+          "angle": -1.119919603363029,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 1.2083333333333333,
+          "angle": -1.4660765716752413,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.5083333333333333,
+          "angle": -1.0995574287564283,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 1.8083333333333333,
+          "angle": -0.7330382858376182,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.1083333333333334,
+          "angle": -0.36651914291880916,
+          "target": 0,
+          "phase": "breath"
+        },
+        {
+          "time": 2.408333333333333,
+          "angle": -0.020362174606600607,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 2.7083333333333335,
+          "angle": -0.38688131752540966,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.0083333333333333,
+          "angle": -0.7534004604442187,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        },
+        {
+          "time": 3.308333333333333,
+          "angle": -1.119919603363029,
+          "target": -3.141592653589793,
+          "phase": "breath"
+        }
+      ]
+    }
+  ],
+  "jitter": {
+    "before": -0.010181087303300255,
+    "after": -0.010181087303300255
+  },
+  "return": {
+    "start": {
+      "age": 14.739999999999803,
+      "phase": "rest",
+      "remaining": 2.8,
+      "pattern": null,
+      "next": "fireball",
+      "angle": 1.567887444708245,
+      "targetAngle": 1.5707963267948966,
+      "turnDelta": 0,
+      "center": {
+        "x": 455.6019628798777,
+        "y": 218.56809159641554
+      },
+      "hazard": null,
+      "fade": 0.18,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0
+    },
+    "end": {
+      "age": 17.539999999999644,
+      "phase": "fire_aim",
+      "remaining": 0.4,
+      "pattern": "fireball",
+      "next": "eruption",
+      "angle": 0,
+      "targetAngle": 1.5707963267948966,
+      "turnDelta": 0,
+      "center": null,
+      "hazard": null,
+      "fade": 0,
+      "shots": 9,
+      "volleys": 3,
+      "damageCalls": 0,
+      "skipped": 0,
+      "bullets": 0
+    },
+    "maxSpeed": 1.2217304763960435
+  },
+  "screens": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4762576589785408,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.2341650079759065,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4762576589785408,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.2341650079759065,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4762576589785408,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.2341650079759065,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4966198335851415,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.213802833369306,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4966198335851415,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.213802833369306,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.4966198335851415,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.213802833369306,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.5169820081917422,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.1934406587627055,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.5169820081917422,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.1934406587627055,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "right": {
+        "age": 12.13999999999995,
+        "phase": "breath",
+        "remaining": 2.600000000000005,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -1.5169820081917422,
+        "targetAngle": -1.5707963267948966,
+        "turnDelta": -0.010181087303299365,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "left": {
+        "age": 13.539999999999871,
+        "phase": "breath",
+        "remaining": 1.20000000000001,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0.1934406587627055,
+        "targetAngle": 1.5707963267948966,
+        "turnDelta": 0.010181087303300178,
+        "center": {
+          "x": 279.21742214966724,
+          "y": 169.37993937757452
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      }
+    }
+  ],
+  "failed_resource": {
+    "status": {
+      "status": "failed",
+      "width": 0,
+      "height": 0,
+      "maskReady": false
+    },
+    "angles": 0,
+    "skipped": 2,
+    "shots": 18,
+    "hit": false,
+    "started": true
+  },
+  "all_passed": true
+}

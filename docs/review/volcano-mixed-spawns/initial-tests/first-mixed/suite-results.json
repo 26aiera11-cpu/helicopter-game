@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "volcano_mixed-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 6,
+    "seconds": 9.1,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_mixed.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/focused/volcano_mixed-native"
+    ]
+  },
+  {
+    "suite": "volcano_mixed-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 6,
+    "seconds": 25.25,
+    "command": [
+      "python",
+      "/workspace/helicopter-game/tests/volcano_mixed.py",
+      "--artifacts",
+      "/workspace/helicopter-game/docs/review/volcano-mixed-spawns/focused/volcano_mixed-offline",
+      "--standalone"
+    ]
+  }
+]

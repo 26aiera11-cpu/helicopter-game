@@ -1,0 +1,442 @@
+{
+  "date": "2026-11-04 KST",
+  "baseline": "48319030a0b15c2346a6ec99c3e4c8d84765178b",
+  "branch": "feature/ppyoko",
+  "suite_count": 40,
+  "passed_suite_count": 39,
+  "incomplete_suite_count": 1,
+  "passed_groups": 546,
+  "new_focused_groups": 18,
+  "suites": [
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "seconds": 27.97,
+      "phase": "final regression",
+      "report": "regression/selection_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "seconds": 44.17,
+      "phase": "final regression",
+      "report": "regression/scoring/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "seconds": 150.53,
+      "phase": "final regression",
+      "report": "regression/scoring-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 26.02,
+      "phase": "final regression",
+      "report": "regression/game_over/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 46.62,
+      "phase": "final regression",
+      "report": "regression/galaxy_standalone/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_mixed-native",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 18.64,
+      "phase": "final regression",
+      "report": "regression/snowfield_mixed-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_mixed-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 34.26,
+      "phase": "final regression",
+      "report": "regression/snowfield_mixed-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_art",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 22.85,
+      "phase": "final regression",
+      "report": "regression/snowfield_art/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 34.2,
+      "phase": "final regression",
+      "report": "regression/snowfield_art-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "seconds": 26.79,
+      "phase": "final regression",
+      "report": "regression/worlds/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 75.93,
+      "phase": "final regression",
+      "report": "regression/worlds-offline/test-results.json",
+      "observed_groups_before_failure": 16
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "seconds": 7.98,
+      "phase": "final regression",
+      "report": "regression/game_audit/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "seconds": 13.85,
+      "phase": "final regression",
+      "report": "regression/exit_dialog/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 7.1,
+      "phase": "final regression",
+      "report": "regression/item_persistence/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "seconds": 17.83,
+      "phase": "final regression",
+      "report": "regression/boss_reward/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 14.39,
+      "phase": "final regression",
+      "report": "regression/item_spawn_rules/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 27.98,
+      "phase": "final regression",
+      "report": "regression/item_spawn_rules-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_monsters",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 16.53,
+      "phase": "final regression",
+      "report": "regression/item_monsters/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "item_monsters-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 26.92,
+      "phase": "final regression",
+      "report": "regression/item_monsters-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 30.72,
+      "phase": "final regression",
+      "report": "regression/tanko_combat/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 44.31,
+      "phase": "final regression",
+      "report": "regression/tanko_combat-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "tanko_cadence",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 15.88,
+      "phase": "final regression",
+      "report": "regression/tanko_cadence/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 76.29,
+      "phase": "final regression",
+      "report": "regression/selection_bgm/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "seconds": 63.22,
+      "phase": "final regression",
+      "report": "regression/selection_bgm-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 77.46,
+      "phase": "final regression",
+      "report": "regression/bgm_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "seconds": 10.24,
+      "phase": "final regression",
+      "report": "regression/fullscreen_smoke/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "seconds": 23.64,
+      "phase": "final regression",
+      "report": "regression/mobile_controls/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "exit_code": 0,
+      "groups": 23,
+      "seconds": 33.31,
+      "phase": "final regression",
+      "report": "regression/mobile_controls-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "joystick_design",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 25.14,
+      "phase": "final regression",
+      "report": "regression/joystick_design/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "joystick_design-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "seconds": 35.57,
+      "phase": "final regression",
+      "report": "regression/joystick_design-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "seconds": 39.58,
+      "phase": "final regression",
+      "report": "regression/developer_start-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "seconds": 78.89,
+      "phase": "final regression",
+      "report": "regression/developer_start-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 13.34,
+      "phase": "final regression",
+      "report": "regression/snowfield_combat-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "seconds": 31.94,
+      "phase": "final regression",
+      "report": "regression/snowfield_combat-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 28.81,
+      "phase": "final regression",
+      "report": "regression/snowfield_boss-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_boss-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "seconds": 38.16,
+      "phase": "final regression",
+      "report": "regression/snowfield_boss-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 14.3,
+      "phase": "targeted CSS-preservation or final focused harness check",
+      "report": "regression/snowfield_difficulty-native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "snowfield_difficulty-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 31.09,
+      "phase": "targeted CSS-preservation or final focused harness check",
+      "report": "regression/snowfield_difficulty-offline/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 27.57,
+      "phase": "focused including normal/trial result readiness",
+      "report": "native/test-results.json",
+      "observed_groups_before_failure": 0
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 62.46,
+      "phase": "targeted CSS-preservation or final focused harness check",
+      "report": "offline/test-results.json",
+      "observed_groups_before_failure": 0
+    }
+  ],
+  "incomplete_suites": [
+    "worlds-offline"
+  ],
+  "initial_focus_attempts": [
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 32.22,
+      "phase": "focused"
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 30.37,
+      "phase": "focused with finale readiness and isolated background pixel probe"
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 27.01,
+      "phase": "focused result-observer/entry waits with diagnostics"
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 11.83,
+      "phase": "focused with existing finale lifecycle readiness"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 47.08,
+      "phase": "focused"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 61.06,
+      "phase": "focused with finale readiness and isolated background pixel probe"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "seconds": 43.24,
+      "phase": "focused result-observer/entry waits with diagnostics"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "seconds": 58.03,
+      "phase": "focused with existing finale lifecycle readiness"
+    }
+  ],
+  "fixture_notes": [
+    "Initial clear assertions read result observers or attempted reconfiguration before the original snow1.05s finale released its guard;final checks wait for existing finale and result readiness with per-clear diagnostics. No product lifecycle change.",
+    "An initial full-menu pixel probe could include unrelated dynamic UI changes;final probe renders the actual computed background layers alone and keeps the same strict ROI bounds. Nine actual selection UI captures per mode separately test all3 names/landscapes.",
+    "40 total suites cover all38 prior regressions once plus2 focused modes. Focused harness retries do not count as extra passes and product hashes remain identical.",
+    "Legacy seed fixtures deliberately keepcharacterName트리오 to test compatibility;no global replacement.",
+    "The old difficulty protection test handled JS only;it now reverses the same exact approved deltas for CSS too. Only its native/offline modules rerun.",
+    "Failed long mixed-gesture exit tests are retained without speculative input changes."
+  ],
+  "physical_galaxy_tested": false
+}

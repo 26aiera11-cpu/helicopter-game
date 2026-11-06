@@ -1,0 +1,16 @@
+{
+  "product_changed_for_test_errors": false,
+  "coordinate_test": {
+    "observed": "8-angle matrix/source mouth comparison failed1e-7px limit; measured delta0..3.1156424e-5px; determinant/scale errors0.",
+    "fix": "Set numeric test limit1e-4px, keep product coordinates unchanged."
+  },
+  "overlap_fixture": {
+    "observed": "Intended overlapped controls yielded0 visible rectangles at sample; before249alpha/after249alpha.",
+    "fix": "Temporarily substitute two explicit visible UI-ID boxes and restore originals; native/offline pixels and damage both excluded."
+  },
+  "frame_viewer": {
+    "observed": "Ready wait timed out during enlarged21-frame viewer capture.",
+    "source_inspection": "Manifest frame.index is global0..20, not state-local. Lookup by declared frameID fixes viewer.",
+    "fix": "Viewer uses frames.find(f=>f.index===row.index); game renderer/PNG not changed."
+  }
+}
