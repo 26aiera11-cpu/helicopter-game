@@ -84,3 +84,5 @@ Chromium 실제 실행 화면이며 시간·좌표·시드·무적을 제어했�
 `dist/heli_trio_galaxy_test.html`과 ZIP을 최신 코드·승인PNG·기존 음악 전체를 내장해 생성한다. ZIP에는 HTML 한 개만 있다. CRC·실제 별도 추출·전체 바이트/SHA-256·네트워크 차단 실행을 확인한다. 정확한 크기/해시는 package.json을 기준으로 한다.
 
 [브랜치 ZIP 다운로드](https://raw.githubusercontent.com/26aiera11-cpu/helicopter-game/refs/heads/feature/storm-sky-region/dist/heli_trio_galaxy_test.zip)
+
+구현 커밋 `a5e09ab7aedcd3325727e065738ee35965e91757`을 지정 브랜치로 실제 푸시한 뒤, GitHub에서 ZIP을 직접 다시 다운로드했다.49,576,786바이트·SHA-256·CRC·내부HTML 해시가 로컬 검증본과 모두 같았다. [원격 검증](remote-verification.json). main은 `c2d03f8` 그대로다. HTML이 GitHub 권장50MiB를 넘는다는 경고는 있었으나 업로드는 성공했다. 이후 변경은 이 검증 기록뿐이다.
