@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "volcano_bgm-native",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 45.09,
+    "command": [
+      "python",
+      "/tmp/storm-sky-work/tests/volcano_bgm.py",
+      "--artifacts",
+      "/tmp/storm-bgm-retests/volcano_bgm-native"
+    ]
+  },
+  {
+    "suite": "volcano_bgm-offline",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 82.99,
+    "command": [
+      "python",
+      "/tmp/storm-sky-work/tests/volcano_bgm.py",
+      "--artifacts",
+      "/tmp/storm-bgm-retests/volcano_bgm-offline",
+      "--standalone"
+    ]
+  }
+]

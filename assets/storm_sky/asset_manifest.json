@@ -1,0 +1,1499 @@
+{
+  "schema_version": 1,
+  "region": "storm_sky",
+  "issue": 26,
+  "source_zip_sha256": "247afa262ee3b8dfbf12b0b36e455064337b8c9fea4de401bd4ecece0ca0021e",
+  "background": {
+    "path": "storm_sky_background_1920x864.png",
+    "sha256": "e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b",
+    "pixels": [
+      1920,
+      864
+    ],
+    "render_mode": "cover",
+    "same_all_five_phases": true
+  },
+  "animation_method": "Lossless single-cell source atlases with manifest transform keyframes; no invented hand-drawn poses. Base assets stay exact. Boss isolated from approved reference with imagegen.",
+  "monsters": [
+    {
+      "id": "cloud_bean",
+      "name_ko": "구름콩",
+      "kind": "normal",
+      "base": "cloud_bean.png",
+      "atlas": "cloud_bean.png",
+      "sha256": "1bdf5148db8b60fcfa5ea411a3e39e12f828242799517a2915a2172f36340fb1",
+      "pixels": [
+        512,
+        512
+      ],
+      "content_bounds_px": [
+        37,
+        81,
+        474,
+        421
+      ],
+      "pivot_px": [
+        256.0,
+        256.0
+      ],
+      "render_width": 42,
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.025,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "move": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": -0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.02,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "attack": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.07,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "hit": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.96,
+              "rotation": -0.035,
+              "alpha": 0.65
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.035,
+              "alpha": 1
+            }
+          ]
+        },
+        "defeat": {
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.06,
+              "rotation": 0.1,
+              "alpha": 0.8
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.85,
+              "rotation": 0.22,
+              "alpha": 0.4
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.6,
+              "rotation": 0.3,
+              "alpha": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "lightning_bat",
+      "name_ko": "번개 박쥐",
+      "kind": "normal",
+      "base": "lightning_bat.png",
+      "atlas": "lightning_bat.png",
+      "sha256": "bc8fe8408195f75988365733c51f93d0827265d710b58c41300f9481e849fa75",
+      "pixels": [
+        512,
+        512
+      ],
+      "content_bounds_px": [
+        38,
+        111,
+        490,
+        399
+      ],
+      "pivot_px": [
+        256.0,
+        256.0
+      ],
+      "render_width": 52,
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.025,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "move": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": -0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.02,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "attack": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.07,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "hit": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.96,
+              "rotation": -0.035,
+              "alpha": 0.65
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.035,
+              "alpha": 1
+            }
+          ]
+        },
+        "defeat": {
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.06,
+              "rotation": 0.1,
+              "alpha": 0.8
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.85,
+              "rotation": 0.22,
+              "alpha": 0.4
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.6,
+              "rotation": 0.3,
+              "alpha": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "tornado_spirit",
+      "name_ko": "회오리 정령",
+      "kind": "normal",
+      "base": "tornado_spirit.png",
+      "atlas": "tornado_spirit.png",
+      "sha256": "b912a280cc5c7981eb1dafd046cb1118be4ba79bffabf09764697050022fc3ce",
+      "pixels": [
+        512,
+        512
+      ],
+      "content_bounds_px": [
+        29,
+        76,
+        473,
+        443
+      ],
+      "pivot_px": [
+        256.0,
+        256.0
+      ],
+      "render_width": 44,
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.025,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "move": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": -0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.02,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "attack": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.07,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "hit": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.96,
+              "rotation": -0.035,
+              "alpha": 0.65
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.035,
+              "alpha": 1
+            }
+          ]
+        },
+        "defeat": {
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.06,
+              "rotation": 0.1,
+              "alpha": 0.8
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.85,
+              "rotation": 0.22,
+              "alpha": 0.4
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.6,
+              "rotation": 0.3,
+              "alpha": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "storm_jellyfish",
+      "name_ko": "폭풍 해파리",
+      "kind": "normal",
+      "base": "storm_jellyfish.png",
+      "atlas": "storm_jellyfish.png",
+      "sha256": "da8e4dc525614445795b52d74b6e9c5d7ff2d5be54ffbd138b5e4d6f6058e7d4",
+      "pixels": [
+        512,
+        512
+      ],
+      "content_bounds_px": [
+        41,
+        55,
+        466,
+        463
+      ],
+      "pivot_px": [
+        256.0,
+        256.0
+      ],
+      "render_width": 48,
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.025,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "move": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": -0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.02,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "attack": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.07,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "hit": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.96,
+              "rotation": -0.035,
+              "alpha": 0.65
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0.035,
+              "alpha": 1
+            }
+          ]
+        },
+        "defeat": {
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 1.06,
+              "rotation": 0.1,
+              "alpha": 0.8
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.85,
+              "rotation": 0.22,
+              "alpha": 0.4
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                512,
+                512
+              ],
+              "pivot_px": [
+                256.0,
+                256.0
+              ],
+              "scale": 0.6,
+              "rotation": 0.3,
+              "alpha": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "storm_overlord",
+      "name_ko": "폭풍의 지배자",
+      "kind": "boss",
+      "base": "storm_overlord.png",
+      "atlas": "storm_overlord.png",
+      "sha256": "54d6252e8c10f03f5f87ec0137baef6938fa6ce794c60ae88ec4e07af2cf0510",
+      "pixels": [
+        1536,
+        1024
+      ],
+      "content_bounds_px": [
+        222,
+        26,
+        1310,
+        991
+      ],
+      "pivot_px": [
+        768.0,
+        512.0
+      ],
+      "render_width": 144,
+      "has_propeller": false,
+      "animations": {
+        "idle": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1.025,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "move": {
+          "frame_duration_ms": 100,
+          "loop": true,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": -0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1.02,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0.045,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "attack": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1.07,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            }
+          ]
+        },
+        "hit": {
+          "frame_duration_ms": 100,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 0.96,
+              "rotation": -0.035,
+              "alpha": 0.65
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0.035,
+              "alpha": 1
+            }
+          ]
+        },
+        "defeat": {
+          "frame_duration_ms": 160,
+          "loop": false,
+          "frames": [
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1,
+              "rotation": 0,
+              "alpha": 1
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 1.06,
+              "rotation": 0.1,
+              "alpha": 0.8
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 0.85,
+              "rotation": 0.22,
+              "alpha": 0.4
+            },
+            {
+              "rect_px": [
+                0,
+                0,
+                1536,
+                1024
+              ],
+              "pivot_px": [
+                768.0,
+                512.0
+              ],
+              "scale": 0.6,
+              "rotation": 0.3,
+              "alpha": 0
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

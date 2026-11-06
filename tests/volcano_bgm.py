@@ -1,4 +1,5 @@
 """Issue23: original PCM loops, exclusive native media routing and offline playback."""
+from storm_sky_preservation import STORM_ASSETS,assert_storm_asset
 import argparse,base64,hashlib,importlib.util,io,json,re,shutil,subprocess,tempfile,threading,wave
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
@@ -15,6 +16,7 @@ source=(ROOT/'index.html').read_text();assert without_volcano_bgm(source,'index.
 for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
+ if name in STORM_ASSETS:assert_storm_asset(name);continue
  if name in VOLCANO_BGM_ASSETS:assert_volcano_bgm_asset(name);continue
  data=without_volcano_bgm(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes()
  assert data==old(name),name
@@ -73,7 +75,7 @@ try:
    if args.standalone:context.set_offline(False);target.goto(url+'/offline-origin');external.clear();context.set_offline(True);target.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:target.goto(url+'/helicopter-game/',wait_until='load')
    target.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');target.evaluate('vbMusic.attach()');target.evaluate(helpers);target.wait_for_function('vbMusic.tracks.length===15&&vbMusic.tracks.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
-  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4]
+  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,0]
   if args.standalone:
    html=(ROOT/'dist/heli_trio_galaxy_test.html').read_text()
    for id,name in [('volcanoStageBgm','volcano_stage.wav'),('volcanoBossBgm','volcano_boss.wav')]:
@@ -102,11 +104,11 @@ try:
   report['mobile_matrix']=matrix
   passed('3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.')
   routes=[]
-  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano']):
+  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','forest']):
    for step in [1,5]:
     start(region,step);routes.append({'region':region,'phase':step,**track(('boss_' if step==5 else 'stage_')+name)});exit_game()
   report['routes']=routes
-  passed('All6 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow remain unchanged, while only volcano selects the two new tracks.')
+  passed('All7 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and explicit storm fallback remain unchanged, while only volcano selects the two new tracks.')
   loops=[]
   for step,id in [(1,'volcanoStageBgm'),(5,'volcanoBossBgm')]:
    start(step=step);name='stage_volcano' if step==1 else 'boss_volcano';track(name)
@@ -136,8 +138,8 @@ try:
   start(step=5);track('boss_volcano');score=page.evaluate('runScore');page.evaluate('''()=>{while(boss)vbHit(boss);}''');page.wait_for_function('!started&&!menu.classList.contains("hidden")');track('selection');assert page.evaluate('runScore')==score+2000
   passed('Actual dragon defeat retains2000points once, reward/outro/final return and restores selection music without any simultaneous BGM.')
   # Real route API and region advance, with only the preceding progress fixture shortened.
-  assert page.evaluate('gameWorlds.setDeveloperStart({enabled:false})&&gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();page.evaluate('vbQuiet();stage=4;phase=5;boss=null');track('stage_forest');page.evaluate('nextPhase();vbQuiet()');track('stage_volcano');assert page.evaluate('stage===5&&phase===1&&gameVolcanoSpawns.snapshot().draws===0');exit_game();page.evaluate('gameWorlds.setTrialEnabled(false)')
-  passed('Actual Snow->Volcano nextRegion transition changes forest-profile music to volcano profile4 without touching mixed-spawn reset or the old World1 route.')
+  assert page.evaluate('gameWorlds.setDeveloperStart({enabled:false})&&gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();page.evaluate('vbQuiet();stage=4;phase=5;boss=null');track('stage_forest');page.evaluate('nextPhase();vbQuiet()');track('stage_volcano');assert page.evaluate('stage===5&&phase===1&&gameVolcanoSpawns.snapshot().draws===0');page.evaluate('stage=5;phase=5;boss=null;nextPhase();vbQuiet()');track('stage_forest');assert page.evaluate('stage===6&&phase===1&&gameStormSpawns.snapshot().draws===0');exit_game();page.evaluate('gameWorlds.setTrialEnabled(false)')
+  passed('Actual Snow->Volcano->Storm nextRegion transitions change forest→volcano4→explicit forest fallback without touching mixed-spawn reset or the old World1 route.')
   for index in range(12):start(step=5 if index%2 else 1,kind=index%3);track('boss_volcano' if index%2 else 'stage_volcano');exit_game();track('selection')
   assert page.evaluate('vbMusic.tracks.length===15&&vbMusic.maxActive===1&&vbMusic.overlaps.length===0');report['monitor']=page.evaluate('({events:vbMusic.events,attempts:vbMusic.attempts,tracks:vbMusic.tracks.length,maxActive:vbMusic.maxActive,overlaps:vbMusic.overlaps})')
   passed('12additional stage/boss starts and returns reuse the same15 media elements; synchronous play-call/event/frame probes detect zero simultaneous music or extra looping players.')

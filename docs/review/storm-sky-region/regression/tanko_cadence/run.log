@@ -1,0 +1,5 @@
+PASS: After reversing reviewed selection-BGM changes, reversing the single Tanko cooldown multiplier restores every index byte to f622f3f; all assets/audio/UI/other gameplay are identical and JS syntax passes.
+PASS: All upgrades0..5 use exactly1.25× Tanko intervals (0.35s/0.287s), retaining the0.82 upgrade factor; projectile speed410/damage1.5 and piercing are unchanged.
+PASS: The first shot timestamp and projectile data match the baseline for every type/upgrade at120/60Hz, both with zero and pre-existing positive0.18s cooldown; no start/reset logic changes.
+PASS: Trio/Bingle full12s firing traces match exactly at both time steps and all upgrades; only Tanko subsequent volleys decrease.
+PASS: Native-step12s counts and subsequent spacing are recorded explicitly; first-shot inclusion and frame quantization are distinguished from the exact80% ideal rate.

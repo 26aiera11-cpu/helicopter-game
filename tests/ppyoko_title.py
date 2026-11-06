@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright,expect
 from ppyoko_preservation import PPYOKO_ASSETS,assert_ppyoko_asset,without_ppyoko_source,without_ppyoko_asset
 ROOT=Path(__file__).resolve().parents[1];BASE='48319030a0b15c2346a6ec99c3e4c8d84765178b'
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'baseline':BASE,'standalone':args.standalone,'passed':[],'limits':['Real Chromium screenshots and native storage;not physical Galaxy/Samsung Internet or speaker listening.','Offline uses exact standalone HTML at a blank localhost origin with networking disabled;managed file policy not bypassed.','Final-clear name tests inject the final region/phase,then use real bullets/hits/rewards;full20/30-stage progress remains covered by retained regressions.','Hangul stroke legibility manually inspected in enlarged actual browser captures;pixel tests prove localization,not semantic OCR.']}
+report={'baseline':BASE,'standalone':args.standalone,'passed':[],'limits':['Real Chromium screenshots and native storage;not physical Galaxy/Samsung Internet or speaker listening.','Offline uses exact standalone HTML at a blank localhost origin with networking disabled;managed file policy not bypassed.','Final-clear name tests inject the final region/phase,then use real bullets/hits/rewards;full20/35-stage progress remains covered by retained regressions.','Hangul stroke legibility manually inspected in enlarged actual browser captures;pixel tests prove localization,not semantic OCR.']}
 def passed(s):report['passed'].append(s);print('PASS:',s,flush=True)
 s=(ROOT/'index.html').read_text();assert without_ppyoko_source(s)==subprocess.check_output(['git','show',BASE+':index.html'],cwd=ROOT).decode()
 for f in (ROOT/'assets').rglob('*'):
@@ -97,7 +97,7 @@ try:
    page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending',timeout=4000)
    assert page.evaluate('gameWorlds.setDeveloperStart({enabled:false})');assert page.evaluate('on=>gameWorlds.setTrialEnabled(on)',trial)
    page.locator('.select-hit[data-heli="0"]').tap();page.wait_for_function('selectedHeli===0');page.locator('#startSelected').tap();page.wait_for_function('started&&player?.type===0')
-   page.evaluate('trial=>{stage=trial?5:3;phase=5;phaseKills=6;spawn=999;transition=0;update(0);nameFinishBoss();}',trial)
+   page.evaluate('trial=>{stage=gameWorlds.snapshot().route.at(-1);phase=5;phaseKills=6;spawn=999;transition=0;update(0);nameFinishBoss();}',trial)
    expect(page.locator('#menu')).to_be_visible(timeout=4000);page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending',timeout=4000)
    expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어',timeout=4000)
    text=page.locator('#selectionResult').inner_text();result=page.evaluate('gameScoring.getLastResult()');assert result['record']['characterName']=='뾰코' and result['record']['characterId']==0 and result['saved'];page.screenshot(path=str(args.artifacts/f'clear-{trial}.png'));final.append({'trial':trial,'text':text,'score':result['record']['score']})

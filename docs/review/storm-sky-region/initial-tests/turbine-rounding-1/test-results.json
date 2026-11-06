@@ -1,0 +1,46 @@
+{
+  "passed": [
+    "Bat holds its warning-time vector through a player side swap and moves exactly155px/s during dash; warning/dash emit no bullets.",
+    "Measured phase2 laser charge and active duration are exactly1/1.2 of phase1; minimum rest1.5s remains enforced."
+  ],
+  "bat_dash": {
+    "warning": {
+      "id": "lightning_bat",
+      "mode": "warning",
+      "remaining": 0.5,
+      "age": 2.199999999999995,
+      "shots": 0,
+      "direction": [
+        0.947492278987199,
+        0.31977864415818036
+      ]
+    },
+    "after": {
+      "id": "lightning_bat",
+      "mode": "dash",
+      "remaining": 0.45000000000000084,
+      "age": 2.999999999999991,
+      "shots": 0,
+      "direction": [
+        0.947492278987199,
+        0.31977864415818036
+      ]
+    },
+    "dx": 44.05839097290391,
+    "dy": 14.869706953355376
+  },
+  "phase_rates": [
+    {
+      "phase2": false,
+      "rest": 1.8,
+      "warning": 0.9999989999999962,
+      "beam": 2
+    },
+    {
+      "phase2": true,
+      "rest": 1.5833333333333333,
+      "warning": 0.8333323333333305,
+      "beam": 1.6666666666666667
+    }
+  ]
+}

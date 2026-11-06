@@ -1,0 +1,1006 @@
+{
+  "branch": "feature/storm-sky-region",
+  "baseline": "c2d03f8306557c72be7f61666198919c2412b2ae",
+  "suite_count": 61,
+  "passed_suites": 60,
+  "passed_groups": 769,
+  "failed_suites": [
+    "worlds-offline"
+  ],
+  "new_region_suites": {
+    "storm_sky-native": 19,
+    "storm_sky-offline": 19,
+    "storm_sky_edges": 6
+  },
+  "suites": [
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 80.76,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/bgm_smoke.py",
+        "--artifacts",
+        "/tmp/storm-regression/bgm_smoke"
+      ],
+      "evidence": "regression/bgm_smoke"
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.88,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/storm-regression/boss_reward"
+      ],
+      "evidence": "regression/boss_reward"
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.75,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/storm-legacy-focus/developer_start-native"
+      ],
+      "evidence": "focused/developer_start-native"
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 180.3,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/storm-regression/developer_start-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/developer_start-offline"
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 14.62,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/exit_dialog.py",
+        "--artifacts",
+        "/tmp/storm-regression/exit_dialog"
+      ],
+      "evidence": "regression/exit_dialog"
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 10.9,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/storm-regression/fullscreen_smoke"
+      ],
+      "evidence": "regression/fullscreen_smoke"
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 120.71,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/storm-retests/galaxy_standalone"
+      ],
+      "evidence": "schema-retests/galaxy_standalone"
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.44,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/game_audit.py",
+        "--artifacts",
+        "/tmp/storm-regression/game_audit"
+      ],
+      "evidence": "regression/game_audit"
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 28.67,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/storm-regression/game_over"
+      ],
+      "evidence": "regression/game_over"
+    },
+    {
+      "suite": "item_monsters",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.37,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/item_monsters.py",
+        "--artifacts",
+        "/tmp/storm-regression/item_monsters"
+      ],
+      "evidence": "regression/item_monsters"
+    },
+    {
+      "suite": "item_monsters-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 52.98,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/item_monsters.py",
+        "--artifacts",
+        "/tmp/storm-regression/item_monsters-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/item_monsters-offline"
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.45,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/storm-regression/item_persistence"
+      ],
+      "evidence": "regression/item_persistence"
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 18.25,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/tmp/storm-regression/item_spawn_rules"
+      ],
+      "evidence": "regression/item_spawn_rules"
+    },
+    {
+      "suite": "item_spawn_rules-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 46.82,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/tmp/storm-regression/item_spawn_rules-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/item_spawn_rules-offline"
+    },
+    {
+      "suite": "joystick_design",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.61,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/joystick_design.py",
+        "--artifacts",
+        "/tmp/storm-regression/joystick_design"
+      ],
+      "evidence": "regression/joystick_design"
+    },
+    {
+      "suite": "joystick_design-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 66.64,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/joystick_design.py",
+        "--artifacts",
+        "/tmp/storm-regression/joystick_design-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/joystick_design-offline"
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.18,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/storm-regression/mobile_controls"
+      ],
+      "evidence": "regression/mobile_controls"
+    },
+    {
+      "suite": "mobile_controls-offline",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 66.32,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/storm-regression/mobile_controls-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/mobile_controls-offline"
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 48.15,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/ppyoko_title.py",
+        "--artifacts",
+        "/tmp/storm-name-retests/ppyoko_title-native"
+      ],
+      "evidence": "name-retests/ppyoko_title-native"
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 200.25,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/ppyoko_title.py",
+        "--artifacts",
+        "/tmp/storm-name-retests/ppyoko_title-offline",
+        "--standalone"
+      ],
+      "evidence": "name-retests/ppyoko_title-offline"
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 49.65,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/storm-regression/scoring"
+      ],
+      "evidence": "regression/scoring"
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 270.68,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/storm-regression/scoring-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/scoring-offline"
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 83.29,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/storm-regression/selection_bgm"
+      ],
+      "evidence": "regression/selection_bgm"
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 124.38,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/storm-regression/selection_bgm-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/selection_bgm-offline"
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 31.42,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/selection_smoke.py",
+        "--artifacts",
+        "/tmp/storm-regression/selection_smoke"
+      ],
+      "evidence": "regression/selection_smoke"
+    },
+    {
+      "suite": "snowfield_art",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 36.04,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_art.py",
+        "--artifacts",
+        "/tmp/storm-retests/snowfield_art"
+      ],
+      "evidence": "schema-retests/snowfield_art"
+    },
+    {
+      "suite": "snowfield_art-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 51.8,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_art-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/snowfield_art-offline"
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 34.16,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/storm-legacy-focus/snowfield_boss-native"
+      ],
+      "evidence": "focused/snowfield_boss-native"
+    },
+    {
+      "suite": "snowfield_boss-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 64.78,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_boss-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/snowfield_boss-offline"
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 21.69,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_combat-native"
+      ],
+      "evidence": "regression/snowfield_combat-native"
+    },
+    {
+      "suite": "snowfield_combat-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 56.23,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_combat-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/snowfield_combat-offline"
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.35,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_difficulty-native"
+      ],
+      "evidence": "regression/snowfield_difficulty-native"
+    },
+    {
+      "suite": "snowfield_difficulty-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 48.66,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_difficulty-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/snowfield_difficulty-offline"
+    },
+    {
+      "suite": "snowfield_mixed-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 23.2,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_mixed-native"
+      ],
+      "evidence": "regression/snowfield_mixed-native"
+    },
+    {
+      "suite": "snowfield_mixed-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 44.95,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_mixed.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_mixed-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/snowfield_mixed-offline"
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/storm-new-native-final-verified"
+      ],
+      "evidence": "focused/storm-native"
+    },
+    {
+      "suite": "storm_sky-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.7,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/storm-regression/storm_sky-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/storm_sky-offline"
+    },
+    {
+      "suite": "storm_sky_edges",
+      "exit_code": 0,
+      "groups": 6,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_sky_edges.py",
+        "--artifacts",
+        "/tmp/storm-edges-final"
+      ],
+      "evidence": "focused/storm-edges"
+    },
+    {
+      "suite": "tanko_cadence",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 23.63,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/tanko_cadence.py",
+        "--artifacts",
+        "/tmp/storm-regression/tanko_cadence"
+      ],
+      "evidence": "regression/tanko_cadence"
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 38.05,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/tanko_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/tanko_combat"
+      ],
+      "evidence": "regression/tanko_combat"
+    },
+    {
+      "suite": "tanko_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 68.28,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/tanko_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/tanko_combat-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/tanko_combat-offline"
+    },
+    {
+      "suite": "volcano_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 37.75,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_art-native"
+      ],
+      "evidence": "regression/volcano_art-native"
+    },
+    {
+      "suite": "volcano_art-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 73.59,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_art-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_art-offline"
+    },
+    {
+      "suite": "volcano_bgm-native",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.09,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-bgm-retests/volcano_bgm-native"
+      ],
+      "evidence": "bgm-retests/volcano_bgm-native"
+    },
+    {
+      "suite": "volcano_bgm-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 82.99,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-bgm-retests/volcano_bgm-offline",
+        "--standalone"
+      ],
+      "evidence": "bgm-retests/volcano_bgm-offline"
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.26,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/storm-legacy-focus/volcano_boss-native"
+      ],
+      "evidence": "focused/volcano_boss-native"
+    },
+    {
+      "suite": "volcano_boss-offline",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 81.81,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_boss-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_boss-offline"
+    },
+    {
+      "suite": "volcano_boss_masks",
+      "exit_code": 0,
+      "groups": 2,
+      "observed_groups_before_failure": 0,
+      "seconds": 46.05,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_boss_masks.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_boss_masks"
+      ],
+      "evidence": "regression/volcano_boss_masks"
+    },
+    {
+      "suite": "volcano_breath_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.19,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_breath_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_breath_art-native"
+      ],
+      "evidence": "regression/volcano_breath_art-native"
+    },
+    {
+      "suite": "volcano_breath_art-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 102.15,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_breath_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_breath_art-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_breath_art-offline"
+    },
+    {
+      "suite": "volcano_combat-native",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.34,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_combat-native"
+      ],
+      "evidence": "regression/volcano_combat-native"
+    },
+    {
+      "suite": "volcano_combat-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 82.9,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_combat.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_combat-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_combat-offline"
+    },
+    {
+      "suite": "volcano_fallback",
+      "exit_code": 0,
+      "groups": 2,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.04,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_fallback.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_fallback"
+      ],
+      "evidence": "regression/volcano_fallback"
+    },
+    {
+      "suite": "volcano_lifecycle",
+      "exit_code": 0,
+      "groups": 3,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.42,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_lifecycle.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_lifecycle"
+      ],
+      "evidence": "regression/volcano_lifecycle"
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 18.87,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_mixed-native"
+      ],
+      "evidence": "regression/volcano_mixed-native"
+    },
+    {
+      "suite": "volcano_mixed-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.91,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_mixed-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_mixed-offline"
+    },
+    {
+      "suite": "volcano_package",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/volcano_package.py",
+        "--artifacts",
+        "/tmp/storm-package-verified"
+      ],
+      "evidence": "focused/package"
+    },
+    {
+      "suite": "volcano_visual_fix-native",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.21,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_visual_fix.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_visual_fix-native"
+      ],
+      "evidence": "regression/volcano_visual_fix-native"
+    },
+    {
+      "suite": "volcano_visual_fix-offline",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 100.98,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_visual_fix.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_visual_fix-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/volcano_visual_fix-offline"
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 31.8,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/storm-regression/worlds"
+      ],
+      "evidence": "regression/worlds"
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 135.06,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/storm-regression/worlds-offline",
+        "--standalone"
+      ],
+      "evidence": "regression/worlds-offline"
+    }
+  ],
+  "initial_failed_attempts": [
+    {
+      "suite": "snowfield_art",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 2,
+      "seconds": 11.79,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/snowfield_art.py",
+        "--artifacts",
+        "/tmp/storm-regression/snowfield_art"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 1,
+      "seconds": 1.07,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/storm-regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 135.06,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/storm-regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "ppyoko_title-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 7,
+      "seconds": 38.58,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/ppyoko_title.py",
+        "--artifacts",
+        "/tmp/storm-regression/ppyoko_title-native"
+      ]
+    },
+    {
+      "suite": "ppyoko_title-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 7,
+      "seconds": 141.49,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/ppyoko_title.py",
+        "--artifacts",
+        "/tmp/storm-regression/ppyoko_title-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_bgm-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 3,
+      "seconds": 7.78,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_bgm-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 3,
+      "seconds": 42.05,
+      "command": [
+        "python",
+        "/tmp/storm-sky-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-regression/volcano_bgm-offline",
+        "--standalone"
+      ]
+    }
+  ],
+  "initial_focused_worlds_failure": {
+    "suite": "worlds",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 10,
+    "seconds": 18.82,
+    "command": [
+      "python",
+      "/tmp/storm-sky-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/storm-legacy-focus/worlds"
+    ]
+  },
+  "policy": "Focused passed suites reused. Remaining55 suites run once, followed only by6 schema/last-region/music-profile expectation retests. Failed worlds-offline was not retried to hide its outcome. Runtime JS did not change during full regression. Failed partial groups and baseline checks are excluded from passed_groups. New tests have additional retained fixture/Canvas-rounding diagnostics.",
+  "unresolved": "Known long-multitouch→Snow5 Exit receives pointer events but dialog click is missing in worlds-offline; input code unchanged, root cause unresolved.",
+  "limits": [
+    "Physical Galaxy Samsung Internet/Chrome, actual sensor permissions/tilt/touch, speaker listening and heat/performance not tested.",
+    "Transform-keyframe single-cell animation; dedicated Storm BGM deferred with explicit forest fallback."
+  ]
+}

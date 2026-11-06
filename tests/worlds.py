@@ -50,7 +50,7 @@ helpers='''() => {
  window.worldSnow=()=>{stage=3;phase=5;boss=null;hp=maxHP[player.type];nextPhase();transition=0;spawn=999;gameScoring.updateHUD();};
  window.worldRoute=(type,quota=0)=>{
   worldReset(type,quota);const waves=[];let safety=0;
-  while(started&&safety++<30){
+  while(started&&safety++<35){
    const before={stage,phase};transition=0;spawn=999;
    for(let kill=0;kill<6;kill++){
     bullets=[];warnEnemy();for(let i=0;i<36;i++)update(.04);
@@ -64,7 +64,7 @@ helpers='''() => {
    let bossHP=null;
    if(before.phase===5){update(0);if(!boss)throw Error('No boss');transition=0;bossHP=boss.maxHp;
     let shots=0;while(boss&&shots++<250)worldHit(boss);if(boss)throw Error('Boss survived');
-    let outro=0;while(gameVolcano.snapshot().advancing&&outro++<100)update(.04);if(gameVolcano.snapshot().advancing)throw Error('Art outro stalled');
+    let outro=0;while((gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)&&outro++<100)update(.04);if(gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)throw Error('Art outro stalled');
    }
    waves.push({...before,bossHP});if(started&&stage===before.stage&&phase===before.phase)throw Error('Route stalled');
   }
@@ -102,19 +102,19 @@ try:
    page.wait_for_function('gameWorlds&&gameSnowfield.ready()&&itemMonsters.ready()&&terrainImgs.every(i=>i.complete&&i.naturalWidth>0)');page.evaluate(helpers)
   load()
   registry=page.evaluate('({worlds:gameWorlds.worlds,regions:gameWorlds.regions,snapshot:gameWorlds.snapshot(),assets:terrainImgs.length,enemies:enemySprites.length,bosses:bossSprites.length})')
-  assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5]]
-  assert [r['id'] for r in registry['regions']]==list(range(6)) and len({r['key'] for r in registry['regions']})==6
+  assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5,6]]
+  assert [r['id'] for r in registry['regions']]==list(range(7)) and len({r['key'] for r in registry['regions']})==7
   assert registry['snapshot']=={'trialEnabled':False,'activeTrial':False,'route':[0,1,2,3]}
-  assert registry['assets']==registry['enemies']==registry['bosses']==6
+  assert registry['assets']==registry['enemies']==registry['bosses']==7
   assert all(r['normalPhases']==4 and r['bossPhase']==5 for r in registry['regions'])
-  report['registry']=registry;passed('Two worlds register only6 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, and default route is exactly20 phases.')
+  report['registry']=registry;passed('Two worlds register 7 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, storm is6, and default route is exactly20 phases.')
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked()
   page.screenshot(path=str(args.artifacts/'trial-opt-in-help.png'))
   page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement')
   page.locator('#startSelected').tap();page.wait_for_function('started')
-  assert page.evaluate('gameWorlds.snapshot().route.join()==="0,1,2,3,4,5"&&!gameWorlds.setTrialEnabled(false)&&gameWorlds.isTrial()')
-  passed('Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the30-phase route and rejects mode changes during play.')
+  assert page.evaluate('gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6"&&!gameWorlds.setTrialEnabled(false)&&gameWorlds.isTrial()')
+  passed('Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the35-phase route and rejects mode changes during play.')
 
   carry=page.evaluate('''() => {
    worldReset(0,3);stage=3;phase=1;itemMonsters.enterRegion(3);
@@ -167,11 +167,11 @@ try:
    page.evaluate('worldExit()');page.evaluate('value=>gameWorlds.setTrialEnabled(value)',trial)
    for kind in range(3):
     route=page.evaluate('type=>worldRoute(type)',kind);page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending');waves=route['waves'];r=route['result']['record']
-    assert len(waves)==(30 if trial else 20) and route['score']==(42000 if trial else 28000) and not route['started']
-    assert sum(w['bossHP'] is not None for w in waves)==(6 if trial else 4)
-    assert {w['stage'] for w in waves}==set(range(6 if trial else 4))
-    assert r['characterId']==kind and r['bossKills']==(6 if trial else 4) and r['normalKills']==(180 if trial else 120) and r['clearedPhases']==(24 if trial else 16)
-    assert r['regionId']==(5 if trial else 3) and r['worldId']==int(trial) and r['trialMode']==trial and r['outcome']=='clear'
+    assert len(waves)==(35 if trial else 20) and route['score']==(49000 if trial else 28000) and not route['started']
+    assert sum(w['bossHP'] is not None for w in waves)==(7 if trial else 4)
+    assert {w['stage'] for w in waves}==set(range(7 if trial else 4))
+    assert r['characterId']==kind and r['bossKills']==(7 if trial else 4) and r['normalKills']==(210 if trial else 120) and r['clearedPhases']==(28 if trial else 16)
+    assert r['regionId']==(6 if trial else 3) and r['worldId']==int(trial) and r['trialMode']==trial and r['outcome']=='clear'
     assert ('월드 2 시험 완료' if trial else '모든 지역 클리어') in route['title']
     assert page.evaluate('gameWorlds.nextRegion(stage)===null&&!!document.fullscreenElement')
     routes.append({'trial':trial,'character':kind,**route})
@@ -179,7 +179,7 @@ try:
      expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어')
      page.screenshot(path=str(args.artifacts/('snow-trial-clear.png' if trial else 'world1-default-clear.png')))
   report['controlled_full_routes']=routes
-  passed('All3 helicopters complete default20 and opt-in30 phases through real warnings/spawns/shots/collisions:28,000 vs42,000,4 vs6 bosses; no undefined future region or duplicate clear credit.')
+  passed('All3 helicopters complete default20 and opt-in35 phases through real warnings/spawns/shots/collisions:28,000 vs49,000,4 vs7 bosses; no undefined future region or duplicate clear credit.')
   expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료')
   passed('Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; default desert still uses the original World1 clear title.')
 
@@ -191,15 +191,15 @@ try:
    return {normalUnchanged:normal===localStorage.getItem('heliTrio.top10.v1')&&normalHistory===localStorage.getItem('heliTrio.playHistory.v1'),trial,trialHistory,base,duplicate,keys:gameScoring.storageKeys};
   }''')
   assert storage['normalUnchanged'] and storage['duplicate']==1 and len(storage['trial'])==len(storage['base'])==3
-  assert all(r['score']==42000 and r['regionKey']=='world-2:volcano' and r['worldId']==1 for r in storage['trial'])
+  assert all(r['score']==49000 and r['regionKey']=='world-2:storm-sky' and r['worldId']==1 for r in storage['trial'])
   assert all(r['score']==28000 and r['regionId']==3 and not r['trialMode'] for r in storage['base'])
   assert storage['keys']['top']=='heliTrio.world2Trial.top10.v1'
   report['storage_isolation']=storage;passed('Trial TOP10/analysis namespaces are separate, preserve normal storage bytes, retain all3 character results/tie order and store a repeated finish exactly once.')
   page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 월드 2 시험 TOP 10')
-  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · 🌋 화산 (시험)')
+  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚡ 폭풍 하늘 (시험)')
   page.screenshot(path=str(args.artifacts/'trial-leaderboard.png'));page.locator('#leaderboardClose').tap()
   load();assert page.evaluate('!gameWorlds.isTrial()&&gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>!r.trialMode)')
-  page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.regionId===5&&r.worldId===1)')
+  page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.regionId===6&&r.worldId===1)')
   passed('Trial leaderboard labels World2/snow and reload preserves fifth-region results; normal launch resets opt-in OFF and displays only original normal scores.')
 
   legacy=page.evaluate('''() => {gameWorlds.setTrialEnabled(false);const d=JSON.parse(localStorage.getItem(gameScoring.storageKeys.top));
@@ -223,10 +223,10 @@ try:
   passed('Corrupt trial JSON and denied/quota-like storage errors cannot stop play; volatile trial results survive scope switches without contaminating the normal TOP10.')
 
   item_route=page.evaluate('worldRoute(0,3)');item_record=item_route['result']['record']
-  assert len(item_route['waves'])==30 and item_record['score']==45600 and item_record['itemKills']==18 and item_record['normalKills']==180 and item_record['bossKills']==6
-  assert page.evaluate('itemMonsters.snapshot().regions.every(p=>p.spawned===3&&p.phases.filter(s=>s.selected).length===3)&&itemMonsters.snapshot().regions.length===6')
+  assert len(item_route['waves'])==35 and item_record['score']==53200 and item_record['itemKills']==21 and item_record['normalKills']==210 and item_record['bossKills']==7
+  assert page.evaluate('itemMonsters.snapshot().regions.every(p=>p.spawned===3&&p.phases.filter(s=>s.selected).length===3)&&itemMonsters.snapshot().regions.length===7')
   report['full_trial_with_item_monsters']=item_route
-  passed('A further30-phase combat run exercises exactly3 item spawns per region/18 total:45,600 points,180 normal kills,18 item kills,6 bosses, with no item contribution to the6-kill phase goal.')
+  passed('A further35-phase combat run exercises exactly3 item spawns per region/21 total:53,200 points,210 normal kills,21 item kills,7 bosses, with no item contribution to the6-kill phase goal.')
 
   # Realtime media routing and real three-second game over in the snow trial.
   page.locator('#startSelected').tap();page.evaluate('worldSnow()')

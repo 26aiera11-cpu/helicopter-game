@@ -99,7 +99,7 @@ try:
   assert not page.evaluate('gameWorlds.isTrial()')
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
-  assert '설원→화산' in page.locator('#worldTrialSettings').inner_text() and '30단계' in page.locator('#worldTrialSettings').inner_text()
+  assert '설원→화산' in page.locator('#worldTrialSettings').inner_text() and '35단계' in page.locator('#worldTrialSettings').inner_text()
   assert '혼합 등장/전투 밸런스 시험 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')

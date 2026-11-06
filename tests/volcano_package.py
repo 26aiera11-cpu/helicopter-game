@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--focus-artifacts',type=Path,default=ROOT/'docs/review/volcano-bgm');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
+parser=argparse.ArgumentParser();parser.add_argument('--artifacts',type=Path,required=True);parser.add_argument('--focus-artifacts',type=Path,default=ROOT/'docs/review/storm-sky-region');args=parser.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'passed':[]}
 def passed(text):report['passed'].append(text);print('PASS:',text,flush=True)
 class Resources(HTMLParser):
@@ -26,12 +26,12 @@ for id,path in [('volcanoManifest','assets/volcano/asset_manifest.json'),('snowf
     assert unescape(re.search(r'<template id="'+id+r'">(.*?)</template>',html,re.S)[1])==(ROOT/path).read_text()
 report['volcano_image_count']=len(image_pairs);report['volcano_frames']=sum(a['frame_count'] for a in manifest['monsters'])
 passed('All12 volcano PNG resources including supplied static breath and both original frame manifests embedded byte-for-byte;69 volcano frames retained.')
-before=['assets/worlds/worlds.js','assets/worlds/difficulty.js','assets/volcano/spawns.js','assets/snowfield/snowfield.js','assets/volcano/volcano.js','assets/volcano/combat.js','assets/volcano/boss_combat.js','assets/snowfield/spawns.js','assets/snowfield/combat.js','assets/snowfield/boss_combat.js','assets/item_monster/item_monster.js','assets/controls/controls.js']
+before=['assets/worlds/worlds.js','assets/worlds/difficulty.js','assets/storm_sky/config.js','assets/storm_sky/spawns.js','assets/volcano/spawns.js','assets/snowfield/snowfield.js','assets/volcano/volcano.js','assets/volcano/combat.js','assets/volcano/boss_combat.js','assets/snowfield/spawns.js','assets/snowfield/combat.js','assets/snowfield/boss_combat.js','assets/storm_sky/storm_sky.js','assets/storm_sky/combat.js','assets/storm_sky/boss_combat.js','assets/item_monster/item_monster.js','assets/controls/controls.js']
 expected=[(ROOT/p).read_text() for p in before]+re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',source,re.S)+[(ROOT/p).read_text() for p in ['assets/score/score.js','assets/selection/selection.js']]
-assert re.findall(r'<script[^>]*>(.*?)</script>',html,re.S)==expected and len(expected)==17
+assert re.findall(r'<script[^>]*>(.*?)</script>',html,re.S)==expected and len(expected)==22
 assert not resources.external and all(x.strip('\"\' ').startswith(('data:','#')) for x in re.findall(r'url\(([^)]+)\)',html))
 assert not re.search(r'@import\s',html,re.I)
-passed('Current17 source scripts embedded exactly in order; no external HTML/CSS resource dependencies.')
+passed('Current22 source scripts embedded exactly in order; no external HTML/CSS resource dependencies.')
 archive_path=html_path.with_suffix('.zip')
 with zipfile.ZipFile(archive_path) as archive,tempfile.TemporaryDirectory(prefix='heli-volcano-package-') as folder:
     assert archive.namelist()==[html_path.name] and archive.testzip() is None
@@ -40,7 +40,7 @@ with zipfile.ZipFile(archive_path) as archive,tempfile.TemporaryDirectory(prefix
 passed('ZIP contains only latest HTML; CRC, real separate extraction, full byte equality andSHA-256 match.')
 actors={a['id']:a for a in manifest['monsters']};pivot_checks=[]
 for mode in ['native','offline']:
-    focus=json.loads((args.focus_artifacts/'focused'/('volcano_art-'+mode)/'test-results.json').read_text());assert focus['all_passed']
+    focus=json.loads((args.focus_artifacts/'regression'/('volcano_art-'+mode)/'test-results.json').read_text());assert focus['all_passed']
     assert len(focus['frames'])==69
     for f in focus['frames']:
         md=actors[f['id']]['animations'][f['state']]['frames'][f['index']];x,y,w,h=f['drawn'];sx,sy,sw,sh=md['sprite_source_rect_px'];cell=md['source_size_px'];scale=w/sw
