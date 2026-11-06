@@ -2865,3 +2865,32 @@ HTML **67,998,711바이트**, SHA256 `fb2070a565acb2a9baf492487d89fba24876f5601e
 실제 Galaxy Samsung Internet/Chrome의 다운로드/파일연결·센서 권한/기울임/손가락 조작·체감 난이도/성능/발열·스피커 청취는 미검증이다. 환경의 file:// 정책을 우회하지 않고 동일 독립HTML을 빈origin에서 네트워크 차단해 검사했다. 전용 폭풍 BGM·새로 그린 개별 포즈 프레임/최종 체감밸런스는 후속 검토다. 작업 결과는 **feature/storm-sky-region에만 커밋·푸시**하고 원격 ref/ZIP을 확인한다. **main 병합과 GitHub Pages 배포는 하지 않는다.**
 
 **원격 업로드 확인:** 구현 커밋 `a5e09ab7aedcd3325727e065738ee35965e91757`을 `origin/feature/storm-sky-region`에 푸시했다. GitHub 원격 ZIP49,576,786바이트를 직접 내려받아 SHA-256 `29d60ea67a14a36edea0825d2ba04faeeced2d0678ca5171bca889fbfd61f4dd`, CRC와 내부HTML 해시 일치를 확인했다. main은 `c2d03f8` 그대로이며 병합/Pages 배포는 하지 않았다. HTML64.85MiB가 권장50MiB를 넘는다는 실제 GitHub 경고는 있었지만 푸시는 성공했다. [검증 기록](docs/review/storm-sky-region/remote-verification.json). 검증 이후 추가 커밋은 기록 파일만 갱신한다.
+
+
+## 59. 폭풍 하늘 배경 contain 전환·원본 PNG 손상 발견 (2026-11-07 KST)
+
+### 요청·기준과 변경 범위
+
+사용자는 Issue #27을 먼저 읽고 `fix/storm-sky-background-fit`에서 폭풍 하늘 배경을 cover에서 contain으로 바꾸도록 요청했다. 최신 원격 `feature/storm-sky-region`과 수정 브랜치는 모두 `6c3446b7ad079822df80db5045c1f727051d47e4`였다. main은 `c2d03f8306557c72be7f61666198919c2412b2ae`이고 수정하지 않는다. 저장 공간이 적어 별도 임시 복사본에서 기존 작업/브랜치를 보존했다.
+
+실행 코드 변경은 `assets/storm_sky/storm_sky.js`의 `Math.max(w/imageWidth,h/imageHeight)`를 `Math.min(...)`으로 바꾼 한 곳이다. 원본 좌표 전체를 중앙에 균일 축척으로 표시한다. 여백은 기존 짙은 청색 `#10213e`를 유지한다. 검은 바탕/줄무늬/다른 이미지 늘림·덧그리기는 추가하지 않았다. manifest·index 내장 manifest·준비 스크립트의 배경 `render_mode`만 contain으로 맞췄다. 1–5단계는 같은 원본 객체/배경 레이어다.
+
+### 추가로 확인한 완료 차단 문제
+
+**현재 전달된 원본 PNG 자체가 손상돼 있어 ‘완전한 원본 배경 그림 복구’는 아직 미완료다.** `storm_sky_background_1920x864.png`는393,317바이트·SHA256 `e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b`이며 처음 받은 ZIP 엔트리·Git 기준·현재 파일이 모두 같다. ZIP CRC는 정상이나 PNG 내부 IDAT 스트림과 IEND가 끝까지 없다. 헤더는1920×864 RGBA8이지만 래스터에 필요한6,636,384바이트 중1,284,205바이트, 완전한 행으로167개만 디코딩된다. 엄격한 Pillow 전체 디코딩도 `image file is truncated`로 실패한다. [원본 무결성 검사](docs/review/storm-sky-background-fit/source-integrity/test-results.json), [처음 제공 ZIP/Git 바이트 비교](docs/review/storm-sky-background-fit/source-provenance.json)
+
+Chromium은 이 PNG를 일부만 조용히 그려 complete/naturalWidth·원본 해시 확인만으로는 내부 손상을 검출하지 못했다. 이전 통합에서 이 손상을 놓쳤음을 기록하고, 새 전체 디코딩 검사를 추가했다. 사용자에게 완전한 원본 PNG를 요청했다. 임의의 아래쪽 픽셀·대체 그림을 만들거나 원본을 재압축/복구하지 않았다. contain 변경만으로 없는 픽셀을 되살릴 수 있다고 보고하지 않는다.
+
+### 검증·결과와 남은 사항
+
+이번은 배경 한정 변경으로 기존61모음 전체 재실행 대신 관련 기존12모음+신규 표시 일반/오프라인2모음+원본 무결성1모음, 총15모음을 검사했다. **13개 통과·2개 실패, 완료190그룹**이다. 신규 표시 일반/오프라인 각8그룹은 통과했지만 PNG 무결성 실패는 그대로다. 기존 `worlds-offline`은 긴 멀티터치 뒤 설원5 나가기 click 누락을 다시 재현했다. 이 실패의 부분16개는 통과 합계에 넣지 않았다. [집계/명령](docs/review/storm-sky-background-fit/test-summary.json), [상세 보고서/전후 화면](docs/review/storm-sky-background-fit/README.md)
+
+915×412/800×360/568×320/740×360/844×390/960×540/1080×360/1024×600과 추가 세로360×800의 실제 표시를 검사했다. 세로는 배경 기하 검증이며 세로 UI 지원을 주장하지 않는다. 568×320의 cover는 원본 좌표 좌우20.125%를 잘랐다. contain은568×255.6/위아래32.2px,1080×360은800×360/좌우140px로 전체 소스 사각형을 넣는다. 비율·중앙 정렬·여백 색·크롭 없는 전체 소스 그리기·5단계 동일 레이어를 확인했다. 실제 DPR2 Canvas1136×640에서도 동일했다. 이는 현재 읽을 수 있는 파일 데이터/좌표의 검증이지 누락된 원본 픽셀의 존재를 증명하지 않는다.
+
+기존109개 자산과 index에서 허용된 배경4차분만 되돌리면 기준과 바이트가 같다. 모든 PNG·음원·몬스터/보스 전투·캐릭터·HUD·조작·world registry는 그대로다. 과거 보호 해시를 덮어쓰지 않고 정확한 역변환 계층으로 보존했다. 기본20/시험35단계·세 캐릭터/무기/아이템/점수·Storm 일반/보스44그룹·설원/화산 보스·지역 직접 시작/음악·모바일 조작/전체화면/게임오버를 선택 회귀했다. 알려진 나가기 실패는 반복 실행해 숨기거나 입력 코드로 수정하지 않았다.
+
+초기 DPR 검사 도구의 `draw` 지역 변수와 게임 draw 함수 이름이 겹치는 오류는 도구만 수정했다. 같은 구버전 중복 오프라인 검사는 수정 후 중단하고 페이지 컨텍스트를 차례로 닫아 메모리 압박을 줄였으며 최종 일반/오프라인 각8그룹을 확인했다. 초기 오류/중단 로그를 보존했다. 제품 수정으로 포장하지 않는다.
+
+새 HTML **67,998,713바이트**, SHA256 `2fa00ba31c34340194acf4435edbe3cbeea5715c3db7cb1f642a7db42af86581`; ZIP **49,576,783바이트**, SHA256 `1fd95ae91c5e2e9ef0372ac751b64d755eaf6abeed4dc3b1e2fe7ca961b132bf`다. ZIP에는 최신 HTML 한 개이며 CSS/22스크립트/이미지·모든 음악을 내장했다. ZIP CRC·실제 별도 추출/바이트·네트워크 차단 실행은 통과했다. **이 파일은 contain 계산 시험용이며 손상된 원본 PNG를 그대로 포함한다. ZIP CRC 통과를 그림 완전성 통과로 보고하지 않는다.** 준비 스크립트의 contain 메타데이터/원본 셀 바이트 재현도 확인했으나 같은 손상을 보존하는 것이다.
+
+실제 Galaxy Samsung Internet/Chrome·물리 센서/터치·파일 연결·체감 화질은 미검증이다. 사용자에게 완전한 `storm_sky_background_1920x864.png`를 받아 다시 검증·패키징해야 전체 그림 표시 완료로 판단할 수 있다. 이번 독립적으로 완료한 코드·검사·기록·시험 패키지는 **fix/storm-sky-background-fit에만 커밋·푸시**한다. **main 병합과 GitHub Pages 배포는 하지 않는다.**

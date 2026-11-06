@@ -1,0 +1,8 @@
+PASS: All109 preexisting assets/index reverse exactly to6c3446b after only background scale/metadata changes; PNGs,combat,world registry,HUD,controls/audio unchanged.
+PASS: Native manifest/template and asset preparation metadata consistently declare contain; approved background SHA and one-image identity stay unchanged.
+PASS: Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; cover cropping comparison is retained in the native before/after run.
+PASS: Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.
+PASS: All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.
+PASS: At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; comparison uses decoded available bytes and does not assert missing pixels exist.
+PASS: Actual game Canvas atDPR2 is1136×640 for568×320 CSS pixels, with one unchanged-source uniform draw inside both axes; existing DPR cap and HUD remain unchanged.
+PASS: No browser JS/resource errors and offline network requests0; incomplete source PNG is separately reported as an acceptance blocker.

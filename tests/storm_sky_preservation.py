@@ -1,10 +1,12 @@
 """Issue26 exact inverse hooks and reviewed fixed new assets; old guards stay strict."""
+from storm_background_fit_preservation import without_background_fit,TEXT_ASSETS
 import hashlib,json,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='c2d03f8306557c72be7f61666198919c2412b2ae'
 STORM_ASSETS=set(json.loads((ROOT/'tests/storm_sky_asset_hashes.json').read_text()))
 def without_storm(source,name):
+    source=without_background_fit(source,name)
     for old,new,count in reversed(json.loads((ROOT/'tests/storm_sky_changes.json').read_text()).get(name,[])):
         assert source.count(new)==count,(name,source.count(new),new[:100])
         source=source.replace(new,old)
@@ -13,7 +15,8 @@ def without_storm(source,name):
 def assert_storm_asset(name):
     name=str(Path(name).relative_to(ROOT)) if Path(name).is_absolute() else str(name)
     assert name in STORM_ASSETS
-    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest()==json.loads((ROOT/'tests/storm_sky_asset_hashes.json').read_text())[name],name
+    data=without_background_fit((ROOT/name).read_text(),name).encode() if name in TEXT_ASSETS else (ROOT/name).read_bytes()
+    assert hashlib.sha256(data).hexdigest()==json.loads((ROOT/'tests/storm_sky_asset_hashes.json').read_text())[name],name
 
 def verify():
     old_names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()

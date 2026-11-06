@@ -24,7 +24,7 @@
   ctx.drawImage(spec.baseImage,sx,sy,sw,sh,-px*g.scale,-py*g.scale,sw*g.scale,sh*g.scale);ctx.restore();}
  function drawActor(ctx,a,isBoss=false){if(!enabled())return false;const p=pose(a,isBoss);paint(ctx,byId.get(p.id),a,p);return true;}
  function drawDefeats(ctx){if(enabled())for(const g of ghosts)paint(ctx,byId.get(g.id),g,frame(byId.get(g.id),'defeat',clock-g.at));}
- function drawBackground(ctx,w,h){if(!enabled())return false;ctx.fillStyle='#10213e';ctx.fillRect(0,0,w,h);if(loaded(backgroundImage)){const scale=Math.max(w/backgroundImage.naturalWidth,h/backgroundImage.naturalHeight),dw=backgroundImage.naturalWidth*scale,dh=backgroundImage.naturalHeight*scale;ctx.drawImage(backgroundImage,(w-dw)/2,(h-dh)/2,dw,dh);}return true;}
+ function drawBackground(ctx,w,h){if(!enabled())return false;ctx.fillStyle='#10213e';ctx.fillRect(0,0,w,h);if(loaded(backgroundImage)){const scale=Math.min(w/backgroundImage.naturalWidth,h/backgroundImage.naturalHeight),dw=backgroundImage.naturalWidth*scale,dh=backgroundImage.naturalHeight*scale;ctx.drawImage(backgroundImage,(w-dw)/2,(h-dh)/2,dw,dh);}return true;}
  function deferAdvance(callback){if(!enabled()||!ghosts.length)return false;pending=callback;return true;}
  function tickAdvance(dt){if(!pending)return false;if(document.hidden||window.gameExitDialogOpen)return true;tick(dt);if(!ghosts.length){const fn=pending;pending=null;reset();fn();}return true;}
  function reset(){clock=0;states=new WeakMap();ghosts=[];pending=null;}

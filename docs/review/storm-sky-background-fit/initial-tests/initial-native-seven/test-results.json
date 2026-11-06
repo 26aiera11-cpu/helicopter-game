@@ -1,0 +1,834 @@
+{
+  "standalone": false,
+  "passed": [
+    "All109 preexisting assets/index reverse exactly to6c3446b after only background scale/metadata changes; PNGs,combat,world registry,HUD,controls/audio unchanged.",
+    "Native manifest/template and asset preparation metadata consistently declare contain; approved background SHA and one-image identity stay unchanged.",
+    "Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; old cover crops20.125% at568×320.",
+    "Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.",
+    "All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.",
+    "At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; comparison uses decoded available bytes and does not assert missing pixels exist.",
+    "No browser JS/resource errors and offline network requests0; incomplete source PNG is separately reported as an acceptance blocker."
+  ],
+  "preservation": {
+    "baseline": "6c3446b7ad079822df80db5045c1f727051d47e4",
+    "protected_existing_assets": 109,
+    "runtime_change": "Storm drawBackground scale max→min only",
+    "metadata_changes": [
+      "Storm manifest render_mode",
+      "native embedded Storm manifest",
+      "asset preparation render_mode"
+    ],
+    "all_png_audio_bytes_unchanged": true,
+    "all_combat_controls_world_registry_bytes_unchanged": true,
+    "background_sha256": "e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b"
+  },
+  "source_png": {
+    "path": "assets/storm_sky/storm_sky_background_1920x864.png",
+    "bytes": 393317,
+    "sha256": "e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b",
+    "dimensions": [
+      1920,
+      864
+    ],
+    "decoded_complete_rows": 167,
+    "decoded_bytes": 1284205,
+    "expected_decoded_bytes": 6636384,
+    "zlib_stream_complete": false,
+    "png_iend_present": false,
+    "complete": false,
+    "issues": [
+      "Truncated IDAT chunk: payload or CRC is missing",
+      "PNG IEND is missing",
+      "Image deflate stream ended before the full raster was stored",
+      "Incomplete decoded raster: 1284205 of 6636384 bytes",
+      "Full Pillow decoding failed: image file is truncated"
+    ],
+    "policy": "The original PNG stays byte-identical. No partial-load flag, reconstruction, regeneration or replacement was used."
+  },
+  "limits": [
+    "Fit checks prove no source-coordinate cropping or aspect distortion; they cannot recover the missing source PNG rows.",
+    "Real Chromium screenshots with controlled game state, not physical Galaxy Samsung Internet/Chrome or sensor hardware."
+  ],
+  "viewports": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -0.27777777777777146,
+              0,
+              915.5555555555555,
+              412
+            ]
+          }
+        ],
+        "w": 915,
+        "h": 412,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9993932038834952,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0.125,
+              915,
+              411.75
+            ]
+          }
+        ],
+        "w": 915,
+        "h": 412,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": []
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 800,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 800,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": []
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -71.55555555555554,
+              0,
+              711.1111111111111,
+              320
+            ]
+          }
+        ],
+        "w": 568,
+        "h": 320,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.79875,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              32.2,
+              568,
+              255.6
+            ]
+          }
+        ],
+        "w": 568,
+        "h": 320,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0000000000000002,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        740,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -30,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 740,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.925,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              13.5,
+              740,
+              333
+            ]
+          }
+        ],
+        "w": 740,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -11.333333333333314,
+              0,
+              866.6666666666666,
+              390
+            ]
+          }
+        ],
+        "w": 844,
+        "h": 390,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9738461538461538,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              5.099999999999994,
+              844,
+              379.8
+            ]
+          }
+        ],
+        "w": 844,
+        "h": 390,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999998,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        960,
+        540
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -120,
+              0,
+              1200,
+              540
+            ]
+          }
+        ],
+        "w": 960,
+        "h": 540,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.8,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              54,
+              960,
+              432
+            ]
+          }
+        ],
+        "w": 960,
+        "h": 540,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1080,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              -63,
+              1080,
+              486
+            ]
+          }
+        ],
+        "w": 1080,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.7407407407407407,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              140,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 1080,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        1024,
+        600
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -154.66666666666663,
+              0,
+              1333.3333333333333,
+              600
+            ]
+          }
+        ],
+        "w": 1024,
+        "h": 600,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.768,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              69.6,
+              1024,
+              460.8
+            ]
+          }
+        ],
+        "w": 1024,
+        "h": 600,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999999,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    },
+    {
+      "viewport": [
+        360,
+        800
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              -708.8888888888889,
+              0,
+              1777.7777777777778,
+              800
+            ]
+          }
+        ],
+        "w": 360,
+        "h": 800,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.20249999999999999,
+        "letterbox_samples": []
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              319,
+              360,
+              162
+            ]
+          }
+        ],
+        "w": 360,
+        "h": 800,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ]
+      }
+    }
+  ],
+  "all_phases": [
+    {
+      "phase": 1,
+      "sha256": "56b1b9c85b51ea3786d88e6b4c513026585e0e6c48053ed28b1c4928c8c647ad",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 2,
+      "sha256": "56b1b9c85b51ea3786d88e6b4c513026585e0e6c48053ed28b1c4928c8c647ad",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 3,
+      "sha256": "56b1b9c85b51ea3786d88e6b4c513026585e0e6c48053ed28b1c4928c8c647ad",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 4,
+      "sha256": "56b1b9c85b51ea3786d88e6b4c513026585e0e6c48053ed28b1c4928c8c647ad",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 5,
+      "sha256": "56b1b9c85b51ea3786d88e6b4c513026585e0e6c48053ed28b1c4928c8c647ad",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    }
+  ],
+  "errors": [],
+  "failed_requests": [],
+  "offline_external_requests": [],
+  "all_passed": true,
+  "full_original_art_verified": false
+}
