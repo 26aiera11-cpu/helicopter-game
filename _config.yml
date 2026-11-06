@@ -1,0 +1,11 @@
+# Publish only the playable game on GitHub Pages.
+# Development evidence, test packages and backups remain in the Git repository
+# but are excluded from the public website build to keep deployment small.
+exclude:
+  - docs/
+  - dist/
+  - backups/
+  - tests/
+  - scripts/
+  - DEVELOPMENT_LOG.md
+  - heli_trio_clean_selection-1.html
