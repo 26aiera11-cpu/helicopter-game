@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/26aiera11-cpu/helicopter-game/issues/34",
+  "title": "[기계 요새] 배경 좌우 채움 + 일반 몬스터 돌진 거리 2배",
+  "issue_number": 34,
+  "body": "# 기계 요새 배경 좌우 채움 + 일반 몬스터 돌진 거리 2배\n\n## 사용자 요청 (2026-11-07)\n- \"화면의 양쪽 끝부분이 배경으로 채워져 있지 않아.\"\n- \"기계 요새의 일반 몹들의 돌진 거리를 늘려야 되겠어.\"\n\n## 작업 기준\n- 현재 시험 기준: `feature/machine-fortress-normal-combat` @ `e6f6f8822a47daf023616681768c3db212d16435`.\n- 작업 브랜치 **이미 생성:** `fix/machine-fortress-background-dash-range`.\n- 이 브랜치만 수정. main/GitHub Pages에 병합·배포 금지.\n- 대상은 월드2 기계 요새 지역(ID7) 전용. 다른 지역/캐릭터/음악/조작/보스는 보호한다.\n\n## A. 배경 화면의 좌우 빈 공간 채우기\n현재 `assets/machine_fortress/machine_fortress.js`의 `drawBackground(ctx,w,h)`가 `Math.min(w/imageWidth,h/imageHeight)`를 써서 contain으로 그리기 때문에 가로로 긴 갤럭시 화면에서 배경 좌우에 기본색 빈 공간이 생긴다.\n\n**요구사항**\n1. 확정 배경 원본 PNG를 그대로 유지하고, 원본 전체가 가운데 선명하게 보이는 contain 배치를 유지한다. 상하/좌우를 crop하여 원본 주요 디자인을 잘라내는 단순 cover 전환은 금지.\n2. contain 이미지 좌우로 남는 영역을 **동일 배경에서 자연스럽게 연장한 이미지**로 완전히 채운다. 권장: 원본 배경을 cover로 화면 전체에 먼저 그려 부드럽게 흐림/어둡게 한 뒤, contain 방식의 선명한 전체 원본을 가운데 그려 좌우에만 확장 배경이 보이게 한다. 또는 edge-stretch/mirror + feather로 이음새 없이 확장하는 동등한 구현 허용.\n3. 어떤 가로세로 비율에서도 캔버스 좌우/상하에 단색 빈 띠나 투명 영역이 남지 않아야 한다. contain 원본 전체의 선명도/위치/비율은 유지하고 HUD/캐릭터/적 렌더링과 겹치지 않는다.\n4. 화면이 원본 비율에 가까우면 추가 레이어/블러가 불필요하게 드러나지 않게 한다. blur filter 지원 여부, 가장자리 overscan, devicePixelRatio, 리사이즈/회전 대응을 검증한다.\n5. 배경 원본 PNG의 바이트/크기/manifest는 변경하지 않는다.\n\n## B. 돌진 거리 약 2배\n현재 설정 `assets/machine_fortress/config.js`:\n- 나사봇: 속도100px/s × .35s = 약35px\n- 톱니벌: 속도145px/s × .65s = 약94.25px\n\n**새 시험값**\n- 나사봇: 돌진 속도100px/s 유지, `dashTime .35 → .70s` = 약70px (2배).\n- 톱니벌: 돌진 속도145px/s 유지, `dashTime .65 → 1.30s` = 약188.5px (2배).\n- 기존 경고 시간(.45s / .60s), 기본 추적 속도(46/50), 휴식/쿨다운, HP, 충돌 반경, 공격 피해, 몬스터 등장 비율은 변경하지 않는다.\n- 공격 방향 고정, 예고 경로와 실제 이동거리 일치. 실제 이동은 현재처럼 화면 안전 경계에서 잘라낸다. 벽/경계에서 화면 밖으로 나가거나 좌표가 튀지 않는다.\n- 돌진 중 기존 충돌 판정/무적 프레임을 유지한다. 새로운 추가 피해·속도 증가 금지.\n- 레이저 드론과 장갑 포탑의 공격/수치는 변경 금지.\n\n## 테스트\n- 배경: 915×412(넓은 가로), 800×360, 568×320, 원본과 유사 비율, DPR1/DPR2, 화면 회전 후 리사이즈. 모든 네 모서리 및 좌우 가장자리 픽셀의 캔버스가 실제 배경 이미지로 채워지는지 검사. 원본 전체가 중앙에서 보이고 비율/크롭이 변하지 않았는지 확인. 빈 기본색/투명 픽셀/뚜렷한 이음새가 없어야 한다. 블러/edge extension이 전체 배경을 탁하게 만들거나 플레이 시야를 방해하지 않는지 스크린샷 검토.\n- 공격: 나사봇70px, 톱니벌188.5px를 정상 거리에서 이동하는지 측정. 60/120/300Hz 및 dt 분할에서 거리 동일, 예고 경로와 실제 경로 일치, 화면 가장자리에서만 안전하게 단축, 반대 방향 회전/추적 중 방향이 돌진 시작 시 고정, 쿨다운/휴식 유지, 공격 간격 과도 증가가 없는지 확인.\n- 다른 지역 몬스터/배경, 레이저 드론, 장갑 포탑, 기가코어 보스132px/HP20/기본 공격, 일반 40px, 기존 이미지 PNG11개/음원/아이템/스코어/조이스틱·자이로를 보존한다.\n- 전체 기존 관련 검사 및 독립 HTML/오프라인 검사를 실행하고 최신 갤럭시 테스트 HTML/ZIP을 재생성한다. ZIP CRC, 추출 후 HTML 바이트 동일성, 원본 PNG/음원 포함을 검사.\n- 비교 캡처: before/after background 915×412,568×320; screw_bot/gear_wasp telegraph & dash active; 수치/테스트 결과를 `docs/review/machine-fortress-background-dash-range/README.md`에 기록한다.\n- 기존 Issue #30 설원 긴 멀티터치 후 나가기 클릭 누락은 알려진 별도 보류 이슈로 유지하며 이번 범위에서 입력 코드를 수정하지 않는다.\n\n## 완료 및 인계\n- 브랜치에 커밋·푸시, 커밋 SHA/테스트 결과/배경 비교/돌진 거리 계측/갤럭시 ZIP 링크 보고.\n- 실제 Galaxy 사용자 확인 전 main 병합 및 Pages 배포 금지.\n",
+  "state": "open",
+  "user": {
+    "login": "26aiera11-cpu",
+    "name": "26aiera11-cpu",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/348202238?v=4",
+    "id": 348202238
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 1,
+  "created_at": "2026-11-07T06:46:37Z",
+  "updated_at": "2026-11-07T06:51:17Z",
+  "closed_at": null,
+  "display_url": "https://github.com/26aiera11-cpu/helicopter-game/issues/34",
+  "display_title": "[기계 요새] 배경 좌우 채움 + 일반 몬스터 돌진 거리 2배"
+}

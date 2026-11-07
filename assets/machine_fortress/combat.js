@@ -17,9 +17,10 @@
  }
  function aim(a,s){
   const d=direction(a);s.dx=d.dx;s.dy=d.dy;
-  s.path=ray(a,d,s.spec.dash?s.spec.dash*s.spec.dashTime:s.spec.length??s.spec.bullet*s.spec.bulletLife,s.spec.dash?18:0);
+  const length=s.spec.dash?H*s.spec.dashHeight:s.spec.length??s.spec.bullet*s.spec.bulletLife;
+  s.path=ray(a,d,length,s.spec.dash?18:0);
   if(s.spec.dash){ // Use the stricter vertical margin for both axes; never slide at an edge.
-   s.distance=s.path.length;
+   s.targetDistance=length;s.distance=s.path.length;s.dashDuration=s.distance/s.spec.dash;
   }
  }
  function prepare(a){
@@ -60,7 +61,7 @@
  function change(a,s,firstDt){
   if(s.mode==='warning'){
    if(s.spec.id==='gear_wasp'||s.spec.id==='armored_turret')aim(a,s);
-   if(s.spec.dash){s.mode='dash';s.remaining=s.spec.dashTime;}
+   if(s.spec.dash){s.mode='dash';s.remaining=s.dashDuration;}
    else if(s.spec.active){s.mode='laser';s.remaining=s.spec.active;s.shots++;gameMachineFortress.attack(a);damageLaser(a,s);}
    else {fireShell(a,s,firstDt);s.mode='rest';s.remaining=s.spec.interval-s.spec.warning;s.path=null;}
   }else if(s.mode==='dash'||s.mode==='laser'){
@@ -121,7 +122,7 @@
  function drawBullet(ctx,b){
   if(!b.machineNormal)return false;ctx.save();ctx.fillStyle='#ff982f';ctx.strokeStyle='#a9461d';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='#ffe3a3';ctx.beginPath();ctx.arc(b.x,b.y,b.r*.42,0,Math.PI*2);ctx.fill();ctx.restore();return true;
  }
- function snapshot(a){const s=states.get(a);return s?{id:s.spec.id,mode:s.mode,remaining:s.remaining,age:s.age,carry:s.carry,shots:s.shots,denied:s.denied,damageCalls:s.damageCalls,hitPlayer:s.hitPlayer,retired:s.retired,direction:[s.dx,s.dy],distance:s.distance,path:s.path&&{...s.path}}:null;}
+ function snapshot(a){const s=states.get(a);return s?{id:s.spec.id,mode:s.mode,remaining:s.remaining,age:s.age,carry:s.carry,shots:s.shots,denied:s.denied,damageCalls:s.damageCalls,hitPlayer:s.hitPlayer,retired:s.retired,direction:[s.dx,s.dy],distance:s.distance,targetDistance:s.targetDistance,dashDuration:s.dashDuration,path:s.path&&{...s.path}}:null;}
  window.gameMachineCombat=Object.freeze({settings,profiles,enabled,prepare,update,hit,cleanup,beginFrame,bulletStep,drawTelegraph,drawBullet,lineHits,laserContains,snapshot,
   summary:()=>({actors:actors.size,lasers:[...actors].filter(a=>states.get(a)?.mode==='laser').length,bullets:enemyBullets.filter(b=>b.machineNormal&&b.life>0).length}),backgroundPaused:()=>Boolean(enabled()&&document.hidden)});
 })();

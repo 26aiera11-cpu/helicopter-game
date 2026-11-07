@@ -1,0 +1,22 @@
+PASS: Exact18 engine hooks/2art ID-status/2notice deltas invert to c512d82; all other125 old assets/PNGs/other AI/weapons/input/audio preserved;26scripts parse; normal40/boss132 unchanged.
+PASS: All5 exact spawn tables,100000 weighted draws and identical-seed replay pass; no global Math.random or snow/volcano/storm RNG state consumption.
+PASS: 17 permitted phase/species pairs materialize once with matching stable art/AI/HP/speed/r16; reprepare never rerolls/heals and changing legacy kind cannot change art identity.
+PASS: Screw locks warning-time direction thenH*.40 at100px-s after.45s; Wasp locks at warning END thenH*.70 at145px-s after.60s; both derive time from path/speed with zero bullets and unchanged2.2/2.6s recovery.
+PASS: Actual Screw contact damage reuses hurt()/existing player invulnerability: warning does not deal extra damage, contact loses1HP once without double dash damage.
+PASS: Drone .65s fixed warning and .28s finite260px/7px blue beam share one frozen segment; independent capsule oracle and actual Canvas widths agree; oneHP damage/invulnerability and no post-fire tracking.
+PASS: Turret3HP/20px-s stops for.45s, aims at warning end, emits one orange radius6/speed75/life3.4 shell; consecutive shots are3.6s apart including warning, not old base bullets.
+PASS: Held-projectile stress enforces max2/owner and24global with denied shots counted; full caps cannot trigger legacy fallback or rapid-fire retries.
+PASS: 8s real-world runs at60/120/300Hz agree within0.00001px on all4 actor paths, phase clocks and shell positions/lifetimes; newborn shells integrate only their remaining first-frame time.
+PASS: Hidden tab and internal pause freeze entire Machine physics/AI; a10s synthetic spike advances at most.25s and cannot skip a full warning/active attack. No async attack timers.
+PASS: Killing a drone removes its beam immediately; turret death removes owned shells; next phase leaves0Machine actors/lasers/projectiles with ordinary drops/score path unchanged.
+PASS: All3 unchanged gyro flight profiles evade a centered beam when reacting.30s into the.65s warning, with zeroHP loss and >15.5px clearance; a controlled feasibility check, not human Galaxy approval.
+PASS: 100s five-actor simulation keeps projectiles<=24 and simultaneous beams<=one/actor; update duration measured, no unbounded effect queue/attack timeout.
+PASS: At568x320, separate100s worst-case five-drone/five-turret runs remain within5beams/5live shells; normal weighted spawn timing/cap are unchanged and dense warnings remain brief trial values.
+PASS: All4 species at all4 corners over10s retain original center bounds x17/y18; clipped straight dash paths do not worsen the approved40px sprite edge-clipping limitation or enlarge collision r16.
+PASS: All3 weapons preserve6normal-kill gate, GigaCore20HP/r48/one basic shot/2000points/reward/outro; boss start removes normal hazards and developer results never write TOP10/history.
+PASS: A fatal beam ends the current Machine actor loop immediately: no later player-bullet damage or score changes in that frame; BGM/game-over/result and hazard cleanup use the original lifecycle.
+PASS: Attack warning/active screenshots and915x412/800x360/568x320 layouts retain40px sprites/132boss/contain, readable bullets/items/HUD and existing joystick/fire/fullscreen targets; effects are Canvas-only.
+PASS: ActualDPR2 Canvas1136x640 displays the same finite7px beam,40px normals and original background at CSS568x320 without stretching or a new hit scale.
+PASS: Viewport resize clears active beam/warnings/shells and re-enters a safe1.2s recovery without healing or changing hit radii.
+PASS: Trusted fullscreen/exit cancel/confirm and3s game-over return retain original UI/music flow; pause freezes attacks and confirmed exit/death clear all dedicated hazards without native dialogs.
+PASS: No uncaught JS/native dialogs/missing resources; offline external image/audio/script fetch0. Other-region, full-route, audio, controls and original art regressions are run separately.

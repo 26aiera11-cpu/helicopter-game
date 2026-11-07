@@ -1,0 +1,32 @@
+PASS: Only3Machine files change; index/128old assets normalize exactly; final.40H/.70H fractions and100/145 speeds replace fixed dashTime; JS parses.
+PASS: 10 background/DPR cases: every pixel opaque, varied image perimeter/no fallback corners, entire original source at unchanged centered contain geometry, inner sharp pixels exactly equal a reference draw.
+PASS: At exact source aspect1672x941, only the sharp original is drawn; the extension is absent and does not blur or darken the original.
+PASS: Background extension is cached by CSS size/DPR: one filtered construction, then only a cached blit plus sharp source each frame; no per-frame blur allocations.
+PASS: Simulated Canvas filter-unavailable mode uses a smooth small source copy; corners remain opaque/image-filled and sharp contain pixels remain identical, includingDPR2.
+PASS: 48dash cases across3heights/8directions: exactH*.40/.70 target,100/145speed, duration=clipped path/speed, fixed direction, identical telegraph endpoint, unchanged2.2/2.6 recovery; horizontal center paths reach the full target.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/machine_background_dash.py", line 77, in <module>
+    edge=page.evaluate('''()=>mcRun(()=>{const rows=[];for(let kind=0;kind<2;kind++){mcBegin();const a=mcSpawn(kind,W-20-(kind?60:0),H/2);player.x=W+100;player.y=H/2;mcUntil(a,'dash');const start={x:a.x,state:gameMachineCombat.snapshot(a)};mcUntil(a,kind===0?'cooldown':'rest');rows.push({kind,start,end:{x:a.x,state:gameMachineCombat.snapshot(a)}});}return rows;})''');assert all(abs(r['start']['state']['path']['length']-2)<1e-6 and abs(r['end']['x']-(568-18))<1e-6 and abs(r['start']['state']['dashDuration']-2/[100,145][r['kind']])<1e-6 for r in edge);report['edge_shortening']=edge;passed('Near-wall paths shorten to2px with the matching shorter time, stop at the original18px safe margin and immediately enter existing recovery; no wall slide, teleport or stuck full-duration dash.')
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9385, in evaluate
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 472, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 345, in evaluate
+    await self._channel.send(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: Error: No mode dash
+    at window.mcUntil (eval at evaluate (:311:30), <anonymous>:8:158)
+    at eval (eval at evaluate (:311:30), <anonymous>:1:141)
+    at window.mcRun (eval at evaluate (:311:30), <anonymous>:4:63)
+    at eval (eval at evaluate (:311:30), <anonymous>:1:5)
+    at UtilityScript.evaluate (<anonymous>:318:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

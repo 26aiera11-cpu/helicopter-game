@@ -1,0 +1,11 @@
+PASS: Only3Machine files change; index/128old assets normalize exactly; final.40H/.70H fractions and100/145 speeds replace fixed dashTime; JS parses.
+PASS: 10 background/DPR cases: every pixel opaque, varied image perimeter/no fallback corners, entire original source at unchanged centered contain geometry, inner sharp pixels exactly equal a reference draw.
+PASS: At exact source aspect1672x941, only the sharp original is drawn; the extension is absent and does not blur or darken the original.
+PASS: Background extension is cached by CSS size/DPR: one filtered construction, then only a cached blit plus sharp source each frame; no per-frame blur allocations.
+PASS: Simulated Canvas filter-unavailable mode uses a smooth small source copy; corners remain opaque/image-filled and sharp contain pixels remain identical, includingDPR2.
+PASS: 48dash cases across3heights/8directions: exactH*.40/.70 target,100/145speed, duration=clipped path/speed, fixed direction, identical telegraph endpoint, unchanged2.2/2.6 recovery; horizontal center paths reach the full target.
+PASS: Near-wall paths shorten to2px with the matching shorter time, stop at the original18px safe margin and immediately enter existing recovery; no wall slide, teleport or stuck full-duration dash.
+PASS: Captured long-route warnings and actual screw/wasp dashes from production Canvas states; draw path and movement use the same clipped segment.
+PASS: Resizing during a dash cancels old warnings/path with the existing safe recovery; portrait-to-landscape return rebuilds full image fill without stale dimensions.
+PASS: ActualDPR2 game Canvas1136x640 keeps image fill, sharp original,40px normals and existing UI at CSS568x320; no new touch layer.
+PASS: No uncaught errors/native dialogs/missing files; standalone image/code/audio resources execute with network disabled and zero external requests.

@@ -1,0 +1,7189 @@
+{
+  "standalone": false,
+  "passed": [
+    "Only3Machine files change; index/128old assets normalize exactly; final.40H/.70H fractions and100/145 speeds replace fixed dashTime; JS parses.",
+    "10 background/DPR cases: every pixel opaque, varied image perimeter/no fallback corners, entire original source at unchanged centered contain geometry, inner sharp pixels exactly equal a reference draw.",
+    "At exact source aspect1672x941, only the sharp original is drawn; the extension is absent and does not blur or darken the original.",
+    "Background extension is cached by CSS size/DPR: one filtered construction, then only a cached blit plus sharp source each frame; no per-frame blur allocations.",
+    "Simulated Canvas filter-unavailable mode uses a smooth small source copy; corners remain opaque/image-filled and sharp contain pixels remain identical, includingDPR2.",
+    "48dash cases across3heights/8directions: exactH*.40/.70 target,100/145speed, duration=clipped path/speed, fixed direction, identical telegraph endpoint, unchanged2.2/2.6 recovery; horizontal center paths reach the full target."
+  ],
+  "preservation": {
+    "baseline": "e6f6f8822a47daf023616681768c3db212d16435",
+    "existing_assets": 128,
+    "raw_unchanged_assets": 125,
+    "index_byte_unchanged": true,
+    "only_runtime_files": [
+      "assets/machine_fortress/combat.js",
+      "assets/machine_fortress/config.js",
+      "assets/machine_fortress/machine_fortress.js"
+    ],
+    "original_PNG_manifest_audio_other_regions_players_controls_score_items_bytes_preserved": true,
+    "normal_width": 40,
+    "boss_width": 132,
+    "normal_hit_radius": 16,
+    "target_dash_height_fraction": [
+      0.4,
+      0.7
+    ],
+    "dash_speed": [
+      100,
+      145
+    ]
+  },
+  "limits": [
+    "Exact real Chromium controlled states, not physical Samsung Internet/Chrome sensor or human difficulty approval.",
+    "Dash state transitions are quantized by the existing1/300s step; actual target endpoints are clamped exactly.",
+    "Network-disabled exact HTML injection tests offline resources without bypassing managed file navigation policy."
+  ],
+  "background_pixels": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "ratio": 1,
+      "canvas": [
+        915,
+        412
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        91.47236981934111,
+        0,
+        732.0552603613178,
+        412
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            915,
+            412,
+            0,
+            0,
+            915,
+            412
+          ],
+          "source": [
+            915,
+            412
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            91.47236981934111,
+            0,
+            732.0552603613178,
+            412
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 296296,
+      "perimeterColors": 2249,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            110,
+            84,
+            61,
+            255
+          ]
+        },
+        {
+          "point": [
+            914,
+            0
+          ],
+          "rgba": [
+            117,
+            92,
+            68,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            411
+          ],
+          "rgba": [
+            117,
+            125,
+            150,
+            255
+          ]
+        },
+        {
+          "point": [
+            914,
+            411
+          ],
+          "rgba": [
+            113,
+            118,
+            140,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            206
+          ],
+          "rgba": [
+            41,
+            193,
+            208,
+            255
+          ]
+        },
+        {
+          "point": [
+            914,
+            206
+          ],
+          "rgba": [
+            44,
+            193,
+            208,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "ratio": 1,
+      "canvas": [
+        800,
+        360
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        80.17003188097766,
+        0,
+        639.6599362380447,
+        360
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            800,
+            360,
+            0,
+            0,
+            800,
+            360
+          ],
+          "source": [
+            800,
+            360
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            80.17003188097766,
+            0,
+            639.6599362380447,
+            360
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 225425,
+      "perimeterColors": 1982,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            108,
+            81,
+            56,
+            255
+          ]
+        },
+        {
+          "point": [
+            799,
+            0
+          ],
+          "rgba": [
+            114,
+            86,
+            62,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            359
+          ],
+          "rgba": [
+            107,
+            115,
+            140,
+            255
+          ]
+        },
+        {
+          "point": [
+            799,
+            359
+          ],
+          "rgba": [
+            97,
+            98,
+            115,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            180
+          ],
+          "rgba": [
+            30,
+            167,
+            190,
+            255
+          ]
+        },
+        {
+          "point": [
+            799,
+            180
+          ],
+          "rgba": [
+            32,
+            167,
+            190,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "ratio": 1,
+      "canvas": [
+        568,
+        320
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        0.1650717703349187,
+        568,
+        319.66985645933016
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            568,
+            320,
+            0,
+            0,
+            568,
+            320
+          ],
+          "source": [
+            568,
+            320
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            0,
+            0.1650717703349187,
+            568,
+            319.66985645933016
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 177345,
+      "perimeterColors": 1496,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            49,
+            57,
+            98,
+            255
+          ]
+        },
+        {
+          "point": [
+            567,
+            0
+          ],
+          "rgba": [
+            133,
+            142,
+            184,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            319
+          ],
+          "rgba": [
+            55,
+            61,
+            100,
+            255
+          ]
+        },
+        {
+          "point": [
+            567,
+            319
+          ],
+          "rgba": [
+            55,
+            63,
+            101,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            160
+          ],
+          "rgba": [
+            1,
+            89,
+            156,
+            255
+          ]
+        },
+        {
+          "point": [
+            567,
+            160
+          ],
+          "rgba": [
+            0,
+            97,
+            167,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        1672,
+        941
+      ],
+      "ratio": 1,
+      "canvas": [
+        1672,
+        941
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1560312,
+      "perimeterColors": 3534,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            50,
+            59,
+            95,
+            255
+          ]
+        },
+        {
+          "point": [
+            1671,
+            0
+          ],
+          "rgba": [
+            128,
+            138,
+            175,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            940
+          ],
+          "rgba": [
+            57,
+            63,
+            98,
+            255
+          ]
+        },
+        {
+          "point": [
+            1671,
+            940
+          ],
+          "rgba": [
+            57,
+            65,
+            100,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            470
+          ],
+          "rgba": [
+            2,
+            91,
+            156,
+            255
+          ]
+        },
+        {
+          "point": [
+            1671,
+            470
+          ],
+          "rgba": [
+            1,
+            100,
+            169,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        412,
+        915
+      ],
+      "ratio": 1,
+      "canvas": [
+        412,
+        915
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        341.56339712918657,
+        412,
+        231.8732057416268
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            412,
+            915,
+            0,
+            0,
+            412,
+            915
+          ],
+          "source": [
+            412,
+            915
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            0,
+            341.56339712918657,
+            412,
+            231.8732057416268
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 92796,
+      "perimeterColors": 1568,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            138,
+            83,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            411,
+            0
+          ],
+          "rgba": [
+            137,
+            82,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            914
+          ],
+          "rgba": [
+            117,
+            73,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            411,
+            914
+          ],
+          "rgba": [
+            114,
+            69,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            457
+          ],
+          "rgba": [
+            2,
+            90,
+            158,
+            255
+          ]
+        },
+        {
+          "point": [
+            411,
+            457
+          ],
+          "rgba": [
+            0,
+            96,
+            166,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "ratio": 2,
+      "canvas": [
+        1830,
+        824
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        91.47236981934111,
+        0,
+        732.0552603613178,
+        412
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            1830,
+            824,
+            0,
+            0,
+            915,
+            412
+          ],
+          "source": [
+            1830,
+            824
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            91.47236981934111,
+            0,
+            732.0552603613178,
+            412
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1187455,
+      "perimeterColors": 3931,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            110,
+            85,
+            62,
+            255
+          ]
+        },
+        {
+          "point": [
+            1829,
+            0
+          ],
+          "rgba": [
+            117,
+            92,
+            70,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            823
+          ],
+          "rgba": [
+            117,
+            125,
+            149,
+            255
+          ]
+        },
+        {
+          "point": [
+            1829,
+            823
+          ],
+          "rgba": [
+            114,
+            119,
+            140,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            412
+          ],
+          "rgba": [
+            41,
+            194,
+            208,
+            255
+          ]
+        },
+        {
+          "point": [
+            1829,
+            412
+          ],
+          "rgba": [
+            45,
+            195,
+            208,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "ratio": 2,
+      "canvas": [
+        1600,
+        720
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        80.17003188097766,
+        0,
+        639.6599362380447,
+        360
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            1600,
+            720,
+            0,
+            0,
+            800,
+            360
+          ],
+          "source": [
+            1600,
+            720
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            80.17003188097766,
+            0,
+            639.6599362380447,
+            360
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 903681,
+      "perimeterColors": 3450,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            108,
+            81,
+            57,
+            255
+          ]
+        },
+        {
+          "point": [
+            1599,
+            0
+          ],
+          "rgba": [
+            114,
+            87,
+            63,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            719
+          ],
+          "rgba": [
+            107,
+            115,
+            140,
+            255
+          ]
+        },
+        {
+          "point": [
+            1599,
+            719
+          ],
+          "rgba": [
+            98,
+            99,
+            116,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            360
+          ],
+          "rgba": [
+            30,
+            168,
+            191,
+            255
+          ]
+        },
+        {
+          "point": [
+            1599,
+            360
+          ],
+          "rgba": [
+            33,
+            168,
+            191,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "ratio": 2,
+      "canvas": [
+        1136,
+        640
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        0.1650717703349187,
+        568,
+        319.66985645933016
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            1136,
+            640,
+            0,
+            0,
+            568,
+            320
+          ],
+          "source": [
+            1136,
+            640
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            0,
+            0.1650717703349187,
+            568,
+            319.66985645933016
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 711137,
+      "perimeterColors": 2626,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            49,
+            58,
+            95,
+            255
+          ]
+        },
+        {
+          "point": [
+            1135,
+            0
+          ],
+          "rgba": [
+            129,
+            139,
+            177,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            639
+          ],
+          "rgba": [
+            56,
+            62,
+            98,
+            255
+          ]
+        },
+        {
+          "point": [
+            1135,
+            639
+          ],
+          "rgba": [
+            56,
+            64,
+            100,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            320
+          ],
+          "rgba": [
+            1,
+            90,
+            155,
+            255
+          ]
+        },
+        {
+          "point": [
+            1135,
+            320
+          ],
+          "rgba": [
+            0,
+            99,
+            168,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        1672,
+        941
+      ],
+      "ratio": 2,
+      "canvas": [
+        3344,
+        1882
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 6246455,
+      "perimeterColors": 5020,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            50,
+            59,
+            95,
+            255
+          ]
+        },
+        {
+          "point": [
+            3343,
+            0
+          ],
+          "rgba": [
+            128,
+            138,
+            175,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            1881
+          ],
+          "rgba": [
+            57,
+            63,
+            98,
+            255
+          ]
+        },
+        {
+          "point": [
+            3343,
+            1881
+          ],
+          "rgba": [
+            57,
+            65,
+            100,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            941
+          ],
+          "rgba": [
+            2,
+            90,
+            155,
+            255
+          ]
+        },
+        {
+          "point": [
+            3343,
+            941
+          ],
+          "rgba": [
+            1,
+            100,
+            168,
+            255
+          ]
+        }
+      ]
+    },
+    {
+      "size": [
+        412,
+        915
+      ],
+      "ratio": 2,
+      "canvas": [
+        824,
+        1830
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "contain": [
+        0,
+        341.56339712918657,
+        412,
+        231.8732057416268
+      ],
+      "calls": [
+        {
+          "original": false,
+          "args": [
+            0,
+            0,
+            824,
+            1830,
+            0,
+            0,
+            412,
+            915
+          ],
+          "source": [
+            824,
+            1830
+          ]
+        },
+        {
+          "original": true,
+          "args": [
+            0,
+            341.56339712918657,
+            412,
+            231.8732057416268
+          ],
+          "source": [
+            1672,
+            941
+          ]
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 370825,
+      "perimeterColors": 2747,
+      "samples": [
+        {
+          "point": [
+            0,
+            0
+          ],
+          "rgba": [
+            138,
+            83,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            823,
+            0
+          ],
+          "rgba": [
+            138,
+            82,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            1829
+          ],
+          "rgba": [
+            116,
+            72,
+            24,
+            255
+          ]
+        },
+        {
+          "point": [
+            823,
+            1829
+          ],
+          "rgba": [
+            113,
+            68,
+            25,
+            255
+          ]
+        },
+        {
+          "point": [
+            0,
+            915
+          ],
+          "rgba": [
+            2,
+            90,
+            157,
+            255
+          ]
+        },
+        {
+          "point": [
+            823,
+            915
+          ],
+          "rgba": [
+            0,
+            99,
+            168,
+            255
+          ]
+        }
+      ]
+    }
+  ],
+  "background_cache": {
+    "first": 2,
+    "second": 1
+  },
+  "without_canvas_filter": {
+    "size": [
+      913,
+      411
+    ],
+    "ratio": 2,
+    "canvas": [
+      1826,
+      822
+    ],
+    "source": [
+      1672,
+      941
+    ],
+    "contain": [
+      91.36078639744949,
+      0,
+      730.278427205101,
+      411
+    ],
+    "calls": [
+      {
+        "original": false,
+        "args": [
+          0,
+          0,
+          1826,
+          822,
+          0,
+          0,
+          913,
+          411
+        ],
+        "source": [
+          1826,
+          822
+        ]
+      },
+      {
+        "original": true,
+        "args": [
+          91.36078639744949,
+          0,
+          730.278427205101,
+          411
+        ],
+        "source": [
+          1672,
+          941
+        ]
+      }
+    ],
+    "minAlpha": 255,
+    "centerDiff": 0,
+    "centerPixels": 1181289,
+    "perimeterColors": 2789,
+    "samples": [
+      {
+        "point": [
+          0,
+          0
+        ],
+        "rgba": [
+          75,
+          74,
+          91,
+          255
+        ]
+      },
+      {
+        "point": [
+          1825,
+          0
+        ],
+        "rgba": [
+          73,
+          71,
+          90,
+          255
+        ]
+      },
+      {
+        "point": [
+          0,
+          821
+        ],
+        "rgba": [
+          74,
+          80,
+          107,
+          255
+        ]
+      },
+      {
+        "point": [
+          1825,
+          821
+        ],
+        "rgba": [
+          74,
+          79,
+          106,
+          255
+        ]
+      },
+      {
+        "point": [
+          0,
+          411
+        ],
+        "rgba": [
+          6,
+          146,
+          181,
+          255
+        ]
+      },
+      {
+        "point": [
+          1825,
+          411
+        ],
+        "rgba": [
+          9,
+          147,
+          183,
+          255
+        ]
+      }
+    ]
+  },
+  "eight_direction_dashes": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 0,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 622.3,
+          "endY": 206,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 622.3,
+            "endY": 206,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 467.49999999999943,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 622.3,
+            "endY": 206,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 622.300000000009,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 1,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 574.031197539543,
+          "endY": 322.53119753954303,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 574.031197539543,
+            "endY": 322.53119753954303,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 464.57106781186496,
+        "y": 213.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 574.031197539543,
+            "endY": 322.53119753954303,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 574.0311975395493,
+        "y": 322.5311975395404,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 2,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 457.5,
+          "endY": 370.8,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 457.5,
+            "endY": 370.8,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 457.5,
+        "y": 216.00000000000028,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 457.5,
+            "endY": 370.8,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 457.5,
+        "y": 370.7999999999946,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 3,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 340.96880246045697,
+          "endY": 322.53119753954303,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 340.96880246045697,
+            "endY": 322.53119753954303,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 450.42893218813504,
+        "y": 213.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 340.96880246045697,
+            "endY": 322.53119753954303,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 340.9688024604656,
+        "y": 322.5311975395404,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 4,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 292.7,
+          "endY": 206,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 292.7,
+            "endY": 206,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 447.50000000000057,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 292.7,
+            "endY": 206,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 292.70000000000965,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 5,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          -0.7071067811865475
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 340.96880246045697,
+          "endY": 89.46880246045697,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 340.96880246045697,
+            "endY": 89.46880246045697,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 450.42893218813504,
+        "y": 198.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 340.96880246045697,
+            "endY": 89.46880246045697,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 340.9688024604656,
+        "y": 89.46880246045389,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 6,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 457.5,
+          "endY": 41.19999999999999,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 457.5,
+            "endY": 41.19999999999999,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 457.5,
+        "y": 195.99999999999972,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 457.5,
+            "endY": 41.19999999999999,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 457.5,
+        "y": 41.199999999998845,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "angle": 7,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          -0.7071067811865475
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 457.5,
+          "y": 206,
+          "endX": 574.031197539543,
+          "endY": 89.46880246045697,
+          "length": 164.8
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.6480000000000001,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 164.8,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 574.031197539543,
+            "endY": 89.46880246045697,
+            "length": 164.8
+          }
+        }
+      },
+      "first": {
+        "x": 464.57106781186496,
+        "y": 198.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.5479999999999978,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 154.79999999999973,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": {
+            "x": 457.5,
+            "y": 206,
+            "endX": 574.031197539543,
+            "endY": 89.46880246045697,
+            "length": 164.8
+          }
+        }
+      },
+      "end": {
+        "x": 574.0311975395493,
+        "y": 89.46880246045389,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 2.1,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 0,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 288.4,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": {
+          "x": 457.5000000000068,
+          "y": 206,
+          "endX": 745.9000000000068,
+          "endY": 206,
+          "length": 288.4
+        }
+      },
+      "start": {
+        "x": 457.5000000000068,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.9889655172413792,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 288.4,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 457.5000000000068,
+            "y": 206,
+            "endX": 745.9000000000068,
+            "endY": 206,
+            "length": 288.4
+          }
+        }
+      },
+      "first": {
+        "x": 472.0000000000073,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.8889655172413768,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 273.8999999999995,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 457.5000000000068,
+            "y": 206,
+            "endX": 745.9000000000068,
+            "endY": 206,
+            "length": 288.4
+          }
+        }
+      },
+      "end": {
+        "x": 745.9000000000182,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.79,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 1,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865048,
+          0.7071067811865901
+        ],
+        "distance": 265.8721497261254,
+        "targetDistance": 288.4,
+        "dashDuration": 1.833601032593968,
+        "path": {
+          "x": 457.50000000000716,
+          "y": 206.00000000000034,
+          "endX": 645.4999999999841,
+          "endY": 394,
+          "length": 265.8721497261254
+        }
+      },
+      "start": {
+        "x": 457.50000000000716,
+        "y": 206.00000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.833601032593968,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 265.8721497261254,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.50000000000716,
+            "y": 206.00000000000034,
+            "endX": 645.4999999999841,
+            "endY": 394,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "first": {
+        "x": 467.7530483272111,
+        "y": 216.253048327206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7336010325939657,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 251.3721497261252,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.50000000000716,
+            "y": 206.00000000000034,
+            "endX": 645.4999999999841,
+            "endY": 394,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "end": {
+        "x": 645.4999999999793,
+        "y": 394.0000000000038,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.6366666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 2,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 188.0000000000034,
+        "targetDistance": 288.4,
+        "dashDuration": 1.2965517241379545,
+        "path": {
+          "x": 457.5,
+          "y": 205.9999999999966,
+          "endX": 457.5,
+          "endY": 394,
+          "length": 188.0000000000034
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 205.9999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.2965517241379545,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 188.0000000000034,
+          "targetDistance": 288.4,
+          "dashDuration": 1.2965517241379545,
+          "path": {
+            "x": 457.5,
+            "y": 205.9999999999966,
+            "endX": 457.5,
+            "endY": 394,
+            "length": 188.0000000000034
+          }
+        }
+      },
+      "first": {
+        "x": 457.5,
+        "y": 220.4999999999962,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.1965517241379522,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 173.5000000000038,
+          "targetDistance": 288.4,
+          "dashDuration": 1.2965517241379545,
+          "path": {
+            "x": 457.5,
+            "y": 205.9999999999966,
+            "endX": 457.5,
+            "endY": 394,
+            "length": 188.0000000000034
+          }
+        }
+      },
+      "end": {
+        "x": 457.5,
+        "y": 394.0000000000044,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.0966666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.2965517241379545,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 3,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865048,
+          0.7071067811865901
+        ],
+        "distance": 265.8721497261254,
+        "targetDistance": 288.4,
+        "dashDuration": 1.833601032593968,
+        "path": {
+          "x": 457.49999999999284,
+          "y": 206.00000000000034,
+          "endX": 269.50000000001586,
+          "endY": 394,
+          "length": 265.8721497261254
+        }
+      },
+      "start": {
+        "x": 457.49999999999284,
+        "y": 206.00000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.833601032593968,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 265.8721497261254,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.49999999999284,
+            "y": 206.00000000000034,
+            "endX": 269.50000000001586,
+            "endY": 394,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "first": {
+        "x": 447.2469516727889,
+        "y": 216.253048327206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7336010325939657,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 251.3721497261252,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.49999999999284,
+            "y": 206.00000000000034,
+            "endX": 269.50000000001586,
+            "endY": 394,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "end": {
+        "x": 269.50000000002063,
+        "y": 394.0000000000038,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.6366666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 4,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 288.4,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": {
+          "x": 457.49999999999505,
+          "y": 206,
+          "endX": 169.09999999999508,
+          "endY": 206,
+          "length": 288.4
+        }
+      },
+      "start": {
+        "x": 457.49999999999505,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.9889655172413792,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 288.4,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 457.49999999999505,
+            "y": 206,
+            "endX": 169.09999999999508,
+            "endY": 206,
+            "length": 288.4
+          }
+        }
+      },
+      "first": {
+        "x": 442.9999999999946,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.8889655172413768,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 273.8999999999995,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 457.49999999999505,
+            "y": 206,
+            "endX": 169.09999999999508,
+            "endY": 206,
+            "length": 288.4
+          }
+        }
+      },
+      "end": {
+        "x": 169.09999999998888,
+        "y": 206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.79,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 5,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865048,
+          -0.7071067811865901
+        ],
+        "distance": 265.8721497261254,
+        "targetDistance": 288.4,
+        "dashDuration": 1.833601032593968,
+        "path": {
+          "x": 457.49999999999284,
+          "y": 205.99999999999966,
+          "endX": 269.50000000001586,
+          "endY": 18,
+          "length": 265.8721497261254
+        }
+      },
+      "start": {
+        "x": 457.49999999999284,
+        "y": 205.99999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.833601032593968,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 265.8721497261254,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.49999999999284,
+            "y": 205.99999999999966,
+            "endX": 269.50000000001586,
+            "endY": 18,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "first": {
+        "x": 447.2469516727889,
+        "y": 195.746951672794,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7336010325939657,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 251.3721497261252,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.49999999999284,
+            "y": 205.99999999999966,
+            "endX": 269.50000000001586,
+            "endY": 18,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "end": {
+        "x": 269.50000000002063,
+        "y": 17.999999999996362,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.6366666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 6,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 188.00000000000173,
+        "targetDistance": 288.4,
+        "dashDuration": 1.296551724137943,
+        "path": {
+          "x": 457.5,
+          "y": 206.00000000000173,
+          "endX": 457.5,
+          "endY": 18,
+          "length": 188.00000000000173
+        }
+      },
+      "start": {
+        "x": 457.5,
+        "y": 206.00000000000173,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.296551724137943,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 188.00000000000173,
+          "targetDistance": 288.4,
+          "dashDuration": 1.296551724137943,
+          "path": {
+            "x": 457.5,
+            "y": 206.00000000000173,
+            "endX": 457.5,
+            "endY": 18,
+            "length": 188.00000000000173
+          }
+        }
+      },
+      "first": {
+        "x": 457.5,
+        "y": 191.50000000000213,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.1965517241379406,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 173.50000000000213,
+          "targetDistance": 288.4,
+          "dashDuration": 1.296551724137943,
+          "path": {
+            "x": 457.5,
+            "y": 206.00000000000173,
+            "endX": 457.5,
+            "endY": 18,
+            "length": 188.00000000000173
+          }
+        }
+      },
+      "end": {
+        "x": 457.5,
+        "y": 18.00000000000048,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.0966666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.296551724137943,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "angle": 7,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865048,
+          -0.7071067811865901
+        ],
+        "distance": 265.8721497261254,
+        "targetDistance": 288.4,
+        "dashDuration": 1.833601032593968,
+        "path": {
+          "x": 457.50000000000716,
+          "y": 205.99999999999966,
+          "endX": 645.4999999999841,
+          "endY": 18,
+          "length": 265.8721497261254
+        }
+      },
+      "start": {
+        "x": 457.50000000000716,
+        "y": 205.99999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.833601032593968,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 265.8721497261254,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.50000000000716,
+            "y": 205.99999999999966,
+            "endX": 645.4999999999841,
+            "endY": 18,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "first": {
+        "x": 467.7530483272111,
+        "y": 195.746951672794,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7336010325939657,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 251.3721497261252,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": {
+            "x": 457.50000000000716,
+            "y": 205.99999999999966,
+            "endX": 645.4999999999841,
+            "endY": 18,
+            "length": 265.8721497261254
+          }
+        }
+      },
+      "end": {
+        "x": 645.4999999999793,
+        "y": 17.999999999996362,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.6366666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 288.4,
+          "dashDuration": 1.833601032593968,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 0,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 544,
+          "endY": 180,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 544,
+            "endY": 180,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 409.99999999999943,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 544,
+            "endY": 180,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 543.9999999999973,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 1,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 501.82337649086287,
+          "endY": 281.82337649086287,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 501.82337649086287,
+            "endY": 281.82337649086287,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 407.07106781186496,
+        "y": 187.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 501.82337649086287,
+            "endY": 281.82337649086287,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 501.8233764908555,
+        "y": 281.82337649086463,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 2,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 400,
+          "endY": 324,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 400,
+            "endY": 324,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 400,
+        "y": 190.00000000000028,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 400,
+            "endY": 324,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 400,
+        "y": 323.9999999999983,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 3,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 298.17662350913713,
+          "endY": 281.82337649086287,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 298.17662350913713,
+            "endY": 281.82337649086287,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 392.92893218813504,
+        "y": 187.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 298.17662350913713,
+            "endY": 281.82337649086287,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 298.1766235091445,
+        "y": 281.82337649086463,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 4,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 256,
+          "endY": 180,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 256,
+            "endY": 180,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 390.00000000000057,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 256,
+            "endY": 180,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 256.0000000000082,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 5,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          -0.7071067811865475
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 298.17662350913713,
+          "endY": 78.17662350913716,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 298.17662350913713,
+            "endY": 78.17662350913716,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 392.92893218813504,
+        "y": 172.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 298.17662350913713,
+            "endY": 78.17662350913716,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 298.1766235091445,
+        "y": 78.17662350913525,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 6,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 400,
+          "endY": 36,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 400,
+            "endY": 36,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 400,
+        "y": 169.99999999999972,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 400,
+            "endY": 36,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 400,
+        "y": 35.99999999999924,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "angle": 7,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          -0.7071067811865476
+        ],
+        "distance": 144,
+        "targetDistance": 144,
+        "dashDuration": 1.44,
+        "path": {
+          "x": 400,
+          "y": 180,
+          "endX": 501.82337649086287,
+          "endY": 78.17662350913714,
+          "length": 144
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.44,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 144,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 501.82337649086287,
+            "endY": 78.17662350913714,
+            "length": 144
+          }
+        }
+      },
+      "first": {
+        "x": 407.07106781186496,
+        "y": 172.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.3399999999999976,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 133.99999999999972,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": {
+            "x": 400,
+            "y": 180,
+            "endX": 501.82337649086287,
+            "endY": 78.17662350913714,
+            "length": 144
+          }
+        }
+      },
+      "end": {
+        "x": 501.8233764908555,
+        "y": 78.17662350913525,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.8900000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 2.8632651805082787e-13,
+          "targetDistance": 144,
+          "dashDuration": 1.44,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 0,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 251.99999999999997,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.7379310344827583,
+        "path": {
+          "x": 400.0000000000068,
+          "y": 180,
+          "endX": 652.0000000000068,
+          "endY": 180,
+          "length": 251.99999999999997
+        }
+      },
+      "start": {
+        "x": 400.0000000000068,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7379310344827583,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 251.99999999999997,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": {
+            "x": 400.0000000000068,
+            "y": 180,
+            "endX": 652.0000000000068,
+            "endY": 180,
+            "length": 251.99999999999997
+          }
+        }
+      },
+      "first": {
+        "x": 414.5000000000073,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.637931034482756,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 237.50000000000037,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": {
+            "x": 400.0000000000068,
+            "y": 180,
+            "endX": 652.0000000000068,
+            "endY": 180,
+            "length": 251.99999999999997
+          }
+        }
+      },
+      "end": {
+        "x": 652.0000000000178,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.54,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 1,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865048,
+          0.7071067811865901
+        ],
+        "distance": 229.10259710442713,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.5800179110650148,
+        "path": {
+          "x": 400.00000000000716,
+          "y": 180.00000000000034,
+          "endX": 561.9999999999873,
+          "endY": 342,
+          "length": 229.10259710442713
+        }
+      },
+      "start": {
+        "x": 400.00000000000716,
+        "y": 180.00000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5800179110650148,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 229.10259710442713,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 400.00000000000716,
+            "y": 180.00000000000034,
+            "endX": 561.9999999999873,
+            "endY": 342,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "first": {
+        "x": 410.2530483272111,
+        "y": 190.253048327206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.4800179110650125,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 214.60259710442753,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 400.00000000000716,
+            "y": 180.00000000000034,
+            "endX": 561.9999999999873,
+            "endY": 342,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "end": {
+        "x": 561.9999999999832,
+        "y": 342.00000000000324,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3833333333333337,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 2,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 162.00000000000273,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.1172413793103637,
+        "path": {
+          "x": 400,
+          "y": 179.99999999999727,
+          "endX": 400,
+          "endY": 342,
+          "length": 162.00000000000273
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 179.99999999999727,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.1172413793103637,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 162.00000000000273,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103637,
+          "path": {
+            "x": 400,
+            "y": 179.99999999999727,
+            "endX": 400,
+            "endY": 342,
+            "length": 162.00000000000273
+          }
+        }
+      },
+      "first": {
+        "x": 400,
+        "y": 194.49999999999687,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.0172413793103614,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 147.50000000000313,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103637,
+          "path": {
+            "x": 400,
+            "y": 179.99999999999727,
+            "endX": 400,
+            "endY": 342,
+            "length": 162.00000000000273
+          }
+        }
+      },
+      "end": {
+        "x": 400,
+        "y": 342.0000000000013,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 2.9200000000000004,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103637,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 3,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865048,
+          0.7071067811865901
+        ],
+        "distance": 229.10259710442713,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.5800179110650148,
+        "path": {
+          "x": 399.99999999999284,
+          "y": 180.00000000000034,
+          "endX": 238.0000000000127,
+          "endY": 342,
+          "length": 229.10259710442713
+        }
+      },
+      "start": {
+        "x": 399.99999999999284,
+        "y": 180.00000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5800179110650148,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 229.10259710442713,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 399.99999999999284,
+            "y": 180.00000000000034,
+            "endX": 238.0000000000127,
+            "endY": 342,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "first": {
+        "x": 389.7469516727889,
+        "y": 190.253048327206,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.4800179110650125,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 214.60259710442753,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 399.99999999999284,
+            "y": 180.00000000000034,
+            "endX": 238.0000000000127,
+            "endY": 342,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "end": {
+        "x": 238.00000000001685,
+        "y": 342.00000000000324,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3833333333333337,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 4,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 251.99999999999997,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.7379310344827583,
+        "path": {
+          "x": 399.9999999999932,
+          "y": 180,
+          "endX": 147.9999999999932,
+          "endY": 180,
+          "length": 251.99999999999997
+        }
+      },
+      "start": {
+        "x": 399.9999999999932,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.7379310344827583,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 251.99999999999997,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": {
+            "x": 399.9999999999932,
+            "y": 180,
+            "endX": 147.9999999999932,
+            "endY": 180,
+            "length": 251.99999999999997
+          }
+        }
+      },
+      "first": {
+        "x": 385.4999999999927,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.637931034482756,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 237.50000000000037,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": {
+            "x": 399.9999999999932,
+            "y": 180,
+            "endX": 147.9999999999932,
+            "endY": 180,
+            "length": 251.99999999999997
+          }
+        }
+      },
+      "end": {
+        "x": 147.9999999999885,
+        "y": 180,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.54,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.7379310344827583,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 5,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865048,
+          -0.7071067811865901
+        ],
+        "distance": 229.10259710442713,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.5800179110650148,
+        "path": {
+          "x": 399.99999999999284,
+          "y": 179.99999999999966,
+          "endX": 238.0000000000127,
+          "endY": 18,
+          "length": 229.10259710442713
+        }
+      },
+      "start": {
+        "x": 399.99999999999284,
+        "y": 179.99999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5800179110650148,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 229.10259710442713,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 399.99999999999284,
+            "y": 179.99999999999966,
+            "endX": 238.0000000000127,
+            "endY": 18,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "first": {
+        "x": 389.7469516727889,
+        "y": 169.746951672794,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.4800179110650125,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 214.60259710442753,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": {
+            "x": 399.99999999999284,
+            "y": 179.99999999999966,
+            "endX": 238.0000000000127,
+            "endY": 18,
+            "length": 229.10259710442713
+          }
+        }
+      },
+      "end": {
+        "x": 238.00000000001685,
+        "y": 17.999999999996888,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3833333333333337,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650148,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 6,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 162.0000000000034,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.1172413793103684,
+        "path": {
+          "x": 400,
+          "y": 180.0000000000034,
+          "endX": 400,
+          "endY": 18,
+          "length": 162.0000000000034
+        }
+      },
+      "start": {
+        "x": 400,
+        "y": 180.0000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.1172413793103684,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 162.0000000000034,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103684,
+          "path": {
+            "x": 400,
+            "y": 180.0000000000034,
+            "endX": 400,
+            "endY": 18,
+            "length": 162.0000000000034
+          }
+        }
+      },
+      "first": {
+        "x": 400,
+        "y": 165.5000000000038,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.017241379310366,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 147.5000000000038,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103684,
+          "path": {
+            "x": 400,
+            "y": 180.0000000000034,
+            "endX": 400,
+            "endY": 18,
+            "length": 162.0000000000034
+          }
+        }
+      },
+      "end": {
+        "x": 400,
+        "y": 18.000000000000483,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 2.9200000000000004,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.1172413793103684,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "angle": 7,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865047,
+          -0.7071067811865902
+        ],
+        "distance": 229.10259710442708,
+        "targetDistance": 251.99999999999997,
+        "dashDuration": 1.5800179110650143,
+        "path": {
+          "x": 400.00000000000716,
+          "y": 179.99999999999966,
+          "endX": 561.9999999999873,
+          "endY": 18,
+          "length": 229.10259710442708
+        }
+      },
+      "start": {
+        "x": 400.00000000000716,
+        "y": 179.99999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5800179110650143,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865047,
+            -0.7071067811865902
+          ],
+          "distance": 229.10259710442708,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650143,
+          "path": {
+            "x": 400.00000000000716,
+            "y": 179.99999999999966,
+            "endX": 561.9999999999873,
+            "endY": 18,
+            "length": 229.10259710442708
+          }
+        }
+      },
+      "first": {
+        "x": 410.2530483272111,
+        "y": 169.746951672794,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.480017911065012,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865047,
+            -0.7071067811865902
+          ],
+          "distance": 214.60259710442747,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650143,
+          "path": {
+            "x": 400.00000000000716,
+            "y": 179.99999999999966,
+            "endX": 561.9999999999873,
+            "endY": 18,
+            "length": 229.10259710442708
+          }
+        }
+      },
+      "end": {
+        "x": 561.9999999999831,
+        "y": 17.99999999999693,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3833333333333337,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865047,
+            -0.7071067811865902
+          ],
+          "distance": 0,
+          "targetDistance": 251.99999999999997,
+          "dashDuration": 1.5800179110650143,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 0,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 412,
+          "endY": 160,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 412,
+            "endY": 160,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 293.99999999999943,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 412,
+            "endY": 160,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 411.9999999999927,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 1,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 374.5096679918781,
+          "endY": 250.50966799187808,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 374.5096679918781,
+            "endY": 250.50966799187808,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 291.07106781186496,
+        "y": 167.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 374.5096679918781,
+            "endY": 250.50966799187808,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 374.50966799187154,
+        "y": 250.50966799188245,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 2,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 284,
+          "endY": 288,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 284,
+            "endY": 288,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 284,
+        "y": 170.00000000000028,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 284,
+            "endY": 288,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 284,
+        "y": 288.0000000000009,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 3,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          0.7071067811865475
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 193.49033200812192,
+          "endY": 250.50966799187808,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 193.49033200812192,
+            "endY": 250.50966799187808,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 276.92893218813504,
+        "y": 167.07106781186582,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 193.49033200812192,
+            "endY": 250.50966799187808,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 193.4903320081209,
+        "y": 250.50966799188245,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            0.7071067811865475
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 4,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 156,
+          "endY": 160,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 156,
+            "endY": 160,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 274.00000000000057,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 156,
+            "endY": 160,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 155.99999999999875,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 5,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865475,
+          -0.7071067811865475
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 193.49033200812192,
+          "endY": 69.49033200812192,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 193.49033200812192,
+            "endY": 69.49033200812192,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 276.92893218813504,
+        "y": 152.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 193.49033200812192,
+            "endY": 69.49033200812192,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 193.4903320081209,
+        "y": 69.49033200812109,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865475,
+            -0.7071067811865475
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 6,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 284,
+          "endY": 32,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 284,
+            "endY": 32,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 284,
+        "y": 149.99999999999972,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 284,
+            "endY": 32,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 284,
+        "y": 31.99999999999979,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "angle": 7,
+      "warning": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865475,
+          -0.7071067811865476
+        ],
+        "distance": 128,
+        "targetDistance": 128,
+        "dashDuration": 1.28,
+        "path": {
+          "x": 284,
+          "y": 160,
+          "endX": 374.5096679918781,
+          "endY": 69.49033200812191,
+          "length": 128
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.28,
+          "age": 0.45,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 128,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 374.5096679918781,
+            "endY": 69.49033200812191,
+            "length": 128
+          }
+        }
+      },
+      "first": {
+        "x": 291.07106781186496,
+        "y": 152.92893218813418,
+        "state": {
+          "id": "screw_bot",
+          "mode": "dash",
+          "remaining": 1.1799999999999977,
+          "age": 0.55,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 118.00000000000014,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": {
+            "x": 284,
+            "y": 160,
+            "endX": 374.5096679918781,
+            "endY": 69.49033200812191,
+            "length": 128
+          }
+        }
+      },
+      "end": {
+        "x": 374.50966799187154,
+        "y": 69.49033200812109,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 2.2,
+          "age": 1.7300000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865475,
+            -0.7071067811865476
+          ],
+          "distance": 7.2686301422209e-13,
+          "targetDistance": 128,
+          "dashDuration": 1.28,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 0,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 224,
+        "targetDistance": 224,
+        "dashDuration": 1.5448275862068965,
+        "path": {
+          "x": 284.00000000000136,
+          "y": 160,
+          "endX": 508.00000000000136,
+          "endY": 160,
+          "length": 224
+        }
+      },
+      "start": {
+        "x": 284.00000000000136,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5448275862068965,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 224,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": {
+            "x": 284.00000000000136,
+            "y": 160,
+            "endX": 508.00000000000136,
+            "endY": 160,
+            "length": 224
+          }
+        }
+      },
+      "first": {
+        "x": 298.5000000000018,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.4448275862068942,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 209.5000000000004,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": {
+            "x": 284.00000000000136,
+            "y": 160,
+            "endX": 508.00000000000136,
+            "endY": 160,
+            "length": 224
+          }
+        }
+      },
+      "end": {
+        "x": 508.0000000000108,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3466666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 1,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.7071067811865132,
+          0.7071067811865818
+        ],
+        "distance": 200.8183258569723,
+        "targetDistance": 224,
+        "dashDuration": 1.3849539714273953,
+        "path": {
+          "x": 284.0000000000037,
+          "y": 159.9999999999982,
+          "endX": 425.9999999999917,
+          "endY": 302,
+          "length": 200.8183258569723
+        }
+      },
+      "start": {
+        "x": 284.0000000000037,
+        "y": 159.9999999999982,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.3849539714273953,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865132,
+            0.7071067811865818
+          ],
+          "distance": 200.8183258569723,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273953,
+          "path": {
+            "x": 284.0000000000037,
+            "y": 159.9999999999982,
+            "endX": 425.9999999999917,
+            "endY": 302,
+            "length": 200.8183258569723
+          }
+        }
+      },
+      "first": {
+        "x": 294.25304832720764,
+        "y": 170.25304832720386,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.284953971427393,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865132,
+            0.7071067811865818
+          ],
+          "distance": 186.3183258569727,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273953,
+          "path": {
+            "x": 284.0000000000037,
+            "y": 159.9999999999982,
+            "endX": 425.9999999999917,
+            "endY": 302,
+            "length": 200.8183258569723
+          }
+        }
+      },
+      "end": {
+        "x": 425.9999999999861,
+        "y": 302.00000000000415,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.186666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7071067811865132,
+            0.7071067811865818
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273953,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 2,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          1
+        ],
+        "distance": 142.00000000000102,
+        "targetDistance": 224,
+        "dashDuration": 0.9793103448275933,
+        "path": {
+          "x": 284,
+          "y": 159.99999999999898,
+          "endX": 284,
+          "endY": 302,
+          "length": 142.00000000000102
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 159.99999999999898,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.9793103448275933,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 142.00000000000102,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448275933,
+          "path": {
+            "x": 284,
+            "y": 159.99999999999898,
+            "endX": 284,
+            "endY": 302,
+            "length": 142.00000000000102
+          }
+        }
+      },
+      "first": {
+        "x": 284,
+        "y": 174.49999999999858,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.8793103448275943,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 127.50000000000139,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448275933,
+          "path": {
+            "x": 284,
+            "y": 159.99999999999898,
+            "endX": 284,
+            "endY": 302,
+            "length": 142.00000000000102
+          }
+        }
+      },
+      "end": {
+        "x": 284,
+        "y": 301.999999999999,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 2.7800000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            1
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448275933,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 3,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.707106781186507,
+          0.707106781186588
+        ],
+        "distance": 200.81832585696705,
+        "targetDistance": 224,
+        "dashDuration": 1.3849539714273589,
+        "path": {
+          "x": 283.99999999999284,
+          "y": 160.00000000000068,
+          "endX": 142.00000000000978,
+          "endY": 302,
+          "length": 200.81832585696705
+        }
+      },
+      "start": {
+        "x": 283.99999999999284,
+        "y": 160.00000000000068,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.3849539714273589,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.707106781186507,
+            0.707106781186588
+          ],
+          "distance": 200.81832585696705,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273589,
+          "path": {
+            "x": 283.99999999999284,
+            "y": 160.00000000000068,
+            "endX": 142.00000000000978,
+            "endY": 302,
+            "length": 200.81832585696705
+          }
+        }
+      },
+      "first": {
+        "x": 273.7469516727889,
+        "y": 170.25304832720633,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.2849539714273566,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.707106781186507,
+            0.707106781186588
+          ],
+          "distance": 186.31832585696745,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273589,
+          "path": {
+            "x": 283.99999999999284,
+            "y": 160.00000000000068,
+            "endX": 142.00000000000978,
+            "endY": 302,
+            "length": 200.81832585696705
+          }
+        }
+      },
+      "end": {
+        "x": 142.00000000001418,
+        "y": 302.00000000000296,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.186666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.707106781186507,
+            0.707106781186588
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273589,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 4,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 224,
+        "targetDistance": 224,
+        "dashDuration": 1.5448275862068965,
+        "path": {
+          "x": 283.9999999999932,
+          "y": 160,
+          "endX": 59.99999999999318,
+          "endY": 160,
+          "length": 224
+        }
+      },
+      "start": {
+        "x": 283.9999999999932,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.5448275862068965,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 224,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": {
+            "x": 283.9999999999932,
+            "y": 160,
+            "endX": 59.99999999999318,
+            "endY": 160,
+            "length": 224
+          }
+        }
+      },
+      "first": {
+        "x": 269.4999999999927,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.4448275862068942,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 209.5000000000004,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": {
+            "x": 283.9999999999932,
+            "y": 160,
+            "endX": 59.99999999999318,
+            "endY": 160,
+            "length": 224
+          }
+        }
+      },
+      "end": {
+        "x": 59.99999999999328,
+        "y": 160,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.3466666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.5448275862068965,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 5,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -0.7071067811865048,
+          -0.7071067811865901
+        ],
+        "distance": 200.81832585696694,
+        "targetDistance": 224,
+        "dashDuration": 1.3849539714273582,
+        "path": {
+          "x": 283.99999999999284,
+          "y": 159.99999999999966,
+          "endX": 142.0000000000103,
+          "endY": 18,
+          "length": 200.81832585696694
+        }
+      },
+      "start": {
+        "x": 283.99999999999284,
+        "y": 159.99999999999966,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.3849539714273582,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 200.81832585696694,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273582,
+          "path": {
+            "x": 283.99999999999284,
+            "y": 159.99999999999966,
+            "endX": 142.0000000000103,
+            "endY": 18,
+            "length": 200.81832585696694
+          }
+        }
+      },
+      "first": {
+        "x": 273.7469516727889,
+        "y": 149.746951672794,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.284953971427356,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 186.31832585696733,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273582,
+          "path": {
+            "x": 283.99999999999284,
+            "y": 159.99999999999966,
+            "endX": 142.0000000000103,
+            "endY": 18,
+            "length": 200.81832585696694
+          }
+        }
+      },
+      "end": {
+        "x": 142.00000000001427,
+        "y": 17.99999999999762,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.186666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -0.7071067811865048,
+            -0.7071067811865901
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.3849539714273582,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 6,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0,
+          -1
+        ],
+        "distance": 142.0000000000034,
+        "targetDistance": 224,
+        "dashDuration": 0.9793103448276097,
+        "path": {
+          "x": 284,
+          "y": 160.0000000000034,
+          "endX": 284,
+          "endY": 18,
+          "length": 142.0000000000034
+        }
+      },
+      "start": {
+        "x": 284,
+        "y": 160.0000000000034,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.9793103448276097,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 142.0000000000034,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448276097,
+          "path": {
+            "x": 284,
+            "y": 160.0000000000034,
+            "endX": 284,
+            "endY": 18,
+            "length": 142.0000000000034
+          }
+        }
+      },
+      "first": {
+        "x": 284,
+        "y": 145.5000000000038,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.8793103448276107,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 127.50000000000378,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448276097,
+          "path": {
+            "x": 284,
+            "y": 160.0000000000034,
+            "endX": 284,
+            "endY": 18,
+            "length": 142.0000000000034
+          }
+        }
+      },
+      "end": {
+        "x": 284,
+        "y": 18.000000000000494,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 2.7800000000000002,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0,
+            -1
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 0.9793103448276097,
+          "path": null
+        }
+      },
+      "bullets": 0
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "angle": 7,
+      "warning": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          0.707106781186511,
+          -0.7071067811865841
+        ],
+        "distance": 200.81832585697214,
+        "targetDistance": 224,
+        "dashDuration": 1.384953971427394,
+        "path": {
+          "x": 284.0000000000037,
+          "y": 160.00000000000213,
+          "endX": 425.99999999999113,
+          "endY": 18,
+          "length": 200.81832585697214
+        }
+      },
+      "start": {
+        "x": 284.0000000000037,
+        "y": 160.00000000000213,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.384953971427394,
+          "age": 1.8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.707106781186511,
+            -0.7071067811865841
+          ],
+          "distance": 200.81832585697214,
+          "targetDistance": 224,
+          "dashDuration": 1.384953971427394,
+          "path": {
+            "x": 284.0000000000037,
+            "y": 160.00000000000213,
+            "endX": 425.99999999999113,
+            "endY": 18,
+            "length": 200.81832585697214
+          }
+        }
+      },
+      "first": {
+        "x": 294.25304832720764,
+        "y": 149.74695167279648,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 1.2849539714273917,
+          "age": 1.9000000000000001,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.707106781186511,
+            -0.7071067811865841
+          ],
+          "distance": 186.31832585697254,
+          "targetDistance": 224,
+          "dashDuration": 1.384953971427394,
+          "path": {
+            "x": 284.0000000000037,
+            "y": 160.00000000000213,
+            "endX": 425.99999999999113,
+            "endY": 18,
+            "length": 200.81832585697214
+          }
+        }
+      },
+      "end": {
+        "x": 425.99999999998596,
+        "y": 17.999999999997232,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "rest",
+          "remaining": 2.6,
+          "age": 3.186666666666667,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.707106781186511,
+            -0.7071067811865841
+          ],
+          "distance": 0,
+          "targetDistance": 224,
+          "dashDuration": 1.384953971427394,
+          "path": null
+        }
+      },
+      "bullets": 0
+    }
+  ],
+  "distance_table": [
+    {
+      "height": 320,
+      "screw_distance": 128.0,
+      "screw_seconds": 1.28,
+      "wasp_distance": 224.0,
+      "wasp_seconds": 1.5448275862068965
+    },
+    {
+      "height": 360,
+      "screw_distance": 144.0,
+      "screw_seconds": 1.44,
+      "wasp_distance": 251.99999999999997,
+      "wasp_seconds": 1.7379310344827583
+    },
+    {
+      "height": 412,
+      "screw_distance": 164.8,
+      "screw_seconds": 1.6480000000000001,
+      "wasp_distance": 288.4,
+      "wasp_seconds": 1.9889655172413792
+    }
+  ]
+}

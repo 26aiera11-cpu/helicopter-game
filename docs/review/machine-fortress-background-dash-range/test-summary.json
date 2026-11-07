@@ -1,0 +1,466 @@
+{
+  "date": "2026-11-07",
+  "branch": "fix/machine-fortress-background-dash-range",
+  "issue": 34,
+  "baseline": "e6f6f8822a47daf023616681768c3db212d16435",
+  "final_spec": "Screw H*.40/100px-s; Wasp H*.70/145px-s; clipped-path duration=length/speed. Original issue2x/fixed durations superseded by final user message and issue comment.",
+  "registered_suites_available": 72,
+  "related_suites_executed": 16,
+  "passed_suites": 15,
+  "failed_suites": 1,
+  "completed_pass_groups": 255,
+  "full_registered_run": false,
+  "suites": [
+    {
+      "suite": "machine_background_dash-native",
+      "exit_code": 0,
+      "groups": 12,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.63,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/focused/machine_background_dash-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.92,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/focused/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-offline",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_background_dash-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_normal-offline",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_normal-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 25.63,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.71,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.54,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.9,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.11,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 10.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/volcano_mixed-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 18.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.43,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.68,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/storm_sky-native"
+      ]
+    }
+  ],
+  "all_runner_attempts": [
+    {
+      "suite": "machine_background_dash-native",
+      "exit_code": 0,
+      "groups": 12,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.63,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/focused/machine_background_dash-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.92,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/focused/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-offline",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_background_dash-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_normal-offline",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_normal-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 25.63,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.71,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.54,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.9,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.11,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 10.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/volcano_mixed-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 18.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.43,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.68,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/machine-background-dash-tests/regression/storm_sky-native"
+      ]
+    }
+  ],
+  "initial_fixture_failure": {
+    "partial_pass_groups": 6,
+    "counted_in_final": false,
+    "reason": "Near-wall fixture put player120px away, outside existing Screw110px trigger. Changed fixture distance to80px, no runtime detection or AI stats changed.",
+    "evidence": "tests/initial-native/run.log"
+  },
+  "known_failure": {
+    "issue": 30,
+    "suite": "worlds",
+    "observed_partial_pass_groups": 16,
+    "counted_in_final": false,
+    "symptom": "Snow5 after long3touch: Exit pointerdown/up but no click; existing dialog remained hidden.",
+    "status": "Existing low-priority unresolved; input code byte-preserved.",
+    "evidence": "tests/worlds/exit-touch-failure.json"
+  },
+  "execution": {
+    "workers": 1,
+    "oom_kill_before": 2,
+    "oom_kill_after": 2,
+    "new_oom_kills": 0
+  },
+  "limits": [
+    "Physical Galaxy sensors/touch/performance/human evasion and file association remain unverified.",
+    "Offline exact HTML used with network disabled, without bypassing managed file policy.",
+    "Fixed1/300s integration quantizes state transition by<=3.33ms; endpoints and calculated length/speed are exact.",
+    "A central vertical.70H route reaches viewport boundary before full distance; free horizontal center paths reach target and bounded paths shorten warning and travel together."
+  ]
+}

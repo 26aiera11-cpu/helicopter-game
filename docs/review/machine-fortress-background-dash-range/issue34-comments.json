@@ -1,0 +1,30 @@
+{
+  "comments": [
+    {
+      "url": "https://github.com/26aiera11-cpu/helicopter-game/issues/34#issuecomment-6703578301",
+      "body": "사용자 추가 확정 사양 (2026-11-07): 고정 px/time 대신 화면 세로높이 H 기준 동적 돌진 거리로 변경. 나사봇 목표 이동거리 = H×0.40 (세로 320px→128px, 360px→144px, 412px→164.8px). 톱니벌 = H×0.70 (320px→224px, 360px→252px, 412px→288.4px). 기존 돌진 속도는 나사봇100px/s, 톱니벌145px/s로 유지하고 dashTime은 목표거리/속도로 화면 높이에 맞춰 계산한다(나사봇 1.28~1.648s, 톱니벌 1.545~1.989s). 공격 예고시간/쿨다운/HP/피해/기본 이동속도는 유지. 화면 경계에 닿으면 실제 이동은 안전하게 잘라내되, 중앙에서 시작하면 목표 거리를 충족해야 함. 예고선과 실제 경로 길이는 일치.",
+      "user": {
+        "login": "26aiera11-cpu",
+        "name": "26aiera11-cpu",
+        "email": null,
+        "avatar_url": "https://avatars.githubusercontent.com/u/348202238?v=4",
+        "id": 348202238
+      },
+      "id": 6703578301,
+      "pull_request_review_id": null,
+      "in_reply_to_id": null,
+      "created_at": null,
+      "updated_at": null,
+      "review": null,
+      "side": null,
+      "line": null,
+      "start_line": null,
+      "path": null,
+      "body_html": "<p dir=\"auto\">사용자 추가 확정 사양 (2026-11-07): 고정 px/time 대신 화면 세로높이 H 기준 동적 돌진 거리로 변경. 나사봇 목표 이동거리 = H×0.40 (세로 320px→128px, 360px→144px, 412px→164.8px). 톱니벌 = H×0.70 (320px→224px, 360px→252px, 412px→288.4px). 기존 돌진 속도는 나사봇100px/s, 톱니벌145px/s로 유지하고 dashTime은 목표거리/속도로 화면 높이에 맞춰 계산한다(나사봇 1.28<del>1.648s, 톱니벌 1.545</del>1.989s). 공격 예고시간/쿨다운/HP/피해/기본 이동속도는 유지. 화면 경계에 닿으면 실제 이동은 안전하게 잘라내되, 중앙에서 시작하면 목표 거리를 충족해야 함. 예고선과 실제 경로 길이는 일치.</p>"
+    }
+  ],
+  "url": "https://github.com/26aiera11-cpu/helicopter-game/issues/34",
+  "title": "26aiera11-cpu/helicopter-game Issue #34 comments",
+  "display_url": "https://github.com/26aiera11-cpu/helicopter-game/issues/34",
+  "display_title": "26aiera11-cpu/helicopter-game Issue #34 comments"
+}

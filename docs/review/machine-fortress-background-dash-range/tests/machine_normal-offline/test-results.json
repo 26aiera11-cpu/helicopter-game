@@ -1,0 +1,2385 @@
+{
+  "standalone": true,
+  "passed": [
+    "Exact18 engine hooks/2art ID-status/2notice deltas invert to c512d82; all other125 old assets/PNGs/other AI/weapons/input/audio preserved;26scripts parse; normal40/boss132 unchanged.",
+    "All5 exact spawn tables,100000 weighted draws and identical-seed replay pass; no global Math.random or snow/volcano/storm RNG state consumption.",
+    "17 permitted phase/species pairs materialize once with matching stable art/AI/HP/speed/r16; reprepare never rerolls/heals and changing legacy kind cannot change art identity.",
+    "Screw locks warning-time direction thenH*.40 at100px-s after.45s; Wasp locks at warning END thenH*.70 at145px-s after.60s; both derive time from path/speed with zero bullets and unchanged2.2/2.6s recovery.",
+    "Actual Screw contact damage reuses hurt()/existing player invulnerability: warning does not deal extra damage, contact loses1HP once without double dash damage.",
+    "Drone .65s fixed warning and .28s finite260px/7px blue beam share one frozen segment; independent capsule oracle and actual Canvas widths agree; oneHP damage/invulnerability and no post-fire tracking.",
+    "Turret3HP/20px-s stops for.45s, aims at warning end, emits one orange radius6/speed75/life3.4 shell; consecutive shots are3.6s apart including warning, not old base bullets.",
+    "Held-projectile stress enforces max2/owner and24global with denied shots counted; full caps cannot trigger legacy fallback or rapid-fire retries.",
+    "8s real-world runs at60/120/300Hz agree within0.00001px on all4 actor paths, phase clocks and shell positions/lifetimes; newborn shells integrate only their remaining first-frame time.",
+    "Hidden tab and internal pause freeze entire Machine physics/AI; a10s synthetic spike advances at most.25s and cannot skip a full warning/active attack. No async attack timers.",
+    "Killing a drone removes its beam immediately; turret death removes owned shells; next phase leaves0Machine actors/lasers/projectiles with ordinary drops/score path unchanged.",
+    "All3 unchanged gyro flight profiles evade a centered beam when reacting.30s into the.65s warning, with zeroHP loss and >15.5px clearance; a controlled feasibility check, not human Galaxy approval.",
+    "100s five-actor simulation keeps projectiles<=24 and simultaneous beams<=one/actor; update duration measured, no unbounded effect queue/attack timeout.",
+    "At568x320, separate100s worst-case five-drone/five-turret runs remain within5beams/5live shells; normal weighted spawn timing/cap are unchanged and dense warnings remain brief trial values.",
+    "All4 species at all4 corners over10s retain original center bounds x17/y18; clipped straight dash paths do not worsen the approved40px sprite edge-clipping limitation or enlarge collision r16.",
+    "All3 weapons preserve6normal-kill gate, GigaCore20HP/r48/one basic shot/2000points/reward/outro; boss start removes normal hazards and developer results never write TOP10/history.",
+    "A fatal beam ends the current Machine actor loop immediately: no later player-bullet damage or score changes in that frame; BGM/game-over/result and hazard cleanup use the original lifecycle.",
+    "Attack warning/active screenshots and915x412/800x360/568x320 layouts retain40px sprites/132boss/contain, readable bullets/items/HUD and existing joystick/fire/fullscreen targets; effects are Canvas-only.",
+    "ActualDPR2 Canvas1136x640 displays the same finite7px beam,40px normals and original background at CSS568x320 without stretching or a new hit scale.",
+    "Viewport resize clears active beam/warnings/shells and re-enters a safe1.2s recovery without healing or changing hit radii.",
+    "Trusted fullscreen/exit cancel/confirm and3s game-over return retain original UI/music flow; pause freezes attacks and confirmed exit/death clear all dedicated hazards without native dialogs.",
+    "No uncaught JS/native dialogs/missing resources; offline external image/audio/script fetch0. Other-region, full-route, audio, controls and original art regressions are run separately."
+  ],
+  "limits": [
+    "Controlled actual Chromium/gyro inputs/timing, not physical Galaxy or human difficulty certification.",
+    "Trial tuning from Issue33; only Machine normal AI changes. GigaCore, all other regions, PNGs, weapons and input modules are protected.",
+    "Exact offline HTML via network-disabled blank origin, no file policy bypass."
+  ],
+  "preservation": {
+    "baseline": "c512d82dd38bae25d572e8386ce7009c6ba0474f",
+    "existing_assets": 125,
+    "raw_unchanged_assets": 123,
+    "index_hooks": 18,
+    "art_id_status_deltas": 2,
+    "notice_deltas": 2,
+    "new_combat_modules": 3,
+    "all_png_audio_other_region_combat_player_controls_score_items_bytes_preserved": true,
+    "normal_render_width": 40,
+    "boss_render_width": 132,
+    "normal_collision_radius": 16
+  },
+  "seeded_spawns": {
+    "rows": [
+      {
+        "step": 1,
+        "same": true,
+        "head": [
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot"
+        ],
+        "counts": [
+          15020,
+          4980,
+          0,
+          0
+        ]
+      },
+      {
+        "step": 2,
+        "same": true,
+        "head": [
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "laser_drone",
+          "screw_bot",
+          "laser_drone",
+          "screw_bot",
+          "screw_bot",
+          "laser_drone",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "gear_wasp",
+          "screw_bot",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "laser_drone",
+          "gear_wasp",
+          "screw_bot",
+          "laser_drone",
+          "laser_drone",
+          "screw_bot",
+          "laser_drone",
+          "laser_drone",
+          "screw_bot",
+          "screw_bot"
+        ],
+        "counts": [
+          8949,
+          7063,
+          3988,
+          0
+        ]
+      },
+      {
+        "step": 3,
+        "same": true,
+        "head": [
+          "screw_bot",
+          "laser_drone",
+          "laser_drone",
+          "gear_wasp",
+          "laser_drone",
+          "gear_wasp",
+          "screw_bot",
+          "gear_wasp",
+          "gear_wasp",
+          "laser_drone",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "screw_bot",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "screw_bot",
+          "laser_drone",
+          "gear_wasp",
+          "screw_bot",
+          "laser_drone",
+          "gear_wasp",
+          "laser_drone",
+          "laser_drone",
+          "laser_drone",
+          "screw_bot",
+          "gear_wasp",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "laser_drone",
+          "gear_wasp",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "screw_bot"
+        ],
+        "counts": [
+          5037,
+          4880,
+          6095,
+          3988
+        ]
+      },
+      {
+        "step": 4,
+        "same": true,
+        "head": [
+          "screw_bot",
+          "armored_turret",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "laser_drone",
+          "screw_bot",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "screw_bot",
+          "armored_turret",
+          "laser_drone",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "gear_wasp",
+          "laser_drone",
+          "armored_turret",
+          "armored_turret",
+          "armored_turret",
+          "laser_drone",
+          "gear_wasp",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "armored_turret",
+          "gear_wasp",
+          "gear_wasp"
+        ],
+        "counts": [
+          3029,
+          3971,
+          6984,
+          6016
+        ]
+      },
+      {
+        "step": 5,
+        "same": true,
+        "head": [
+          "screw_bot",
+          "armored_turret",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "laser_drone",
+          "gear_wasp",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "gear_wasp",
+          "armored_turret",
+          "gear_wasp",
+          "screw_bot",
+          "armored_turret",
+          "laser_drone",
+          "screw_bot",
+          "armored_turret",
+          "gear_wasp",
+          "laser_drone",
+          "laser_drone",
+          "armored_turret",
+          "gear_wasp",
+          "laser_drone",
+          "armored_turret",
+          "armored_turret",
+          "armored_turret",
+          "armored_turret",
+          "gear_wasp",
+          "armored_turret",
+          "armored_turret",
+          "screw_bot",
+          "armored_turret",
+          "armored_turret",
+          "gear_wasp",
+          "gear_wasp"
+        ],
+        "counts": [
+          2035,
+          4012,
+          6977,
+          6976
+        ]
+      }
+    ],
+    "calls": 0,
+    "sameOther": true
+  },
+  "spawn_identity": [
+    {
+      "before": {
+        "hp": 1,
+        "speed": 46,
+        "r": 16,
+        "id": "screw_bot",
+        "art": "screw_bot"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "screw_bot",
+        "art": "screw_bot",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 50,
+        "r": 16,
+        "id": "gear_wasp",
+        "art": "gear_wasp"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "gear_wasp",
+        "art": "gear_wasp",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 46,
+        "r": 16,
+        "id": "screw_bot",
+        "art": "screw_bot"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "screw_bot",
+        "art": "screw_bot",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 50,
+        "r": 16,
+        "id": "gear_wasp",
+        "art": "gear_wasp"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "gear_wasp",
+        "art": "gear_wasp",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 2,
+        "speed": 30,
+        "r": 16,
+        "id": "laser_drone",
+        "art": "laser_drone"
+      },
+      "after": {
+        "hp": 1.75,
+        "id": "laser_drone",
+        "art": "laser_drone",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 46,
+        "r": 16,
+        "id": "screw_bot",
+        "art": "screw_bot"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "screw_bot",
+        "art": "screw_bot",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 50,
+        "r": 16,
+        "id": "gear_wasp",
+        "art": "gear_wasp"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "gear_wasp",
+        "art": "gear_wasp",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 2,
+        "speed": 30,
+        "r": 16,
+        "id": "laser_drone",
+        "art": "laser_drone"
+      },
+      "after": {
+        "hp": 1.75,
+        "id": "laser_drone",
+        "art": "laser_drone",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 3,
+        "speed": 20,
+        "r": 16,
+        "id": "armored_turret",
+        "art": "armored_turret"
+      },
+      "after": {
+        "hp": 2.75,
+        "id": "armored_turret",
+        "art": "armored_turret",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 46,
+        "r": 16,
+        "id": "screw_bot",
+        "art": "screw_bot"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "screw_bot",
+        "art": "screw_bot",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 50,
+        "r": 16,
+        "id": "gear_wasp",
+        "art": "gear_wasp"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "gear_wasp",
+        "art": "gear_wasp",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 2,
+        "speed": 30,
+        "r": 16,
+        "id": "laser_drone",
+        "art": "laser_drone"
+      },
+      "after": {
+        "hp": 1.75,
+        "id": "laser_drone",
+        "art": "laser_drone",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 3,
+        "speed": 20,
+        "r": 16,
+        "id": "armored_turret",
+        "art": "armored_turret"
+      },
+      "after": {
+        "hp": 2.75,
+        "id": "armored_turret",
+        "art": "armored_turret",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 46,
+        "r": 16,
+        "id": "screw_bot",
+        "art": "screw_bot"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "screw_bot",
+        "art": "screw_bot",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 1,
+        "speed": 50,
+        "r": 16,
+        "id": "gear_wasp",
+        "art": "gear_wasp"
+      },
+      "after": {
+        "hp": 0.75,
+        "id": "gear_wasp",
+        "art": "gear_wasp",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 2,
+        "speed": 30,
+        "r": 16,
+        "id": "laser_drone",
+        "art": "laser_drone"
+      },
+      "after": {
+        "hp": 1.75,
+        "id": "laser_drone",
+        "art": "laser_drone",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    },
+    {
+      "before": {
+        "hp": 3,
+        "speed": 20,
+        "r": 16,
+        "id": "armored_turret",
+        "art": "armored_turret"
+      },
+      "after": {
+        "hp": 2.75,
+        "id": "armored_turret",
+        "art": "armored_turret",
+        "draws": 1
+      },
+      "draws": 1,
+      "writable": false
+    }
+  ],
+  "dash_roles": [
+    {
+      "warn": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.44666666666666666,
+        "age": 0.0033333333333333335,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 320.25,
+          "y": 185.4,
+          "endX": 485.05,
+          "endY": 185.4,
+          "length": 164.8
+        }
+      },
+      "before": {
+        "id": "screw_bot",
+        "mode": "warning",
+        "remaining": 0.009999999999999093,
+        "age": 0.44,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 320.25,
+          "y": 185.4,
+          "endX": 485.05,
+          "endY": 185.4,
+          "length": 164.8
+        }
+      },
+      "active": {
+        "id": "screw_bot",
+        "mode": "dash",
+        "remaining": 1.6480000000000001,
+        "age": 0.45,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 164.8,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": {
+          "x": 320.25,
+          "y": 185.4,
+          "endX": 485.05,
+          "endY": 185.4,
+          "length": 164.8
+        }
+      },
+      "end": {
+        "id": "screw_bot",
+        "mode": "cooldown",
+        "remaining": 2.2,
+        "age": 2.1,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 0,
+        "targetDistance": 164.8,
+        "dashDuration": 1.6480000000000001,
+        "path": null
+      },
+      "dx": 164.79999999999035,
+      "dy": 0,
+      "height": 412,
+      "bullets": 0
+    },
+    {
+      "warn": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.6,
+        "age": 1.2000000000000002,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 288.4,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": {
+          "x": 380.2500000000068,
+          "y": 185.4,
+          "endX": 668.6500000000068,
+          "endY": 185.4,
+          "length": 288.4
+        }
+      },
+      "before": {
+        "id": "gear_wasp",
+        "mode": "warning",
+        "remaining": 0.009999999999999759,
+        "age": 1.79,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          1,
+          0
+        ],
+        "distance": 288.4,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": {
+          "x": 380.2500000000068,
+          "y": 185.4,
+          "endX": 668.6500000000068,
+          "endY": 185.4,
+          "length": 288.4
+        }
+      },
+      "active": {
+        "id": "gear_wasp",
+        "mode": "dash",
+        "remaining": 1.9889655172413792,
+        "age": 1.8,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 288.4,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": {
+          "x": 380.2500000000068,
+          "y": 185.4,
+          "endX": 91.85000000000684,
+          "endY": 185.4,
+          "length": 288.4
+        }
+      },
+      "end": {
+        "id": "gear_wasp",
+        "mode": "rest",
+        "remaining": 2.6,
+        "age": 3.79,
+        "carry": 0,
+        "shots": 0,
+        "denied": 0,
+        "damageCalls": 0,
+        "hitPlayer": false,
+        "retired": false,
+        "direction": [
+          -1,
+          0
+        ],
+        "distance": 0,
+        "targetDistance": 288.4,
+        "dashDuration": 1.9889655172413792,
+        "path": null
+      },
+      "dx": -288.4000000000027,
+      "dy": 0,
+      "height": 412,
+      "bullets": 0
+    }
+  ],
+  "dash_collision": {
+    "warningHP": 4,
+    "first": 3,
+    "after": 3,
+    "invuln": 1.3900000000000006,
+    "bullets": 0
+  },
+  "laser_damage": {
+    "line": {
+      "x": 323.82801674447217,
+      "y": 221.161485206662,
+      "endX": 578.6456141958134,
+      "endY": 169.50887608450623,
+      "length": 260
+    },
+    "warning": {
+      "id": "laser_drone",
+      "mode": "warning",
+      "remaining": 0.65,
+      "age": 1.2000000000000002,
+      "carry": 0,
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9800676825051586,
+        -0.19866388123906073
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 323.82801674447217,
+        "y": 221.161485206662,
+        "endX": 578.6456141958134,
+        "endY": 169.50887608450623,
+        "length": 260
+      }
+    },
+    "before": 4,
+    "active": {
+      "id": "laser_drone",
+      "mode": "laser",
+      "remaining": 0.26999999999999996,
+      "age": 1.86,
+      "carry": 4.336808689942018e-19,
+      "shots": 1,
+      "denied": 0,
+      "damageCalls": 1,
+      "hitPlayer": true,
+      "retired": false,
+      "direction": [
+        0.9800676825051586,
+        -0.19866388123906073
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 323.82801674447217,
+        "y": 221.161485206662,
+        "endX": 578.6456141958134,
+        "endY": 169.50887608450623,
+        "length": 260
+      }
+    },
+    "hit": 3,
+    "after": 3,
+    "bullets": 0
+  },
+  "laser_geometry": {
+    "line": {
+      "x": 278.07801674447217,
+      "y": 200.56148520666204,
+      "endX": 532.8956141958134,
+      "endY": 148.9088760845062,
+      "length": 260
+    },
+    "probes": [
+      {
+        "point": {
+          "x": 262.15851477208014,
+          "y": 187.4630327426873
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 264.6219468994445,
+          "y": 199.61587200575124
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 264.6616796756923,
+          "y": 199.81188554225227
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 265.3371368719051,
+          "y": 203.14411566276982
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 266.0125940681179,
+          "y": 206.47634578328737
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 266.0523268443657,
+          "y": 206.6723593197884
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 268.51575897173007,
+          "y": 218.82519858285235
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 274.8993946446472,
+          "y": 184.8804022865795
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 277.36282677201154,
+          "y": 197.03324154964346
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 277.4025595482594,
+          "y": 197.2292550861445
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 278.07801674447217,
+          "y": 200.56148520666204
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 278.75347394068496,
+          "y": 203.8937153271796
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 278.7932067169328,
+          "y": 204.08972886368062
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 281.25663884429713,
+          "y": 216.24256812674457
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 338.6037940074825,
+          "y": 171.96725000604056
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 341.06722613484686,
+          "y": 184.1200892691045
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 341.1069589110947,
+          "y": 184.31610280560554
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 341.7824161073075,
+          "y": 187.6483329261231
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 342.4578733035203,
+          "y": 190.98056304664064
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 342.4976060797681,
+          "y": 191.17657658314167
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 344.96103820713245,
+          "y": 203.32941584620562
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 402.30819337031784,
+          "y": 159.0540977255016
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 404.7716254976822,
+          "y": 171.20693698856556
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 404.81135827393,
+          "y": 171.4029505250666
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 405.4868154701428,
+          "y": 174.73518064558414
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 406.1622726663556,
+          "y": 178.0674107661017
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 406.2020054426034,
+          "y": 178.26342430260271
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 408.66543756996776,
+          "y": 190.41626356566667
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 504.23523235085435,
+          "y": 138.39305407663926
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 506.6986644782187,
+          "y": 150.5458933397032
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 506.7383972544665,
+          "y": 150.74190687620424
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 507.4138544506793,
+          "y": 154.0741369967218
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 508.0893116468921,
+          "y": 157.40636711723934
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 508.12904442313993,
+          "y": 157.60238065374037
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 510.5924765505043,
+          "y": 169.75521991680432
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 529.7169920959884,
+          "y": 133.22779316442367
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 532.1804242233528,
+          "y": 145.38063242748763
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 532.2201569996006,
+          "y": 145.57664596398865
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 532.8956141958134,
+          "y": 148.9088760845062
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 533.5710713920263,
+          "y": 152.24110620502375
+        },
+        "hit": true
+      },
+      {
+        "point": {
+          "x": 533.6108041682741,
+          "y": 152.43711974152478
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 536.0742362956385,
+          "y": 164.58995900458874
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 542.4578719685554,
+          "y": 130.64516270831587
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 544.9213040959198,
+          "y": 142.79800197137982
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 544.9610368721676,
+          "y": 142.99401550788085
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 545.6364940683804,
+          "y": 146.3262456283984
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 546.3119512645933,
+          "y": 149.65847574891595
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 546.3516840408411,
+          "y": 149.85448928541697
+        },
+        "hit": false
+      },
+      {
+        "point": {
+          "x": 548.8151161682055,
+          "y": 162.00732854848093
+        },
+        "hit": false
+      }
+    ],
+    "calls": [
+      {
+        "width": 7,
+        "color": "#66e6ff"
+      },
+      {
+        "width": 2,
+        "color": "#e8fcff"
+      }
+    ],
+    "after": {
+      "id": "laser_drone",
+      "mode": "laser",
+      "remaining": 0.18,
+      "age": 1.9500000000000002,
+      "carry": 0,
+      "shots": 1,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9800676825051586,
+        -0.1986638812390609
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 278.07801674447217,
+        "y": 200.56148520666204,
+        "endX": 532.8956141958134,
+        "endY": 148.9088760845062,
+        "length": 260
+      }
+    }
+  },
+  "turret_shell": {
+    "before": 0,
+    "stopped": 62.99999999999642,
+    "first": {
+      "x": 344.24999999999864,
+      "y": 185.4,
+      "vx": -75,
+      "vy": 0,
+      "r": 6,
+      "life": 3.4
+    },
+    "count": 2,
+    "state": {
+      "id": "armored_turret",
+      "mode": "rest",
+      "remaining": 3.15,
+      "age": 5.25,
+      "carry": 0,
+      "shots": 2,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        -1,
+        0
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": null
+    }
+  },
+  "caps": {
+    "per": {
+      "bullets": 2,
+      "denied": 1
+    },
+    "total": 24,
+    "denied": 6
+  },
+  "fps_partition": [
+    [
+      {
+        "x": 237.64333333333997,
+        "y": 185.4,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 0.5999999999999767,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 237.64333333333997,
+        "y": 185.4,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 0.5999999999999767,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 237.64333333333997,
+        "y": 185.4,
+        "state": {
+          "id": "screw_bot",
+          "mode": "cooldown",
+          "remaining": 0.5999999999999767,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": 164.8,
+          "dashDuration": 1.6480000000000001,
+          "path": null
+        },
+        "bullets": []
+      }
+    ],
+    [
+      {
+        "x": 430.7000000000089,
+        "y": 185.4,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.9789655172413566,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 141.9500000000021,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 577.1500000000135,
+            "y": 185.4,
+            "endX": 288.75000000001353,
+            "endY": 185.4,
+            "length": 288.4
+          }
+        },
+        "bullets": []
+      },
+      {
+        "x": 430.7000000000089,
+        "y": 185.4,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.9789655172413566,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 141.9500000000021,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 577.1500000000135,
+            "y": 185.4,
+            "endX": 288.75000000001353,
+            "endY": 185.4,
+            "length": 288.4
+          }
+        },
+        "bullets": []
+      },
+      {
+        "x": 430.7000000000089,
+        "y": 185.4,
+        "state": {
+          "id": "gear_wasp",
+          "mode": "dash",
+          "remaining": 0.9789655172413566,
+          "age": 8,
+          "carry": 0,
+          "shots": 0,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            -1,
+            0
+          ],
+          "distance": 141.9500000000021,
+          "targetDistance": 288.4,
+          "dashDuration": 1.9889655172413792,
+          "path": {
+            "x": 577.1500000000135,
+            "y": 185.4,
+            "endX": 288.75000000001353,
+            "endY": 185.4,
+            "length": 288.4
+          }
+        },
+        "bullets": []
+      }
+    ],
+    [
+      {
+        "x": 253.28761688183974,
+        "y": 315.1645346644243,
+        "state": {
+          "id": "laser_drone",
+          "mode": "rest",
+          "remaining": 1.2599999999999576,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7798836489553461,
+            -0.6259245114964697
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 253.28761688183974,
+        "y": 315.1645346644243,
+        "state": {
+          "id": "laser_drone",
+          "mode": "rest",
+          "remaining": 1.2599999999999576,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7798836489553461,
+            -0.6259245114964697
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 253.28761688183974,
+        "y": 315.1645346644243,
+        "state": {
+          "id": "laser_drone",
+          "mode": "rest",
+          "remaining": 1.2599999999999576,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            0.7798836489553461,
+            -0.6259245114964697
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      }
+    ],
+    [
+      {
+        "x": 328.7499999999943,
+        "y": 185.4,
+        "state": {
+          "id": "armored_turret",
+          "mode": "rest",
+          "remaining": 0.3999999999999548,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 328.7499999999943,
+        "y": 185.4,
+        "state": {
+          "id": "armored_turret",
+          "mode": "rest",
+          "remaining": 0.3999999999999548,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      },
+      {
+        "x": 328.7499999999943,
+        "y": 185.4,
+        "state": {
+          "id": "armored_turret",
+          "mode": "rest",
+          "remaining": 0.3999999999999548,
+          "age": 8,
+          "carry": 0,
+          "shots": 2,
+          "denied": 0,
+          "damageCalls": 0,
+          "hitPlayer": false,
+          "retired": false,
+          "direction": [
+            1,
+            0
+          ],
+          "distance": 0,
+          "targetDistance": null,
+          "dashDuration": null,
+          "path": null
+        },
+        "bullets": []
+      }
+    ]
+  ],
+  "freeze_burst": {
+    "before": {
+      "id": "laser_drone",
+      "mode": "warning",
+      "remaining": 0.65,
+      "age": 1.2000000000000002,
+      "carry": 0,
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9728195746028407,
+        0.23156440846889204
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 348.30346976655636,
+        "y": 207.9571404907528,
+        "endX": 601.2365591632949,
+        "endY": 268.16388669266473,
+        "length": 260
+      }
+    },
+    "hidden": {
+      "id": "laser_drone",
+      "mode": "warning",
+      "remaining": 0.65,
+      "age": 1.2000000000000002,
+      "carry": 0,
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9728195746028407,
+        0.23156440846889204
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 348.30346976655636,
+        "y": 207.9571404907528,
+        "endX": 601.2365591632949,
+        "endY": 268.16388669266473,
+        "length": 260
+      }
+    },
+    "paused": {
+      "id": "laser_drone",
+      "mode": "warning",
+      "remaining": 0.65,
+      "age": 1.2000000000000002,
+      "carry": 0,
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9728195746028407,
+        0.23156440846889204
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 348.30346976655636,
+        "y": 207.9571404907528,
+        "endX": 601.2365591632949,
+        "endY": 268.16388669266473,
+        "length": 260
+      }
+    },
+    "position": [
+      686.25,
+      288.4,
+      348.30346976655636,
+      207.9571404907528
+    ],
+    "afterPosition": [
+      686.25,
+      288.4,
+      348.30346976655636,
+      207.9571404907528
+    ],
+    "burst": {
+      "id": "laser_drone",
+      "mode": "warning",
+      "remaining": 0.4000000000000009,
+      "age": 1.4500000000000002,
+      "carry": 0,
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9728195746028407,
+        0.23156440846889204
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": {
+        "x": 348.30346976655636,
+        "y": 207.9571404907528,
+        "endX": 601.2365591632949,
+        "endY": 268.16388669266473,
+        "length": 260
+      }
+    }
+  },
+  "death_cleanup": {
+    "pre": {
+      "actors": 1,
+      "lasers": 1,
+      "bullets": 0
+    },
+    "dead": {
+      "actors": 0,
+      "lasers": 0,
+      "bullets": 0
+    },
+    "shells": {
+      "actors": 0,
+      "lasers": 0,
+      "bullets": 0
+    },
+    "phase": {
+      "actors": 0,
+      "lasers": 0,
+      "bullets": 0
+    }
+  },
+  "controlled_gyro_evasion": [
+    {
+      "hp": 4,
+      "y": 244.71582375090222,
+      "start": 200.56148520666204,
+      "endHP": 4
+    },
+    {
+      "hp": 6,
+      "y": 233.29859380828253,
+      "start": 200.56148520666204,
+      "endHP": 6
+    },
+    {
+      "hp": 9,
+      "y": 219.6009823947047,
+      "start": 200.56148520666204,
+      "endHP": 9
+    }
+  ],
+  "density_100s": {
+    "maxBullets": 1,
+    "maxLasers": 1,
+    "maxUpdate": 1.300000000745058,
+    "state": {
+      "actors": 5,
+      "lasers": 0,
+      "bullets": 0
+    }
+  },
+  "worst_five_actor_density": [
+    {
+      "kind": 2,
+      "maxBullets": 0,
+      "maxLasers": 5
+    },
+    {
+      "kind": 3,
+      "maxBullets": 5,
+      "maxLasers": 0
+    }
+  ],
+  "edge_movement": [
+    {
+      "kind": 0,
+      "corner": [
+        17,
+        18
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 0,
+      "corner": [
+        551,
+        18
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 0,
+      "corner": [
+        17,
+        302
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 302,
+      "maxY": 302
+    },
+    {
+      "kind": 0,
+      "corner": [
+        551,
+        302
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 302,
+      "maxY": 302
+    },
+    {
+      "kind": 1,
+      "corner": [
+        17,
+        18
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 1,
+      "corner": [
+        551,
+        18
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 1,
+      "corner": [
+        17,
+        302
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 302,
+      "maxY": 302
+    },
+    {
+      "kind": 1,
+      "corner": [
+        551,
+        302
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 302,
+      "maxY": 302
+    },
+    {
+      "kind": 2,
+      "corner": [
+        17,
+        18
+      ],
+      "minX": 17,
+      "maxX": 164.6455360885594,
+      "minY": 18,
+      "maxY": 20.813652475429194
+    },
+    {
+      "kind": 2,
+      "corner": [
+        551,
+        18
+      ],
+      "minX": 550.116777868716,
+      "maxX": 551,
+      "minY": 18,
+      "maxY": 164.23580515854314
+    },
+    {
+      "kind": 2,
+      "corner": [
+        17,
+        302
+      ],
+      "minX": 17,
+      "maxX": 17.883222131284374,
+      "minY": 155.7641948414571,
+      "maxY": 302
+    },
+    {
+      "kind": 2,
+      "corner": [
+        551,
+        302
+      ],
+      "minX": 403.3544639114421,
+      "maxX": 551,
+      "minY": 299.1863475245708,
+      "maxY": 302
+    },
+    {
+      "kind": 3,
+      "corner": [
+        17,
+        18
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 3,
+      "corner": [
+        551,
+        18
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 18,
+      "maxY": 18
+    },
+    {
+      "kind": 3,
+      "corner": [
+        17,
+        302
+      ],
+      "minX": 17,
+      "maxX": 17,
+      "minY": 302,
+      "maxY": 302
+    },
+    {
+      "kind": 3,
+      "corner": [
+        551,
+        302
+      ],
+      "minX": 551,
+      "maxX": 551,
+      "minY": 302,
+      "maxY": 302
+    }
+  ],
+  "boss_gate": [
+    {
+      "before": {
+        "kills": 6,
+        "boss": false
+      },
+      "start": {
+        "hp": 20,
+        "r": 48
+      },
+      "clean": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      },
+      "bossShots": 1,
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "9e9f481b-520f-4e5c-b53a-61dd70eabad3",
+          "score": 3100,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T07:03:11.730Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "summary": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "before": {
+        "kills": 6,
+        "boss": false
+      },
+      "start": {
+        "hp": 20,
+        "r": 48
+      },
+      "clean": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      },
+      "bossShots": 1,
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "fee74b7d-f724-4d3f-b005-f034f83fd38a",
+          "score": 3100,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T07:03:11.745Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "summary": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      }
+    },
+    {
+      "before": {
+        "kills": 6,
+        "boss": false
+      },
+      "start": {
+        "hp": 20,
+        "r": 48
+      },
+      "clean": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      },
+      "bossShots": 1,
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "84a299e1-291c-456d-831f-25723ab40620",
+          "score": 3100,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T07:03:11.760Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "summary": {
+        "actors": 0,
+        "lasers": 0,
+        "bullets": 0
+      }
+    }
+  ],
+  "fatal_laser": {
+    "started": false,
+    "hp": 0,
+    "gameOverPending": true,
+    "otherHP": 1,
+    "score": 0,
+    "resultScore": 0,
+    "summary": {
+      "actors": 0,
+      "lasers": 0,
+      "bullets": 0
+    }
+  },
+  "layouts": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 705,
+          "height": 17.5,
+          "top": 10,
+          "right": 715,
+          "bottom": 27.5,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "fire": {
+          "x": 815,
+          "y": 317,
+          "width": 85,
+          "height": 85,
+          "top": 317,
+          "right": 900,
+          "bottom": 402,
+          "left": 815
+        },
+        "fullscreenToggle": {
+          "x": 725,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 819,
+          "bottom": 35,
+          "left": 725
+        },
+        "exitGame": {
+          "x": 833.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 905,
+          "bottom": 40,
+          "left": 833.5625
+        }
+      }
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 590,
+          "height": 15.984375,
+          "top": 10,
+          "right": 600,
+          "bottom": 25.984375,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "fire": {
+          "x": 700,
+          "y": 265,
+          "width": 85,
+          "height": 85,
+          "top": 265,
+          "right": 785,
+          "bottom": 350,
+          "left": 700
+        },
+        "fullscreenToggle": {
+          "x": 610,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 704,
+          "bottom": 35,
+          "left": 610
+        },
+        "exitGame": {
+          "x": 718.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 790,
+          "bottom": 40,
+          "left": 718.5625
+        }
+      }
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 358,
+          "height": 12.5,
+          "top": 10,
+          "right": 368,
+          "bottom": 22.5,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "fire": {
+          "x": 468,
+          "y": 225,
+          "width": 85,
+          "height": 85,
+          "top": 225,
+          "right": 553,
+          "bottom": 310,
+          "left": 468
+        },
+        "fullscreenToggle": {
+          "x": 378,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 472,
+          "bottom": 35,
+          "left": 378
+        },
+        "exitGame": {
+          "x": 486.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 558,
+          "bottom": 40,
+          "left": 486.5625
+        }
+      }
+    }
+  ],
+  "resize": {
+    "s": {
+      "actors": 1,
+      "lasers": 0,
+      "bullets": 0
+    },
+    "state": {
+      "id": "laser_drone",
+      "mode": "rest",
+      "remaining": 1.2,
+      "age": 1.85,
+      "carry": 0,
+      "shots": 1,
+      "denied": 0,
+      "damageCalls": 0,
+      "hitPlayer": false,
+      "retired": false,
+      "direction": [
+        0.9800676825051585,
+        -0.1986638812390612
+      ],
+      "distance": 0,
+      "targetDistance": null,
+      "dashDuration": null,
+      "path": null
+    }
+  },
+  "all_passed": true,
+  "errors": [],
+  "dialogs": [],
+  "failed": [],
+  "offline_requests": []
+}
