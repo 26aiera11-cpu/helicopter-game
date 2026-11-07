@@ -13,7 +13,7 @@
  const loaded=image=>image?.complete&&image.naturalWidth>0;
  function track(actor,isBoss=false){
   let state=states.get(actor);
-  if(!state){state={id:isBoss?bossId:normalIds[(actor.kind??0)%normalIds.length],x:actor.x,y:actor.y,base:'idle',at:clock,attack:-Infinity,hit:-Infinity,dead:false};states.set(actor,state);}
+  if(!state){state={id:isBoss?bossId:actor.machineSpeciesId||normalIds[(actor.kind??0)%normalIds.length],x:actor.x,y:actor.y,base:'idle',at:clock,attack:-Infinity,hit:-Infinity,dead:false};states.set(actor,state);}
   return state;
  }
  function tick(dt){if(enabled()&&!document.hidden&&!window.gameExitDialogOpen){clock+=dt;ghosts=ghosts.filter(g=>clock-g.at<durations.defeat);}}
@@ -63,5 +63,5 @@
  // Explicit graphics-only inspection: never called by combat, HP or movement code.
  function preview(ctx,path,x,y,width=132){const image=images.get(path);if(!loaded(image))return false;paint(ctx,{baseImage:image,renderWidth:width},{x,y},frame('idle',0));return true;}
  window.gameMachineFortress=Object.freeze({manifest,species,normalIds,bossId,backgroundImage,overdriveImage:images.get('boss/giga_core_overdrive.png'),durations,enabled,tick,observe,attack,hit,frame,pose,geometry,paint,drawActor,drawDefeats,drawBackground,deferAdvance,tickAdvance,reset,preview,
-  ready:()=>loaded(backgroundImage)&&[...images.values()].every(loaded),snapshot:()=>({clock,ghosts:ghosts.map(g=>({...g})),advancing:Boolean(pending),combat:'legacy forest profile0',overdriveCombat:false,wallCombat:false})});
+  ready:()=>loaded(backgroundImage)&&[...images.values()].every(loaded),snapshot:()=>({clock,ghosts:ghosts.map(g=>({...g})),advancing:Boolean(pending),combat:'machine normal trial / legacy boss profile0',overdriveCombat:false,wallCombat:false})});
 })();

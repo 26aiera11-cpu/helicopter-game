@@ -1,0 +1,8 @@
+PASS: Exact17 engine hooks/2art ID-status/2notice deltas invert to c512d82; all other125 old assets/PNGs/other AI/weapons/input/audio preserved;26scripts parse; normal40/boss132 unchanged.
+PASS: All5 exact spawn tables,100000 weighted draws and identical-seed replay pass; no global Math.random or snow/volcano/storm RNG state consumption.
+PASS: 17 permitted phase/species pairs materialize once with matching stable art/AI/HP/speed/r16; reprepare never rerolls/heals and changing legacy kind cannot change art identity.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/machine_normal.py", line 59, in <module>
+    assert abs(abs(row['dx'])-[35,94.25][kind])<1e-6 and abs(row['dy'])<1e-6 and row['active']['direction'][0]==(1 if kind==0 else -1);dashes.append(row)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

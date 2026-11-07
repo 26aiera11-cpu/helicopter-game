@@ -95,12 +95,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 그래픽 시험 · 기본 전투 / BGM 숲 임시 · 전용 공격 미구현':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 일반 전투 시험 · 보스/음악 숲 임시':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 기본 전투·숲 임시 BGM의 그래픽 시험이며 전용 공격·장벽·폭주 강화는 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종 전용 전투·숲 임시 BGM 시험이며 보스 특수 공격·장벽·폭주 강화는 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';

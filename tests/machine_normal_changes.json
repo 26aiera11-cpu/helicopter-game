@@ -1,0 +1,118 @@
+{
+  "index.html": [
+    [
+      "<script src=\"assets/worlds/difficulty.js\"></script>",
+      "<script src=\"assets/worlds/difficulty.js\"></script><script src=\"assets/machine_fortress/config.js\"></script><script src=\"assets/machine_fortress/spawns.js\"></script>",
+      1
+    ],
+    [
+      "<script src=\"assets/machine_fortress/machine_fortress.js\"></script>",
+      "<script src=\"assets/machine_fortress/machine_fortress.js\"></script><script src=\"assets/machine_fortress/combat.js\"></script>",
+      1
+    ],
+    [
+      "gameMachineFortress.reset();",
+      "gameMachineCombat.cleanup();gameMachineFortress.reset();",
+      4
+    ],
+    [
+      "const entry=gameWorlds.runStart();",
+      "const entry=gameWorlds.runStart();if(gameWorlds.region(entry.regionId).key===gameMachineConfig.key)gameMachineSpawns.reset();",
+      1
+    ],
+    [
+      "if(gameWorlds.region(stage).key==='world-2:storm-sky')gameStormSpawns.reset();",
+      "if(gameWorlds.region(stage).key===gameMachineConfig.key)gameMachineSpawns.reset();if(gameWorlds.region(stage).key==='world-2:storm-sky')gameStormSpawns.reset();",
+      1
+    ],
+    [
+      "function spawnBossEncounter(profile=gameWorlds.profile(stage)){",
+      "function spawnBossEncounter(profile=gameWorlds.profile(stage)){gameMachineCombat.cleanup();",
+      1
+    ],
+    [
+      "if(gameStormBoss.backgroundPaused()||",
+      "if(gameMachineCombat.backgroundPaused()||gameStormBoss.backgroundPaused()||",
+      1
+    ],
+    [
+      " const profile=gameWorlds.profile(stage);\n gameMachineFortress.tick(dt);",
+      " gameMachineCombat.beginFrame();\n const profile=gameWorlds.profile(stage);\n gameMachineFortress.tick(dt);",
+      1
+    ],
+    [
+      "enemies.push(gameStormCombat.prepare(",
+      "enemies.push(gameMachineCombat.prepare(gameStormCombat.prepare(",
+      1
+    ],
+    [
+      "charge:2+Math.random()*2,vx:0,vy:0}))))))",
+      "charge:2+Math.random()*2,vx:0,vy:0})))))))",
+      1
+    ],
+    [
+      "if(!gameStormCombat.update(e,dt)&&",
+      "if(!gameMachineCombat.update(e,dt)&&!gameStormCombat.update(e,dt)&&",
+      1
+    ],
+    [
+      "gameMachineFortress.hit(e);",
+      "gameMachineFortress.hit(e);gameMachineCombat.hit(e);",
+      1
+    ],
+    [
+      "gameMachineFortress.hit(other);",
+      "gameMachineFortress.hit(other);gameMachineCombat.hit(other);",
+      1
+    ],
+    [
+      "for(let b of enemyBullets){b.x+=b.vx*dt;b.y+=b.vy*dt;b.life-=dt;",
+      "for(let b of enemyBullets){const bulletDt=gameMachineCombat.bulletStep(b,dt);b.x+=b.vx*bulletDt;b.y+=b.vy*bulletDt;b.life-=bulletDt;",
+      1
+    ],
+    [
+      "gameStormCombat.drawTelegraph(ctx,e);",
+      "gameMachineCombat.drawTelegraph(ctx,e);gameStormCombat.drawTelegraph(ctx,e);",
+      1
+    ],
+    [
+      "if(gameStormCombat.drawBullet(ctx,b)||",
+      "if(gameMachineCombat.drawBullet(ctx,b)||gameStormCombat.drawBullet(ctx,b)||",
+      1
+    ],
+    [
+      "stage===7?'기계 요새 기본 전투 · 그래픽 시험'",
+      "stage===7?'기계 요새 일반 전용 전투 시험'",
+      1
+    ],
+    [
+      " }\n for(let b of bullets)if(b.life>0&&!(b.hit||[]).includes(e)",
+      " }\n if(gameMachineCombat.enabled()&&!started)return;\n for(let b of bullets)if(b.life>0&&!(b.hit||[]).includes(e)",
+      1
+    ]
+  ],
+  "assets/machine_fortress/machine_fortress.js": [
+    [
+      "id:isBoss?bossId:normalIds[(actor.kind??0)%normalIds.length]",
+      "id:isBoss?bossId:actor.machineSpeciesId||normalIds[(actor.kind??0)%normalIds.length]",
+      1
+    ],
+    [
+      "combat:'legacy forest profile0'",
+      "combat:'machine normal trial / legacy boss profile0'",
+      1
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "기계 요새 그래픽 시험 · 기본 전투 / BGM 숲 임시 · 전용 공격 미구현",
+      "기계 요새 일반 전투 시험 · 보스/음악 숲 임시",
+      1
+    ],
+    [
+      "기계 요새는 기본 전투·숲 임시 BGM의 그래픽 시험이며 전용 공격·장벽·폭주 강화는 미구현입니다.",
+      "기계 요새는 일반4종 전용 전투·숲 임시 BGM 시험이며 보스 특수 공격·장벽·폭주 강화는 미구현입니다.",
+      1
+    ]
+  ]
+}
