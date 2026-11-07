@@ -1,4 +1,6 @@
 """Issue22 private weighted draws plus actual mixed actors, boss gate and lifecycle."""
+from storm_sky_preservation import STORM_ASSETS,assert_storm_asset
+from storm_sky_bgm_preservation import STORM_BGM_ASSETS,assert_storm_bgm_asset
 import argparse,hashlib,json,math,re,shutil,subprocess,threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
@@ -16,6 +18,8 @@ for name in ['index.html','assets/worlds/difficulty.js','assets/worlds/worlds.js
 for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
+ if name in STORM_ASSETS:assert_storm_asset(name);continue
+ if name in STORM_BGM_ASSETS:assert_storm_bgm_asset(name);continue
  if name in VOLCANO_BGM_ASSETS:assert_volcano_bgm_asset(name);continue
  if name=='assets/volcano/spawns.js':assert_volcano_mixed_asset(name);continue
  actual=without_volcano_mixed(path.read_text(),name).encode() if path.suffix=='.js' else path.read_bytes()

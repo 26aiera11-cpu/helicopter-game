@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "ppyoko_title-native",
+    "exit_code": 0,
+    "groups": 9,
+    "observed_groups_before_failure": 0,
+    "seconds": 48.15,
+    "command": [
+      "python",
+      "/tmp/storm-sky-work/tests/ppyoko_title.py",
+      "--artifacts",
+      "/tmp/storm-name-retests/ppyoko_title-native"
+    ]
+  },
+  {
+    "suite": "ppyoko_title-offline",
+    "exit_code": 0,
+    "groups": 9,
+    "observed_groups_before_failure": 0,
+    "seconds": 200.25,
+    "command": [
+      "python",
+      "/tmp/storm-sky-work/tests/ppyoko_title.py",
+      "--artifacts",
+      "/tmp/storm-name-retests/ppyoko_title-offline",
+      "--standalone"
+    ]
+  }
+]

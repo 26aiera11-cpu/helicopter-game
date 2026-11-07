@@ -1,0 +1,29 @@
+PASS: All109 preexisting assets/index reverse exactly to6c3446b after only background scale/metadata changes; PNGs,combat,world registry,HUD,controls/audio unchanged.
+PASS: Native manifest/template and asset preparation metadata consistently declare contain; approved background SHA and one-image identity stay unchanged.
+PASS: Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; old cover crops20.125% at568×320.
+PASS: Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.
+PASS: All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.
+PASS: At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; comparison uses decoded available bytes and does not assert missing pixels exist.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/storm_background_fit.py", line 79, in <module>
+    hdpi=hp.evaluate("""()=>{const draw=ctx.drawImage,calls=[];ctx.drawImage=function(im,...a){if(im===gameStormSky.backgroundImage)calls.push({args:a,m:[ctx.getTransform().a,ctx.getTransform().d]});return draw.call(this,im,...a);};try{draw();}finally{ctx.drawImage=draw;}return {css:[W,H],bitmap:[canvas.width,canvas.height],dpr,calls};}""")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9385, in evaluate
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 472, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 345, in evaluate
+    await self._channel.send(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: TypeError: Illegal invocation
+    at eval (eval at evaluate (:311:30), <anonymous>:1:213)
+    at UtilityScript.evaluate (<anonymous>:318:18)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)

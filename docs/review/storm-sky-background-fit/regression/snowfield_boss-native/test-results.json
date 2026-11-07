@@ -1,0 +1,2051 @@
+{
+  "baseline": "c5daee93966ea926a17c1501c5b3a2d07f0c3600",
+  "standalone": false,
+  "passed": [
+    "Exact Issue9 hooks reverse toc5daee9; every earlier normal AI,art115frames,PNG/manifest,input/item/score/audio asset stays byte-identical apart from two reviewed notices; all JS parses.",
+    "Actual Help→World2→snow→direct5 starts all3 selected characters at fullHP/upgrade0/score0 with one20HP/r48 boss,no normal quota and retained fullscreen.",
+    "60/120Hz match35s fan→radial→blast sequence:1.8s initial delay,3.0s rest after completion,1.4s warning+.25s burst; old forest shot path is never called and active owned bullets cap at9.",
+    "Actual fan is3 aimed shots at±18°/80px/s; radial is6 shots at60°/65px/s with0→15→30° starts,one attack art event per emitted burst/detonation and no warning-loop attack.",
+    "Warning lasts1.4s at its original fixed coordinate/height-scaled56–74px; moving80px away does not drag the marker and avoids damage; warning alone does not trigger attack art.",
+    "All3 characters take exactly1HP at detonation through existing hurt()/1.55s invulnerability; .25s effect/repeated update(0) never deals another hit and next rest starts only after effect completion.",
+    "Blast damages within the displayed74px center radius,not74.1px outside; an existing invulnerability window blocks damage without extra status effects.",
+    "Boss projectiles use the existing enemyBullets collision path: Tanko annihilates both projectiles,Trio/Bingle gain no block and original r5/life3.4 remains.",
+    "Actual in-game exit modal freezes warning/cooldown,Continue preserves the same pattern,and confirmed selection return clears hazard/projectiles with fullscreen retained and no later damage.",
+    "Scoped background pause freezes boss motion,all owned bullets,hazard and cooldown; visibility return validates geometry without advancing or restarting the1.4s timer.",
+    "A defensive new game during a warning creates a new boss with fresh1.8s delay and clears every old danger/projectile without carrying score or damage.",
+    "Fatal blast stops play/BGM immediately,clears hazard/projectiles,keeps the existing3s GAME OVER and clean selection return; developer result remains unsaved.",
+    "Real shots from each character kill the boss during a warning; both50:50 HP+2/power+1 rewards,2000points,one clear result and1.05s original hit/defeat outro occur once with no residual blast.",
+    "All developer pattern cycles,deaths,exits,restarts and6 reward clears preserve all4 valid preexisting TOP10/history strings with0 storage writes and no memory-record contamination.",
+    "All3 characters×upgrade0–5 retain bossHP20/22/28/32/38/44,r48 and spawn-time-only scaling; new attacks add no rage,extra summons or upgrade-dependent pattern change.",
+    "915×412,800×360,568×320 capture direct entry/all3 patterns/clear; height-scaled56–74px warnings remain fully on-canvas and disjoint from HUD/boss name/HP and actual joystick/fire/sensor/fullscreen/exit rectangles.",
+    "Resize/fullscreen/visibility validation cancels an unsafe warning rather than moving it to follow the player or allowing off-canvas damage.",
+    "All4 World1 boss4s seeded traces remain byte-for-byte equal toc5daee9 for movement,HP,shot cadence,projectile vectors and counters; normal-monster AI is additionally byte-guarded and covered by retained16+16 regressions.",
+    "No uncaught JS errors,native dialogs,failed resources or offline external requests; no new audio objects/assets,online storage or unregistered region is introduced."
+  ],
+  "limits": [
+    "Actual Chromium engine/input/media/fullscreen events with controlled aim, positions,dt and invulnerability; not physical Galaxy or manual difficulty completion.",
+    "60/120Hz are deterministic simulation steps, not claimed hardware refresh rates.",
+    "Offline runs the exact standalone HTML at a blank localhost origin with networking disabled, not a file policy bypass.",
+    "Safe AOEs preserve the original target coordinate but choose the nearest unobstructed center only when screen/HUD/controls would make it unsafe; a resize can cancel an unsafe warning."
+  ],
+  "actual_help_entries": [
+    {
+      "type": 0,
+      "hp": 4,
+      "max": 4,
+      "upgrade": 0,
+      "score": 0,
+      "stage": 4,
+      "phase": 5,
+      "normal": 0,
+      "bossHP": 20,
+      "r": 48,
+      "state": {
+        "age": 0.05669999999999982,
+        "phase": "rest",
+        "remaining": 1.7433000000000003,
+        "next": "fan",
+        "radialAngle": 0,
+        "hazard": null,
+        "bullets": 0
+      },
+      "route": [
+        4
+      ],
+      "full": true
+    },
+    {
+      "type": 1,
+      "hp": 6,
+      "max": 6,
+      "upgrade": 0,
+      "score": 0,
+      "stage": 4,
+      "phase": 5,
+      "normal": 0,
+      "bossHP": 20,
+      "r": 48,
+      "state": {
+        "age": 0,
+        "phase": "rest",
+        "remaining": 1.8,
+        "next": "fan",
+        "radialAngle": 0,
+        "hazard": null,
+        "bullets": 0
+      },
+      "route": [
+        4
+      ],
+      "full": true
+    },
+    {
+      "type": 2,
+      "hp": 9,
+      "max": 9,
+      "upgrade": 0,
+      "score": 0,
+      "stage": 4,
+      "phase": 5,
+      "normal": 0,
+      "bossHP": 20,
+      "r": 48,
+      "state": {
+        "age": 0,
+        "phase": "rest",
+        "remaining": 1.8,
+        "next": "fan",
+        "radialAngle": 0,
+        "hazard": null,
+        "bullets": 0
+      },
+      "route": [
+        4
+      ],
+      "full": true
+    }
+  ],
+  "sequence_60_120": [
+    {
+      "hz": 60,
+      "events": [
+        {
+          "age": 1.7999999999999985,
+          "kind": "fan",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 4.799999999999988,
+          "kind": "radial",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 9.200000000000035,
+          "kind": "blast",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 12.450000000000196,
+          "kind": "fan",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 15.450000000000346,
+          "kind": "radial",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 19.850000000000154,
+          "kind": "blast",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 23.09999999999997,
+          "kind": "fan",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 26.0999999999998,
+          "kind": "radial",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 30.49999999999955,
+          "kind": "blast",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 33.74999999999937,
+          "kind": "fan",
+          "x": 206.58555330818368,
+          "y": 100.87139064473325,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        }
+      ],
+      "warnings": [
+        {
+          "age": 7.799999999999978,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        },
+        {
+          "age": 18.450000000000234,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        },
+        {
+          "age": 29.09999999999963,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        }
+      ],
+      "waves": [
+        {
+          "age": 1.7999999999999985,
+          "event": {
+            "age": 1.7999999999999985,
+            "kind": "fan",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.018304412175574606,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2958548531834047,
+              "speed": 80.00000000000001,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.610014118542384,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 4.799999999999988,
+          "event": {
+            "age": 4.799999999999988,
+            "kind": "radial",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.0471975511965976,
+              "speed": 65.00000000000001,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.0943951023931953,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 3.141592653589793,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.094395102393196,
+              "speed": 64.99999999999999,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.0471975511965976,
+              "speed": 65.00000000000001,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 12.450000000000196,
+          "event": {
+            "age": 12.450000000000196,
+            "kind": "fan",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.018304412175574606,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2958548531834047,
+              "speed": 80.00000000000001,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.610014118542384,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 15.450000000000346,
+          "event": {
+            "age": 15.450000000000346,
+            "kind": "radial",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0.2617993877991494,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.308996938995747,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.356194490192345,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.879793265790644,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.8325957145940468,
+              "speed": 64.99999999999999,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -0.7853981633974485,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 23.09999999999997,
+          "event": {
+            "age": 23.09999999999997,
+            "kind": "fan",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.018304412175574606,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2958548531834047,
+              "speed": 80.00000000000001,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.610014118542384,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 26.0999999999998,
+          "event": {
+            "age": 26.0999999999998,
+            "kind": "radial",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0.5235987755982987,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.5707963267948966,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.617993877991494,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.617993877991495,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.5707963267948968,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -0.5235987755982985,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 33.74999999999937,
+          "event": {
+            "age": 33.74999999999937,
+            "kind": "fan",
+            "x": 206.58555330818368,
+            "y": 100.87139064473325,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.018304412175574606,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2958548531834047,
+              "speed": 80.00000000000001,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.610014118542384,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        }
+      ],
+      "max": 9,
+      "legacyCalls": 0,
+      "hurtCalls": 3,
+      "hp": 4,
+      "state": {
+        "age": 34.9999999999993,
+        "phase": "rest",
+        "remaining": 1.7500000000000044,
+        "next": "radial",
+        "radialAngle": 0.7853981633974483,
+        "hazard": null,
+        "bullets": 3
+      }
+    },
+    {
+      "hz": 120,
+      "events": [
+        {
+          "age": 1.799999999999996,
+          "kind": "fan",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 4.800000000000028,
+          "kind": "radial",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 9.200000000000118,
+          "kind": "blast",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 12.449999999999934,
+          "kind": "fan",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 15.449999999999763,
+          "kind": "radial",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 19.849999999999515,
+          "kind": "blast",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 23.09999999999933,
+          "kind": "fan",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 26.09999999999916,
+          "kind": "radial",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 30.49999999999891,
+          "kind": "blast",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        },
+        {
+          "age": 33.74999999999873,
+          "kind": "fan",
+          "x": 203.94277665409183,
+          "y": 99.87569532236662,
+          "px": 713.7,
+          "py": 255.44,
+          "pose": "attack"
+        }
+      ],
+      "warnings": [
+        {
+          "age": 7.8000000000001775,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        },
+        {
+          "age": 18.449999999999594,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        },
+        {
+          "age": 29.09999999999899,
+          "hazard": {
+            "x": 713.7,
+            "y": 255.44,
+            "target": {
+              "x": 713.7,
+              "y": 255.44
+            },
+            "r": 74
+          }
+        }
+      ],
+      "waves": [
+        {
+          "age": 1.799999999999996,
+          "event": {
+            "age": 1.799999999999996,
+            "kind": "fan",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.017963088664367185,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2961961766946121,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.6103554420535915,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 4.800000000000028,
+          "event": {
+            "age": 4.800000000000028,
+            "kind": "radial",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.0471975511965976,
+              "speed": 65.00000000000001,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.0943951023931953,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 3.141592653589793,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.094395102393196,
+              "speed": 64.99999999999999,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.0471975511965976,
+              "speed": 65.00000000000001,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 12.449999999999934,
+          "event": {
+            "age": 12.449999999999934,
+            "kind": "fan",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.017963088664367185,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2961961766946121,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.6103554420535915,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 15.449999999999763,
+          "event": {
+            "age": 15.449999999999763,
+            "kind": "radial",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0.2617993877991494,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.308996938995747,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.356194490192345,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.879793265790644,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.8325957145940468,
+              "speed": 64.99999999999999,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -0.7853981633974485,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 23.09999999999933,
+          "event": {
+            "age": 23.09999999999933,
+            "kind": "fan",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.017963088664367185,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2961961766946121,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.6103554420535915,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        },
+        {
+          "age": 26.09999999999916,
+          "event": {
+            "age": 26.09999999999916,
+            "kind": "radial",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": 0.5235987755982987,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 1.5707963267948966,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": 2.617993877991494,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -2.617993877991495,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -1.5707963267948968,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            },
+            {
+              "angle": -0.5235987755982985,
+              "speed": 65,
+              "r": 5,
+              "kind": "radial"
+            }
+          ]
+        },
+        {
+          "age": 33.74999999999873,
+          "event": {
+            "age": 33.74999999999873,
+            "kind": "fan",
+            "x": 203.94277665409183,
+            "y": 99.87569532236662,
+            "px": 713.7,
+            "py": 255.44,
+            "pose": "attack"
+          },
+          "shots": [
+            {
+              "angle": -0.017963088664367185,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.2961961766946121,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            },
+            {
+              "angle": 0.6103554420535915,
+              "speed": 80,
+              "r": 5,
+              "kind": "fan"
+            }
+          ]
+        }
+      ],
+      "max": 9,
+      "legacyCalls": 0,
+      "hurtCalls": 3,
+      "hp": 4,
+      "state": {
+        "age": 34.99999999999866,
+        "phase": "rest",
+        "remaining": 1.7500000000000044,
+        "next": "radial",
+        "radialAngle": 0.7853981633974483,
+        "hazard": null,
+        "bullets": 3
+      }
+    }
+  ],
+  "fixed_warning_and_dodge": {
+    "before": {
+      "age": 7.8,
+      "phase": "warning",
+      "remaining": 1.4,
+      "next": "fan",
+      "radialAngle": 0.2617993877991494,
+      "hazard": {
+        "x": 457.5,
+        "y": 255.44,
+        "target": {
+          "x": 457.5,
+          "y": 255.44
+        },
+        "r": 74
+      },
+      "bullets": 0
+    },
+    "middle": {
+      "age": 8.49999999999998,
+      "phase": "warning",
+      "remaining": 0.7000000000000024,
+      "next": "fan",
+      "radialAngle": 0.2617993877991494,
+      "hazard": {
+        "x": 457.5,
+        "y": 255.44,
+        "target": {
+          "x": 457.5,
+          "y": 255.44
+        },
+        "r": 74
+      },
+      "bullets": 0
+    },
+    "after": {
+      "age": 9.19999999999994,
+      "phase": "burst",
+      "remaining": 0.25,
+      "next": "fan",
+      "radialAngle": 0.2617993877991494,
+      "hazard": {
+        "x": 457.5,
+        "y": 255.44,
+        "target": {
+          "x": 457.5,
+          "y": 255.44
+        },
+        "r": 74
+      },
+      "bullets": 0
+    },
+    "pose": "move",
+    "hp": 4,
+    "player": {
+      "x": 537.5,
+      "y": 255.44
+    }
+  },
+  "blast_damage_all_characters": [
+    {
+      "kind": 0,
+      "first": {
+        "hp": 3,
+        "invuln": 1.55,
+        "state": {
+          "age": 9.19999999999994,
+          "phase": "burst",
+          "remaining": 0.25,
+          "next": "fan",
+          "radialAngle": 0.2617993877991494,
+          "hazard": {
+            "x": 457.5,
+            "y": 255.44,
+            "target": {
+              "x": 457.5,
+              "y": 255.44
+            },
+            "r": 74
+          },
+          "bullets": 0
+        }
+      },
+      "after": 3,
+      "calls": 1,
+      "state": {
+        "age": 9.449999999999926,
+        "phase": "rest",
+        "remaining": 3,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": null,
+        "bullets": 0
+      }
+    },
+    {
+      "kind": 1,
+      "first": {
+        "hp": 5,
+        "invuln": 1.55,
+        "state": {
+          "age": 9.19999999999994,
+          "phase": "burst",
+          "remaining": 0.25,
+          "next": "fan",
+          "radialAngle": 0.2617993877991494,
+          "hazard": {
+            "x": 457.5,
+            "y": 255.44,
+            "target": {
+              "x": 457.5,
+              "y": 255.44
+            },
+            "r": 74
+          },
+          "bullets": 0
+        }
+      },
+      "after": 5,
+      "calls": 1,
+      "state": {
+        "age": 9.449999999999926,
+        "phase": "rest",
+        "remaining": 3,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": null,
+        "bullets": 0
+      }
+    },
+    {
+      "kind": 2,
+      "first": {
+        "hp": 8,
+        "invuln": 1.55,
+        "state": {
+          "age": 9.19999999999994,
+          "phase": "burst",
+          "remaining": 0.25,
+          "next": "fan",
+          "radialAngle": 0.2617993877991494,
+          "hazard": {
+            "x": 457.5,
+            "y": 255.44,
+            "target": {
+              "x": 457.5,
+              "y": 255.44
+            },
+            "r": 74
+          },
+          "bullets": 0
+        }
+      },
+      "after": 8,
+      "calls": 1,
+      "state": {
+        "age": 9.449999999999926,
+        "phase": "rest",
+        "remaining": 3,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": null,
+        "bullets": 0
+      }
+    }
+  ],
+  "aoe_boundary_and_invulnerability": [
+    {
+      "distance": 74,
+      "initialInvuln": 0,
+      "hp": 3,
+      "invuln": 1.55,
+      "state": {
+        "age": 9.19999999999994,
+        "phase": "burst",
+        "remaining": 0.25,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      }
+    },
+    {
+      "distance": 74.1,
+      "initialInvuln": 0,
+      "hp": 4,
+      "invuln": 0,
+      "state": {
+        "age": 9.19999999999994,
+        "phase": "burst",
+        "remaining": 0.25,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      }
+    },
+    {
+      "distance": 0,
+      "initialInvuln": 1.55,
+      "hp": 4,
+      "invuln": 0.15000000000000302,
+      "state": {
+        "age": 9.19999999999994,
+        "phase": "burst",
+        "remaining": 0.25,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      }
+    }
+  ],
+  "existing_projectile_interception": [
+    {
+      "requested": "fan",
+      "character": 0,
+      "original": {
+        "r": 5,
+        "life": 3.3916666666666666,
+        "kind": "fan"
+      },
+      "enemyGone": false,
+      "ownGone": false
+    },
+    {
+      "requested": "fan",
+      "character": 1,
+      "original": {
+        "r": 5,
+        "life": 3.3916666666666666,
+        "kind": "fan"
+      },
+      "enemyGone": false,
+      "ownGone": false
+    },
+    {
+      "requested": "fan",
+      "character": 2,
+      "original": {
+        "r": 5,
+        "life": 3.3916666666666666,
+        "kind": "fan"
+      },
+      "enemyGone": true,
+      "ownGone": true
+    },
+    {
+      "requested": "radial",
+      "character": 0,
+      "original": {
+        "r": 5,
+        "life": 3.191666666666705,
+        "kind": "radial"
+      },
+      "enemyGone": false,
+      "ownGone": false
+    },
+    {
+      "requested": "radial",
+      "character": 1,
+      "original": {
+        "r": 5,
+        "life": 3.191666666666705,
+        "kind": "radial"
+      },
+      "enemyGone": false,
+      "ownGone": false
+    },
+    {
+      "requested": "radial",
+      "character": 2,
+      "original": {
+        "r": 5,
+        "life": 3.191666666666705,
+        "kind": "radial"
+      },
+      "enemyGone": true,
+      "ownGone": true
+    }
+  ],
+  "background_pause": {
+    "before": {
+      "state": {
+        "age": 7.8,
+        "phase": "warning",
+        "remaining": 1.4,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      },
+      "x": 317.2724500386971,
+      "y": 178.39357522252442,
+      "bullets": [],
+      "hp": 4
+    },
+    "frozen": {
+      "state": {
+        "age": 7.8,
+        "phase": "warning",
+        "remaining": 1.4,
+        "next": "fan",
+        "radialAngle": 0.2617993877991494,
+        "hazard": {
+          "x": 457.5,
+          "y": 255.44,
+          "target": {
+            "x": 457.5,
+            "y": 255.44
+          },
+          "r": 74
+        },
+        "bullets": 0
+      },
+      "x": 317.2724500386971,
+      "y": 178.39357522252442,
+      "bullets": [],
+      "hp": 4
+    },
+    "resumed": {
+      "age": 7.8,
+      "phase": "warning",
+      "remaining": 1.4,
+      "next": "fan",
+      "radialAngle": 0.2617993877991494,
+      "hazard": {
+        "x": 457.5,
+        "y": 255.44,
+        "target": {
+          "x": 457.5,
+          "y": 255.44
+        },
+        "r": 74
+      },
+      "bullets": 0
+    }
+  },
+  "defensive_restart": {
+    "different": true,
+    "state": {
+      "age": 0,
+      "phase": "rest",
+      "remaining": 1.8,
+      "next": "fan",
+      "radialAngle": 0,
+      "hazard": null,
+      "bullets": 0
+    },
+    "type": 1,
+    "hp": 6,
+    "score": 0,
+    "owned": 0
+  },
+  "blast_game_over": {
+    "atDeath": {
+      "hp": 0,
+      "started": false,
+      "state": null,
+      "owned": 0,
+      "result": {
+        "record": {
+          "id": "dd299923-47d4-4fd0-9c90-cb7946386fc1",
+          "score": 0,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:24.558Z",
+          "outcome": "game_over",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 0,
+          "clearedPhases": 0,
+          "playTimeSeconds": 9.2,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "playing": 0
+    },
+    "returnDelayMs": 3004.2999999998137
+  },
+  "real_kills_and_rewards": [
+    {
+      "kind": 0,
+      "roll": 0.1,
+      "hp": 3,
+      "upgrade": 0,
+      "result": {
+        "record": {
+          "id": "18a6703a-4e6d-4267-a619-3ce8bbc9f518",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:27.927Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    },
+    {
+      "kind": 0,
+      "roll": 0.9,
+      "hp": 1,
+      "upgrade": 1,
+      "result": {
+        "record": {
+          "id": "5b36a2ae-b378-4ca4-95ce-567fb679edef",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:29.065Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    },
+    {
+      "kind": 1,
+      "roll": 0.1,
+      "hp": 3,
+      "upgrade": 0,
+      "result": {
+        "record": {
+          "id": "b5590e3d-4919-4f4d-ab9b-65bce6d4252d",
+          "score": 2000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:30.144Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    },
+    {
+      "kind": 1,
+      "roll": 0.9,
+      "hp": 1,
+      "upgrade": 1,
+      "result": {
+        "record": {
+          "id": "129247c6-3028-4d05-b732-f3e2cf23f500",
+          "score": 2000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:31.219Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    },
+    {
+      "kind": 2,
+      "roll": 0.1,
+      "hp": 3,
+      "upgrade": 0,
+      "result": {
+        "record": {
+          "id": "c03ecd52-7894-4f8f-b1d0-039f3c65838d",
+          "score": 2000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:32.290Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    },
+    {
+      "kind": 2,
+      "roll": 0.9,
+      "hp": 1,
+      "upgrade": 1,
+      "result": {
+        "record": {
+          "id": "14e16f91-2028-40fa-941a-ddf9e929fc4c",
+          "score": 2000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:36:33.379Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 7.8,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "state": null,
+      "owned": 0,
+      "granted": true
+    }
+  ],
+  "protected_hp_scaling": [
+    {
+      "kind": 0,
+      "upgrade": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "initial": 20,
+      "r": 48
+    },
+    {
+      "kind": 0,
+      "upgrade": 1,
+      "hp": 22,
+      "maxHp": 22,
+      "initial": 22,
+      "r": 48
+    },
+    {
+      "kind": 0,
+      "upgrade": 2,
+      "hp": 28,
+      "maxHp": 28,
+      "initial": 28,
+      "r": 48
+    },
+    {
+      "kind": 0,
+      "upgrade": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "initial": 32,
+      "r": 48
+    },
+    {
+      "kind": 0,
+      "upgrade": 4,
+      "hp": 38,
+      "maxHp": 38,
+      "initial": 38,
+      "r": 48
+    },
+    {
+      "kind": 0,
+      "upgrade": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "initial": 44,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "initial": 20,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 1,
+      "hp": 22,
+      "maxHp": 22,
+      "initial": 22,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 2,
+      "hp": 28,
+      "maxHp": 28,
+      "initial": 28,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "initial": 32,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 4,
+      "hp": 38,
+      "maxHp": 38,
+      "initial": 38,
+      "r": 48
+    },
+    {
+      "kind": 1,
+      "upgrade": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "initial": 44,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "initial": 20,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 1,
+      "hp": 22,
+      "maxHp": 22,
+      "initial": 22,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 2,
+      "hp": 28,
+      "maxHp": 28,
+      "initial": 28,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "initial": 32,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 4,
+      "hp": 38,
+      "maxHp": 38,
+      "initial": 38,
+      "r": 48
+    },
+    {
+      "kind": 2,
+      "upgrade": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "initial": 44,
+      "r": 48
+    }
+  ],
+  "landscape_geometry": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "safeTargets": [
+        {
+          "target": [
+            12,
+            12
+          ],
+          "point": {
+            "x": 78,
+            "y": 190.5
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            903,
+            400
+          ],
+          "point": {
+            "x": 837,
+            "y": 238
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            857.5,
+            359.5
+          ],
+          "point": {
+            "x": 837,
+            "y": 238
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            112.34375,
+            361
+          ],
+          "point": {
+            "x": 112.34375,
+            "y": 253
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            457.5,
+            206
+          ],
+          "point": {
+            "x": 457.5,
+            "y": 206
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            0,
+            206
+          ],
+          "point": {
+            "x": 78,
+            "y": 206
+          },
+          "clear": true,
+          "bounds": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "safeTargets": [
+        {
+          "target": [
+            12,
+            12
+          ],
+          "point": {
+            "x": 68.8,
+            "y": 181.3
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            788,
+            348
+          ],
+          "point": {
+            "x": 731.2,
+            "y": 195.2
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            742.5,
+            307.5
+          ],
+          "point": {
+            "x": 731.2,
+            "y": 195.2
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            102,
+            309
+          ],
+          "point": {
+            "x": 102,
+            "y": 210.2
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            400,
+            180
+          ],
+          "point": {
+            "x": 400,
+            "y": 180
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            0,
+            180
+          ],
+          "point": {
+            "x": 68.8,
+            "y": 181.3
+          },
+          "clear": true,
+          "bounds": true
+        }
+      ]
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "safeTargets": [
+        {
+          "target": [
+            12,
+            12
+          ],
+          "point": {
+            "x": 61.599999999999994,
+            "y": 174.1
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            556,
+            308
+          ],
+          "point": {
+            "x": 506.4,
+            "y": 162.4
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            510.5,
+            267.5
+          ],
+          "point": {
+            "x": 506.4,
+            "y": 162.4
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            97.5,
+            269
+          ],
+          "point": {
+            "x": 97.5,
+            "y": 177.4
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            284,
+            160
+          ],
+          "point": {
+            "x": 284,
+            "y": 174.1
+          },
+          "clear": true,
+          "bounds": true
+        },
+        {
+          "target": [
+            0,
+            160
+          ],
+          "point": {
+            "x": 61.599999999999994,
+            "y": 174.1
+          },
+          "clear": true,
+          "bounds": true
+        }
+      ]
+    }
+  ],
+  "resize_safety": {
+    "age": 7.8,
+    "phase": "warning",
+    "remaining": 1.4,
+    "next": "fan",
+    "radialAngle": 0.2617993877991494,
+    "hazard": {
+      "x": 284,
+      "y": 198.4,
+      "target": {
+        "x": 284,
+        "y": 198.4
+      },
+      "r": 57.599999999999994
+    },
+    "bullets": 0
+  },
+  "world1_baseline_traces": [
+    {
+      "area": 0,
+      "samples": 16,
+      "equal": true
+    },
+    {
+      "area": 1,
+      "samples": 16,
+      "equal": true
+    },
+    {
+      "area": 2,
+      "samples": 16,
+      "equal": true
+    },
+    {
+      "area": 3,
+      "samples": 16,
+      "equal": true
+    }
+  ]
+}

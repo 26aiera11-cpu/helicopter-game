@@ -1,0 +1,37 @@
+PASS: All92 existing assets byte-preserved after exact registry hooks;32 engine changes reverse exactly to c2d03f8; all new/inline JavaScript parses.
+PASS: Supplied1920×864 background/four512×512 PNGs stay exact; all5 transparent source atlases and80 manifest keyframes have valid bounds/pivots and unchanged ratio.
+PASS: Help auto-lists World2 Storm Sky1–5; actual start button enters boss directly, trial route appends4→5→6, default World1 remains20 phases/OFF.
+PASS: Three characters×five direct phases start correctly with originalHP/upgrade0/12-o’clock heading and one identical approved background image.
+PASS: Independent seeded species draws repeat exactly, all4 species occur, weights sum100 per phase, and snow/volcano PRNG streams do not change.
+PASS: Real warning/materialization path independently binds all4 species to their ownHP1/2/2/3, movement, combat state and matching art; no legacy species leakage.
+PASS: Cloud approaches/basic shot, bat telegraph→fixed dash→rest, spirit irregular travel/wind shot, and ranged jellyfish/orbs run on local parameters; finite projectile caps hold.
+PASS: Normal death gives100 once and advances the existing6-kill quota once; duplicate score is rejected, hit/defeat animation uses the same identity.
+PASS: Barrage has a visible no-damage warning,8 directions at45° then8 directions offset22.5°;82px/s and32-live-bullet cap are storm-only.
+PASS: Two/three moving winds transport on contact to an inset boss/enemy/projectile/UI-safe location with0HP/score change; contact cooldown blocks repeats and visual spin preserves firing heading.
+PASS: Sixty sampled transport destinations independently satisfy inset/UI/boss/actor/projectile/wind safety; failure to find space skips relocation instead of forcing an unsafe point.
+PASS: Two actual turbine-origin laser warnings last1s with no damage; finite10px beams rotate slowly for2s, share segment collision and honor existing1.55s invulnerability/UI clipping.
+PASS: HP50% triggers exactly one2s awakening/pull then12-way volley; phase2 attack timing/turning rate×1.2 and bullet speed×1.1, with rest never below1.5s and no changes to other regions.
+PASS: Tanko resists22px/s awakening pull using its original acceleration/drag and tilt input; player flight configuration and maximum rotation speeds remain byte-preserved.
+PASS: A100s controlled boss run keeps nonrepeating random pattern order and bounded winds/projectiles; no async attack timers or unbounded effect queues.
+PASS: All3 original weapons kill Storm Overlord via real bullets;2000points/reward once, attack cleanup and defeat outro complete, developer results remain outside TOP10/history.
+PASS: 915×412/800×360/568×320 actual gameplay captures fit HUD, boss, finite laser and existing30px/22px joystick/fire/fullscreen/exit controls without UI overlap.
+Traceback (most recent call last):
+  File "/tmp/storm-sky-work/tests/storm_sky.py", line 105, in <module>
+    page.evaluate('window.gameExitDialogOpen=false');page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible();page.locator('#gameExitCancel').tap();assert page.evaluate('started&&!!document.fullscreenElement');page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap();page.wait_for_function('!started&&!menu.classList.contains("hidden")');assert page.evaluate('!!document.fullscreenElement&&gameStormBoss.snapshot()===null')
+                                                                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 12761, in wait_for_function
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 1151, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 940, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 30000ms exceeded.

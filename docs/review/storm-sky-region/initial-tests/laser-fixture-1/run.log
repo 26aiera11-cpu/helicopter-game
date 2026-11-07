@@ -1,0 +1,16 @@
+PASS: All92 existing assets byte-preserved after exact registry hooks;32 engine changes reverse exactly to c2d03f8; all new/inline JavaScript parses.
+PASS: Supplied1920×864 background/four512×512 PNGs stay exact; all5 transparent source atlases and80 manifest keyframes have valid bounds/pivots and unchanged ratio.
+PASS: Help auto-lists World2 Storm Sky1–5; actual start button enters boss directly, trial route appends4→5→6, default World1 remains20 phases/OFF.
+PASS: Three characters×five direct phases start correctly with originalHP/upgrade0/12-o’clock heading and one identical approved background image.
+PASS: Independent seeded species draws repeat exactly, all4 species occur, weights sum100 per phase, and snow/volcano PRNG streams do not change.
+PASS: Real warning/materialization path independently binds all4 species to their ownHP1/2/2/3, movement, combat state and matching art; no legacy species leakage.
+PASS: Cloud approaches/basic shot, bat telegraph→fixed dash→rest, spirit irregular travel/wind shot, and ranged jellyfish/orbs run on local parameters; finite projectile caps hold.
+PASS: Normal death gives100 once and advances the existing6-kill quota once; duplicate score is rejected, hit/defeat animation uses the same identity.
+PASS: Barrage has a visible no-damage warning,8 directions at45° then8 directions offset22.5°;82px/s and32-live-bullet cap are storm-only.
+PASS: Two/three moving winds transport on contact to an inset boss/enemy/projectile/UI-safe location with0HP/score change; contact cooldown blocks repeats and visual spin preserves firing heading.
+PASS: Sixty sampled transport destinations independently satisfy inset/UI/boss/actor/projectile/wind safety; failure to find space skips relocation instead of forcing an unsafe point.
+Traceback (most recent call last):
+  File "/tmp/storm-sky-work/tests/storm_sky.py", line 81, in <module>
+    laser=page.evaluate('''ssRun(()=>{ssBegin();ssSelect('laser');const warning=gameStormBoss.snapshot();const line=warning.lasers[0];player.x=(line.x+line.endX)/2;player.y=(line.y+line.endY)/2;hp=4;invuln=0;ssAdvance(warning.remaining-.01);const warningHP=hp;ssAdvance(.02);const active=gameStormBoss.snapshot();const hitHP=hp;const geometry=gameStormBoss.laserContains(player);ssAdvance(.25);return {warning,warningHP,active,hitHP,afterHP:hp,geometry};})''');assert laser['warningHP']==4 and laser['hitHP']==3 and laser['afterHP']==3 and laser['geometry'] and len(laser['active']['lasers'])==2
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,6 @@
+PASS: Bat holds its warning-time vector through a player side swap and moves exactly155px/s during dash; warning/dash emit no bullets.
+PASS: Measured phase2 laser charge and active duration are exactly1/1.2 of phase1; minimum rest1.5s remains enforced.
+PASS: Six actual Canvas draw-matrix turbine anchors agree with laser collision/draw origins within0.0001px (Canvas transform rounding) through attack and hit keyframes.
+PASS: A deliberate full-arena UI blocker causes wind transport to skip safely with unchangedHP/location, rather than teleport into UI or loop forever.
+PASS: Hidden-document update freezes the full active laser lifecycle and all wind/age timers.
+PASS: Resize cancels active laser/wind geometry and resumes a safe rest using current UI bounds, with no invisible offscreen damage.

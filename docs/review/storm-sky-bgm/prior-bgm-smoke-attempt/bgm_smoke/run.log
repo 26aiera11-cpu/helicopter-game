@@ -1,0 +1,6 @@
+PASS: After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, audio/boss-reward/Trio/Tanko PNG changes differ; original audio, other character assets and game/UI code are preserved, and JavaScript syntax checks pass.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/bgm_smoke.py", line 124, in <module>
+    assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===11 && __bgmProbe.active().length===0')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,2997 @@
+{
+  "standalone": false,
+  "passed": [
+    "All92 existing assets byte-preserved after exact registry hooks;32 engine changes reverse exactly to c2d03f8; all new/inline JavaScript parses.",
+    "Supplied1920×864 background/four512×512 PNGs stay exact; all5 transparent source atlases and80 manifest keyframes have valid bounds/pivots and unchanged ratio.",
+    "Help auto-lists World2 Storm Sky1–5; actual start button enters boss directly, trial route appends4→5→6, default World1 remains20 phases/OFF.",
+    "Three characters×five direct phases start correctly with originalHP/upgrade0/12-o’clock heading and one identical approved background image.",
+    "Independent seeded species draws repeat exactly, all4 species occur, weights sum100 per phase, and snow/volcano PRNG streams do not change.",
+    "Real warning/materialization path independently binds all4 species to their ownHP1/2/2/3, movement, combat state and matching art; no legacy species leakage.",
+    "Cloud approaches/basic shot, bat telegraph→fixed dash→rest, spirit irregular travel/wind shot, and ranged jellyfish/orbs run on local parameters; finite projectile caps hold.",
+    "Normal death gives100 once and advances the existing6-kill quota once; duplicate score is rejected, hit/defeat animation uses the same identity.",
+    "Barrage has a visible no-damage warning,8 directions at45° then8 directions offset22.5°;82px/s and32-live-bullet cap are storm-only.",
+    "Two/three moving winds transport on contact to an inset boss/enemy/projectile/UI-safe location with0HP/score change; contact cooldown blocks repeats and visual spin preserves firing heading.",
+    "Sixty sampled transport destinations independently satisfy inset/UI/boss/actor/projectile/wind safety; failure to find space skips relocation instead of forcing an unsafe point.",
+    "Two actual turbine-origin laser warnings last1s with no damage; finite10px beams rotate slowly for2s, share segment collision and honor existing1.55s invulnerability/UI clipping.",
+    "HP50% triggers exactly one2s awakening/pull then12-way volley; phase2 attack timing/turning rate×1.2 and bullet speed×1.1, with rest never below1.5s and no changes to other regions.",
+    "Tanko resists22px/s awakening pull using its original acceleration/drag and tilt input; player flight configuration and maximum rotation speeds remain byte-preserved.",
+    "A100s controlled boss run keeps nonrepeating random pattern order and bounded winds/projectiles; no async attack timers or unbounded effect queues.",
+    "All3 original weapons kill Storm Overlord via real bullets;2000points/reward once, attack cleanup and defeat outro complete, developer results remain outside TOP10/history.",
+    "915×412/800×360/568×320 actual gameplay captures fit HUD, boss, finite laser and existing30px/22px joystick/fire/fullscreen/exit controls without UI overlap.",
+    "Trusted fullscreen→exit dialog→cancel→confirmed menu keeps fullscreen; HP0 stops immediately, clears storm effects and returns after original3s GAME OVER without browser dialogs.",
+    "No JS errors/native dialogs/resource failures, no offline network dependency, no developer storage writes; original music and controls are covered by retained regression suites."
+  ],
+  "limits": [
+    "Controlled real Chromium execution, not physical Galaxy Samsung Internet/Chrome or sensor hardware.",
+    "New regional combat numbers are first-playtest values; no human difficulty certification.",
+    "Single-cell lossless source atlases animate through manifest scale/rotation/alpha keyframes, not newly hand-drawn poses.",
+    "Storm music explicitly falls back to existing forest tracks; dedicated music is deferred."
+  ],
+  "preservation": {
+    "base": "c2d03f8306557c72be7f61666198919c2412b2ae",
+    "preserved_existing_assets": 92,
+    "reviewed_index_hooks": 32,
+    "reviewed_registry_hooks": 9,
+    "new_assets": 17
+  },
+  "art_assets": [
+    {
+      "id": "cloud_bean",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "1bdf5148db8b60fcfa5ea411a3e39e12f828242799517a2915a2172f36340fb1",
+      "keyframes": 16
+    },
+    {
+      "id": "lightning_bat",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "bc8fe8408195f75988365733c51f93d0827265d710b58c41300f9481e849fa75",
+      "keyframes": 16
+    },
+    {
+      "id": "tornado_spirit",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "b912a280cc5c7981eb1dafd046cb1118be4ba79bffabf09764697050022fc3ce",
+      "keyframes": 16
+    },
+    {
+      "id": "storm_jellyfish",
+      "size": [
+        512,
+        512
+      ],
+      "sha256": "da8e4dc525614445795b52d74b6e9c5d7ff2d5be54ffbd138b5e4d6f6058e7d4",
+      "keyframes": 16
+    },
+    {
+      "id": "storm_overlord",
+      "size": [
+        1536,
+        1024
+      ],
+      "sha256": "54d6252e8c10f03f5f87ec0137baef6938fa6ce794c60ae88ec4e07af2cf0510",
+      "keyframes": 16
+    }
+  ],
+  "direct_entries": [
+    {
+      "stage": 6,
+      "phase": 1,
+      "hp": 4,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 2,
+      "hp": 4,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 3,
+      "hp": 4,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 4,
+      "hp": 4,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 5,
+      "hp": 4,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": true,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 1,
+      "hp": 6,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 2,
+      "hp": 6,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 3,
+      "hp": 6,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 4,
+      "hp": 6,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 5,
+      "hp": 6,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": true,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 1,
+      "hp": 9,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 2,
+      "hp": 9,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 3,
+      "hp": 9,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 4,
+      "hp": 9,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": false,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    },
+    {
+      "stage": 6,
+      "phase": 5,
+      "hp": 9,
+      "upgrade": 0,
+      "angle": 3.141592653589793,
+      "boss": true,
+      "route": [
+        6
+      ],
+      "background": "http://127.0.0.1:39401/assets/storm_sky/storm_sky_background_1920x864.png"
+    }
+  ],
+  "spawns": {
+    "a": [
+      "cloud_bean",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "lightning_bat",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "cloud_bean",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "cloud_bean",
+      "storm_jellyfish",
+      "cloud_bean",
+      "lightning_bat",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "cloud_bean",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "tornado_spirit"
+    ],
+    "b": [
+      "cloud_bean",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "lightning_bat",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "cloud_bean",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "cloud_bean",
+      "storm_jellyfish",
+      "cloud_bean",
+      "lightning_bat",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "tornado_spirit",
+      "cloud_bean",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "tornado_spirit",
+      "storm_jellyfish",
+      "lightning_bat",
+      "tornado_spirit",
+      "lightning_bat",
+      "storm_jellyfish",
+      "cloud_bean",
+      "tornado_spirit",
+      "lightning_bat",
+      "lightning_bat",
+      "lightning_bat",
+      "tornado_spirit"
+    ],
+    "before": [
+      {
+        "state": 1432838635,
+        "draws": 0
+      },
+      {
+        "state": 3280720003
+      }
+    ],
+    "after": [
+      {
+        "state": 1432838635,
+        "draws": 0
+      },
+      {
+        "state": 3280720003
+      }
+    ],
+    "weights": [
+      [
+        75,
+        25,
+        0,
+        0
+      ],
+      [
+        40,
+        35,
+        25,
+        0
+      ],
+      [
+        20,
+        30,
+        35,
+        15
+      ],
+      [
+        10,
+        25,
+        30,
+        35
+      ],
+      [
+        5,
+        25,
+        30,
+        40
+      ]
+    ]
+  },
+  "normal_spawns": [
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "lightning_bat",
+      "hp": 2,
+      "speed": 50,
+      "state": {
+        "id": "lightning_bat",
+        "mode": "pursue",
+        "remaining": 2.2,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "lightning_bat"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "lightning_bat",
+      "hp": 2,
+      "speed": 50,
+      "state": {
+        "id": "lightning_bat",
+        "mode": "pursue",
+        "remaining": 2.2,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "lightning_bat"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "lightning_bat",
+      "hp": 2,
+      "speed": 50,
+      "state": {
+        "id": "lightning_bat",
+        "mode": "pursue",
+        "remaining": 2.2,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "lightning_bat"
+    },
+    {
+      "id": "lightning_bat",
+      "hp": 2,
+      "speed": 50,
+      "state": {
+        "id": "lightning_bat",
+        "mode": "pursue",
+        "remaining": 2.2,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "lightning_bat"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "cloud_bean",
+      "hp": 1,
+      "speed": 43,
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "cloud_bean"
+    },
+    {
+      "id": "tornado_spirit",
+      "hp": 2,
+      "speed": 40,
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "tornado_spirit"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    },
+    {
+      "id": "storm_jellyfish",
+      "hp": 3,
+      "speed": 28,
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "shots": 0,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "art": "storm_jellyfish"
+    }
+  ],
+  "normal_behavior": [
+    {
+      "id": "cloud_bean",
+      "before": [
+        274.5,
+        185.4
+      ],
+      "after": [
+        441.3585488755616,
+        227.13996486747635
+      ],
+      "state": {
+        "id": "cloud_bean",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 3.9999999999999885,
+        "shots": 2,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "bullets": [
+        {
+          "tag": "cloud_bean",
+          "speed": 89.99999999999999
+        },
+        {
+          "tag": "cloud_bean",
+          "speed": 90.00000000000001
+        }
+      ]
+    },
+    {
+      "id": "lightning_bat",
+      "before": [
+        274.5,
+        185.4
+      ],
+      "after": [
+        493.9868993203372,
+        240.30504099573855
+      ],
+      "state": {
+        "id": "lightning_bat",
+        "mode": "rest",
+        "remaining": 0.6500000000000019,
+        "age": 3.9999999999999876,
+        "shots": 1,
+        "direction": [
+          0.9701078422998395,
+          0.24267421434579622
+        ]
+      },
+      "bullets": [
+        {
+          "tag": "lightning_bat",
+          "speed": 96
+        }
+      ]
+    },
+    {
+      "id": "tornado_spirit",
+      "before": [
+        274.5,
+        185.4
+      ],
+      "after": [
+        382.9657726800156,
+        213.18700491788357
+      ],
+      "state": {
+        "id": "tornado_spirit",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 3.9999999999999885,
+        "shots": 2,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "bullets": [
+        {
+          "tag": "tornado_spirit",
+          "speed": 86.99999999999999
+        },
+        {
+          "tag": "tornado_spirit",
+          "speed": 86.99999999999999
+        }
+      ]
+    },
+    {
+      "id": "storm_jellyfish",
+      "before": [
+        274.5,
+        185.4
+      ],
+      "after": [
+        356.29429305603173,
+        231.41992577509728
+      ],
+      "state": {
+        "id": "storm_jellyfish",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 3.9999999999999885,
+        "shots": 2,
+        "direction": [
+          0,
+          0
+        ]
+      },
+      "bullets": [
+        {
+          "tag": "storm_jellyfish",
+          "speed": 81.99999999999999
+        },
+        {
+          "tag": "storm_jellyfish",
+          "speed": 82
+        }
+      ]
+    }
+  ],
+  "barrage": {
+    "warning": {
+      "s": {
+        "phase": "barrage_warning",
+        "remaining": 0.7999989999999962,
+        "age": 1.800001,
+        "last": "barrage",
+        "pattern": "barrage",
+        "sequence": [
+          "barrage"
+        ],
+        "phase2": false,
+        "awakened": false,
+        "awakenCount": 0,
+        "shots": 0,
+        "waves": 0,
+        "damageCalls": 0,
+        "winds": [],
+        "windCooldown": 0,
+        "teleports": 0,
+        "teleportLog": [],
+        "laserAngle": 0,
+        "lasers": [],
+        "spin": 0,
+        "rects": [
+          {
+            "left": 30,
+            "right": 194.6875,
+            "top": 332,
+            "bottom": 390
+          },
+          {
+            "left": 815,
+            "right": 900,
+            "top": 317,
+            "bottom": 402
+          },
+          {
+            "left": 10,
+            "right": 715,
+            "top": 10,
+            "bottom": 27.5
+          },
+          {
+            "left": 725,
+            "right": 819,
+            "top": 9,
+            "bottom": 35
+          },
+          {
+            "left": 833.5625,
+            "right": 905,
+            "top": 9,
+            "bottom": 40
+          },
+          {
+            "left": 832.671875,
+            "right": 905,
+            "top": 41,
+            "bottom": 65
+          },
+          {
+            "left": 776.3125,
+            "right": 905,
+            "top": 68,
+            "bottom": 83
+          },
+          {
+            "left": 10,
+            "right": 199.375,
+            "top": 90,
+            "bottom": 111.5
+          },
+          {
+            "left": 274.5,
+            "right": 640.5,
+            "top": 30,
+            "bottom": 68
+          }
+        ]
+      },
+      "bullets": 0
+    },
+    "first": [
+      {
+        "angle": 0,
+        "speed": 82
+      },
+      {
+        "angle": 0.7853981633974482,
+        "speed": 82
+      },
+      {
+        "angle": 1.5707963267948966,
+        "speed": 82
+      },
+      {
+        "angle": 2.356194490192345,
+        "speed": 82
+      },
+      {
+        "angle": 3.141592653589793,
+        "speed": 82
+      },
+      {
+        "angle": -2.3561944901923453,
+        "speed": 82.00000000000001
+      },
+      {
+        "angle": -1.5707963267948968,
+        "speed": 82
+      },
+      {
+        "angle": -0.7853981633974485,
+        "speed": 82
+      }
+    ],
+    "second": [
+      0.39269908169872414,
+      1.1780972450961724,
+      1.9634954084936207,
+      2.748893571891069,
+      -2.748893571891069,
+      -1.9634954084936214,
+      -1.1780972450961722,
+      -0.3926990816987248
+    ],
+    "state": {
+      "phase": "rest",
+      "remaining": 1.9,
+      "age": 3.049999999999992,
+      "last": "barrage",
+      "pattern": null,
+      "sequence": [
+        "barrage"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 16,
+      "waves": 2,
+      "damageCalls": 0,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    }
+  },
+  "wind": {
+    "initial": {
+      "phase": "rest",
+      "remaining": 1.9,
+      "age": 2.599999999999994,
+      "last": "tornado",
+      "pattern": null,
+      "sequence": [
+        "tornado"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [
+        {
+          "id": 1,
+          "x": 576.1363429211322,
+          "y": 375.0729020056564,
+          "vx": 13.64170643155227,
+          "vy": 31.143279301244842,
+          "life": 5,
+          "t": 0,
+          "turn": 0.7218921038681098
+        },
+        {
+          "id": 2,
+          "x": 174.1353783876399,
+          "y": 57.17192290187337,
+          "vx": -31.719213821126516,
+          "vy": 12.243017380109231,
+          "life": 5,
+          "t": 0,
+          "turn": 1.1825700177137506
+        },
+        {
+          "id": 3,
+          "x": 670.9543039949676,
+          "y": 55.270710230776785,
+          "vx": -2.7292051092456573,
+          "vy": 33.89028532591113,
+          "life": 5,
+          "t": 0,
+          "turn": 1.1553518889702716
+        }
+      ],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "moved": {
+      "phase": "rest",
+      "remaining": 1.899,
+      "age": 2.6009999999999938,
+      "last": "tornado",
+      "pattern": null,
+      "sequence": [
+        "tornado"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [
+        {
+          "id": 1,
+          "x": 576.1499846275638,
+          "y": 375.10404528495764,
+          "vx": 13.64170643155227,
+          "vy": 31.143279301244842,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 0.7208921038681098
+        },
+        {
+          "id": 2,
+          "x": 174.10365917381876,
+          "y": 57.18416591925348,
+          "vx": -31.719213821126516,
+          "vy": 12.243017380109231,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 1.1815700177137507
+        },
+        {
+          "id": 3,
+          "x": 670.9515747898583,
+          "y": 55.304600516102695,
+          "vx": -2.7292051092456573,
+          "vy": 33.89028532591113,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 1.1543518889702717
+        }
+      ],
+      "windCooldown": 1.4,
+      "teleports": 1,
+      "teleportLog": [
+        {
+          "from": {
+            "x": 576.1363429211322,
+            "y": 375.0729020056564
+          },
+          "to": {
+            "x": 669.0417967698504,
+            "y": 381.0417865398252
+          },
+          "hp": 3,
+          "score": 0,
+          "age": 2.599999999999994,
+          "afterHP": 3,
+          "afterScore": 0,
+          "safe": true
+        }
+      ],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0.65,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "after": {
+      "phase": "rest",
+      "remaining": 1.8980000000000001,
+      "age": 2.6019999999999937,
+      "last": "tornado",
+      "pattern": null,
+      "sequence": [
+        "tornado"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [
+        {
+          "id": 1,
+          "x": 576.1636263339954,
+          "y": 375.1351885642589,
+          "vx": 13.64170643155227,
+          "vy": 31.143279301244842,
+          "life": 4.997999999999999,
+          "t": 0.002,
+          "turn": 0.7198921038681098
+        },
+        {
+          "id": 2,
+          "x": 174.07193995999762,
+          "y": 57.19640893663359,
+          "vx": -31.719213821126516,
+          "vy": 12.243017380109231,
+          "life": 4.997999999999999,
+          "t": 0.002,
+          "turn": 1.1805700177137508
+        },
+        {
+          "id": 3,
+          "x": 670.948845584749,
+          "y": 55.338490801428605,
+          "vx": -2.7292051092456573,
+          "vy": 33.89028532591113,
+          "life": 4.997999999999999,
+          "t": 0.002,
+          "turn": 1.1533518889702719
+        }
+      ],
+      "windCooldown": 1.399,
+      "teleports": 1,
+      "teleportLog": [
+        {
+          "from": {
+            "x": 576.1363429211322,
+            "y": 375.0729020056564
+          },
+          "to": {
+            "x": 669.0417967698504,
+            "y": 381.0417865398252
+          },
+          "hp": 3,
+          "score": 0,
+          "age": 2.599999999999994,
+          "afterHP": 3,
+          "afterScore": 0,
+          "safe": true
+        }
+      ],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0.649,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "hp": 3,
+    "scoreBefore": 0,
+    "scoreAfter": 0,
+    "player": [
+      576.1499846275638,
+      375.10404528495764
+    ],
+    "heading": 3.141592653589793
+  },
+  "safe_destinations": {
+    "points": [
+      {
+        "x": 243.33605315131646,
+        "y": 308.6014661656367
+      },
+      {
+        "x": 115.32854006427128,
+        "y": 293.09092021417456
+      },
+      {
+        "x": 534.1025032707123,
+        "y": 99.74353851909095
+      },
+      {
+        "x": 633.4729355581244,
+        "y": 354.5144925128951
+      },
+      {
+        "x": 378.92213287871414,
+        "y": 169.0877944987165
+      },
+      {
+        "x": 628.6115383072737,
+        "y": 186.2527610860948
+      },
+      {
+        "x": 824.8704386024307,
+        "y": 187.22988010247806
+      },
+      {
+        "x": 243.6332924698798,
+        "y": 336.58944822746764
+      },
+      {
+        "x": 622.1120876574937,
+        "y": 111.00055534843261
+      },
+      {
+        "x": 98.56291258356949,
+        "y": 285.42721574920637
+      },
+      {
+        "x": 436.88480684676887,
+        "y": 98.52790145933035
+      },
+      {
+        "x": 71.06474672368543,
+        "y": 222.71976641359737
+      },
+      {
+        "x": 652.7571222262644,
+        "y": 129.90624927365138
+      },
+      {
+        "x": 755.6886262600742,
+        "y": 231.74007533446937
+      },
+      {
+        "x": 718.8848019885862,
+        "y": 131.42919389121022
+      },
+      {
+        "x": 752.6570633469639,
+        "y": 112.38186570364208
+      },
+      {
+        "x": 773.5377774880171,
+        "y": 350.5452345032323
+      },
+      {
+        "x": 597.5365788869914,
+        "y": 163.4161869244822
+      },
+      {
+        "x": 463.9524815363548,
+        "y": 294.12095327458303
+      },
+      {
+        "x": 259.2668507498195,
+        "y": 292.65436570569153
+      },
+      {
+        "x": 51.66648936694037,
+        "y": 260.95245138468914
+      },
+      {
+        "x": 743.1206080286786,
+        "y": 64.58282162775288
+      },
+      {
+        "x": 327.67522271637716,
+        "y": 297.6039452221544
+      },
+      {
+        "x": 797.0178362498261,
+        "y": 158.2574316074644
+      },
+      {
+        "x": 801.9007787331597,
+        "y": 169.32059596979877
+      },
+      {
+        "x": 822.046887178841,
+        "y": 226.25645401305613
+      },
+      {
+        "x": 115.30703846843575,
+        "y": 234.20640873097807
+      },
+      {
+        "x": 349.99012783645037,
+        "y": 214.38038816802847
+      },
+      {
+        "x": 219.2967899332572,
+        "y": 250.24933014858425
+      },
+      {
+        "x": 667.2746538516866,
+        "y": 82.61874541952773
+      },
+      {
+        "x": 727.9635998024182,
+        "y": 67.94782700207858
+      },
+      {
+        "x": 49.27510616015908,
+        "y": 209.59494633815726
+      },
+      {
+        "x": 539.3436914758212,
+        "y": 318.72423613693246
+      },
+      {
+        "x": 770.2173447850179,
+        "y": 315.27715311220487
+      },
+      {
+        "x": 690.9649876007671,
+        "y": 359.43895078846947
+      },
+      {
+        "x": 698.9912228366776,
+        "y": 150.00401769684834
+      },
+      {
+        "x": 618.5013857326962,
+        "y": 281.6633913095814
+      },
+      {
+        "x": 234.75781453901905,
+        "y": 54.67818754584921
+      },
+      {
+        "x": 830.029583446092,
+        "y": 135.0412212518691
+      },
+      {
+        "x": 589.0499905108189,
+        "y": 142.1968487873861
+      },
+      {
+        "x": 781.2652593158684,
+        "y": 202.49955184047076
+      },
+      {
+        "x": 78.34631285517767,
+        "y": 223.67708447246764
+      },
+      {
+        "x": 252.02751488948763,
+        "y": 356.09949678249956
+      },
+      {
+        "x": 870.1638958286381,
+        "y": 215.47425279605
+      },
+      {
+        "x": 616.0350985099307,
+        "y": 212.9783398062733
+      },
+      {
+        "x": 230.95006653480687,
+        "y": 195.8951676183159
+      },
+      {
+        "x": 618.6937969459943,
+        "y": 163.28804222970697
+      },
+      {
+        "x": 372.51122290567656,
+        "y": 177.286141374899
+      },
+      {
+        "x": 623.7583830669782,
+        "y": 154.1643593581002
+      },
+      {
+        "x": 220.01282700055714,
+        "y": 220.97275329875814
+      },
+      {
+        "x": 662.7175221113449,
+        "y": 127.78003920681171
+      },
+      {
+        "x": 616.5826759665705,
+        "y": 271.8220338684542
+      },
+      {
+        "x": 263.7189772730135,
+        "y": 287.75348239766885
+      },
+      {
+        "x": 605.5594028948175,
+        "y": 139.00940089280084
+      },
+      {
+        "x": 408.24235623538976,
+        "y": 290.4770516811932
+      },
+      {
+        "x": 320.5033506440391,
+        "y": 247.6389002684034
+      },
+      {
+        "x": 589.0444807135938,
+        "y": 102.2023598867829
+      },
+      {
+        "x": 638.0472551215142,
+        "y": 107.32659072816219
+      },
+      {
+        "x": 833.549539946713,
+        "y": 186.5938724384981
+      },
+      {
+        "x": 652.6114368420465,
+        "y": 206.8089892418513
+      }
+    ],
+    "arena": [
+      915,
+      412
+    ],
+    "boss": {
+      "x": 520.3594521488377,
+      "y": 209.34863618748702,
+      "r": 48
+    },
+    "rects": [
+      {
+        "left": 30,
+        "right": 194.6875,
+        "top": 332,
+        "bottom": 390
+      },
+      {
+        "left": 815,
+        "right": 900,
+        "top": 317,
+        "bottom": 402
+      },
+      {
+        "left": 10,
+        "right": 715,
+        "top": 10,
+        "bottom": 27.5
+      },
+      {
+        "left": 725,
+        "right": 819,
+        "top": 9,
+        "bottom": 35
+      },
+      {
+        "left": 833.5625,
+        "right": 905,
+        "top": 9,
+        "bottom": 40
+      },
+      {
+        "left": 832.671875,
+        "right": 905,
+        "top": 41,
+        "bottom": 65
+      },
+      {
+        "left": 776.3125,
+        "right": 905,
+        "top": 68,
+        "bottom": 83
+      },
+      {
+        "left": 10,
+        "right": 199.375,
+        "top": 90,
+        "bottom": 111.5
+      },
+      {
+        "left": 274.5,
+        "right": 640.5,
+        "top": 30,
+        "bottom": 68
+      }
+    ],
+    "winds": [
+      {
+        "id": 1,
+        "x": 439.88101864210415,
+        "y": 352.5623546322012,
+        "vx": -22.81193858445218,
+        "vy": -25.211415232374048,
+        "life": 5,
+        "t": 0,
+        "turn": 1.0257928737960478
+      },
+      {
+        "id": 2,
+        "x": 826.9092688690521,
+        "y": 281.1247499752459,
+        "vx": -21.758828290810523,
+        "vy": 26.12572279212622,
+        "life": 5,
+        "t": 0,
+        "turn": 1.0268250281666176
+      },
+      {
+        "id": 3,
+        "x": 274.07198104450134,
+        "y": 165.84938293156105,
+        "vx": 27.90586234142442,
+        "vy": -19.4232553137076,
+        "life": 5,
+        "t": 0,
+        "turn": 0.8242962264621155
+      }
+    ]
+  },
+  "laser": {
+    "warning": {
+      "phase": "laser_warning",
+      "remaining": 0.9999989999999962,
+      "age": 1.800001,
+      "last": "laser",
+      "pattern": "laser",
+      "sequence": [
+        "laser"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [
+        {
+          "x": 454.70820013736125,
+          "y": 182.1165308968336,
+          "endX": 622.949106138984,
+          "endY": 259.0580512077368,
+          "width": 10
+        },
+        {
+          "x": 569.8552589608906,
+          "y": 182.1165308968336,
+          "endX": 705.7730974826584,
+          "endY": 307.62087811863563,
+          "width": 10
+        }
+      ],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "warningHP": 4,
+    "active": {
+      "phase": "laser",
+      "remaining": 1.99,
+      "age": 2.8099999999999943,
+      "last": "laser",
+      "pattern": "laser",
+      "sequence": [
+        "laser"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 2,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0.0026179938779914837,
+      "lasers": [
+        {
+          "x": 454.70820013736125,
+          "y": 182.1165308968336,
+          "endX": 622.7470973877801,
+          "endY": 259.49824069225747,
+          "width": 10
+        },
+        {
+          "x": 569.8552589608906,
+          "y": 182.1165308968336,
+          "endX": 705.4440624624772,
+          "endY": 307.9762796849516,
+          "width": 10
+        }
+      ],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "hitHP": 3,
+    "afterHP": 3,
+    "geometry": true
+  },
+  "awakening": {
+    "before": {
+      "x": 686.25,
+      "y": 288.4,
+      "score": 0
+    },
+    "initial": {
+      "phase": "awakening",
+      "remaining": 2,
+      "age": 1.800001,
+      "last": "barrage",
+      "pattern": "awakening",
+      "sequence": [
+        "barrage",
+        "awakening"
+      ],
+      "phase2": false,
+      "awakened": true,
+      "awakenCount": 1,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "pulled": {
+      "x": 667.1589667478702,
+      "y": 277.4669103467371,
+      "hp": 9
+    },
+    "after": {
+      "phase": "rest",
+      "remaining": 1.5833333333333333,
+      "age": 3.800000999999993,
+      "last": "barrage",
+      "pattern": null,
+      "sequence": [
+        "barrage",
+        "awakening"
+      ],
+      "phase2": true,
+      "awakened": true,
+      "awakenCount": 1,
+      "shots": 12,
+      "waves": 1,
+      "damageCalls": 0,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "speed": [
+      90.2,
+      90.2,
+      90.2,
+      90.2,
+      90.2,
+      90.2,
+      90.2,
+      90.20000000000002,
+      90.19999999999999,
+      90.2,
+      90.2,
+      90.19999999999999
+    ],
+    "last": {
+      "phase": "rest",
+      "remaining": 0.6250000000000033,
+      "age": 17.800000999999636,
+      "last": "laser",
+      "pattern": null,
+      "sequence": [
+        "barrage",
+        "awakening",
+        "laser",
+        "barrage",
+        "tornado",
+        "laser"
+      ],
+      "phase2": true,
+      "awakened": true,
+      "awakenCount": 1,
+      "shots": 28,
+      "waves": 0,
+      "damageCalls": 116,
+      "winds": [],
+      "windCooldown": 0,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0.5235987755982989,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 194.6875,
+          "top": 332,
+          "bottom": 390
+        },
+        {
+          "left": 815,
+          "right": 900,
+          "top": 317,
+          "bottom": 402
+        },
+        {
+          "left": 10,
+          "right": 715,
+          "top": 10,
+          "bottom": 27.5
+        },
+        {
+          "left": 725,
+          "right": 819,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 833.5625,
+          "right": 905,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 832.671875,
+          "right": 905,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 776.3125,
+          "right": 905,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 199.375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 274.5,
+          "right": 640.5,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "hp": 9
+  },
+  "pull_resistance": {
+    "dx": 31.73361926658106,
+    "hp": 9,
+    "phase": "awakening"
+  },
+  "pattern_sequence": {
+    "phase": "barrage_gap",
+    "remaining": 0.30000000002564603,
+    "age": 99.99999999999994,
+    "last": "barrage",
+    "pattern": "barrage",
+    "sequence": [
+      "tornado",
+      "laser",
+      "barrage",
+      "laser",
+      "tornado",
+      "barrage",
+      "tornado",
+      "laser",
+      "tornado",
+      "laser",
+      "tornado",
+      "barrage",
+      "laser",
+      "barrage",
+      "tornado",
+      "barrage",
+      "tornado",
+      "laser",
+      "tornado",
+      "laser",
+      "barrage",
+      "tornado",
+      "barrage",
+      "tornado",
+      "barrage",
+      "laser",
+      "barrage",
+      "tornado",
+      "barrage"
+    ],
+    "phase2": false,
+    "awakened": false,
+    "awakenCount": 0,
+    "shots": 152,
+    "waves": 1,
+    "damageCalls": 637,
+    "winds": [
+      {
+        "id": 26,
+        "x": 724.3253936141189,
+        "y": 244.14789437681657,
+        "vx": -33.98889285215127,
+        "vy": -0.8690009694935272,
+        "life": 2.150000000025604,
+        "t": 2.849999999974346,
+        "turn": 0.017025695981278316
+      },
+      {
+        "id": 27,
+        "x": 405.2583840619361,
+        "y": 121.21957730543942,
+        "vx": -8.790415506483757,
+        "vy": -32.84400394628173,
+        "life": 2.150000000025604,
+        "t": 2.849999999974346,
+        "turn": 0.45119284539955995
+      },
+      {
+        "id": 28,
+        "x": 378.52130704094486,
+        "y": 238.36909800594393,
+        "vx": -20.94357735358166,
+        "vy": -26.783699662939423,
+        "life": 2.150000000025604,
+        "t": 2.849999999974346,
+        "turn": 0.11770477718976755
+      }
+    ],
+    "windCooldown": 0,
+    "teleports": 0,
+    "teleportLog": [],
+    "laserAngle": 0.523598775598296,
+    "lasers": [],
+    "spin": 0,
+    "rects": [
+      {
+        "left": 30,
+        "right": 194.6875,
+        "top": 332,
+        "bottom": 390
+      },
+      {
+        "left": 815,
+        "right": 900,
+        "top": 317,
+        "bottom": 402
+      },
+      {
+        "left": 10,
+        "right": 715,
+        "top": 10,
+        "bottom": 27.5
+      },
+      {
+        "left": 725,
+        "right": 819,
+        "top": 9,
+        "bottom": 35
+      },
+      {
+        "left": 833.5625,
+        "right": 905,
+        "top": 9,
+        "bottom": 40
+      },
+      {
+        "left": 832.671875,
+        "right": 905,
+        "top": 41,
+        "bottom": 65
+      },
+      {
+        "left": 776.3125,
+        "right": 905,
+        "top": 68,
+        "bottom": 83
+      },
+      {
+        "left": 10,
+        "right": 199.375,
+        "top": 90,
+        "bottom": 111.5
+      },
+      {
+        "left": 274.5,
+        "right": 640.5,
+        "top": 30,
+        "bottom": 68
+      }
+    ]
+  },
+  "boss_kills": [
+    {
+      "first": {
+        "score": 2000,
+        "reward": true,
+        "state": null,
+        "boss": false
+      },
+      "score": 2000,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "1bf634d0-2bc1-4768-a519-fcd85445eff0",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 6,
+          "regionName": "⚡ 폭풍 하늘 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:storm-sky",
+          "localRegionIndex": 2,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:31:50.965Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    },
+    {
+      "first": {
+        "score": 2000,
+        "reward": true,
+        "state": null,
+        "boss": false
+      },
+      "score": 2000,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "d6dbec91-8cfc-4215-b509-d2da555a5c28",
+          "score": 2000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 6,
+          "regionName": "⚡ 폭풍 하늘 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:storm-sky",
+          "localRegionIndex": 2,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:31:50.989Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    },
+    {
+      "first": {
+        "score": 2000,
+        "reward": true,
+        "state": null,
+        "boss": false
+      },
+      "score": 2000,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "44339a40-0224-4c66-961e-bcd75d19fb89",
+          "score": 2000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 6,
+          "regionName": "⚡ 폭풍 하늘 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:storm-sky",
+          "localRegionIndex": 2,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-06T23:31:51.044Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    }
+  ],
+  "layouts": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "right": 715,
+          "bottom": 27.5,
+          "w": 705,
+          "h": 17.5
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "w": 164.6875,
+          "h": 58
+        },
+        "fire": {
+          "x": 815,
+          "y": 317,
+          "right": 900,
+          "bottom": 402,
+          "w": 85,
+          "h": 85
+        },
+        "fullscreenToggle": {
+          "x": 725,
+          "y": 9,
+          "right": 819,
+          "bottom": 35,
+          "w": 94,
+          "h": 26
+        },
+        "exitGame": {
+          "x": 833.5625,
+          "y": 9,
+          "right": 905,
+          "bottom": 40,
+          "w": 71.4375,
+          "h": 31
+        }
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "right": 600,
+          "bottom": 25.984375,
+          "w": 590,
+          "h": 15.984375
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 280,
+          "right": 174,
+          "bottom": 338,
+          "w": 144,
+          "h": 58
+        },
+        "fire": {
+          "x": 700,
+          "y": 265,
+          "right": 785,
+          "bottom": 350,
+          "w": 85,
+          "h": 85
+        },
+        "fullscreenToggle": {
+          "x": 610,
+          "y": 9,
+          "right": 704,
+          "bottom": 35,
+          "w": 94,
+          "h": 26
+        },
+        "exitGame": {
+          "x": 718.5625,
+          "y": 9,
+          "right": 790,
+          "bottom": 40,
+          "w": 71.4375,
+          "h": 31
+        }
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "right": 368,
+          "bottom": 22.5,
+          "w": 358,
+          "h": 12.5
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 240,
+          "right": 165,
+          "bottom": 298,
+          "w": 135,
+          "h": 58
+        },
+        "fire": {
+          "x": 468,
+          "y": 225,
+          "right": 553,
+          "bottom": 310,
+          "w": 85,
+          "h": 85
+        },
+        "fullscreenToggle": {
+          "x": 378,
+          "y": 9,
+          "right": 472,
+          "bottom": 35,
+          "w": 94,
+          "h": 26
+        },
+        "exitGame": {
+          "x": 486.5625,
+          "y": 9,
+          "right": 558,
+          "bottom": 40,
+          "w": 71.4375,
+          "h": 31
+        }
+      }
+    }
+  ],
+  "errors": [],
+  "dialogs": [],
+  "failed_resources": [],
+  "offline_external_requests": [],
+  "all_passed": true
+}

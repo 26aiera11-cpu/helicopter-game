@@ -1,0 +1,8 @@
+PASS: Exact4 hidden-audio/owner changes plus music-profile/notice deltas only; all90 old assets,12 inline WAVs, selection MP3, synth SFX, mixed spawns and approved dragon byte-preserved; JS parses.
+PASS: Both original scores and seeded synth/percussion regenerate byte-for-byte without reading any old music, external samples or third-party audio.
+PASS: 136/114BPM16bars: mono22050Hz PCM16,28.235/33.684s, combined<3.5MB; no clipping/DC/100ms silence, zero file seam jump; per-track levels/low-frequency energy measured.
+Traceback (most recent call last):
+  File "/tmp/storm-sky-work/tests/volcano_bgm.py", line 78, in <module>
+    load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4]
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

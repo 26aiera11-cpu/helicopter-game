@@ -1,0 +1,314 @@
+{
+  "baseline": "e18c53000ff7412bca352e5bdb3fa887619ed4c9",
+  "branch": "feature/storm-sky-bgm",
+  "issue": 28,
+  "available_suites": 66,
+  "selected_suites": 21,
+  "passed_suites": 19,
+  "failed_suites": 2,
+  "completed_groups": 297,
+  "excluded_partial_groups_in_failed_suites": 32,
+  "new_music_groups": 38,
+  "suites": [
+    {
+      "suite": "volcano_bgm-native",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 63.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/volcano_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_bgm-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 124.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/volcano_bgm-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 84.65,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/selection_bgm"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.82,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 41.11,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/storm_sky-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "storm_sky_edges",
+      "exit_code": 0,
+      "groups": 6,
+      "observed_groups_before_failure": 0,
+      "seconds": 3.82,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_edges.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/storm_sky_edges"
+      ]
+    },
+    {
+      "suite": "storm_background_integrity",
+      "exit_code": 0,
+      "groups": 1,
+      "observed_groups_before_failure": 0,
+      "seconds": 0.18,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_background_integrity.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/storm_background_integrity"
+      ]
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 114.59,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/selection_bgm-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 64.91,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 26.79,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 164.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/developer_start-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 16.25,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/volcano_mixed-native"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.35,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 171.54,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 36.49,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.71,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 50.28,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/scoring"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 67.79,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 90.96,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/bgm_smoke.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/extra-regression-corrected/bgm_smoke"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/storm_sky_bgm-offline",
+        "--standalone"
+      ]
+    }
+  ],
+  "prior_fixed_test_attempt": [
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 1,
+      "seconds": 19.6,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/bgm_smoke.py",
+        "--artifacts",
+        "/tmp/storm-music-tests/extra-regression/bgm_smoke"
+      ]
+    }
+  ],
+  "prior_failure_cause": "Stale BGM loop count11 after adding2 Storm players; corrected to13;9groups pass afterward. Original log retained.",
+  "unresolved": "Existing Snow5 exit click missing after long3-contact sequence; worlds native and offline both fail after16partial groups. Controls untouched; no repeated retries to hide failure.",
+  "limits": [
+    "Selected21 of66 registered suites, not a full66-suite rerun.",
+    "Real Chromium playback clocks/events and offline network isolation, not physical Galaxy/speaker approval.",
+    "file:// navigation blocked by environment browser policy; standalone bytes execute offline via set_content.",
+    "Simulated play denial/hidden document only for their respective branches."
+  ]
+}

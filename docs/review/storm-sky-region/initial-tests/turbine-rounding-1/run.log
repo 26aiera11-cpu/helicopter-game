@@ -1,0 +1,7 @@
+PASS: Bat holds its warning-time vector through a player side swap and moves exactly155px/s during dash; warning/dash emit no bullets.
+PASS: Measured phase2 laser charge and active duration are exactly1/1.2 of phase1; minimum rest1.5s remains enforced.
+Traceback (most recent call last):
+  File "/tmp/storm-sky-work/tests/storm_sky_edges.py", line 27, in <module>
+    for point,beam in zip(row['points'],row['lasers']):assert math.hypot(point['x']-beam['x'],point['y']-beam['y'])<1e-6
+                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

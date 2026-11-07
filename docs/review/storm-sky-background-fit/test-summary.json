@@ -1,0 +1,221 @@
+{
+  "branch": "fix/storm-sky-background-fit",
+  "baseline": "6c3446b7ad079822df80db5045c1f727051d47e4",
+  "scope": "Focused background fix:12 existing relevant suites +2 new fit suites +1 new source-integrity suite. This is not a rerun of all61 existing suites.",
+  "suite_count": 15,
+  "passed_suites": 13,
+  "passed_groups": 190,
+  "failed_suites": [
+    "worlds-offline",
+    "storm_background_integrity"
+  ],
+  "suites": [
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 14.41,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_edges",
+      "exit_code": 0,
+      "groups": 6,
+      "observed_groups_before_failure": 0,
+      "seconds": 3.61,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_edges.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/storm_sky_edges"
+      ]
+    },
+    {
+      "suite": "storm_sky-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.44,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/storm_sky-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.14,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/worlds"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.9,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 120.69,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.23,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_audit.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/game_audit"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 224.31,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.25,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 34.56,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_package",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 2.65,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_package.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/volcano_package"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 50.86,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/background-fit-regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "storm_background_fit-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_fit.py",
+        "--artifacts",
+        "/tmp/background-fit-native-verified"
+      ],
+      "evidence": "fit-native"
+    },
+    {
+      "suite": "storm_background_fit-offline",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_fit.py",
+        "--standalone",
+        "--artifacts",
+        "/tmp/background-fit-offline-verified"
+      ],
+      "evidence": "fit-offline"
+    },
+    {
+      "suite": "storm_background_integrity",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_integrity.py",
+        "--artifacts",
+        "/tmp/storm-background-work/docs/review/storm-sky-background-fit/source-integrity"
+      ],
+      "evidence": "source-integrity"
+    }
+  ],
+  "contain_geometry_verified": true,
+  "full_original_background_ready": false,
+  "blocked_by": "Original supplied background PNG is truncated after167 complete decoded rows; complete original PNG required. Existing asset bytes intentionally retained.",
+  "known_unresolved": "worlds-offline reproduces prior long-multitouch→Snow5 Exit click loss; input code unchanged. Its16 partial groups are not counted as passing.",
+  "limits": [
+    "Actual Galaxy Samsung Internet/Chrome and physical sensors are not tested.",
+    "Current ZIP is a contain-geometry test build carrying the same incomplete original PNG, not a restored complete artwork."
+  ],
+  "policy": "Initial high-DPI fixture used a local drawImage variable that shadowed global draw(). Fixed only the fixture. A stale duplicate offline run was interrupted after the fix and rerun with serialized contexts to avoid memory pressure. Initial diagnostics preserved; source integrity failure is not hidden."
+}

@@ -53,7 +53,7 @@ for url in re.findall(r'url\(([^)]+)\)', html):
 passed('All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.')
 old_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
 scripts = re.findall(r'<script[^>]*>(.*?)</script>', html, re.S)
-assert scripts == [(root / 'assets/worlds/worlds.js').read_text(), (root / 'assets/worlds/difficulty.js').read_text(), (root / 'assets/volcano/spawns.js').read_text(), (root / 'assets/snowfield/snowfield.js').read_text(), (root / 'assets/volcano/volcano.js').read_text(), (root / 'assets/volcano/combat.js').read_text(), (root / 'assets/volcano/boss_combat.js').read_text(), (root / 'assets/snowfield/spawns.js').read_text(), (root / 'assets/snowfield/combat.js').read_text(), (root / 'assets/snowfield/boss_combat.js').read_text(), (root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
+assert scripts == [(root / 'assets/worlds/worlds.js').read_text(), (root / 'assets/worlds/difficulty.js').read_text(), (root / 'assets/storm_sky/config.js').read_text(), (root / 'assets/storm_sky/spawns.js').read_text(), (root / 'assets/volcano/spawns.js').read_text(), (root / 'assets/snowfield/snowfield.js').read_text(), (root / 'assets/volcano/volcano.js').read_text(), (root / 'assets/volcano/combat.js').read_text(), (root / 'assets/volcano/boss_combat.js').read_text(), (root / 'assets/snowfield/spawns.js').read_text(), (root / 'assets/snowfield/combat.js').read_text(), (root / 'assets/snowfield/boss_combat.js').read_text(), (root / 'assets/storm_sky/storm_sky.js').read_text(), (root / 'assets/storm_sky/combat.js').read_text(), (root / 'assets/storm_sky/boss_combat.js').read_text(), (root / 'assets/item_monster/item_monster.js').read_text(), (root / 'assets/controls/controls.js').read_text()] + old_scripts + [(root / 'assets/score/score.js').read_text(), (root / 'assets/selection/selection.js').read_text()]
 for script in scripts:
     subprocess.run(['node', '--check', '-'], input=script, text=True, capture_output=True, check=True)
 passed('The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.')
@@ -115,7 +115,7 @@ with sync_playwright() as playwright:
         page.evaluate(audio_probe)
         page.set_content(html, wait_until='load', timeout=30000)
 
-    page.evaluate('for(const a of [selectionBgm,volcanoStageBgm,volcanoBossBgm])if(!__galaxyAudio.includes(a))__galaxyAudio.push(a)')
+    page.evaluate('for(const a of [selectionBgm,volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm])if(!__galaxyAudio.includes(a))__galaxyAudio.push(a)')
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
         .every(image=>image.complete&&image.naturalWidth>0)''')
@@ -131,10 +131,10 @@ with sync_playwright() as playwright:
     assert len(dimensions['layers']) == 6 and dimensions['background'] == [1672,941]
     report['decoded_selection_images'] = dimensions
     passed('Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.')
-    page.wait_for_function('''() => window.__galaxyAudio.length===15 &&
+    page.wait_for_function('''() => window.__galaxyAudio.length===17 &&
         window.__galaxyAudio.every(audio=>!audio.error&&audio.readyState>=1&&audio.duration>0)''')
     report['audio_durations'] = page.evaluate('window.__galaxyAudio.map(audio=>audio.duration)')
-    passed('All12 original WAV tracks/effects plus the supplied selection MP3 and two Volcano WAVs load native metadata offline.')
+    passed('All12 original WAV tracks/effects plus the supplied selection MP3 and two Volcano/two Storm Sky WAVs load native metadata offline.')
 
     fullscreen = page.locator('#fullscreenToggle')
     expect(fullscreen).to_be_visible()
