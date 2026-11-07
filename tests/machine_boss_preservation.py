@@ -1,11 +1,13 @@
 """Issue36 exact GigaCore hooks/red adapter; preserve approved Cover and every old asset."""
 import hashlib,json,subprocess
+from machine_fortress_bgm_preservation import without_machine_bgm
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='0ae1d974ab7a90058e7abb3abc7172dd2003711d'
 BOSS_ASSETS={'assets/machine_fortress/boss_combat.js'}
 TEXT={'index.html','assets/machine_fortress/machine_fortress.js','assets/worlds/worlds.js'}
 def without_machine_boss(source,name):
+    source=without_machine_bgm(source,name)
     markers={'index.html':'gameMachineBoss','assets/machine_fortress/machine_fortress.js':'overdriveSpec','assets/worlds/worlds.js':'기계 요새 전투 시험 · 전용 보스'}
     if name not in markers or markers[name] not in source:return source
     for old,new,count in reversed(json.loads((ROOT/'tests/machine_boss_changes.json').read_text())[name]):

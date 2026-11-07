@@ -1,0 +1,268 @@
+{
+  "date": "2026-11-07",
+  "issue": 37,
+  "branch": "feature/machine-fortress-bgm",
+  "baseline": "2f29ced6cd53b7ebcb8279669c70c74fc1374ff1",
+  "status": "1차 시안 / 사용자 실제 청취 승인 대기",
+  "registered_suites_available": 78,
+  "related_suites_executed": 18,
+  "passed_suites": 18,
+  "failed_suites": 0,
+  "completed_pass_groups": 291,
+  "full_registered_run": false,
+  "suites": [
+    {
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.63,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress_bgm-offline",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 91.24,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.03,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/machine_boss-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.55,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.6,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/machine_cover-native"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.07,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.92,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 69.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 75.57,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/selection_bgm"
+      ]
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 79.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/bgm_smoke.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/bgm_smoke"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.58,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_bgm-native",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.72,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/volcano_bgm-native"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.72,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.72,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/scoring"
+      ]
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/boss_reward"
+      ]
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 5.44,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/item_persistence"
+      ]
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.58,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/machine-bgm-tests/regression/game_over"
+      ]
+    }
+  ],
+  "all_failures_retained": true,
+  "known_issue30": {
+    "status": "Existing low-priority unresolved; controls byte-preserved.",
+    "reproduced_in_worlds": false,
+    "past_failure_evidence": "../machine-fortress-background-dash-range/tests/worlds/exit-touch-failure.json"
+  },
+  "execution": {
+    "workers": 1,
+    "oom_kill_before": 2,
+    "oom_kill_after": 2,
+    "new_oom_kills": 0
+  },
+  "limits": [
+    "Chromium actual native play/pause/currentTime; physical Galaxy Samsung Internet/Chrome or speaker listening unverified.",
+    "Playback denial and hidden-tab branches are simulated; main transitions use real native media calls and trusted touch.",
+    "Loop sample continuity does not certify speaker comfort, timbre or SFX masking.",
+    "Offline identical HTML with network disabled, no file-navigation policy bypass."
+  ]
+}

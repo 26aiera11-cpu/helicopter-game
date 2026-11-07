@@ -156,6 +156,9 @@ def build():
     storm_audio = ['assets/audio/storm_sky_stage.wav', 'assets/audio/storm_sky_boss.wav']
     for name in storm_audio:
         assert data_url(ROOT / name) in result, 'Embed both current Storm Sky trial WAVs unchanged'
+    machine_audio = ['assets/audio/machine_fortress_stage.wav', 'assets/audio/machine_fortress_boss.wav']
+    for name in machine_audio:
+        assert data_url(ROOT / name) in result, 'Embed both current Machine Fortress trial WAVs unchanged'
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
     assert built_scripts == [world_javascript, difficulty_javascript, machine_combat_scripts['config'], machine_combat_scripts['spawns'], storm_scripts['config'], storm_scripts['spawns'], volcano_spawns_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, volcano_boss_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, storm_scripts['storm_sky'], storm_scripts['combat'], storm_scripts['boss_combat'], machine_javascript, machine_combat_scripts['combat'], machine_combat_scripts['boss_combat'], item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
@@ -205,6 +208,7 @@ def build():
         'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower() in ['.mp3', '.wav']],
         'embedded_volcano_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in volcano_audio},
         'embedded_storm_sky_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in storm_audio},
+        'embedded_machine_fortress_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in machine_audio},
         'embedded_machine_fortress': {'pngs': len(machine_manifest['files'])+1, 'normal_combat_trial': True, 'boss_patterns_and_overdrive_trial': True, 'original_manifest': True, 'scripts': 5},
         'embedded_storm_sky': {'scripts':len(storm_scripts),'source_atlases':len(storm_manifest['monsters']),'transform_keyframes':sum(len(a['frames']) for row in storm_manifest['monsters'] for a in row['animations'].values())},
         'external_dependencies': 0,

@@ -99,7 +99,7 @@ probe = '''(() => {
         return a;
     }});
     probe.attachSelection=()=>{
-        for(const [id,name] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm']]){
+        for(const [id,name] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm'],['machineFortressStageBgm','stage_machine'],['machineFortressBossBgm','boss_machine']]){
             const a=document.getElementById(id);if(probe.elements.includes(a))continue;
             a.__probeName=name;probe.elements.push(a);
             for(const type of ['play','playing','pause','ended'])a.addEventListener(type,()=>{probe.events.push({type,name:a.__probeName,time:a.currentTime});probe.sample(type)});
@@ -120,8 +120,8 @@ try:
         page.on('dialog', lambda dialog: (native_dialogs.append(dialog.type), dialog.dismiss()))
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
         page.evaluate('__bgmProbe.attachSelection()')
-        page.wait_for_function('__bgmProbe.elements.length===17 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
-        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===13 && __bgmProbe.active().length===0')
+        page.wait_for_function('__bgmProbe.elements.length===19 && __bgmProbe.elements.every(a=>!a.error&&a.readyState>=1&&a.duration>0)')
+        assert page.evaluate('__bgmProbe.elements.filter(a=>a.loop).length===15 && __bgmProbe.active().length===0')
         passed('All12 original WAV files the supplied MP3, two Volcano and two Storm WAVs load native metadata; thirteen BGM elements are paused before the first gesture.')
 
         def start(kind):
@@ -218,9 +218,9 @@ try:
         report['audio_monitor'] = page.evaluate('({max_simultaneous_bgm:__bgmProbe.maxActive,overlap_events:__bgmProbe.overlaps,base_audio_elements:__bgmProbe.elements.length,play_events:__bgmProbe.events.filter(e=>e.type==="play").length})')
         assert report['audio_monitor']['max_simultaneous_bgm'] == 1
         assert not report['audio_monitor']['overlap_events']
-        assert report['audio_monitor']['base_audio_elements'] == 17
+        assert report['audio_monitor']['base_audio_elements'] == 19
         assert not errors and not native_dialogs, (errors, native_dialogs)
-        passed('Twelve additional game-over/restart cycles across all characters reuse the same17 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
+        passed('Twelve additional game-over/restart cycles across all characters reuse the same19 audio elements; event/frame monitoring finds no overlapping BGM, native dialogs or uncaught JS errors.')
         browser.close()
 finally:
     server.shutdown();server.server_close()

@@ -2,7 +2,7 @@ from world_preservation import WORLD_ASSETS, assert_world_asset, without_world_s
 from controls_preservation import CONTROLS_ASSETS, assert_controls_asset, without_controls_ui
 from item_monster_preservation import assert_item_asset
 from scoring_preservation import SCORE_ASSETS,assert_scoring_asset,without_scoring_ui
-"""Native17-track menu/game routing, trusted gesture, loop and retry checks."""
+"""Native19-track menu/game routing, trusted gesture, loop and retry checks."""
 import argparse,base64,hashlib,json,re,shutil,subprocess,threading
 from pathlib import Path
 from functools import partial
@@ -35,7 +35,7 @@ probe='''(() => {
  p.active=()=>p.elements.filter(a=>a.loop&&!a.paused&&!a.ended);
  p.sample=reason=>{const active=p.active();p.maxActive=Math.max(p.maxActive,active.length);if(active.length>1)p.overlaps.push({reason,names:active.map(a=>a.probeName)})};
  p.register=(a,name)=>{if(p.elements.includes(a))return;a.probeName=name;p.elements.push(a);for(const type of ['play','playing','pause','waiting','stalled','ended','error'])a.addEventListener(type,()=>{p.events.push({name,type,time:a.currentTime,wall:performance.now()});p.sample(type)})};
- p.attach=()=>{for(const [id,name] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm']])p.register(document.getElementById(id),name)};
+ p.attach=()=>{for(const [id,name] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm'],['machineFortressStageBgm','stage_machine'],['machineFortressBossBgm','boss_machine']])p.register(document.getElementById(id),name)};
  const NativeAudio=window.Audio;window.Audio=new Proxy(NativeAudio,{construct(target,args){const a=new target(...args);p.register(a,names[p.elements.length]);return a}});
  const nativePlay=HTMLMediaElement.prototype.play;
  HTMLMediaElement.prototype.play=function(...args){p.attempts.push({name:this.probeName||this.id,wall:performance.now()});const result=nativePlay.apply(this,args);p.sample('play-call');return result;};
@@ -76,11 +76,11 @@ try:
    embedded=re.search(r'<audio id="selectionBgm" src="data:audio/mpeg;base64,([A-Za-z0-9+/=]+)"',html);assert embedded and base64.b64decode(embedded[1])==data
   else:
    server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start();page.goto(f'http://127.0.0.1:{server.server_port}/helicopter-game/',wait_until='load')
-  page.evaluate('audioProbe.attach()');page.wait_for_function('audioProbe.elements.length===17&&audioProbe.elements.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
+  page.evaluate('audioProbe.attach()');page.wait_for_function('audioProbe.elements.length===19&&audioProbe.elements.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
   page.wait_for_timeout(250);assert page.evaluate('audioProbe.active().length===0&&audioProbe.attempts.length===0&&selectionBgm.loop&&!selectionBgm.autoplay')
   report['native_duration']=page.evaluate('selectionBgm.duration')
   if not args.standalone:assert any(r['status'] in (200,206) and '/helicopter-game/assets/audio/' in r['url'] for r in responses)
-  passed('No music/play attempts occur before user interaction;17 native media elements load, and the supplied MP3 resolves at the GitHub Pages project-prefix path (or byte-identical offline data URL).')
+  passed('No music/play attempts occur before user interaction;19 native media elements load, and the supplied MP3 resolves at the GitHub Pages project-prefix path (or byte-identical offline data URL).')
   def track(name):
    page.wait_for_function('name=>audioProbe.active().length===1&&audioProbe.active()[0].probeName===name&&audioProbe.active()[0].volume>0',arg=name)
    a=page.evaluate('audioProbe.active()[0].currentTime');page.wait_for_function('old=>audioProbe.active().length===1&&audioProbe.active()[0].currentTime>old+.07',arg=a)
@@ -141,8 +141,8 @@ try:
    else:exit_game()
    track('selection')
   report['native_monitor']=page.evaluate('({elements:audioProbe.elements.length,maxActive:audioProbe.maxActive,overlaps:audioProbe.overlaps,attempts:audioProbe.attempts.length})')
-  assert report['native_monitor']['elements']==17 and report['native_monitor']['maxActive']==1 and not report['native_monitor']['overlaps']
-  passed('Twelve additional starts/returns across all characters reuse exactly17 media elements; synchronous play-call/event/frame monitoring detects no overlapping BGM or duplicate selection tracks.')
+  assert report['native_monitor']['elements']==19 and report['native_monitor']['maxActive']==1 and not report['native_monitor']['overlaps']
+  passed('Twelve additional starts/returns across all characters reuse exactly19 media elements; synchronous play-call/event/frame monitoring detects no overlapping BGM or duplicate selection tracks.')
   for width,height in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('size=>W===size[0]&&H===size[1]',arg=[width,height]);track('selection');page.screenshot(path=str(args.artifacts/f'selection-music-{width}.png'))
   assert page.locator('#musicToggle').count()==1 and page.locator('#selectionBgm').count()==1

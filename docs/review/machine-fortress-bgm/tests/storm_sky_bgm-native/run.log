@@ -1,0 +1,19 @@
+PASS: All109 existing assets are byte-preserved; exactly3 index and3 Storm registry/notice deltas, including original restored contain PNG, music, SFX and all combat/control modules; JS parses.
+PASS: Both original scores and seeded synth/percussion regenerate byte-for-byte without reading any old music, external samples or third-party audio.
+PASS: 148/120BPM16bars: mono22050Hz PCM16,25.946/32s, combined<3.5MB; no clipping/DC/100ms silence, zero file seam jump; per-track levels/low-frequency energy measured.
+PASS: Native project-prefix/offline19 media metadata loads before gesture without play attempts; profiles remain0/1/2/3/0 then volcano4 and storm5, with both storm WAVs embedded exactly offline.
+PASS: Trusted touch/fullscreen and real Help->World2->Storm5 start only the new boss WAV; confirming exit restores original selection MP3 with fullscreen retained.
+PASS: Changing all three characters preserves one uninterrupted selection MP3 clock; no extra music button is introduced.
+PASS: All four normal Storm stages use the dedicated stage WAV; developer direct5 uses only dedicated boss WAV.
+PASS: 3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.
+PASS: All8 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, and Storm selects profile5 independently of Volcano4.
+PASS: Both actual native WAV players loop through a seek-to-end boundary, remain playing and advance again; PCM seam jumps are0 and long silence is absent, subject to speaker approval.
+PASS: Normal phase5 retains its mixed6-kill gate before the new boss music; warning/appear SFX remain separate and no old synthesized stage oscillators are scheduled under the WAV.
+PASS: Original boss-hit/defeat media and shot WebAudio SFX still work independently over the single boss BGM; SFX OFF suppresses new effect/oscillator calls without stopping music.
+PASS: Boss music toggles OFF/ON exclusively; canceling internal exit preserves music/fullscreen; zeroHP immediately silences BGM through3s GAME OVER, then selection MP3 returns.
+PASS: Existing musicOFF persists through direct-boss restart and menu return; ON restores the current selection without changing the effects setting.
+PASS: Simulated hidden-tab events pause every music track and restore only the current boss track; production browser visibility policy remains unchanged.
+PASS: Actual Storm overlord defeat retains2000points once, reward/outro/final return and restores selection music without any simultaneous BGM.
+PASS: Actual Snow->Volcano->Storm nextRegion transitions change forest→volcano4→storm5 without touching mixed-spawn reset or the old World1 route.
+PASS: 12additional stage/boss starts and returns reuse the same19 media elements; synchronous play-call/event/frame probes detect zero simultaneous music or extra looping players.
+PASS: Simulated autoplay policy denials are caught without frame retries and retries on the next trusted touch; no native dialogs/uncaught errors/failed resources occur, and standalone HTTP audio requests are0.

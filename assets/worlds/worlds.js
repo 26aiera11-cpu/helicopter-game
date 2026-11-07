@@ -9,7 +9,7 @@
     [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],
     [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved',4],
     [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘 (시험)',0,'⚡ 폭풍의 지배자 (시험)','storm-sky-approved',5],
-    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',0]
+    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',6]
   ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground,musicProfile=profile],idIndex) => Object.freeze({
     id,key,worldId,worldName:`월드 ${worldId+1}`,localIndex,name,
     combatProfile:profile,assetProfile:profile,musicProfile,
@@ -95,12 +95,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / BGM 숲 임시':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 숲 임시 BGM 시험입니다. 전용 BGM은 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';

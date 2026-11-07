@@ -75,7 +75,7 @@ try:
    if args.standalone:
     context.set_offline(False);page.goto(url+'developer-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:page.goto(url+'helicopter-game/',wait_until='load')
-   page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameScoring');page.evaluate(helpers);page.evaluate('devAudio.push(volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm)')
+   page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameScoring');page.evaluate(helpers);page.evaluate('devAudio.push(volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm,machineFortressStageBgm,machineFortressBossBgm)')
    # Complete unused media preloads before this fixture intentionally navigates again.
    page.wait_for_function("[...document.querySelectorAll('audio')].every(a=>!a.error&&a.readyState>=2&&a.buffered.length&&a.buffered.end(a.buffered.length-1)>=a.duration-.01)")
   load();initial=page.evaluate('gameWorlds.developerSnapshot()');assert initial=={'enabled':False,'selected':{'regionId':0,'phase':1},'active':False,'start':{'regionId':0,'phase':1}}
@@ -117,7 +117,7 @@ try:
      assert (first['boss'] is not None)==(step==5)
      if step==5:assert first['boss']['maxHp']==[20,35,50,65,20,20,20,20][region] and first['phaseKills']==6
      else:assert first['phaseKills']==0
-     assert row['firstTrack']==((13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5,0][region]+(4 if step==5 else 0)),row['firstTrack']
+     assert row['firstTrack']==((13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else (17 if step==5 else 16) if region==7 else [0,1,2,3,0,4,5,6][region]+(4 if step==5 else 0)),row['firstTrack']
      assert [w['phase'] for w in waves]==list(range(step,6)) and all(w['stage']==region for w in waves) and len(waves)==6-step
      assert not finish['started'] and finish['stage']==region and finish['phase']==5 and '지역 테스트 완료' in finish['heading']
      assert finish['score']==[7000,5900,4800,3700,2000][step-1] and record['bossKills']==1 and record['clearedPhases']==5-step
@@ -173,7 +173,7 @@ try:
   for region in range(8):
    for step in [1,5]:
     page.evaluate('cfg=>gameWorlds.setDeveloperStart(cfg)',{'enabled':True,'regionId':region,'phase':step});page.locator('#startSelected').tap();page.evaluate('spawn=999;invuln=999')
-    index=(13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5,0][region]+(4 if step==5 else 0)
+    index=(13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else (17 if step==5 else 16) if region==7 else [0,1,2,3,0,4,5,6][region]+(4 if step==5 else 0)
     page.wait_for_function('index=>!devAudio[index].paused&&devAudio[index].currentTime>.02&&selectionBgm.paused&&devAudio.filter(a=>a.loop&&!a.paused).length===1',arg=index)
     before=page.evaluate('index=>devAudio[index].currentTime',index);page.wait_for_timeout(120);after=page.evaluate('index=>devAudio[index].currentTime',index);assert after>before
     audio_rows.append({'region':region,'phase':step,'audio_index':index,'before':before,'after':after})

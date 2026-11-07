@@ -115,7 +115,7 @@ with sync_playwright() as playwright:
         page.evaluate(audio_probe)
         page.set_content(html, wait_until='load', timeout=30000)
 
-    page.evaluate('for(const a of [selectionBgm,volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm])if(!__galaxyAudio.includes(a))__galaxyAudio.push(a)')
+    page.evaluate('for(const a of [selectionBgm,volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm,machineFortressStageBgm,machineFortressBossBgm])if(!__galaxyAudio.includes(a))__galaxyAudio.push(a)')
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
         .every(image=>image.complete&&image.naturalWidth>0)''')
@@ -131,7 +131,7 @@ with sync_playwright() as playwright:
     assert len(dimensions['layers']) == 6 and dimensions['background'] == [1672,941]
     report['decoded_selection_images'] = dimensions
     passed('Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.')
-    page.wait_for_function('''() => window.__galaxyAudio.length===17 &&
+    page.wait_for_function('''() => window.__galaxyAudio.length===19 &&
         window.__galaxyAudio.every(audio=>!audio.error&&audio.readyState>=1&&audio.duration>0)''')
     report['audio_durations'] = page.evaluate('window.__galaxyAudio.map(audio=>audio.duration)')
     passed('All12 original WAV tracks/effects plus the supplied selection MP3 and two Volcano/two Storm Sky WAVs load native metadata offline.')

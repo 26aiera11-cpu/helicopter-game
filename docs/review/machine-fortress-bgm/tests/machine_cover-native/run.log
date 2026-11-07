@@ -1,0 +1,8 @@
+PASS: After normalizing approved Issue36 boss hooks, Issue35 still has only the background delta; original PNG/manifest/audio/controls and general combat/config/spawn remain protected; no extension/blur/cache allocation code; JS parses.
+PASS: Ten viewport/DPR cases use exactly one unfiltered original image at alpha1; full Canvas pixels equal a cover reference with no transparent/solid margins, overlay, ratio distortion or seam; visible source crop recorded.
+PASS: Actual stages1-5 draw the same single cover source/geometry; developer stage5 still starts original20HP GigaCore immediately.
+PASS: 915x412/800x360/568x320 actual game captures retain40px sprites, centered player and original HUD/joystick/fire/exit/fullscreen targets with no new overlap or input layer.
+PASS: ActualDPR2 game contexts at all3landscape sizes retain one sharp cover background, original132px boss and correct CSS/pixel scale; no blurry auxiliary image.
+PASS: Portrait-to-landscape resize recalculates cover immediately without old cached dimensions or a second background.
+PASS: Actual before/after915x412 and568x320 compare baseline46e8631 blurred extension against single cover; the renderer is the only served source difference, actors/PNG/AI unchanged.
+PASS: No JS errors/native dialogs/missing resources; exact standalone HTML executes network-disabled with zero external requests. Existing combat regressions run separately, no added projectile diagnostics.

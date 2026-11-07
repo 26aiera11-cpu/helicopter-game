@@ -1,0 +1,392 @@
+{
+  "notes": "Raw status/metrics/logs preserved, with only large JSON data URIs replaced by MIME/length/SHA metadata when needed. WAV/HTML/ZIP/PNG files remain exact.",
+  "artifacts": [
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/run.log",
+      "published": "tests/machine_fortress_bgm-native/run.log",
+      "original_bytes": 3830,
+      "published_bytes": 3830,
+      "original_sha256": "962a6f6f9d175998119882223b2e822b1f24f102c02ec14cda4a418ca427e7c8",
+      "published_sha256": "962a6f6f9d175998119882223b2e822b1f24f102c02ec14cda4a418ca427e7c8",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/test-results.json",
+      "published": "tests/machine_fortress_bgm-native/test-results.json",
+      "original_bytes": 84453,
+      "published_bytes": 84453,
+      "original_sha256": "99802d47fbcdc12950e0089d06fba93cce5d5ec68deecf66fade0c8aafbe2e15",
+      "published_sha256": "99802d47fbcdc12950e0089d06fba93cce5d5ec68deecf66fade0c8aafbe2e15",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-offline/run.log",
+      "published": "tests/machine_fortress_bgm-offline/run.log",
+      "original_bytes": 3830,
+      "published_bytes": 3830,
+      "original_sha256": "962a6f6f9d175998119882223b2e822b1f24f102c02ec14cda4a418ca427e7c8",
+      "published_sha256": "962a6f6f9d175998119882223b2e822b1f24f102c02ec14cda4a418ca427e7c8",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-offline/test-results.json",
+      "published": "tests/machine_fortress_bgm-offline/test-results.json",
+      "original_bytes": 84727,
+      "published_bytes": 84727,
+      "original_sha256": "79b99ed285b6b5656daa34a9b5ef6065842920e99255068a9096146114e242b9",
+      "published_sha256": "79b99ed285b6b5656daa34a9b5ef6065842920e99255068a9096146114e242b9",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_boss-native/run.log",
+      "published": "tests/machine_boss-native/run.log",
+      "original_bytes": 5049,
+      "published_bytes": 5049,
+      "original_sha256": "72fb8777e34f2c7b5d22c5790b59f55877295d3d5eb0a2b2d45d0aeb8c3560b0",
+      "published_sha256": "72fb8777e34f2c7b5d22c5790b59f55877295d3d5eb0a2b2d45d0aeb8c3560b0",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_boss-native/test-results.json",
+      "published": "tests/machine_boss-native/test-results.json",
+      "original_bytes": 512515,
+      "published_bytes": 512515,
+      "original_sha256": "7cf43cfd1a786b2454d7fd7f0506ab94422c7d5c83c872c6af9e1e16e82f209e",
+      "published_sha256": "7cf43cfd1a786b2454d7fd7f0506ab94422c7d5c83c872c6af9e1e16e82f209e",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_normal-native/run.log",
+      "published": "tests/machine_normal-native/run.log",
+      "original_bytes": 4020,
+      "published_bytes": 4020,
+      "original_sha256": "49dc7dcecfa49abb768d814d011264dee8c3df472f12ebdede34c172848cd049",
+      "published_sha256": "49dc7dcecfa49abb768d814d011264dee8c3df472f12ebdede34c172848cd049",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_normal-native/test-results.json",
+      "published": "tests/machine_normal-native/test-results.json",
+      "original_bytes": 53203,
+      "published_bytes": 53203,
+      "original_sha256": "e3a5a757437296c71a5808af4931c6ea9071a674ce9102890739498a74a629ab",
+      "published_sha256": "e3a5a757437296c71a5808af4931c6ea9071a674ce9102890739498a74a629ab",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_fortress-native/run.log",
+      "published": "tests/machine_fortress-native/run.log",
+      "original_bytes": 2570,
+      "published_bytes": 2570,
+      "original_sha256": "b4aec826f52fa7990c901970dbbf90d87e53819c4cb95a0030a39b09f0a80fd2",
+      "published_sha256": "b4aec826f52fa7990c901970dbbf90d87e53819c4cb95a0030a39b09f0a80fd2",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_fortress-native/test-results.json",
+      "published": "tests/machine_fortress-native/test-results.json",
+      "original_bytes": 49230,
+      "published_bytes": 49230,
+      "original_sha256": "5a6fe845ed06e03cab414aad0e6489438f906798bc32a0741f52547d43bf8c13",
+      "published_sha256": "5a6fe845ed06e03cab414aad0e6489438f906798bc32a0741f52547d43bf8c13",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_cover-native/run.log",
+      "published": "tests/machine_cover-native/run.log",
+      "original_bytes": 1447,
+      "published_bytes": 1447,
+      "original_sha256": "4d6547b20635815241b6de7f0976e9029d423cceeb95728cd3cb791a377345a8",
+      "published_sha256": "4d6547b20635815241b6de7f0976e9029d423cceeb95728cd3cb791a377345a8",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/machine_cover-native/test-results.json",
+      "published": "tests/machine_cover-native/test-results.json",
+      "original_bytes": 17845,
+      "published_bytes": 17845,
+      "original_sha256": "46dd030e0fac5fb6e8c7dad260a07f5e4c7a0613c5f2284c49d43cedf6d1d4b9",
+      "published_sha256": "46dd030e0fac5fb6e8c7dad260a07f5e4c7a0613c5f2284c49d43cedf6d1d4b9",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/worlds/run.log",
+      "published": "tests/worlds/run.log",
+      "original_bytes": 3238,
+      "published_bytes": 3238,
+      "original_sha256": "81494542a86ca4167006ab5aa917561469b8289bd834725bfe11560a2f0f3e52",
+      "published_sha256": "81494542a86ca4167006ab5aa917561469b8289bd834725bfe11560a2f0f3e52",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/worlds/test-results.json",
+      "published": "tests/worlds/test-results.json",
+      "original_bytes": 54508,
+      "published_bytes": 54508,
+      "original_sha256": "c914e5b6e594d913a7f39f8b50f32069c40d14f06f0cdfc83627bd22d1dde944",
+      "published_sha256": "c914e5b6e594d913a7f39f8b50f32069c40d14f06f0cdfc83627bd22d1dde944",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/developer_start-native/run.log",
+      "published": "tests/developer_start-native/run.log",
+      "original_bytes": 3111,
+      "published_bytes": 3111,
+      "original_sha256": "bfb720c3d7e704e304cdfd8181b2c7d278db24d6e58f42c10e13ae7210d857e3",
+      "published_sha256": "bfb720c3d7e704e304cdfd8181b2c7d278db24d6e58f42c10e13ae7210d857e3",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/developer_start-native/test-results.json",
+      "published": "tests/developer_start-native/test-results.json",
+      "original_bytes": 492706,
+      "published_bytes": 492706,
+      "original_sha256": "982fcd620db4be1432dccb23f0b28016012bcb46198c0c956a18b7e5fbcafaee",
+      "published_sha256": "982fcd620db4be1432dccb23f0b28016012bcb46198c0c956a18b7e5fbcafaee",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/galaxy_standalone/run.log",
+      "published": "tests/galaxy_standalone/run.log",
+      "original_bytes": 2589,
+      "published_bytes": 2589,
+      "original_sha256": "b0e2426366f9f1c6fc98a5c094902b713e91d471d5aaa398ac8de740a4e2d9ee",
+      "published_sha256": "b0e2426366f9f1c6fc98a5c094902b713e91d471d5aaa398ac8de740a4e2d9ee",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/galaxy_standalone/test-results.json",
+      "published": "tests/galaxy_standalone/test-results.json",
+      "original_bytes": 4288,
+      "published_bytes": 4288,
+      "original_sha256": "6007ac28bed744ab52db880ecf6d05505ea4313fb7c47e6143c3044aad3d15ba",
+      "published_sha256": "6007ac28bed744ab52db880ecf6d05505ea4313fb7c47e6143c3044aad3d15ba",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/selection_bgm/run.log",
+      "published": "tests/selection_bgm/run.log",
+      "original_bytes": 2552,
+      "published_bytes": 2552,
+      "original_sha256": "6a95417e40828951aae134b7a68e58292bb8f1eb2fd163eef841761ba3686603",
+      "published_sha256": "6a95417e40828951aae134b7a68e58292bb8f1eb2fd163eef841761ba3686603",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/selection_bgm/test-results.json",
+      "published": "tests/selection_bgm/test-results.json",
+      "original_bytes": 4119,
+      "published_bytes": 4119,
+      "original_sha256": "b7f014440058a468ac15b76c639d41bf9e64ee7752f82311c1169cf3837c9b4b",
+      "published_sha256": "b7f014440058a468ac15b76c639d41bf9e64ee7752f82311c1169cf3837c9b4b",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/bgm_smoke/run.log",
+      "published": "tests/bgm_smoke/run.log",
+      "original_bytes": 1393,
+      "published_bytes": 1393,
+      "original_sha256": "83ae0cd9b8de0cbb02679cc84330cce610e51adaea5cabe4c5645c0583b5f9bd",
+      "published_sha256": "83ae0cd9b8de0cbb02679cc84330cce610e51adaea5cabe4c5645c0583b5f9bd",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/bgm_smoke/test-results.json",
+      "published": "tests/bgm_smoke/test-results.json",
+      "original_bytes": 4727,
+      "published_bytes": 4727,
+      "original_sha256": "d335b33d142beea10856c7d0080ad32a0859bf864ab12e1cdfb41c5b0a38c25d",
+      "published_sha256": "d335b33d142beea10856c7d0080ad32a0859bf864ab12e1cdfb41c5b0a38c25d",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/storm_sky_bgm-native/run.log",
+      "published": "tests/storm_sky_bgm-native/run.log",
+      "original_bytes": 3194,
+      "published_bytes": 3194,
+      "original_sha256": "e90d36046ddb21874b9a9966c2ab5ff9c0bb6d5da850d2b1d366c21c288f9f0d",
+      "published_sha256": "e90d36046ddb21874b9a9966c2ab5ff9c0bb6d5da850d2b1d366c21c288f9f0d",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/storm_sky_bgm-native/test-results.json",
+      "published": "tests/storm_sky_bgm-native/test-results.json",
+      "original_bytes": 81664,
+      "published_bytes": 81664,
+      "original_sha256": "2f99ecbace408f891cda6db95a7ebf3eb5c6a2344de922e7587d63f42ac018ac",
+      "published_sha256": "2f99ecbace408f891cda6db95a7ebf3eb5c6a2344de922e7587d63f42ac018ac",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/volcano_bgm-native/run.log",
+      "published": "tests/volcano_bgm-native/run.log",
+      "original_bytes": 2946,
+      "published_bytes": 2946,
+      "original_sha256": "1eabb292269b217e327e0baef9d9ae872d61b8575bf350b0501c06b6debd670f",
+      "published_sha256": "1eabb292269b217e327e0baef9d9ae872d61b8575bf350b0501c06b6debd670f",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/volcano_bgm-native/test-results.json",
+      "published": "tests/volcano_bgm-native/test-results.json",
+      "original_bytes": 79001,
+      "published_bytes": 79001,
+      "original_sha256": "a91d4309adff4372ec7ac12e6e77660e7712fbc28d1159920c5b615c9c945e61",
+      "published_sha256": "a91d4309adff4372ec7ac12e6e77660e7712fbc28d1159920c5b615c9c945e61",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/mobile_controls/run.log",
+      "published": "tests/mobile_controls/run.log",
+      "original_bytes": 3036,
+      "published_bytes": 3036,
+      "original_sha256": "68a04451238adcb5ef9b0d26f3c110e16b00fb46617e9941563afda82a0b7dd5",
+      "published_sha256": "68a04451238adcb5ef9b0d26f3c110e16b00fb46617e9941563afda82a0b7dd5",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/mobile_controls/test-results.json",
+      "published": "tests/mobile_controls/test-results.json",
+      "original_bytes": 26678,
+      "published_bytes": 26678,
+      "original_sha256": "e4287a2a6d7e6187b8790d0dcb9ecc8c14dd30171c7150171e836befd609f345",
+      "published_sha256": "e4287a2a6d7e6187b8790d0dcb9ecc8c14dd30171c7150171e836befd609f345",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/scoring/run.log",
+      "published": "tests/scoring/run.log",
+      "original_bytes": 2605,
+      "published_bytes": 2605,
+      "original_sha256": "f2b1ed4f8cb5244cd705c20926ab9119c38dd6a3fb712081b1e776e5c16cb281",
+      "published_sha256": "f2b1ed4f8cb5244cd705c20926ab9119c38dd6a3fb712081b1e776e5c16cb281",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/scoring/test-results.json",
+      "published": "tests/scoring/test-results.json",
+      "original_bytes": 20079,
+      "published_bytes": 20079,
+      "original_sha256": "be65a79fb7c2e98fc994ed2fc9f905acd7a34b85c18789098f84de4af9cb1643",
+      "published_sha256": "be65a79fb7c2e98fc994ed2fc9f905acd7a34b85c18789098f84de4af9cb1643",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/boss_reward/run.log",
+      "published": "tests/boss_reward/run.log",
+      "original_bytes": 1425,
+      "published_bytes": 1425,
+      "original_sha256": "50312ea9654a423e78517579b8defa8f0ef9f8357f9b67a8083d27437e2e71fe",
+      "published_sha256": "50312ea9654a423e78517579b8defa8f0ef9f8357f9b67a8083d27437e2e71fe",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/boss_reward/test-results.json",
+      "published": "tests/boss_reward/test-results.json",
+      "original_bytes": 17875,
+      "published_bytes": 17875,
+      "original_sha256": "04bcf9d30ec85b3ddc9c2f79f0ac9cb15be135e29b300b1ae0548f41d6947bcc",
+      "published_sha256": "04bcf9d30ec85b3ddc9c2f79f0ac9cb15be135e29b300b1ae0548f41d6947bcc",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/item_persistence/run.log",
+      "published": "tests/item_persistence/run.log",
+      "original_bytes": 1101,
+      "published_bytes": 1101,
+      "original_sha256": "09ab8f7735c20d83d6ec124b707e5ca7618e0a37093ccdc6b0d8c9980bbcf631",
+      "published_sha256": "09ab8f7735c20d83d6ec124b707e5ca7618e0a37093ccdc6b0d8c9980bbcf631",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/item_persistence/test-results.json",
+      "published": "tests/item_persistence/test-results.json",
+      "original_bytes": 4426,
+      "published_bytes": 4426,
+      "original_sha256": "d0d7fdf05bfdf5a007b5ae82b049a5679c46dd5786da817ca55b079c9f72a06d",
+      "published_sha256": "d0d7fdf05bfdf5a007b5ae82b049a5679c46dd5786da817ca55b079c9f72a06d",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/game_over/run.log",
+      "published": "tests/game_over/run.log",
+      "original_bytes": 1038,
+      "published_bytes": 1038,
+      "original_sha256": "d2fc1a13886d941b55d689a9d5ffc3823bf8ca8d959eefcdcef4f1b021035b48",
+      "published_sha256": "d2fc1a13886d941b55d689a9d5ffc3823bf8ca8d959eefcdcef4f1b021035b48",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/regression/game_over/test-results.json",
+      "published": "tests/game_over/test-results.json",
+      "original_bytes": 1252,
+      "published_bytes": 1252,
+      "original_sha256": "5c1204db233ca43d8091b5a2e2e39a897e681325171a692be7cfd3ae62197677",
+      "published_sha256": "5c1204db233ca43d8091b5a2e2e39a897e681325171a692be7cfd3ae62197677",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-overdrive.png",
+      "published": "screenshots/machine-bgm-overdrive.png",
+      "original_bytes": 285215,
+      "published_bytes": 285215,
+      "original_sha256": "0282dc8760ace8adfb3c2e0109f744bed422f8268142fd24db1df7927e50b157",
+      "published_sha256": "0282dc8760ace8adfb3c2e0109f744bed422f8268142fd24db1df7927e50b157",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase1-568x320.png",
+      "published": "screenshots/machine-bgm-phase1-568x320.png",
+      "original_bytes": 271477,
+      "published_bytes": 271477,
+      "original_sha256": "0cb3626fbf6208d90c1683f85058a580fda2d035db39b205f15538203b1c9b28",
+      "published_sha256": "0cb3626fbf6208d90c1683f85058a580fda2d035db39b205f15538203b1c9b28",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase1-800x360.png",
+      "published": "screenshots/machine-bgm-phase1-800x360.png",
+      "original_bytes": 353292,
+      "published_bytes": 353292,
+      "original_sha256": "d477a8139093b9f8fc1fe22cbb8f595e185100c3291c1d128135f2b8a6ea0888",
+      "published_sha256": "d477a8139093b9f8fc1fe22cbb8f595e185100c3291c1d128135f2b8a6ea0888",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase1-915x412.png",
+      "published": "screenshots/machine-bgm-phase1-915x412.png",
+      "original_bytes": 484969,
+      "published_bytes": 484969,
+      "original_sha256": "dd9483bde093e88a4a4fa4f1bce676fa7cbf4737d8694bd2798f2d96770a42e4",
+      "published_sha256": "dd9483bde093e88a4a4fa4f1bce676fa7cbf4737d8694bd2798f2d96770a42e4",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase5-568x320.png",
+      "published": "screenshots/machine-bgm-phase5-568x320.png",
+      "original_bytes": 282560,
+      "published_bytes": 282560,
+      "original_sha256": "028db9d3f7c87ba5d0d44b85a434af5eb717607771c4158b2fa9b4e80e335a64",
+      "published_sha256": "028db9d3f7c87ba5d0d44b85a434af5eb717607771c4158b2fa9b4e80e335a64",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase5-800x360.png",
+      "published": "screenshots/machine-bgm-phase5-800x360.png",
+      "original_bytes": 367712,
+      "published_bytes": 367712,
+      "original_sha256": "8642e5c68bb3820dd62f3587e8f978dc4cd1073c29d3b06f3f88c3abe9748425",
+      "published_sha256": "8642e5c68bb3820dd62f3587e8f978dc4cd1073c29d3b06f3f88c3abe9748425",
+      "json_compaction_or_formatting": false
+    },
+    {
+      "original": "/tmp/machine-bgm-tests/focused/machine_fortress_bgm-native/machine-bgm-phase5-915x412.png",
+      "published": "screenshots/machine-bgm-phase5-915x412.png",
+      "original_bytes": 500131,
+      "published_bytes": 500131,
+      "original_sha256": "66e9ab31f39f451660fd2bd3bf6be907879c76466a7c17d08b22c94261c7135b",
+      "published_sha256": "66e9ab31f39f451660fd2bd3bf6be907879c76466a7c17d08b22c94261c7135b",
+      "json_compaction_or_formatting": false
+    }
+  ]
+}

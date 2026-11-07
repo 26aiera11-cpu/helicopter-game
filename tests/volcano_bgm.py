@@ -51,7 +51,7 @@ probe=r'''(()=>{
  p.sample=reason=>{const a=p.active();p.maxActive=Math.max(p.maxActive,a.length);if(a.length>1)p.overlaps.push({reason,names:a.map(a=>a.vbName)})};
  p.register=(a,name)=>{if(p.tracks.includes(a))return;a.vbName=name;p.tracks.push(a);for(const type of ['play','playing','pause','ended','error'])a.addEventListener(type,()=>{p.events.push({type,name,time:a.currentTime,wall:performance.now()});p.sample(type)})};
  const Native=Audio;window.Audio=new Proxy(Native,{construct(t,args){const a=new t(...args);p.register(a,names[p.tracks.length]);return a}});
- p.attach=()=>{for(const [id,n] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm']])p.register(document.getElementById(id),n)};
+ p.attach=()=>{for(const [id,n] of [['selectionBgm','selection'],['volcanoStageBgm','stage_volcano'],['volcanoBossBgm','boss_volcano'],['stormSkyStageBgm','stage_storm'],['stormSkyBossBgm','boss_storm'],['machineFortressStageBgm','stage_machine'],['machineFortressBossBgm','boss_machine']])p.register(document.getElementById(id),n)};
  const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(...args){p.attempts.push({name:this.vbName||this.id,time:performance.now()});const r=play.apply(this,args);p.sample('play-call');return r};
  const AC=window.AudioContext||window.webkitAudioContext;if(AC){const make=AC.prototype.createOscillator;AC.prototype.createOscillator=function(...args){p.oscillators++;return make.apply(this,args)}}
  const sample=()=>{p.sample('frame');requestAnimationFrame(sample)};requestAnimationFrame(sample);
@@ -78,13 +78,13 @@ try:
   def load(target):
    if args.standalone:context.set_offline(False);target.goto(url+'/offline-origin');external.clear();context.set_offline(True);target.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:target.goto(url+'/helicopter-game/',wait_until='load')
-   target.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');target.evaluate('vbMusic.attach()');target.evaluate(helpers);target.wait_for_function('vbMusic.tracks.length===17&&vbMusic.tracks.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
-  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5,0]
+   target.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');target.evaluate('vbMusic.attach()');target.evaluate(helpers);target.wait_for_function('vbMusic.tracks.length===19&&vbMusic.tracks.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
+  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5,6]
   if args.standalone:
    html=(ROOT/'dist/heli_trio_galaxy_test.html').read_text()
    for id,name in [('volcanoStageBgm','volcano_stage.wav'),('volcanoBossBgm','volcano_boss.wav')]:
     encoded=re.search(r'<audio id="'+id+r'" src="data:audio/[^;]+;base64,([A-Za-z0-9+/=]+)"',html);assert encoded and base64.b64decode(encoded[1])==(ROOT/'assets/audio'/name).read_bytes()
-  passed('Native project-prefix/offline17 media metadata loads before gesture without play attempts; profiles remain0/1/2/3/0 then volcano4, with both volcano WAVs embedded exactly offline.')
+  passed('Native project-prefix/offline19 media metadata loads before gesture without play attempts; profiles remain0/1/2/3/0 then volcano4, with both volcano WAVs embedded exactly offline.')
   def track(name):
    page.wait_for_function('name=>vbMusic.active().length===1&&vbMusic.active()[0].vbName===name&&vbMusic.active()[0].volume>0',arg=name)
    before=page.evaluate('vbMusic.active()[0].currentTime');page.wait_for_function('old=>vbMusic.active().length===1&&vbMusic.active()[0].currentTime>old+.06',arg=before)
@@ -108,7 +108,7 @@ try:
   report['mobile_matrix']=matrix
   passed('3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.')
   routes=[]
-  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm','forest']):
+  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm','machine']):
    for step in [1,5]:
     start(region,step);routes.append({'region':region,'phase':step,**track(('boss_' if step==5 else 'stage_')+name)});exit_game()
   report['routes']=routes
@@ -145,8 +145,8 @@ try:
   assert page.evaluate('gameWorlds.setDeveloperStart({enabled:false})&&gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();page.evaluate('vbQuiet();stage=4;phase=5;boss=null');track('stage_forest');page.evaluate('nextPhase();vbQuiet()');track('stage_volcano');assert page.evaluate('stage===5&&phase===1&&gameVolcanoSpawns.snapshot().draws===0');page.evaluate('stage=5;phase=5;boss=null;nextPhase();vbQuiet()');track('stage_storm');assert page.evaluate('stage===6&&phase===1&&gameStormSpawns.snapshot().draws===0');exit_game();page.evaluate('gameWorlds.setTrialEnabled(false)')
   passed('Actual Snow->Volcano->Storm nextRegion transitions change forest→volcano4→storm5 without touching mixed-spawn reset or the old World1 route.')
   for index in range(12):start(step=5 if index%2 else 1,kind=index%3);track('boss_volcano' if index%2 else 'stage_volcano');exit_game();track('selection')
-  assert page.evaluate('vbMusic.tracks.length===17&&vbMusic.maxActive===1&&vbMusic.overlaps.length===0');report['monitor']=page.evaluate('({events:vbMusic.events,attempts:vbMusic.attempts,tracks:vbMusic.tracks.length,maxActive:vbMusic.maxActive,overlaps:vbMusic.overlaps})')
-  passed('12additional stage/boss starts and returns reuse the same17 media elements; synchronous play-call/event/frame probes detect zero simultaneous music or extra looping players.')
+  assert page.evaluate('vbMusic.tracks.length===19&&vbMusic.maxActive===1&&vbMusic.overlaps.length===0');report['monitor']=page.evaluate('({events:vbMusic.events,attempts:vbMusic.attempts,tracks:vbMusic.tracks.length,maxActive:vbMusic.maxActive,overlaps:vbMusic.overlaps})')
+  passed('12additional stage/boss starts and returns reuse the same19 media elements; synchronous play-call/event/frame probes detect zero simultaneous music or extra looping players.')
   # Deliberate rejection only here; no autoplay policy bypass flags are used.
   page.close();retry=context.new_page();retry.on('pageerror',lambda e:errors.append(str(e)));retry.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()));retry.on('requestfailed',lambda r:failed.append(r.url));load(retry);retry.evaluate('''()=>{window.policyBlocked=true;window.blockedAttempts=0;const play=HTMLMediaElement.prototype.play;HTMLMediaElement.prototype.play=function(...args){if(this.id==='volcanoStageBgm'&&policyBlocked){blockedAttempts++;return Promise.reject(new DOMException('test policy denial','NotAllowedError'))}return play.apply(this,args)};vbConfigure(5,1);}''');retry.locator('#startSelected').tap();retry.evaluate('vbQuiet()');retry.wait_for_timeout(100);assert retry.evaluate('volcanoStageBgm.paused&&blockedAttempts>=1');attempts=retry.evaluate('blockedAttempts');retry.wait_for_timeout(150);assert retry.evaluate('blockedAttempts')==attempts;retry.evaluate('policyBlocked=false');retry.locator('#fire').tap();retry.wait_for_function('!volcanoStageBgm.paused&&volcanoStageBgm.currentTime>.03');retry.close()
   assert not errors and not dialogs and not failed,(errors,dialogs,failed)
