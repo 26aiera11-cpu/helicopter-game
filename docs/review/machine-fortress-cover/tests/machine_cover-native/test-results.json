@@ -1,0 +1,909 @@
+{
+  "standalone": false,
+  "passed": [
+    "Only one runtime file changes: background rendering. Index and127/128assets including complete combat/config/spawn/projectile code, original PNG/manifest/audio/controls remain byte-identical; no extension/blur/cache allocation code; JS parses.",
+    "Ten viewport/DPR cases use exactly one unfiltered original image at alpha1; full Canvas pixels equal a cover reference with no transparent/solid margins, overlay, ratio distortion or seam; visible source crop recorded.",
+    "Actual stages1-5 draw the same single cover source/geometry; developer stage5 still starts original20HP GigaCore immediately.",
+    "915x412/800x360/568x320 actual game captures retain40px sprites, centered player and original HUD/joystick/fire/exit/fullscreen targets with no new overlap or input layer.",
+    "ActualDPR2 game contexts at all3landscape sizes retain one sharp cover background, original132px boss and correct CSS/pixel scale; no blurry auxiliary image.",
+    "Portrait-to-landscape resize recalculates cover immediately without old cached dimensions or a second background.",
+    "Actual before/after915x412 and568x320 compare baseline46e8631 blurred extension against single cover; the renderer is the only served source difference, actors/PNG/AI unchanged.",
+    "No JS errors/native dialogs/missing resources; exact standalone HTML executes network-disabled with zero external requests. Existing combat regressions run separately, no added projectile diagnostics."
+  ],
+  "preservation": {
+    "baseline": "46e86319a3924bfd0ef68cb9627bef5041f354fc",
+    "existing_assets": 128,
+    "raw_unchanged_assets": 127,
+    "only_runtime_file": "assets/machine_fortress/machine_fortress.js",
+    "index_byte_unchanged": true,
+    "all_combat_projectile_laser_damage_spawn_dash_and_player_code_bytes_preserved": true,
+    "original_PNG_manifest_audio_other_regions_controls_score_items_bytes_preserved": true,
+    "screw_dash_height_fraction": 0.4,
+    "wasp_dash_height_fraction": 0.7,
+    "dash_speed": [
+      100,
+      145
+    ],
+    "normal_width": 40,
+    "boss_width": 132
+  },
+  "limits": [
+    "Real Chromium screenshots and pixel checks, not physical Galaxy Samsung Internet/Chrome approval.",
+    "Cover cropping is approved; source PNG/ratio are unchanged.",
+    "No new projectile E2E or attack diagnostics: only the existing regressions are run.",
+    "Offline exact HTML uses network-disabled injection without bypassing managed file policy."
+  ],
+  "background_pixels": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "ratio": 1,
+      "canvas": [
+        915,
+        412
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -51.48056220095697,
+        915,
+        514.9611244019139
+      ],
+      "visibleSource": [
+        -0.0,
+        94.07158469945361,
+        1672,
+        752.8568306010928
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -51.48056220095697,
+            915,
+            514.9611244019139
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 376980,
+      "perimeterColors": 2263
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "ratio": 1,
+      "canvas": [
+        800,
+        360
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -45.119617224880386,
+        800,
+        450.2392344497608
+      ],
+      "visibleSource": [
+        -0.0,
+        94.30000000000001,
+        1672,
+        752.4
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -45.119617224880386,
+            800,
+            450.2392344497608
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 288000,
+      "perimeterColors": 1994
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "ratio": 1,
+      "canvas": [
+        568,
+        320
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        -0.2933049946865367,
+        0,
+        568.5866099893731,
+        320
+      ],
+      "visibleSource": [
+        0.862500000000097,
+        -0.0,
+        1670.2749999999999,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            -0.2933049946865367,
+            0,
+            568.5866099893731,
+            320
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 181760,
+      "perimeterColors": 1476
+    },
+    {
+      "size": [
+        1672,
+        941
+      ],
+      "ratio": 1,
+      "canvas": [
+        1672,
+        941
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "visibleSource": [
+        -0.0,
+        -0.0,
+        1672,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1573352,
+      "perimeterColors": 3534
+    },
+    {
+      "size": [
+        412,
+        915
+      ],
+      "ratio": 1,
+      "canvas": [
+        412,
+        915
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        -606.9011689691816,
+        0,
+        1625.8023379383633,
+        915
+      ],
+      "visibleSource": [
+        624.1464480874316,
+        -0.0,
+        423.70710382513664,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            -606.9011689691816,
+            0,
+            1625.8023379383633,
+            915
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 376980,
+      "perimeterColors": 1299
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "ratio": 2,
+      "canvas": [
+        1830,
+        824
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -51.48056220095697,
+        915,
+        514.9611244019139
+      ],
+      "visibleSource": [
+        -0.0,
+        94.07158469945361,
+        1672,
+        752.8568306010928
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -51.48056220095697,
+            915,
+            514.9611244019139
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1507920,
+      "perimeterColors": 3935
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "ratio": 2,
+      "canvas": [
+        1600,
+        720
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -45.119617224880386,
+        800,
+        450.2392344497608
+      ],
+      "visibleSource": [
+        -0.0,
+        94.30000000000001,
+        1672,
+        752.4
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -45.119617224880386,
+            800,
+            450.2392344497608
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1152000,
+      "perimeterColors": 3608
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "ratio": 2,
+      "canvas": [
+        1136,
+        640
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        -0.2933049946865367,
+        0,
+        568.5866099893731,
+        320
+      ],
+      "visibleSource": [
+        0.862500000000097,
+        -0.0,
+        1670.2749999999999,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            -0.2933049946865367,
+            0,
+            568.5866099893731,
+            320
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 727040,
+      "perimeterColors": 2545
+    },
+    {
+      "size": [
+        1672,
+        941
+      ],
+      "ratio": 2,
+      "canvas": [
+        3344,
+        1882
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        0,
+        1672,
+        941
+      ],
+      "visibleSource": [
+        -0.0,
+        -0.0,
+        1672,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            0,
+            1672,
+            941
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 6293408,
+      "perimeterColors": 5020
+    },
+    {
+      "size": [
+        412,
+        915
+      ],
+      "ratio": 2,
+      "canvas": [
+        824,
+        1830
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        -606.9011689691816,
+        0,
+        1625.8023379383633,
+        915
+      ],
+      "visibleSource": [
+        624.1464480874316,
+        -0.0,
+        423.70710382513664,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            -606.9011689691816,
+            0,
+            1625.8023379383633,
+            915
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1507920,
+      "perimeterColors": 2160
+    }
+  ],
+  "phase_backgrounds": [
+    {
+      "phase": 1,
+      "background": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "boss": false,
+      "bossHP": null
+    },
+    {
+      "phase": 2,
+      "background": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "boss": false,
+      "bossHP": null
+    },
+    {
+      "phase": 3,
+      "background": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "boss": false,
+      "bossHP": null
+    },
+    {
+      "phase": 4,
+      "background": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "boss": false,
+      "bossHP": null
+    },
+    {
+      "phase": 5,
+      "background": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "boss": true,
+      "bossHP": 20
+    }
+  ],
+  "layouts": [
+    {
+      "W": 915,
+      "H": 412,
+      "dpr": 1,
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 705,
+          "height": 17.5,
+          "top": 10,
+          "right": 715,
+          "bottom": 27.5,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 332,
+          "width": 164.6875,
+          "height": 58,
+          "top": 332,
+          "right": 194.6875,
+          "bottom": 390,
+          "left": 30
+        },
+        "fire": {
+          "x": 815,
+          "y": 317,
+          "width": 85,
+          "height": 85,
+          "top": 317,
+          "right": 900,
+          "bottom": 402,
+          "left": 815
+        },
+        "fullscreenToggle": {
+          "x": 725,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 819,
+          "bottom": 35,
+          "left": 725
+        },
+        "exitGame": {
+          "x": 833.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 905,
+          "bottom": 40,
+          "left": 833.5625
+        }
+      }
+    },
+    {
+      "W": 800,
+      "H": 360,
+      "dpr": 1,
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 590,
+          "height": 15.984375,
+          "top": 10,
+          "right": 600,
+          "bottom": 25.984375,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 280,
+          "width": 144,
+          "height": 58,
+          "top": 280,
+          "right": 174,
+          "bottom": 338,
+          "left": 30
+        },
+        "fire": {
+          "x": 700,
+          "y": 265,
+          "width": 85,
+          "height": 85,
+          "top": 265,
+          "right": 785,
+          "bottom": 350,
+          "left": 700
+        },
+        "fullscreenToggle": {
+          "x": 610,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 704,
+          "bottom": 35,
+          "left": 610
+        },
+        "exitGame": {
+          "x": 718.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 790,
+          "bottom": 40,
+          "left": 718.5625
+        }
+      }
+    },
+    {
+      "W": 568,
+      "H": 320,
+      "dpr": 1,
+      "boxes": {
+        "hud": {
+          "x": 10,
+          "y": 10,
+          "width": 358,
+          "height": 12.5,
+          "top": 10,
+          "right": 368,
+          "bottom": 22.5,
+          "left": 10
+        },
+        "rotationJoystick": {
+          "x": 30,
+          "y": 240,
+          "width": 135,
+          "height": 58,
+          "top": 240,
+          "right": 165,
+          "bottom": 298,
+          "left": 30
+        },
+        "fire": {
+          "x": 468,
+          "y": 225,
+          "width": 85,
+          "height": 85,
+          "top": 225,
+          "right": 553,
+          "bottom": 310,
+          "left": 468
+        },
+        "fullscreenToggle": {
+          "x": 378,
+          "y": 9,
+          "width": 94,
+          "height": 26,
+          "top": 9,
+          "right": 472,
+          "bottom": 35,
+          "left": 378
+        },
+        "exitGame": {
+          "x": 486.5625,
+          "y": 9,
+          "width": 71.4375,
+          "height": 31,
+          "top": 9,
+          "right": 558,
+          "bottom": 40,
+          "left": 486.5625
+        }
+      }
+    }
+  ],
+  "actual_dpr2": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "ratio": 2,
+      "canvas": [
+        1830,
+        824
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -51.48056220095697,
+        915,
+        514.9611244019139
+      ],
+      "visibleSource": [
+        -0.0,
+        94.07158469945361,
+        1672,
+        752.8568306010928
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -51.48056220095697,
+            915,
+            514.9611244019139
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1507920,
+      "perimeterColors": 3935
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "ratio": 2,
+      "canvas": [
+        1600,
+        720
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        0,
+        -45.119617224880386,
+        800,
+        450.2392344497608
+      ],
+      "visibleSource": [
+        -0.0,
+        94.30000000000001,
+        1672,
+        752.4
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            0,
+            -45.119617224880386,
+            800,
+            450.2392344497608
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 1152000,
+      "perimeterColors": 3608
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "ratio": 2,
+      "canvas": [
+        1136,
+        640
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "cover": [
+        -0.2933049946865367,
+        0,
+        568.5866099893731,
+        320
+      ],
+      "visibleSource": [
+        0.862500000000097,
+        -0.0,
+        1670.2749999999999,
+        941
+      ],
+      "calls": [
+        {
+          "original": true,
+          "args": [
+            -0.2933049946865367,
+            0,
+            568.5866099893731,
+            320
+          ],
+          "source": [
+            1672,
+            941
+          ],
+          "filter": "none",
+          "alpha": 1
+        }
+      ],
+      "minAlpha": 255,
+      "centerDiff": 0,
+      "centerPixels": 727040,
+      "perimeterColors": 2545
+    }
+  ],
+  "all_passed": true,
+  "errors": [],
+  "dialogs": [],
+  "failed": [],
+  "offline_requests": []
+}

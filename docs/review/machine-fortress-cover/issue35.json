@@ -1,0 +1,24 @@
+{
+  "url": "https://github.com/26aiera11-cpu/helicopter-game/issues/35",
+  "title": "[기계 요새] 배경을 기존 지역과 동일한 단일 cover 방식으로 변경 (탄환 수정 제외)",
+  "issue_number": 35,
+  "body": "# 기계 요새 배경 표시 방식 통일 (사용자 피드백 반영)\n\n## 최종 작업 범위 (2026-11-07)\n사용자는 기계 요새 배경 양쪽을 흐리게 확장하는 방식이 자연스럽지 않다고 판단했다. **이전 지역인 설원·화산에서 사용하는 단일 cover 배경 렌더링 방식을 그대로 적용한다.**\n\n### 작업 브랜치\n- 기준 커밋: `46e86319a3924bfd0ef68cb9627bef5041f354fc`\n- 기존 작업 브랜치 **`fix/machine-fortress-cover-projectiles`** (과거 탄환 진단을 포함했던 이름이지만, **이번 작업은 배경만**)\n- main 병합 및 GitHub Pages 배포 금지. 갤럭시 사용자 검토 후 진행 여부 결정.\n\n### 요구 사항\n1. `assets/machine_fortress/machine_fortress.js`의 `extendedBackground()`, blur, dark overlay, 캐시 보조 레이어 및 contain + cover 이중 표시 방식 **모두 제거**.\n2. `assets/volcano/volcano.js` 및 `assets/snowfield/snowfield.js`의 `backgroundGeometry(width,height)`와 동일한 **단일 cover** 표시 구현:\n   ```js\n   const scale=Math.max(width/image.naturalWidth,height/image.naturalHeight);\n   const w=image.naturalWidth*scale,h=image.naturalHeight*scale;\n   ctx.drawImage(image,(width-w)/2,(height-h)/2,w,h);\n   ```\n3. 좌우 빈 띠 없도록 가로 전체 채우며, 원본 비율 차이에 따른 상하·좌우 crop은 다른 지역과 같은 정상 동작. 불필요한 이음새/블러/흐림/왜곡 없음.\n4. 배경 원본 PNG와 manifest 바이트를 변경하지 않는다.\n\n### **탄환 변경은 취소 (중요)**\n사용자는 이전의 탄환 미발사 보고가 몬스터별 고유 공격 설계에 따른 정상 동작이었다는 점을 이해하고 **\"초기 설정이 그러했다면 탄환건은 패쓰하자\"**고 확정했다.\n- 나사봇 = 돌진 전용, **탄환 없음**\n- 톱니벌 = 돌진 전용, **탄환 없음**\n- 레이저 드론 = 조준 후 레이저, 별도 일반 탄환 없음\n- 장갑 포탑 = 예고 후 주황색 포탄\n- **모든 탄환·레이저 발사/피격/렌더링/AI, HP, 스폰/공격 빈도/타격 판정/게임 밸런스 변경 금지**. 발사체 관련 추가 기능 및 E2E 진단 작업은 이번 이슈의 완료 조건에서 제외. 기존 자동 테스트가 정상인지 회귀 수준으로만 확인한다.\n\n### 변경 금지\n- 사용자 승인된 나사봇 돌진 **H×40%**, 톱니벌 **H×70%** 및 속도100/145px/s·예고/쿨다운/경계 클램프.\n- 일반 몬스터40px·기가코어132px; 기존 네 종 이미지/보스/음악·기타 지역 코드·조작·점수·아이템/미구현 특수 공격.\n- 기존 Issue #30 설원 멀티터치 후 나가기 클릭 간헐 누락은 보류 상태 유지.\n\n### 검증·인계\n- 실제 Chromium에서 915×412/800×360/568×320 및 DPR1/2·회전/리사이즈 배경 cover 전체 채움, 부드러운 이음새(한 장), 이미지 비율 유지·잘림 범위 확인, 비교 스크린샷 저장.\n- 기존 기계 요새 돌진/네 종 역할/보스/다른 지역 및 독립 HTML 회귀 테스트 실행. 바뀐 배경 기대치만 업데이트하여 기존 기능 실패 숨기지 않는다.\n- 갤럭시 단일 HTML 및 ZIP 새로 빌드, ZIP CRC/추출 HTML 바이트 동일·승인 원본 PNG/오디오 포함 및 오프라인 실행 확인.\n- `docs/review/machine-fortress-cover/README.md`에 전후 비교, 실제 수정 파일, 테스트 결과, SHA, 갤럭시 ZIP 다운로드 링크 작성.\n- 작업 브랜치에 커밋/푸시. **사용자 실기기 확인 전 main 병합/Pages 배포 금지**.\n",
+  "state": "open",
+  "user": {
+    "login": "26aiera11-cpu",
+    "name": "26aiera11-cpu",
+    "email": null,
+    "avatar_url": "https://avatars.githubusercontent.com/u/348202238?v=4",
+    "id": 348202238
+  },
+  "assignees": null,
+  "labels": null,
+  "milestone": null,
+  "state_reason": null,
+  "comments": 1,
+  "created_at": "2026-11-07T07:32:43Z",
+  "updated_at": "2026-11-07T07:53:04Z",
+  "closed_at": null,
+  "display_url": "https://github.com/26aiera11-cpu/helicopter-game/issues/35",
+  "display_title": "[기계 요새] 배경을 기존 지역과 동일한 단일 cover 방식으로 변경 (탄환 수정 제외)"
+}

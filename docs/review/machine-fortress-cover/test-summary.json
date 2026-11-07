@@ -1,0 +1,301 @@
+{
+  "date": "2026-11-07",
+  "issue": 35,
+  "branch": "fix/machine-fortress-cover-projectiles",
+  "baseline": "46e86319a3924bfd0ef68cb9627bef5041f354fc",
+  "scope": "Background only. Single cover, no blurred extension. No attack/projectile feature or extra E2E diagnostics. All combat/config/spawns/index byte-identical.",
+  "registered_suites_available": 74,
+  "related_suites_executed": 10,
+  "passed_suites": 10,
+  "failed_suites": 0,
+  "completed_pass_groups": 144,
+  "full_registered_run": false,
+  "suites": [
+    {
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.52,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/focused/machine_cover-native"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-native",
+      "exit_code": 0,
+      "groups": 12,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.56,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/focused/machine_background_dash-native"
+      ]
+    },
+    {
+      "suite": "machine_cover-offline",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 54.44,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_cover-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-offline",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.06,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_background_dash-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 60.35,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.19,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.94,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.73,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/storm_sky-native"
+      ]
+    }
+  ],
+  "all_attempts": [
+    {
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.52,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/focused/machine_cover-native"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-native",
+      "exit_code": 0,
+      "groups": 12,
+      "observed_groups_before_failure": 0,
+      "seconds": 7.56,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/focused/machine_background_dash-native"
+      ]
+    },
+    {
+      "suite": "machine_cover-offline",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 54.44,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_cover-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-offline",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.06,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_background_dash-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 60.35,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.19,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.94,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.73,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/machine-cover-tests/regression/storm_sky-native"
+      ]
+    }
+  ],
+  "known_issue": {
+    "issue": 30,
+    "status": "Existing low-priority unresolved; input code byte-preserved.",
+    "reproduced_this_run": false,
+    "partial_groups_not_counted": 0,
+    "evidence": "../machine-fortress-background-dash-range/tests/worlds/exit-touch-failure.json"
+  },
+  "execution": {
+    "workers": 1,
+    "oom_kill_before": 2,
+    "oom_kill_after": 2,
+    "new_oom_kills": 0
+  },
+  "limits": [
+    "Physical Galaxy sensors/touch/performance and file association/visual approval remain unverified.",
+    "Offline exact HTML uses network-disabled injection without bypassing managed file navigation policy.",
+    "Approved cover can crop source edges; original PNG/ratio are preserved."
+  ]
+}

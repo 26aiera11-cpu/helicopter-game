@@ -1,10 +1,11 @@
-"""Issue34 final H-proportional dashes and original-sharp/extended background, real Chromium."""
+"""Issue34 unchanged H-proportional dashes with Issue35 single-cover background expectations."""
 import argparse,base64,hashlib,json,math,shutil,subprocess,threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from machine_background_dash_preservation import BASE,TEXT,verify
+from machine_cover_probe import probe,check_background
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
 report={'standalone':args.standalone,'passed':[],'preservation':verify(),'limits':['Exact real Chromium controlled states, not physical Samsung Internet/Chrome sensor or human difficulty approval.','Dash state transitions are quantized by the existing1/300s step; actual target endpoints are clamped exactly.','Network-disabled exact HTML injection tests offline resources without bypassing managed file navigation policy.']}
@@ -24,21 +25,6 @@ class Quiet(SimpleHTTPRequestHandler):
    b=old[name];self.send_response(200);self.send_header('Content-Type','text/javascript');self.end_headers();self.wfile.write(b);return
   super().do_GET()
 server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(ROOT)));threading.Thread(target=server.serve_forever,daemon=True).start();url=f'http://127.0.0.1:{server.server_port}'
-probe=r'''([w,h,ratio])=>mcRun(()=>{
- const im=gameMachineFortress.backgroundImage,c=document.createElement('canvas');c.width=Math.ceil(w*ratio);c.height=Math.ceil(h*ratio);const g=c.getContext('2d');g.setTransform(ratio,0,0,ratio,0,0);
- const calls=[],original=g.drawImage;g.drawImage=function(image,...a){calls.push({original:image===im,args:a,source:[image.width,image.height]});return original.call(g,image,...a)};gameMachineFortress.drawBackground(g,w,h);g.drawImage=original;
- const ref=document.createElement('canvas');ref.width=c.width;ref.height=c.height;const r=ref.getContext('2d');r.setTransform(ratio,0,0,ratio,0,0);
- const scale=Math.min(w/im.naturalWidth,h/im.naturalHeight),dw=im.naturalWidth*scale,dh=im.naturalHeight*scale,x=(w-dw)/2,y=(h-dh)/2;r.drawImage(im,x,y,dw,dh);
- const a=g.getImageData(0,0,c.width,c.height).data,b=r.getImageData(0,0,c.width,c.height).data;let minAlpha=255,centerDiff=0,centerPixels=0;const colors=new Set();
- for(let py=0;py<c.height;py++)for(let px=0;px<c.width;px++){const i=(py*c.width+px)*4;minAlpha=Math.min(minAlpha,a[i+3]);if(px>(x+2)*ratio&&px<(x+dw-2)*ratio&&py>(y+2)*ratio&&py<(y+dh-2)*ratio){centerPixels++;for(let q=0;q<4;q++)centerDiff=Math.max(centerDiff,Math.abs(a[i+q]-b[i+q]));}if(px===0||py===0||px===c.width-1||py===c.height-1)colors.add([a[i],a[i+1],a[i+2],a[i+3]].join());}
- const samples=[[0,0],[c.width-1,0],[0,c.height-1],[c.width-1,c.height-1],[0,Math.floor(c.height/2)],[c.width-1,Math.floor(c.height/2)]].map(([px,py])=>({point:[px,py],rgba:Array.from(a.slice((py*c.width+px)*4,(py*c.width+px)*4+4))}));
- return {size:[w,h],ratio,canvas:[c.width,c.height],source:[im.naturalWidth,im.naturalHeight],contain:[x,y,dw,dh],calls,minAlpha,centerDiff,centerPixels,perimeterColors:colors.size,samples};
-})'''
-def check_background(row):
- w,h=row['size'];scale=min(w/1672,h/941);expected=[(w-1672*scale)/2,(h-941*scale)/2,1672*scale,941*scale]
- assert row['source']==[1672,941] and row['centerDiff']==0 and row['centerPixels']>1000 and row['minAlpha']==255,row
- sharp=[c for c in row['calls'] if c['original']];assert len(sharp)==1 and all(abs(a-b)<1e-6 for a,b in zip(sharp[0]['args'],expected))
- assert row['perimeterColors']>20 and all(s['rgba']!=[37,44,54,255] for s in row['samples']),row
 try:
  with sync_playwright() as pw:
   browser=pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox']);context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True);page=context.new_page();errors=[];dialogs=[];failed=[];external=[]
@@ -52,10 +38,10 @@ try:
   for ratio in [1,2]:
    for w,h in [(915,412),(800,360),(568,320),(1672,941),(412,915)]:
     row=page.evaluate(probe,[w,h,ratio]);check_background(row);layouts.append(row)
-  report['background_pixels']=layouts;passed('10 background/DPR cases: every pixel opaque, varied image perimeter/no fallback corners, entire original source at unchanged centered contain geometry, inner sharp pixels exactly equal a reference draw.')
-  exact=next(r for r in layouts if r['size']==[1672,941] and r['ratio']==1);assert len(exact['calls'])==1;passed('At exact source aspect1672x941, only the sharp original is drawn; the extension is absent and does not blur or darken the original.')
-  cache=page.evaluate('''()=>mcRun(()=>{const c=document.createElement('canvas');c.width=813;c.height=364;const g=c.getContext('2d'),proto=CanvasRenderingContext2D.prototype,original=proto.drawImage,im=gameMachineFortress.backgroundImage;let count=0;proto.drawImage=function(image,...a){if(image===im)count++;return original.call(this,image,...a)};try{gameMachineFortress.drawBackground(g,813,364);const first=count;count=0;gameMachineFortress.drawBackground(g,813,364);return {first,second:count};}finally{proto.drawImage=original;}})''');assert cache=={'first':2,'second':1};report['background_cache']=cache;passed('Background extension is cached by CSS size/DPR: one filtered construction, then only a cached blit plus sharp source each frame; no per-frame blur allocations.')
-  fallback=page.evaluate('''probe=>{const proto=CanvasRenderingContext2D.prototype,descriptor=Object.getOwnPropertyDescriptor(proto,'filter');Object.defineProperty(proto,'filter',{configurable:true,get:()=>"none",set:()=>{}});try{return eval('('+probe+')')([913,411,2]);}finally{Object.defineProperty(proto,'filter',descriptor);}}''',probe);check_background(fallback);report['without_canvas_filter']=fallback;passed('Simulated Canvas filter-unavailable mode uses a smooth small source copy; corners remain opaque/image-filled and sharp contain pixels remain identical, includingDPR2.')
+  report['background_pixels']=layouts;passed('10 background/DPR cases: every pixel opaque and equal to single-cover reference; original ratio/center maintained with approved edge crop; no blur/overlay/second image.')
+  exact=next(r for r in layouts if r['size']==[1672,941] and r['ratio']==1);assert len(exact['calls'])==1;passed('At exact source aspect1672x941 the single cover image equals the complete original with no cropping, blur or dark overlay.')
+  calls=page.evaluate("""()=>mcRun(()=>{const c=document.createElement('canvas');c.width=813;c.height=364;const g=c.getContext('2d'),create=document.createElement,original=g.drawImage;let canvases=0,draws=0;document.createElement=function(tag,...args){if(tag==='canvas')canvases++;return create.call(document,tag,...args)};g.drawImage=function(...args){draws++;return original.call(g,...args)};try{gameMachineFortress.drawBackground(g,813,364);gameMachineFortress.drawBackground(g,813,364);return {canvases,draws};}finally{document.createElement=create;g.drawImage=original;}})""");assert calls=={'canvases':0,'draws':2};report['single_cover_calls']=calls;passed('Every frame draws one original image; no offscreen canvas/cache allocation, extension or repeated source draw.')
+  fallback=page.evaluate("""probe=>{const proto=CanvasRenderingContext2D.prototype,descriptor=Object.getOwnPropertyDescriptor(proto,'filter');Object.defineProperty(proto,'filter',{configurable:true,get:()=>"none",set:()=>{throw Error('Cover must not set filters')}});try{return eval('('+probe+')')([913,411,2]);}finally{Object.defineProperty(proto,'filter',descriptor);}}""",probe);check_background(fallback);report['without_canvas_filter']=fallback;passed('Single-cover rendering never sets Canvas filters and remains pixel-identical/opaque when filter setters are unavailable, includingDPR2.')
   rows=[]
   for w,h in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':w,'height':h});page.wait_for_function('([w,h])=>W===w&&H===h',arg=[w,h])

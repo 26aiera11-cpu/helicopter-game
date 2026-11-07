@@ -64,7 +64,7 @@ try:
   page.locator('.select-hit[data-heli="0"]').tap();page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');assert page.locator('#developerStartRegion option').count()==4;page.locator('#developerStartRegion').select_option('7');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'machine-developer-menu.png'));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&stage===7&&phase===5&&!!boss');assert page.evaluate('boss.hp===20&&phaseKills===6&&enemies.length===0&&warnings.length===0');page.evaluate('transition=0;spawn=999;invuln=999')
   assert page.evaluate('document.body.innerText.includes("기계 요새 일반 전투 시험 · 보스/음악 숲 임시")')
   passed('Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI labels normal-combat trial and legacy boss/forest temporary music.')
-  # Whole source image, contain geometry, stage invariance, DPR and aspect ratios.
+  # Whole source image, cover geometry, stage invariance, DPR and aspect ratios.
   layouts=[]
   for w,h,dpr2 in [(915,412,False),(800,360,False),(568,320,False),(568,320,True)]:
    target=page;extra=None
@@ -77,7 +77,7 @@ try:
    target.wait_for_function('([w,h])=>W===w&&H===h',arg=[w,h])
    target.evaluate('mfRun(()=>mfBegin(0,1))');target.evaluate('()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))')
    row=target.evaluate('''()=>mfRun(()=>{const im=gameMachineFortress.backgroundImage,drawImage=ctx.drawImage,calls=[];ctx.drawImage=function(image,...a){if(image===im)calls.push(a);return drawImage.call(ctx,image,...a)};try{for(let step=1;step<=5;step++){phase=step;draw();}}finally{ctx.drawImage=drawImage;}return {calls,source:[im.naturalWidth,im.naturalHeight],dpr,canvas:[canvas.width,canvas.height],hud:hud.getBoundingClientRect().toJSON(),joystick:rotationJoystick.getBoundingClientRect().toJSON(),fire:fire.getBoundingClientRect().toJSON(),full:fullscreenToggle.getBoundingClientRect().toJSON()};})''')
-   scale=min(w/1672,h/941);expected=[(w-1672*scale)/2,(h-941*scale)/2,1672*scale,941*scale]
+   scale=max(w/1672,h/941);expected=[(w-1672*scale)/2,(h-941*scale)/2,1672*scale,941*scale]
    assert len(row['calls'])==5 and all(len(call)==4 and all(abs(a-b)<1e-6 for a,b in zip(call,expected)) for call in row['calls']);assert row['source']==[1672,941]
    assert row['joystick']['x']==30 and h-row['joystick']['bottom']==22 and row['joystick']['right']<row['fire']['left'] and row['hud']['right']<=row['full']['left']
    if dpr2:assert row['dpr']==2 and row['canvas']==[w*2,h*2]
@@ -85,7 +85,7 @@ try:
    target.evaluate('mfRun(()=>mfBegin(0,5))');target.screenshot(path=str(args.artifacts/(f'machine-boss-{w}x{h}'+('-dpr2' if dpr2 else '')+'.png')));layouts.append({'size':[w,h],**row})
    if extra:extra.close()
   report['layouts']=layouts
-  passed('All5 phases use one full1672x941 source via contain at915x412/800x360/568x320 and actualDPR2; original ratio/center/gold design preserved; HUD/joystick/fire/fullscreen fit.')
+  passed('All5 phases use one1672x941 source via centered cover at915x412/800x360/568x320 and actualDPR2; source ratio/center preserved with approved edge cropping; HUD/joystick/fire/fullscreen fit.')
   cases=[]
   for hero in range(3):
    for step in range(1,5):

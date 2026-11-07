@@ -1,0 +1,11 @@
+PASS: Only3Machine files change; index/128old assets normalize exactly; final.40H/.70H fractions and100/145 speeds replace fixed dashTime; JS parses.
+PASS: 10 background/DPR cases: every pixel opaque and equal to single-cover reference; original ratio/center maintained with approved edge crop; no blur/overlay/second image.
+PASS: At exact source aspect1672x941 the single cover image equals the complete original with no cropping, blur or dark overlay.
+PASS: Every frame draws one original image; no offscreen canvas/cache allocation, extension or repeated source draw.
+PASS: Single-cover rendering never sets Canvas filters and remains pixel-identical/opaque when filter setters are unavailable, includingDPR2.
+PASS: 48dash cases across3heights/8directions: exactH*.40/.70 target,100/145speed, duration=clipped path/speed, fixed direction, identical telegraph endpoint, unchanged2.2/2.6 recovery; horizontal center paths reach the full target.
+PASS: Near-wall paths shorten to2px with the matching shorter time, stop at the original18px safe margin and immediately enter existing recovery; no wall slide, teleport or stuck full-duration dash.
+PASS: Captured long-route warnings and actual screw/wasp dashes from production Canvas states; draw path and movement use the same clipped segment.
+PASS: Resizing during a dash cancels old warnings/path with the existing safe recovery; portrait-to-landscape return rebuilds full image fill without stale dimensions.
+PASS: ActualDPR2 game Canvas1136x640 keeps image fill, sharp original,40px normals and existing UI at CSS568x320; no new touch layer.
+PASS: No uncaught errors/native dialogs/missing files; standalone image/code/audio resources execute with network disabled and zero external requests.

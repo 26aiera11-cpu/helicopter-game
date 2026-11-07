@@ -108,7 +108,7 @@ try:
   layouts=[]
   for w,h in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':w,'height':h});page.wait_for_function('([w,h])=>W===w&&H===h',arg=[w,h]);page.evaluate('mcRun(()=>{mcBegin();const a=mcSpawn(2,W*.25,H*.45);player.x=a.x+180;player.y=a.y;mcUntil(a,"laser");})');page.evaluate('()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))');boxes=page.evaluate('''()=>Object.fromEntries(['hud','rotationJoystick','fire','fullscreenToggle','exitGame'].map(id=>[id,document.getElementById(id).getBoundingClientRect().toJSON()]))''');assert boxes['rotationJoystick']['left']==30 and h-boxes['rotationJoystick']['bottom']==22 and boxes['rotationJoystick']['right']<boxes['fire']['left'] and boxes['hud']['right']<=boxes['fullscreenToggle']['left'];page.screenshot(path=str(args.artifacts/f'combat-{w}x{h}.png'));layouts.append({'size':[w,h],'boxes':boxes})
-  report['layouts']=layouts;passed('Attack warning/active screenshots and915x412/800x360/568x320 layouts retain40px sprites/132boss/contain, readable bullets/items/HUD and existing joystick/fire/fullscreen targets; effects are Canvas-only.')
+  report['layouts']=layouts;passed('Attack warning/active screenshots and915x412/800x360/568x320 layouts retain40px sprites/132boss/cover, readable bullets/items/HUD and existing joystick/fire/fullscreen targets; effects are Canvas-only.')
   extra=browser.new_context(viewport={'width':568,'height':320},device_scale_factor=2,is_mobile=True,has_touch=True);dpage=extra.new_page()
   if args.standalone:extra.set_offline(True);dpage.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
   else:dpage.goto(url+'/helicopter-game/')
