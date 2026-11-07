@@ -1,0 +1,30 @@
+{
+  "index.html": [
+    [
+      "<audio id=\"volcanoBossBgm\" src=\"assets/audio/volcano_boss.wav\" preload=\"auto\" loop hidden></audio>",
+      "<audio id=\"volcanoBossBgm\" src=\"assets/audio/volcano_boss.wav\" preload=\"auto\" loop hidden></audio><audio id=\"stormSkyStageBgm\" src=\"assets/audio/storm_sky_stage.wav\" preload=\"auto\" loop hidden></audio><audio id=\"stormSkyBossBgm\" src=\"assets/audio/storm_sky_boss.wav\" preload=\"auto\" loop hidden></audio>"
+    ],
+    [
+      "const stageTracks=[...names.map(n=>audio('stage_'+n,true)),document.getElementById('volcanoStageBgm')];",
+      "const stageTracks=[...names.map(n=>audio('stage_'+n,true)),document.getElementById('volcanoStageBgm'),document.getElementById('stormSkyStageBgm')];"
+    ],
+    [
+      "const bossTracks=[...names.map(n=>audio('boss_'+n,true)),document.getElementById('volcanoBossBgm')];",
+      "const bossTracks=[...names.map(n=>audio('boss_'+n,true)),document.getElementById('volcanoBossBgm'),document.getElementById('stormSkyBossBgm')];"
+    ]
+  ],
+  "assets/worlds/worlds.js": [
+    [
+      "'storm-sky-approved',0]",
+      "'storm-sky-approved',5]"
+    ],
+    [
+      "폭풍 하늘 시험 · 전용 전투 / BGM 숲 임시",
+      "폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험"
+    ],
+    [
+      "폭풍 하늘은 전용 전투·숲 임시 BGM 시험입니다.",
+      "폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다."
+    ]
+  ]
+}

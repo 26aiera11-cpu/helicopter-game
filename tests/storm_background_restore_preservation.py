@@ -1,10 +1,11 @@
 """Issue27 approved complete PNG replacement only; keep all other historic guards."""
+from storm_sky_bgm_preservation import without_storm_sky_bgm
 import hashlib,json,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='4549b4993ba8ca19d1a8c5845c4774014a0caa24'
 BACKGROUND='assets/storm_sky/storm_sky_background_1920x864.png'
-TEXT_ASSETS={'index.html','assets/storm_sky/asset_manifest.json','assets/storm_sky/prepare_assets.py'}
+TEXT_ASSETS={'index.html','assets/worlds/worlds.js','assets/storm_sky/asset_manifest.json','assets/storm_sky/prepare_assets.py'}
 def pins():return json.loads((ROOT/'tests/storm_background_restore_hashes.json').read_text())
 def assert_restored_background():
     data=(ROOT/BACKGROUND).read_bytes();p=pins()
@@ -12,6 +13,7 @@ def assert_restored_background():
     return data
 
 def without_background_restore(source,name):
+    source=without_storm_sky_bgm(source,name)
     for old,new in reversed(json.loads((ROOT/'tests/storm_background_restore_changes.json').read_text()).get(name,[])):
         if new in source:
             assert source.count(new)==1,(name,new[:100]);source=source.replace(new,old)

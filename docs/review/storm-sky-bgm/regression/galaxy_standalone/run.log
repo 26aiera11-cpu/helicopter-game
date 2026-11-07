@@ -1,0 +1,20 @@
+PASS: All HTML and CSS resource references are embedded data URLs; no external stylesheet, script, font or image dependency.
+PASS: The current source game/audio scripts and selection JavaScript are embedded exactly and pass syntax checks.
+PASS: All five selection PNGs are embedded without changing their bytes, alpha, colors or geometry.
+LIMIT: file:// blocked by browser policy; testing identical standalone HTML offline without a server.
+PASS: Offline isolated HTML decodes all character/rotor/background images and all original terrain/enemy/boss/projectile images.
+PASS: All12 original WAV tracks/effects plus the supplied selection MP3 and two Volcano/two Storm Sky WAVs load native metadata offline.
+PASS: All three touch selections retain no yellow rectangle, colored circular lighting, panel accents, floating and front-view rotor/stop behavior.
+PASS: Original music and SFX toggles work with touch input.
+PASS: The final 1402×1122 Trio PNG loads offline and its actual draw uses equal X/Y scale without square distortion or cropping.
+PASS: The supplied restored Tanko PNG is embedded byte-for-byte and used offline with the unchanged 503×490 source and original gameplay draw rectangle.
+PASS: Each helicopter starts via touch with HP 4/6/9; real touch-hold rotation, drag movement, firing, return and enemy spawning work offline.
+PASS: The rebuilt offline HTML includes the in-page exit modal, gameplay pause/resume and fullscreen-preserving selection return without native dialogs.
+PASS: The original embedded background track starts after a user gesture; audible speaker output remains a device test.
+PASS: The rebuilt standalone file enters fullscreen from selection, retains it through all three game/return flows and exits through the shared control.
+PASS: The latest standalone HTML pauses all BGM during the3s game-over overlay, resumes selection MP3 on return, freezes the old game clock and restarts one stage track offline.
+PASS: The rebuilt offline HTML applies both boss rewards before existing region HP healing, drops no boss item and displays the compact reward notice.
+PASS: All four original stage/boss configurations and final-clear return pass controlled-state regression checks.
+PASS: The latest offline build preserves ordinary items and remaining life through phase/region changes, snapshots scaled boss HP once and clears items in a fresh game.
+PASS: 915×412 and 800×360 mobile landscape layouts, touch controls and portrait rotate notice render offline.
+PASS: No external HTTP requests, failed assets or uncaught JavaScript errors in the offline run.

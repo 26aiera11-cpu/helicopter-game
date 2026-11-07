@@ -19,6 +19,8 @@ def package():
     assert b'id="selectionBgm"' in payload and b'src="data:audio/mpeg;base64,' in payload, 'Embed the supplied selection MP3 before packaging'
     for name in ['volcano_stage.wav', 'volcano_boss.wav']:
         assert base64.b64encode((ROOT/'assets/audio'/name).read_bytes()) in payload, 'Embed the current Volcano WAV bytes'
+    for name in ['storm_sky_stage.wav', 'storm_sky_boss.wav']:
+        assert base64.b64encode((ROOT/'assets/audio'/name).read_bytes()) in payload, 'Embed the current Storm Sky trial WAV bytes'
     assert b'id="galaxy-score-js"' in payload and b'heliTrio.top10.v1' in payload, 'Include the current local TOP 10 implementation'
     assert b'id="galaxy-item-monster-js"' in payload and b'id="itemMonsterAtlas" src="data:image/png;base64,' in payload, 'Embed independent item monster code and supplied atlas'
     assert b'id="galaxy-controls-js"' in payload and b'id="rotationJoystick"' in payload, 'Embed current analog controls'
@@ -58,6 +60,7 @@ def package():
             'html_sha256':hashlib.sha256(payload).hexdigest(),'compression':'ZIP DEFLATE',
             'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed','volcano_art_included':True,'volcano_normal_combat_included':True,'volcano_mixed_spawns_included':True,'volcano_boss_combat_included':True,'static_breath_sweep_included':True,
             'volcano_stage_and_boss_bgm_embedded':True,'storm_sky_embedded':True,
+            'storm_sky_stage_and_boss_bgm_embedded':True,
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
             'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'snowfield_mixed_spawns_included':True,'regional_difficulty_included':True,'ppyoko_name_included':True,'corrected_hel_title_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 

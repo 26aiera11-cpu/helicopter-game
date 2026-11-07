@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright,expect
 from storm_sky_preservation import verify
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'standalone':args.standalone,'passed':[],'limits':['Controlled real Chromium execution, not physical Galaxy Samsung Internet/Chrome or sensor hardware.','New regional combat numbers are first-playtest values; no human difficulty certification.','Single-cell lossless source atlases animate through manifest scale/rotation/alpha keyframes, not newly hand-drawn poses.','Storm music explicitly falls back to existing forest tracks; dedicated music is deferred.']}
+report={'standalone':args.standalone,'passed':[],'limits':['Controlled real Chromium execution, not physical Galaxy Samsung Internet/Chrome or sensor hardware.','New regional combat numbers are first-playtest values; no human difficulty certification.','Single-cell lossless source atlases animate through manifest scale/rotation/alpha keyframes, not newly hand-drawn poses.','Storm dedicated stage/boss BGM is a first-listening trial; separate audio suites verify native clocks and routing.']}
 def passed(s):report['passed'].append(s);print('PASS:',s,flush=True)
 report['preservation']=verify()
 for js in [p.read_text() for p in (ROOT/'assets/storm_sky').glob('*.js')]+re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>',(ROOT/'index.html').read_text(),re.S):subprocess.run(['node','--check','-'],input=js,text=True,capture_output=True,check=True)

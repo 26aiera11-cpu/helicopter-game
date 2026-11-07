@@ -4,7 +4,7 @@ import json,subprocess,re,hashlib
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='6c3446b7ad079822df80db5045c1f727051d47e4'
-TEXT_ASSETS={'assets/storm_sky/storm_sky.js','assets/storm_sky/asset_manifest.json','assets/storm_sky/prepare_assets.py'}
+TEXT_ASSETS={'assets/worlds/worlds.js','assets/storm_sky/storm_sky.js','assets/storm_sky/asset_manifest.json','assets/storm_sky/prepare_assets.py'}
 def without_background_fit(source,name):
     source=without_background_restore(source,name)
     if name=='index.html':
@@ -13,7 +13,7 @@ def without_background_fit(source,name):
             body=m[2];old='"render_mode": "cover"';new='"render_mode": "contain"'
             assert body.count(old)+body.count(new)==1
             source=source[:m.start(2)]+body.replace(new,old)+source[m.end(2):]
-    elif name in TEXT_ASSETS:
+    elif name in TEXT_ASSETS and name!='assets/worlds/worlds.js':
         old,new=json.loads((ROOT/'tests/storm_background_fit_changes.json').read_text())[name]
         assert source.count(old)+source.count(new)==1,(name,old,new)
         source=source.replace(new,old)
