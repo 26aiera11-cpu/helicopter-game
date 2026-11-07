@@ -32,7 +32,7 @@ try:
   page.wait_for_function('gameMachineFortress.ready()&&gameStormSky.ready()&&itemMonsters.ready()');page.evaluate(helpers);page.evaluate('mcRun(()=>mcBegin())')
   source=(ROOT/RENDERER).read_text();assert all(token not in source for token in ['extendedBackground','backgroundCache','blur(','rgba(8,15,24','createElement'])
   subprocess.run(['node','--check',str(ROOT/RENDERER)],capture_output=True,check=True)
-  passed('Only one runtime file changes: background rendering. Index and127/128assets including complete combat/config/spawn/projectile code, original PNG/manifest/audio/controls remain byte-identical; no extension/blur/cache allocation code; JS parses.')
+  passed('After normalizing approved Issue36 boss hooks, Issue35 still has only the background delta; original PNG/manifest/audio/controls and general combat/config/spawn remain protected; no extension/blur/cache allocation code; JS parses.')
   rows=[]
   for ratio in [1,2]:
    for w,h in [(915,412),(800,360),(568,320),(1672,941),(412,915)]:

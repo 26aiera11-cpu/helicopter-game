@@ -1,0 +1,453 @@
+{
+  "date": "2026-11-07",
+  "issue": 36,
+  "branch": "feature/machine-fortress-gigacore-boss",
+  "baseline": "0ae1d974ab7a90058e7abb3abc7172dd2003711d",
+  "registered_suites_available": 76,
+  "related_suites_executed": 29,
+  "passed_suites": 29,
+  "failed_suites": 0,
+  "completed_pass_groups": 442,
+  "full_registered_run": false,
+  "suites": [
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": null,
+      "command": [
+        "python",
+        "tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/native-round5"
+      ],
+      "note": "Direct full native run before the unchanged final build; exact source hashes in preservation report."
+    },
+    {
+      "suite": "machine_boss-offline",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 67.23,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_boss-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.99,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-offline",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 61.74,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_normal-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.82,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 62.74,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-native",
+      "exit_code": 0,
+      "groups": 12,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.59,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_background_dash-native"
+      ]
+    },
+    {
+      "suite": "machine_background_dash-offline",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 55.18,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_background_dash.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_background_dash-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.32,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_cover-native"
+      ]
+    },
+    {
+      "suite": "machine_cover-offline",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 54.53,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/machine_cover-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.25,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/developer_start-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.53,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.35,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/game_over"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.77,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/scoring"
+      ]
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 5.95,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/item_persistence"
+      ]
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.55,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/boss_reward"
+      ]
+    },
+    {
+      "suite": "tanko_combat",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 42.2,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/tanko_combat.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/tanko_combat"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.19,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/mobile_controls"
+      ]
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.11,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/fullscreen_smoke"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 76.04,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/selection_bgm"
+      ]
+    },
+    {
+      "suite": "bgm_smoke",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 78.52,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/bgm_smoke.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/bgm_smoke"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.4,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.58,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.16,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.66,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/volcano_mixed-native"
+      ]
+    },
+    {
+      "suite": "volcano_bgm-native",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 41.68,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_bgm.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/volcano_bgm-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.47,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.44,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/gigacore-tests/final/storm_sky_bgm-native"
+      ]
+    }
+  ],
+  "initial_failed_attempts": [
+    {
+      "attempt": "initial-native",
+      "all_passed": false,
+      "observed_partial_groups": 2,
+      "counted_as_completed_groups": 0,
+      "reason": "Canvas float32 matrix precision caused the1e-6px assertion to fail; not an incorrect sprite anchor."
+    },
+    {
+      "attempt": "anchor-debug",
+      "all_passed": false,
+      "observed_partial_groups": 2,
+      "counted_as_completed_groups": 0,
+      "reason": "Reproduced and retained actual Canvas matrix/anchor values; later tolerance explicitly1e-4px."
+    },
+    {
+      "attempt": "native-round2",
+      "all_passed": false,
+      "observed_partial_groups": 13,
+      "counted_as_completed_groups": 0,
+      "reason": "Diagnostic safe-target grid excluded real narrow top UI corridor; diagnostic only corrected, attack geometry unchanged."
+    },
+    {
+      "attempt": "native-round3",
+      "all_passed": false,
+      "observed_partial_groups": 13,
+      "counted_as_completed_groups": 0,
+      "reason": "Tanko safe-boundary route caused1real wall hit; retained and changed test trajectory farther inside the gap, no attack/player balance change."
+    },
+    {
+      "attempt": "native-round4",
+      "all_passed": false,
+      "observed_partial_groups": 15,
+      "counted_as_completed_groups": 0,
+      "reason": "4000 golden-multiple seed family had29.18% final wall combination,0.18percentage point outside test band; runtime RNG unchanged. Preserved and expanded to a second independent seed family."
+    }
+  ],
+  "all_failures_retained": true,
+  "known_issue30": {
+    "status": "Existing low-priority unresolved; controls source bytes preserved. No fix included.",
+    "reproduced_in_worlds": false,
+    "past_failure_evidence": "../machine-fortress-background-dash-range/tests/worlds/exit-touch-failure.json"
+  },
+  "execution": {
+    "workers": 1,
+    "oom_kill_before": 2,
+    "oom_kill_after": 2,
+    "new_oom_kills": 0
+  },
+  "limits": [
+    "Physical Galaxy sensors/touch/performance, human evasion approval, file association and speaker listening unverified.",
+    "At568x320 the80px top gap has narrow real UI-safe routes. Tanko lost1HP on an initial boundary-hugging path; a deeper controlled path evades all12hero/combination cases.",
+    "Offline exact HTML runs network-disabled without bypassing managed file-navigation policy.",
+    "Base20HP and old upgrade maxHP scaling both preserved.",
+    "Dedicated Machine Fortress BGM remains future work; old forest fallback retained."
+  ]
+}

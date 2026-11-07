@@ -1,0 +1,13 @@
+PASS: Exact16 graphics hooks and9 registry/UI deltas invert to653ac83; all other111 existing assets match the baseline, including every audio, image, combat/control/item/score module; all JS parses.
+PASS: All11 supplied PNGs have valid chunk CRC/zlib EOF/IEND/full decode; dimensions/hashes/alpha unchanged. Background1672x941 and source_rect metadata is never misused to crop standalone sprites.
+PASS: Registry keeps stable ID7/world2 localIndex3, default20phases and opt-in40phases; all5 stage choices retain fallback combat/music profile0 while Machine normal AI is region-local.
+PASS: Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI labels normal/boss combat trial and forest temporary music.
+PASS: All5 phases use one1672x941 source via centered cover at915x412/800x360/568x320 and actualDPR2; source ratio/center preserved with approved edge cropping; HUD/joystick/fire/fullscreen fit.
+PASS: 3heroes x13 permitted phase/species pairs=39 actual spawn/HP/weapon/hit/death cases match Issue33 profiles while keeping r16,100points/one normal kill, original animation and cleanup; dedicated pattern timing is checked separately.
+PASS: All5 display states change transform/alpha over time; surviving hit is visible; original single-pose PNG proportions and centered pivots are retained without pixel edits.
+PASS: Original normal/red PNGs load unchanged; HP50% now renders approved red132px GigaCore with one awakening, while other-region boss modules stay inactive. Dedicated pattern checks run separately.
+PASS: All3 weapons: normalphase5 needs6 kills then original20HP/r48 GigaCore with generic shots suppressed, whereas developer5 is immediate; boss2000points/reward/outro once and clean dev return without records.
+PASS: Actual trial Storm->Fortress transition enters7/1 on the40-phase route and carries the same item with unchanged lifetime; default World1 route remains separate.
+PASS: Actual4-normal/boss Canvas calls use the entire per-file PNG (source_rect ignored), identical X/Y scale, centered full-image pivot and original transparency; no square distortion/cropping.
+PASS: Internal exit freezes art timers, cancel/confirm retain fullscreen and clear ghosts; zeroHP preserves original3s GAME OVER/clean selection return, no browser dialogs.
+PASS: Native project-prefix and standalone offline resources load without any missing asset/uncaught error/native dialog; offline external fetches0. Separate retained suites cover full routes, audio, scores and controls.

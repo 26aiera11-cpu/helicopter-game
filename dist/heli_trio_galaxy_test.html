@@ -4622,12 +4622,12 @@
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 일반 전투 시험 · 보스/음악 숲 임시':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / BGM 숲 임시':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종 전용 전투·숲 임시 BGM 시험이며 보스 특수 공격·장벽·폭주 강화는 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 숲 임시 BGM 시험입니다. 전용 BGM은 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -7421,6 +7421,7 @@
  const images=new Map(manifest.files.map(row=>[row.path,document.getElementById('machine-'+row.path.replace(/\.png$/,'').replaceAll('/','-'))]));
  const species=Object.freeze([...normalIds.map(id=>({id,path:'enemies/'+id+'.png',renderWidth:40})),{id:bossId,path:'boss/giga_core_normal.png',renderWidth:132}].map(row=>Object.freeze({...row,baseImage:images.get(row.path)})));
  const byId=new Map(species.map(row=>[row.id,row]));
+ const overdriveSpec=Object.freeze({...byId.get(bossId),baseImage:images.get('boss/giga_core_overdrive.png')});
  const durations=Object.freeze({idle:1.2,move:.7,attack:.28,hit:.18,defeat:.65});
  let clock=0,states=new WeakMap(),ghosts=[],pending=null;
  const enabled=()=>typeof stage!=='undefined'&&gameWorlds.region(stage)?.key==='world-2:machine-fortress';
@@ -7438,10 +7439,10 @@
    if(s.base!==mode){s.base=mode;s.at=clock;}s.x=actor.x;s.y=actor.y;
   }
  }
- function attack(actor,isBoss=false){if(enabled()&&actor)track(actor,isBoss).attack=clock;}
+ function attack(actor,isBoss=false,offset=0){if(enabled()&&actor)track(actor,isBoss).attack=clock+offset;}
  function hit(actor,isBoss=false){
   if(!enabled()||!actor)return;const s=track(actor,isBoss);if(s.dead)return;s.hit=clock;
-  if(actor.hp<=0){s.dead=true;ghosts.push({id:s.id,x:actor.x,y:actor.y,at:clock});}
+  if(actor.hp<=0){s.dead=true;ghosts.push({id:s.id,x:actor.x,y:actor.y,at:clock,red:isBoss&&Boolean(window.gameMachineBoss?.isOverdrive(actor))});}
  }
  function frame(name,elapsed){
   const t=Math.max(0,elapsed),p=Math.min(1,t/durations[name]);
@@ -7454,6 +7455,7 @@
   const s=track(actor,isBoss),name=clock-s.hit<durations.hit?'hit':clock-s.attack<durations.attack?'attack':s.base;
   return {id:s.id,...frame(name,clock-(name==='hit'?s.hit:name==='attack'?s.attack:s.at))};
  }
+ function bossPose(actor,offset=0){const s=track(actor,true),time=clock+offset,name=time-s.hit<durations.hit?'hit':time-s.attack<durations.attack?'attack':s.base;return {id:s.id,...frame(name,time-(name==='hit'?s.hit:name==='attack'?s.attack:s.at))};}
  function geometry(image,point,width,selected){
   const scale=width/image.naturalWidth;
   return {cx:point.x+selected.offsetX,cy:point.y,scale,width,height:image.naturalHeight*scale,pivot:[image.naturalWidth/2,image.naturalHeight/2]};
@@ -7464,8 +7466,9 @@
   ctx.save();ctx.translate(g.cx,g.cy);ctx.rotate(selected.rotation);ctx.scale(selected.scale,selected.scale);ctx.globalAlpha=selected.alpha;
   ctx.drawImage(image,0,0,image.naturalWidth,image.naturalHeight,-g.width/2,-g.height/2,g.width,g.height);ctx.restore();
  }
- function drawActor(ctx,actor,isBoss=false){if(!enabled())return false;const p=pose(actor,isBoss);paint(ctx,byId.get(p.id),actor,p);return true;}
- function drawDefeats(ctx){if(enabled())for(const ghost of ghosts)paint(ctx,byId.get(ghost.id),ghost,frame('defeat',clock-ghost.at));}
+ function bossImage(actor){return window.gameMachineBoss?.isOverdrive(actor)?overdriveSpec.baseImage:byId.get(bossId).baseImage;}
+ function drawActor(ctx,actor,isBoss=false){if(!enabled())return false;const p=pose(actor,isBoss);paint(ctx,isBoss&&window.gameMachineBoss?.isOverdrive(actor)?overdriveSpec:byId.get(p.id),actor,p);return true;}
+ function drawDefeats(ctx){if(enabled())for(const ghost of ghosts)paint(ctx,ghost.red?overdriveSpec:byId.get(ghost.id),ghost,frame('defeat',clock-ghost.at));}
  function drawBackground(ctx,w,h){
   if(!enabled())return false;ctx.fillStyle='#252c36';ctx.fillRect(0,0,w,h);
   if(loaded(backgroundImage)){const scale=Math.max(w/backgroundImage.naturalWidth,h/backgroundImage.naturalHeight),dw=backgroundImage.naturalWidth*scale,dh=backgroundImage.naturalHeight*scale;ctx.drawImage(backgroundImage,(w-dw)/2,(h-dh)/2,dw,dh);}
@@ -7476,8 +7479,8 @@
  function reset(){clock=0;states=new WeakMap();ghosts=[];pending=null;}
  // Explicit graphics-only inspection: never called by combat, HP or movement code.
  function preview(ctx,path,x,y,width=132){const image=images.get(path);if(!loaded(image))return false;paint(ctx,{baseImage:image,renderWidth:width},{x,y},frame('idle',0));return true;}
- window.gameMachineFortress=Object.freeze({manifest,species,normalIds,bossId,backgroundImage,overdriveImage:images.get('boss/giga_core_overdrive.png'),durations,enabled,tick,observe,attack,hit,frame,pose,geometry,paint,drawActor,drawDefeats,drawBackground,deferAdvance,tickAdvance,reset,preview,
-  ready:()=>loaded(backgroundImage)&&[...images.values()].every(loaded),snapshot:()=>({clock,ghosts:ghosts.map(g=>({...g})),advancing:Boolean(pending),combat:'machine normal trial / legacy boss profile0',overdriveCombat:false,wallCombat:false})});
+ window.gameMachineFortress=Object.freeze({manifest,species,normalIds,bossId,bossImage,bossPose,backgroundImage,overdriveImage:images.get('boss/giga_core_overdrive.png'),durations,enabled,tick,observe,attack,hit,frame,pose,geometry,paint,drawActor,drawDefeats,drawBackground,deferAdvance,tickAdvance,reset,preview,
+  ready:()=>loaded(backgroundImage)&&[...images.values()].every(loaded),snapshot:()=>({clock,ghosts:ghosts.map(g=>({...g})),advancing:Boolean(pending),combat:'machine normal / GigaCore boss trial',overdriveCombat:true,wallCombat:true})});
 })();
 </script><script id="galaxy-machine-combat-js">/* Region-local normal combat. No boss patterns, player stats, art edits or audio owner. */
 (()=>{
@@ -7606,6 +7609,151 @@
  function snapshot(a){const s=states.get(a);return s?{id:s.spec.id,mode:s.mode,remaining:s.remaining,age:s.age,carry:s.carry,shots:s.shots,denied:s.denied,damageCalls:s.damageCalls,hitPlayer:s.hitPlayer,retired:s.retired,direction:[s.dx,s.dy],distance:s.distance,targetDistance:s.targetDistance,dashDuration:s.dashDuration,path:s.path&&{...s.path}}:null;}
  window.gameMachineCombat=Object.freeze({settings,profiles,enabled,prepare,update,hit,cleanup,beginFrame,bulletStep,drawTelegraph,drawBullet,lineHits,laserContains,snapshot,
   summary:()=>({actors:actors.size,lasers:[...actors].filter(a=>states.get(a)?.mode==='laser').length,bullets:enemyBullets.filter(b=>b.machineNormal&&b.life>0).length}),backgroundPaused:()=>Boolean(enabled()&&document.hidden)});
+})();
+</script><script id="galaxy-machine-boss_combat-js">/* Issue36: GigaCore only. Original art, Cover, normal enemies, health/rewards and audio stay owned by existing systems. */
+(()=>{
+ 'use strict';
+ const settings=Object.freeze({firstDelay:1.4,rest:2.8,minRest:1.2,overdriveRest:.75,awakenTime:.8,
+  laserWarning:.9,laserTime:1.8,laserWidth:8,laserRatio:.55,laserMax:220,laserSweep:Math.PI,overdriveLaser:1.25,
+  missileWarning:.7,missileSpeed:80,overdriveMissile:1.1,missileRadius:6,missileLife:3.4,missileTurn:1.6,maxMissiles:12,
+  wallWarning:1.2,wallTime:3,wallWidth:56,wallHeight:.75,safeHeight:.25,playerRadius:12,step:1/300,maxDt:.25});
+ const patterns=Object.freeze(['laser','missiles','wall']),eps=1e-8,tau=Math.PI*2;
+ // Orange emitter cores measured in the original402x322 and394x322 PNGs (not the old sheet source_rect).
+ const anchors=Object.freeze({normal:Object.freeze([[55,230],[342,230]].map(Object.freeze)),overdrive:Object.freeze([[53,230],[338,230]].map(Object.freeze))});
+ const effect=name=>document.getElementById('machine-effects-'+name);
+ const wallImages=Object.freeze({wall:effect('electromagnetic_wall'),dim:effect('electromagnetic_wall_dim'),motion:effect('electromagnetic_wall_motion'),warning:effect('electromagnetic_warning')});
+ let active=null,owners=new WeakMap(),overdriven=new WeakSet(),layoutChanged=false,seedSerial=0;
+ const inRegion=()=>typeof stage!=='undefined'&&gameWorlds.region(stage)?.key==='world-2:machine-fortress'&&phase===5;
+ const enabled=a=>Boolean(inRegion()&&a&&a===boss&&a.hp>0);
+ const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+ const wrapped=a=>Math.atan2(Math.sin(a),Math.cos(a));
+ const isOverdrive=a=>Boolean(a&&overdriven.has(a));
+ function clearMissiles(){enemyBullets=enemyBullets.filter(b=>!b.machineBoss);}
+ function reset(){clearMissiles();active=null;owners=new WeakMap();layoutChanged=false;}
+ function seedValue(seed){if(seed===undefined){const word=new Uint32Array(1);if(globalThis.crypto?.getRandomValues){crypto.getRandomValues(word);seed=word[0];}else seed=Date.now()^++seedSerial;}return (seed>>>0)||0x6d360725;}
+ function random(s){let n=s.rng;n^=n<<13;n^=n>>>17;n^=n<<5;s.rng=n>>>0;s.draws++;return s.rng/4294967296;}
+ function blockedRects(){const c=canvas.getBoundingClientRect(),sx=W/(c.width||W),sy=H/(c.height||H);
+  const rects=['hud','rotationJoystick','fire','fullscreenToggle','exitGame','sensor','sensorStatus','worldPrototypeNotice'].flatMap(id=>{const el=document.getElementById(id);if(!el||el.hidden||!el.getClientRects().length||getComputedStyle(el).visibility==='hidden')return [];const r=el.getBoundingClientRect();return [{x:(r.left-c.left)*sx,y:(r.top-c.top)*sy,w:r.width*sx,h:r.height*sy}];});
+  rects.push({x:W*.3,y:30,w:W*.4,h:38});return rects;
+ }
+ function prepare(a,seed){
+  if(!enabled(a))return false;reset();overdriven.delete(a);a.shot=Infinity;
+  active={actor:a,seed:seedValue(seed),rng:0,draws:0,age:0,carry:0,ticks:0,phase:'rest',pattern:null,last:null,remaining:settings.firstDelay,elapsed:0,sequence:[],history:[],
+   overdrive:false,awakenCount:0,shots:0,denied:0,damageCalls:0,damage:0,hitPlayer:false,laserOrigins:[],laserSweep:0,laserSign:1,wall:null,paused:false,
+   layout:[W,H],rects:blockedRects(),previousTarget:{x:player.x,y:player.y},target:{x:player.x,y:player.y},frameDt:0};active.rng=active.seed;return true;
+ }
+ function rest(s){s.phase='rest';s.pattern=null;s.remaining=Math.max(settings.minRest,settings.rest*(s.overdrive?settings.overdriveRest:1));s.elapsed=0;s.wall=null;s.laserOrigins=[];s.hitPlayer=false;}
+ function pause(){const s=active;if(s&&!s.paused){clearMissiles();rest(s);s.carry=0;s.paused=true;}}
+ function awaken(s){clearMissiles();s.overdrive=true;overdriven.add(s.actor);s.awakenCount++;s.phase='awakening';s.pattern='awakening';s.remaining=settings.awakenTime;s.elapsed=0;s.wall=null;s.laserOrigins=[];s.hitPlayer=false;gameMachineFortress.attack(s.actor,true);}
+ function hit(a){if(active?.actor===a&&a.hp>0&&!active.overdrive&&a.hp<=a.maxHp*.5)awaken(active);}
+ function armPoints(a=active?.actor,offset=0){
+  if(!a)return [];const image=gameMachineFortress.bossImage(a),pose=gameMachineFortress.bossPose(a,offset),iw=image.naturalWidth||(isOverdrive(a)?394:402),ih=image.naturalHeight||322,g={cx:a.x+pose.offsetX,cy:a.y,scale:132/iw},scale=g.scale*pose.scale,cos=Math.cos(pose.rotation),sin=Math.sin(pose.rotation);
+  return anchors[isOverdrive(a)?'overdrive':'normal'].map(([x,y],index)=>{const dx=(x-iw/2)*scale,dy=(y-ih/2)*scale;return {index,source:[x,y],x:g.cx+dx*cos-dy*sin,y:g.cy+dx*sin+dy*cos};});
+ }
+ function ray(origin,angle,length,rects=[]){const dx=Math.cos(angle),dy=Math.sin(angle);let distance=length;
+  if(dx>eps)distance=Math.min(distance,(W-origin.x)/dx);else if(dx< -eps)distance=Math.min(distance,-origin.x/dx);
+  if(dy>eps)distance=Math.min(distance,(H-origin.y)/dy);else if(dy< -eps)distance=Math.min(distance,-origin.y/dy);
+  for(const r of rects){const margin=settings.laserWidth/2,lo=[r.x-margin,r.y-margin],hi=[r.x+r.w+margin,r.y+r.h+margin],p=[origin.x,origin.y],v=[dx,dy];let near=0,far=Infinity;
+   for(let axis=0;axis<2;axis++){if(Math.abs(v[axis])<eps){if(p[axis]<lo[axis]||p[axis]>hi[axis]){far=-1;break;}}else {let t0=(lo[axis]-p[axis])/v[axis],t1=(hi[axis]-p[axis])/v[axis];if(t0>t1)[t0,t1]=[t1,t0];near=Math.max(near,t0);far=Math.min(far,t1);}}
+   if(far>=near&&far>=0)distance=Math.min(distance,Math.max(0,near));
+  }
+  distance=Math.max(0,distance);return {x:origin.x,y:origin.y,endX:origin.x+dx*distance,endY:origin.y+dy*distance,width:settings.laserWidth,length:distance};
+ }
+ function laserSegments(s=active){if(!s||!['laser_warning','laser'].includes(s.phase))return [];const points=armPoints(s.actor),length=Math.min(settings.laserMax,H*settings.laserRatio);
+  return s.laserOrigins.map(o=>({...ray(points[o.index],o.angle+s.laserSweep,length,s.rects),index:o.index}));
+ }
+ function lineHits(p,line,radius=settings.playerRadius){if(!line||line.length<=eps)return false;const dx=line.endX-line.x,dy=line.endY-line.y,n=dx*dx+dy*dy,t=clamp(((p.x-line.x)*dx+(p.y-line.y)*dy)/(n||1),0,1);return Math.hypot(p.x-line.x-dx*t,p.y-line.y-dy*t)<=line.width/2+radius;}
+ function laserContains(p,s=active,radius=settings.playerRadius){return Boolean(s&&s.phase==='laser'&&laserSegments(s).some(line=>lineHits(p,line,radius)));}
+ function rectHits(p,r,radius=settings.playerRadius){return Boolean(r&&Math.hypot(p.x-clamp(p.x,r.x,r.x+r.w),p.y-clamp(p.y,r.y,r.y+r.h))<=radius);}
+ function wallRect(s=active){if(!s?.wall)return null;return {x:s.phase==='wall_warning'?(s.wall.side==='left'?0:W-settings.wallWidth):s.wall.x-settings.wallWidth/2,y:s.wall.y,w:settings.wallWidth,h:s.wall.height};}
+ function wallContains(p,s=active,radius=settings.playerRadius){return Boolean(s&&s.phase==='wall'&&rectHits(p,wallRect(s),radius));}
+ function damage(s){if(!started||s.hitPlayer||invuln>0)return;s.hitPlayer=true;s.damageCalls++;const before=hp;hurt();s.damage+=before-hp;}
+ function frameTarget(s,firstDt=0){const t=clamp(1-firstDt/(s.frameDt||settings.step),0,1);return {x:s.previousTarget.x+(s.target.x-s.previousTarget.x)*t,y:s.previousTarget.y+(s.target.y-s.previousTarget.y)*t};}
+ function choose(s,firstDt){
+  const choices=patterns.filter(p=>p!==s.last),name=choices[Math.floor(random(s)*choices.length)];s.last=name;s.pattern=name;s.sequence.push(name);s.sequence=s.sequence.slice(-40);s.elapsed=0;s.hitPlayer=false;s.rects=blockedRects();
+  if(name==='laser'){s.phase='laser_warning';s.remaining=settings.laserWarning;s.laserSweep=0;s.laserSign=random(s)<.5?-1:1;s.laserOrigins=armPoints(s.actor).map(p=>({index:p.index,angle:Math.atan2(frameTarget(s,firstDt).y-p.y,frameTarget(s,firstDt).x-p.x)}));}
+  else if(name==='missiles'){s.phase='missile_warning';s.remaining=settings.missileWarning;}
+  else {clearMissiles();const combo=Math.floor(random(s)*4),side=combo<2?'left':'right',safe=combo%2===0?'top':'bottom';s.phase='wall_warning';s.remaining=settings.wallWarning;
+   s.wall={combo,side,safe,x:side==='left'?-settings.wallWidth:W+settings.wallWidth,y:safe==='top'?H*settings.safeHeight:0,height:H*settings.wallHeight,elapsed:0};}
+  gameMachineFortress.attack(s.actor,true,-firstDt);
+ }
+ function missiles(s,firstDt){
+  const count=s.overdrive?3:2,live=enemyBullets.filter(b=>b.machineBoss&&b.life>0).length;
+  if(live+count>settings.maxMissiles){s.denied+=count;return;}
+  gameMachineFortress.attack(s.actor,true,-firstDt);
+  const speed=settings.missileSpeed*(s.overdrive?settings.overdriveMissile:1),points=armPoints(s.actor,-firstDt);
+  for(let i=0;i<count;i++){const p=count===3&&i===1?{x:s.actor.x,y:s.actor.y+38}:points[i===0?0:1],angle=Math.PI/2-(i-(count-1)/2)*.35;
+   const b={x:p.x,y:p.y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed,r:settings.missileRadius,life:settings.missileLife,machineBoss:'missile',overdrive:s.overdrive,speed,carry:0,firstDt,turn:0,age:0};enemyBullets.push(b);owners.set(b,s);s.shots++;
+  }
+ }
+ function resolve(s,firstDt){
+  if(s.phase==='rest')choose(s,firstDt);
+  else if(s.phase==='laser_warning'){s.phase='laser';s.remaining=settings.laserTime/(s.overdrive?settings.overdriveLaser:1);s.elapsed=0;gameMachineFortress.attack(s.actor,true,-firstDt);}
+  else if(s.phase==='missile_warning'){missiles(s,firstDt);rest(s);}
+  else if(s.phase==='wall_warning'){s.phase='wall';s.remaining=settings.wallTime;s.elapsed=0;}
+  else {if(s.phase==='laser'||s.phase==='wall'){s.history.push({pattern:s.pattern,duration:s.elapsed,sweep:s.laserSweep,wall:s.wall&&{...s.wall}});s.history=s.history.slice(-20);}rest(s);}
+ }
+ function step(s,dt,firstDt){
+  if(s.phase==='rest'||s.phase==='missile_warning'){
+   const a=s.actor,target=frameTarget(s,firstDt),dx=target.x-a.x,dy=target.y-a.y,d=Math.hypot(dx,dy)||1,radial=(d-Math.min(W*.35,160))*.9;
+   a.x=clamp(a.x+(dx/d*radial-dy/d*45*.48)*dt,72,W-72);a.y=clamp(a.y+(dy/d*radial+dx/d*45*.48)*dt,85,H-80);
+  }
+  s.elapsed+=dt;s.ticks++;s.age=s.ticks*settings.step;s.actor.t+=dt;
+  if(s.phase==='laser'){s.laserSweep=s.laserSign*settings.laserSweep*Math.min(1,s.elapsed/(settings.laserTime/(s.overdrive?settings.overdriveLaser:1)));if(laserContains(player,s))damage(s);}
+  if(s.phase==='wall'){const progress=Math.min(1,s.elapsed/settings.wallTime),start=s.wall.side==='left'?-settings.wallWidth:W+settings.wallWidth,end=s.wall.side==='left'?W+settings.wallWidth:-settings.wallWidth;
+   s.wall.x=start+(end-start)*progress;s.wall.elapsed=s.elapsed;if(wallContains(player,s))damage(s);}
+  if(!started||active!==s)return;s.remaining-=dt;if(s.remaining<=eps)resolve(s,firstDt);
+ }
+ function update(a,dt){
+  if(!enabled(a))return false;const s=active?.actor===a?active:(prepare(a),active);
+  if(document.hidden||window.gameExitDialogOpen){pause();return true;}
+  if(layoutChanged||s.layout[0]!==W||s.layout[1]!==H){clearMissiles();rest(s);s.carry=0;s.layout=[W,H];s.rects=blockedRects();layoutChanged=false;}
+  s.paused=false;if(!s.overdrive&&a.hp<=a.maxHp*.5)awaken(s);if(transition>0)return true;
+  const budget=Math.min(settings.maxDt,Math.max(0,Number.isFinite(dt)?dt:0)),before=s.carry;s.previousTarget=s.target;s.target={x:player.x,y:player.y};s.frameDt=budget;s.carry+=budget;
+  const count=Math.floor((s.carry+eps)/settings.step);
+  for(let i=0;i<count;i++){step(s,settings.step,Math.max(0,budget-((i+1)*settings.step-before)));if(!started||active!==s)break;}
+  s.carry=Math.max(0,s.carry-count*settings.step);return true;
+ }
+ function updateBullet(b,dt){
+  if(!b.machineBoss)return false;const s=owners.get(b);
+  if(!s||active!==s||!enabled(s.actor)){b.life=0;return true;}
+  if(document.hidden||window.gameExitDialogOpen||s.paused)return true;
+  const budget=Math.min(settings.maxDt,Math.max(0,b.firstDt??dt)),offset=Math.max(0,s.frameDt-budget),before=b.carry;delete b.firstDt;b.carry+=budget;
+  const count=Math.floor((b.carry+eps)/settings.step);
+  for(let i=0;i<count&&b.life>0;i++){const t=clamp((offset+(i+1)*settings.step-before)/(s.frameDt||settings.step),0,1),target={x:s.previousTarget.x+(s.target.x-s.previousTarget.x)*t,y:s.previousTarget.y+(s.target.y-s.previousTarget.y)*t},angle=Math.atan2(b.vy,b.vx),wanted=Math.atan2(target.y-b.y,target.x-b.x),turn=clamp(wrapped(wanted-angle),-settings.missileTurn*settings.step,settings.missileTurn*settings.step),next=angle+turn;
+   b.vx=Math.cos(next)*b.speed;b.vy=Math.sin(next)*b.speed;b.x+=b.vx*settings.step;b.y+=b.vy*settings.step;b.life-=settings.step;if(b.life<=eps)b.life=0;b.age+=settings.step;b.turn+=Math.abs(turn);
+   if(b.x< -b.r||b.x>W+b.r||b.y< -b.r||b.y>H+b.r)b.life=0;
+  }b.carry=Math.max(0,b.carry-count*settings.step);return true;
+ }
+ function bulletHit(b,amount){if(b.machineBoss&&active&&owners.get(b)===active&&amount>0){active.damageCalls++;active.damage+=amount;}}
+ function tileWall(ctx,image,r,alpha=1,flip=false){
+  if(!image?.complete||!image.naturalWidth)return;const iw=image.naturalWidth,ih=image.naturalHeight,scale=r.w/iw,cap=24,capH=cap*scale,middleH=(ih-cap*2)*scale;
+  ctx.save();ctx.beginPath();ctx.rect(r.x,r.y,r.w,r.h);ctx.clip();ctx.globalAlpha=alpha;
+  if(flip){ctx.translate(r.x*2+r.w,0);ctx.scale(-1,1);}
+  ctx.drawImage(image,0,0,iw,cap,r.x,r.y,r.w,capH);
+  for(let y=r.y+capH,index=0;y<r.y+r.h-capH;y+=middleH,index++){ctx.save();ctx.beginPath();ctx.rect(r.x,r.y+capH,r.w,Math.max(0,r.h-2*capH));ctx.clip();
+   if(index%2){ctx.translate(0,2*y+middleH);ctx.scale(1,-1);}ctx.drawImage(image,0,cap,iw,ih-cap*2,r.x,y,r.w,middleH);ctx.restore();}
+  ctx.drawImage(image,0,ih-cap,iw,cap,r.x,r.y+r.h-capH,r.w,capH);ctx.restore();
+ }
+ function draw(ctx){const s=active;if(!s||!inRegion())return;ctx.save();
+  if(s.phase==='laser'||s.phase==='laser_warning'){const on=s.phase==='laser';ctx.lineCap='round';ctx.strokeStyle=on?(s.overdrive?'#ff984c':'#58dcff'):'#ffe49b';ctx.lineWidth=on?settings.laserWidth:2;ctx.setLineDash(on?[]:[5,4]);
+   for(const line of laserSegments(s)){if(line.length<=eps)continue;ctx.beginPath();ctx.moveTo(line.x,line.y);ctx.lineTo(line.endX,line.endY);ctx.stroke();if(on){ctx.save();ctx.strokeStyle='#f1fdff';ctx.lineWidth=2;ctx.stroke();ctx.restore();}}
+  }else if(s.phase==='wall'||s.phase==='wall_warning'){const r=wallRect(s);ctx.save();ctx.beginPath();ctx.rect(r.x,r.y,r.w,r.h);ctx.clip();ctx.fillStyle=s.phase==='wall'?'rgba(43,172,255,.28)':'rgba(255,114,67,.12)';ctx.fillRect(r.x,r.y,r.w,r.h);
+   if(s.phase==='wall_warning'){tileWall(ctx,wallImages.dim,r,.6);tileWall(ctx,wallImages.warning,r,.6+.25*Math.sin(s.age*14)**2);}
+   else {tileWall(ctx,wallImages.wall,r);tileWall(ctx,wallImages.motion,r,.22,s.wall.side==='right');}ctx.restore();
+  }else if(s.phase==='awakening'||s.phase==='missile_warning'){ctx.strokeStyle=s.phase==='awakening'?'#ffb370':'#ffdc86';ctx.lineWidth=2;ctx.globalAlpha=.6+.3*Math.sin(s.age*16)**2;ctx.beginPath();ctx.arc(s.actor.x,s.actor.y,60+3*Math.sin(s.age*12),0,tau);ctx.stroke();}
+  ctx.restore();
+ }
+ function drawBullet(ctx,b){if(!b.machineBoss)return false;ctx.save();ctx.translate(b.x,b.y);ctx.rotate(Math.atan2(b.vy,b.vx));ctx.fillStyle=b.overdrive?'#ffbe73':'#79e8ff';ctx.strokeStyle='#effcff';ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(b.r,0);ctx.quadraticCurveTo(1,-b.r,-b.r,-b.r*.65);ctx.lineTo(-b.r,b.r*.65);ctx.quadraticCurveTo(1,b.r,b.r,0);ctx.fill();ctx.stroke();ctx.strokeStyle='#ffad51';ctx.beginPath();ctx.moveTo(-b.r-1,0);ctx.lineTo(-b.r-6,0);ctx.stroke();ctx.restore();return true;}
+ function safeTargets(s=active){if(!s?.wall)return [];const r=settings.playerRadius+1,y0=s.wall.safe==='top'?r:H*(1-settings.safeHeight)+r,y1=s.wall.safe==='top'?H*settings.safeHeight-r:H-r,points=[];
+  for(let y=y0;y<=y1;y+=4)for(let x=r;x<=W-r;x+=6){const p={x,y};if(s.rects.some(rect=>rectHits(p,rect,r))||Math.hypot(x-s.actor.x,y-s.actor.y)<s.actor.r+r+4)continue;points.push(p);}return points;
+ }
+ function defeated(a){if(active?.actor===a)reset();}
+ function snapshot(){const s=active;return s?{phase:s.phase,pattern:s.pattern,last:s.last,remaining:s.remaining,elapsed:s.elapsed,age:s.age,seed:s.seed,rng:s.rng,draws:s.draws,hp:s.actor.hp,maxHp:s.actor.maxHp,overdrive:s.overdrive,awakenCount:s.awakenCount,paused:s.paused,
+  sequence:[...s.sequence],history:s.history.map(v=>({...v})),shots:s.shots,denied:s.denied,damageCalls:s.damageCalls,damage:s.damage,hitPlayer:s.hitPlayer,laserSweep:s.laserSweep,lasers:laserSegments(s),arms:armPoints(s.actor),wall:s.wall&&{...s.wall,rect:wallRect(s),safeHeight:H*settings.safeHeight},
+  missiles:enemyBullets.filter(b=>b.machineBoss&&b.life>0).map(b=>({x:b.x,y:b.y,vx:b.vx,vy:b.vy,r:b.r,life:b.life,age:b.age,turn:b.turn,speed:b.speed,overdrive:b.overdrive})),rects:s.rects.map(r=>({...r}))}:null;}
+ addEventListener('resize',()=>{if(active)layoutChanged=true;});document.addEventListener('fullscreenchange',()=>{if(active)layoutChanged=true;});document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+ window.gameMachineBoss=Object.freeze({settings,patterns,anchors,wallImages,enabled,prepare,reset,freeze:reset,pause,hit,isOverdrive,armPoints,update,updateBullet,bulletHit,draw,drawBullet,defeated,snapshot,laserSegments,lineHits,laserContains,wallRect,rectHits,wallContains,safeTargets});
 })();
 </script><script id="galaxy-item-monster-js">/* Independent item helicopters: regional kill-count reservations and carried lifetime. */
 (() => {
@@ -7984,7 +8132,7 @@ function clearGameOver(){
 }
 function beginGameOver(){
  if(!started||gameOverPending)return;
- gameStormBoss.freeze();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineFortress.reset();gameStormSky.reset();gameSnowfieldBoss.reset();gameVolcanoBoss.freeze();gameVolcanoCombat.cleanup();gameVolcano.cancelAdvance();started=false;window.gameAudioStarted=false;gameAudio.pause();
+ gameStormBoss.freeze();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameSnowfieldBoss.reset();gameVolcanoBoss.freeze();gameVolcanoCombat.cleanup();gameVolcano.cancelAdvance();started=false;window.gameAudioStarted=false;gameAudio.pause();
  keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};
  document.getElementById('exitGame').classList.add('hidden');
  draw();gameOverPending=true;
@@ -7997,7 +8145,7 @@ function beginGameOver(){
  },3000);
 }
 addEventListener('resize',()=>{if(gameOverPending)draw()});
-function start(type){gameStormSpawns.reset();gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoSpawns.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();if(gameWorlds.region(entry.regionId).key===gameMachineConfig.key)gameMachineSpawns.reset();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
+function start(type){gameStormSpawns.reset();gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoSpawns.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();if(gameWorlds.region(entry.regionId).key===gameMachineConfig.key)gameMachineSpawns.reset();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
 addEventListener('deviceorientation',e=>{if(e.gamma==null||e.beta==null)return;applyTilt(e.gamma,e.beta,'방향')});addEventListener('devicemotion',e=>{if(Date.now()-lastSensor<700&&sensorKind==='방향')return;const a=e.accelerationIncludingGravity;if(!a||a.x==null||a.y==null)return;applyTilt(a.x*3,a.y*3,'중력')});sensorBtn.onclick=async()=>{if(sensorOn){neutral=null;tilt={x:0,y:0};if(player){player.vx=0;player.vy=0}sensorStatus.textContent='중앙 보정 완료';return}try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){let r=await DeviceOrientationEvent.requestPermission();if(r!=='granted')throw Error('센서 권한이 거부됐어요')}if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){let r=await DeviceMotionEvent.requestPermission();if(r!=='granted')throw Error('동작 센서 권한이 거부됐어요')}sensorOn=true;neutral=null;sensorBtn.textContent='🎯 중앙 보정';sensorStatus.textContent='센서 신호 확인 중…';setTimeout(()=>{if(!lastSensor)sensorStatus.textContent='센서 신호 없음 · HTTPS에서 열거나 드래그 사용'},1800)}catch(e){sensorStatus.textContent=e.message+' · 드래그 사용'}};addEventListener('orientationchange',()=>{neutral=null;tilt={x:0,y:0}});
 /* Auxiliary drag pointer ownership is managed by gameControls. */// Tanko uses the same local rectangle for drawing, damage and bullet interception.
 function tankoBulletWidth(upgrade=0){
@@ -8091,11 +8239,11 @@ gameWorlds.installLegacyRegions({terrainImgs,enemySprites,bossSprites,tactics,st
 function warnEnemy(){const edge=Math.floor(Math.random()*4),pad=27;let x=edge===0?pad:edge===1?W-pad:pad+Math.random()*(W-2*pad),y=edge===2?pad:edge===3?H-pad:pad+Math.random()*(H-2*pad);if(edge<2)y=pad+Math.random()*(H-2*pad);else x=pad+Math.random()*(W-2*pad);warnings.push({x,y,time:1.4,kind:Math.floor(Math.random()*enemySprites[stage].length),edge,special:false})}
 function emitEnemyShot(e,spread=0){gameMachineFortress.attack(e,e===boss);gameStormSky.attack(e,e===boss);gameSnowfield.attack(e,e===boss);gameVolcano.attack(e,e===boss);let a=Math.atan2(player.y-e.y,player.x-e.x)+spread,v=tactics[stage].bullet+(phase-1)*8;enemyBullets.push({x:e.x,y:e.y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,life:3.4,r:5})}
 function hurt(){if(invuln<=0){hp--;invuln=1.55;gameAudio.fx('hurt');if(hp<=0)beginGameOver()}}
-function nextPhase(){gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameSnowfieldBoss.reset();gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;if(gameWorlds.region(stage).key===gameMachineConfig.key)gameMachineSpawns.reset();if(gameWorlds.region(stage).key==='world-2:storm-sky')gameStormSpawns.reset();if(gameWorlds.region(stage).key==='world-2:volcano')gameVolcanoSpawns.reset();itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){gameMachineCombat.cleanup();gameStormCombat.cleanup();gameVolcanoCombat.cleanup();const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameVolcanoBoss.prepare(boss);gameStormBoss.prepare(boss);gameAudio.fx('boss')}
+function nextPhase(){gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameSnowfieldBoss.reset();gameScoring.phaseCleared(stage,phase);gameAudio.fx('win');enemies=[];bullets=[];enemyBullets=[];warnings=[];phaseKills=0;transition=2.2;if(phase<5){phase++}else if(gameWorlds.nextRegion(stage)!==null){stage=gameWorlds.nextRegion(stage);phase=1;if(gameWorlds.region(stage).key===gameMachineConfig.key)gameMachineSpawns.reset();if(gameWorlds.region(stage).key==='world-2:storm-sky')gameStormSpawns.reset();if(gameWorlds.region(stage).key==='world-2:volcano')gameVolcanoSpawns.reset();itemMonsters.enterRegion(stage);hp=Math.min(maxHP[player.type],hp+2)}else{const result=gameScoring.finish('clear');started=false;window.gameAudioStarted=false;gameAudio.pause();menu.classList.remove('hidden');menu.querySelector('h1').textContent=gameWorlds.clearHeading(result);menu.querySelector('.hint').textContent=gameWorlds.clearHint()}}function spawnBossEncounter(profile=gameWorlds.profile(stage)){gameMachineCombat.cleanup();gameStormCombat.cleanup();gameVolcanoCombat.cleanup();const bossHP=(20+profile*15)*[1,1.1,1.4,1.6,1.9,2.2][player.upgrade];boss={x:W*.5,y:H*.27,r:48,hp:bossHP,maxHp:bossHP,t:0,shot:1.2,orbit:Math.random()*6.28};enemies=[];warnings=[];enemyBullets=[];transition=1.5;gameSnowfieldBoss.prepare(boss);gameVolcanoBoss.prepare(boss);gameStormBoss.prepare(boss);gameMachineBoss.prepare(boss);gameAudio.fx('boss')}
 function update(dt){
- if(!started||window.gameExitDialogOpen)return;
+ if(!started||window.gameExitDialogOpen){gameMachineBoss.pause();return;}
  if(hp<=0){beginGameOver();return;}
- if(gameMachineCombat.backgroundPaused()||gameStormBoss.backgroundPaused()||gameSnowfieldBoss.backgroundPaused()||gameVolcanoBoss.backgroundPaused())return;
+ if(gameMachineCombat.backgroundPaused()||gameStormBoss.backgroundPaused()||gameSnowfieldBoss.backgroundPaused()||gameVolcanoBoss.backgroundPaused()){gameMachineBoss.pause();return;}
  if(gameMachineFortress.tickAdvance(dt)||gameStormSky.tickAdvance(dt)||gameVolcano.tickAdvance(dt))return;
  gameMachineCombat.beginFrame();
  const profile=gameWorlds.profile(stage);
@@ -8137,16 +8285,16 @@ function update(dt){
  if(e.hp>0&&Math.hypot(e.x-player.x,e.y-player.y)<e.r+13){hurt();if(!started)return;}
  }
  enemies=enemies.filter(e=>e.hp>0);
- if(boss){if(!gameStormBoss.update(boss,dt)&&!gameVolcanoBoss.update(boss,dt)){boss.t+=dt;boss.shot-=dt;let dx=player.x-boss.x,dy=player.y-boss.y,d=Math.hypot(dx,dy)||1;
+ if(boss){if(!gameMachineBoss.update(boss,dt)&&!gameStormBoss.update(boss,dt)&&!gameVolcanoBoss.update(boss,dt)){boss.t+=dt;boss.shot-=dt;let dx=player.x-boss.x,dy=player.y-boss.y,d=Math.hypot(dx,dy)||1;
  let desired=Math.min(W*.35,160);let radial=(d-desired)*.9;let speed=profile===0?45:profile===1?65:profile===2?85:105;
  boss.x=Math.max(72,Math.min(W-72,boss.x+(dx/d*radial-dy/d*speed*.48)*dt));boss.y=Math.max(85,Math.min(H-80,boss.y+(dy/d*radial+dx/d*speed*.48)*dt));
  if(!gameSnowfieldBoss.update(boss,dt)&&boss.shot<=0&&transition<=0){emitEnemyShot(boss);if(profile>=1){emitEnemyShot(boss,-.23);emitEnemyShot(boss,.23)}if(profile===3){emitEnemyShot(boss,-.43);emitEnemyShot(boss,.43)}boss.shot=Math.max(.75,1.8-profile*.2-phase*.055)}}
  if(!started)return;
- for(let b of bullets)if(b.life>0&&(b.kind!==2||!(b.hit||[]).includes(boss))&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){if(b.kind===2){if(!consumeTankoPierce(b,boss))continue;}else b.life=0;boss.hp-=(b.damage||1);gameMachineFortress.hit(boss,true);gameStormSky.hit(boss,true);gameSnowfield.hit(boss,true);gameVolcano.hit(boss,true);gameAudio.fx('hit');if(boss.hp<=0){gameAudio.fx('boss_defeat');grantBossReward(boss);gameScoring.bossDefeated(boss);gameStormBoss.defeated(boss);gameVolcanoBoss.defeated(boss);boss=null;if(gameMachineFortress.deferAdvance(nextPhase)||gameStormSky.deferAdvance(nextPhase)||gameVolcano.deferAdvance(nextPhase)){bullets=[];enemyBullets=[];warnings=[];particles=[];return;}nextPhase();break}}
+ for(let b of bullets)if(b.life>0&&(b.kind!==2||!(b.hit||[]).includes(boss))&&bulletHitsCircle(b,boss.x,boss.y,boss.r)){if(b.kind===2){if(!consumeTankoPierce(b,boss))continue;}else b.life=0;boss.hp-=(b.damage||1);gameMachineFortress.hit(boss,true);gameMachineBoss.hit(boss);gameStormSky.hit(boss,true);gameSnowfield.hit(boss,true);gameVolcano.hit(boss,true);gameAudio.fx('hit');if(boss.hp<=0){gameAudio.fx('boss_defeat');grantBossReward(boss);gameScoring.bossDefeated(boss);gameMachineBoss.defeated(boss);gameStormBoss.defeated(boss);gameVolcanoBoss.defeated(boss);boss=null;if(gameMachineFortress.deferAdvance(nextPhase)||gameStormSky.deferAdvance(nextPhase)||gameVolcano.deferAdvance(nextPhase)){bullets=[];enemyBullets=[];warnings=[];particles=[];return;}nextPhase();break}}
  if(boss&&Math.hypot(player.x-boss.x,player.y-boss.y)<boss.r+14){hurt();if(!started)return;}
  }
  itemMonsters.collide();
- for(let b of enemyBullets){const bulletDt=gameMachineCombat.bulletStep(b,dt);b.x+=b.vx*bulletDt;b.y+=b.vy*bulletDt;b.life-=bulletDt;if(blockEnemyBullet(b))continue;if(Math.hypot(b.x-player.x,b.y-player.y)<b.r+12){b.life=0;hurt();if(!started)return;}}
+ for(let b of enemyBullets){if(gameMachineBoss.updateBullet(b,dt)){if(b.life<=0)continue;}else{const bulletDt=gameMachineCombat.bulletStep(b,dt);b.x+=b.vx*bulletDt;b.y+=b.vy*bulletDt;b.life-=bulletDt;}if(blockEnemyBullet(b))continue;if(Math.hypot(b.x-player.x,b.y-player.y)<b.r+12){b.life=0;const previousHP=hp;hurt();gameMachineBoss.bulletHit(b,previousHP-hp);if(!started)return;}}
  enemyBullets=enemyBullets.filter(b=>b.life>0&&b.x>-30&&b.x<W+30&&b.y>-30&&b.y<H+30);
  bullets=bullets.filter(b=>b.kind!==2||b.life>0);
  for(let it of items){it.life-=dt;it.t+=dt;it.turn-=dt;if(it.turn<=0){let angle=Math.random()*Math.PI*2;it.vx=Math.cos(angle)*(30+Math.random()*35);it.vy=Math.sin(angle)*(30+Math.random()*35);it.turn=.6+Math.random()*1.2}it.x+=it.vx*dt;it.y+=it.vy*dt;if(it.x<16||it.x>W-16)it.vx*=-1;if(it.y<16||it.y>H-16)it.vy*=-1;it.x=Math.max(16,Math.min(W-16,it.x));it.y=Math.max(16,Math.min(H-16,it.y));if(Math.hypot(it.x-player.x,it.y-player.y)<it.r+17){if(it.type==='hp')hp=Math.min(maxHP[player.type],hp+2);else {player.upgrade=Math.min(5,player.upgrade+1);gameAudio.fx('upgrade')}it.life=0}}items=items.filter(it=>it.life>0);
@@ -8191,8 +8339,8 @@ function seamlessTerrain(img){
   seamlessTerrainCache.set(img,canvas);return canvas;
 }
 let rotorSpin=0;function draw(){let c=stageColors[stage],im=terrainImgs[stage];ctx.fillStyle=c[0];ctx.fillRect(0,0,W,H);if(!gameMachineFortress.drawBackground(ctx,W,H)&&!gameStormSky.drawBackground(ctx,W,H)&&!gameSnowfield.drawBackground(ctx,W,H)&&!gameVolcano.drawBackground(ctx,W,H)&&im&&im.complete&&im.naturalWidth){let tile=seamlessTerrain(im);let scale=W/tile.width;let th=tile.height*scale;let shift=worldScroll%th;for(let y=shift-th;y<H;y+=th)ctx.drawImage(tile,0,Math.round(y),W,Math.ceil(th)+1);}for(let w of warnings){let pulse=.65+.35*Math.sin(performance.now()/90);ctx.save();ctx.globalAlpha=pulse;ctx.fillStyle='#ff4545';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(w.x,w.y,15,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.fillStyle='white';ctx.font='bold 18px system-ui';ctx.textAlign='center';ctx.fillText('!',w.x,w.y+6);ctx.restore()}
-itemMonsters.draw();gameStormBoss.draw(ctx);gameSnowfieldBoss.draw(ctx);gameVolcanoBoss.draw(ctx);
-for(let b of enemyBullets){if(gameMachineCombat.drawBullet(ctx,b)||gameStormCombat.drawBullet(ctx,b)||gameStormBoss.drawBullet(ctx,b)||gameSnowfieldBoss.drawBullet(ctx,b)||gameVolcanoCombat.drawBullet(ctx,b)||gameVolcanoBoss.drawBullet(ctx,b))continue;ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
+itemMonsters.draw();gameMachineBoss.draw(ctx);gameStormBoss.draw(ctx);gameSnowfieldBoss.draw(ctx);gameVolcanoBoss.draw(ctx);
+for(let b of enemyBullets){if(gameMachineBoss.drawBullet(ctx,b)||gameMachineCombat.drawBullet(ctx,b)||gameStormCombat.drawBullet(ctx,b)||gameStormBoss.drawBullet(ctx,b)||gameSnowfieldBoss.drawBullet(ctx,b)||gameVolcanoCombat.drawBullet(ctx,b)||gameVolcanoBoss.drawBullet(ctx,b))continue;ctx.fillStyle=b.snowIce?'#8be4ff':'#ff544d';ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,Math.PI*2);ctx.fill();ctx.strokeStyle=b.snowIce?'#e9fbff':'#ffe6b5';ctx.lineWidth=1.5;ctx.stroke()}
 for(let it of items){ctx.save();ctx.translate(it.x,it.y+Math.sin(it.t*5)*3);ctx.fillStyle=it.type==='hp'?'#e94b65':'#ffd349';ctx.strokeStyle='white';ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,0,14,0,Math.PI*2);ctx.fill();ctx.stroke();ctx.font='bold 19px system-ui';ctx.textAlign='center';ctx.fillStyle='#fff';ctx.fillText(it.type==='hp'?'♥':'⚡',0,7);ctx.restore()}for(let e of enemies){gameMachineCombat.drawTelegraph(ctx,e);gameStormCombat.drawTelegraph(ctx,e);gameSnowfieldCombat.drawTelegraph(ctx,e);gameVolcanoCombat.drawTelegraph(ctx,e);if(gameMachineFortress.drawActor(ctx,e)||gameStormSky.drawActor(ctx,e)||gameSnowfield.drawActor(ctx,e)||gameVolcano.drawActor(ctx,e))continue;let im=enemySprites[stage][e.kind||0];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,e.x-22,e.y-22,44,44);else{ctx.fillStyle=['#4f9d36','#686579','#267bca','#bd6d37'][gameWorlds.profile(stage)];ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,7);ctx.fill()}}if(boss){if(!gameMachineFortress.drawActor(ctx,boss,true)&&!gameStormSky.drawActor(ctx,boss,true)&&!gameSnowfield.drawActor(ctx,boss,true)&&!gameVolcanoBoss.drawActor(ctx,boss)&&!gameVolcano.drawActor(ctx,boss,true)){let im=bossSprites[stage];if(im&&im.complete&&im.naturalWidth)ctx.drawImage(im,boss.x-77,boss.y-67,154,134);}ctx.fillStyle='#16243acb';ctx.fillRect(W*.3,53,W*.4,12);ctx.fillStyle='#ff6767';ctx.fillRect(W*.3,53,W*.4*Math.max(0,boss.hp/boss.maxHp),12);ctx.fillStyle=stage===4?'#173b59':'white';ctx.font='bold 16px system-ui';ctx.textAlign='center';ctx.fillText(gameWorlds.region(stage).bossName,W/2,47)}gameMachineFortress.drawDefeats(ctx);gameStormSky.drawDefeats(ctx);gameSnowfield.drawDefeats(ctx);gameVolcano.drawDefeats(ctx);for(let b of bullets){
   if(b.kind===2&&b.life<=0)continue;
   const img=bulletSprites[b.kind ?? player.type];
