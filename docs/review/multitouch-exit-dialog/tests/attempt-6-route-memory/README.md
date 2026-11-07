@@ -1,0 +1,1 @@
+default_world_route-offline은 세 캐릭터40단계·경계·저장 보존6부분 그룹을 통과한 뒤 URL 변형을 위한80MB HTML 반복 주입 중 renderer가 종료됐다. OOM kill이3→4로 증가했다. scoring 검사와 동일하게 BrowserContext와 실제 localStorage를 유지하면서 매 주입 전 이전 Page를 닫도록 검사 자원만 분리한다. 월드/기록/음악/URL 단언과 게임 코드는 그대로다.

@@ -8145,7 +8145,79 @@ function beginGameOver(){
  },3000);
 }
 addEventListener('resize',()=>{if(gameOverPending)draw()});
-function start(type){gameStormSpawns.reset();gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoSpawns.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();if(gameWorlds.region(entry.regionId).key===gameMachineConfig.key)gameMachineSpawns.reset();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};document.getElementById('exitGame').addEventListener('click',()=>{if(!started)return;showGameExitDialog(()=>{gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()})});/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
+function start(type){gameStormSpawns.reset();gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoSpawns.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldSpawns.reset();gameSnowfieldBoss.reset();gameSnowfield.reset();gameScoring.start(type);const entry=gameWorlds.runStart();if(gameWorlds.region(entry.regionId).key===gameMachineConfig.key)gameMachineSpawns.reset();clearGameOver();keys.left=keys.right=keys.fire=false;drag=null;tilt={x:0,y:0};gameAudio.init();gameAudio.resume(entry.regionId,gameWorlds.isDeveloperRun()&&entry.phase===gameWorlds.region(entry.regionId).bossPhase);gameAudio.reset();window.gameAudioStarted=true;updateFireButton(type);menu.querySelector("h1").textContent="🚁 헬리 트리오";if(screen.orientation?.lock){screen.orientation.lock('landscape').catch(()=>{})}player={x:W/2,y:H*.5,a:Math.PI,type,upgrade:0,vx:0,vy:0};runScore=0;hp=[4,6,9][type];items=[];bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];spawn=0;stage=entry.regionId;phase=entry.phase;phaseKills=gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase?requiredKills:0;boss=null;worldScroll=0;invuln=0;transition=2;started=true;itemMonsters.reset();gameScoring.updateHUD();menu.classList.add('hidden');document.getElementById('exitGame').classList.remove('hidden');if(gameWorlds.isDeveloperRun()&&phase===gameWorlds.region(stage).bossPhase)spawnBossEncounter()};/* Only the exit button supplements a missing touch click; gameplay pointer ownership is unchanged. */
+(()=>{
+ const button=document.getElementById('exitGame');
+ const contacts=new Set(),receipts=new Map();
+ let gesture=null,pending=null;
+ const inside=e=>{const r=button.getBoundingClientRect();return e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom};
+ const active=()=>started&&player&&!gameOverPending&&!window.gameExitDialogOpen&&menu.classList.contains('hidden')&&!document.hidden&&!button.classList.contains('hidden')&&!document.querySelector('dialog[open]');
+ function requestExitConfirmation(){
+  if(!active())return;
+  showGameExitDialog(()=>{gameStormBoss.reset();gameStormCombat.cleanup();gameMachineCombat.cleanup();gameMachineBoss.reset();gameMachineFortress.reset();gameStormSky.reset();gameVolcanoBoss.reset();gameVolcanoCombat.cleanup();gameVolcano.reset();gameSnowfieldBoss.reset();gameScoring.finish('abandoned');itemMonsters.reset();started=false;window.gameAudioStarted=false;gameAudio.pause();player=null;boss=null;bullets=[];enemyBullets=[];warnings=[];enemies=[];particles=[];items=[];drag=null;keys.left=keys.right=keys.fire=false;menu.classList.remove('hidden');document.getElementById('exitGame').classList.add('hidden');drawChoices()});
+ }
+ function cancelPending(){
+  if(gesture)gesture.valid=false;
+  if(pending){clearTimeout(pending.timer);pending.valid=false;pending=null;}
+ }
+ function remember(e,valid){
+  const receipt={id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now(),valid,handled:false,player};
+  receipts.set(e.pointerId,receipt);
+  for(const [id,r] of receipts)if(performance.now()-r.time>1500||receipts.size>8)receipts.delete(id);
+  return receipt;
+ }
+ window.addEventListener('pointerdown',e=>{
+  cancelPending();
+  if(e.pointerType==='touch'){contacts.add(e.pointerId);receipts.delete(e.pointerId);if(contacts.size>1&&gesture)gesture.valid=false;}
+ },true);
+ window.addEventListener('pointerup',e=>contacts.delete(e.pointerId),true);
+ window.addEventListener('pointercancel',e=>{contacts.delete(e.pointerId);cancelPending();},true);
+ button.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='touch')return;
+  gesture={id:e.pointerId,x:e.clientX,y:e.clientY,time:performance.now(),player,valid:active()&&e.isPrimary&&contacts.size===1&&inside(e)};
+ });
+ button.addEventListener('pointermove',e=>{
+  if(gesture&&gesture.id===e.pointerId&&(!inside(e)||Math.hypot(e.clientX-gesture.x,e.clientY-gesture.y)>12))gesture.valid=false;
+ });
+ button.addEventListener('pointercancel',e=>{if(e.pointerType==='touch'){remember(e,false);gesture=null;}});
+ button.addEventListener('lostpointercapture',e=>{if(gesture&&gesture.id===e.pointerId)gesture.valid=false;});
+ button.addEventListener('pointerup',e=>{
+  if(e.pointerType!=='touch')return;
+  const g=gesture;gesture=null;
+  const valid=g&&g.id===e.pointerId&&g.valid&&g.player===player&&contacts.size===0&&performance.now()-g.time<=750&&inside(e)&&Math.hypot(e.clientX-g.x,e.clientY-g.y)<=12&&active();
+  const receipt=remember(e,!!valid);
+  if(!valid)return;
+  // Give the browser's normal click priority; never dispatch a synthetic global click.
+  pending=receipt;
+  receipt.timer=setTimeout(()=>{
+   if(pending!==receipt)return;pending=null;
+   if(!receipt.valid||receipt.handled||receipt.player!==player||!active())return;
+   receipt.handled=true;button.focus({preventScroll:true});requestExitConfirmation();
+  },100);
+ });
+ button.addEventListener('click',e=>{
+  // Keyboard, assistive technology, programmatic click and genuine mouse keep their original path.
+  const touch=e.pointerType==='touch'||e.sourceCapabilities?.firesTouchEvents;
+  const receipt=touch&&(receipts.get(e.pointerId)||[...receipts.values()].reverse().find(r=>performance.now()-r.time<1500&&Math.hypot(e.clientX-r.x,e.clientY-r.y)<=3));
+  if(receipt){
+   if(pending===receipt){clearTimeout(receipt.timer);pending=null;}
+   if(!receipt.valid||receipt.handled||receipt.player!==player)return;
+   receipt.handled=true;
+  }
+  requestExitConfirmation();
+ });
+ for(const name of ['blur','resize','orientationchange','keydown'])window.addEventListener(name,cancelPending);
+ window.addEventListener('blur',()=>contacts.clear());
+ for(const name of ['gameover','gameoverclose'])document.addEventListener(name,cancelPending);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden){contacts.clear();cancelPending();}});
+ document.addEventListener('fullscreenchange',cancelPending);
+ new MutationObserver(cancelPending).observe(menu,{attributes:true,attributeFilter:['class']});
+ document.addEventListener('DOMContentLoaded',()=>{
+  const dialog=document.getElementById('gameExitDialog');
+  if(dialog)new MutationObserver(cancelPending).observe(dialog,{attributes:true,attributeFilter:['open']});
+ },{once:true});
+})();
+/* Pointer controls are managed independently in assets/controls/controls.js. */const sensorBtn=document.getElementById('sensor'),sensorStatus=document.getElementById('sensorStatus');let lastSensor=0,neutral=null,sensorKind='';const clamp=v=>Math.max(-1,Math.min(1,v));function screenAngle(){return (screen.orientation&&typeof screen.orientation.angle==='number'?screen.orientation.angle:typeof window.orientation==='number'?window.orientation:90)}function applyTilt(x,y,kind){if(!sensorOn)return;if(!neutral)neutral={x,y};let dx=x-neutral.x,dy=y-neutral.y;let angle=((screenAngle()%360)+360)%360;let vx=dx,vy=dy;if(angle===90){vx=dy;vy=-dx}else if(angle===270){vx=-dy;vy=dx}else if(angle===180){vx=-dx;vy=-dy}tilt.x=clamp(vx/17);tilt.y=clamp(vy/17);lastSensor=Date.now();sensorKind=kind;sensorStatus.textContent='센서 작동 중 ('+kind+')';sensorBtn.textContent='🎯 중앙 보정'}
 addEventListener('deviceorientation',e=>{if(e.gamma==null||e.beta==null)return;applyTilt(e.gamma,e.beta,'방향')});addEventListener('devicemotion',e=>{if(Date.now()-lastSensor<700&&sensorKind==='방향')return;const a=e.accelerationIncludingGravity;if(!a||a.x==null||a.y==null)return;applyTilt(a.x*3,a.y*3,'중력')});sensorBtn.onclick=async()=>{if(sensorOn){neutral=null;tilt={x:0,y:0};if(player){player.vx=0;player.vy=0}sensorStatus.textContent='중앙 보정 완료';return}try{if(typeof DeviceOrientationEvent!=='undefined'&&typeof DeviceOrientationEvent.requestPermission==='function'){let r=await DeviceOrientationEvent.requestPermission();if(r!=='granted')throw Error('센서 권한이 거부됐어요')}if(typeof DeviceMotionEvent!=='undefined'&&typeof DeviceMotionEvent.requestPermission==='function'){let r=await DeviceMotionEvent.requestPermission();if(r!=='granted')throw Error('동작 센서 권한이 거부됐어요')}sensorOn=true;neutral=null;sensorBtn.textContent='🎯 중앙 보정';sensorStatus.textContent='센서 신호 확인 중…';setTimeout(()=>{if(!lastSensor)sensorStatus.textContent='센서 신호 없음 · HTTPS에서 열거나 드래그 사용'},1800)}catch(e){sensorStatus.textContent=e.message+' · 드래그 사용'}};addEventListener('orientationchange',()=>{neutral=null;tilt={x:0,y:0}});
 /* Auxiliary drag pointer ownership is managed by gameControls. */// Tanko uses the same local rectangle for drawing, damage and bullet interception.
 function tankoBulletWidth(upgrade=0){

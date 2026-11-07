@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "multitouch_exit-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 12,
+    "seconds": 203.06,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-new/multitouch_exit-native"
+    ]
+  },
+  {
+    "suite": "multitouch_exit-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 0,
+    "seconds": 30.99,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-new/multitouch_exit-offline",
+      "--standalone"
+    ]
+  }
+]

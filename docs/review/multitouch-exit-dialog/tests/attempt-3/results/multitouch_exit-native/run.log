@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/multitouch_exit.py", line 66, in <module>
+    hero=i%3;region=[0,4,7][(i//3)%3];start(hero,region);t.end=['empty','point'][i%2];t.controls([2,3,4][i%3],hold=650 if i%5==0 else 40);delay=[0,100,300,550][i%4];page.wait_for_timeout(delay)
+                                      ^^^^^^^^^^^^^^^^^^
+  File "/tmp/storm-background-work/tests/multitouch_exit.py", line 62, in start
+    page.evaluate('([h,r])=>{gameWorlds.setDeveloperStart({enabled:true,regionId:r,phase:5});selectedHeli=h;drawChoices()}',[hero,region]);page.locator('#startSelected').tap();page.wait_for_function('(h)=>started&&player.type===h',hero);page.evaluate('spawn=999;transition=0;invuln=999;enemyBullets=[];player.x=W/2;player.y=H*.6')
+                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Page.wait_for_function() takes 2 positional arguments but 3 were given

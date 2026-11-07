@@ -1,0 +1,320 @@
+[
+  {
+    "suite": "multitouch_exit-native",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 241.65,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/multitouch_exit-native"
+    ]
+  },
+  {
+    "suite": "multitouch_exit-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 0,
+    "seconds": 30.9,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/multitouch_exit-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "worlds",
+    "exit_code": 0,
+    "groups": 20,
+    "observed_groups_before_failure": 0,
+    "seconds": 27.18,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/worlds"
+    ]
+  },
+  {
+    "suite": "worlds-offline",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 134.74,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/worlds-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "mobile_controls",
+    "exit_code": 0,
+    "groups": 23,
+    "observed_groups_before_failure": 0,
+    "seconds": 27.75,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/mobile_controls.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/mobile_controls"
+    ]
+  },
+  {
+    "suite": "mobile_controls-offline",
+    "exit_code": 0,
+    "groups": 23,
+    "observed_groups_before_failure": 0,
+    "seconds": 57.16,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/mobile_controls.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/mobile_controls-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "exit_dialog",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 11.78,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/exit_dialog.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/exit_dialog"
+    ]
+  },
+  {
+    "suite": "fullscreen_smoke",
+    "exit_code": 0,
+    "groups": 7,
+    "observed_groups_before_failure": 0,
+    "seconds": 9.44,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/fullscreen_smoke.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/fullscreen_smoke"
+    ]
+  },
+  {
+    "suite": "selection_smoke",
+    "exit_code": 0,
+    "groups": 15,
+    "observed_groups_before_failure": 0,
+    "seconds": 31.63,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/selection_smoke.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/selection_smoke"
+    ]
+  },
+  {
+    "suite": "game_over",
+    "exit_code": 0,
+    "groups": 7,
+    "observed_groups_before_failure": 0,
+    "seconds": 29.89,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/game_over.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/game_over"
+    ]
+  },
+  {
+    "suite": "scoring",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 46.52,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/scoring.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/scoring"
+    ]
+  },
+  {
+    "suite": "scoring-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 14,
+    "seconds": 212.54,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/scoring.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/scoring-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "developer_start-native",
+    "exit_code": 0,
+    "groups": 18,
+    "observed_groups_before_failure": 0,
+    "seconds": 49.56,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/developer_start.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/developer_start-native"
+    ]
+  },
+  {
+    "suite": "default_world_route-native",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 20.23,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/default_world_route.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/default_world_route-native"
+    ]
+  },
+  {
+    "suite": "default_world_route-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 6,
+    "seconds": 201.43,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/default_world_route.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/default_world_route-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "machine_boss-native",
+    "exit_code": 0,
+    "groups": 26,
+    "observed_groups_before_failure": 0,
+    "seconds": 17.54,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/machine_boss.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/machine_boss-native"
+    ]
+  },
+  {
+    "suite": "machine_fortress_bgm-native",
+    "exit_code": 0,
+    "groups": 22,
+    "observed_groups_before_failure": 0,
+    "seconds": 40.3,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/machine_fortress_bgm.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/machine_fortress_bgm-native"
+    ]
+  },
+  {
+    "suite": "galaxy_standalone",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 70.53,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/galaxy_standalone.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/galaxy_standalone"
+    ]
+  },
+  {
+    "suite": "item_persistence",
+    "exit_code": 0,
+    "groups": 7,
+    "observed_groups_before_failure": 0,
+    "seconds": 6.11,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/item_persistence.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/item_persistence"
+    ]
+  },
+  {
+    "suite": "item_spawn_rules",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 15,
+    "seconds": 14.84,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/item_spawn_rules.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/item_spawn_rules"
+    ]
+  },
+  {
+    "suite": "boss_reward",
+    "exit_code": 0,
+    "groups": 8,
+    "observed_groups_before_failure": 0,
+    "seconds": 22.11,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/boss_reward.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/boss_reward"
+    ]
+  },
+  {
+    "suite": "selection_bgm",
+    "exit_code": 0,
+    "groups": 14,
+    "observed_groups_before_failure": 0,
+    "seconds": 77.19,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/selection_bgm.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/selection_bgm"
+    ]
+  },
+  {
+    "suite": "selection_bgm-offline",
+    "exit_code": 0,
+    "groups": 14,
+    "observed_groups_before_failure": 0,
+    "seconds": 100.06,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/selection_bgm.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/selection_bgm-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "volcano_boss-native",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 24.59,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/volcano_boss.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/final-all/volcano_boss-native"
+    ]
+  }
+]

@@ -1,0 +1,2737 @@
+{
+  "preservation": {
+    "baseline": "3c085442bba6490bfa41cae64ac4007af570ba2e",
+    "byte_identical_existing_assets": 131,
+    "only_runtime_delta": "index.html exit button handler",
+    "exit_cleanup_callback_unchanged": true,
+    "all_other_engine_source_unchanged": true
+  },
+  "standalone": false,
+  "quick": false,
+  "passed": [
+    "915x412 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "915x412 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "915x412 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "915x412 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "800x360 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "800x360 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "800x360 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "800x360 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "568x320 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "568x320 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "568x320 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.",
+    "568x320 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.",
+    "No uncaught JS error or native browser dialog; offline runs issue zero HTTP requests. All131 approved assets and all non-exit engine source stay byte-identical."
+  ],
+  "cases": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.6,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 101.1,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.6,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.5,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 3.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.5,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.4,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 2.4,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.5,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.1,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.4,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.7,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.5,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.2,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 1,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.6,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.1,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.3,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.4,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.5,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.2,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 1.0,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.6,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.5,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 7,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.9,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 7,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 0,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 0,
+      "contacts": 3,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 0,
+      "contacts": 4,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": true,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 100.3,
+      "multi_hold_ms": 650
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 4,
+      "contacts": 2,
+      "end": "point",
+      "post_gesture_delay_ms": 100,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.7,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 1,
+      "region": 4,
+      "contacts": 3,
+      "end": "empty",
+      "post_gesture_delay_ms": 300,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 2,
+      "region": 4,
+      "contacts": 4,
+      "end": "point",
+      "post_gesture_delay_ms": 550,
+      "method": "cdp",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "dpr": 2,
+      "hero": 0,
+      "region": 7,
+      "contacts": 2,
+      "end": "empty",
+      "post_gesture_delay_ms": 0,
+      "method": "playwright",
+      "drop_click_fault_injection": false,
+      "raw_clicks": 1,
+      "opens": 1,
+      "up_to_open_ms": 0.8,
+      "multi_hold_ms": 40
+    }
+  ],
+  "limits": [
+    "Chromium touch emulation; physical Galaxy/Samsung Internet and real sensors not exercised.",
+    "Dropped/delayed click tests are explicit fault injection, not evidence that a browser necessarily drops that event.",
+    "Baseline worlds failure is reproduced, but simplified native-button comparisons do not identify a unique browser or CDP root cause."
+  ],
+  "browser": "154.0.8037.57",
+  "errors": [],
+  "native_dialogs": [],
+  "offline_requests": []
+}

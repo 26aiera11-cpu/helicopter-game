@@ -84,6 +84,8 @@ try:
         else:
             page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
         page.wait_for_function('window.itemMonsters?.ready()&&window.gameScoring&&sprites.every(i=>i.complete&&i.naturalWidth>0)')
+        # This existing 4-region/30,400-point fixture explicitly exercises the retained20 option.
+        page.evaluate('gameWorlds.setTrialEnabled(false)')
         page.evaluate(helpers)
 
         geometry = page.evaluate('''() => {

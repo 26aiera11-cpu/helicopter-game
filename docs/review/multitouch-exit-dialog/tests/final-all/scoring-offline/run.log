@@ -1,0 +1,38 @@
+PASS: Exact reviewed score/UI changes reverse to current-main baseline; all previous assets, combat, items, BGM, fullscreen and exit code are preserved; JS syntax passes.
+PASS: Visible Settings lettering is covered by the opaque score button; empty TOP10 opens/closes, without the removed audio-settings highlight.
+PASS: Actual normal/item-monster bullet kills award100/200 exactly once; repeated credit is rejected and requiredKills/normal item drop stay unchanged.
+PASS: An item monster expiring without a kill gives no points, kill progress or dropped item.
+PASS: Only the16 ordinary phases award500 each; repeated clear notification and phase5 add no duplicate/region bonus.
+PASS: All4 actual boss kills award2000 once, including desert; automatic reward/region transition stay intact and final-clear character/score match the single saved result.
+PASS: HUD updates with comma-separated trophy points and keeps HP/upgrade readable without overlapping fullscreen/exit controls at all3 requested landscape sizes.
+PASS: Real fatal hit freezes play/BGM, shows score/character/newTOP10 for3s, stores one matching result despite duplicate finish calls, then restores clean selection music/fullscreen.
+PASS: Modal blocks underlying character/Start touches and highlights the latest record; closing preserves fullscreen/BGM and original audio button geometry/toggles.
+PASS: Twelve results across3 characters produce exactly10 rows; equal timestamps/scores keep earlier achievement first, repeated characters are allowed and every landscape scrolls through row10.
+PASS: Native localStorage restores the same sorted TOP10 after navigation/reload; Escape closes the modal and no legacy star conversion occurs.
+PASS: A new result below tenth place explicitly reports no TOP10 entry, keeps the ranking unchanged and still saves analysis once.
+PASS: Analysis history is separate/versioned and capped at100;115 abandoned games never affect TOP10, with unique IDs and all required counters/time/upgrade/result fields.
+PASS: Actual in-game exit cancel resumes play; confirmed exit saves one analysis-only result with reached phase/active play time and leaves TOP10 unchanged.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/scoring.py", line 325, in <module>
+    load()
+  File "/tmp/storm-background-work/tests/scoring.py", line 109, in load
+    page.set_content(html, wait_until='load')
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9807, in set_content
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 551, in set_content
+    return await self._main_frame.set_content(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 508, in set_content
+    await self._channel.send(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.set_content: Page crashed
+Call log:
+  - setting frame content, waiting until "load"
+

@@ -1,0 +1,70 @@
+[
+  {
+    "suite": "multitouch_exit-offline",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 400.57,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/retry-final/multitouch_exit-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "scoring-offline",
+    "exit_code": 0,
+    "groups": 17,
+    "observed_groups_before_failure": 0,
+    "seconds": 283.49,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/scoring.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/retry-final/scoring-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "default_world_route-offline",
+    "exit_code": 0,
+    "groups": 10,
+    "observed_groups_before_failure": 0,
+    "seconds": 239.37,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/default_world_route.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/retry-final/default_world_route-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "item_spawn_rules",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 17.99,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/item_spawn_rules.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/retry-final/item_spawn_rules"
+    ]
+  },
+  {
+    "suite": "worlds",
+    "exit_code": 0,
+    "groups": 20,
+    "observed_groups_before_failure": 0,
+    "seconds": 28.46,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/exit-tap-tests/retry-final/worlds"
+    ]
+  }
+]

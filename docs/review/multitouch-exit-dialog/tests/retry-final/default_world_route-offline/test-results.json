@@ -1,0 +1,7049 @@
+{
+  "standalone": true,
+  "passed": [
+    "Fresh URL defaults40 ON/regions0..7; Help explains20 OFF, developer defaultsOFF, no autoplay and all4 seeded legacy storage values remain byte-identical.",
+    "Default leaderboard reads existing trial records without writing or migrating either score/history store.",
+    "All3 trusted default starts complete40 actual phases/240normal kills/8bosses/32bonuses for56000points; only final GigaCore ends play and writes one trial TOP10/history result. Every region stage/boss BGM resolves correctly.",
+    "Actual desert HP0/reward enters snow1 with hidden menu/startedtrue and same player/item objects, upgrade3,28000points, original reward+2 then region+2HP cap. Item7.25s stays7.25 at transition and ages to7.05 after.2s; no intermediate score write/reset.",
+    "World1 storage bytes remain unchanged through default40; seeded old trial records retain every field and repeated finish calls write nothing.",
+    "HelpOFF retains20phase/4boss/28000point desert clear in original World1 stores; old normal records and all trial storage bytes are preserved.",
+    "Ordinary/unknown URL and?world2=1 initializeON;?world2=0 initializesOFF. ManualOFF is per-document and fresh reload returns defaultON, with no stored preference/migration/deletion.",
+    "Real developer UI desert/snow/GigaCore direct5 remains single-region only and returns after that boss, without changing TOP10/history bytes.",
+    "Explicit ON after developerOFF restores full40; trusted fullscreen/internal exit cancel/confirm remain intact without native dialogs.",
+    "No uncaught errors/native dialogs/missing assets or overlapping BGM; standalone embeds PNG11/audio7 bytes and performs0external HTTP requests."
+  ],
+  "preservation": {
+    "baseline": "54d892cbd074804741892ab800c293cb3b4fd5cc",
+    "existing_assets": 131,
+    "raw_unchanged_assets": 130,
+    "runtime_changed_file": "assets/worlds/worlds.js",
+    "exact_default_and_help_deltas": 4,
+    "index_after_reviewed_exit_delta_reversal_and_score_storage_code_match_baseline": true,
+    "all_PNG_audio_combat_player_control_item_reward_recovery_Cover_code_byte_identical": true,
+    "approved_machine_fortress_WAVs_byte_identical": true,
+    "no_storage_key_migration_or_merge": true
+  },
+  "limits": [
+    "Actual Chromium/native media/trusted taps with controlled combat, invulnerability and item-spawn quota0; not physical Galaxy or a human balance playthrough.",
+    "Offline exact HTML is injected into a network-disabled blank origin without bypassing file-navigation policy.",
+    "Original boss reward then region+2HP recovery are preserved; no HP reset."
+  ],
+  "full40_routes_in_progress": [
+    {
+      "hero": 0,
+      "size": [
+        915,
+        412
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 0,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 0,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 0,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 0,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 0,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 4,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.045613
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 0,
+              "score": 5000,
+              "hp": 4,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 0,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 0,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 0,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 0,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 0,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 4,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.044058
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 0,
+              "score": 12000,
+              "hp": 4,
+              "upgrade": 1,
+              "bossHP": 37.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 2,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 0,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 0,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 0,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 0,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 0,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 4,
+          "bossHP": 70,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.051243
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 0,
+              "score": 19000,
+              "hp": 4,
+              "upgrade": 2,
+              "bossHP": 68
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 3,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 0,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 0,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 0,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 0,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 0,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.047121
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 0,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 101
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 875,
+                "y": 372,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 0,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 0,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 0,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 0,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 0,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 4,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.037154
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 0,
+              "score": 33000,
+              "hp": 4,
+              "upgrade": 3,
+              "bossHP": 29
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 4,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 0,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 0,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 0,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 0,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 0,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 4,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.038136
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 0,
+              "score": 40000,
+              "hp": 4,
+              "upgrade": 4,
+              "bossHP": 34
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 0,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 0,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 0,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 0,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 0,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 4,
+          "bossHP": 44,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.046385
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 0,
+              "score": 47000,
+              "hp": 4,
+              "upgrade": 5,
+              "bossHP": 40
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 0,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 0,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 0,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 0,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 0,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 4,
+          "bossHP": 44,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.044085
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 0,
+              "score": 54000,
+              "hp": 4,
+              "upgrade": 5,
+              "bossHP": 40
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "320500c0-2371-4438-a246-c372eee62785",
+                "score": 56000,
+                "characterId": 0,
+                "characterName": "뾰코",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 2,
+                "createdAt": "2026-11-07T14:49:31.616Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.45,
+                "finalUpgrade": 5
+              },
+              "rank": 2,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "320500c0-2371-4438-a246-c372eee62785",
+          "score": 56000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 2,
+          "createdAt": "2026-11-07T14:49:31.616Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.45,
+          "finalUpgrade": 5
+        },
+        "rank": 2,
+        "isTop10": true,
+        "saved": true
+      }
+    },
+    {
+      "hero": 1,
+      "size": [
+        800,
+        360
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 1,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 1,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 1,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 1,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 1,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 6,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.044082
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 1,
+              "score": 5000,
+              "hp": 6,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 1,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 1,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 1,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 1,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 1,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 6,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.042304
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 1,
+              "score": 12000,
+              "hp": 6,
+              "upgrade": 1,
+              "bossHP": 38.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 1,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 1,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 1,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 1,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 1,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 1,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 6,
+          "bossHP": 55.00000000000001,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.047124
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 1,
+              "score": 19000,
+              "hp": 6,
+              "upgrade": 1,
+              "bossHP": 55.00000000000001
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 2,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 1,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 1,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 1,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 1,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 1,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.046857
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 1,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 102
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 1,
+              "hp": 5,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 760,
+                "y": 320,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 1,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 1,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 1,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 1,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 1,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 5,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.042347
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 1,
+              "score": 33000,
+              "hp": 5,
+              "upgrade": 3,
+              "bossHP": 30
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 1,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 1,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 1,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 1,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 1,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.032734
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 1,
+              "score": 40000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 1,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 1,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 1,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 1,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 1,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.043268
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 1,
+              "score": 47000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 1,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 1,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 1,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 1,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 1,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.039187
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 1,
+              "score": 54000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "cb6df216-34ce-4fb4-b341-57e1f0678cd4",
+                "score": 56000,
+                "characterId": 1,
+                "characterName": "빙글",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 3,
+                "createdAt": "2026-11-07T14:50:02.515Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.383,
+                "finalUpgrade": 4
+              },
+              "rank": 3,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "cb6df216-34ce-4fb4-b341-57e1f0678cd4",
+          "score": 56000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 3,
+          "createdAt": "2026-11-07T14:50:02.515Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.383,
+          "finalUpgrade": 4
+        },
+        "rank": 3,
+        "isTop10": true,
+        "saved": true
+      }
+    },
+    {
+      "hero": 2,
+      "size": [
+        568,
+        320
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 2,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 2,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 2,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 2,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 2,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 9,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.046924
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 2,
+              "score": 5000,
+              "hp": 9,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 2,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 2,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 2,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 2,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 2,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 9,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.046649
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 2,
+              "score": 12000,
+              "hp": 9,
+              "upgrade": 1,
+              "bossHP": 38.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 1,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 2,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 2,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 2,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 2,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 2,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 9,
+          "bossHP": 55.00000000000001,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.044805
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 2,
+              "score": 19000,
+              "hp": 9,
+              "upgrade": 1,
+              "bossHP": 55.00000000000001
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 2,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 2,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 2,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 2,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 2,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 2,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.043237
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 2,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 102.5
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 2,
+              "hp": 5,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 528,
+                "y": 280,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 2,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 2,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 2,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 2,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 2,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 5,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.042544
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 2,
+              "score": 33000,
+              "hp": 5,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 2,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 2,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 2,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 2,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 2,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.038984
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 2,
+              "score": 40000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 2,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 2,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 2,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 2,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 2,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.037394
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 2,
+              "score": 47000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 2,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 2,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 2,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 2,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 2,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.035403
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 2,
+              "score": 54000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 4,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "5443cff5-fcb0-4a8e-b71c-0db2c8980198",
+                "score": 56000,
+                "characterId": 2,
+                "characterName": "탱코",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 4,
+                "createdAt": "2026-11-07T14:50:32.529Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.283,
+                "finalUpgrade": 4
+              },
+              "rank": 4,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "5443cff5-fcb0-4a8e-b71c-0db2c8980198",
+          "score": 56000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 4,
+          "createdAt": "2026-11-07T14:50:32.529Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.283,
+          "finalUpgrade": 4
+        },
+        "rank": 4,
+        "isTop10": true,
+        "saved": true
+      }
+    }
+  ],
+  "default_full40_three_heroes": [
+    {
+      "hero": 0,
+      "size": [
+        915,
+        412
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 0,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 0,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 0,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 0,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 0,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 4,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.045613
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 0,
+              "score": 5000,
+              "hp": 4,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 0,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 0,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 0,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 0,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 0,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 4,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.044058
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 0,
+              "score": 12000,
+              "hp": 4,
+              "upgrade": 1,
+              "bossHP": 37.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 2,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 0,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 0,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 0,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 0,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 0,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 4,
+          "bossHP": 70,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.051243
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 0,
+              "score": 19000,
+              "hp": 4,
+              "upgrade": 2,
+              "bossHP": 68
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 3,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 0,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 0,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 0,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 0,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 0,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.047121
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 0,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 101
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 875,
+                "y": 372,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 0,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 0,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 0,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 0,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 0,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 4,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.037154
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 0,
+              "score": 33000,
+              "hp": 4,
+              "upgrade": 3,
+              "bossHP": 29
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 4,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 0,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 0,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 0,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 0,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 0,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 4,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.038136
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 0,
+              "score": 40000,
+              "hp": 4,
+              "upgrade": 4,
+              "bossHP": 34
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 0,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 0,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 0,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 0,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 0,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 4,
+          "bossHP": 44,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.046385
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 0,
+              "score": 47000,
+              "hp": 4,
+              "upgrade": 5,
+              "bossHP": 40
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 0,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 0,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 0,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 0,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 4,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 0,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 4,
+          "bossHP": 44,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.044085
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 0,
+              "score": 54000,
+              "hp": 4,
+              "upgrade": 5,
+              "bossHP": 40
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 0,
+              "hp": 4,
+              "upgrade": 5,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "320500c0-2371-4438-a246-c372eee62785",
+                "score": 56000,
+                "characterId": 0,
+                "characterName": "뾰코",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 2,
+                "createdAt": "2026-11-07T14:49:31.616Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.45,
+                "finalUpgrade": 5
+              },
+              "rank": 2,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "320500c0-2371-4438-a246-c372eee62785",
+          "score": 56000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 2,
+          "createdAt": "2026-11-07T14:49:31.616Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.45,
+          "finalUpgrade": 5
+        },
+        "rank": 2,
+        "isTop10": true,
+        "saved": true
+      }
+    },
+    {
+      "hero": 1,
+      "size": [
+        800,
+        360
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 1,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 1,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 1,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 1,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 1,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 6,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.044082
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 1,
+              "score": 5000,
+              "hp": 6,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 1,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 1,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 1,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 1,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 1,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 6,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.042304
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 1,
+              "score": 12000,
+              "hp": 6,
+              "upgrade": 1,
+              "bossHP": 38.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 1,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 1,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 1,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 1,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 1,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 1,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 6,
+          "bossHP": 55.00000000000001,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.047124
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 1,
+              "score": 19000,
+              "hp": 6,
+              "upgrade": 1,
+              "bossHP": 55.00000000000001
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 2,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 1,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 1,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 1,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 1,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 1,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.046857
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 1,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 102
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 1,
+              "hp": 5,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 760,
+                "y": 320,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 1,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 1,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 1,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 1,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 1,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 5,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.042347
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 1,
+              "score": 33000,
+              "hp": 5,
+              "upgrade": 3,
+              "bossHP": 30
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 1,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 1,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 1,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 1,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 1,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.032734
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 1,
+              "score": 40000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 1,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 1,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 1,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 1,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 1,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.043268
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 1,
+              "score": 47000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 1,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 1,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 1,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 1,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 6,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 1,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 6,
+          "bossHP": 38,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.039187
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 1,
+              "score": 54000,
+              "hp": 6,
+              "upgrade": 4,
+              "bossHP": 36
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 1,
+              "hp": 6,
+              "upgrade": 4,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "cb6df216-34ce-4fb4-b341-57e1f0678cd4",
+                "score": 56000,
+                "characterId": 1,
+                "characterName": "빙글",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 3,
+                "createdAt": "2026-11-07T14:50:02.515Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.383,
+                "finalUpgrade": 4
+              },
+              "rank": 3,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "cb6df216-34ce-4fb4-b341-57e1f0678cd4",
+          "score": 56000,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 3,
+          "createdAt": "2026-11-07T14:50:02.515Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.383,
+          "finalUpgrade": 4
+        },
+        "rank": 3,
+        "isTop10": true,
+        "saved": true
+      }
+    },
+    {
+      "hero": 2,
+      "size": [
+        568,
+        320
+      ],
+      "waves": [
+        {
+          "before": {
+            "region": 0,
+            "phase": 1,
+            "type": 2,
+            "score": 0
+          },
+          "stage": 0,
+          "phase": 2,
+          "score": 1100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 2,
+            "type": 2,
+            "score": 1100
+          },
+          "stage": 0,
+          "phase": 3,
+          "score": 2200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 3,
+            "type": 2,
+            "score": 2200
+          },
+          "stage": 0,
+          "phase": 4,
+          "score": 3300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 4,
+            "type": 2,
+            "score": 3300
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 4400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 2,
+            "score": 4400
+          },
+          "stage": 0,
+          "phase": 5,
+          "score": 5000,
+          "hp": 9,
+          "bossHP": 20,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.046924
+          },
+          "boss": {
+            "before": {
+              "region": 0,
+              "phase": 5,
+              "type": 2,
+              "score": 5000,
+              "hp": 9,
+              "upgrade": 0,
+              "bossHP": 20
+            },
+            "after": {
+              "stage": 1,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 1,
+              "score": 7000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 1,
+            "type": 2,
+            "score": 7000
+          },
+          "stage": 1,
+          "phase": 2,
+          "score": 8100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 2,
+            "type": 2,
+            "score": 8100
+          },
+          "stage": 1,
+          "phase": 3,
+          "score": 9200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 3,
+            "type": 2,
+            "score": 9200
+          },
+          "stage": 1,
+          "phase": 4,
+          "score": 10300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 4,
+            "type": 2,
+            "score": 10300
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 11400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 2,
+            "score": 11400
+          },
+          "stage": 1,
+          "phase": 5,
+          "score": 12000,
+          "hp": 9,
+          "bossHP": 38.5,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 5,
+            "time": 0.046649
+          },
+          "boss": {
+            "before": {
+              "region": 1,
+              "phase": 5,
+              "type": 2,
+              "score": 12000,
+              "hp": 9,
+              "upgrade": 1,
+              "bossHP": 38.5
+            },
+            "after": {
+              "stage": 2,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 1,
+              "score": 14000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 1,
+            "type": 2,
+            "score": 14000
+          },
+          "stage": 2,
+          "phase": 2,
+          "score": 15100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 2,
+            "type": 2,
+            "score": 15100
+          },
+          "stage": 2,
+          "phase": 3,
+          "score": 16200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 3,
+            "type": 2,
+            "score": 16200
+          },
+          "stage": 2,
+          "phase": 4,
+          "score": 17300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 4,
+            "type": 2,
+            "score": 17300
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 18400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 2,
+            "score": 18400
+          },
+          "stage": 2,
+          "phase": 5,
+          "score": 19000,
+          "hp": 9,
+          "bossHP": 55.00000000000001,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 6,
+            "time": 0.044805
+          },
+          "boss": {
+            "before": {
+              "region": 2,
+              "phase": 5,
+              "type": 2,
+              "score": 19000,
+              "hp": 9,
+              "upgrade": 1,
+              "bossHP": 55.00000000000001
+            },
+            "after": {
+              "stage": 3,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 2,
+              "score": 21000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 1,
+            "type": 2,
+            "score": 21000
+          },
+          "stage": 3,
+          "phase": 2,
+          "score": 22100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 2,
+            "type": 2,
+            "score": 22100
+          },
+          "stage": 3,
+          "phase": 3,
+          "score": 23200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 3,
+            "type": 2,
+            "score": 23200
+          },
+          "stage": 3,
+          "phase": 4,
+          "score": 24300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 4,
+            "type": 2,
+            "score": 24300
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 25400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 2,
+            "score": 25400
+          },
+          "stage": 3,
+          "phase": 5,
+          "score": 26000,
+          "hp": 1,
+          "bossHP": 104,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 7,
+            "time": 0.043237
+          },
+          "boss": {
+            "before": {
+              "region": 3,
+              "phase": 5,
+              "type": 2,
+              "score": 26000,
+              "hp": 1,
+              "upgrade": 3,
+              "bossHP": 102.5
+            },
+            "after": {
+              "stage": 4,
+              "phase": 1,
+              "type": 2,
+              "hp": 5,
+              "upgrade": 3,
+              "score": 28000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": true,
+              "item": {
+                "x": 528,
+                "y": 280,
+                "type": "power",
+                "life": 7.25,
+                "r": 13,
+                "t": 0,
+                "vx": 0,
+                "vy": 0,
+                "turn": 999
+              },
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ],
+              "afterTickLife": 7.05,
+              "sameItemAfterTick": true
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 1,
+            "type": 2,
+            "score": 28000
+          },
+          "stage": 4,
+          "phase": 2,
+          "score": 29100,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 2,
+            "type": 2,
+            "score": 29100
+          },
+          "stage": 4,
+          "phase": 3,
+          "score": 30200,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 3,
+            "type": 2,
+            "score": 30200
+          },
+          "stage": 4,
+          "phase": 4,
+          "score": 31300,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 4,
+            "type": 2,
+            "score": 31300
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 32400,
+          "hp": 5,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 4,
+            "phase": 5,
+            "type": 2,
+            "score": 32400
+          },
+          "stage": 4,
+          "phase": 5,
+          "score": 33000,
+          "hp": 5,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "",
+            "index": 4,
+            "time": 0.042544
+          },
+          "boss": {
+            "before": {
+              "region": 4,
+              "phase": 5,
+              "type": 2,
+              "score": 33000,
+              "hp": 5,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 5,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 35000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 2
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 1,
+            "type": 2,
+            "score": 35000
+          },
+          "stage": 5,
+          "phase": 2,
+          "score": 36100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 2,
+            "type": 2,
+            "score": 36100
+          },
+          "stage": 5,
+          "phase": 3,
+          "score": 37200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 3,
+            "type": 2,
+            "score": 37200
+          },
+          "stage": 5,
+          "phase": 4,
+          "score": 38300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 4,
+            "type": 2,
+            "score": 38300
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 39400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 5,
+            "phase": 5,
+            "type": 2,
+            "score": 39400
+          },
+          "stage": 5,
+          "phase": 5,
+          "score": 40000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "volcanoBossBgm",
+            "index": 14,
+            "time": 0.038984
+          },
+          "boss": {
+            "before": {
+              "region": 5,
+              "phase": 5,
+              "type": 2,
+              "score": 40000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 6,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 42000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 1,
+            "type": 2,
+            "score": 42000
+          },
+          "stage": 6,
+          "phase": 2,
+          "score": 43100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 2,
+            "type": 2,
+            "score": 43100
+          },
+          "stage": 6,
+          "phase": 3,
+          "score": 44200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 3,
+            "type": 2,
+            "score": 44200
+          },
+          "stage": 6,
+          "phase": 4,
+          "score": 45300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 4,
+            "type": 2,
+            "score": 45300
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 46400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 6,
+            "phase": 5,
+            "type": 2,
+            "score": 46400
+          },
+          "stage": 6,
+          "phase": 5,
+          "score": 47000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "stormSkyBossBgm",
+            "index": 16,
+            "time": 0.037394
+          },
+          "boss": {
+            "before": {
+              "region": 6,
+              "phase": 5,
+              "type": 2,
+              "score": 47000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 7,
+              "phase": 1,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 3,
+              "score": 49000,
+              "started": true,
+              "menu": false,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "hp",
+                  "amount": 0
+                }
+              ]
+            },
+            "result": null
+          }
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 1,
+            "type": 2,
+            "score": 49000
+          },
+          "stage": 7,
+          "phase": 2,
+          "score": 50100,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 2,
+            "type": 2,
+            "score": 50100
+          },
+          "stage": 7,
+          "phase": 3,
+          "score": 51200,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 3,
+            "type": 2,
+            "score": 51200
+          },
+          "stage": 7,
+          "phase": 4,
+          "score": 52300,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 4,
+            "type": 2,
+            "score": 52300
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 53400,
+          "hp": 9,
+          "bossHP": null,
+          "bossReady": false,
+          "menu": false,
+          "started": true
+        },
+        {
+          "before": {
+            "region": 7,
+            "phase": 5,
+            "type": 2,
+            "score": 53400
+          },
+          "stage": 7,
+          "phase": 5,
+          "score": 54000,
+          "hp": 9,
+          "bossHP": 32,
+          "bossReady": true,
+          "menu": false,
+          "started": true,
+          "music": {
+            "id": "machineFortressBossBgm",
+            "index": 18,
+            "time": 0.035403
+          },
+          "boss": {
+            "before": {
+              "region": 7,
+              "phase": 5,
+              "type": 2,
+              "score": 54000,
+              "hp": 9,
+              "upgrade": 3,
+              "bossHP": 30.5
+            },
+            "after": {
+              "stage": 7,
+              "phase": 5,
+              "type": 2,
+              "hp": 9,
+              "upgrade": 4,
+              "score": 56000,
+              "started": false,
+              "menu": true,
+              "samePlayer": true,
+              "sameItem": null,
+              "item": null,
+              "rewardGranted": true,
+              "events": [
+                {
+                  "type": "power",
+                  "amount": 1
+                }
+              ]
+            },
+            "result": {
+              "record": {
+                "id": "5443cff5-fcb0-4a8e-b71c-0db2c8980198",
+                "score": 56000,
+                "characterId": 2,
+                "characterName": "탱코",
+                "regionId": 7,
+                "regionName": "⚙ 기계 요새 (시험)",
+                "worldId": 1,
+                "worldName": "월드 2",
+                "regionKey": "world-2:machine-fortress",
+                "localRegionIndex": 3,
+                "trialMode": true,
+                "phase": 5,
+                "order": 4,
+                "createdAt": "2026-11-07T14:50:32.529Z",
+                "outcome": "clear",
+                "normalKills": 240,
+                "itemKills": 0,
+                "bossKills": 8,
+                "clearedPhases": 32,
+                "playTimeSeconds": 348.283,
+                "finalUpgrade": 4
+              },
+              "rank": 4,
+              "isTop10": true,
+              "saved": true
+            }
+          }
+        }
+      ],
+      "result": {
+        "record": {
+          "id": "5443cff5-fcb0-4a8e-b71c-0db2c8980198",
+          "score": 56000,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 4,
+          "createdAt": "2026-11-07T14:50:32.529Z",
+          "outcome": "clear",
+          "normalKills": 240,
+          "itemKills": 0,
+          "bossKills": 8,
+          "clearedPhases": 32,
+          "playTimeSeconds": 348.283,
+          "finalUpgrade": 4
+        },
+        "rank": 4,
+        "isTop10": true,
+        "saved": true
+      }
+    }
+  ],
+  "desert_boundary_three_heroes": [
+    {
+      "before": {
+        "region": 3,
+        "phase": 5,
+        "type": 0,
+        "score": 26000,
+        "hp": 1,
+        "upgrade": 3,
+        "bossHP": 101
+      },
+      "after": {
+        "stage": 4,
+        "phase": 1,
+        "type": 0,
+        "hp": 4,
+        "upgrade": 3,
+        "score": 28000,
+        "started": true,
+        "menu": false,
+        "samePlayer": true,
+        "sameItem": true,
+        "item": {
+          "x": 875,
+          "y": 372,
+          "type": "power",
+          "life": 7.25,
+          "r": 13,
+          "t": 0,
+          "vx": 0,
+          "vy": 0,
+          "turn": 999
+        },
+        "rewardGranted": true,
+        "events": [
+          {
+            "type": "hp",
+            "amount": 2
+          }
+        ],
+        "afterTickLife": 7.05,
+        "sameItemAfterTick": true
+      },
+      "result": null
+    },
+    {
+      "before": {
+        "region": 3,
+        "phase": 5,
+        "type": 1,
+        "score": 26000,
+        "hp": 1,
+        "upgrade": 3,
+        "bossHP": 102
+      },
+      "after": {
+        "stage": 4,
+        "phase": 1,
+        "type": 1,
+        "hp": 5,
+        "upgrade": 3,
+        "score": 28000,
+        "started": true,
+        "menu": false,
+        "samePlayer": true,
+        "sameItem": true,
+        "item": {
+          "x": 760,
+          "y": 320,
+          "type": "power",
+          "life": 7.25,
+          "r": 13,
+          "t": 0,
+          "vx": 0,
+          "vy": 0,
+          "turn": 999
+        },
+        "rewardGranted": true,
+        "events": [
+          {
+            "type": "hp",
+            "amount": 2
+          }
+        ],
+        "afterTickLife": 7.05,
+        "sameItemAfterTick": true
+      },
+      "result": null
+    },
+    {
+      "before": {
+        "region": 3,
+        "phase": 5,
+        "type": 2,
+        "score": 26000,
+        "hp": 1,
+        "upgrade": 3,
+        "bossHP": 102.5
+      },
+      "after": {
+        "stage": 4,
+        "phase": 1,
+        "type": 2,
+        "hp": 5,
+        "upgrade": 3,
+        "score": 28000,
+        "started": true,
+        "menu": false,
+        "samePlayer": true,
+        "sameItem": true,
+        "item": {
+          "x": 528,
+          "y": 280,
+          "type": "power",
+          "life": 7.25,
+          "r": 13,
+          "t": 0,
+          "vx": 0,
+          "vy": 0,
+          "turn": 999
+        },
+        "rewardGranted": true,
+        "events": [
+          {
+            "type": "hp",
+            "amount": 2
+          }
+        ],
+        "afterTickLife": 7.05,
+        "sameItemAfterTick": true
+      },
+      "result": null
+    }
+  ],
+  "explicit20": {
+    "waves": [
+      {
+        "before": {
+          "region": 0,
+          "phase": 1,
+          "type": 0,
+          "score": 0
+        },
+        "stage": 0,
+        "phase": 2,
+        "score": 1100,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 0,
+          "phase": 2,
+          "type": 0,
+          "score": 1100
+        },
+        "stage": 0,
+        "phase": 3,
+        "score": 2200,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 0,
+          "phase": 3,
+          "type": 0,
+          "score": 2200
+        },
+        "stage": 0,
+        "phase": 4,
+        "score": 3300,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 0,
+          "phase": 4,
+          "type": 0,
+          "score": 3300
+        },
+        "stage": 0,
+        "phase": 5,
+        "score": 4400,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 0,
+          "phase": 5,
+          "type": 0,
+          "score": 4400
+        },
+        "stage": 0,
+        "phase": 5,
+        "score": 5000,
+        "hp": 4,
+        "bossHP": 20,
+        "bossReady": true,
+        "menu": false,
+        "started": true,
+        "boss": {
+          "before": {
+            "region": 0,
+            "phase": 5,
+            "type": 0,
+            "score": 5000,
+            "hp": 4,
+            "upgrade": 0,
+            "bossHP": 20
+          },
+          "after": {
+            "stage": 1,
+            "phase": 1,
+            "type": 0,
+            "hp": 4,
+            "upgrade": 1,
+            "score": 7000,
+            "started": true,
+            "menu": false,
+            "samePlayer": true,
+            "sameItem": null,
+            "item": null,
+            "rewardGranted": true,
+            "events": [
+              {
+                "type": "power",
+                "amount": 1
+              }
+            ]
+          },
+          "result": null
+        }
+      },
+      {
+        "before": {
+          "region": 1,
+          "phase": 1,
+          "type": 0,
+          "score": 7000
+        },
+        "stage": 1,
+        "phase": 2,
+        "score": 8100,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 1,
+          "phase": 2,
+          "type": 0,
+          "score": 8100
+        },
+        "stage": 1,
+        "phase": 3,
+        "score": 9200,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 1,
+          "phase": 3,
+          "type": 0,
+          "score": 9200
+        },
+        "stage": 1,
+        "phase": 4,
+        "score": 10300,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 1,
+          "phase": 4,
+          "type": 0,
+          "score": 10300
+        },
+        "stage": 1,
+        "phase": 5,
+        "score": 11400,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 1,
+          "phase": 5,
+          "type": 0,
+          "score": 11400
+        },
+        "stage": 1,
+        "phase": 5,
+        "score": 12000,
+        "hp": 4,
+        "bossHP": 38.5,
+        "bossReady": true,
+        "menu": false,
+        "started": true,
+        "boss": {
+          "before": {
+            "region": 1,
+            "phase": 5,
+            "type": 0,
+            "score": 12000,
+            "hp": 4,
+            "upgrade": 1,
+            "bossHP": 38.5
+          },
+          "after": {
+            "stage": 2,
+            "phase": 1,
+            "type": 0,
+            "hp": 4,
+            "upgrade": 1,
+            "score": 14000,
+            "started": true,
+            "menu": false,
+            "samePlayer": true,
+            "sameItem": null,
+            "item": null,
+            "rewardGranted": true,
+            "events": [
+              {
+                "type": "hp",
+                "amount": 0
+              }
+            ]
+          },
+          "result": null
+        }
+      },
+      {
+        "before": {
+          "region": 2,
+          "phase": 1,
+          "type": 0,
+          "score": 14000
+        },
+        "stage": 2,
+        "phase": 2,
+        "score": 15100,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 2,
+          "phase": 2,
+          "type": 0,
+          "score": 15100
+        },
+        "stage": 2,
+        "phase": 3,
+        "score": 16200,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 2,
+          "phase": 3,
+          "type": 0,
+          "score": 16200
+        },
+        "stage": 2,
+        "phase": 4,
+        "score": 17300,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 2,
+          "phase": 4,
+          "type": 0,
+          "score": 17300
+        },
+        "stage": 2,
+        "phase": 5,
+        "score": 18400,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 2,
+          "phase": 5,
+          "type": 0,
+          "score": 18400
+        },
+        "stage": 2,
+        "phase": 5,
+        "score": 19000,
+        "hp": 4,
+        "bossHP": 55.00000000000001,
+        "bossReady": true,
+        "menu": false,
+        "started": true,
+        "boss": {
+          "before": {
+            "region": 2,
+            "phase": 5,
+            "type": 0,
+            "score": 19000,
+            "hp": 4,
+            "upgrade": 1,
+            "bossHP": 55.00000000000001
+          },
+          "after": {
+            "stage": 3,
+            "phase": 1,
+            "type": 0,
+            "hp": 4,
+            "upgrade": 1,
+            "score": 21000,
+            "started": true,
+            "menu": false,
+            "samePlayer": true,
+            "sameItem": null,
+            "item": null,
+            "rewardGranted": true,
+            "events": [
+              {
+                "type": "hp",
+                "amount": 0
+              }
+            ]
+          },
+          "result": null
+        }
+      },
+      {
+        "before": {
+          "region": 3,
+          "phase": 1,
+          "type": 0,
+          "score": 21000
+        },
+        "stage": 3,
+        "phase": 2,
+        "score": 22100,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 3,
+          "phase": 2,
+          "type": 0,
+          "score": 22100
+        },
+        "stage": 3,
+        "phase": 3,
+        "score": 23200,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 3,
+          "phase": 3,
+          "type": 0,
+          "score": 23200
+        },
+        "stage": 3,
+        "phase": 4,
+        "score": 24300,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 3,
+          "phase": 4,
+          "type": 0,
+          "score": 24300
+        },
+        "stage": 3,
+        "phase": 5,
+        "score": 25400,
+        "hp": 4,
+        "bossHP": null,
+        "bossReady": false,
+        "menu": false,
+        "started": true
+      },
+      {
+        "before": {
+          "region": 3,
+          "phase": 5,
+          "type": 0,
+          "score": 25400
+        },
+        "stage": 3,
+        "phase": 5,
+        "score": 26000,
+        "hp": 1,
+        "bossHP": 104,
+        "bossReady": true,
+        "menu": false,
+        "started": true,
+        "boss": {
+          "before": {
+            "region": 3,
+            "phase": 5,
+            "type": 0,
+            "score": 26000,
+            "hp": 1,
+            "upgrade": 3,
+            "bossHP": 101
+          },
+          "after": {
+            "stage": 3,
+            "phase": 5,
+            "type": 0,
+            "hp": 3,
+            "upgrade": 3,
+            "score": 28000,
+            "started": false,
+            "menu": true,
+            "samePlayer": true,
+            "sameItem": true,
+            "item": {
+              "x": 528,
+              "y": 280,
+              "type": "power",
+              "life": 7.25,
+              "r": 13,
+              "t": 0,
+              "vx": 0,
+              "vy": 0,
+              "turn": 999
+            },
+            "rewardGranted": true,
+            "events": [
+              {
+                "type": "hp",
+                "amount": 2
+              }
+            ],
+            "afterTickLife": 7.25,
+            "sameItemAfterTick": true
+          },
+          "result": {
+            "record": {
+              "id": "0c448f4f-34fd-4b6a-aa06-f57ea23f56fa",
+              "score": 28000,
+              "characterId": 0,
+              "characterName": "뾰코",
+              "regionId": 3,
+              "regionName": "🏜️ 사막 지역",
+              "worldId": 0,
+              "worldName": "월드 1",
+              "regionKey": "world-1:desert",
+              "localRegionIndex": 3,
+              "trialMode": false,
+              "phase": 5,
+              "order": 2,
+              "createdAt": "2026-11-07T14:50:33.066Z",
+              "outcome": "clear",
+              "normalKills": 120,
+              "itemKills": 0,
+              "bossKills": 4,
+              "clearedPhases": 16,
+              "playTimeSeconds": 172.933,
+              "finalUpgrade": 3
+            },
+            "rank": 2,
+            "isTop10": true,
+            "saved": true
+          }
+        }
+      }
+    ],
+    "result": {
+      "record": {
+        "id": "0c448f4f-34fd-4b6a-aa06-f57ea23f56fa",
+        "score": 28000,
+        "characterId": 0,
+        "characterName": "뾰코",
+        "regionId": 3,
+        "regionName": "🏜️ 사막 지역",
+        "worldId": 0,
+        "worldName": "월드 1",
+        "regionKey": "world-1:desert",
+        "localRegionIndex": 3,
+        "trialMode": false,
+        "phase": 5,
+        "order": 2,
+        "createdAt": "2026-11-07T14:50:33.066Z",
+        "outcome": "clear",
+        "normalKills": 120,
+        "itemKills": 0,
+        "bossKills": 4,
+        "clearedPhases": 16,
+        "playTimeSeconds": 172.933,
+        "finalUpgrade": 3
+      },
+      "rank": 2,
+      "isTop10": true,
+      "saved": true
+    }
+  },
+  "developer_single_region": [
+    {
+      "region": 3,
+      "boss": {
+        "before": {
+          "region": 3,
+          "phase": 5,
+          "type": 0,
+          "score": 0,
+          "hp": 4,
+          "upgrade": 0,
+          "bossHP": 65
+        },
+        "after": {
+          "stage": 3,
+          "phase": 5,
+          "type": 0,
+          "hp": 4,
+          "upgrade": 1,
+          "score": 2000,
+          "started": false,
+          "menu": true,
+          "samePlayer": true,
+          "sameItem": null,
+          "item": null,
+          "rewardGranted": true,
+          "events": [
+            {
+              "type": "power",
+              "amount": 1
+            }
+          ]
+        },
+        "result": {
+          "record": {
+            "id": "a50a9028-29bb-486b-b5f6-5292ecfeca1a",
+            "score": 2000,
+            "characterId": 0,
+            "characterName": "뾰코",
+            "regionId": 3,
+            "regionName": "🏜️ 사막 지역",
+            "worldId": 0,
+            "worldName": "월드 1",
+            "regionKey": "world-1:desert",
+            "localRegionIndex": 3,
+            "trialMode": false,
+            "phase": 5,
+            "order": 0,
+            "createdAt": "2026-11-07T14:52:53.543Z",
+            "outcome": "clear",
+            "normalKills": 0,
+            "itemKills": 0,
+            "bossKills": 1,
+            "clearedPhases": 0,
+            "playTimeSeconds": 0.1,
+            "finalUpgrade": 1,
+            "developerTest": true
+          },
+          "rank": 0,
+          "isTop10": false,
+          "saved": false,
+          "developerTest": true
+        }
+      },
+      "result": {
+        "record": {
+          "id": "a50a9028-29bb-486b-b5f6-5292ecfeca1a",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 3,
+          "regionName": "🏜️ 사막 지역",
+          "worldId": 0,
+          "worldName": "월드 1",
+          "regionKey": "world-1:desert",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T14:52:53.543Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0.1,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    },
+    {
+      "region": 4,
+      "boss": {
+        "before": {
+          "region": 4,
+          "phase": 5,
+          "type": 0,
+          "score": 0,
+          "hp": 4,
+          "upgrade": 0,
+          "bossHP": 20
+        },
+        "after": {
+          "stage": 4,
+          "phase": 5,
+          "type": 0,
+          "hp": 4,
+          "upgrade": 1,
+          "score": 2000,
+          "started": false,
+          "menu": true,
+          "samePlayer": true,
+          "sameItem": null,
+          "item": null,
+          "rewardGranted": true,
+          "events": [
+            {
+              "type": "power",
+              "amount": 1
+            }
+          ]
+        },
+        "result": {
+          "record": {
+            "id": "47e768a2-dc4a-4052-89cf-ae2d3414a5d5",
+            "score": 2000,
+            "characterId": 0,
+            "characterName": "뾰코",
+            "regionId": 4,
+            "regionName": "❄ 설원 (시험)",
+            "worldId": 1,
+            "worldName": "월드 2",
+            "regionKey": "world-2:snowfield",
+            "localRegionIndex": 0,
+            "trialMode": false,
+            "phase": 5,
+            "order": 0,
+            "createdAt": "2026-11-07T14:52:53.973Z",
+            "outcome": "clear",
+            "normalKills": 0,
+            "itemKills": 0,
+            "bossKills": 1,
+            "clearedPhases": 0,
+            "playTimeSeconds": 0.133,
+            "finalUpgrade": 1,
+            "developerTest": true
+          },
+          "rank": 0,
+          "isTop10": false,
+          "saved": false,
+          "developerTest": true
+        }
+      },
+      "result": {
+        "record": {
+          "id": "47e768a2-dc4a-4052-89cf-ae2d3414a5d5",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 4,
+          "regionName": "❄ 설원 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:snowfield",
+          "localRegionIndex": 0,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T14:52:53.973Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0.133,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    },
+    {
+      "region": 7,
+      "boss": {
+        "before": {
+          "region": 7,
+          "phase": 5,
+          "type": 0,
+          "score": 0,
+          "hp": 4,
+          "upgrade": 0,
+          "bossHP": 20
+        },
+        "after": {
+          "stage": 7,
+          "phase": 5,
+          "type": 0,
+          "hp": 4,
+          "upgrade": 0,
+          "score": 2000,
+          "started": false,
+          "menu": true,
+          "samePlayer": true,
+          "sameItem": null,
+          "item": null,
+          "rewardGranted": true,
+          "events": [
+            {
+              "type": "hp",
+              "amount": 0
+            }
+          ]
+        },
+        "result": {
+          "record": {
+            "id": "bee33dde-cc31-4797-a100-f54932812595",
+            "score": 2000,
+            "characterId": 0,
+            "characterName": "뾰코",
+            "regionId": 7,
+            "regionName": "⚙ 기계 요새 (시험)",
+            "worldId": 1,
+            "worldName": "월드 2",
+            "regionKey": "world-2:machine-fortress",
+            "localRegionIndex": 3,
+            "trialMode": false,
+            "phase": 5,
+            "order": 0,
+            "createdAt": "2026-11-07T14:52:55.807Z",
+            "outcome": "clear",
+            "normalKills": 0,
+            "itemKills": 0,
+            "bossKills": 1,
+            "clearedPhases": 0,
+            "playTimeSeconds": 0.133,
+            "finalUpgrade": 0,
+            "developerTest": true
+          },
+          "rank": 0,
+          "isTop10": false,
+          "saved": false,
+          "developerTest": true
+        }
+      },
+      "result": {
+        "record": {
+          "id": "bee33dde-cc31-4797-a100-f54932812595",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새 (시험)",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-07T14:52:55.807Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0.133,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      }
+    }
+  ],
+  "all_passed": true,
+  "errors": [],
+  "dialogs": [],
+  "failed_requests": [],
+  "offline_requests": []
+}

@@ -1,0 +1,17 @@
+PASS: 915x412 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 915x412 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+PASS: 915x412 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 915x412 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+PASS: 800x360 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 800x360 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+PASS: 800x360 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 800x360 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+PASS: 568x320 DPR1:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 568x320 DPR1: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+PASS: 568x320 DPR2:25 post-multitouch exits +25 immediate reopens, 2/3/4 contacts, three heroes and regions0/4/7, both release forms; no duplicate dialog.
+PASS: 568x320 DPR2: down-only/cancel/long press/drag/multifinger/pending interruption rejected; mouse, Enter, Space, focus loop and cancel/confirm work.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/multitouch_exit.py", line 102, in <module>
+    assert not errors and not dialogs and not requests,{'errors':errors,'native_dialogs':dialogs,'offline_requests':requests}
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'errors': ["Cannot read properties of undefined (reading 'result')", "Cannot read properties of undefined (reading 'result')", "Cannot read properties of undefined (reading 'result')", "Cannot read properties of undefined (reading 'result')", "Cannot read properties of undefined (reading 'result')", "Cannot read properties of undefined (reading 'result')"], 'native_dialogs': [], 'offline_requests': []}

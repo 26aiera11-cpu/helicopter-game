@@ -1,0 +1,1 @@
+기존 scoring-offline은14부분 그룹 후 단일HTML을 반복 set_content하는 중 renderer가 종료됐다. 당시 cgroup8GiB의 OOM kill이2→3으로 증가했다. 게임 코드를 수정하지 않고 동일 BrowserContext의 localStorage를 유지한 채 이전 Page를 닫고 새 Page에서 각각 검사하도록 테스트 자원 수명만 분리했다. 실패 로그와 수정 전 검사 소스를 보존한다. 점수·저장·손상/한도/권한 거부 단언은 그대로 유지한다.

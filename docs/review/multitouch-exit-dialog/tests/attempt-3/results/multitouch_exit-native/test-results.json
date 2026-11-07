@@ -1,0 +1,21 @@
+{
+  "preservation": {
+    "baseline": "3c085442bba6490bfa41cae64ac4007af570ba2e",
+    "byte_identical_existing_assets": 131,
+    "only_runtime_delta": "index.html exit button handler",
+    "exit_cleanup_callback_unchanged": true,
+    "all_other_engine_source_unchanged": true
+  },
+  "standalone": false,
+  "passed": [],
+  "cases": [],
+  "limits": [
+    "Chromium touch emulation; physical Galaxy/Samsung Internet and real sensors not exercised.",
+    "Dropped/delayed click tests are explicit fault injection, not evidence that a browser necessarily drops that event.",
+    "Baseline worlds failure is reproduced, but simplified native-button comparisons do not identify a unique browser or CDP root cause."
+  ],
+  "browser": "154.0.8037.57",
+  "errors": [],
+  "native_dialogs": [],
+  "offline_requests": []
+}

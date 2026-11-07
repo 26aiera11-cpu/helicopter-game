@@ -55,10 +55,16 @@ server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(ROOT)));t
 try:
  with sync_playwright() as pw:
   browser=pw.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox']);ctx=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True);ctx.add_init_script('('+probe+')()');ctx.add_init_script('const seed='+json.dumps(seed)+';for(const [k,v] of Object.entries(seed))if(localStorage.getItem(k)===null)localStorage.setItem(k,v);');page=ctx.new_page();errors=[];dialogs=[];failed=[];external=[]
-  page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()));page.on('requestfailed',lambda r:failed.append(r.url));page.on('request',lambda r:external.append(r.url) if args.standalone and r.url.startswith('http') else None)
+  def observe(target):
+   target.on('pageerror',lambda e:errors.append(str(e)));target.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()));target.on('requestfailed',lambda r:failed.append(r.url));target.on('request',lambda r:external.append(r.url) if args.standalone and r.url.startswith('http') else None)
+  observe(page)
   def ready():
    page.wait_for_function('gameMachineFortress.ready()&&gameStormSky.ready()&&gameSnowfield.ready()&&gameVolcano.ready()&&itemMonsters.ready()');page.evaluate('routeAttach()');page.wait_for_function('routeMedia.length===19&&routeMedia.every(a=>!a.error&&a.readyState>=2&&a.duration>0)');page.evaluate(common);page.evaluate(helpers)
   def load(query=''):
+   global page
+   if args.standalone:
+    # Retain real context storage, but release each previous 80 MB document.
+    page.close();page=ctx.new_page();observe(page);
    if args.standalone:ctx.set_offline(False);page.goto(url+'/route-origin'+query);external.clear();ctx.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:page.goto(url+'/helicopter-game/'+query)
    ready()

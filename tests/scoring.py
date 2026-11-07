@@ -100,7 +100,12 @@ try:
         observe(page)
 
         def load(clear=False):
+            global page
             if args.standalone:
+                # Release the previous 80 MB document while retaining real context localStorage.
+                page.close()
+                page = context.new_page()
+                observe(page)
                 context.set_offline(False)
                 page.goto(url + '/offline-origin', wait_until='load')
                 if clear:
@@ -333,6 +338,8 @@ try:
         page.locator('#leaderboardClose').tap()
         passed('Corrupt JSON, unknown versions and invalid records recover with valid persisted new data and no stale failure notice; legacy160 stars stay untouched and are never converted.')
 
+        if args.standalone:
+            page.close()  # Storage-failure contexts run one heavy document at a time.
         for failure in ['quota', 'unavailable']:
             bad_context = browser.new_context(viewport={'width': 568, 'height': 320}, has_touch=True, is_mobile=True)
             script = "Storage.prototype.setItem=function(){throw new DOMException('Test quota','QuotaExceededError')}" if failure == 'quota' else "Object.defineProperty(window,'localStorage',{get(){throw new DOMException('Test storage denial','SecurityError')}})"

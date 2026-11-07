@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/multitouch_exit.py", line 72, in <module>
+    released=next(e for e in reversed(after['trace']) if e['type']=='pointerup');latency=after['openedAt']-released['time']
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration

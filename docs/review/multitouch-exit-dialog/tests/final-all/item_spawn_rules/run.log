@@ -1,0 +1,20 @@
+PASS: Only two native integration hooks and the reviewed item manager change; every PNG/scoring/audio/UI/attack file remains unchanged and JS syntax passes.
+PASS: Actual drawImage geometry is80×64 with unchanged anchor/ratio; body and collision radius both scale exactly1.25 from64×51.2/r16.
+PASS: All3 bullet kinds use the enlarged collider through the existing circle/rotated-rectangle helper; the newly expanded edge hits while far targets do not.
+PASS: 256 new-run plans each choose3 distinct phases among1–4, exercise all4 possible omissions and kill thresholds1–4, and never select the boss phase.
+PASS: Plans/thresholds are fixed at region entry before combat; repeated context entry never rerolls, and quota configuration applies to the next region/run.
+PASS: Elapsed time alone cannot create an item actor: the old interval/22% item generator is completely removed.
+PASS: Actual normal bullet kills reserve exactly at each chosen1–4 threshold; unselected phases never reserve and subsequent kills cannot duplicate a reservation.
+PASS: Six kills in one update trigger and clear a phase before the next tick; the reserved appearance still completes once with ten full seconds.
+PASS: A genuinely scheduled live actor survives boss entry with the same object/remaining life and can be killed for its existing drop without damaging the boss or advancing normal kills.
+PASS: An already-triggered warning finishes during the boss; expiration never refunds its opportunity or generates a replacement.
+PASS: A reservation survives an instant boss kill/region change and is charged to its original region; an existing loose item retains identity and remaining lifetime.
+PASS: A separately simulated not-ready atlas cannot discard a triggered warning; readiness recovery in the boss materializes it once with full lifetime.
+PASS: A fresh boss phase creates no new reservation or actor even after20 seconds; only earlier reservations can arrive.
+PASS: Missing or allowing an actor to expire still consumes that phase opportunity; extra ordinary kills/time never respawn it and expiry awards nothing.
+PASS: Item kills keep200 points and neither advance phaseKills nor count toward any spawn threshold; boss kills use their separate existing path.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/item_spawn_rules.py", line 249, in <module>
+    assert not full['started'] and full['score'] == 30400
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
