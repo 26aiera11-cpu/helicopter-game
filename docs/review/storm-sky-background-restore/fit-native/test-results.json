@@ -1,0 +1,874 @@
+{
+  "standalone": false,
+  "passed": [
+    "All109 existing assets/index stay protected except the authorized PNG replacement and exact metadata/generator deltas; contain/combat/controls remain unchanged.",
+    "Native manifest/template and asset preparation metadata consistently declare contain; approved replacement SHA is updated and one-image identity stays unchanged.",
+    "Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; both before/after keep the existing contain geometry.",
+    "The approved1920×864 RGB PNG fully decodes864rows; the lower scene is painted in every tested viewport, replacing the prior empty raster.",
+    "Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.",
+    "All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.",
+    "At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; strict source decoding and the full painted lower scene are independently verified.",
+    "Actual game Canvas atDPR2 is1136×640 for568×320 CSS pixels, with one unchanged-source uniform draw inside both axes; existing DPR cap and HUD remain unchanged.",
+    "No browser JS/resource errors or offline network requests; complete approved source and full-image display are both verified."
+  ],
+  "preservation": {
+    "baseline": "6c3446b7ad079822df80db5045c1f727051d47e4",
+    "protected_existing_assets": 109,
+    "runtime_change": "Storm drawBackground scale max→min only",
+    "metadata_changes": [
+      "Storm manifest render_mode",
+      "native embedded Storm manifest",
+      "asset preparation render_mode"
+    ],
+    "approved_background_replaced": true,
+    "all_other_png_audio_bytes_unchanged": true,
+    "all_combat_controls_world_registry_bytes_unchanged": true,
+    "background_sha256": "96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d"
+  },
+  "source_png": {
+    "path": "assets/storm_sky/storm_sky_background_1920x864.png",
+    "bytes": 1558621,
+    "sha256": "96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d",
+    "dimensions": [
+      1920,
+      864
+    ],
+    "decoded_complete_rows": 864,
+    "decoded_bytes": 4977504,
+    "expected_decoded_bytes": 4977504,
+    "zlib_stream_complete": true,
+    "png_iend_present": true,
+    "complete": true,
+    "issues": [],
+    "policy": "The active approved PNG is strictly decoded without re-encoding, partial-load flags, reconstruction or regeneration."
+  },
+  "limits": [
+    "The native before comparison uses the previous truncated PNG and unchanged contain code; the after image is the approved complete replacement.",
+    "Real Chromium screenshots with controlled game state, not physical Galaxy Samsung Internet/Chrome or sensor hardware."
+  ],
+  "viewports": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0.125,
+              915,
+              411.75
+            ]
+          }
+        ],
+        "w": 915,
+        "h": 412,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0.125,
+              915,
+              411.75
+            ]
+          }
+        ],
+        "w": 915,
+        "h": 412,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 800,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 800,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              32.2,
+              568,
+              255.6
+            ]
+          }
+        ],
+        "w": 568,
+        "h": 320,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0000000000000002,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              32.2,
+              568,
+              255.6
+            ]
+          }
+        ],
+        "w": 568,
+        "h": 320,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0000000000000002,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        740,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              13.5,
+              740,
+              333
+            ]
+          }
+        ],
+        "w": 740,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              13.5,
+              740,
+              333
+            ]
+          }
+        ],
+        "w": 740,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              5.099999999999994,
+              844,
+              379.8
+            ]
+          }
+        ],
+        "w": 844,
+        "h": 390,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999998,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              5.099999999999994,
+              844,
+              379.8
+            ]
+          }
+        ],
+        "w": 844,
+        "h": 390,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999998,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        960,
+        540
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              54,
+              960,
+              432
+            ]
+          }
+        ],
+        "w": 960,
+        "h": 540,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              54,
+              960,
+              432
+            ]
+          }
+        ],
+        "w": 960,
+        "h": 540,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        1080,
+        360
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              140,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 1080,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              140,
+              0,
+              800,
+              360
+            ]
+          }
+        ],
+        "w": 1080,
+        "h": 360,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        1024,
+        600
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              69.6,
+              1024,
+              460.8
+            ]
+          }
+        ],
+        "w": 1024,
+        "h": 600,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999999,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              69.6,
+              1024,
+              460.8
+            ]
+          }
+        ],
+        "w": 1024,
+        "h": 600,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 0.9999999999999999,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    },
+    {
+      "viewport": [
+        360,
+        800
+      ],
+      "before": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              319,
+              360,
+              162
+            ]
+          }
+        ],
+        "w": 360,
+        "h": 800,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [],
+        "painted_lower_scene_fraction": 0.0
+      },
+      "after": {
+        "handled": true,
+        "calls": [
+          {
+            "id": "stormSkyBackground",
+            "args": [
+              0,
+              319,
+              360,
+              162
+            ]
+          }
+        ],
+        "w": 360,
+        "h": 800,
+        "phase": 1,
+        "same": true,
+        "natural": [
+          1920,
+          864
+        ],
+        "source_coverage": 1.0,
+        "letterbox_samples": [
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ],
+          [
+            16,
+            33,
+            62
+          ]
+        ],
+        "painted_lower_scene_fraction": 1.0
+      }
+    }
+  ],
+  "all_phases": [
+    {
+      "phase": 1,
+      "sha256": "2c9ae18a45278374924031067e9929ab39e04a708275a010fc9bf56561089a47",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 2,
+      "sha256": "2c9ae18a45278374924031067e9929ab39e04a708275a010fc9bf56561089a47",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 3,
+      "sha256": "2c9ae18a45278374924031067e9929ab39e04a708275a010fc9bf56561089a47",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 4,
+      "sha256": "2c9ae18a45278374924031067e9929ab39e04a708275a010fc9bf56561089a47",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    },
+    {
+      "phase": 5,
+      "sha256": "2c9ae18a45278374924031067e9929ab39e04a708275a010fc9bf56561089a47",
+      "calls": [
+        {
+          "id": "stormSkyBackground",
+          "args": [
+            0,
+            32.2,
+            568,
+            255.6
+          ]
+        }
+      ],
+      "same": true
+    }
+  ],
+  "high_dpi": {
+    "css": [
+      568,
+      320
+    ],
+    "bitmap": [
+      1136,
+      640
+    ],
+    "dpr": 2,
+    "calls": [
+      {
+        "args": [
+          0,
+          32.2,
+          568,
+          255.6
+        ],
+        "m": [
+          2,
+          2
+        ]
+      }
+    ]
+  },
+  "errors": [],
+  "failed_requests": [],
+  "offline_external_requests": [],
+  "all_passed": true,
+  "full_original_art_verified": true
+}

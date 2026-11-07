@@ -5,6 +5,7 @@ import shutil,json,hashlib,argparse,zipfile,tempfile
 parser=argparse.ArgumentParser(description='Pack supplied approved PNGs losslessly; no generated replacement poses.')
 parser.add_argument('--source-zip',type=Path,required=True)
 parser.add_argument('--boss-sprite',type=Path,required=True,help='Already separated RGBA boss sprite; this script does not generate/redesign it.')
+parser.add_argument('--background',type=Path,help='Approved complete replacement PNG; required when the old source ZIP background is truncated.')
 parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parent)
 args=parser.parse_args();root=args.output;root.mkdir(parents=True,exist_ok=True)
 temp=tempfile.TemporaryDirectory(prefix='storm-source-');src=Path(temp.name)
@@ -12,6 +13,12 @@ with zipfile.ZipFile(args.source_zip) as archive:
  assert archive.testzip() is None
  for name in ['storm_sky_background_1920x864.png','cloud_bean.png','lightning_bat.png','tornado_spirit.png','storm_jellyfish.png','storm_overlord_visual_reference.png','storm_overlord_attack_reference.png','README.md']:
   (src/name).write_bytes(archive.read('storm_sky_assets/'+name))
+# Validate before writing any output asset. Never reintroduce a truncated ZIP background.
+background=args.background or src/'storm_sky_background_1920x864.png'
+with Image.open(background) as approved_background:
+ approved_background.load()
+ if approved_background.size!=(1920,864):raise ValueError('Approved background must be1920x864 without resizing')
+if background.resolve()!=(src/'storm_sky_background_1920x864.png').resolve():shutil.copy2(background,src/'storm_sky_background_1920x864.png')
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 for n in ['storm_sky_background_1920x864.png','cloud_bean.png','lightning_bat.png','tornado_spirit.png','storm_jellyfish.png']:
  shutil.copy2(src/n,root/n)

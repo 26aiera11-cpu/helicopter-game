@@ -1,0 +1,24 @@
+{
+  "assets/storm_sky/asset_manifest.json": [
+    [
+      "e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b",
+      "96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d"
+    ]
+  ],
+  "index.html": [
+    [
+      "e5a6c058d5b5a561186c94d2f9c6a19267c3c8dbc33c21468e132f210cd9506b",
+      "96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d"
+    ]
+  ],
+  "assets/storm_sky/prepare_assets.py": [
+    [
+      "parser.add_argument('--output',type=Path,default=Path(__file__).resolve().parent)",
+      "parser.add_argument('--background',type=Path,help='Approved complete replacement PNG; required when the old source ZIP background is truncated.')\nparser.add_argument('--output',type=Path,default=Path(__file__).resolve().parent)"
+    ],
+    [
+      "sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()",
+      "# Validate before writing any output asset. Never reintroduce a truncated ZIP background.\nbackground=args.background or src/'storm_sky_background_1920x864.png'\nwith Image.open(background) as approved_background:\n approved_background.load()\n if approved_background.size!=(1920,864):raise ValueError('Approved background must be1920x864 without resizing')\nif background.resolve()!=(src/'storm_sky_background_1920x864.png').resolve():shutil.copy2(background,src/'storm_sky_background_1920x864.png')\nsha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()"
+    ]
+  ]
+}

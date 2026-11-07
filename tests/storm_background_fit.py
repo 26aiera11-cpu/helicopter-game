@@ -5,15 +5,16 @@ from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from PIL import Image
 from playwright.sync_api import sync_playwright
-from storm_background_fit_preservation import verify,BASE
+from storm_background_fit_preservation import verify
+from storm_background_restore_preservation import BASE
 from storm_background_integrity import inspect_source
 ROOT=Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--artifacts',type=Path,required=True);p.add_argument('--standalone',action='store_true');args=p.parse_args();args.artifacts.mkdir(parents=True,exist_ok=True)
-report={'standalone':args.standalone,'passed':[],'preservation':verify(),'source_png':inspect_source(),'limits':['Fit checks prove no source-coordinate cropping or aspect distortion; they cannot recover the missing source PNG rows.','Real Chromium screenshots with controlled game state, not physical Galaxy Samsung Internet/Chrome or sensor hardware.']}
+report={'standalone':args.standalone,'passed':[],'preservation':verify(),'source_png':inspect_source(),'limits':['The native before comparison uses the previous truncated PNG and unchanged contain code; the after image is the approved complete replacement.','Real Chromium screenshots with controlled game state, not physical Galaxy Samsung Internet/Chrome or sensor hardware.']}
 def passed(s):report['passed'].append(s);print('PASS:',s,flush=True)
-passed('All109 preexisting assets/index reverse exactly to6c3446b after only background scale/metadata changes; PNGs,combat,world registry,HUD,controls/audio unchanged.')
+passed('All109 existing assets/index stay protected except the authorized PNG replacement and exact metadata/generator deltas; contain/combat/controls remain unchanged.')
 source=(ROOT/'index.html').read_text();assert '"render_mode": "contain"' in source.split('<template id="stormSkyManifest">')[1].split('</template>')[0]
-passed('Native manifest/template and asset preparation metadata consistently declare contain; approved background SHA and one-image identity stay unchanged.')
+passed('Native manifest/template and asset preparation metadata consistently declare contain; approved replacement SHA is updated and one-image identity stays unchanged.')
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
  def do_GET(self):
@@ -36,6 +37,7 @@ try:
     page.goto(url+'blank');context.set_offline(True);payload=subprocess.check_output(['git','show',BASE+':dist/heli_trio_galaxy_test.html'],cwd=ROOT).decode() if version=='before' else (ROOT/'dist/heli_trio_galaxy_test.html').read_text();page.on('request',lambda r:external.append(r.url) if r.url.startswith('http') else None);page.set_content(payload,wait_until='load')
    else:
     if version=='before':context.route('**/assets/storm_sky/storm_sky.js',lambda route:route.fulfill(status=200,content_type='text/javascript',body=subprocess.check_output(['git','show',BASE+':assets/storm_sky/storm_sky.js'],cwd=ROOT)))
+    if version=='before':context.route('**/assets/storm_sky/storm_sky_background_1920x864.png',lambda route:route.fulfill(status=200,content_type='image/png',body=subprocess.check_output(['git','show',BASE+':assets/storm_sky/storm_sky_background_1920x864.png'],cwd=ROOT)))
     page.goto(url+('before.html' if version=='before' else ''),wait_until='load')
    page.wait_for_function('gameStormSky.ready()');page.evaluate(helpers)
   rows=[];rects={}
@@ -53,15 +55,20 @@ try:
      for px,py in [(0,0),(w//2,0),(w-1,0),(0,h-1),(w//2,h-1),(w-1,h-1)]:
       if px<x-1 or px>x+dw+1 or py<y-1 or py>y+dh+1:samples.append(image.getpixel((px,py)))
      assert all(tuple(color)==(16,33,62) for color in samples),samples
-    data.update(source_coverage=visible,letterbox_samples=samples if version=='after' else []);cases[version]=data
+    lower=image.crop((math.ceil(x+dw*.1),math.ceil(y+dh*.4),math.floor(x+dw*.9),math.floor(y+dh*.95)))
+    colors=list(lower.getdata());painted=sum(tuple(c)!=(16,33,62) for c in colors)/len(colors)
+    if version=='after':assert painted>.99,painted
+    else:assert painted<.01,painted
+    data.update(source_coverage=visible,letterbox_samples=samples if version=='after' else [],painted_lower_scene_fraction=painted);cases[version]=data
     if (w,h) in [(915,412),(800,360),(568,320),(1080,360)]:
      page.screenshot(path=str(args.artifacts/f'{version}-{w}x{h}.png'));(args.artifacts/f'{version}-background-only-{w}x{h}.png').write_bytes(raw)
    rows.append({'viewport':[w,h],**cases})
   report['viewports']=rows
   if not args.standalone:
-   assert next(r for r in rows if r['viewport']==[568,320])['before']['source_coverage']<.81
-   assert next(r for r in rows if r['viewport']==[1080,360])['before']['source_coverage']<.75
-  passed('Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; cover cropping comparison is retained in the native before/after run.')
+   assert all(abs(r['before']['source_coverage']-1)<1e-10 for r in rows)
+  passed('Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; both before/after keep the existing contain geometry.')
+  assert report['source_png']['complete'] and report['source_png']['decoded_complete_rows']==864
+  passed('The approved1920×864 RGB PNG fully decodes864rows; the lower scene is painted in every tested viewport, replacing the prior empty raster.')
   passed('Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.')
   page=pages['after'];all_steps=[]
   page.set_viewport_size({'width':568,'height':320});page.wait_for_function('W===568&&H===320')
@@ -71,7 +78,7 @@ try:
   passed('All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.')
   # Independent source-raster oracle: browser-decoded pixels, full 9-argument source rect and test-computed destination.
   oracle=page.evaluate('''()=>{const image=gameStormSky.backgroundImage,c=document.createElement('canvas');c.width=W;c.height=H;const g=c.getContext('2d');g.fillStyle='#10213e';g.fillRect(0,0,W,H);const width=W,height=W*864/1920;g.drawImage(image,0,0,1920,864,0,(H-height)/2,width,height);return c.toDataURL();}''');oracle_png=base64.b64decode(oracle.split(',',1)[1]);assert oracle_png==raw
-  passed('At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; comparison uses decoded available bytes and does not assert missing pixels exist.')
+  passed('At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; strict source decoding and the full painted lower scene are independently verified.')
   for context in contexts:context.close()
   hd=browser.new_context(viewport={'width':568,'height':320},has_touch=True,is_mobile=True,device_scale_factor=2);hp=hd.new_page();hp.on('pageerror',lambda e:errors.append(str(e)))
   if args.standalone:
@@ -84,7 +91,7 @@ try:
   report['high_dpi']=hdpi;hp.screenshot(path=str(args.artifacts/'after-568x320-dpr2.png'))
   passed('Actual game Canvas atDPR2 is1136×640 for568×320 CSS pixels, with one unchanged-source uniform draw inside both axes; existing DPR cap and HUD remain unchanged.')
   assert not errors and not failed and (not args.standalone or not external),[errors,failed,external];report.update(errors=errors,failed_requests=failed,offline_external_requests=external if args.standalone else [],all_passed=True,full_original_art_verified=report['source_png']['complete'])
-  passed('No browser JS/resource errors and offline network requests0; incomplete source PNG is separately reported as an acceptance blocker.')
+  passed('No browser JS/resource errors or offline network requests; complete approved source and full-image display are both verified.')
   browser.close()
 finally:
  server.shutdown();(args.artifacts/'test-results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')

@@ -2894,3 +2894,36 @@ Chromium은 이 PNG를 일부만 조용히 그려 complete/naturalWidth·원본 
 새 HTML **67,998,713바이트**, SHA256 `2fa00ba31c34340194acf4435edbe3cbeea5715c3db7cb1f642a7db42af86581`; ZIP **49,576,783바이트**, SHA256 `1fd95ae91c5e2e9ef0372ac751b64d755eaf6abeed4dc3b1e2fe7ca961b132bf`다. ZIP에는 최신 HTML 한 개이며 CSS/22스크립트/이미지·모든 음악을 내장했다. ZIP CRC·실제 별도 추출/바이트·네트워크 차단 실행은 통과했다. **이 파일은 contain 계산 시험용이며 손상된 원본 PNG를 그대로 포함한다. ZIP CRC 통과를 그림 완전성 통과로 보고하지 않는다.** 준비 스크립트의 contain 메타데이터/원본 셀 바이트 재현도 확인했으나 같은 손상을 보존하는 것이다.
 
 실제 Galaxy Samsung Internet/Chrome·물리 센서/터치·파일 연결·체감 화질은 미검증이다. 사용자에게 완전한 `storm_sky_background_1920x864.png`를 받아 다시 검증·패키징해야 전체 그림 표시 완료로 판단할 수 있다. 이번 독립적으로 완료한 코드·검사·기록·시험 패키지는 **fix/storm-sky-background-fit에만 커밋·푸시**한다. **main 병합과 GitHub Pages 배포는 하지 않는다.**
+
+
+## 60. 폭풍 하늘 완전한 승인 배경 PNG 복구 (2026-11-07 KST)
+
+### 요청·승인 원본과 기준
+
+사용자는 `storm_background_fix.zip`을 제공하고 Issue #27·`fix/storm-sky-background-fit`에서 손상된 배경만 승인된 완전한 원본으로 교체하도록 요청했다. 기존 contain과1–5단계 공통 배경을 유지하며 매니페스트/검증 해시/갤럭시 패키지를 갱신한다. 설원 나가기 문제는 별도 미해결로 둔다. 기준/최신 원격은 `4549b4993ba8ca19d1a8c5845c4774014a0caa24`, main은 `c2d03f8`이다. Issue #27 사용자 댓글의 승인 크기/SHA도 먼저 확인했다.
+
+ZIP은1,559,260바이트, SHA256 `77ec6e44b9a46a57b7caf0f01842fe99e984a5eaa22542bd05fda3c083b12655`, PNG 한 개·CRC 정상이다. PNG는 **1920×864 RGB·1,558,621바이트**, SHA256 `96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d`로 승인 댓글과 같다. 첨부 PNG 바이트를 그대로 설치했고 재생성/색상/크기/압축/디자인 변환은 하지 않았다. [출처](docs/review/storm-sky-background-restore/source-package.json)
+
+### 구현·보호
+
+`assets/storm_sky/storm_sky_background_1920x864.png`를 교체하고 manifest·index 내장 manifest·기존 배경 검증 핀을 새 승인 해시로 갱신했다. **게임 실행JavaScript, contain 렌더러, 원본 비율과 기존 짙은 청색 여백은 기준과 바이트가 같다.** 같은 이미지 객체/배경 레이어를1–5단계 모두 사용한다.
+
+`prepare_assets.py`에는 `--background` 옵션과 출력 전 엄격한 전체 디코딩/1920×864 크기 검사를 넣었다. 예전 자산 ZIP의 잘린 배경을 옵션 없이 사용하면 자산 출력 전에 실패해 정상 배경을 다시 손상 파일로 덮어쓰지 않는다. 승인 PNG 옵션을 사용하면 새 PNG/manifest가 바이트 단위로 재현된다. [양성 재현/음성 덮어쓰기 방지](docs/review/storm-sky-background-restore/generator-verification.json)
+
+기존109자산에서 승인된 PNG 한 개만 교체했다. 다른 이미지/음악/전투/캐릭터/조작/월드/점수/아이템은 허용 metadata/생성기 차분을 되돌리면 기준과 같다. 과거 보호 해시 전체를 덮어쓰지 않고 배경 핀 하나만 승인 값으로 갱신했다. 정확한 복구 차분과 승인 PNG 길이/SHA 검사 계층을 추가했다. [보존 검증](docs/review/storm-sky-background-restore/preservation.json)
+
+### 검증 결과
+
+PNG 청크CRC·IDAT/zlib 종료·IEND·Pillow strict 전체 디코딩이 모두 통과했다. RGB8 래스터 **864행·4,977,504바이트 전체**가 존재한다. 이전59절의 원본 PNG 손상/전체 배경 대기 상태는 이번 복구로 해소했다. 이전 파일/실패 기록은 Git 이력과 이전 보고서에 유지하고 현재 상태 안내만 후속 복구 보고서로 연결했다.
+
+**관련15개 모음 중14개 통과·1개 기존 미해결 실패, 완료192그룹**이다. 기존64모음 전체 재실행은 아니며 기존12관련모음·배경 일반/오프라인2모음·PNG 무결성1모음을 실행했다. 배경 일반/오프라인 각9그룹·무결성1그룹, 총19개는 모두 통과했다. [집계/명령](docs/review/storm-sky-background-restore/test-summary.json), [상세 보고서/복구 전후 화면](docs/review/storm-sky-background-restore/README.md)
+
+915×412/800×360/568×320/740×360/844×390/960×540/1080×360/1024×600과 추가 세로360×800에서 원본 전체 소스 사각형·비율·중앙 정렬을 확인했다. 세로는 배경 기하 검증만 했다. 실제 DPR2 Canvas1136×640,5단계 동일 배경 레이어SHA, 전체 원본 래스터 오라클/표시 바이트 일치, 실제 하단 구름/번개 영역100% 표시를 확인했다. 복구 전은4549의 손상 PNG와 같은 contain 코드, 복구 후는 이번 완전한 PNG로 비교했다.
+
+Storm 일반/보스44그룹·세 캐릭터/무기·일반20/시험35단계·7지역 직접 시작/음악·아이템/점수·모바일 조작/전체화면·설원/화산 보스·패키지 회귀를 검사했다. **기존 설원5 나가기 click 누락은 이번 worlds 일반 검사에서 다시 재현돼 미해결로 유지한다.** 실패 모음의 부분16그룹은 통과 합계에 넣지 않았다. worlds-offline19그룹이 통과해도 해결로 주장하지 않으며 입력 코드 변경/실패를 숨기는 반복 검사는 하지 않았다. [실패 로그/진단/화면](docs/review/storm-sky-background-restore/regression/worlds)
+
+### 갤럭시 파일·남은 확인
+
+새 HTML **69,552,453바이트**, SHA256 `f4f9aed17f7ddbfd4da065a97a7b533005d72bb109d9a325f6316d4fae643e02`. ZIP **50,754,303바이트**, SHA256 `193027b1fd775c30ef3b0c6e7e3812e96b5a7e37f7a283618dbd6620839f2549`이며 최신 HTML 한 개만 포함한다. 복구 PNG의 data URI 바이트와 manifest 해시가 승인 원본과 같고 엄격한 전체 디코딩도 통과했다. 기존 이미지/CSS/22스크립트/모든 음악을 내장했고 외부 요청 없이 실행한다. ZIP CRC·실제 별도 압축해제·전체 바이트/해시·네트워크 차단 실행을 확인했다. [내장 이미지 검사](docs/review/storm-sky-background-restore/embedded-image-verification.json), [패키지 검증](docs/review/storm-sky-background-restore/package.json)
+
+실제 Galaxy Samsung Internet/Chrome의 파일 연결/물리 센서·터치/체감 화질·성능은 추가 실기기 확인이 필요하다. 기존 설원 나가기 문제는 별도 미해결이다. 원본 배경 복구 변경과 검사·기록·새 패키지는 **fix/storm-sky-background-fit에만 커밋·푸시**하고 원격 파일을 확인한다. **main 병합과 GitHub Pages 배포는 하지 않는다.**

@@ -1,0 +1,11 @@
+PASS: All109 existing assets/index stay protected except the authorized PNG replacement and exact metadata/generator deltas; contain/combat/controls remain unchanged.
+PASS: Native manifest/template and asset preparation metadata consistently declare contain; approved replacement SHA is updated and one-image identity stays unchanged.
+/tmp/storm-background-work/tests/storm_background_fit.py:59: DeprecationWarning: Image.Image.getdata is deprecated and will be removed in Pillow 14 (2027-10-15). Use get_flattened_data instead.
+  colors=list(lower.getdata());painted=sum(tuple(c)!=(16,33,62) for c in colors)/len(colors)
+PASS: Nine actual viewport ratios including915×412/800×360/568×320,ultrawide andportrait retain100% source coordinates with uniform scale/centering; both before/after keep the existing contain geometry.
+PASS: The approved1920×864 RGB PNG fully decodes864rows; the lower scene is painted in every tested viewport, replacing the prior empty raster.
+PASS: Unused area is opaque original#10213e navy, never black/transparent; no gradients,stripe textures,secondary image stretch or source PNG alteration introduced.
+PASS: All1–5 phases use the same image object and produce byte-identical isolated background layers; boss/monster gameplay is not involved in fitting.
+PASS: At the original problem ratio, a full-source-rectangle raster oracle matches the actual rendered layer byte-for-byte; strict source decoding and the full painted lower scene are independently verified.
+PASS: Actual game Canvas atDPR2 is1136×640 for568×320 CSS pixels, with one unchanged-source uniform draw inside both axes; existing DPR cap and HUD remain unchanged.
+PASS: No browser JS/resource errors or offline network requests; complete approved source and full-image display are both verified.

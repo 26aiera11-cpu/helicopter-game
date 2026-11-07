@@ -1,0 +1,219 @@
+{
+  "branch": "fix/storm-sky-background-fit",
+  "baseline": "4549b4993ba8ca19d1a8c5845c4774014a0caa24",
+  "suite_count": 15,
+  "passed_suites": 14,
+  "passed_groups": 192,
+  "failed_suites": [
+    "worlds"
+  ],
+  "suites": [
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.07,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_edges",
+      "exit_code": 0,
+      "groups": 6,
+      "observed_groups_before_failure": 0,
+      "seconds": 3.84,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_edges.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/storm_sky_edges"
+      ]
+    },
+    {
+      "suite": "storm_sky-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.5,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/storm_sky-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 28.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/worlds"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.49,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 88.01,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "game_audit",
+      "exit_code": 0,
+      "groups": 11,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.9,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_audit.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/game_audit"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 143.94,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 23.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.78,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_package",
+      "exit_code": 0,
+      "groups": 4,
+      "observed_groups_before_failure": 0,
+      "seconds": 1.62,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_package.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/volcano_package"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 43.9,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/restored-bg-regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "storm_background_fit-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_fit.py",
+        "--artifacts",
+        "/tmp/restored-bg-native"
+      ],
+      "evidence": "fit-native"
+    },
+    {
+      "suite": "storm_background_fit-offline",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_fit.py",
+        "--standalone",
+        "--artifacts",
+        "/tmp/restored-bg-offline"
+      ],
+      "evidence": "fit-offline"
+    },
+    {
+      "suite": "storm_background_integrity",
+      "exit_code": 0,
+      "groups": 1,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/storm_background_integrity.py",
+        "--artifacts",
+        "/tmp/storm-background-work/docs/review/storm-sky-background-restore/source-integrity"
+      ],
+      "evidence": "source-integrity"
+    }
+  ],
+  "full_background_restored": true,
+  "complete_approved_png_used_byte_for_byte": true,
+  "contain_renderer_unchanged": true,
+  "all_phases_same_background": true,
+  "known_unresolved": "Native worlds reproduces preexisting long-multitouch→Snow5 Exit click loss after16 partial groups. worlds-offline passes19 groups, but this does not establish a fix. Controls are unchanged.",
+  "policy": "Focused12 existing relevant suites plus native/offline background tests and strict PNG-integrity suite; not a rerun of all64 available suites. Failed partial groups excluded. No retries to hide the known exit failure. Large duplicate resource data URIs are fingerprinted in review JSON only; numeric results and flags remain unchanged.",
+  "limits": [
+    "Actual Galaxy Samsung Internet/Chrome, physical sensors/touches, file association and subjective image quality are not tested."
+  ]
+}

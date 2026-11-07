@@ -1,5 +1,7 @@
 # 월드 2 세 번째 지역 — 폭풍 하늘 (Issue #26)
 
+> 후속 기록: [승인된 완전한 배경 PNG 복구](../storm-sky-background-restore/README.md). 아래는 복구 이전 커밋의 개발·검증 이력이며 현재 배경 상태는 후속 보고서를 기준으로 확인하세요.
+
 작업 브랜치: `feature/storm-sky-region` · 기준: `c2d03f8306557c72be7f61666198919c2412b2ae` · 작업일: 2026-11-06 KST
 
 [Issue #26](https://github.com/26aiera11-cpu/helicopter-game/issues/26)의 전체 요구사항과 기존 개발 기록을 확인했다. 시작 당시 원격 main/지정 작업 브랜치는 같은 커밋이었다. main에는 커밋·병합·배포하지 않는다. `HELI_TRIO_SPEC.md`는 없어 이번 확정 규칙과 Issue #26을 적용했다.

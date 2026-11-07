@@ -1,0 +1,4741 @@
+{
+  "baseline": "78148480330e48a64dd77191006ddb0f0c5e785b",
+  "standalone": false,
+  "passed": [
+    "Exact dragon-only hooks/UI notices/ghost transform; all existing PNGs/manifests, normal combat, snow, player/control/score/audio bytes protected; JavaScript parses.",
+    "All21 approved frame mouth landmarks lie on visible source pixels; original atlas SHA, per-frame crop/pivot and132px rendering width retained.",
+    "Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP20 dragon, no normal prelude, unchanged fullscreen/exit UI.",
+    "9 full real cycles at3 landscape sizes x3 characters:1.8s intro,3x3 aimed bursts only, safe static eruption,1s harmless cue,downward hold.2s then3.8s exact360deg fixed-direction sweep, rest then repeat.",
+    "8 actual boss draw matrices rotate the whole cached frame without squashing; transformed source-mouth pixels equal flame origins and canvas transform restores exactly.",
+    "Independent original PNG alpha inverse-transform oracle matches damage; opaque interiors render and transparent holes remain harmless across8 orientations, including UI masks.",
+    "Standing inside eruption warning gives0 damage; fixed target does not track movement; exactly one1HP detonation, no repeated burst damage.",
+    "30/60/120Hz preserve volley/eruption timing,1s warning,.2s flame-first hold,3.8s exact2pi; flame core retains3 invulnerable-spaced hits, screen-safe far point takes0.",
+    "Left->CW, right->CCW, up/down ties->CW at rotation start; opposite-side movement cannot change direction, midpoint pi or exact2pi completion at30/60/120Hz.",
+    "166.4/187.2/205px visual reach scales with landscape height; actual unchanged Tanko acceleration/drag can escape the full sweep from160px center-distance with lateral tilt at all3 sizes,0HP loss.",
+    "Boss fireballs cap at18 separately from normal28, resume after expiration and disappear by finite life; no legacy unmarked boss shot duplicates.",
+    "A forced no-safe-circle UI fixture skips eruption safely instead of placing a warning/damage under controls; shipped UI unchanged.",
+    "All3 characters kill the dragon through actual bullets; death immediately cancels hazards/rotation, preserves last angle and.94s art outro, awards2000/reward once and leaves developer records unsaved.",
+    "Hidden-tab fixture and real exit dialog freeze angle/time/damage; Continue resumes, confirmed exit clears hazard state and boss bullets without native dialogs.",
+    "HP0 clears active attacks immediately and keeps existing3s GAME OVER then clean selection; no stale boss state or result text.",
+    "Four ranking/history keys remain byte-unchanged in developer tests; native/offline resources load with0 JS/dialog errors and offline external requests0."
+  ],
+  "limits": [
+    "Chromium mobile/touch emulation; not physical Galaxy/Samsung Internet, sensor hardware, heat/performance or speaker listening.",
+    "Real production spawn/update/shoot/hurt/art paths with controlled time/position/invulnerability; separate raster/trajectory fixtures.",
+    "Tanko escape uses actual unchanged acceleration/drag from a scripted tilt value, not a claim about human reaction or sensor permission."
+  ],
+  "asset_hashes": {
+    "assets/worlds/worlds.js": "2bb0f4ace7d398f4a2c068cabf40f920cdc8b2369c6572b25d63108409dc74b2",
+    "assets/worlds/worlds.css": "2fab1766047af9d1ff7df4216aa18b7f3b5c2ce8ce687953c8530de82e215fcd",
+    "assets/worlds/difficulty.js": "b5f66cc2688e7e946ee9b790e04acf88a84a58111cd9d51ac89fc884cf6fd6d8",
+    "assets/volcano/volcano.js": "822baff1f6b2371f3aa7ba13012aedd5d06bd88cacb1a60c59d2f3a153bb2660",
+    "assets/volcano/spawns.js": "49a82519066b8a88d9d8608008a7d8d5b735dd6c9d826e577c97ba69a527d358",
+    "assets/volcano/combat.js": "5303b2d8fa485fdd45ed9912573236572128d5d4affb9355be5b247294b10177",
+    "assets/volcano/boss_combat.js": "1344d171e4e2ec363ace0e9acf067c4135e38ea4e8c4a98979855b18c006393d",
+    "assets/volcano/asset_manifest.json": "9f412874836bee9e21ec25f180852e1bca0e1e66684ee4546757275b1e49eed3",
+    "assets/volcano/README.md": "c8407f54dc818a72d5f3e369738daaee69be1c89e20452b9f10a7c78d3d68886",
+    "assets/storm_sky/tornado_spirit.png": "b912a280cc5c7981eb1dafd046cb1118be4ba79bffabf09764697050022fc3ce",
+    "assets/storm_sky/storm_sky_background_1920x864.png": "96a86d2d0fd191d2b48904dc1a15f4a848d1937e044dc2b23900aaa6ad69817d",
+    "assets/storm_sky/storm_sky.js": "ebcda1505dc7fadc6214c99708e211d0c14dd7c05b7127cac4bbe5ddd0b152a1",
+    "assets/storm_sky/storm_overlord.png": "54d6252e8c10f03f5f87ec0137baef6938fa6ce794c60ae88ec4e07af2cf0510",
+    "assets/storm_sky/storm_jellyfish.png": "da8e4dc525614445795b52d74b6e9c5d7ff2d5be54ffbd138b5e4d6f6058e7d4",
+    "assets/storm_sky/spawns.js": "7b9538971a8f747b4079fa712843e5c8021352d85e90fdcc489f0b435d3d93ff",
+    "assets/storm_sky/prepare_assets.py": "8a117e4e7778950bca7ead0b2efa8d35e4f5745b936c80a6c2c946417ca911e9",
+    "assets/storm_sky/lightning_bat.png": "bc8fe8408195f75988365733c51f93d0827265d710b58c41300f9481e849fa75",
+    "assets/storm_sky/config.js": "bcd022e2c02a32d10fe8040e7bd9bb01c4b173e507050d7aa55487a0531f8250",
+    "assets/storm_sky/combat.js": "b40a4dc7e11ac6152c0d0502c4db78e2acbd63b84779019a7b295bb04c26b48c",
+    "assets/storm_sky/cloud_bean.png": "1bdf5148db8b60fcfa5ea411a3e39e12f828242799517a2915a2172f36340fb1",
+    "assets/storm_sky/boss_combat.js": "0241bcb90cff7d236b5a1166cd279232d2cd59de145c493e6c36c14ba10d35a2",
+    "assets/storm_sky/asset_manifest.json": "d91133d292701b678d1fef09f59615cdeeb344bde694dfc0eeb8630bb0972b94",
+    "assets/storm_sky/README.md": "29634b55d9cfde61dc6a06707bd91d0884928d49a511ea3814291ffcc64f1d77",
+    "assets/snowfield/spawns.js": "0df4eba4a3fc9c094d2149257c76d68df3af81465abc9299effcc758006539c9",
+    "assets/snowfield/snowfield.js": "b60d4b5f4cd5305a9ea8e7b20d8bccdfacf7c6fecf2526932eab7d48699e0632",
+    "assets/snowfield/combat.js": "d71e8f798e1d78c4719eb01a8062e973b47973e35008c0cac0124382a74d9146",
+    "assets/snowfield/boss_combat.js": "ee063a713419840eb928e40d3f108457425441b94127dfdefcb0d7308da31c22",
+    "assets/snowfield/asset_manifest.json": "808894b90a3af78c5b142eb438c09cfaf5ea3a0fb9f958596bc5e26c101b2217",
+    "assets/snowfield/README.md": "2cf8c15f9913f0abc3df59499290a3da089090061b7947682f7f9c38bb826395",
+    "assets/selection/selection.js": "298592837df227d473b46b79956e033e16d0c32fabd7b1d22394c44189809c56",
+    "assets/selection/selection.css": "2b67a4b70ef679eac31914aff4bc344f9d446a5c5124588177e2005d8414558c",
+    "assets/selection/rotor-blades.png": "10846754330f1f55977e5df2e3d29024c8b4694c8b5dd0b0206d373527284198",
+    "assets/selection/heli-2-body.png": "c2f8a4322239b375d32fba737436ca65486d0bea1474cefa7ae4de35d6ec567f",
+    "assets/selection/heli-1-body.png": "8b1431a11559ad2d0f6ba5bb5bb6b25d94dce618aae824b5bd143f04169f7125",
+    "assets/selection/heli-0-body.png": "42e65c65b9542b8e05e0645509f5877636c06ae8a61cb5742c9d2f5ecaeed983",
+    "assets/selection/background-clean.png": "843c326b7a5147cf954507b00fc934a29e7ed12b11484a365c62587e1dbc2a80",
+    "assets/score/score.js": "82f959f9b84afd390fadae532ce6d7cd6d2f769ddeb93f817b419927cc13830d",
+    "assets/score/score.css": "f3d6eebeb67b5ae847cf9bbe3d9485ec173ff62d4129a2b157e4c1b41bd6fb08",
+    "assets/item_monster/manifest.json": "5c9ecdc40e4f37995e693352f2eb26f245f5941e96b0d41dce3e5e7b2346e0ba",
+    "assets/item_monster/item_monster_atlas.png": "6331354ee974d2fc6513ed08a3542ef200ee475c9989810377511746366ebaac",
+    "assets/item_monster/item_monster.js": "2f728883e27e78ae841449a89c2f6ee32074e8eac0df6971b542e79399890e49",
+    "assets/item_monster/SOURCE_README.md": "aeddcf88e2b8a42c6ae5fdf97607b12c5ce7157a4eb64342df8136c4a0891498",
+    "assets/item_monster/README.md": "2564f0d9db87f55ebc264b9d64e80436f8f02c6dfd86df6c97e58675a0c650fc",
+    "assets/gameplay/trio_gameplay_final.png": "b7bdc4d0a393e46436b214fda435e288c48f147c0272d85cc93658dd811f983e",
+    "assets/gameplay/trio-body-pointed.png": "f3f064f27523a1f5e4d8bcb637efcdde1928e9e2fb0de810b3c411b8330dfe53",
+    "assets/gameplay/tanko_gameplay_cannon_restored.png": "77c71f6efe44020e6fcaa04888f0cc1758d49fbed3f315f47638ac591e413db2",
+    "assets/controls/controls.js": "cd3e93b78549c0d63fe8da3f4c3fd89c1ee425ce37bed0f2c550f76ad9f16e77",
+    "assets/controls/controls.css": "669815bd35211208e7d59793323887d6b03bd000faf24520c6eda335017dfa5f",
+    "assets/audio/volcano_stage.wav": "6ed65c26a93db87d6e380be08bad5cbdad27bb13e7b5cdae6af279cc2cc4c093",
+    "assets/audio/volcano_boss.wav": "bdad8381384e923f3416db07a73cc549ed82fc92b74960425d1a6f411152e750",
+    "assets/audio/heli_trio_selection_bgm_track2.mp3": "ca7e760a474db29eed29f0e0f6e34406d0415f0143aa3075953e98096ff8ba53",
+    "assets/volcano/monsters/volcano_bat.png": "2065694ab763a1ce73716e09bc3a1046c1e3721ca554a285db674389b50ebae0",
+    "assets/volcano/monsters/magma_dragon.png": "459f5dd4626e6b7ca474d6c0c94786dd4a49f18c1c958aa480fd96b4537dd842",
+    "assets/volcano/monsters/magma_beetle.png": "ea4d1de304c3dcf5655fc169d7d02fd1608c74ca6fa413311c3e8d36f0ceb2a1",
+    "assets/volcano/monsters/lava_lizard.png": "f4af8d3070abc8a5c6b5d97793efeb3d33f3a15dbc3e8f9c0ea8f8a9d389815d",
+    "assets/volcano/monsters/ember_bean.png": "a4a208bab7d68871162b0516a0a17e81b09df906de6fe4b5a258e14c0dbd055d",
+    "assets/volcano/effects/magma_dragon_breath_static.png": "a9600ff8d4c827d8d5ac200c5c508ff636d008398ec985a5fb259c65913fa979",
+    "assets/volcano/background/volcano_generated_original.png": "e9303d15edd36c3cc28630c609d820d231a090062cd2f615e139333f0e5fd349",
+    "assets/volcano/background/volcano_1920x864.png": "02733da79774fa1cc0fa7e7084b79c74d94542a93be69f6ab73ee2983564f404",
+    "assets/volcano/animations/volcano_bat_atlas.png": "9e7acb1261d11a1b070e09c35abdfdf7adf557016a88990ac141da9c45064eb5",
+    "assets/volcano/animations/magma_dragon_atlas.png": "7940d7b1c906b42ca02cf803c6ce9613db962c94c14b46159eb7cc4a0b2a3f86",
+    "assets/volcano/animations/magma_beetle_atlas.png": "bd963af4e792cd42789ec807f2593c114379739b0ab71942df6123bd71602347",
+    "assets/volcano/animations/lava_lizard_atlas.png": "4ef0738833203f742a3f215339a7005ef5900e6c71dec9703f048259d0b1a08d",
+    "assets/volcano/animations/ember_bean_atlas.png": "25286b94bb15c54db94f77a3087562b4b0ec69a8ef901f43f5a36cf2d2dd1f5d",
+    "assets/storm_sky/references/storm_overlord_visual_reference.png": "3c8d6e619d2feb8d61c775206d8715fb5eb541caed192c441bc3f6121bd49297",
+    "assets/storm_sky/references/storm_overlord_attack_reference.png": "3a552fcb915e7b37dc38b51a2a7f0123f628c3031fa4c4fb4ed4c8d1449b922d",
+    "assets/storm_sky/references/README.md": "9c27abcac4785db88894b2325196b574c455d8980899de020a385e8ac117ec83",
+    "assets/snowfield/monsters/snow_slime.png": "31a9de3405b6338304bb01192853cb83b5b61c6c7acfc4f6e75acc9be82b6deb",
+    "assets/snowfield/monsters/penguin_raider.png": "220e7b24198d6f9aeface78b8eed372f97c016dfcb6bd490f14bcbb56a6c247c",
+    "assets/snowfield/monsters/ice_yeti.png": "80e418b9b139a2c604374fb1f5cf164e3bfd9f97f16fbfa01aae3829a75919c0",
+    "assets/snowfield/monsters/frost_turtle.png": "cc4227479e3d0d10a9e6bf355b353fa91e00cd9909fd7ede07cae690ef3ce7ff",
+    "assets/snowfield/monsters/blizzard_king.png": "a647450843f0c8c90578f9e42e2bb132f86b3874510347660e7195add60223d5",
+    "assets/snowfield/background/snowfield_1920x864.png": "54e4463a5c9e44b30e8e736b6c9d980e5d2cf7f4f7f9a17d9c9578ac6cb32e0a",
+    "assets/snowfield/background/snowfield_1280x576.png": "7296dabc907f9fef3c564eb3f8fc9c2694d6b57c55f65e61a229e096cff6d96d",
+    "assets/snowfield/animations/snow_slime_atlas.png": "2740403876d2319e3d748d48ce65ed08abf8877bec5ef6c3667e911880d0158a",
+    "assets/snowfield/animations/penguin_raider_atlas.png": "a3675e92ab803550e5e79ee5263a761a67306c8cfa925c8eccd902b9ba966667",
+    "assets/snowfield/animations/ice_yeti_atlas.png": "246cc89d688f2d8a6e8b4cb8e7570549a9636df6de3b6873a8f33ff31c8c4818",
+    "assets/snowfield/animations/frost_turtle_atlas.png": "d5b7ba7a048c4eaef8ceb1afca16cabb84c1045f4d3db2432315264e25970674",
+    "assets/snowfield/animations/blizzard_king_atlas.png": "2d528befebd144b62e774b97401e478232c3ce2ece2b5b3bea85250e129e535a",
+    "assets/selection/title/hel-corrected.png": "e7881e37f24777c9297b4e89b558b5e75833ef5282606a223944df621b19c352",
+    "assets/item_monster/frames/move_06.png": "1087dd9f4ca11331e2e1fc9667ab2bf53b49a5bbb138efb31f7bb3ad4628b507",
+    "assets/item_monster/frames/move_05.png": "8bef01e93c4cda03d1c3014fa9ceb6e0a7c33b8e52582c66fa5f37659abdedf0",
+    "assets/item_monster/frames/move_04.png": "cb722e6cf57a8c61e387d97e9a41da4e23dc8636aad7eccf41fd097957aab08e",
+    "assets/item_monster/frames/move_03.png": "a06c6a58c57b56807b9305e451ccf2cc1439caac96bfe6552df17cccc87ffb85",
+    "assets/item_monster/frames/move_02.png": "44ca479ab069b11f54d5cdf4e15dbe3e150325353918bffcce98ee081baefb07",
+    "assets/item_monster/frames/move_01.png": "3eb654be5230668cea2f6a098a7fb6a983840709f9e0cf79d1428e57e67c3db9",
+    "assets/item_monster/frames/idle_06.png": "b4949a4496818636e3ad092e4c528b30f3142cc4f2f18d9892e747e292106427",
+    "assets/item_monster/frames/idle_05.png": "c2ad9b8b04ddeb32f0009f2a8bbed849f1fd5d2dd7c982b4b600f44052ed63ac",
+    "assets/item_monster/frames/idle_04.png": "e6be0a62b47334add880267c282b9bf0d61fed9c259b12b379f0df9f599da91d",
+    "assets/item_monster/frames/idle_03.png": "ab4ed4d91a1505269703d969406c4f91e39127c03a87dbc64dfd8dca24600d02",
+    "assets/item_monster/frames/idle_02.png": "284425a9583a9f952fdff02738e41d091fc808ea3858a6cf4c8cf8bcaabd5225",
+    "assets/item_monster/frames/idle_01.png": "70ae6c2a716975d2ded44b99341589f034901b81cc727fd999b8f99286ef528d",
+    "assets/item_monster/frames/hit_03.png": "6ce7c270ceaf117aec8cd75ebfa893563d7da0eab234bf8ec5b216149b43105a",
+    "assets/item_monster/frames/hit_02.png": "54bf2fbca8944dbd3244197d6e2bbf435c4feca1a8e4785cdea5f878351c7bfc",
+    "assets/item_monster/frames/hit_01.png": "48f596df19b5ea0af19cab613739446f4f6e78a69445b128a847cd1cd0396ae6",
+    "assets/item_monster/frames/explosion_04.png": "60afa370677934c3955d9b04b6c6687aa498fb4b4c02031cdfe99cd830376ded",
+    "assets/item_monster/frames/explosion_03.png": "0eb60c27246c886bda53cc431ba24322ab099d320538e9b7e3f202a82197a646",
+    "assets/item_monster/frames/explosion_02.png": "6665023ebf790f50b2ca95a722c7982cd6dbb29a6fc98d5dffe36b6c9d11e8c8",
+    "assets/item_monster/frames/explosion_01.png": "e624e893dd0c5f07d95c0451367c4419c623d20d3f4ce464f47771f8b2f5e920",
+    "assets/item_monster/frames/drop_upgrade.png": "036e110b2d62a6d8c60d777ec3614e7e4744cd2407264a63b062fecc912a3032",
+    "assets/item_monster/frames/drop_health.png": "d44a56ce1d9f13920371939fc29b0d0c6de97b2ed97455e914efdad81d7465e5",
+    "assets/item_monster/frames/direction_up_right.png": "75af4fd66dbc7cbb147fa2796dcd1e43288e3faeb391cdfa2b04ba382c5a479c",
+    "assets/item_monster/frames/direction_up_left.png": "ad9bf1cd7748bef77fda1d623b222d4e86d770ba84cc4cab875549946081218e",
+    "assets/item_monster/frames/direction_up.png": "92e984972ac7447873fb4c111d7a156878d83fa4088fcdaf925e3155b052b786",
+    "assets/item_monster/frames/direction_right.png": "ea9ea4cafa7110548649015858fe997c4b55bc364fc28b74c64b0cf872f2baff",
+    "assets/item_monster/frames/direction_left.png": "471b0a2e111f7af57078f6d32b7b2cd3f3af0bbbc1c9e36df8ea3152be064452",
+    "assets/item_monster/frames/direction_down_right.png": "b47fef52e4f66fa8de604df9359a99544a6874e1466563b57d8eb3b89bf0d89d",
+    "assets/item_monster/frames/direction_down_left.png": "82ac9a08730b2224302d8f67e1edfa392a73734a79c36249b35f918b5dc08de5",
+    "assets/item_monster/frames/direction_down.png": "c9201300a3627a0cf5c180a8160eba056f1f5561bab3bd9772047c7d577f8005"
+  },
+  "ui_starts": [
+    {
+      "stage": 5,
+      "phase": 5,
+      "type": 0,
+      "hp": 20,
+      "enemies": 0,
+      "warnings": 0,
+      "pattern": "rest"
+    },
+    {
+      "stage": 5,
+      "phase": 5,
+      "type": 1,
+      "hp": 20,
+      "enemies": 0,
+      "warnings": 0,
+      "pattern": "rest"
+    },
+    {
+      "stage": 5,
+      "phase": 5,
+      "type": 2,
+      "hp": 20,
+      "enemies": 0,
+      "warnings": 0,
+      "pattern": "rest"
+    }
+  ],
+  "entries": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "aim": {
+        "age": 1.8000000000000003,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999984,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.6400000000000725,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 457.5,
+          "y": 329.6,
+          "r": 64,
+          "target": {
+            "x": 457.5,
+            "y": 329.6
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.94000000000008,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019638940495,
+          "y": 218.56809146877893
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000023,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 455.6019638940495,
+            "y": 218.56809146877893
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019638940495,
+          218.56809146877893
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019638940495,
+            "y": 218.56809146877893
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 455.6019638940495,
+            "y": 269.03867970407305
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137285999318,
+            "y": 160.33279735113186,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 455.6019638940495,
+            "cy": 218.56809146877893,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666977640243,
+              "y": 157.7445620570142,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.039999999999903,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000011
+          },
+          "center": {
+            "x": 455.6019638940495,
+            "y": 218.56809146877893
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019638940495,
+          218.56809146877893
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019638940495,
+            "y": 218.56809146877893
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 455.2784344822854,
+            "y": 167.77397382172012
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137285999318,
+            "y": 160.00926793936716,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 455.6019638940495,
+            "cy": 218.56809146877893,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666977640243,
+              "y": 157.7445620570142,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999795,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000011
+          },
+          "center": {
+            "x": 455.6019638940495,
+            "y": 218.56809146877893
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019638940495,
+          218.56809146877893
+        ]
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 457.5,
+          "y": 329.6,
+          "r": 64,
+          "target": {
+            "x": 457.5,
+            "y": 329.6
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.940000000000076,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000019,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 455.6019628798777,
+            "y": 269.03867983170966
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137275857601,
+            "y": 160.33279747876847,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 455.6019628798777,
+            "cy": 218.56809159641554,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666876223063,
+              "y": 157.74456218465082,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.0399999999999,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 455.2784334681136,
+            "y": 167.77397394935673
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137275857601,
+            "y": 160.00926806700377,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 455.6019628798777,
+            "cy": 218.56809159641554,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666876223063,
+              "y": 157.74456218465082,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999792,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ]
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 457.5,
+          "y": 329.6,
+          "r": 64,
+          "target": {
+            "x": 457.5,
+            "y": 329.6
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.940000000000076,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 455.6019628798777,
+          "y": 218.56809159641554
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000019,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 455.6019628798777,
+            "y": 269.03867983170966
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137275857601,
+            "y": 160.33279747876847,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 455.6019628798777,
+            "cy": 218.56809159641554,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666876223063,
+              "y": 157.74456218465082,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.0399999999999,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ],
+        "geo": {
+          "pivot": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 455.2784334681136,
+            "y": 167.77397394935673
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 205,
+          "artScale": 0.280437756497948,
+          "body": {
+            "x": 381.5137275857601,
+            "y": 160.00926806700377,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 455.6019628798777,
+            "cy": 218.56809159641554,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 380.86666876223063,
+              "y": 157.74456218465082,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999792,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 457.5,
+            "y": 329.6,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 455.6019628798777,
+            "y": 218.56809159641554
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          455.6019628798777,
+          218.56809159641554
+        ]
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 87.99999999999999,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 400,
+          "y": 288,
+          "r": 57.6,
+          "target": {
+            "x": 400,
+            "y": 288
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.940000000000076,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000019,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 396.9379600209977,
+            "y": 241.32980440838568
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.6239220554445,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.0399999999999,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 396.6144306092336,
+            "y": 140.06509852603273
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.3003926436798,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999792,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ]
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 87.99999999999999,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 400,
+          "y": 288,
+          "r": 57.6,
+          "target": {
+            "x": 400,
+            "y": 288
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.940000000000076,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000019,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 396.9379600209977,
+            "y": 241.32980440838568
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.6239220554445,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.0399999999999,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 396.6144306092336,
+            "y": 140.06509852603273
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.3003926436798,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999792,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ]
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 87.99999999999999,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88.00000000000001,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 400,
+          "y": 288,
+          "r": 57.6,
+          "target": {
+            "x": 400,
+            "y": 288
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 9.940000000000076,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 396.9379600209977,
+          "y": 190.85921617309157
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 10.940000000000019,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 396.9379600209977,
+            "y": 241.32980440838568
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.6239220554445,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.0399999999999,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ],
+        "geo": {
+          "pivot": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 396.6144306092336,
+            "y": 140.06509852603273
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 187.20000000000002,
+          "artScale": 0.2560875512995896,
+          "body": {
+            "x": 322.84972472688,
+            "y": 132.3003926436798,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 396.9379600209977,
+            "cy": 190.85921617309157,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 322.20266590335063,
+              "y": 130.03568676132687,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 14.939999999999792,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 400,
+            "y": 288,
+            "age": 11.140000000000008
+          },
+          "center": {
+            "x": 396.9379600209977,
+            "y": 190.85921617309157
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          396.9379600209977,
+          190.85921617309157
+        ]
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 284,
+          "y": 256,
+          "r": 51.2,
+          "target": {
+            "x": 284,
+            "y": 256
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 10.04000000000007,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 11.040000000000013,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 283.71266601492283,
+            "y": 220.05736714458138
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.35148479164019,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.139999999999894,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 283.3891366031587,
+            "y": 118.79266126222844
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.0279553798755,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 15.039999999999786,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ]
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 284,
+          "y": 256,
+          "r": 51.2,
+          "target": {
+            "x": 284,
+            "y": 256
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 10.04000000000007,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 11.040000000000013,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 283.71266601492283,
+            "y": 220.05736714458138
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.35148479164019,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.139999999999894,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 283.3891366031587,
+            "y": 118.79266126222844
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.0279553798755,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 15.039999999999786,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ]
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "aim": {
+        "age": 1.799999999999996,
+        "phase": "fire_aim",
+        "remaining": 0.4,
+        "pattern": "fireball",
+        "next": "eruption",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": null,
+        "fade": 0,
+        "shots": 0,
+        "volleys": 0,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "fire": {
+        "state": {
+          "age": 2.1999999999999944,
+          "phase": "fire_burst",
+          "remaining": 0.32,
+          "pattern": "fireball",
+          "next": "eruption",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": null,
+          "hazard": null,
+          "fade": 0,
+          "shots": 3,
+          "volleys": 1,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 3
+        },
+        "bullets": [
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          },
+          {
+            "speed": 88,
+            "life": 3.183333333333334,
+            "r": 5.5,
+            "tag": "fireball"
+          }
+        ]
+      },
+      "eruption": {
+        "age": 5.640000000000069,
+        "phase": "eruption_warning",
+        "remaining": 1.25,
+        "pattern": "eruption",
+        "next": "rotating_breath",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": null,
+        "hazard": {
+          "x": 284,
+          "y": 256,
+          "r": 51.2,
+          "target": {
+            "x": 284,
+            "y": 256
+          },
+          "resolved": false
+        },
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "breathWarning": {
+        "age": 10.04000000000007,
+        "phase": "breath_warning",
+        "remaining": 1,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 0,
+        "sweepProgress": 0,
+        "observedPlayer": null,
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "start": {
+        "state": {
+          "age": 11.040000000000013,
+          "phase": "breath_hold",
+          "remaining": 0.2,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": 0,
+          "sweepDirection": 0,
+          "sweepProgress": 0,
+          "observedPlayer": null,
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0,
+            "y": 50.47058823529412
+          },
+          "origin": {
+            "x": 283.71266601492283,
+            "y": 220.05736714458138
+          },
+          "angle": 0,
+          "direction": 1.5707963267948966,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.35148479164019,
+            "w": 148.1764705882353,
+            "h": 116.47058823529413,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "half": {
+        "state": {
+          "age": 13.139999999999894,
+          "phase": "breath",
+          "remaining": 1.9000000000000066,
+          "pattern": "rotating_breath",
+          "next": "fireball",
+          "angle": -3.141592653589782,
+          "sweepDirection": -1,
+          "sweepProgress": 3.141592653589782,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ],
+        "geo": {
+          "pivot": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "local": {
+            "x": 0.3235294117647059,
+            "y": 50.794117647058826
+          },
+          "origin": {
+            "x": 283.3891366031587,
+            "y": 118.79266126222844
+          },
+          "angle": -3.141592653589782,
+          "direction": -1.5707963267948855,
+          "length": 166.4,
+          "artScale": 0.22763337893296853,
+          "body": {
+            "x": 209.62443072080518,
+            "y": 111.0279553798755,
+            "w": 148.1764705882353,
+            "h": 117.11764705882354,
+            "cx": 283.71266601492283,
+            "cy": 169.58677890928726,
+            "scale": 0.6470588235294118,
+            "bounds": {
+              "x": 208.97737189727576,
+              "y": 108.76324949752255,
+              "w": 149.47058823529412,
+              "h": 121.64705882352942
+            }
+          }
+        }
+      },
+      "end": {
+        "state": {
+          "age": 15.039999999999786,
+          "phase": "rest",
+          "remaining": 2.8,
+          "pattern": null,
+          "next": "fireball",
+          "angle": -6.283185307179586,
+          "sweepDirection": -1,
+          "sweepProgress": 6.283185307179586,
+          "observedPlayer": {
+            "x": 284,
+            "y": 256,
+            "age": 11.240000000000002
+          },
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          },
+          "hazard": null,
+          "fade": 0.18,
+          "shots": 9,
+          "volleys": 3,
+          "damageCalls": 0,
+          "skipped": 0,
+          "bullets": 0
+        },
+        "actor": [
+          283.71266601492283,
+          169.58677890928726
+        ]
+      }
+    }
+  ],
+  "render": [
+    {
+      "angle": 0,
+      "mouth": {
+        "x": 284.0361954266875,
+        "y": 220.3808965563461
+      },
+      "origin": {
+        "x": 284.0361954266875,
+        "y": 220.3808965563461
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          1,
+          0,
+          0,
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "angle": -0.7853981633974455,
+      "mouth": {
+        "x": 319.85830564512986,
+        "y": 205.2748812326384
+      },
+      "origin": {
+        "x": 319.8583008885174,
+        "y": 205.2748741009378
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          0.7071067811865495,
+          -0.7071067811865456,
+          0.7071067811865456,
+          0.7071067811865495,
+          -36.81844064247184,
+          250.2859747223122
+        ]
+      }
+    },
+    {
+      "angle": -1.570796326794891,
+      "mouth": {
+        "x": 334.5067968249008,
+        "y": 169.26325830866432
+      },
+      "origin": {
+        "x": 334.5067836619817,
+        "y": 169.26324949752285
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          5.61234746308315e-15,
+          -1,
+          1,
+          5.61234746308315e-15,
+          114.1259002685531,
+          453.2994537353506
+        ]
+      }
+    },
+    {
+      "angle": -2.3561944901923364,
+      "mouth": {
+        "x": 319.4007815011933,
+        "y": 133.44114809022193
+      },
+      "origin": {
+        "x": 319.4007612065736,
+        "y": 133.44114403569287
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          -0.7071067811865415,
+          -0.7071067811865536,
+          0.7071067811865536,
+          -0.7071067811865415,
+          364.41187499086504,
+          490.1178943778239
+        ]
+      }
+    },
+    {
+      "angle": -3.141592653589782,
+      "mouth": {
+        "x": 283.3891585772194,
+        "y": 118.79265691045077
+      },
+      "origin": {
+        "x": 283.3891366031587,
+        "y": 118.79266126222844
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          -1,
+          -1.12246949261663e-14,
+          1.12246949261663e-14,
+          -1,
+          567.4253540039044,
+          339.17355346680006
+        ]
+      }
+    },
+    {
+      "angle": -3.9269908169872276,
+      "mouth": {
+        "x": 247.5670483587768,
+        "y": 133.89867223415808
+      },
+      "origin": {
+        "x": 247.56703114132864,
+        "y": 133.8986837176363
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          -0.7071067811865573,
+          0.7071067811865377,
+          -0.7071067811865377,
+          -0.7071067811865573,
+          604.243794646379,
+          88.88757874448825
+        ]
+      }
+    },
+    {
+      "angle": -4.712388980384673,
+      "mouth": {
+        "x": 232.91855717900546,
+        "y": 169.910295158132
+      },
+      "origin": {
+        "x": 232.918548367864,
+        "y": 169.9103083210511
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          -1.7059086994174482e-14,
+          1,
+          -1,
+          -1.7059086994174482e-14,
+          453.2994537353564,
+          -114.12590026855179
+        ]
+      }
+    },
+    {
+      "angle": -5.497787143782119,
+      "mouth": {
+        "x": 248.02457250271257,
+        "y": 205.7324053765746
+      },
+      "origin": {
+        "x": 248.0245708232717,
+        "y": 205.73241378288128
+      },
+      "pivot": {
+        "x": 283.71266601492283,
+        "y": 169.58677890928726
+      },
+      "selected": {
+        "name": "attack",
+        "index": 1
+      },
+      "call": {
+        "size": [
+          229,
+          181
+        ],
+        "a": [
+          209.62443072080518,
+          111.0279553798755,
+          148.1764705882353,
+          117.11764705882354
+        ],
+        "m": [
+          0.7071067811865341,
+          0.7071067811865609,
+          -0.7071067811865609,
+          0.7071067811865341,
+          203.01347901304453,
+          -150.94434091102784
+        ]
+      }
+    }
+  ],
+  "raster": [
+    {
+      "angle": 0,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 736,
+      "lit": 476
+    },
+    {
+      "angle": -0.33069396353576663,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 760,
+      "lit": 566
+    },
+    {
+      "angle": -0.6613879270715333,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 893,
+      "lit": 857
+    },
+    {
+      "angle": -0.9920818906072999,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 889,
+      "lit": 1015
+    },
+    {
+      "angle": -1.3227758541430659,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 948,
+      "lit": 994
+    },
+    {
+      "angle": -1.6534698176788325,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 971,
+      "lit": 1019
+    },
+    {
+      "angle": -1.9841637812145991,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 901,
+      "lit": 918
+    },
+    {
+      "angle": -2.3148577447503658,
+      "checked": 44556,
+      "mismatch": 0,
+      "transparent": 667,
+      "lit": 769
+    }
+  ],
+  "eruption_damage": {
+    "hpBefore": 9,
+    "warningHP": 9,
+    "burstHP": 8,
+    "finalHP": 8,
+    "unchanged": true,
+    "damageCalls": 1,
+    "resolved": true
+  },
+  "fps_damage": [
+    {
+      "hz": 30,
+      "outside": false,
+      "hpBefore": 9,
+      "hpAfter": 6,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 3,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    },
+    {
+      "hz": 30,
+      "outside": true,
+      "hpBefore": 9,
+      "hpAfter": 9,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 0,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    },
+    {
+      "hz": 60,
+      "outside": false,
+      "hpBefore": 9,
+      "hpAfter": 6,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 3,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    },
+    {
+      "hz": 60,
+      "outside": true,
+      "hpBefore": 9,
+      "hpAfter": 9,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 0,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    },
+    {
+      "hz": 120,
+      "outside": false,
+      "hpBefore": 9,
+      "hpAfter": 6,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 3,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    },
+    {
+      "hz": 120,
+      "outside": true,
+      "hpBefore": 9,
+      "hpAfter": 9,
+      "angle": -6.283185307179586,
+      "progress": 6.283185307179586,
+      "damageCalls": 0,
+      "phase": "rest",
+      "trace": [
+        {
+          "phase": "fire_aim",
+          "time": 1.799999999999996,
+          "age": 1.799999999999996,
+          "remaining": 0.4,
+          "shots": 0
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.1999999999999944,
+          "age": 2.1999999999999944,
+          "remaining": 0.32,
+          "shots": 3
+        },
+        {
+          "phase": "fire_burst",
+          "time": 2.519999999999993,
+          "age": 2.519999999999993,
+          "remaining": 0.32,
+          "shots": 6
+        },
+        {
+          "phase": "rest",
+          "time": 2.8399999999999914,
+          "age": 2.8399999999999914,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_warning",
+          "time": 5.640000000000069,
+          "age": 5.640000000000069,
+          "remaining": 1.25,
+          "shots": 9
+        },
+        {
+          "phase": "eruption_burst",
+          "time": 6.890000000000131,
+          "age": 6.890000000000131,
+          "remaining": 0.25,
+          "shots": 9
+        },
+        {
+          "phase": "rest",
+          "time": 7.140000000000144,
+          "age": 7.140000000000144,
+          "remaining": 2.8,
+          "shots": 9
+        },
+        {
+          "phase": "position",
+          "time": 9.940000000000076,
+          "age": 9.940000000000076,
+          "remaining": 3,
+          "shots": 9
+        },
+        {
+          "phase": "breath_warning",
+          "time": 10.04000000000007,
+          "age": 10.04000000000007,
+          "remaining": 1,
+          "shots": 9
+        },
+        {
+          "phase": "breath_hold",
+          "time": 11.040000000000013,
+          "age": 11.040000000000013,
+          "remaining": 0.2,
+          "shots": 9
+        },
+        {
+          "phase": "breath",
+          "time": 11.240000000000002,
+          "age": 11.240000000000002,
+          "remaining": 3.8,
+          "shots": 9
+        }
+      ]
+    }
+  ],
+  "sweep_directions": [
+    {
+      "hz": 30,
+      "side": "left",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999892,
+        "phase": "breath",
+        "remaining": 1.900000000000009,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.1415926535897776,
+        "sweepDirection": 1,
+        "sweepProgress": 3.1415926535897776,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999782,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 30,
+      "side": "right",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999892,
+        "phase": "breath",
+        "remaining": 1.900000000000009,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.1415926535897776,
+        "sweepDirection": -1,
+        "sweepProgress": 3.1415926535897776,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999782,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 30,
+      "side": "up",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999892,
+        "phase": "breath",
+        "remaining": 1.900000000000009,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.1415926535897776,
+        "sweepDirection": 1,
+        "sweepProgress": 3.1415926535897776,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999782,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 30,
+      "side": "down",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999892,
+        "phase": "breath",
+        "remaining": 1.900000000000009,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.1415926535897776,
+        "sweepDirection": 1,
+        "sweepProgress": 3.1415926535897776,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999782,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 60,
+      "side": "left",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 60,
+      "side": "right",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 60,
+      "side": "up",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 60,
+      "side": "down",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 120,
+      "side": "left",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 143.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 120,
+      "side": "right",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": -1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": -3.141592653589782,
+        "sweepDirection": -1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": -6.283185307179586,
+        "sweepDirection": -1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 423.71266601492283,
+          "y": 169.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 120,
+      "side": "up",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 69.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    },
+    {
+      "hz": 120,
+      "side": "down",
+      "start": {
+        "age": 11.240000000000002,
+        "phase": "breath",
+        "remaining": 3.8,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 0,
+        "sweepDirection": 1,
+        "sweepProgress": 0,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "half": {
+        "age": 13.139999999999894,
+        "phase": "breath",
+        "remaining": 1.9000000000000066,
+        "pattern": "rotating_breath",
+        "next": "fireball",
+        "angle": 3.141592653589782,
+        "sweepDirection": 1,
+        "sweepProgress": 3.141592653589782,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "end": {
+        "age": 15.039999999999786,
+        "phase": "rest",
+        "remaining": 2.8,
+        "pattern": null,
+        "next": "fireball",
+        "angle": 6.283185307179586,
+        "sweepDirection": 1,
+        "sweepProgress": 6.283185307179586,
+        "observedPlayer": {
+          "x": 283.71266601492283,
+          "y": 269.58677890928726,
+          "age": 11.240000000000002
+        },
+        "center": {
+          "x": 283.71266601492283,
+          "y": 169.58677890928726
+        },
+        "hazard": null,
+        "fade": 0.18,
+        "shots": 9,
+        "volleys": 3,
+        "damageCalls": 0,
+        "skipped": 0,
+        "bullets": 0
+      },
+      "observedUnchanged": true
+    }
+  ],
+  "tanko_escape": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "length": 205,
+      "start": {
+        "x": 615.6019628798776,
+        "y": 218.56809159641554,
+        "hp": 9
+      },
+      "cue": {
+        "x": 701.9861942980503,
+        "y": 218.56809159641554,
+        "hp": 9,
+        "angle": 0
+      },
+      "end": {
+        "x": 903,
+        "y": 218.56809159641554,
+        "hp": 9,
+        "angle": -6.283185307179586
+      },
+      "calls": 0
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "length": 187.20000000000002,
+      "start": {
+        "x": 556.9379600209977,
+        "y": 190.85921617309157,
+        "hp": 9
+      },
+      "cue": {
+        "x": 643.3221914391704,
+        "y": 190.85921617309157,
+        "hp": 9,
+        "angle": 0
+      },
+      "end": {
+        "x": 788,
+        "y": 190.85921617309157,
+        "hp": 9,
+        "angle": -6.283185307179586
+      },
+      "calls": 0
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "length": 166.4,
+      "start": {
+        "x": 443.71266601492283,
+        "y": 169.58677890928726,
+        "hp": 9
+      },
+      "cue": {
+        "x": 530.0968974330949,
+        "y": 169.58677890928726,
+        "hp": 9,
+        "angle": 0
+      },
+      "end": {
+        "x": 556,
+        "y": 169.58677890928726,
+        "hp": 9,
+        "angle": -6.283185307179586
+      },
+      "calls": 0
+    }
+  ],
+  "capacity": {
+    "capped": {
+      "count": 18,
+      "shots": 0
+    },
+    "resumed": 3,
+    "separate": {
+      "normal": 28,
+      "boss": 3
+    },
+    "expired": 0
+  },
+  "no_safe_area": {
+    "phase": "rest",
+    "skipped": 1,
+    "hazard": null
+  },
+  "deaths": [
+    {
+      "kind": 0,
+      "hits": 20,
+      "immediate": {
+        "started": true,
+        "score": 2000,
+        "state": null,
+        "death": {
+          "angle": -3.141592653589782,
+          "center": {
+            "x": 283.71266601492283,
+            "y": 169.58677890928726
+          }
+        },
+        "advancing": true,
+        "angle": -3.141592653589782
+      },
+      "waiting": true,
+      "after": {
+        "started": false,
+        "score": 2000,
+        "state": null,
+        "death": null
+      }
+    },
+    {
+      "kind": 1,
+      "hits": 20,
+      "immediate": {
+        "started": true,
+        "score": 2000,
+        "state": null,
+        "death": {
+          "angle": 0,
+          "center": {
+            "x": 284,
+            "y": 86.4
+          }
+        },
+        "advancing": true,
+        "angle": 0
+      },
+      "waiting": true,
+      "after": {
+        "started": false,
+        "score": 2000,
+        "state": null,
+        "death": null
+      }
+    },
+    {
+      "kind": 2,
+      "hits": 14,
+      "immediate": {
+        "started": true,
+        "score": 2000,
+        "state": null,
+        "death": {
+          "angle": 0,
+          "center": {
+            "x": 284,
+            "y": 86.4
+          }
+        },
+        "advancing": true,
+        "angle": 0
+      },
+      "waiting": true,
+      "after": {
+        "started": false,
+        "score": 2000,
+        "state": null,
+        "death": null
+      }
+    }
+  ],
+  "game_over": {
+    "angle": -1.5707963267948888,
+    "stopped": true,
+    "state": null,
+    "pending": true
+  },
+  "page_errors": [],
+  "native_dialogs": [],
+  "failed_requests": [],
+  "offline_external_requests": [],
+  "all_passed": true
+}

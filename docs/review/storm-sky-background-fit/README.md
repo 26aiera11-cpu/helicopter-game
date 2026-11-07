@@ -1,5 +1,7 @@
 # 폭풍 하늘 배경 contain 수정 — Issue #27
 
+> 후속 기록: [승인된 완전한 배경 PNG 복구](../storm-sky-background-restore/README.md). 아래는 복구 이전 커밋의 개발·검증 이력이며 현재 배경 상태는 후속 보고서를 기준으로 확인하세요.
+
 작업일:2026-11-07 KST · 브랜치:`fix/storm-sky-background-fit` · 기준:`6c3446b7ad079822df80db5045c1f727051d47e4`
 
 **표시 방식 수정은 완료했지만, 원본 PNG 손상으로 ‘완전한 원본 배경 그림 복구’는 미완료다. 손상 없는 `storm_sky_background_1920x864.png`가 필요하다.**
