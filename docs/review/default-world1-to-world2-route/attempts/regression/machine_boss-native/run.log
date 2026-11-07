@@ -1,0 +1,30 @@
+PASS: All JS parses; exact10 engine/5red adapter groups plus notices preserve126old assets and the approved Cover bytes. One new region-only module, original PNG11/audio/normal40/70% dashes unchanged; no async attack timers.
+PASS: Existing base20HP/upgrade snapshot20,22,28,32,38,44 remains intact. Each real maxHP/2 threshold awakens once, with0-upgrade HP10; body radius48 and health formula unchanged.
+PASS: Both original PNG emitter coordinates map through the exact132px drawImage/matrix, pivot, hit offset/scale and rotation. Normal/red and hit/idle each match arm anchors to<0.0001px (Canvas float32 transform precision); original ratios preserved.
+PASS: Laser warning0.9s causes0damage; active beams use existing hurt()/invulnerability and deal1HP once per sweep, without two-arm or frame-rate double damage.
+PASS: Independent capsule oracle matches both8px round beams and actual8/2px strokes. Clipped segments stay finite<=min(.55H,220); moving the player does not retarget the fixed initial angles.
+PASS: Normal1.8s and red1.44s each sweep exactly180degrees; red angular speedx1.25, same0.9s warning, rest2.8->2.1s with minimum1.2 preserved.
+PASS: 0.7s warning emits normal2/red3 tagged missiles at80/88px-s, r6/life3.4. Shared loop advances each once: age.04 and<=speed*.04 displacement, bounded1.6rad-s turns and visibly curved velocity change.
+PASS: Real Tanko shot and one missile both disappear through unchanged blockEnemyBullet; the other missile survives. Standard missile hit removes1HP and a second hit respects existing invulnerability, no added blast damage.
+PASS: Missiles expire at3.4s and are removed by the standard filter; fully escaped missiles also become dead, with no eternal homing or re-entry.
+PASS: Held-projectile stress reaches exactly12live owned missiles; a fifth red volley is denied as a whole, no fallback basic shots or extra owner.
+PASS: 24 real normal/red wall cases cover4combinations x3landscape sizes: exact.75H danger/.25H one-sided safety,1.2s zero-damage warning and3s equal-speed travel fromoutside tooutside,56px width, one wall/no lasers/missiles and actual UI-safe centers.
+PASS: Independent circle/rectangle boundary oracle matches all4walls; safe-quarter pixels are byte-identical to Cover alone. No green/safe overlay, central gap, split gap or UI-shaped hole in danger.
+PASS: Actual wall contact calls existing hurt() for1HP once per pass, with no frame-by-frame repeated damage even when a test resets invulnerability.
+PASS: At568x320 all3 unchanged gyro flight profiles evade all4wall combinations with0HP loss, reacting.2s into warning along an explicit UI/body-safe route. Physical/human Galaxy feasibility remains unapproved.
+PASS: Wall start removes residual missiles. HP50% cancels all hazards for.8s red awakening exactly once; healing does not revert it, and reset removes owned state/projectiles.
+PASS: 8000actual seeded first attacks from two documented4000seed families cover all3patterns/all4wall combinations. Combined wall proportions within4percentage points of25%; private RNG consumes0global Math.random and no other region/normal RNG state. Original family counts retained, not a statistical proof of random independence.
+PASS: Two40attack replays with the same seed match sequence/RNG exactly; immediate repeats are excluded, histories<=20/sequences<=40 and effect ownership stay bounded.
+PASS: Actual root updates at60/120/300Hz agree on all3attack states, boss movement, wall center and missile positions/lifetimes to<0.00001px; missiles integrate only time after their birth.
+PASS: A linearly moving target also reproduces60/120/300Hz boss/missile paths; frame-interpolated target samples and source-pose time avoid end-of-frame steering/double-movement errors.
+PASS: Hidden tab/internal exit pause cancel all owned hazards and resume from safe rest; no attack clock or missile remains active behind a modal.
+PASS: Resize clears attack geometry and restarts safely; a10s spike advances boss AI at most.25s and cannot skip its full warning. Ordinary.04s game frames run the same dt-only state machine.
+PASS: All3weapons keep6-kill normal5gate and immediate developer5,20HP/r48, one2000point/reward/outro with red death art and0owned hazards. Generic forest shots stay0 and developer runs never save TOP10/history.
+PASS: Actual915x412/800x360/568x320 warning/attack screenshots show both arm beams, curved missiles, all4wall layouts, red awakening and unchanged132px boss/Cover; effects create no DOM input surface.
+PASS: ActualDPR2 preserves80px safe quarter at568x320; portrait/landscape rotation cancels stale hazards and retains the approved single Cover.
+PASS: Trusted fullscreen exit cancel/confirm and3s GAME OVER retain fullscreen/music/result lifecycle, clean every owned hazard, and a fresh boss restarts with normal PNG; no browser confirm/alert.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/machine_boss.py", line 154, in <module>
+    assert not errors and not dialogs and not failed and (not args.standalone or not external),(errors,dialogs,failed,external)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ([], [], [{'url': 'http://127.0.0.1:38249/helicopter-game/assets/audio/volcano_boss.wav', 'error': 'net::ERR_ABORTED'}], [])

@@ -104,17 +104,17 @@ try:
   registry=page.evaluate('({worlds:gameWorlds.worlds,regions:gameWorlds.regions,snapshot:gameWorlds.snapshot(),assets:terrainImgs.length,enemies:enemySprites.length,bosses:bossSprites.length})')
   assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5,6,7]]
   assert [r['id'] for r in registry['regions']]==list(range(8)) and len({r['key'] for r in registry['regions']})==8
-  assert registry['snapshot']=={'trialEnabled':False,'activeTrial':False,'route':[0,1,2,3]}
+  assert registry['snapshot']=={'trialEnabled':True,'activeTrial':False,'route':list(range(8))}
   assert registry['assets']==registry['enemies']==registry['bosses']==8
   assert all(r['normalPhases']==4 and r['bossPhase']==5 for r in registry['regions'])
-  report['registry']=registry;passed('Two worlds register 8 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, storm is6, fortress is7, and default route is exactly20 phases.')
-  page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked()
+  report['registry']=registry;passed('Two worlds register 8 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, storm is6, fortress is7, and default route is40 phases; explicit World1-only20 is retained.')
+  page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).to_be_checked()
   page.screenshot(path=str(args.artifacts/'trial-opt-in-help.png'))
   page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement')
   page.locator('#startSelected').tap();page.wait_for_function('started')
   assert page.evaluate('gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6,7"&&!gameWorlds.setTrialEnabled(false)&&gameWorlds.isTrial()')
-  passed('Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the40-phase route and rejects mode changes during play.')
+  passed('Existing Help offers an default-ON40-phase checkbox with an explicit OFF20 option; a start snapshots the40-phase route and rejects mode changes during play.')
 
   carry=page.evaluate('''() => {
    worldReset(0,3);stage=3;phase=1;itemMonsters.enterRegion(3);
@@ -179,9 +179,9 @@ try:
      expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어')
      page.screenshot(path=str(args.artifacts/('snow-trial-clear.png' if trial else 'world1-default-clear.png')))
   report['controlled_full_routes']=routes
-  passed('All3 helicopters complete default20 and opt-in40 phases through real warnings/spawns/shots/collisions:28,000 vs56,000,4 vs8 bosses; no undefined future region or duplicate clear credit.')
+  passed('All3 helicopters complete explicit20 and default40 phases through real warnings/spawns/shots/collisions:28,000 vs56,000,4 vs8 bosses; no undefined future region or duplicate clear credit.')
   expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료')
-  passed('Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; default desert still uses the original World1 clear title.')
+  passed('Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; explicit World1-only desert still uses the original World1 clear title.')
 
   storage=page.evaluate('''() => {
    const normal=localStorage.getItem('heliTrio.top10.v1'),normalHistory=localStorage.getItem('heliTrio.playHistory.v1');
@@ -198,14 +198,14 @@ try:
   page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 월드 2 시험 TOP 10')
   expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚙ 기계 요새 (시험)')
   page.screenshot(path=str(args.artifacts/'trial-leaderboard.png'));page.locator('#leaderboardClose').tap()
-  load();assert page.evaluate('!gameWorlds.isTrial()&&gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>!r.trialMode)')
+  load();assert page.evaluate('gameWorlds.isTrial()&&gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.trialMode)');page.evaluate('gameWorlds.setTrialEnabled(false)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>!r.trialMode)')
   page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.regionId===7&&r.worldId===1)')
-  passed('Trial leaderboard labels World2/snow and reload preserves fifth-region results; normal launch resets opt-in OFF and displays only original normal scores.')
+  passed('Trial leaderboard labels World2/snow and reload preserves fifth-region results; normal launch resets40 ON, and explicit OFF shows preserved World1-only scores.')
 
   legacy=page.evaluate('''() => {gameWorlds.setTrialEnabled(false);const d=JSON.parse(localStorage.getItem(gameScoring.storageKeys.top));
    for(const r of d.records)for(const k of ['worldId','worldName','regionKey','localRegionIndex','trialMode'])delete r[k];
    const raw=JSON.stringify(d);localStorage.setItem(gameScoring.storageKeys.top,raw);return raw;}''')
-  load();assert page.evaluate('gameScoring.getTop().every(r=>r.worldId===0&&r.regionKey==="world-1:desert")')
+  load();page.evaluate('gameWorlds.setTrialEnabled(false)');assert page.evaluate('gameScoring.getTop().every(r=>r.worldId===0&&r.regionKey==="world-1:desert")')
   assert page.evaluate('localStorage.getItem(gameScoring.storageKeys.top)')==legacy
   passed('Existing version1 records without world fields load as World1 without migrating, converting, discarding or rewriting the original stored record bytes.')
   # Test corruption and storage denial independently, retaining the old normal data.
@@ -299,8 +299,8 @@ try:
   passed('Snow adds no media clones:12 original constructed Audio objects plus7 shared DOM music players; all19 observed with at most one active looping BGM.')
   if not args.standalone:
    page.goto(url+'?world2=1',wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('gameWorlds.isTrial()&&worldTrialToggle.checked')
-   page.goto(url,wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('!gameWorlds.isTrial()&&!worldTrialToggle.checked')
-   passed('Explicit?world2=1 opts into trial without persisting a default override; a normal URL always launches World1-only mode.')
+   page.goto(url,wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('gameWorlds.isTrial()&&worldTrialToggle.checked');page.goto(url+'?world2=0',wait_until='load');page.wait_for_function('gameWorlds&&document.getElementById("worldTrialToggle")');assert page.evaluate('!gameWorlds.isTrial()&&!worldTrialToggle.checked')
+   passed('Explicit?world2=1 and ordinary URL default40 ON; explicit?world2=0 selects20 OFF without persisting or migrating storage.')
   assert not errors and not dialogs and not failed and not external,{'errors':errors,'dialogs':dialogs,'failed':failed,'external':external}
   passed('No uncaught JS errors, native dialogs, failed assets or offline external requests occur.')
   browser.close()

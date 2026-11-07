@@ -1,0 +1,7 @@
+PASS: All 20 direct phase/region/final-clear transitions preserve ordinary item object identity, exact positions/types, movement fields and remaining lifetime without resetting them.
+PASS: The sixth ordinary monster dies through actual bullet collision and advances the phase while retaining its existing item with only the normal elapsed tick/movement deducted.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/item_persistence.py", line 46, in <module>
+    for r in regional:assert r['same'] and abs(r['life']-7.249)<1e-9 and r['reward'] and r['upgrade']==1 and r['hp']==(3 if r['region']<3 else 1) and r['started']==(r['region']<3)
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

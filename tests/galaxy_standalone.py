@@ -119,6 +119,8 @@ with sync_playwright() as playwright:
     page.wait_for_function('''() => [...terrainImgs,...sprites,...bossSprites,
         ...enemySprites.flat(),...rotorImages,...bulletSprites,...document.images]
         .every(image=>image.complete&&image.naturalWidth>0)''')
+    # Retained20-stage clear contract; default40 has a dedicated offline suite.
+    page.evaluate('gameWorlds.setTrialEnabled(false)')
     dimensions = page.evaluate('''async () => {
         const dimensions = await Promise.all([...document.querySelectorAll('.heli-stage image')].map(async element=>{
             const image=new Image();image.src=element.getAttribute('href');await image.decode();

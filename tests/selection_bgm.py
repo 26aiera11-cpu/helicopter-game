@@ -76,7 +76,7 @@ try:
    embedded=re.search(r'<audio id="selectionBgm" src="data:audio/mpeg;base64,([A-Za-z0-9+/=]+)"',html);assert embedded and base64.b64decode(embedded[1])==data
   else:
    server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(root)));threading.Thread(target=server.serve_forever,daemon=True).start();page.goto(f'http://127.0.0.1:{server.server_port}/helicopter-game/',wait_until='load')
-  page.evaluate('audioProbe.attach()');page.wait_for_function('audioProbe.elements.length===19&&audioProbe.elements.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
+  page.evaluate('gameWorlds.setTrialEnabled(false);audioProbe.attach()');page.wait_for_function('audioProbe.elements.length===19&&audioProbe.elements.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
   page.wait_for_timeout(250);assert page.evaluate('audioProbe.active().length===0&&audioProbe.attempts.length===0&&selectionBgm.loop&&!selectionBgm.autoplay')
   report['native_duration']=page.evaluate('selectionBgm.duration')
   if not args.standalone:assert any(r['status'] in (200,206) and '/helicopter-game/assets/audio/' in r['url'] for r in responses)

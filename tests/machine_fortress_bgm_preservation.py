@@ -1,10 +1,12 @@
 """Issue37 exact audio/registry-only delta; every older game asset remains intact."""
 import hashlib,json,subprocess
+from default_world_route_preservation import without_default_world_route
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='2f29ced6cd53b7ebcb8279669c70c74fc1374ff1'
 MACHINE_BGM_ASSETS=set(json.loads((ROOT/'tests/machine_fortress_bgm_hashes.json').read_text()))
 def without_machine_bgm(source,name):
+ source=without_default_world_route(source,name)
  for old,new in reversed(json.loads((ROOT/'tests/machine_fortress_bgm_changes.json').read_text()).get(name,[])):
   if new in source:
    assert source.count(new)==1,(name,new[:90]);source=source.replace(new,old)

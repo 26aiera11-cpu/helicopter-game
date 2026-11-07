@@ -1,0 +1,23 @@
+{
+  "standalone": false,
+  "passed": [
+    "Fresh URL defaults40 ON/regions0..7; Help explains20 OFF, developer defaultsOFF, no autoplay and all4 seeded legacy storage values remain byte-identical.",
+    "Default leaderboard reads existing trial records without writing or migrating either score/history store."
+  ],
+  "preservation": {
+    "baseline": "54d892cbd074804741892ab800c293cb3b4fd5cc",
+    "existing_assets": 131,
+    "raw_unchanged_assets": 130,
+    "runtime_changed_file": "assets/worlds/worlds.js",
+    "exact_default_and_help_deltas": 4,
+    "index_and_score_storage_code_byte_identical": true,
+    "all_PNG_audio_combat_player_control_item_reward_recovery_Cover_code_byte_identical": true,
+    "approved_machine_fortress_WAVs_byte_identical": true,
+    "no_storage_key_migration_or_merge": true
+  },
+  "limits": [
+    "Actual Chromium/native media/trusted taps with controlled combat, invulnerability and item-spawn quota0; not physical Galaxy or a human balance playthrough.",
+    "Offline exact HTML is injected into a network-disabled blank origin without bypassing file-navigation policy.",
+    "Original boss reward then region+2HP recovery are preserved; no HP reset."
+  ]
+}

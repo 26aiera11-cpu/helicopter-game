@@ -1,0 +1,640 @@
+{
+  "date": "2026-11-07",
+  "issue": 38,
+  "branch": "fix/default-world1-to-world2-route",
+  "baseline": "54d892cbd074804741892ab800c293cb3b4fd5cc",
+  "registered_suites_available": 80,
+  "related_suites_executed": 20,
+  "passed_suites": 19,
+  "failed_suites": 1,
+  "completed_pass_groups": 263,
+  "full_registered_run": false,
+  "suites": [
+    {
+      "suite": "default_world_route-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.88,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused-round2/default_world_route-native"
+      ]
+    },
+    {
+      "suite": "default_world_route-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 229.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused-round2/default_world_route-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 25.48,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 16.79,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/default-route-tests/fixes/machine_boss-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.04,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_fortress_bgm-native"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 46.05,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/scoring"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 71.99,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.58,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/game_over"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 75.64,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/selection_bgm"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.04,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.75,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_cover-native"
+      ]
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.72,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/exit_dialog.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/exit_dialog"
+      ]
+    },
+    {
+      "suite": "volcano_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.88,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_art.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/volcano_art-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.66,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.01,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/default-route-tests/item-fixture-fix/item_persistence"
+      ]
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.27,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/boss_reward"
+      ]
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.19,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/fullscreen_smoke"
+      ]
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.61,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_smoke.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/selection_smoke"
+      ]
+    }
+  ],
+  "all_execution_attempts": [
+    {
+      "phase": "focused",
+      "suite": "default_world_route-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 2,
+      "seconds": 11.23,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused/default_world_route-native"
+      ]
+    },
+    {
+      "phase": "focused",
+      "suite": "default_world_route-offline",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 2,
+      "seconds": 91.29,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused/default_world_route-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "phase": "focused-round2",
+      "suite": "default_world_route-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.88,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused-round2/default_world_route-native"
+      ]
+    },
+    {
+      "phase": "focused-round2",
+      "suite": "default_world_route-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 229.15,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/default-route-tests/focused-round2/default_world_route-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "worlds",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 16,
+      "seconds": 25.48,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/worlds"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.45,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "machine_boss-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 25,
+      "seconds": 17.22,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_boss-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 40.04,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_fortress_bgm-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 46.05,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/scoring"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 71.99,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.8,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/mobile_controls"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.58,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/game_over"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 75.64,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/selection_bgm"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.04,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "machine_cover-native",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 8.75,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_cover.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/machine_cover-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.72,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/exit_dialog.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/exit_dialog"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "volcano_art-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 29.88,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/volcano_art.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/volcano_art-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.66,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/storm_sky-native"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "item_persistence",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 2,
+      "seconds": 2.52,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/item_persistence"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.27,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/boss_reward"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.19,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/fullscreen_smoke"
+      ]
+    },
+    {
+      "phase": "regression",
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.61,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/selection_smoke.py",
+        "--artifacts",
+        "/tmp/default-route-tests/regression/selection_smoke"
+      ]
+    },
+    {
+      "phase": "fixes",
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 16.79,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/default-route-tests/fixes/machine_boss-native"
+      ]
+    },
+    {
+      "phase": "item-fixture-fix",
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.01,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/default-route-tests/item-fixture-fix/item_persistence"
+      ]
+    }
+  ],
+  "all_failures_retained": true,
+  "known_issue30": {
+    "status": "Existing low-priority unresolved; controls byte-preserved. Reproduced after16partial groups; none counted as complete.",
+    "reproduced": true,
+    "evidence": "tests/worlds/exit-touch-failure.json",
+    "screenshot": "tests/worlds/exit-touch-failure.png"
+  },
+  "corrected_test_fixtures": [
+    "Initial Tanko next-enemy assertion omitted clearing the preceding piercing shot. Added the same per-enemy cleanup already used by worlds fixture; game bullets unchanged.",
+    "Original GigaCore suite saw one unused volcano_boss.wav preload net::ERR_ABORTED after25groups. Added strict full audio preload readiness before restart stress; resource error assertion retained. Retry26groups passes.",
+    "Legacy item persistence suite assumed desert was the final region. Explicitly selected the retained20-stage option and kept all old item/HP/final-clear assertions; retry7groups passes."
+  ],
+  "interruption": "One command was not executed because usage limit prevented automatic approval review; user reset the limit, state was checked and authorized work resumed.",
+  "execution": {
+    "workers": 1,
+    "oom_kill_before": 2,
+    "oom_kill_after": 2,
+    "new_oom_kills": 0
+  },
+  "limits": [
+    "Controlled actual Chromium native media and trusted UI with invulnerability/clock/spawn fixtures, not physical Galaxy or human balance approval.",
+    "Offline identical HTML with network disabled; no managed file navigation bypass.",
+    "Existing reward and region HP recovery preserved, not a health reset.",
+    "No storage namespace merge or migration; default40 continues existing trial records."
+  ]
+}

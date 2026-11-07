@@ -14,6 +14,8 @@ try:
  with sync_playwright() as p:
   browser=p.chromium.launch(executable_path=shutil.which('chromium'),args=['--no-sandbox']);page=browser.new_page(viewport={'width':915,'height':412},is_mobile=True,has_touch=True);errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
   page.goto(f'http://127.0.0.1:{server.server_port}',wait_until='load')
+  # Retain the explicit20-stage final-clear item/recovery contract.
+  page.evaluate('gameWorlds.setTrialEnabled(false)')
   page.evaluate('''() => {
    window.itemReset=(type=0)=>{start(type);spawn=999;transition=0;invuln=999;fireCooldown=0};
    window.carried=(type='hp',life=7.25)=>({x:45,y:55,type,life,r:13,t:2,vx:11,vy:7,turn:5});

@@ -122,16 +122,16 @@ try:
             page.wait_for_function('window.gameVolcano&&gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');page.evaluate(helpers)
         load()
         registry=page.evaluate('({worlds:gameWorlds.worlds,regions:gameWorlds.regions,mode:gameWorlds.snapshot(),keys:vStorage()})')
-        assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5,6]] and not registry['mode']['trialEnabled']
+        assert [w['regionIds'] for w in registry['worlds']]==[[0,1,2,3],[4,5,6,7]] and registry['mode']['trialEnabled']
         assert registry['regions'][5]['key']=='world-2:volcano' and all(registry['regions'][5][k]==0 for k in ['combatProfile','assetProfile']) and registry['regions'][5]['musicProfile']==4
         report['registry']=registry
         page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1')
-        assert page.locator('#developerStartRegion').evaluate('(e)=>[...e.options].map(o=>Number(o.value))')==[4,5,6]
+        assert page.locator('#developerStartRegion').evaluate('(e)=>[...e.options].map(o=>Number(o.value))')==[4,5,6,7]
         page.locator('#developerStartRegion').select_option('5');page.locator('#developerStartPhase').select_option('5')
         page.screenshot(path=str(args.artifacts/'developer-volcano-help.png'));page.locator('#selectionHelpClose').tap()
         initial=page.evaluate('vStorage()');page.locator('#startSelected').tap()
         assert page.evaluate('stage===5&&phase===5&&!!boss&&phaseKills===6&&enemies.length===0&&boss.maxHp===20')
-        passed('RegistryIDs0–4 stable, volcano5; defaultOFF20-stage mode; actual Help world2/volcano/phase5 starts dragon directly with combat profile0 and dedicated music profile4.')
+        passed('RegistryIDs0–4 stable, volcano5; defaultON40-stage mode; actual Help world2/volcano/phase5 starts dragon directly with combat profile0 and dedicated music profile4.')
         page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible()
         before=page.evaluate('gameVolcano.snapshot()');page.wait_for_timeout(200)
         assert page.evaluate('gameVolcano.snapshot()')==before

@@ -53,6 +53,8 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('dialog', lambda dialog: (report['native_dialogs'].append(dialog.type), dialog.dismiss()))
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
+        # Explicitly retain the old20-stage final-clear input contract.
+        page.evaluate('gameWorlds.setTrialEnabled(false)')
         page.evaluate('''() => {
             window.fullscreenRequests = 0;
             const nativeRequest = Element.prototype.requestFullscreen;

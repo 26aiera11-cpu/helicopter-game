@@ -40,7 +40,7 @@ try:
   context=browser.new_context(viewport={'width':915,'height':412},is_mobile=True,has_touch=True)
   page=context.new_page();errors=[];dialogs=[]
   page.on('pageerror',lambda e:errors.append(str(e)));page.on('dialog',lambda d:(dialogs.append(d.type),d.dismiss()))
-  page.goto(f'http://127.0.0.1:{server.server_port}',wait_until='load')
+  page.goto(f'http://127.0.0.1:{server.server_port}',wait_until='load');page.evaluate('gameWorlds.setTrialEnabled(false)')
   page.locator('#startSelected').tap();page.wait_for_function('started&&!!document.fullscreenElement')
   page.evaluate('spawn=999;transition=0;runScore=3700;window.deathAt=0;window.returnAt=0;window.deathEvents=0;document.addEventListener("gameover",()=>{deathAt=performance.now();deathEvents++});new MutationObserver(()=>{if(!menu.classList.contains("hidden"))returnAt=performance.now()}).observe(menu,{attributes:true,attributeFilter:["class"]})')
   # Lethal actual collision, plus a collocated heal that must not revive the player.

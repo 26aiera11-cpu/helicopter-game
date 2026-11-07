@@ -90,6 +90,8 @@ with sync_playwright() as playwright:
             const image = new Image(); image.src = element.getAttribute('href'); return image.decode();
         }));
     }''')
+    # Explicit World1-only option; default40 is covered separately.
+    page.evaluate('gameWorlds.setTrialEnabled(false)')
     expect(page.locator('#menu')).to_be_visible()
     assert page.locator('.heli-stage').count() == 3
     assert page.locator('.heli-rotor').count() == 3

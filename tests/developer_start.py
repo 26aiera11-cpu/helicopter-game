@@ -208,12 +208,12 @@ try:
   assert invalid=={'values':[False,False,False,False],'same':True}
   passed('Unknown regionIDs, phases outside1–5 and invalid switches are rejected without changing the chosen entry or any saved data.')
   assert page.evaluate('devStorageSnapshot()')==initial_storage and page.evaluate('devWrites.length')==0
-  load();assert page.evaluate('!gameWorlds.developerSnapshot().enabled&&gameWorlds.developerSnapshot().selected.regionId===0&&gameWorlds.developerSnapshot().selected.phase===1&&!gameWorlds.isTrial()')
+  load();assert page.evaluate('!gameWorlds.developerSnapshot().enabled&&gameWorlds.developerSnapshot().selected.regionId===0&&gameWorlds.developerSnapshot().selected.phase===1&&gameWorlds.isTrial()')
   assert page.evaluate('devStorageSnapshot()')==initial_storage
-  passed('Reload forgets all developer settings and restores ordinary forest1/defaultOFF while preserving all original record bytes.')
+  passed('Reload forgets all developer settings and restores ordinary forest1/default40 ON while preserving all original record bytes.')
 
   # Normal/trial paths are also covered by the retained complete-world regression.
-  page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3"&&!gameWorlds.isDeveloperRun()')
+  page.evaluate('gameWorlds.setTrialEnabled(false)');page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3"&&!gameWorlds.isDeveloperRun()')
   page.evaluate('spawn=999;invuln=999;stage=3;phase=5;nextPhase()');normal=page.evaluate('gameScoring.getLastResult()');assert normal['saved'] and not normal.get('developerTest',False)
   page.wait_for_function('!menu.classList.contains("hidden")');page.evaluate('gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6,7"&&!gameWorlds.isDeveloperRun()')
   page.evaluate('spawn=999;invuln=999;stage=7;phase=5;nextPhase()');trial=page.evaluate('gameScoring.getLastResult()');assert trial['saved'] and trial['record']['trialMode'] and not trial.get('developerTest',False)

@@ -1,4 +1,4 @@
-/* World/region registry. World 2 is opt-in, never part of the default route. */
+/* World/region registry. Default40 phases; explicit World1-only20 remains available. */
 (() => {
   'use strict';
   const regions = Object.freeze([
@@ -19,8 +19,8 @@
     id,key:`world-${id+1}`,name:`월드 ${id+1}`,
     regionIds:Object.freeze(regions.filter(r=>r.worldId===id).map(r=>r.id))
   })));
-  let trialEnabled = new URLSearchParams(location.search).get('world2') === '1';
-  let activeTrial = false, route = [...worlds[0].regionIds];
+  let trialEnabled = new URLSearchParams(location.search).get('world2') !== '0';
+  let activeTrial = false, route = trialEnabled ? worlds.flatMap(w=>w.regionIds) : [...worlds[0].regionIds];
   let checkbox, notice;
   let developerEnabled=false, activeDeveloper=false;
   let developerStart={regionId:worlds[0].regionIds[0],phase:1};
@@ -100,7 +100,7 @@
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 포함 · 40단계 연속 진행 (기본 ON)</label><p>기본 ON · 숲→바위→바다→사막→설원→화산→폭풍 하늘→기계 요새의 40단계를 연속 진행합니다. OFF로 끄면 기존 월드 1의 20단계만 플레이합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 40단계 기록은 기존 월드 2 시험 순위표에, 20단계 기록은 기존 월드 1 순위표에 따로 저장하며 이전 기록을 유지합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';

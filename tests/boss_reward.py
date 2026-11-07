@@ -82,6 +82,8 @@ try:
         page.on('pageerror', lambda error: errors.append(str(error)))
         page.on('dialog', lambda dialog: (native_dialogs.append(dialog.type), dialog.dismiss()))
         page.goto(f'http://127.0.0.1:{server.server_port}/', wait_until='load')
+        # Retained20-stage final-boss recovery contract, selected explicitly.
+        page.evaluate('gameWorlds.setTrialEnabled(false)')
         page.locator('#startSelected').tap()
         page.wait_for_function('started&&!!document.fullscreenElement')
         page.evaluate('''() => {

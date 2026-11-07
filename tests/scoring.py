@@ -113,6 +113,8 @@ try:
                     page.evaluate('localStorage.clear()')
                     page.reload(wait_until='load')
             page.wait_for_function('window.gameScoring && [...sprites,...terrainImgs].every(i=>i.complete&&i.naturalWidth>0)')
+            # This suite explicitly covers the retained20-phase score namespace.
+            page.evaluate("gameWorlds.setTrialEnabled(false)")
             page.evaluate(helpers)
 
         load(clear=True)

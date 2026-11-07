@@ -114,6 +114,8 @@ try:
         if args.standalone:page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(), wait_until='load')
         else:page.goto(f'http://127.0.0.1:{web.server_port}/', wait_until='load')
         page.wait_for_function('window.gameControls&&window.itemMonsters?.ready()&&sprites.every(i=>i.complete&&i.naturalWidth)')
+        # Exercise retained20-stage clear/reset behavior with unchanged controls.
+        page.evaluate('gameWorlds.setTrialEnabled(false)')
         assert page.locator('#left,#right').count() == 0
         slider = page.get_by_role('slider', name='헬기 회전', include_hidden=True);expect(slider).to_have_attribute('aria-orientation','horizontal')
         expect(slider).to_be_hidden();page.locator('#startSelected').tap();expect(slider).to_be_visible()

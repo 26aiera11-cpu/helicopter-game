@@ -9,6 +9,7 @@ known=[r['suite'] for r in json.loads((ROOT/'docs/review/volcano-monster-player-
 known+=['volcano_combat-native','volcano_combat-offline','volcano_boss-native','volcano_boss-offline','volcano_boss_masks','volcano_breath_art-native','volcano_breath_art-offline','volcano_mixed-native','volcano_mixed-offline','volcano_bgm-native','volcano_bgm-offline','storm_sky-native','storm_sky-offline','storm_sky_edges','storm_background_fit-native','storm_background_fit-offline','storm_background_integrity','storm_sky_bgm-native','storm_sky_bgm-offline','machine_fortress-native','machine_fortress-offline','machine_normal-native','machine_normal-offline','machine_background_dash-native','machine_background_dash-offline','machine_cover-native','machine_cover-offline']
 known+=['machine_boss-native','machine_boss-offline']
 known+=['machine_fortress_bgm-native','machine_fortress_bgm-offline']
+known+=['default_world_route-native','default_world_route-offline']
 names=args.only or known
 assert set(names)<=set(known) and 1<=args.workers<=3
 def run(name):
