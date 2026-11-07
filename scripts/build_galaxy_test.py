@@ -42,6 +42,16 @@ def build():
     storm_names = ['config', 'spawns', 'storm_sky', 'combat', 'boss_combat']
     storm_scripts = {name: (storm_path.parent/(name+'.js')).read_text() for name in storm_names}
     assert all('</script' not in value.lower() for value in storm_scripts.values())
+    machine_path = ROOT / 'assets/machine_fortress/asset_manifest.json'
+    machine_text = machine_path.read_text()
+    machine_manifest = json.loads(machine_text)
+    machine_template = re.search(r'<template id="machineFortressManifest">(.*?)</template>', source, re.S)
+    assert machine_template and unescape(machine_template[1]) == machine_text
+    assert hashlib.sha256((machine_path.parent/'background/machine_fortress_background_approved.png').read_bytes()).hexdigest() == '89990eeac3ae96c8ed5c2d9af2d90a5f3d8e51e95ccecf3757db1f9e21f9f124'
+    for row in machine_manifest['files']:
+        assert hashlib.sha256((machine_path.parent/row['path']).read_bytes()).hexdigest() == row['sha256']
+    machine_javascript = (machine_path.parent/'machine_fortress.js').read_text()
+    assert '</script' not in machine_javascript.lower()
     css_path = ROOT / 'assets/selection/selection.css'
     js_path = ROOT / 'assets/selection/selection.js'
     embedded = {}
@@ -128,11 +138,13 @@ def build():
         tag = '<script src="assets/storm_sky/'+name+'.js"></script>'
         assert result.count(tag) == 1
         result = result.replace(tag, '<script id="galaxy-storm-'+name+'-js">'+text+'</script>')
+    result = result.replace('<script src="assets/machine_fortress/machine_fortress.js"></script>',
+                            '<script id="galaxy-machine-fortress-js">'+machine_javascript+'</script>')
 
     def inline_resource(match):
         return match.group(1) + data_url(ROOT / match.group(2)) + match.group(3)
 
-    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield|volcano|storm_sky)/[^\"\']+)([\"\'])', inline_resource, result)
+    result = re.sub(r'((?:src|href|xlink:href)=[\"\'])(assets/(?:selection|audio|score|item_monster|snowfield|volcano|storm_sky|machine_fortress)/[^\"\']+)([\"\'])', inline_resource, result)
     volcano_audio = ['assets/audio/volcano_stage.wav', 'assets/audio/volcano_boss.wav']
     for name in volcano_audio:
         assert data_url(ROOT / name) in result, 'Embed the current Volcano WAV unchanged'
@@ -141,7 +153,7 @@ def build():
         assert data_url(ROOT / name) in result, 'Embed both current Storm Sky trial WAVs unchanged'
     original_scripts = re.findall(r'<script(?![^>]*src=)[^>]*>(.*?)</script>', source, re.S)
     built_scripts = re.findall(r'<script[^>]*>(.*?)</script>', result, re.S)
-    assert built_scripts == [world_javascript, difficulty_javascript, storm_scripts['config'], storm_scripts['spawns'], volcano_spawns_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, volcano_boss_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, storm_scripts['storm_sky'], storm_scripts['combat'], storm_scripts['boss_combat'], item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
+    assert built_scripts == [world_javascript, difficulty_javascript, storm_scripts['config'], storm_scripts['spawns'], volcano_spawns_javascript, snowfield_javascript, volcano_javascript, volcano_combat_javascript, volcano_boss_javascript, snow_spawns_javascript, snow_combat_javascript, snow_boss_javascript, storm_scripts['storm_sky'], storm_scripts['combat'], storm_scripts['boss_combat'], machine_javascript, item_javascript, controls_javascript] + original_scripts + [score_javascript, javascript], 'Current source scripts changed during packaging'
 
     class DependencyCheck(HTMLParser):
         def handle_starttag(self, tag, attributes):
@@ -188,6 +200,7 @@ def build():
         'embedded_external_audio_files': [str(path.relative_to(ROOT)) for path in sorted(embedded) if path.suffix.lower() in ['.mp3', '.wav']],
         'embedded_volcano_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in volcano_audio},
         'embedded_storm_sky_bgm': {name: hashlib.sha256((ROOT / name).read_bytes()).hexdigest() for name in storm_audio},
+        'embedded_machine_fortress': {'pngs': len(machine_manifest['files'])+1, 'graphics_only': True, 'original_manifest': True, 'scripts': 1},
         'embedded_storm_sky': {'scripts':len(storm_scripts),'source_atlases':len(storm_manifest['monsters']),'transform_keyframes':sum(len(a['frames']) for row in storm_manifest['monsters'] for a in row['animations'].values())},
         'external_dependencies': 0,
         'galaxy_only_style': 'Disable the browser native selection-button tap flash; packaging does not edit source files.',

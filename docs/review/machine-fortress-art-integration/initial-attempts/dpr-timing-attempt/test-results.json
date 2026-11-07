@@ -1,0 +1,257 @@
+{
+  "standalone": false,
+  "passed": [
+    "Exact16 graphics hooks and9 registry/UI deltas invert to653ac83; all other111 existing assets match the baseline, including every audio, image, combat/control/item/score module; all JS parses.",
+    "All11 supplied PNGs have valid chunk CRC/zlib EOF/IEND/full decode; dimensions/hashes/alpha unchanged. Background1672x941 and source_rect metadata is never misused to crop standalone sprites.",
+    "Registry adds stable ID7/world2 localIndex3; defaultWorld1 remains20phases; explicit trial8regions/40phases and all5 stage choices use the shared registry with forest combat/music profile0.",
+    "Trusted Help->World2->MachineFortress5->Start enters GigaCore immediately at original20HP with no normal enemies; UI explicitly labels graphics-only/legacy combat/forest temporary music."
+  ],
+  "limits": [
+    "Controlled real Chromium, not physical Galaxy Samsung Internet/Chrome, sensor hardware, audio speaker approval or human balance certification.",
+    "One original pose per normal monster/two boss PNGs; animation is display-only transforms, not redrawn frames.",
+    "Overdrive and four electromagnetic effects are preview-only; no new AI, laser, missile, wall damage/movement or HP50% combat transition.",
+    "Local-file browser policy is not bypassed: exact standalone HTML is injected into an offline blank origin."
+  ],
+  "preservation": {
+    "baseline": "653ac838e32fbf8276853058b75041703af4f079",
+    "existing_assets": 111,
+    "unchanged_existing_assets": 110,
+    "index_exact_graphics_hooks": 16,
+    "registry_exact_deltas": 9,
+    "approved_new_assets": 14,
+    "existing_graphics_combat_audio_score_item_controls_byte_preserved": true
+  },
+  "png_integrity": [
+    {
+      "path": "background/machine_fortress_background_approved.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "bytes": 1796004,
+      "sha256": "89990eeac3ae96c8ed5c2d9af2d90a5f3d8e51e95ccecf3757db1f9e21f9f124",
+      "complete_crc_zlib_decode": true
+    },
+    {
+      "path": "boss/giga_core_normal.png",
+      "dimensions": [
+        402,
+        322
+      ],
+      "mode": "RGBA",
+      "bytes": 262419,
+      "sha256": "0e578ae3aa777c98c1562deed9ceac931b91e5c4330c17c536e9455c9e6b24df",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        402,
+        322
+      ],
+      "transparent_pixels": 38128
+    },
+    {
+      "path": "boss/giga_core_overdrive.png",
+      "dimensions": [
+        394,
+        322
+      ],
+      "mode": "RGBA",
+      "bytes": 259723,
+      "sha256": "5c762879b84bd03992654e2be03ebb94e4d2ca3a5207cbe8b3ecf7119165c6d6",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        394,
+        322
+      ],
+      "transparent_pixels": 35543
+    },
+    {
+      "path": "effects/electromagnetic_wall.png",
+      "dimensions": [
+        160,
+        313
+      ],
+      "mode": "RGBA",
+      "bytes": 87407,
+      "sha256": "7e6ceb82ad9bcaecc67b795309cb4bda6b56abd4c0eb21be80fa1fa057370627",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        160,
+        313
+      ],
+      "transparent_pixels": 3956
+    },
+    {
+      "path": "effects/electromagnetic_wall_dim.png",
+      "dimensions": [
+        132,
+        303
+      ],
+      "mode": "RGBA",
+      "bytes": 70650,
+      "sha256": "230d0316c65cc84653d91300eb95f26fa72c98e044aee07c3e67b57be033c921",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        243
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        132,
+        303
+      ],
+      "transparent_pixels": 3111
+    },
+    {
+      "path": "effects/electromagnetic_wall_motion.png",
+      "dimensions": [
+        210,
+        301
+      ],
+      "mode": "RGBA",
+      "bytes": 105095,
+      "sha256": "3af40a3a5219c3eb34c16d39d9cae5b577deacc40222b87609bc130990bd12bc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        210,
+        301
+      ],
+      "transparent_pixels": 14042
+    },
+    {
+      "path": "effects/electromagnetic_warning.png",
+      "dimensions": [
+        117,
+        298
+      ],
+      "mode": "RGBA",
+      "bytes": 59632,
+      "sha256": "d98b3add6d6071d6706e78bfc150f8d9d25236e032c6948c5dc3985f5b1201fc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        247
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        117,
+        298
+      ],
+      "transparent_pixels": 1823
+    },
+    {
+      "path": "enemies/armored_turret.png",
+      "dimensions": [
+        168,
+        173
+      ],
+      "mode": "RGBA",
+      "bytes": 59682,
+      "sha256": "66714522923538a51d5d50de65c237119cfa4ca728f7439b289145d4bae36e6e",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        168,
+        173
+      ],
+      "transparent_pixels": 5065
+    },
+    {
+      "path": "enemies/gear_wasp.png",
+      "dimensions": [
+        229,
+        162
+      ],
+      "mode": "RGBA",
+      "bytes": 66752,
+      "sha256": "b76e6b057d86e4f0ba9ae7c12a3003fea6723e2a1be217c1026a93cc0a9536cc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        229,
+        162
+      ],
+      "transparent_pixels": 14233
+    },
+    {
+      "path": "enemies/laser_drone.png",
+      "dimensions": [
+        185,
+        167
+      ],
+      "mode": "RGBA",
+      "bytes": 46245,
+      "sha256": "c097d673706ac7106e681276810760f159d02307d5f0bafd77b51207ab4395f9",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        185,
+        167
+      ],
+      "transparent_pixels": 16601
+    },
+    {
+      "path": "enemies/screw_bot.png",
+      "dimensions": [
+        168,
+        153
+      ],
+      "mode": "RGBA",
+      "bytes": 44896,
+      "sha256": "cb568949232dd355cd6f7ce2ae0570e25c5e4b6b28c2d4e731b210e42db10ecc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        168,
+        153
+      ],
+      "transparent_pixels": 9777
+    }
+  ]
+}

@@ -1,0 +1,3853 @@
+{
+  "baseline": "e18c53000ff7412bca352e5bdb3fa887619ed4c9",
+  "standalone": false,
+  "passed": [
+    "All109 existing assets are byte-preserved; exactly3 index and3 Storm registry/notice deltas, including original restored contain PNG, music, SFX and all combat/control modules; JS parses.",
+    "Both original scores and seeded synth/percussion regenerate byte-for-byte without reading any old music, external samples or third-party audio.",
+    "148/120BPM16bars: mono22050Hz PCM16,25.946/32s, combined<3.5MB; no clipping/DC/100ms silence, zero file seam jump; per-track levels/low-frequency energy measured.",
+    "Native project-prefix/offline17 media metadata loads before gesture without play attempts; profiles remain0/1/2/3/0 then volcano4 and storm5, with both storm WAVs embedded exactly offline.",
+    "Trusted touch/fullscreen and real Help->World2->Storm5 start only the new boss WAV; confirming exit restores original selection MP3 with fullscreen retained.",
+    "Changing all three characters preserves one uninterrupted selection MP3 clock; no extra music button is introduced.",
+    "All four normal Storm stages use the dedicated stage WAV; developer direct5 uses only dedicated boss WAV.",
+    "3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.",
+    "All8 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, and Storm selects profile5 independently of Volcano4.",
+    "Both actual native WAV players loop through a seek-to-end boundary, remain playing and advance again; PCM seam jumps are0 and long silence is absent, subject to speaker approval.",
+    "Normal phase5 retains its mixed6-kill gate before the new boss music; warning/appear SFX remain separate and no old synthesized stage oscillators are scheduled under the WAV.",
+    "Original boss-hit/defeat media and shot WebAudio SFX still work independently over the single boss BGM; SFX OFF suppresses new effect/oscillator calls without stopping music.",
+    "Boss music toggles OFF/ON exclusively; canceling internal exit preserves music/fullscreen; zeroHP immediately silences BGM through3s GAME OVER, then selection MP3 returns.",
+    "Existing musicOFF persists through direct-boss restart and menu return; ON restores the current selection without changing the effects setting.",
+    "Simulated hidden-tab events pause every music track and restore only the current boss track; production browser visibility policy remains unchanged.",
+    "Actual Storm overlord defeat retains2000points once, reward/outro/final return and restores selection music without any simultaneous BGM.",
+    "Actual Snow->Volcano->Storm nextRegion transitions change forest→volcano4→storm5 without touching mixed-spawn reset or the old World1 route.",
+    "12additional stage/boss starts and returns reuse the same17 media elements; synchronous play-call/event/frame probes detect zero simultaneous music or extra looping players.",
+    "Simulated autoplay policy denials are caught without frame retries and retries on the next trusted touch; no native dialogs/uncaught errors/failed resources occur, and standalone HTTP audio requests are0."
+  ],
+  "limits": [
+    "Real Chromium media play/pause events and clocks, not physical Galaxy Samsung Internet/Chrome, speaker listening or artistic approval.",
+    "Controlled combat coordinates/time/invulnerability for transitions; mobile gesture policy is tested in Chromium, not asserted for a physical phone.",
+    "WAV sample seams and native seek-to-end loops are measured; speaker loop comfort, tone and SFX masking require user listening.",
+    "Hidden-tab state and one play rejection are deliberately simulated; the other media calls use native play()."
+  ],
+  "preservation": {
+    "baseline": "e18c53000ff7412bca352e5bdb3fa887619ed4c9",
+    "preserved_assets": 109,
+    "reviewed_index_deltas": 3,
+    "reviewed_world_registry_deltas": 3,
+    "new_music_files": 2,
+    "all_existing_graphics_audio_combat_and_controls_byte_preserved": true
+  },
+  "audio_quality": [
+    {
+      "file": "storm_sky_stage.wav",
+      "bpm": 148,
+      "bars": 16,
+      "seconds": 25.9459410430839,
+      "bytes": 1144260,
+      "sha256": "f7260fae55e817f1ce00c2d004720517240b9949136ee689d76028b823ce38ef",
+      "peak": 0.481536865234375,
+      "rms": 0.08499484025028983,
+      "dc": -2.2317900661621146e-06,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "seam_rms200ms": 0.12247663685519354,
+      "minimum_rms100ms": 0.023168108440989554,
+      "energy_below500hz": 0.8839869893129286
+    },
+    {
+      "file": "storm_sky_boss.wav",
+      "bpm": 120,
+      "bars": 16,
+      "seconds": 32.0,
+      "bytes": 1411244,
+      "sha256": "bfab3f67dab535e4517e69478b2639a9bd087dac234dbac056fb1e2ac74f2b71",
+      "peak": 0.564453125,
+      "rms": 0.09899468213450169,
+      "dc": -1.7242258638481435e-06,
+      "clipped_samples": 0,
+      "seam_jump": 0.0,
+      "seam_rms200ms": 0.12241509744646001,
+      "minimum_rms100ms": 0.012779195892295302,
+      "energy_below500hz": 0.950647310875742
+    }
+  ],
+  "mobile_matrix": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.075738,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 0,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.088432,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.112279,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 1,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.100963,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.109529,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        915,
+        412
+      ],
+      "kind": 2,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.082176,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.099445,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 0,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.102929,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.121247,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 1,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.088896,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.085267,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "kind": 2,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.09973,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.090411,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 0,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.089466,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.079747,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 1,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.073068,
+      "volume": 0.58
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.086711,
+      "volume": 0.42
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "kind": 2,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.08345,
+      "volume": 0.58
+    }
+  ],
+  "routes": [
+    {
+      "region": 0,
+      "phase": 1,
+      "name": "stage_forest",
+      "time": 0.095369,
+      "volume": 0.42
+    },
+    {
+      "region": 0,
+      "phase": 5,
+      "name": "boss_forest",
+      "time": 0.104558,
+      "volume": 0.58
+    },
+    {
+      "region": 1,
+      "phase": 1,
+      "name": "stage_rock",
+      "time": 0.090961,
+      "volume": 0.42
+    },
+    {
+      "region": 1,
+      "phase": 5,
+      "name": "boss_rock",
+      "time": 0.085701,
+      "volume": 0.58
+    },
+    {
+      "region": 2,
+      "phase": 1,
+      "name": "stage_sea",
+      "time": 0.107921,
+      "volume": 0.42
+    },
+    {
+      "region": 2,
+      "phase": 5,
+      "name": "boss_sea",
+      "time": 0.082416,
+      "volume": 0.58
+    },
+    {
+      "region": 3,
+      "phase": 1,
+      "name": "stage_desert",
+      "time": 0.099165,
+      "volume": 0.42
+    },
+    {
+      "region": 3,
+      "phase": 5,
+      "name": "boss_desert",
+      "time": 0.186453,
+      "volume": 0.58
+    },
+    {
+      "region": 4,
+      "phase": 1,
+      "name": "stage_forest",
+      "time": 0.12943,
+      "volume": 0.42
+    },
+    {
+      "region": 4,
+      "phase": 5,
+      "name": "boss_forest",
+      "time": 0.170929,
+      "volume": 0.58
+    },
+    {
+      "region": 5,
+      "phase": 1,
+      "name": "stage_volcano",
+      "time": 0.079253,
+      "volume": 0.42
+    },
+    {
+      "region": 5,
+      "phase": 5,
+      "name": "boss_volcano",
+      "time": 0.082986,
+      "volume": 0.58
+    },
+    {
+      "region": 6,
+      "phase": 1,
+      "name": "stage_storm",
+      "time": 0.081752,
+      "volume": 0.42
+    },
+    {
+      "region": 6,
+      "phase": 5,
+      "name": "boss_storm",
+      "time": 0.125107,
+      "volume": 0.58
+    },
+    {
+      "region": 7,
+      "phase": 1,
+      "name": "stage_forest",
+      "time": 0.11905,
+      "volume": 0.42
+    },
+    {
+      "region": 7,
+      "phase": 5,
+      "name": "boss_forest",
+      "time": 0.093113,
+      "volume": 0.58
+    }
+  ],
+  "native_loop_boundaries": [
+    {
+      "id": "stormSkyStageBgm",
+      "time": 0.056288,
+      "duration": 25.945941,
+      "loop": true,
+      "paused": false,
+      "readyState": 4
+    },
+    {
+      "id": "stormSkyBossBgm",
+      "time": 0.082837,
+      "duration": 32,
+      "loop": true,
+      "paused": false,
+      "readyState": 4
+    }
+  ],
+  "six_kill_gate": [
+    {
+      "id": "lightning_bat",
+      "kills": 1,
+      "boss": false
+    },
+    {
+      "id": "storm_jellyfish",
+      "kills": 2,
+      "boss": false
+    },
+    {
+      "id": "storm_jellyfish",
+      "kills": 3,
+      "boss": false
+    },
+    {
+      "id": "storm_jellyfish",
+      "kills": 4,
+      "boss": false
+    },
+    {
+      "id": "storm_jellyfish",
+      "kills": 5,
+      "boss": false
+    },
+    {
+      "id": "storm_jellyfish",
+      "kills": 6,
+      "boss": false
+    }
+  ],
+  "monitor": {
+    "events": [
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 2544.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000382,
+        "wall": 2581.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 3215
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 3215.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 3216
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.022945,
+        "wall": 3218.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 3218.5
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.222406,
+        "wall": 3524.5
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.268913,
+        "wall": 3524.5
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.005311,
+        "wall": 3524.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.005575,
+        "wall": 3525
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 4159.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 4159.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 4161.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.20389,
+        "wall": 4458
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 4458.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 4458.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 4608.60000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 4608.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 4609.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.212423,
+        "wall": 4910.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.004359,
+        "wall": 4910.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.004878,
+        "wall": 4911.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 5061.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 5061.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.009822,
+        "wall": 5062.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.220388,
+        "wall": 5359
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.005304,
+        "wall": 5359.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.005641,
+        "wall": 5359.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 5524.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 5524.5
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.007952,
+        "wall": 5525.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.225712,
+        "wall": 5826.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 2.9e-05,
+        "wall": 5826.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 7.3e-05,
+        "wall": 5826.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 5991.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 5991.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.010652,
+        "wall": 5992.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.820094,
+        "wall": 6995.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.000268,
+        "wall": 6997.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.004679,
+        "wall": 7001.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 7243.400000002235
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 7243.5
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 7243.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.008451,
+        "wall": 7244.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.008484,
+        "wall": 7244.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.629894,
+        "wall": 7944.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.630097,
+        "wall": 7944.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 7972.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000896,
+        "wall": 7974.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 8422.5
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0.002953,
+        "wall": 8422.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.007073,
+        "wall": 8427
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.358637,
+        "wall": 8923.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.006299,
+        "wall": 8924.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.00798,
+        "wall": 8926.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 9289.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 9289.5
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 9293
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.014236,
+        "wall": 9293.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.014277,
+        "wall": 9293.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.449498,
+        "wall": 9791.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.449576,
+        "wall": 9791.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 1.2e-05,
+        "wall": 9791.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000237,
+        "wall": 9791.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 10133.10000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 10133.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.015728,
+        "wall": 10133.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.378295,
+        "wall": 10603.10000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.001319,
+        "wall": 10603.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.001777,
+        "wall": 10604
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 10879.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 10879.400000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 10880.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.008258,
+        "wall": 10880.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.008303,
+        "wall": 10881
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.277916,
+        "wall": 11246.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.278898,
+        "wall": 11246.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.004382,
+        "wall": 11246.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.005101,
+        "wall": 11247.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 11599.300000000745
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 11599.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.000531,
+        "wall": 11601.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.553542,
+        "wall": 12311.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.002647,
+        "wall": 12311.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.003199,
+        "wall": 12312
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 12517.800000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0.011437,
+        "wall": 12518.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0.012463,
+        "wall": 12519.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.014199,
+        "wall": 12521
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.020815,
+        "wall": 12527.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.712034,
+        "wall": 13303.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.714029,
+        "wall": 13303.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 13303.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 13305.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 13701.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0.011886,
+        "wall": 13702.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.0197,
+        "wall": 13710.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.332194,
+        "wall": 14116.10000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 14116.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 14117.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 14419.800000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 14420.10000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 14420.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 14433.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 14433.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.297737,
+        "wall": 14817.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.298087,
+        "wall": 14817.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.012492,
+        "wall": 14820.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.015349,
+        "wall": 14821
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 15195.300000000745
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0.018628,
+        "wall": 15195.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.018949,
+        "wall": 15195.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.269605,
+        "wall": 15499.70000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 15500
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 15500.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 15797.20000000298
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 15797.400000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 15797.5
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 15797.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 15797.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.345495,
+        "wall": 16233.5
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.345525,
+        "wall": 16233.5
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 16234
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.001772,
+        "wall": 16236
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 16575.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 16576.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.003282,
+        "wall": 16579.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.445712,
+        "wall": 17085.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 17086.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000657,
+        "wall": 17088.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 17393.70000000298
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 17393.70000000298
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 17398.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.015748,
+        "wall": 17398.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 17398.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.476134,
+        "wall": 17943.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.453263,
+        "wall": 17943.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.002861,
+        "wall": 17943.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.003143,
+        "wall": 17943.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 18246.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 18247
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.003361,
+        "wall": 18247.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.26012,
+        "wall": 18597
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 18597.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 18597.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 18808.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 18808.400000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 18808.5
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.009756,
+        "wall": 18809
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.009798,
+        "wall": 18809
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.312383,
+        "wall": 19190.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.312434,
+        "wall": 19190.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 19190.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 19191.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 19418.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 19418.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 19419.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.276965,
+        "wall": 19833.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 19834.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 19834.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 20053.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 20073
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 20073.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.001238,
+        "wall": 20073.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.00127,
+        "wall": 20073.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.358414,
+        "wall": 20577.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.358461,
+        "wall": 20577.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.021333,
+        "wall": 20580.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.021333,
+        "wall": 20580.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 20809.5
+      },
+      {
+        "type": "play",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 20809.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 20810.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_forest",
+        "time": 0.329823,
+        "wall": 21280.70000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.006483,
+        "wall": 21281.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.006542,
+        "wall": 21281.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 21532.10000000149
+      },
+      {
+        "type": "play",
+        "name": "boss_forest",
+        "time": 0,
+        "wall": 21532.20000000298
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 21532.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.018486,
+        "wall": 21534.5
+      },
+      {
+        "type": "playing",
+        "name": "boss_forest",
+        "time": 0.018514,
+        "wall": 21534.5
+      },
+      {
+        "type": "pause",
+        "name": "boss_forest",
+        "time": 0.285539,
+        "wall": 21902.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.285773,
+        "wall": 21902.10000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 21902.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 21902.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 22202.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_rock",
+        "time": 0,
+        "wall": 22202.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_rock",
+        "time": 0.018368,
+        "wall": 22207.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_rock",
+        "time": 0.273157,
+        "wall": 22524.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 22524.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 22525.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 22791.20000000298
+      },
+      {
+        "type": "play",
+        "name": "boss_rock",
+        "time": 0,
+        "wall": 22791.20000000298
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 22791.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "boss_rock",
+        "time": 0.013563,
+        "wall": 22792.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.015153,
+        "wall": 22794.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "boss_rock",
+        "time": 0.265358,
+        "wall": 23123.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.265523,
+        "wall": 23123.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 23123.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 23123.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 23327.20000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_sea",
+        "time": 0,
+        "wall": 23327.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_sea",
+        "time": 0.000557,
+        "wall": 23327.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_sea",
+        "time": 0.494142,
+        "wall": 23914.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 23915.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000598,
+        "wall": 23916.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 24241.60000000149
+      },
+      {
+        "type": "play",
+        "name": "boss_sea",
+        "time": 0,
+        "wall": 24241.60000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 24277.5
+      },
+      {
+        "type": "playing",
+        "name": "boss_sea",
+        "time": 0.003805,
+        "wall": 24278.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.003838,
+        "wall": 24278.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_sea",
+        "time": 0.355625,
+        "wall": 24699.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.356735,
+        "wall": 24699.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 24700.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 24703.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 25004.10000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_desert",
+        "time": 0,
+        "wall": 25004.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_desert",
+        "time": 0.006154,
+        "wall": 25005.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "stage_desert",
+        "time": 0.373768,
+        "wall": 25514.20000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 25514.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000389,
+        "wall": 25515.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 26073.800000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_desert",
+        "time": 0,
+        "wall": 26073.900000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 26073.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "boss_desert",
+        "time": 0.015566,
+        "wall": 26106.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.015632,
+        "wall": 26106.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_desert",
+        "time": 0.474422,
+        "wall": 26695.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.474796,
+        "wall": 26695.5
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.013256,
+        "wall": 26700.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.01407,
+        "wall": 26701.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 27078.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 27078.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_forest",
+        "time": 0.009321,
+        "wall": 27084.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_forest",
+        "time": 0.386749,
+        "wall": 27517.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 27519
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000319,
+        "wall": 27519.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 27929
+      },
+      {
+        "type": "play",
+        "name": "boss_forest",
+        "time": 0,
+        "wall": 27930
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 27931.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "boss_forest",
+        "time": 0.092873,
+        "wall": 27972.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.092947,
+        "wall": 27972.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_forest",
+        "time": 0.449648,
+        "wall": 28384.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.449718,
+        "wall": 28384.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 28385.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 28387.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 28737.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_volcano",
+        "time": 0,
+        "wall": 28737.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_volcano",
+        "time": 0.002597,
+        "wall": 28792.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "stage_volcano",
+        "time": 0.247129,
+        "wall": 29140.10000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 29140.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000407,
+        "wall": 29141.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 29402.900000002235
+      },
+      {
+        "type": "play",
+        "name": "boss_volcano",
+        "time": 0,
+        "wall": 29403.10000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 29403.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.022835,
+        "wall": 29410.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_volcano",
+        "time": 0.000144,
+        "wall": 29411.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_volcano",
+        "time": 0.287432,
+        "wall": 29839.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.333925,
+        "wall": 29839.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 29840.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 29843
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 30134.60000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 30134.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.010963,
+        "wall": 30141.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.326235,
+        "wall": 30572.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 30573.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 30573.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 30893
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 30893.10000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0.013822,
+        "wall": 30896.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.013389,
+        "wall": 30897.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.013822,
+        "wall": 30897.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.353675,
+        "wall": 31390.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.383371,
+        "wall": 31390.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.009132,
+        "wall": 31394.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.012787,
+        "wall": 31395.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 31714.10000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 31715.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_forest",
+        "time": 0.0095,
+        "wall": 31719.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_forest",
+        "time": 0.34289,
+        "wall": 32174.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.000805,
+        "wall": 32175.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.004163,
+        "wall": 32178.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 32597.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_forest",
+        "time": 0,
+        "wall": 32597.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 32597.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_forest",
+        "time": 0.009406,
+        "wall": 32601.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.009459,
+        "wall": 32601.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "boss_forest",
+        "time": 0.353595,
+        "wall": 33093.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.35375,
+        "wall": 33093.70000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 33097.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 33097.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 33383.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 33386
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.01025,
+        "wall": 33391.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.001301,
+        "wall": 33575.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.272922,
+        "wall": 33979.5
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.00261,
+        "wall": 33989.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.006425,
+        "wall": 33992.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 34342.10000000149
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 34342.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 34342.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.010379,
+        "wall": 34343.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.010425,
+        "wall": 34343.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 34529.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.293324,
+        "wall": 34994.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.479652,
+        "wall": 34995
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.010734,
+        "wall": 34997.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.011487,
+        "wall": 34998
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 35394.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 35395.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 35397.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 35711
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 35712.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 35739.70000000298
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0.013439,
+        "wall": 35740
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.01396,
+        "wall": 35783.900000002235
+      },
+      {
+        "type": "play",
+        "name": "appear",
+        "time": 0,
+        "wall": 36581.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "appear",
+        "time": 0,
+        "wall": 36581.5
+      },
+      {
+        "type": "play",
+        "name": "defeat",
+        "time": 0,
+        "wall": 37018.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "defeat",
+        "time": 0,
+        "wall": 37021.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 1.353729,
+        "wall": 37193.900000002235
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 1.353729,
+        "wall": 37195.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 1.353729,
+        "wall": 37195.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 1.841849,
+        "wall": 37690
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 1.842727,
+        "wall": 37690
+      },
+      {
+        "type": "pause",
+        "name": "appear",
+        "time": 1.007631,
+        "wall": 37698.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "defeat",
+        "time": 0.566518,
+        "wall": 37698.800000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 40692.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 40693.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0.190288,
+        "wall": 40976.20000000298
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 41106.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 41107.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.283953,
+        "wall": 41485.70000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 41590
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 41592.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 41906.800000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 41906.900000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 41907.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.002219,
+        "wall": 41908.5
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.002424,
+        "wall": 41908.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.085446,
+        "wall": 42058.5
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0.087816,
+        "wall": 42060.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.087851,
+        "wall": 42060.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.368618,
+        "wall": 42355.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.368961,
+        "wall": 42355.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.010231,
+        "wall": 42356.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.010376,
+        "wall": 42356.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 42507.400000002235
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 42507.60000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 42508
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.002678,
+        "wall": 42509.5
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.002723,
+        "wall": 42509.5
+      },
+      {
+        "type": "play",
+        "name": "defeat",
+        "time": 0,
+        "wall": 42681
+      },
+      {
+        "type": "playing",
+        "name": "defeat",
+        "time": 0,
+        "wall": 42683.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 42691.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 42692
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 42692.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.558202,
+        "wall": 43375.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.744066,
+        "wall": 43375.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "defeat",
+        "time": 0.558335,
+        "wall": 43375.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.021333,
+        "wall": 43380.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.021333,
+        "wall": 43381.400000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 43715.300000000745
+      },
+      {
+        "type": "play",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 43716.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_forest",
+        "time": 0.004335,
+        "wall": 43719.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_forest",
+        "time": 0,
+        "wall": 43911.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_volcano",
+        "time": 0,
+        "wall": 43915.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_volcano",
+        "time": 0,
+        "wall": 43916.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_volcano",
+        "time": 0,
+        "wall": 44108.70000000298
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 44108.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 44111.5
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.27649,
+        "wall": 44494.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 44495
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 44495.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 44700.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 44700.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 44701.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.325698,
+        "wall": 45134.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.013219,
+        "wall": 45134.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.013866,
+        "wall": 45135.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 45624.60000000149
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0.008029,
+        "wall": 45627.400000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 45627.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.010863,
+        "wall": 45630.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.010917,
+        "wall": 45630.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.412939,
+        "wall": 46139.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.390091,
+        "wall": 46139.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 46140.400000002235
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000283,
+        "wall": 46187.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 46629.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 46630
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 46631.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.268364,
+        "wall": 47073.10000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.000854,
+        "wall": 47073.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.000916,
+        "wall": 47073.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 47590.10000000149
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 47590.300000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 47592
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.018433,
+        "wall": 47610.5
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.018482,
+        "wall": 47610.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.42732,
+        "wall": 48219.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.428275,
+        "wall": 48219.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.008622,
+        "wall": 48227
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.00912,
+        "wall": 48227.5
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 48712.60000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 48712.70000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.004361,
+        "wall": 48713.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.334411,
+        "wall": 49191.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.006346,
+        "wall": 49200.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.020737,
+        "wall": 49215.10000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 49696.900000002235
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 49697.400000002235
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 49697.5
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.016841,
+        "wall": 49700.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.016873,
+        "wall": 49700.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.354551,
+        "wall": 50105.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.354639,
+        "wall": 50105.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 50108
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 50110.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 50531.10000000149
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 50531.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 50534.70000000298
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.275184,
+        "wall": 50930.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.008193,
+        "wall": 50930.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.008442,
+        "wall": 50930.900000002235
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 51312
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 51312.20000000298
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 51312.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.00448,
+        "wall": 51312.900000002235
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.004508,
+        "wall": 51313
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.338452,
+        "wall": 51726.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.338556,
+        "wall": 51726.300000000745
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 51726.5
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 51727
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 52139.400000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 52139.5
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 52142.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.296207,
+        "wall": 52531.70000000298
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.009513,
+        "wall": 52532.10000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.009661,
+        "wall": 52532.20000000298
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 53023.300000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 53023.800000000745
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 53024.20000000298
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0.017701,
+        "wall": 53026
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0.017947,
+        "wall": 53026
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.341061,
+        "wall": 53433.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.341199,
+        "wall": 53433.60000000149
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 53433.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 53434.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 53873.900000002235
+      },
+      {
+        "type": "play",
+        "name": "stage_storm",
+        "time": 0,
+        "wall": 53874
+      },
+      {
+        "type": "playing",
+        "name": "stage_storm",
+        "time": 0.02322,
+        "wall": 53875.300000000745
+      },
+      {
+        "type": "pause",
+        "name": "stage_storm",
+        "time": 0.337802,
+        "wall": 54283.400000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0.009008,
+        "wall": 54284.300000000745
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0.009453,
+        "wall": 54284.60000000149
+      },
+      {
+        "type": "pause",
+        "name": "selection",
+        "time": 0,
+        "wall": 54785.800000000745
+      },
+      {
+        "type": "play",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 54786.60000000149
+      },
+      {
+        "type": "play",
+        "name": "warning",
+        "time": 0,
+        "wall": 54786.800000000745
+      },
+      {
+        "type": "playing",
+        "name": "boss_storm",
+        "time": 0,
+        "wall": 54787
+      },
+      {
+        "type": "playing",
+        "name": "warning",
+        "time": 0,
+        "wall": 54787
+      },
+      {
+        "type": "pause",
+        "name": "boss_storm",
+        "time": 0.303637,
+        "wall": 55197.800000000745
+      },
+      {
+        "type": "pause",
+        "name": "warning",
+        "time": 0.303681,
+        "wall": 55197.900000002235
+      },
+      {
+        "type": "play",
+        "name": "selection",
+        "time": 0,
+        "wall": 55198.60000000149
+      },
+      {
+        "type": "playing",
+        "name": "selection",
+        "time": 0,
+        "wall": 55200.70000000298
+      }
+    ],
+    "attempts": [
+      {
+        "name": "selection",
+        "time": 2531
+      },
+      {
+        "name": "boss_storm",
+        "time": 3146.60000000149
+      },
+      {
+        "name": "warning",
+        "time": 3151.5
+      },
+      {
+        "name": "selection",
+        "time": 3513
+      },
+      {
+        "name": "stage_storm",
+        "time": 4149.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 4446.900000002235
+      },
+      {
+        "name": "stage_storm",
+        "time": 4593.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 4897.20000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 5044
+      },
+      {
+        "name": "selection",
+        "time": 5345.300000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 5509.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 5815.300000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 5979.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 6985.900000002235
+      },
+      {
+        "name": "boss_storm",
+        "time": 7228.900000002235
+      },
+      {
+        "name": "warning",
+        "time": 7230.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 7939.60000000149
+      },
+      {
+        "name": "stage_storm",
+        "time": 8391.5
+      },
+      {
+        "name": "selection",
+        "time": 8891.900000002235
+      },
+      {
+        "name": "boss_storm",
+        "time": 9230
+      },
+      {
+        "name": "warning",
+        "time": 9231.70000000298
+      },
+      {
+        "name": "selection",
+        "time": 9784.70000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 10102.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 10595.5
+      },
+      {
+        "name": "boss_storm",
+        "time": 10845.10000000149
+      },
+      {
+        "name": "warning",
+        "time": 10847.60000000149
+      },
+      {
+        "name": "selection",
+        "time": 11232.800000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 11589.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 12290.300000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 12501.900000002235
+      },
+      {
+        "name": "warning",
+        "time": 12504.800000000745
+      },
+      {
+        "name": "selection",
+        "time": 13297
+      },
+      {
+        "name": "stage_storm",
+        "time": 13673.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 14101.10000000149
+      },
+      {
+        "name": "boss_storm",
+        "time": 14406.60000000149
+      },
+      {
+        "name": "warning",
+        "time": 14408.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 14804.70000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 15135.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 15495.900000002235
+      },
+      {
+        "name": "boss_storm",
+        "time": 15785.400000002235
+      },
+      {
+        "name": "warning",
+        "time": 15788.800000000745
+      },
+      {
+        "name": "selection",
+        "time": 16223.70000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 16532.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 17081.300000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 17382
+      },
+      {
+        "name": "warning",
+        "time": 17384.70000000298
+      },
+      {
+        "name": "selection",
+        "time": 17931.800000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 18232.5
+      },
+      {
+        "name": "selection",
+        "time": 18583.800000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 18794.900000002235
+      },
+      {
+        "name": "warning",
+        "time": 18796.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 19186.300000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 19406.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 19829.70000000298
+      },
+      {
+        "name": "boss_storm",
+        "time": 20034
+      },
+      {
+        "name": "warning",
+        "time": 20039.10000000149
+      },
+      {
+        "name": "selection",
+        "time": 20529.900000002235
+      },
+      {
+        "name": "stage_forest",
+        "time": 20799.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 21254.60000000149
+      },
+      {
+        "name": "boss_forest",
+        "time": 21512.20000000298
+      },
+      {
+        "name": "warning",
+        "time": 21512.70000000298
+      },
+      {
+        "name": "selection",
+        "time": 21887.300000000745
+      },
+      {
+        "name": "stage_rock",
+        "time": 22173.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 22514.300000000745
+      },
+      {
+        "name": "boss_rock",
+        "time": 22735.400000002235
+      },
+      {
+        "name": "warning",
+        "time": 22740.10000000149
+      },
+      {
+        "name": "selection",
+        "time": 23117
+      },
+      {
+        "name": "stage_sea",
+        "time": 23285.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 23899.900000002235
+      },
+      {
+        "name": "boss_sea",
+        "time": 24220.300000000745
+      },
+      {
+        "name": "warning",
+        "time": 24221.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 24693.70000000298
+      },
+      {
+        "name": "stage_desert",
+        "time": 24983.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 25496.20000000298
+      },
+      {
+        "name": "boss_desert",
+        "time": 25974.300000000745
+      },
+      {
+        "name": "warning",
+        "time": 25974.800000000745
+      },
+      {
+        "name": "selection",
+        "time": 26676.800000000745
+      },
+      {
+        "name": "stage_forest",
+        "time": 26933.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 27502.800000000745
+      },
+      {
+        "name": "boss_forest",
+        "time": 27801
+      },
+      {
+        "name": "warning",
+        "time": 27804.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 28377.70000000298
+      },
+      {
+        "name": "stage_volcano",
+        "time": 28632.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 29130.10000000149
+      },
+      {
+        "name": "boss_volcano",
+        "time": 29348.5
+      },
+      {
+        "name": "warning",
+        "time": 29349.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 29828.800000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 30122.5
+      },
+      {
+        "name": "selection",
+        "time": 30535.5
+      },
+      {
+        "name": "boss_storm",
+        "time": 30829.800000000745
+      },
+      {
+        "name": "warning",
+        "time": 30833.5
+      },
+      {
+        "name": "selection",
+        "time": 31381.300000000745
+      },
+      {
+        "name": "stage_forest",
+        "time": 31616.5
+      },
+      {
+        "name": "selection",
+        "time": 32133.400000002235
+      },
+      {
+        "name": "boss_forest",
+        "time": 32573.300000000745
+      },
+      {
+        "name": "warning",
+        "time": 32574
+      },
+      {
+        "name": "selection",
+        "time": 33089.400000002235
+      },
+      {
+        "name": "stage_storm",
+        "time": 33340.10000000149
+      },
+      {
+        "name": "selection",
+        "time": 33935.60000000149
+      },
+      {
+        "name": "boss_storm",
+        "time": 34328.60000000149
+      },
+      {
+        "name": "warning",
+        "time": 34330.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 34932.5
+      },
+      {
+        "name": "stage_storm",
+        "time": 35383.5
+      },
+      {
+        "name": "warning",
+        "time": 35704.70000000298
+      },
+      {
+        "name": "boss_storm",
+        "time": 35724.60000000149
+      },
+      {
+        "name": "appear",
+        "time": 36577.400000002235
+      },
+      {
+        "name": "",
+        "time": 37014.900000002235
+      },
+      {
+        "name": "defeat",
+        "time": 37015
+      },
+      {
+        "name": "boss_storm",
+        "time": 37195.20000000298
+      },
+      {
+        "name": "selection",
+        "time": 40692.20000000298
+      },
+      {
+        "name": "warning",
+        "time": 41095.10000000149
+      },
+      {
+        "name": "selection",
+        "time": 41581.800000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 41893.800000000745
+      },
+      {
+        "name": "warning",
+        "time": 41896.10000000149
+      },
+      {
+        "name": "boss_storm",
+        "time": 42060.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 42344.10000000149
+      },
+      {
+        "name": "boss_storm",
+        "time": 42493
+      },
+      {
+        "name": "warning",
+        "time": 42495.800000000745
+      },
+      {
+        "name": "",
+        "time": 42675.70000000298
+      },
+      {
+        "name": "defeat",
+        "time": 42677
+      },
+      {
+        "name": "stage_storm",
+        "time": 42687.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 43325.400000002235
+      },
+      {
+        "name": "stage_forest",
+        "time": 43693.20000000298
+      },
+      {
+        "name": "stage_volcano",
+        "time": 43906.70000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 44106.800000000745
+      },
+      {
+        "name": "selection",
+        "time": 44481.900000002235
+      },
+      {
+        "name": "stage_storm",
+        "time": 44693.60000000149
+      },
+      {
+        "name": "selection",
+        "time": 45111.400000002235
+      },
+      {
+        "name": "boss_storm",
+        "time": 45592.900000002235
+      },
+      {
+        "name": "warning",
+        "time": 45598.70000000298
+      },
+      {
+        "name": "selection",
+        "time": 46128.300000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 46617.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 47028.300000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 47500.300000000745
+      },
+      {
+        "name": "warning",
+        "time": 47501.400000002235
+      },
+      {
+        "name": "selection",
+        "time": 48193.20000000298
+      },
+      {
+        "name": "stage_storm",
+        "time": 48701.10000000149
+      },
+      {
+        "name": "selection",
+        "time": 49143.60000000149
+      },
+      {
+        "name": "boss_storm",
+        "time": 49639
+      },
+      {
+        "name": "warning",
+        "time": 49640.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 50094.400000002235
+      },
+      {
+        "name": "stage_storm",
+        "time": 50519.800000000745
+      },
+      {
+        "name": "selection",
+        "time": 50910.800000000745
+      },
+      {
+        "name": "boss_storm",
+        "time": 51292.800000000745
+      },
+      {
+        "name": "warning",
+        "time": 51294.300000000745
+      },
+      {
+        "name": "selection",
+        "time": 51719.800000000745
+      },
+      {
+        "name": "stage_storm",
+        "time": 52131.900000002235
+      },
+      {
+        "name": "selection",
+        "time": 52512.400000002235
+      },
+      {
+        "name": "boss_storm",
+        "time": 52984.900000002235
+      },
+      {
+        "name": "warning",
+        "time": 52989.70000000298
+      },
+      {
+        "name": "selection",
+        "time": 53422
+      },
+      {
+        "name": "stage_storm",
+        "time": 53835
+      },
+      {
+        "name": "selection",
+        "time": 54274
+      },
+      {
+        "name": "boss_storm",
+        "time": 54778.10000000149
+      },
+      {
+        "name": "warning",
+        "time": 54780.5
+      },
+      {
+        "name": "selection",
+        "time": 55190.800000000745
+      }
+    ],
+    "tracks": 17,
+    "maxActive": 1,
+    "overlaps": []
+  },
+  "errors": [],
+  "dialogs": [],
+  "failed_requests": [],
+  "offline_requests": [],
+  "all_passed": true
+}

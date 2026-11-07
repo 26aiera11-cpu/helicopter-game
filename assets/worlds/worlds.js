@@ -8,7 +8,8 @@
     [3,'world-1:desert',0,3,'🏜️ 사막 지역',3,'🦂 사막 전갈왕'],
     [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],
     [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved',4],
-    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘 (시험)',0,'⚡ 폭풍의 지배자 (시험)','storm-sky-approved',5]
+    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘 (시험)',0,'⚡ 폭풍의 지배자 (시험)','storm-sky-approved',5],
+    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',0]
   ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground,musicProfile=profile],idIndex) => Object.freeze({
     id,key,worldId,worldName:`월드 ${worldId+1}`,localIndex,name,
     combatProfile:profile,assetProfile:profile,musicProfile,
@@ -80,26 +81,26 @@
   function clearHeading(result) {
     return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏁 월드 2 시험 완료!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;
   }
-  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원·화산·폭풍 하늘 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
+  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원·화산·폭풍 하늘·기계 요새의 월드 2 시험 구간을 모두 완료했어요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
   function snowImage() { return gameSnowfield.backgroundImage; }
   function installLegacyRegions(data) {
     for(const r of regions){
       if(r.id<4)continue;
-      const art=r.prototypeBackground==='snowfield-approved'?gameSnowfield:r.prototypeBackground==='volcano-approved'?gameVolcano:r.prototypeBackground==='storm-sky-approved'?gameStormSky:null;
+      const art=r.prototypeBackground==='snowfield-approved'?gameSnowfield:r.prototypeBackground==='volcano-approved'?gameVolcano:r.prototypeBackground==='storm-sky-approved'?gameStormSky:r.prototypeBackground==='machine-fortress-approved'?gameMachineFortress:null;
       data.terrainImgs[r.id]=art?art.backgroundImage:data.terrainImgs[r.assetProfile];data.enemySprites[r.id]=art?art.species.filter(s=>s.id!==art.bossId).map(s=>s.baseImage):data.enemySprites[r.assetProfile];data.bossSprites[r.id]=art?art.species.find(s=>s.id===art.bossId).baseImage:data.bossSprites[r.assetProfile];
-      data.tactics[r.id]=data.tactics[r.combatProfile];data.stageNames[r.id]=r.name;data.stageColors[r.id]=r.key==='world-2:storm-sky'?['#10213e','#24547e','#9bdfff']:r.key==='world-2:volcano'?['#422728','#742b23','#f7a025']:['#e3f3fa','#b8d9eb','#7eaaca'];
+      data.tactics[r.id]=data.tactics[r.combatProfile];data.stageNames[r.id]=r.name;data.stageColors[r.id]=r.key==='world-2:machine-fortress'?['#252c36','#454750','#d5ac42']:r.key==='world-2:storm-sky'?['#10213e','#24547e','#9bdfff']:r.key==='world-2:volcano'?['#422728','#742b23','#f7a025']:['#e3f3fa','#b8d9eb','#7eaaca'];
     }
   }
   function syncUI() {
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
     if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 그래픽 시험 · 기본 전투 / BGM 숲 임시 · 전용 공격 미구현':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘, 총 35단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기록은 별도 순위표에 저장합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)</label><p>기본 OFF · 월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계를 시험합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 기본 전투·숲 임시 BGM의 그래픽 시험이며 전용 공격·장벽·폭주 강화는 미구현입니다. 기록은 별도 순위표에 저장합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -109,7 +110,7 @@
       '<label>월드<select id="developerStartWorld" aria-label="테스트 월드"></select></label>'+
       '<label>지역<select id="developerStartRegion" aria-label="테스트 지역"></select></label>'+
       '<label>시작 단계<select id="developerStartPhase" aria-label="테스트 시작 단계"></select></label></fieldset>'+
-      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 월드 2 포함 35단계 시험은 OFF입니다.</p>';
+      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 월드 2 포함 40단계 시험은 OFF입니다.</p>';
     settings.before(dev);devToggle=dev.querySelector('input');devWorld=dev.querySelector('#developerStartWorld');
     devRegion=dev.querySelector('#developerStartRegion');devPhase=dev.querySelector('#developerStartPhase');devFields=dev.querySelector('fieldset');
     for(const w of worlds.filter(w=>regions.some(r=>r.worldId===w.id))){

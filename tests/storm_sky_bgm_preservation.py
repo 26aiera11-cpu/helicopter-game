@@ -3,6 +3,7 @@
 Historical visual/combat guards remove only these six reviewed routing/UI deltas.
 """
 import hashlib
+from machine_fortress_preservation import without_machine_fortress
 import json
 import subprocess
 from pathlib import Path
@@ -12,6 +13,7 @@ BASE='e18c53000ff7412bca352e5bdb3fa887619ed4c9'
 STORM_BGM_ASSETS=set(json.loads((ROOT/'tests/storm_sky_bgm_hashes.json').read_text()))
 
 def without_storm_sky_bgm(source,name):
+    source=without_machine_fortress(source,name)
     for old,new in reversed(json.loads((ROOT/'tests/storm_sky_bgm_changes.json').read_text()).get(name,[])):
         if new in source:
             assert source.count(new)==1,(name,new[:100]);source=source.replace(new,old)

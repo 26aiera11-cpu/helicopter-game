@@ -49,7 +49,7 @@ helpers='''() => {
     const e=enemies[0];if(!e)throw Error('No normal spawn');let shots=0;while(e.hp>0&&shots++<8)devHit(e);if(e.hp>0)throw Error('Normal survived');
    }
    let hpAtSpawn=null;
-   if(before.phase===5){update(0);if(!boss)throw Error('No boss');transition=0;hpAtSpawn=boss.maxHp;let shots=0;while(boss&&shots++<250)devHit(boss);if(boss)throw Error('Boss survived');let outro=0;while((gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)&&outro++<100)update(.04);if(gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)throw Error('Art outro stalled');}
+   if(before.phase===5){update(0);if(!boss)throw Error('No boss');transition=0;hpAtSpawn=boss.maxHp;let shots=0;while(boss&&shots++<250)devHit(boss);if(boss)throw Error('Boss survived');let outro=0;while((gameMachineFortress.snapshot().advancing||gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)&&outro++<100)update(.04);if(gameMachineFortress.snapshot().advancing||gameStormSky.snapshot().advancing||gameVolcano.snapshot().advancing)throw Error('Art outro stalled');}
    waves.push({...before,hpAtSpawn});
    if(started&&stage===before.stage&&phase===before.phase)throw Error('No phase progress');
   }
@@ -86,7 +86,7 @@ try:
   passed('Fresh launch defaults to developerOFF/forest1 without changing any of the4 legacy storage values; Help lists only registered worlds/regions and phases1–5.')
   page.locator('#worldTrialToggle').check();assert page.evaluate('gameWorlds.isTrial()')
   page.locator('#developerStartToggle').check();expect(page.locator('#worldTrialToggle')).not_to_be_checked();expect(page.locator('#worldTrialToggle')).to_be_disabled()
-  expect(page.locator('#developerStartPriority')).to_be_visible();page.locator('#developerStartWorld').select_option('1');assert page.evaluate('[...developerStartRegion.options].map(o=>Number(o.value))')==[4,5,6]
+  expect(page.locator('#developerStartPriority')).to_be_visible();page.locator('#developerStartWorld').select_option('1');assert page.evaluate('[...developerStartRegion.options].map(o=>Number(o.value))')==[4,5,6,7]
   page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'help-snow-boss-915x412.png'))
   page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&boss!==null');state=page.evaluate('devStartState()')
   assert state['stage']==4 and state['phase']==5 and state['score']==0 and state['hp']==state['maxHP']==4 and state['upgrade']==0 and state['boss']['hp']==20
@@ -103,7 +103,7 @@ try:
 
   #75 real spawn/shoot/collision paths, all regions/phases and all three characters.
   page.evaluate('devExitFixture()');matrix=[]
-  for region in range(7):
+  for region in range(8):
    for step in range(1,6):
     for kind in range(3):
      assert page.evaluate('cfg=>gameWorlds.setDeveloperStart(cfg)',{'enabled':True,'regionId':region,'phase':step})
@@ -113,9 +113,9 @@ try:
      assert first['route']['route']==[region] and first['developer']['start']=={'regionId':region,'phase':step}
      assert first['angle']==3.141592653589793 and first['items']==first['enemies']==first['warnings']==0
      assert (first['boss'] is not None)==(step==5)
-     if step==5:assert first['boss']['maxHp']==[20,35,50,65,20,20,20][region] and first['phaseKills']==6
+     if step==5:assert first['boss']['maxHp']==[20,35,50,65,20,20,20,20][region] and first['phaseKills']==6
      else:assert first['phaseKills']==0
-     assert row['firstTrack']==((13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5][region]+(4 if step==5 else 0)),row['firstTrack']
+     assert row['firstTrack']==((13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5,0][region]+(4 if step==5 else 0)),row['firstTrack']
      assert [w['phase'] for w in waves]==list(range(step,6)) and all(w['stage']==region for w in waves) and len(waves)==6-step
      assert not finish['started'] and finish['stage']==region and finish['phase']==5 and '지역 테스트 완료' in finish['heading']
      assert finish['score']==[7000,5900,4800,3700,2000][step-1] and record['bossKills']==1 and record['clearedPhases']==5-step
@@ -126,15 +126,15 @@ try:
      if region==4 and step==5 and kind==0:page.screenshot(path=str(args.artifacts/'developer-complete.png'))
      matrix.append({'region':region,'startPhase':step,'character':kind,**row})
   report['entry_completion_matrix']=matrix
-  passed('All7 regions×5 starting phases×3 characters=105 actual encounter paths start at the exact target and finish at that region boss, with fullHP/upgrade0 and no traversal to other regions.')
-  passed('Direct boss starts spawn20/35/50/65/20/20HP bosses with zero normal kills/cleared-phase bonuses; other starts credit only actual remaining phases, producing7000/5900/4800/3700/2000 points.')
+  passed('All8 regions×5 starting phases×3 characters=120 actual encounter paths start at the exact target and finish at that region boss, with fullHP/upgrade0 and no traversal to other regions.')
+  passed('Direct boss starts spawn20/35/50/65/20/20/20/20HP bosses with zero normal kills/cleared-phase bonuses; other starts credit only actual remaining phases, producing7000/5900/4800/3700/2000 points.')
   passed('Every matrix start selects the correct native stage/boss Audio target first, including forest-profile snow; no brief forest start is inserted for rock/sea/desert or direct bosses.')
   assert page.evaluate('devStorageSnapshot()')==initial_storage and page.evaluate('devWrites.length')==0
   assert page.evaluate('gameScoring.getTop().map(r=>r.id)')==['old-normal'] and page.evaluate('gameScoring.getHistory().map(r=>r.id)')==['old-normal']
   page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('!gameWorlds.developerSnapshot().enabled&&gameScoring.getTop().map(r=>r.id).join()==="old-trial"&&gameScoring.getHistory().map(r=>r.id).join()==="old-trial"')
   page.evaluate('gameWorlds.setDeveloperStart({enabled:true,regionId:4,phase:5})')
   assert page.evaluate('devStorageSnapshot()')==initial_storage and page.evaluate('devWrites.length')==0
-  passed('After90 clears, all4 persistent record strings are byte-identical with0 storage writes; normal/trial TOP10 and memory/history caches contain only their original valid records.')
+  passed('After120 clears, all4 persistent record strings are byte-identical with0 storage writes; normal/trial TOP10 and memory/history caches contain only their original valid records.')
 
   # Native death, exit, forced restart and duplicate finish cannot leak analytics.
   page.locator('#startSelected').tap();page.evaluate('spawn=999;transition=0;hp=0;update(0)')
@@ -168,16 +168,16 @@ try:
 
   # Verify real playback, not only requests, for all native scene choices.
   audio_rows=[]
-  for region in range(7):
+  for region in range(8):
    for step in [1,5]:
     page.evaluate('cfg=>gameWorlds.setDeveloperStart(cfg)',{'enabled':True,'regionId':region,'phase':step});page.locator('#startSelected').tap();page.evaluate('spawn=999;invuln=999')
-    index=(13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5][region]+(4 if step==5 else 0)
+    index=(13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else [0,1,2,3,0,4,5,0][region]+(4 if step==5 else 0)
     page.wait_for_function('index=>!devAudio[index].paused&&devAudio[index].currentTime>.02&&selectionBgm.paused&&devAudio.filter(a=>a.loop&&!a.paused).length===1',arg=index)
     before=page.evaluate('index=>devAudio[index].currentTime',index);page.wait_for_timeout(120);after=page.evaluate('index=>devAudio[index].currentTime',index);assert after>before
     audio_rows.append({'region':region,'phase':step,'audio_index':index,'before':before,'after':after})
     page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
   report['native_entry_audio']=audio_rows
-  passed('All7 regions normal/direct-boss starts play the expected native BGM with increasing currentTime, selection paused and exactly one looping track.')
+  passed('All8 regions normal/direct-boss starts play the expected native BGM with increasing currentTime, selection paused and exactly one looping track.')
 
   # Existing music setting remains authoritative for both encounter kinds.
   page.locator('#musicToggle').tap()
@@ -213,11 +213,11 @@ try:
   # Normal/trial paths are also covered by the retained complete-world regression.
   page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3"&&!gameWorlds.isDeveloperRun()')
   page.evaluate('spawn=999;invuln=999;stage=3;phase=5;nextPhase()');normal=page.evaluate('gameScoring.getLastResult()');assert normal['saved'] and not normal.get('developerTest',False)
-  page.wait_for_function('!menu.classList.contains("hidden")');page.evaluate('gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6"&&!gameWorlds.isDeveloperRun()')
-  page.evaluate('spawn=999;invuln=999;stage=6;phase=5;nextPhase()');trial=page.evaluate('gameScoring.getLastResult()');assert trial['saved'] and trial['record']['trialMode'] and not trial.get('developerTest',False)
+  page.wait_for_function('!menu.classList.contains("hidden")');page.evaluate('gameWorlds.setTrialEnabled(true)');page.locator('#startSelected').tap();assert page.evaluate('stage===0&&phase===1&&gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6,7"&&!gameWorlds.isDeveloperRun()')
+  page.evaluate('spawn=999;invuln=999;stage=7;phase=5;nextPhase()');trial=page.evaluate('gameScoring.getLastResult()');assert trial['saved'] and trial['record']['trialMode'] and not trial.get('developerTest',False)
   assert page.evaluate('JSON.parse(localStorage.getItem("heliTrio.top10.v1")).records.some(r=>r.id==="old-normal")&&JSON.parse(localStorage.getItem("heliTrio.world2Trial.top10.v1")).records.some(r=>r.id==="old-trial")')
   assert page.evaluate('devStorageKeys.every(key=>JSON.parse(localStorage.getItem(key)).records.every(row=>!row.developerTest&&row.order>0))')
-  passed('Turning developerOFF restores the unchanged20-phase normal and35-phase world2-trial routes; their legitimate results still save to their original distinct stores without losing prior records.')
+  passed('Turning developerOFF restores the unchanged20-phase normal and40-phase world2-trial routes; their legitimate results still save to their original distinct stores without losing prior records.')
 
   # Simulate a later registered world/region with a deliberately non-index ID.
   worlds_js=(ROOT/'assets/worlds/worlds.js').read_text();needle="    [4,'world-2:snowfield'";assert worlds_js.count(needle)==1

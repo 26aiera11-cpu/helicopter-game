@@ -1,0 +1,30 @@
+[
+  {
+    "suite": "machine_fortress-offline",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 61.22,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/machine_fortress.py",
+      "--artifacts",
+      "/tmp/machine-tests/serial-recheck/machine_fortress-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "worlds-offline",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 16,
+    "seconds": 117.56,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/machine-tests/serial-recheck/worlds-offline",
+      "--standalone"
+    ]
+  }
+]

@@ -1,0 +1,131 @@
+{
+  "assets/worlds/worlds.js": [
+    [
+      "'storm-sky-approved',5]\n",
+      "'storm-sky-approved',5],\n    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',0]\n",
+      1
+    ],
+    [
+      "설원·화산·폭풍 하늘 시험 구간을 완료했어요. 이후 지역은 아직 제공하지 않아요.",
+      "설원·화산·폭풍 하늘·기계 요새의 월드 2 시험 구간을 모두 완료했어요.",
+      1
+    ],
+    [
+      "r.prototypeBackground==='storm-sky-approved'?gameStormSky:null",
+      "r.prototypeBackground==='storm-sky-approved'?gameStormSky:r.prototypeBackground==='machine-fortress-approved'?gameMachineFortress:null",
+      1
+    ],
+    [
+      "r.key==='world-2:storm-sky'?['#10213e'",
+      "r.key==='world-2:machine-fortress'?['#252c36','#454750','#d5ac42']:r.key==='world-2:storm-sky'?['#10213e'",
+      1
+    ],
+    [
+      "notice.textContent=region(stage).key==='world-2:storm-sky'?",
+      "notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 그래픽 시험 · 기본 전투 / BGM 숲 임시 · 전용 공격 미구현':region(stage).key==='world-2:storm-sky'?",
+      1
+    ],
+    [
+      "월드 2 시험 모드 (설원→화산→폭풍 하늘)",
+      "월드 2 시험 모드 (설원→화산→폭풍 하늘→기계 요새)",
+      1
+    ],
+    [
+      "월드 1 다음 설원→화산→폭풍 하늘, 총 35단계",
+      "월드 1 다음 설원→화산→폭풍 하늘→기계 요새, 총 40단계",
+      1
+    ],
+    [
+      "폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다.",
+      "폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 기본 전투·숲 임시 BGM의 그래픽 시험이며 전용 공격·장벽·폭주 강화는 미구현입니다.",
+      1
+    ],
+    [
+      "월드 2 포함 35단계 시험은 OFF",
+      "월드 2 포함 40단계 시험은 OFF",
+      1
+    ]
+  ],
+  "index.html": [
+    [
+      "<script src=\"assets/worlds/worlds.js\"></script>",
+      "<template id=\"machineFortressManifest\">{\n  \"version\": \"v1-review\",\n  \"status\": \"game-art-preparation; NOT integrated into game\",\n  \"visual_style\": \"top-down chibi industrial steampunk sci-fi\",\n  \"original_background_dimensions\": [\n    1672,\n    941\n  ],\n  \"background_render\": \"contain preserving aspect ratio; never stretch or crop without user approval\",\n  \"electromagnetic_wall\": {\n    \"size_ratio_screen_height\": 0.75,\n    \"safe_area_ratio_screen_height\": 0.25,\n    \"safe_area_alignment\": [\n      \"top\",\n      \"bottom\"\n    ],\n    \"spawn_side\": [\n      \"left\",\n      \"right\"\n    ],\n    \"random_combinations\": 4,\n    \"warning_seconds_trial\": 1.2,\n    \"travel_seconds_trial\": 3.0,\n    \"warning_final\": \"Do not draw green safe-zone overlay; reveal the existing background.\"\n  },\n  \"files\": [\n    {\n      \"path\": \"enemies/screw_bot.png\",\n      \"dimensions\": [\n        168,\n        153\n      ],\n      \"source_rect\": [\n        488,\n        10,\n        676,\n        193\n      ],\n      \"sha256\": \"cb568949232dd355cd6f7ce2ae0570e25c5e4b6b28c2d4e731b210e42db10ecc\",\n      \"bytes\": 44896,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"enemies/gear_wasp.png\",\n      \"dimensions\": [\n        229,\n        162\n      ],\n      \"source_rect\": [\n        674,\n        0,\n        925,\n        193\n      ],\n      \"sha256\": \"b76e6b057d86e4f0ba9ae7c12a3003fea6723e2a1be217c1026a93cc0a9536cc\",\n      \"bytes\": 66752,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"enemies/laser_drone.png\",\n      \"dimensions\": [\n        185,\n        167\n      ],\n      \"source_rect\": [\n        910,\n        0,\n        1127,\n        194\n      ],\n      \"sha256\": \"c097d673706ac7106e681276810760f159d02307d5f0bafd77b51207ab4395f9\",\n      \"bytes\": 46245,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"enemies/armored_turret.png\",\n      \"dimensions\": [\n        168,\n        173\n      ],\n      \"source_rect\": [\n        1130,\n        0,\n        1327,\n        190\n      ],\n      \"sha256\": \"66714522923538a51d5d50de65c237119cfa4ca728f7439b289145d4bae36e6e\",\n      \"bytes\": 59682,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"boss/giga_core_normal.png\",\n      \"dimensions\": [\n        402,\n        322\n      ],\n      \"source_rect\": [\n        497,\n        194,\n        925,\n        536\n      ],\n      \"sha256\": \"0e578ae3aa777c98c1562deed9ceac931b91e5c4330c17c536e9455c9e6b24df\",\n      \"bytes\": 262419,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"boss/giga_core_overdrive.png\",\n      \"dimensions\": [\n        394,\n        322\n      ],\n      \"source_rect\": [\n        922,\n        194,\n        1334,\n        538\n      ],\n      \"sha256\": \"5c762879b84bd03992654e2be03ebb94e4d2ca3a5207cbe8b3ecf7119165c6d6\",\n      \"bytes\": 259723,\n      \"alpha_minmax\": [\n        0,\n        255\n      ]\n    },\n    {\n      \"path\": \"effects/electromagnetic_wall.png\",\n      \"dimensions\": [\n        160,\n        313\n      ],\n      \"source_rect\": [\n        0,\n        507,\n        192,\n        860\n      ],\n      \"sha256\": \"7e6ceb82ad9bcaecc67b795309cb4bda6b56abd4c0eb21be80fa1fa057370627\",\n      \"bytes\": 87407,\n      \"alpha_minmax\": [\n        0,\n        253\n      ]\n    },\n    {\n      \"path\": \"effects/electromagnetic_warning.png\",\n      \"dimensions\": [\n        117,\n        298\n      ],\n      \"source_rect\": [\n        589,\n        534,\n        757,\n        848\n      ],\n      \"sha256\": \"d98b3add6d6071d6706e78bfc150f8d9d25236e032c6948c5dc3985f5b1201fc\",\n      \"bytes\": 59632,\n      \"alpha_minmax\": [\n        0,\n        247\n      ]\n    },\n    {\n      \"path\": \"effects/electromagnetic_wall_dim.png\",\n      \"dimensions\": [\n        132,\n        303\n      ],\n      \"source_rect\": [\n        191,\n        508,\n        346,\n        856\n      ],\n      \"sha256\": \"230d0316c65cc84653d91300eb95f26fa72c98e044aee07c3e67b57be033c921\",\n      \"bytes\": 70650,\n      \"alpha_minmax\": [\n        0,\n        243\n      ]\n    },\n    {\n      \"path\": \"effects/electromagnetic_wall_motion.png\",\n      \"dimensions\": [\n        210,\n        301\n      ],\n      \"source_rect\": [\n        344,\n        510,\n        559,\n        853\n      ],\n      \"sha256\": \"3af40a3a5219c3eb34c16d39d9cae5b577deacc40222b87609bc130990bd12bc\",\n      \"bytes\": 105095,\n      \"alpha_minmax\": [\n        0,\n        253\n      ]\n    }\n  ]\n}</template>\n<img id=\"machineFortressBackground\" src=\"assets/machine_fortress/background/machine_fortress_background_approved.png\" alt=\"\" hidden>\n<img id=\"machine-enemies-screw_bot\" src=\"assets/machine_fortress/enemies/screw_bot.png\" alt=\"\" hidden>\n<img id=\"machine-enemies-gear_wasp\" src=\"assets/machine_fortress/enemies/gear_wasp.png\" alt=\"\" hidden>\n<img id=\"machine-enemies-laser_drone\" src=\"assets/machine_fortress/enemies/laser_drone.png\" alt=\"\" hidden>\n<img id=\"machine-enemies-armored_turret\" src=\"assets/machine_fortress/enemies/armored_turret.png\" alt=\"\" hidden>\n<img id=\"machine-boss-giga_core_normal\" src=\"assets/machine_fortress/boss/giga_core_normal.png\" alt=\"\" hidden>\n<img id=\"machine-boss-giga_core_overdrive\" src=\"assets/machine_fortress/boss/giga_core_overdrive.png\" alt=\"\" hidden>\n<img id=\"machine-effects-electromagnetic_wall\" src=\"assets/machine_fortress/effects/electromagnetic_wall.png\" alt=\"\" hidden>\n<img id=\"machine-effects-electromagnetic_warning\" src=\"assets/machine_fortress/effects/electromagnetic_warning.png\" alt=\"\" hidden>\n<img id=\"machine-effects-electromagnetic_wall_dim\" src=\"assets/machine_fortress/effects/electromagnetic_wall_dim.png\" alt=\"\" hidden>\n<img id=\"machine-effects-electromagnetic_wall_motion\" src=\"assets/machine_fortress/effects/electromagnetic_wall_motion.png\" alt=\"\" hidden>\n<script src=\"assets/worlds/worlds.js\"></script>",
+      1
+    ],
+    [
+      "<script src=\"assets/item_monster/item_monster.js\"></script>",
+      "<script src=\"assets/machine_fortress/machine_fortress.js\"></script><script src=\"assets/item_monster/item_monster.js\"></script>",
+      1
+    ],
+    [
+      "gameStormSky.reset();",
+      "gameMachineFortress.reset();gameStormSky.reset();",
+      4
+    ],
+    [
+      "function emitEnemyShot(e,spread=0){gameStormSky.attack",
+      "function emitEnemyShot(e,spread=0){gameMachineFortress.attack(e,e===boss);gameStormSky.attack",
+      1
+    ],
+    [
+      "if(gameStormSky.tickAdvance(dt)||",
+      "if(gameMachineFortress.tickAdvance(dt)||gameStormSky.tickAdvance(dt)||",
+      1
+    ],
+    [
+      " gameStormSky.tick(dt);",
+      " gameMachineFortress.tick(dt);gameStormSky.tick(dt);",
+      1
+    ],
+    [
+      "gameStormSky.hit(e);",
+      "gameMachineFortress.hit(e);gameStormSky.hit(e);",
+      1
+    ],
+    [
+      "gameStormSky.hit(other);",
+      "gameMachineFortress.hit(other);gameStormSky.hit(other);",
+      1
+    ],
+    [
+      "gameStormSky.hit(boss,true);",
+      "gameMachineFortress.hit(boss,true);gameStormSky.hit(boss,true);",
+      1
+    ],
+    [
+      "if(gameStormSky.deferAdvance(nextPhase)||",
+      "if(gameMachineFortress.deferAdvance(nextPhase)||gameStormSky.deferAdvance(nextPhase)||",
+      1
+    ],
+    [
+      " gameStormSky.observe(enemies,boss);",
+      " gameMachineFortress.observe(enemies,boss);gameStormSky.observe(enemies,boss);",
+      1
+    ],
+    [
+      "if(!gameStormSky.drawBackground(ctx,W,H)&&",
+      "if(!gameMachineFortress.drawBackground(ctx,W,H)&&!gameStormSky.drawBackground(ctx,W,H)&&",
+      1
+    ],
+    [
+      "if(gameStormSky.drawActor(ctx,e)||",
+      "if(gameMachineFortress.drawActor(ctx,e)||gameStormSky.drawActor(ctx,e)||",
+      1
+    ],
+    [
+      "if(!gameStormSky.drawActor(ctx,boss,true)&&",
+      "if(!gameMachineFortress.drawActor(ctx,boss,true)&&!gameStormSky.drawActor(ctx,boss,true)&&",
+      1
+    ],
+    [
+      "gameStormSky.drawDefeats(ctx);",
+      "gameMachineFortress.drawDefeats(ctx);gameStormSky.drawDefeats(ctx);",
+      1
+    ],
+    [
+      "stage===6?'폭풍 하늘 전용 전투 시험'",
+      "stage===7?'기계 요새 기본 전투 · 그래픽 시험':stage===6?'폭풍 하늘 전용 전투 시험'",
+      1
+    ]
+  ]
+}

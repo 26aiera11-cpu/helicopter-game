@@ -1,0 +1,9 @@
+PASS: Exact16 graphics hooks and9 registry/UI deltas invert to653ac83; all other111 existing assets match the baseline, including every audio, image, combat/control/item/score module; all JS parses.
+PASS: All11 supplied PNGs have valid chunk CRC/zlib EOF/IEND/full decode; dimensions/hashes/alpha unchanged. Background1672x941 and source_rect metadata is never misused to crop standalone sprites.
+PASS: Registry adds stable ID7/world2 localIndex3; defaultWorld1 remains20phases; explicit trial8regions/40phases and all5 stage choices use the shared registry with forest combat/music profile0.
+PASS: Trusted Help->World2->MachineFortress5->Start enters GigaCore immediately at original20HP with no normal enemies; UI explicitly labels graphics-only/legacy combat/forest temporary music.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/machine_fortress.py", line 78, in <module>
+    assert row['joystick']['x']==30 and h-row['joystick']['bottom']==22 and row['joystick']['right']<row['fire']['left'] and row['hud']['right']<=row['full']['left']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

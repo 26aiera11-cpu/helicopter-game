@@ -66,7 +66,7 @@ try:
    if args.standalone:context.set_offline(False);target.goto(url+'/offline-origin');external.clear();context.set_offline(True);target.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:target.goto(url+'/helicopter-game/',wait_until='load')
    target.wait_for_function('gameStormSky.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');target.evaluate('vbMusic.attach()');target.evaluate(helpers);target.wait_for_function('vbMusic.tracks.length===17&&vbMusic.tracks.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
-  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5]
+  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5,0]
   if args.standalone:
    html=(ROOT/'dist/heli_trio_galaxy_test.html').read_text()
    for id,name in [('stormSkyStageBgm','storm_sky_stage.wav'),('stormSkyBossBgm','storm_sky_boss.wav')]:
@@ -101,11 +101,11 @@ try:
   report['mobile_matrix']=matrix
   passed('3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.')
   routes=[]
-  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm']):
+  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm','forest']):
    for step in [1,5]:
     start(region,step);routes.append({'region':region,'phase':step,**track(('boss_' if step==5 else 'stage_')+name)});exit_game()
   report['routes']=routes
-  passed('All7 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, and Storm selects profile5 independently of Volcano4.')
+  passed('All8 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, and Storm selects profile5 independently of Volcano4.')
   loops=[]
   for step,id in [(1,'stormSkyStageBgm'),(5,'stormSkyBossBgm')]:
    start(step=step);name='stage_storm' if step==1 else 'boss_storm';track(name)

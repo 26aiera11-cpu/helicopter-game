@@ -1,4 +1,5 @@
 """Issue23: original PCM loops, exclusive native media routing and offline playback."""
+from machine_fortress_preservation import MACHINE_ASSETS,assert_machine_asset
 from storm_sky_preservation import STORM_ASSETS,assert_storm_asset
 from storm_sky_bgm_preservation import STORM_BGM_ASSETS,assert_storm_bgm_asset
 import argparse,base64,hashlib,importlib.util,io,json,re,shutil,subprocess,tempfile,threading,wave
@@ -17,6 +18,7 @@ source=(ROOT/'index.html').read_text();assert without_volcano_bgm(source,'index.
 for path in (ROOT/'assets').rglob('*'):
  if not path.is_file():continue
  name=str(path.relative_to(ROOT))
+ if name in MACHINE_ASSETS:assert_machine_asset(name);continue
  if name in STORM_ASSETS:assert_storm_asset(name);continue
  if name in STORM_BGM_ASSETS:assert_storm_bgm_asset(name);continue
  if name in VOLCANO_BGM_ASSETS:assert_volcano_bgm_asset(name);continue
@@ -77,7 +79,7 @@ try:
    if args.standalone:context.set_offline(False);target.goto(url+'/offline-origin');external.clear();context.set_offline(True);target.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:target.goto(url+'/helicopter-game/',wait_until='load')
    target.wait_for_function('gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');target.evaluate('vbMusic.attach()');target.evaluate(helpers);target.wait_for_function('vbMusic.tracks.length===17&&vbMusic.tracks.every(a=>!a.error&&a.readyState>=2&&a.duration>0)')
-  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5]
+  load(page);assert page.evaluate('vbMusic.active().length===0&&vbMusic.attempts.length===0');assert page.evaluate('gameWorlds.regions.map(r=>r.musicProfile)')==[0,1,2,3,0,4,5,0]
   if args.standalone:
    html=(ROOT/'dist/heli_trio_galaxy_test.html').read_text()
    for id,name in [('volcanoStageBgm','volcano_stage.wav'),('volcanoBossBgm','volcano_boss.wav')]:
@@ -106,11 +108,11 @@ try:
   report['mobile_matrix']=matrix
   passed('3characters x3 landscape sizes x stage/boss=18 actual playback paths advance currentTime with one BGM; original UI, controls and fullscreen remain available.')
   routes=[]
-  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm']):
+  for region,name in enumerate(['forest','rock','sea','desert','forest','volcano','storm','forest']):
    for step in [1,5]:
     start(region,step);routes.append({'region':region,'phase':step,**track(('boss_' if step==5 else 'stage_')+name)});exit_game()
   report['routes']=routes
-  passed('All7 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, while only volcano selects the two new tracks.')
+  passed('All8 region stage/boss choices route correctly: eight original World1 WAVs and forest-profile snow and dedicated storm trial are routed separately, while only volcano selects the two new tracks.')
   loops=[]
   for step,id in [(1,'volcanoStageBgm'),(5,'volcanoBossBgm')]:
    start(step=step);name='stage_volcano' if step==1 else 'boss_volcano';track(name)

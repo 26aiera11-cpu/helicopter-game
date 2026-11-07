@@ -1,0 +1,257 @@
+{
+  "passed": [
+    "Bat holds its warning-time vector through a player side swap and moves exactly155px/s during dash; warning/dash emit no bullets.",
+    "Measured phase2 laser charge and active duration are exactly1/1.2 of phase1; minimum rest1.5s remains enforced.",
+    "Six actual Canvas draw-matrix turbine anchors agree with laser collision/draw origins within0.0001px (Canvas transform rounding) through attack and hit keyframes.",
+    "A deliberate full-arena UI blocker causes wind transport to skip safely with unchangedHP/location, rather than teleport into UI or loop forever.",
+    "Hidden-document update freezes the full active laser lifecycle and all wind/age timers.",
+    "Resize cancels active laser/wind geometry and resumes a safe rest using current UI bounds, with no invisible offscreen damage."
+  ],
+  "bat_dash": {
+    "warning": {
+      "id": "lightning_bat",
+      "mode": "warning",
+      "remaining": 0.5,
+      "age": 2.199999999999995,
+      "shots": 0,
+      "direction": [
+        0.947492278987199,
+        0.31977864415818036
+      ]
+    },
+    "after": {
+      "id": "lightning_bat",
+      "mode": "dash",
+      "remaining": 0.45000000000000084,
+      "age": 2.999999999999991,
+      "shots": 0,
+      "direction": [
+        0.947492278987199,
+        0.31977864415818036
+      ]
+    },
+    "dx": 44.05839097290391,
+    "dy": 14.869706953355376
+  },
+  "phase_rates": [
+    {
+      "phase2": false,
+      "rest": 1.8,
+      "warning": 0.9999989999999962,
+      "beam": 2
+    },
+    {
+      "phase2": true,
+      "rest": 1.5833333333333333,
+      "warning": 0.8333323333333305,
+      "beam": 1.6666666666666667
+    }
+  ],
+  "turbine_origins": [
+    {
+      "points": [
+        {
+          "x": 376.64708754595586,
+          "y": 155.08256710276885
+        },
+        {
+          "x": 491.7941463694853,
+          "y": 155.08256710276885
+        }
+      ],
+      "lasers": [
+        {
+          "x": 376.6470880681161,
+          "y": 155.0825604412015,
+          "endX": 546.4592697058786,
+          "endY": 228.49116325738063,
+          "width": 10
+        },
+        {
+          "x": 491.7941468916455,
+          "y": 155.0825604412015,
+          "endX": 628.8577125170784,
+          "endY": 279.3346388062841,
+          "width": 10
+        }
+      ]
+    },
+    {
+      "points": [
+        {
+          "x": 372.5891433288069,
+          "y": 154.6008020358927
+        },
+        {
+          "x": 495.796502309687,
+          "y": 154.6008020358927
+        }
+      ],
+      "lasers": [
+        {
+          "x": 372.58914689164544,
+          "y": 154.60079573531914,
+          "endX": 542.4013285294079,
+          "endY": 228.00939855149826,
+          "width": 10
+        },
+        {
+          "x": 495.79649983282195,
+          "y": 154.60079573531914,
+          "endX": 632.8600654582549,
+          "endY": 278.8528741004017,
+          "width": 10
+        }
+      ]
+    },
+    {
+      "points": [
+        {
+          "x": 378.7687957012532,
+          "y": 157.30932184573734
+        },
+        {
+          "x": 489.2422701433986,
+          "y": 153.4411706161697
+        }
+      ],
+      "lasers": [
+        {
+          "x": 378.76879497509367,
+          "y": 157.3093150801093,
+          "endX": 548.5809766128561,
+          "endY": 230.7179178962884,
+          "width": 10
+        },
+        {
+          "x": 489.2422718865136,
+          "y": 153.44116376408172,
+          "endX": 626.3058375119466,
+          "endY": 277.69324212916433,
+          "width": 10
+        }
+      ]
+    }
+  ],
+  "no_safe_space": {
+    "hp": 4,
+    "state": {
+      "phase": "rest",
+      "remaining": 1.899,
+      "age": 2.6009999999999938,
+      "last": "tornado",
+      "pattern": null,
+      "sequence": [
+        "tornado"
+      ],
+      "phase2": false,
+      "awakened": false,
+      "awakenCount": 0,
+      "shots": 0,
+      "waves": 0,
+      "damageCalls": 0,
+      "winds": [
+        {
+          "id": 1,
+          "x": 415.3728804486078,
+          "y": 329.59858185988423,
+          "vx": -2.132857640098916,
+          "vy": 33.93303579532889,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 0.7095332866465175
+        },
+        {
+          "id": 2,
+          "x": 714.2874755262403,
+          "y": 138.63675584538186,
+          "vx": 12.467927029502375,
+          "vy": -31.63148424571639,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 0.8842790564159321
+        },
+        {
+          "id": 3,
+          "x": 239.30998470737262,
+          "y": 216.65838647782357,
+          "vx": 30.047348312471783,
+          "vy": -15.910903789194354,
+          "life": 4.999,
+          "t": 0.001,
+          "turn": 1.1802776040613612
+        }
+      ],
+      "windCooldown": 0.3,
+      "teleports": 0,
+      "teleportLog": [],
+      "laserAngle": 0,
+      "lasers": [],
+      "spin": 0,
+      "rects": [
+        {
+          "left": 30,
+          "right": 174,
+          "top": 280,
+          "bottom": 338
+        },
+        {
+          "left": 700,
+          "right": 785,
+          "top": 265,
+          "bottom": 350
+        },
+        {
+          "left": 0,
+          "right": 800,
+          "top": 0,
+          "bottom": 360
+        },
+        {
+          "left": 610,
+          "right": 704,
+          "top": 9,
+          "bottom": 35
+        },
+        {
+          "left": 718.5625,
+          "right": 790,
+          "top": 9,
+          "bottom": 40
+        },
+        {
+          "left": 717.671875,
+          "right": 790,
+          "top": 41,
+          "bottom": 65
+        },
+        {
+          "left": 661.3125,
+          "right": 790,
+          "top": 68,
+          "bottom": 83
+        },
+        {
+          "left": 10,
+          "right": 226.09375,
+          "top": 90,
+          "bottom": 111.5
+        },
+        {
+          "left": 240,
+          "right": 560,
+          "top": 30,
+          "bottom": 68
+        }
+      ]
+    },
+    "x": 415.3750133062479,
+    "y": 329.5646488240889,
+    "expected": {
+      "x": 415.3750133062479,
+      "y": 329.5646488240889
+    }
+  },
+  "all_passed": true,
+  "errors": []
+}

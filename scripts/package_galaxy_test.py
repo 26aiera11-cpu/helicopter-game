@@ -42,6 +42,9 @@ def package():
     for name in ['config','spawns','storm_sky','combat','boss_combat']:
         assert ('id="galaxy-storm-'+name+'-js"').encode() in payload
     assert b'id="stormSkyManifest"' in payload and b'world-2:storm-sky' in payload
+    assert b'id="galaxy-machine-fortress-js"' in payload and b'id="machineFortressManifest"' in payload and b'world-2:machine-fortress' in payload
+    for path in (ROOT/'assets/machine_fortress').rglob('*.png'):
+        assert base64.b64encode(path.read_bytes()) in payload, 'Embed all11 approved Machine Fortress PNGs unchanged'
     manifest=json.loads((ROOT/'assets/storm_sky/asset_manifest.json').read_text())
     for asset in [manifest['background']]+manifest['monsters']:
         assert base64.b64encode((ROOT/'assets/storm_sky'/asset.get('path',asset.get('base'))).read_bytes()) in payload
@@ -61,6 +64,7 @@ def package():
             'encrypted':False,'crc_check':'passed','extracted_html_byte_equality':'passed','volcano_art_included':True,'volcano_normal_combat_included':True,'volcano_mixed_spawns_included':True,'volcano_boss_combat_included':True,'static_breath_sweep_included':True,
             'volcano_stage_and_boss_bgm_embedded':True,'storm_sky_embedded':True,
             'storm_sky_stage_and_boss_bgm_embedded':True,
+            'machine_fortress_11_original_pngs_and_graphics_module_embedded':True,
             'html_unchanged_by_packaging':True,'fullscreen_control_included':True,
             'in_page_exit_dialog_included':True,'selection_bgm_embedded':True,'local_top10_included':True,'independent_item_monsters_included':True,'analog_rotation_controls_included':True,'developer_region_start_included':True,'snowfield_normal_combat_included':True,'snowfield_boss_patterns_included':True,'snowfield_mixed_spawns_included':True,'regional_difficulty_included':True,'ppyoko_name_included':True,'corrected_hel_title_included':True,'approved_snowfield_art_included':True,'opt_in_world2_included':True,'native_exit_confirm_absent':True}
 

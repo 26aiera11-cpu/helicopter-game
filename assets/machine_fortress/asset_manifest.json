@@ -1,0 +1,218 @@
+{
+  "version": "v1-review",
+  "status": "game-art-preparation; NOT integrated into game",
+  "visual_style": "top-down chibi industrial steampunk sci-fi",
+  "original_background_dimensions": [
+    1672,
+    941
+  ],
+  "background_render": "contain preserving aspect ratio; never stretch or crop without user approval",
+  "electromagnetic_wall": {
+    "size_ratio_screen_height": 0.75,
+    "safe_area_ratio_screen_height": 0.25,
+    "safe_area_alignment": [
+      "top",
+      "bottom"
+    ],
+    "spawn_side": [
+      "left",
+      "right"
+    ],
+    "random_combinations": 4,
+    "warning_seconds_trial": 1.2,
+    "travel_seconds_trial": 3.0,
+    "warning_final": "Do not draw green safe-zone overlay; reveal the existing background."
+  },
+  "files": [
+    {
+      "path": "enemies/screw_bot.png",
+      "dimensions": [
+        168,
+        153
+      ],
+      "source_rect": [
+        488,
+        10,
+        676,
+        193
+      ],
+      "sha256": "cb568949232dd355cd6f7ce2ae0570e25c5e4b6b28c2d4e731b210e42db10ecc",
+      "bytes": 44896,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "enemies/gear_wasp.png",
+      "dimensions": [
+        229,
+        162
+      ],
+      "source_rect": [
+        674,
+        0,
+        925,
+        193
+      ],
+      "sha256": "b76e6b057d86e4f0ba9ae7c12a3003fea6723e2a1be217c1026a93cc0a9536cc",
+      "bytes": 66752,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "enemies/laser_drone.png",
+      "dimensions": [
+        185,
+        167
+      ],
+      "source_rect": [
+        910,
+        0,
+        1127,
+        194
+      ],
+      "sha256": "c097d673706ac7106e681276810760f159d02307d5f0bafd77b51207ab4395f9",
+      "bytes": 46245,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "enemies/armored_turret.png",
+      "dimensions": [
+        168,
+        173
+      ],
+      "source_rect": [
+        1130,
+        0,
+        1327,
+        190
+      ],
+      "sha256": "66714522923538a51d5d50de65c237119cfa4ca728f7439b289145d4bae36e6e",
+      "bytes": 59682,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "boss/giga_core_normal.png",
+      "dimensions": [
+        402,
+        322
+      ],
+      "source_rect": [
+        497,
+        194,
+        925,
+        536
+      ],
+      "sha256": "0e578ae3aa777c98c1562deed9ceac931b91e5c4330c17c536e9455c9e6b24df",
+      "bytes": 262419,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "boss/giga_core_overdrive.png",
+      "dimensions": [
+        394,
+        322
+      ],
+      "source_rect": [
+        922,
+        194,
+        1334,
+        538
+      ],
+      "sha256": "5c762879b84bd03992654e2be03ebb94e4d2ca3a5207cbe8b3ecf7119165c6d6",
+      "bytes": 259723,
+      "alpha_minmax": [
+        0,
+        255
+      ]
+    },
+    {
+      "path": "effects/electromagnetic_wall.png",
+      "dimensions": [
+        160,
+        313
+      ],
+      "source_rect": [
+        0,
+        507,
+        192,
+        860
+      ],
+      "sha256": "7e6ceb82ad9bcaecc67b795309cb4bda6b56abd4c0eb21be80fa1fa057370627",
+      "bytes": 87407,
+      "alpha_minmax": [
+        0,
+        253
+      ]
+    },
+    {
+      "path": "effects/electromagnetic_warning.png",
+      "dimensions": [
+        117,
+        298
+      ],
+      "source_rect": [
+        589,
+        534,
+        757,
+        848
+      ],
+      "sha256": "d98b3add6d6071d6706e78bfc150f8d9d25236e032c6948c5dc3985f5b1201fc",
+      "bytes": 59632,
+      "alpha_minmax": [
+        0,
+        247
+      ]
+    },
+    {
+      "path": "effects/electromagnetic_wall_dim.png",
+      "dimensions": [
+        132,
+        303
+      ],
+      "source_rect": [
+        191,
+        508,
+        346,
+        856
+      ],
+      "sha256": "230d0316c65cc84653d91300eb95f26fa72c98e044aee07c3e67b57be033c921",
+      "bytes": 70650,
+      "alpha_minmax": [
+        0,
+        243
+      ]
+    },
+    {
+      "path": "effects/electromagnetic_wall_motion.png",
+      "dimensions": [
+        210,
+        301
+      ],
+      "source_rect": [
+        344,
+        510,
+        559,
+        853
+      ],
+      "sha256": "3af40a3a5219c3eb34c16d39d9cae5b577deacc40222b87609bc130990bd12bc",
+      "bytes": 105095,
+      "alpha_minmax": [
+        0,
+        253
+      ]
+    }
+  ]
+}

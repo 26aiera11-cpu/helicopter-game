@@ -1,0 +1,38 @@
+PASS: Exact approved world hooks reverse to80aee39; all other gameplay, controls, PNG/audio bytes remain identical and every JS script parses.
+PASS: Two worlds register 8 stable regions; World1 IDs0–3 remain unchanged, snow is4, volcano is5, storm is6, fortress is7, and default route is exactly20 phases.
+PASS: Existing Help offers an explicit default-OFF trial checkbox; a start snapshots the40-phase route and rejects mode changes during play.
+PASS: Real desert boss defeat rewards once, heals+2 then region+2 capped at4, enters snow1/5, preserves player/upgrade/items/actors/lifetimes/warning, and keeps fullscreen.
+PASS: Forest0, desert3 and snow4 have independent reservation keys; an old warning materializes against its original quota and snow gets3 distinct phases/kill thresholds.
+PASS: Both unchanged50:50 boss rewards are checked for all3 characters: HP reward precedes region healing; power+1 precedes healing, no extra world/region points.
+PASS: Snow uses approved monster sprites with Issue8 slimeHP1/chase34.238 and the Issue9 delayed3-shot fan with unchanged boss HP/upgrade multipliers, snapshotted once; no fifth-region difficulty scaling.
+PASS: All3 helicopters complete default20 and opt-in40 phases through real warnings/spawns/shots/collisions:28,000 vs56,000,4 vs8 bosses; no undefined future region or duplicate clear credit.
+PASS: Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; default desert still uses the original World1 clear title.
+PASS: Trial TOP10/analysis namespaces are separate, preserve normal storage bytes, retain all3 character results/tie order and store a repeated finish exactly once.
+PASS: Trial leaderboard labels World2/snow and reload preserves fifth-region results; normal launch resets opt-in OFF and displays only original normal scores.
+PASS: Existing version1 records without world fields load as World1 without migrating, converting, discarding or rewriting the original stored record bytes.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/worlds.py", line 213, in <module>
+    load();page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===0')
+    ^^^^^^
+  File "/tmp/storm-background-work/tests/worlds.py", line 100, in load
+    context.set_offline(False);page.goto(url+'offline-world-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
+                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/sync_api/_generated.py", line 9807, in set_content
+    self._sync(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_page.py", line 551, in set_content
+    return await self._main_frame.set_content(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_frame.py", line 508, in set_content
+    await self._channel.send(
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 76, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/playwright/_impl/_connection.py", line 632, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TargetClosedError: Page.set_content: Page crashed
+Call log:
+  - setting frame content, waiting until "load"
+

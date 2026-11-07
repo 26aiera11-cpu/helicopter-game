@@ -1,0 +1,3374 @@
+{
+  "baseline": "615481239202eb773c494476368e8fa02cd46aea",
+  "standalone": false,
+  "passed": [
+    "Exact Issue8 hooks reverse to6154812; all66 prior assets except two reviewed notice strings are byte-identical, including art115frames, boss, input/items/score/audio, and all JS parses.",
+    "Real Help controls enter snow1–4; original1.4s spawn warning precedes the correct species, HP1/2/2/3,r16,Issue11 chase speeds34.238/38.266/30.21/22.154 with no immediate charge or boss.",
+    "All4 species pursue the player at their exact first-trial speeds at60/120Hz; turtle is slowest and animation follows actual movement.",
+    "Actual aimed single shots trigger attack art only on emission:85/85/76.5/85px/s,Issue11 intervals4.902/4.085/5.719/6.1275s,r5; only Yeti shots carry ice color and no status effect.",
+    "Penguin60/120Hz:4.5s grace,.8s warning,1.2s locked dash of1.05H=432.6px,.8s rest and3.7s pursuit before next warning; no shooting/tracking while charging.",
+    "Penguin charge clamps to existing17/18px arena bounds without changing r16; perpendicular displacement during the warning avoids the locked path with no damage or input restriction.",
+    "Yeti ice uses the original r5/life3.4/oneHP hit and1.55s invulnerability path, removes on impact and introduces no freeze/slow player state.",
+    "Existing Tanko bullet/ice-bullet collision annihilates both; Trio/Bingle gain no interception and existing damage/pierce/size/cadence code is untouched.",
+    "All3 characters kill all4 species with exact1/1/1.5 damage, including turtle3HP successive hits; each death gives100/one normal kill, one hit→defeat ghost and no ordinary item or duplicate score.",
+    "All normal-enemy developer entries/attacks/deaths retain the original storage bytes with0 TOP10/analysis writes.",
+    "Reaching ordinary phase5 retains six actual weighted penguin/yeti/turtle kills/600points before the unchanged20HP boss, while direct5 keeps the separate skip behavior.",
+    "Identical seeded native traces match6154812 for all4 World1 normal fights,all4 World1 bosses with exact positions/HP/shot counts/bullet vectors/counters; snow boss retains exact motion/HP/counters with Issue9 attacks tested separately.",
+    "Developer direct5 still skips normal mobs and ends after the original20HP boss with2000 points; snow outro is retained and neither existing TOP10 nor analysis receives the test result.",
+    "Native canvas captures show each species/ice shot/penguin warning with preserved PNG ratios and full cells at915×412,800×360,568×320; original controls/HUD/fullscreen remain.",
+    "Live requestAnimationFrame sample collected during active snow combat; every approved image/atlas is loaded and timing statistics are reported without claiming physical Galaxy FPS.",
+    "No uncaught JavaScript errors,native dialogs,failed resources or offline external requests; prior control/scoring/route suites cover unchanged20/25-phase progress and settings."
+  ],
+  "limits": [
+    "Actual Chromium engine events with controlled coordinates, aim, time and invulnerability; not manual difficulty testing or physical Galaxy/Samsung Internet.",
+    "60/120Hz are deterministic update steps, not a claim of 120Hz hardware rendering.",
+    "Offline uses the exact standalone HTML at a blank localhost origin with networking disabled, without bypassing managed file policy.",
+    "Frame timings describe this Chromium software-rendered environment, not Galaxy performance or audible sound."
+  ],
+  "real_help_entries_and_warning": [
+    {
+      "before": 1,
+      "half": {
+        "warning": 1,
+        "actors": 0
+      },
+      "after": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 4.201999999999999,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.7,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "boss": false
+    },
+    {
+      "before": 1,
+      "half": {
+        "warning": 1,
+        "actors": 0
+      },
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 3.385,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 3.8,
+          "age": 0.7,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "boss": false
+    },
+    {
+      "before": 1,
+      "half": {
+        "warning": 1,
+        "actors": 0
+      },
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 5.018999999999999,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.7,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "boss": false
+    },
+    {
+      "before": 1,
+      "half": {
+        "warning": 1,
+        "actors": 0
+      },
+      "after": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 5.427499999999998,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.7,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "boss": false
+    }
+  ],
+  "one_second_movement_60_120": [
+    {
+      "step": 1,
+      "hz": 60,
+      "distance": 34.238000000000724,
+      "after": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 3.902000000000004,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 1,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            768,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "x": 183.6857379820014,
+      "y": 156.12467963309086
+    },
+    {
+      "step": 1,
+      "hz": 120,
+      "distance": 34.23800000000078,
+      "after": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 3.901999999999955,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.9999999999999989,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            768,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "x": 183.68573798200146,
+      "y": 156.12467963309086
+    },
+    {
+      "step": 2,
+      "hz": 60,
+      "distance": 38.26600000000034,
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 3.085000000000005,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 3.500000000000005,
+          "age": 1,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            768,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "x": 187.64876597988342,
+      "y": 156.84523017816048
+    },
+    {
+      "step": 2,
+      "hz": 120,
+      "distance": 38.26599999999889,
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 3.084999999999999,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 3.4999999999999774,
+          "age": 0.9999999999999989,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            768,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "x": 187.64876597988177,
+      "y": 156.84523017816144
+    },
+    {
+      "step": 3,
+      "hz": 60,
+      "distance": 30.209999999999457,
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 4.719000000000005,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 1,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            960,
+            256,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "x": 179.7227099841177,
+      "y": 155.40412908802125
+    },
+    {
+      "step": 3,
+      "hz": 120,
+      "distance": 30.20999999999979,
+      "after": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 4.71899999999995,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.9999999999999989,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            960,
+            256,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "x": 179.72270998411773,
+      "y": 155.40412908802296
+    },
+    {
+      "step": 4,
+      "hz": 60,
+      "distance": 22.154000000000224,
+      "after": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 5.127500000000003,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 1,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            960,
+            256,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "x": 171.79665398835365,
+      "y": 153.96302799788202
+    },
+    {
+      "step": 4,
+      "hz": 120,
+      "distance": 22.154000000000558,
+      "after": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 5.127499999999949,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0.9999999999999989,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "move",
+          "index": 3,
+          "rect": [
+            960,
+            256,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "x": 171.79665398835368,
+      "y": 153.96302799788373
+    }
+  ],
+  "actual_shots": [
+    {
+      "step": 1,
+      "hz": 60,
+      "first": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 4.911999999999999,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 9.81400000000009,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 14.716000000000346,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "snow_slime",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.02,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 4.901999999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    },
+    {
+      "step": 1,
+      "hz": 120,
+      "first": {
+        "id": "snow_slime",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 4.912000000000001,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 9.814000000000018,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 14.715999999999706,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "snow_slime",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.019999999999733,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 4.901999999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    },
+    {
+      "step": 2,
+      "hz": 60,
+      "first": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 4.095,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 8.180000000000005,
+          "speed": 85.00000000000001,
+          "angle": 0.23210383807515939,
+          "aim": 0.23210383807515939,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 13.532068212514547,
+          "speed": 85,
+          "angle": -2.909488815514632,
+          "aim": -2.909488815514632,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "penguin_raider",
+        "mode": "pursue",
+        "remaining": 1.2120682125146813,
+        "age": 16.019999999999996,
+        "direction": {
+          "x": 0.9731846127764091,
+          "y": 0.23002545392897325
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 360.50000000000006,
+        "plannedDistance": 432.6,
+        "dashMoved": 336.0105906113988,
+        "wallStopped": true
+      }
+    },
+    {
+      "step": 2,
+      "hz": 120,
+      "first": {
+        "id": "penguin_raider",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          256,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 4.0949999999999935,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 8.180000000000183,
+          "speed": 85.00000000000001,
+          "angle": 0.23210383807514479,
+          "aim": 0.23210383807514479,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 13.532068212514138,
+          "speed": 85.00000000000001,
+          "angle": -2.9094888155146448,
+          "aim": -2.9094888155146448,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "penguin_raider",
+        "mode": "pursue",
+        "remaining": 1.2120682125142759,
+        "age": 16.019999999999733,
+        "direction": {
+          "x": 0.9731846127764127,
+          "y": 0.23002545392895907
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 360.50000000000006,
+        "plannedDistance": 432.6,
+        "dashMoved": 336.0105906113923,
+        "wallStopped": true
+      }
+    },
+    {
+      "step": 3,
+      "hz": 60,
+      "first": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        },
+        {
+          "age": 5.728999999999999,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        },
+        {
+          "age": 11.448000000000178,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "ice_yeti",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.02,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 5.718999999999999,
+        "bulletSpeed": 76.5,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    },
+    {
+      "step": 3,
+      "hz": 120,
+      "first": {
+        "id": "ice_yeti",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        },
+        {
+          "age": 5.729000000000001,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        },
+        {
+          "age": 11.447999999999844,
+          "speed": 76.49999999999999,
+          "angle": 0.23210383807515567,
+          "aim": 0.23210383807515567,
+          "ice": true,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "ice_yeti",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.019999999999733,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 5.718999999999999,
+        "bulletSpeed": 76.5,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    },
+    {
+      "step": 4,
+      "hz": 60,
+      "first": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 6.137499999999998,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 12.265000000000219,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "frost_turtle",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.02,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 6.127499999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    },
+    {
+      "step": 4,
+      "hz": 120,
+      "first": {
+        "id": "frost_turtle",
+        "name": "attack",
+        "index": 0,
+        "rect": [
+          0,
+          512,
+          320,
+          256
+        ]
+      },
+      "shots": [
+        {
+          "age": 0.01,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 6.1375,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        },
+        {
+          "age": 12.264999999999755,
+          "speed": 85,
+          "angle": 0.23210383807515564,
+          "aim": 0.23210383807515567,
+          "ice": false,
+          "r": 5
+        }
+      ],
+      "state": {
+        "id": "frost_turtle",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 16.019999999999733,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 6.127499999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      }
+    }
+  ],
+  "penguin_60_120": [
+    {
+      "hz": 60,
+      "start": {
+        "x": 150,
+        "y": 150
+      },
+      "warn": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 994.5000000000041,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "windup",
+          "remaining": 0.8,
+          "age": 4.499999999999989,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 2,
+          "rect": [
+            512,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 322.1969999999993,
+        "y": 150
+      },
+      "begin": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "dash",
+          "remaining": 1.2,
+          "age": 5.299999999999986,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 1,
+          "rect": [
+            256,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 322.1969999999993,
+        "y": 150,
+        "shots": 0
+      },
+      "half": {
+        "x": 538.496999999999,
+        "y": 150,
+        "shots": 0
+      },
+      "end": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "rest",
+          "remaining": 0.8,
+          "age": 6.4999999999999805,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 432.59999999999945,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 5,
+          "rect": [
+            1280,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 754.7969999999985,
+        "y": 150,
+        "shots": 0
+      },
+      "rest": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 4.085,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 3.7,
+          "age": 7.299999999999977,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 432.59999999999945,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "attack",
+          "index": 0,
+          "rect": [
+            0,
+            512,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 754.7969999999985,
+        "y": 150
+      },
+      "next": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0.3850000000000094,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "windup",
+          "remaining": 0.8,
+          "age": 11.000000000000123,
+          "direction": {
+            "x": 0.28853644828332287,
+            "y": 0.9574689122953525
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 0,
+          "rect": [
+            0,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      }
+    },
+    {
+      "hz": 120,
+      "start": {
+        "x": 150,
+        "y": 150
+      },
+      "warn": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 994.5000000000041,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "windup",
+          "remaining": 0.8,
+          "age": 4.5,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 2,
+          "rect": [
+            512,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 322.1970000000047,
+        "y": 150
+      },
+      "begin": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "dash",
+          "remaining": 1.2,
+          "age": 5.30000000000004,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 1,
+          "rect": [
+            256,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 322.1970000000047,
+        "y": 150,
+        "shots": 0
+      },
+      "half": {
+        "x": 538.4970000000047,
+        "y": 150,
+        "shots": 0
+      },
+      "end": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "rest",
+          "remaining": 0.8,
+          "age": 6.500000000000098,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 432.59999999999934,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 5,
+          "rect": [
+            1280,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 754.7970000000083,
+        "y": 150,
+        "shots": 0
+      },
+      "rest": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 4.085,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 3.7,
+          "age": 7.3000000000001375,
+          "direction": {
+            "x": 1,
+            "y": 0
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 432.59999999999934,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "attack",
+          "index": 0,
+          "rect": [
+            0,
+            512,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0,
+        "x": 754.7970000000083,
+        "y": 150
+      },
+      "next": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 0.3850000000000079,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "windup",
+          "remaining": 0.8,
+          "age": 11.000000000000002,
+          "direction": {
+            "x": 0.28853644828305697,
+            "y": 0.9574689122954327
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "move",
+          "index": 0,
+          "rect": [
+            0,
+            256,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      }
+    }
+  ],
+  "penguin_boundaries": [
+    {
+      "x": 17,
+      "y": 18,
+      "r": 16,
+      "state": {
+        "id": "penguin_raider",
+        "mode": "pursue",
+        "remaining": 2.8000000000001406,
+        "age": 6.999999999999987,
+        "direction": {
+          "x": -0.6401843996644797,
+          "y": -0.7682212795973757
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 360.50000000000006,
+        "plannedDistance": 432.6,
+        "dashMoved": 0,
+        "wallStopped": true
+      }
+    },
+    {
+      "x": 898,
+      "y": 394,
+      "r": 16,
+      "state": {
+        "id": "penguin_raider",
+        "mode": "pursue",
+        "remaining": 2.8000000000001406,
+        "age": 6.999999999999987,
+        "direction": {
+          "x": 0.6401843996644797,
+          "y": 0.7682212795973757
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 360.50000000000006,
+        "plannedDistance": 432.6,
+        "dashMoved": 0,
+        "wallStopped": true
+      }
+    }
+  ],
+  "dodge_after_warning": {
+    "before": 4,
+    "after": 4,
+    "player": {
+      "x": 335.8770000000047,
+      "y": 230
+    },
+    "enemy": {
+      "x": 754.7970000000088,
+      "y": 150
+    }
+  },
+  "ice_damage": {
+    "original": {
+      "r": 5,
+      "life": 3.4,
+      "ice": true
+    },
+    "speed": 76.49999999999999,
+    "before": 4,
+    "first": {
+      "hp": 3,
+      "invuln": 1.55,
+      "removed": true
+    },
+    "protectedHp": 3,
+    "after": 2,
+    "playerKeys": [
+      "a",
+      "type",
+      "upgrade",
+      "vx",
+      "vy",
+      "x",
+      "y"
+    ]
+  },
+  "ice_interception": [
+    {
+      "kind": 0,
+      "iceGone": false,
+      "shotGone": false
+    },
+    {
+      "kind": 1,
+      "iceGone": false,
+      "shotGone": false
+    },
+    {
+      "kind": 2,
+      "iceGone": true,
+      "shotGone": true
+    }
+  ],
+  "all_character_kills": [
+    {
+      "kind": 0,
+      "step": 1,
+      "before": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 4.901999999999999,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "snow_slime",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 0,
+      "step": 2,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 4.085,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 4.5,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 0,
+      "step": 3,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 5.718999999999999,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 0,
+      "step": 4,
+      "before": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 6.127499999999999,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 2,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 1,
+      "step": 1,
+      "before": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 4.901999999999999,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "snow_slime",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 1,
+      "step": 2,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 4.085,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 4.5,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 1,
+      "step": 3,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 5.718999999999999,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 1,
+      "step": 4,
+      "before": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 6.127499999999999,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 2,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 1,
+          "damage": 1,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 0
+        },
+        {
+          "hp": 0,
+          "damage": 1,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 0
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 2,
+      "step": 1,
+      "before": {
+        "hp": 1,
+        "r": 16,
+        "speed": 34.238,
+        "shot": 4.901999999999999,
+        "state": {
+          "id": "snow_slime",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.901999999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "snow_slime",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 1,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": -0.5,
+          "damage": 1.5,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "snow_slime",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 1
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "snow_slime",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 2,
+      "step": 2,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 38.266000000000005,
+        "shot": 4.085,
+        "state": {
+          "id": "penguin_raider",
+          "mode": "pursue",
+          "remaining": 4.5,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 4.085,
+          "bulletSpeed": 85,
+          "dashSpeed": 360.50000000000006,
+          "plannedDistance": 432.6,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "penguin_raider",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            256,
+            256
+          ]
+        },
+        "phase": 2,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 0.5,
+          "damage": 1.5,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 1
+        },
+        {
+          "hp": -1,
+          "damage": 1.5,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "penguin_raider",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              256,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 1
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "penguin_raider",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          256,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 2,
+      "step": 3,
+      "before": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30.21,
+        "shot": 5.718999999999999,
+        "state": {
+          "id": "ice_yeti",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 5.718999999999999,
+          "bulletSpeed": 76.5,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "ice_yeti",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 3,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 0.5,
+          "damage": 1.5,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 1
+        },
+        {
+          "hp": -1,
+          "damage": 1.5,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "ice_yeti",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 1
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "ice_yeti",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    },
+    {
+      "kind": 2,
+      "step": 4,
+      "before": {
+        "hp": 3,
+        "r": 16,
+        "speed": 22.154000000000003,
+        "shot": 6.127499999999999,
+        "state": {
+          "id": "frost_turtle",
+          "mode": "pursue",
+          "remaining": Infinity,
+          "age": 0,
+          "direction": {
+            "x": 0,
+            "y": 1
+          },
+          "interval": 6.127499999999999,
+          "bulletSpeed": 85,
+          "dashSpeed": 0,
+          "plannedDistance": 0,
+          "dashMoved": 0,
+          "wallStopped": false
+        },
+        "pose": {
+          "id": "frost_turtle",
+          "name": "idle",
+          "index": 0,
+          "rect": [
+            0,
+            0,
+            320,
+            256
+          ]
+        },
+        "phase": 4,
+        "score": 0
+      },
+      "hits": [
+        {
+          "hp": 1.5,
+          "damage": 1.5,
+          "score": 0,
+          "kills": 0,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": true,
+          "remaining": 1
+        },
+        {
+          "hp": 0,
+          "damage": 1.5,
+          "score": 100,
+          "kills": 1,
+          "pose": {
+            "id": "frost_turtle",
+            "name": "hit",
+            "index": 0,
+            "rect": [
+              0,
+              768,
+              320,
+              256
+            ]
+          },
+          "alive": false,
+          "remaining": 1
+        }
+      ],
+      "score": 100,
+      "kills": 1,
+      "duplicate": false,
+      "ghosts": 1,
+      "defeat": {
+        "id": "frost_turtle",
+        "name": "defeat",
+        "index": 0,
+        "rect": [
+          0,
+          1024,
+          320,
+          256
+        ]
+      },
+      "remainingGhosts": 0,
+      "items": 0
+    }
+  ],
+  "ordinary_phase5_gate": {
+    "rows": [
+      {
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 30.21,
+          "shot": 5.718999999999999,
+          "state": {
+            "id": "ice_yeti",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 5.718999999999999,
+            "bulletSpeed": 76.5,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "ice_yeti",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 0
+        },
+        "boss": false,
+        "kills": 1
+      },
+      {
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "shot": 6.127499999999999,
+          "state": {
+            "id": "frost_turtle",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 6.127499999999999,
+            "bulletSpeed": 85,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "frost_turtle",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 100
+        },
+        "boss": false,
+        "kills": 2
+      },
+      {
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "shot": 6.127499999999999,
+          "state": {
+            "id": "frost_turtle",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 6.127499999999999,
+            "bulletSpeed": 85,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "frost_turtle",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 200
+        },
+        "boss": false,
+        "kills": 3
+      },
+      {
+        "initial": {
+          "hp": 2,
+          "r": 16,
+          "speed": 30.21,
+          "shot": 5.718999999999999,
+          "state": {
+            "id": "ice_yeti",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 5.718999999999999,
+            "bulletSpeed": 76.5,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "ice_yeti",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 300
+        },
+        "boss": false,
+        "kills": 4
+      },
+      {
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "shot": 6.127499999999999,
+          "state": {
+            "id": "frost_turtle",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 6.127499999999999,
+            "bulletSpeed": 85,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "frost_turtle",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 400
+        },
+        "boss": false,
+        "kills": 5
+      },
+      {
+        "initial": {
+          "hp": 3,
+          "r": 16,
+          "speed": 22.154000000000003,
+          "shot": 6.127499999999999,
+          "state": {
+            "id": "frost_turtle",
+            "mode": "pursue",
+            "remaining": Infinity,
+            "age": 0,
+            "direction": {
+              "x": 0,
+              "y": 1
+            },
+            "interval": 6.127499999999999,
+            "bulletSpeed": 85,
+            "dashSpeed": 0,
+            "plannedDistance": 0,
+            "dashMoved": 0,
+            "wallStopped": false
+          },
+          "pose": {
+            "id": "frost_turtle",
+            "name": "idle",
+            "index": 0,
+            "rect": [
+              0,
+              0,
+              320,
+              256
+            ]
+          },
+          "phase": 5,
+          "score": 500
+        },
+        "boss": false,
+        "kills": 6
+      }
+    ],
+    "boss": {
+      "hp": 20,
+      "r": 48
+    },
+    "score": 600,
+    "result": null
+  },
+  "protected_combat_trace_equal": [
+    {
+      "area": 0,
+      "king": false
+    },
+    {
+      "area": 0,
+      "king": true
+    },
+    {
+      "area": 1,
+      "king": false
+    },
+    {
+      "area": 1,
+      "king": true
+    },
+    {
+      "area": 2,
+      "king": false
+    },
+    {
+      "area": 2,
+      "king": true
+    },
+    {
+      "area": 3,
+      "king": false
+    },
+    {
+      "area": 3,
+      "king": true
+    },
+    {
+      "area": 4,
+      "king": true
+    }
+  ],
+  "direct_boss": {
+    "hp": 20,
+    "r": 48,
+    "shot": 1.2,
+    "normal": 0,
+    "score": 0,
+    "run": {
+      "trialEnabled": false,
+      "activeTrial": false,
+      "route": [
+        4
+      ]
+    },
+    "developer": true
+  },
+  "landscape_scenes": [
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "step": 1,
+      "state": {
+        "id": "snow_slime",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 4.901999999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 438.5,
+        "y": 158.16,
+        "w": 38,
+        "h": 38
+      },
+      "actor": {
+        "x": 457.5,
+        "y": 177.16,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "step": 2,
+      "state": {
+        "id": "penguin_raider",
+        "mode": "windup",
+        "remaining": 0.4000000000000333,
+        "age": 4.899999999999987,
+        "direction": {
+          "x": 0.8993027914950666,
+          "y": 0.43732652470343103
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 360.50000000000006,
+        "plannedDistance": 432.6,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 591.3572427870638,
+        "y": 231.46631557435228,
+        "w": 42,
+        "h": 42
+      },
+      "actor": {
+        "x": 612.3572427870638,
+        "y": 252.46631557435228,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "step": 3,
+      "state": {
+        "id": "ice_yeti",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0.7499999999999998,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 5.718999999999999,
+        "bulletSpeed": 76.5,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 450.8759529983,
+        "y": 165.4687257334682,
+        "w": 54,
+        "h": 43.2
+      },
+      "actor": {
+        "x": 477.8759529983,
+        "y": 187.0687257334682,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        915,
+        412
+      ],
+      "step": 4,
+      "state": {
+        "id": "frost_turtle",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 6.127499999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 428.5,
+        "y": 153.96,
+        "w": 58,
+        "h": 46.4
+      },
+      "actor": {
+        "x": 457.5,
+        "y": 177.16,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "step": 1,
+      "state": {
+        "id": "snow_slime",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 4.901999999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 438.5,
+        "y": 158.16,
+        "w": 38,
+        "h": 38
+      },
+      "actor": {
+        "x": 457.5,
+        "y": 177.16,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "step": 2,
+      "state": {
+        "id": "penguin_raider",
+        "mode": "windup",
+        "remaining": 0.4000000000000333,
+        "age": 4.899999999999987,
+        "direction": {
+          "x": 0.8994071443113619,
+          "y": 0.4371118721353618
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 315,
+        "plannedDistance": 378,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 533.875212028996,
+        "y": 209.06935304609001,
+        "w": 42,
+        "h": 42
+      },
+      "actor": {
+        "x": 554.875212028996,
+        "y": 230.06935304609001,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "step": 3,
+      "state": {
+        "id": "ice_yeti",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0.7499999999999998,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 5.718999999999999,
+        "bulletSpeed": 76.5,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 393.37831737223314,
+        "y": 143.1038622429069,
+        "w": 54,
+        "h": 43.2
+      },
+      "actor": {
+        "x": 420.37831737223314,
+        "y": 164.7038622429069,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        800,
+        360
+      ],
+      "step": 4,
+      "state": {
+        "id": "frost_turtle",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 6.127499999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 371,
+        "y": 131.60000000000002,
+        "w": 58,
+        "h": 46.4
+      },
+      "actor": {
+        "x": 400,
+        "y": 154.8,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "step": 1,
+      "state": {
+        "id": "snow_slime",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 4.901999999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 265,
+        "y": 118.6,
+        "w": 38,
+        "h": 38
+      },
+      "actor": {
+        "x": 284,
+        "y": 137.6,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "step": 2,
+      "state": {
+        "id": "penguin_raider",
+        "mode": "windup",
+        "remaining": 0.4000000000000333,
+        "age": 4.899999999999987,
+        "direction": {
+          "x": -0.8542914809152838,
+          "y": -0.5197942531767464
+        },
+        "interval": 4.085,
+        "bulletSpeed": 85,
+        "dashSpeed": 280,
+        "plannedDistance": 336,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 405.20288246788,
+        "y": 203.12344398045659,
+        "w": 42,
+        "h": 42
+      },
+      "actor": {
+        "x": 426.20288246788,
+        "y": 224.12344398045659,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "step": 3,
+      "state": {
+        "id": "ice_yeti",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0.7499999999999998,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 5.718999999999999,
+        "bulletSpeed": 76.5,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 276.3561092288377,
+        "y": 127.77723829134891,
+        "w": 54,
+        "h": 43.2
+      },
+      "actor": {
+        "x": 303.3561092288377,
+        "y": 149.3772382913489,
+        "r": 16
+      }
+    },
+    {
+      "viewport": [
+        568,
+        320
+      ],
+      "step": 4,
+      "state": {
+        "id": "frost_turtle",
+        "mode": "pursue",
+        "remaining": Infinity,
+        "age": 0,
+        "direction": {
+          "x": 0,
+          "y": 1
+        },
+        "interval": 6.127499999999999,
+        "bulletSpeed": 85,
+        "dashSpeed": 0,
+        "plannedDistance": 0,
+        "dashMoved": 0,
+        "wallStopped": false
+      },
+      "geometry": {
+        "x": 255,
+        "y": 114.39999999999999,
+        "w": 58,
+        "h": 46.4
+      },
+      "actor": {
+        "x": 284,
+        "y": 137.6,
+        "r": 16
+      }
+    }
+  ],
+  "observed_frame_timing": {
+    "samples": 119,
+    "medianMs": 16.700000000000728,
+    "p95Ms": 33.399999999999636,
+    "maxMs": 33.399999999999636,
+    "approxFps": 51.37060220159724,
+    "loaded": true
+  }
+}

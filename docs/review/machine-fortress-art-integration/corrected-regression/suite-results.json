@@ -1,0 +1,29 @@
+[
+  {
+    "suite": "developer_start-native",
+    "exit_code": 0,
+    "groups": 18,
+    "observed_groups_before_failure": 0,
+    "seconds": 98.48,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/developer_start.py",
+      "--artifacts",
+      "/tmp/machine-tests/corrected-regression/developer_start-native"
+    ]
+  },
+  {
+    "suite": "developer_start-offline",
+    "exit_code": 0,
+    "groups": 18,
+    "observed_groups_before_failure": 0,
+    "seconds": 221.03,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/developer_start.py",
+      "--artifacts",
+      "/tmp/machine-tests/corrected-regression/developer_start-offline",
+      "--standalone"
+    ]
+  }
+]

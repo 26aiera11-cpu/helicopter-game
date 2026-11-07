@@ -1,0 +1,7 @@
+PASS: Exact developer startup/UI/volatile-score hooks reverse to c5e8fa2; every image, atlas, manifest, sound, input and item asset is unchanged and all JavaScript parses.
+PASS: Fresh launch defaults to developerOFF/forest1 without changing any of the4 legacy storage values; Help lists only registered worlds/regions and phases1–5.
+Traceback (most recent call last):
+  File "/tmp/storm-background-work/tests/developer_start.py", line 89, in <module>
+    expect(page.locator('#developerStartPriority')).to_be_visible();page.locator('#developerStartWorld').select_option('1');assert page.evaluate('[...developerStartRegion.options].map(o=>Number(o.value))')==[4,5,6]
+                                                                                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
