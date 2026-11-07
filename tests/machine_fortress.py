@@ -57,6 +57,7 @@ try:
   page.wait_for_function('gameMachineFortress.ready()&&gameStormSky.ready()&&gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');page.evaluate(helpers);initial=page.evaluate('mfStorage()')
   assert page.evaluate('gameWorlds.worlds[1].regionIds.join()==="4,5,6,7"&&gameWorlds.snapshot().route.join()==="0,1,2,3"&&!gameWorlds.isTrial()&&!gameWorlds.isDeveloper()')
   r=page.evaluate('gameWorlds.region(7)');assert r['key']=='world-2:machine-fortress' and r['localIndex']==3 and r['normalPhases']==4 and r['bossPhase']==5 and r['combatProfile']==r['musicProfile']==0
+  assert page.evaluate('gameMachineFortress.species.map(s=>s.renderWidth)')==[40,40,40,40,132]
   assert page.evaluate('terrainImgs.length===8&&enemySprites[7].length===4&&enemySprites[7].every((im,i)=>im===gameMachineFortress.species[i].baseImage)&&bossSprites[7]===gameMachineFortress.species[4].baseImage')
   passed('Registry adds stable ID7/world2 localIndex3; defaultWorld1 remains20phases; explicit trial8regions/40phases and all5 stage choices use the shared registry with forest combat/music profile0.')
   page.locator('.select-hit[data-heli="0"]').tap();page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');assert page.locator('#developerStartRegion option').count()==4;page.locator('#developerStartRegion').select_option('7');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'machine-developer-menu.png'));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&stage===7&&phase===5&&!!boss');assert page.evaluate('boss.hp===20&&phaseKills===6&&enemies.length===0&&warnings.length===0');page.evaluate('transition=0;spawn=999;invuln=999')
@@ -109,7 +110,7 @@ try:
   passed('Actual trial Storm->Fortress transition enters7/1 on the40-phase route and carries the same item with unchanged lifetime; default World1 route remains separate.')
   # Geometry inspection uses actual draw calls rather than assuming square assets.
   drawing=page.evaluate('''()=>mfRun(()=>{mfBegin();const calls=[],original=ctx.drawImage;ctx.drawImage=function(im,...a){if(im.id.startsWith('machine-'))calls.push({id:im.id,w:im.naturalWidth,h:im.naturalHeight,args:a});return original.call(ctx,im,...a)};try{for(let i=0;i<4;i++){const e=mfSpawn(i);gameMachineFortress.drawActor(ctx,e);}mfBegin(0,5);gameMachineFortress.drawActor(ctx,boss,true);}finally{ctx.drawImage=original;}return calls;})''');assert len(drawing)==5
-  for r in drawing:assert r['args'][:4]==[0,0,r['w'],r['h']] and abs(r['args'][6]/r['w']-r['args'][7]/r['h'])<1e-10
+  for r in drawing:assert r['args'][:4]==[0,0,r['w'],r['h']] and abs(r['args'][6]/r['w']-r['args'][7]/r['h'])<1e-10 and r['args'][6]==(132 if 'boss-' in r['id'] else 40)
   report['draw_rectangles']=drawing;passed('Actual4-normal/boss Canvas calls use the entire per-file PNG (source_rect ignored), identical X/Y scale, centered full-image pivot and original transparency; no square distortion/cropping.')
   page.evaluate('window.gameExitDialogOpen=false')
   report['fullscreen_before_explicit_toggle']=page.evaluate('!!document.fullscreenElement')

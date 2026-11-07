@@ -7384,7 +7384,7 @@
  const backgroundImage=document.getElementById('machineFortressBackground');
  const normalIds=Object.freeze(['screw_bot','gear_wasp','laser_drone','armored_turret']),bossId='giga_core';
  const images=new Map(manifest.files.map(row=>[row.path,document.getElementById('machine-'+row.path.replace(/\.png$/,'').replaceAll('/','-'))]));
- const species=Object.freeze([...normalIds.map(id=>({id,path:'enemies/'+id+'.png',renderWidth:32})),{id:bossId,path:'boss/giga_core_normal.png',renderWidth:132}].map(row=>Object.freeze({...row,baseImage:images.get(row.path)})));
+ const species=Object.freeze([...normalIds.map(id=>({id,path:'enemies/'+id+'.png',renderWidth:40})),{id:bossId,path:'boss/giga_core_normal.png',renderWidth:132}].map(row=>Object.freeze({...row,baseImage:images.get(row.path)})));
  const byId=new Map(species.map(row=>[row.id,row]));
  const durations=Object.freeze({idle:1.2,move:.7,attack:.28,hit:.18,defeat:.65});
  let clock=0,states=new WeakMap(),ghosts=[],pending=null;

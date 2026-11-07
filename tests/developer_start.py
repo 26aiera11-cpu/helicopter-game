@@ -76,6 +76,8 @@ try:
     context.set_offline(False);page.goto(url+'developer-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
    else:page.goto(url+'helicopter-game/',wait_until='load')
    page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameScoring');page.evaluate(helpers);page.evaluate('devAudio.push(volcanoStageBgm,volcanoBossBgm,stormSkyStageBgm,stormSkyBossBgm)')
+   # Complete unused media preloads before this fixture intentionally navigates again.
+   page.wait_for_function("[...document.querySelectorAll('audio')].every(a=>!a.error&&a.readyState>=2&&a.buffered.length&&a.buffered.end(a.buffered.length-1)>=a.duration-.01)")
   load();initial=page.evaluate('gameWorlds.developerSnapshot()');assert initial=={'enabled':False,'selected':{'regionId':0,'phase':1},'active':False,'start':{'regionId':0,'phase':1}}
   initial_storage=page.evaluate('devStorageSnapshot()');assert initial_storage==seed
   page.locator('#selectionHelp').tap();expect(page.locator('#developerStartToggle')).not_to_be_checked();expect(page.locator('#developerStartFields')).to_be_hidden()

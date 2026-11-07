@@ -1,0 +1,5 @@
+PASS: The only runtime delta from ed3dc55 is the shared normal renderWidth32->40; all125 other source assets/index normalize exactly, including PNG/audio/combat/controls/registry; boss132 unchanged.
+PASS: 2400 real Canvas frame measurements:4species x3heroes x5phases x5states x4viewports/DPR xbefore-after; width/height both+25%, original ratio/source rect/pivot preserved, HP1/r16 and boss132/r48/HP20 unchanged.
+PASS: 915x412/800x360/568x320/DPR2 same-coordinate/frame screenshots include background, player, enemy bullet and item; compare baseline module served from git with only the approved width difference.
+PASS: Edge probe records the unchanged17px center clamp:32px visual left1px before,40px left-3px after. Outer visual area can exceed viewport/hit radius; paint, positions and collisions were deliberately preserved.
+PASS: No uncaught browser errors. Source preservation proves other7regions/boss/images/audio unchanged; native/offline integration and progression suites are run separately.

@@ -1,0 +1,81 @@
+[
+  {
+    "suite": "machine_fortress-native",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 12.36,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/machine_fortress.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/machine_fortress-native"
+    ]
+  },
+  {
+    "suite": "machine_fortress-offline",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 63.0,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/machine_fortress.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/machine_fortress-offline",
+      "--standalone"
+    ]
+  },
+  {
+    "suite": "worlds",
+    "exit_code": 0,
+    "groups": 20,
+    "observed_groups_before_failure": 0,
+    "seconds": 30.86,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/worlds.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/worlds"
+    ]
+  },
+  {
+    "suite": "developer_start-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 17,
+    "seconds": 45.67,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/developer_start.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/developer_start-native"
+    ]
+  },
+  {
+    "suite": "storm_sky_bgm-native",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 39.41,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/storm_sky_bgm-native"
+    ]
+  },
+  {
+    "suite": "galaxy_standalone",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 65.59,
+    "command": [
+      "python",
+      "/tmp/storm-background-work/tests/galaxy_standalone.py",
+      "--artifacts",
+      "/tmp/scale-tests/regression/galaxy_standalone"
+    ]
+  }
+]

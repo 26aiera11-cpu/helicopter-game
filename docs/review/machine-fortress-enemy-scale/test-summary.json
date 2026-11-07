@@ -1,0 +1,209 @@
+{
+  "baseline": "ed3dc5561f569de62a9dd31a5eaf60f33722b6d1",
+  "branch": "fix/machine-fortress-enemy-scale",
+  "issue": 32,
+  "selected_suites": 7,
+  "passed_suites": 7,
+  "failed_suites": 0,
+  "completed_groups": 107,
+  "canvas_measurements": 2400,
+  "suites": [
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 63.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 30.86,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 44.91,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/scale-tests/media-recheck/developer_start-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.41,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.59,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/galaxy_standalone"
+      ]
+    },
+    {
+      "suite": "machine_enemy_scale-comparison",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "command": [
+        "python",
+        "tests/machine_enemy_scale.py",
+        "--artifacts",
+        "/tmp/scale-tests/comparison"
+      ]
+    }
+  ],
+  "initial_regression_attempt": [
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 12.36,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 63.0,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/machine_fortress-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 30.86,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/worlds"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 17,
+      "seconds": 45.67,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.41,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 65.59,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/scale-tests/regression/galaxy_standalone"
+      ]
+    }
+  ],
+  "media_preload_recheck": [
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 44.91,
+      "command": [
+        "python",
+        "/tmp/storm-background-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/scale-tests/media-recheck/developer_start-native"
+      ]
+    }
+  ],
+  "initial_failed_partial_groups_excluded": 17,
+  "initial_failure_explanation": "developer_start first run reports unused4 WAV requestfailed after17partial groups. Existing collector did not save failure codes; root cause not established. Added full DOM media preload completion wait before fixture navigations; same failure assertion retained and18groups pass. No game audio edits.",
+  "known_issue30": "Preserved as low-priority unresolved history; worlds passes this run without input code edits.",
+  "visual_hitbox_difference": "Nominal render40px; collision radius16px/diameter32px intentionally unchanged.",
+  "edge_limitation": "At fixed centerx17: basic left edge1px before versus-3px after; animation can change clipping amount. Original paint and actor clamps preserved.",
+  "limits": [
+    "6related registered suites plus1new comparison; not all68 old suites.",
+    "Real Chromium/native media/offline HTML, not physical Galaxy or user visual approval.",
+    "file:// blocked by environment policy; identical HTML tested offline using set_content."
+  ]
+}
