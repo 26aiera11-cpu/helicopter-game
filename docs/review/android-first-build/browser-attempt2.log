@@ -1,0 +1,7 @@
+PASS: Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.
+PASS: Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start.
+Traceback (most recent call last):
+  File "/tmp/android41-work/tests/android_smoke.py", line 66, in <module>
+    assert page.evaluate('keys.fire&&Math.abs(gameControls.rotation())>0')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
