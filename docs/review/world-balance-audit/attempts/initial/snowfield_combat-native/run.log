@@ -1,0 +1,6 @@
+PASS: Exact Issue8 hooks reverse to6154812; all66 prior assets except two reviewed notice strings are byte-identical, including art115frames, boss, input/items/score/audio, and all JS parses.
+Traceback (most recent call last):
+  File "/tmp/world-balance39-work/tests/snowfield_combat.py", line 61, in <module>
+    assert not page.evaluate('gameWorlds.isDeveloper()||gameWorlds.isTrial()')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

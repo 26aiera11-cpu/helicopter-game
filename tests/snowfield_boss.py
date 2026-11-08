@@ -54,6 +54,9 @@ try:
   if args.standalone:context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
   else:page.goto(url,wait_until='load')
   page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameSnowfieldBoss');page.evaluate(helpers);original_storage=page.evaluate('kingStorage()')
+  # This historical20-stage regression selects the preserved option explicitly;
+  # default40 and all three complete routes are checked by default_world_route.
+  assert page.evaluate('gameWorlds.setTrialEnabled(false)')
   assert not page.evaluate('gameWorlds.isDeveloper()||gameWorlds.isTrial()')
   entries=[]
   for kind in range(3):

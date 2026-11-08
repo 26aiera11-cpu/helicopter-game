@@ -172,15 +172,15 @@ try:
     assert {w['stage'] for w in waves}==set(range(8 if trial else 4))
     assert r['characterId']==kind and r['bossKills']==(8 if trial else 4) and r['normalKills']==(240 if trial else 120) and r['clearedPhases']==(32 if trial else 16)
     assert r['regionId']==(7 if trial else 3) and r['worldId']==int(trial) and r['trialMode']==trial and r['outcome']=='clear'
-    assert ('월드 2 시험 완료' if trial else '모든 지역 클리어') in route['title']
+    assert ('전체 40단계 클리어' if trial else '모든 지역 클리어') in route['title']
     assert page.evaluate('gameWorlds.nextRegion(stage)===null&&!!document.fullscreenElement')
     routes.append({'trial':trial,'character':kind,**route})
     if kind==0:
-     expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어')
+     expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어' if trial else '모든 지역 클리어')
      page.screenshot(path=str(args.artifacts/('snow-trial-clear.png' if trial else 'world1-default-clear.png')))
   report['controlled_full_routes']=routes
   passed('All3 helicopters complete explicit20 and default40 phases through real warnings/spawns/shots/collisions:28,000 vs56,000,4 vs8 bosses; no undefined future region or duplicate clear credit.')
-  expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료')
+  expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어')
   passed('Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; explicit World1-only desert still uses the original World1 clear title.')
 
   storage=page.evaluate('''() => {
@@ -195,8 +195,8 @@ try:
   assert all(r['score']==28000 and r['regionId']==3 and not r['trialMode'] for r in storage['base'])
   assert storage['keys']['top']=='heliTrio.world2Trial.top10.v1'
   report['storage_isolation']=storage;passed('Trial TOP10/analysis namespaces are separate, preserve normal storage bytes, retain all3 character results/tie order and store a repeated finish exactly once.')
-  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 월드 2 시험 TOP 10')
-  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚙ 기계 요새 (시험)')
+  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 40단계 TOP 10')
+  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚙ 기계 요새')
   page.screenshot(path=str(args.artifacts/'trial-leaderboard.png'));page.locator('#leaderboardClose').tap()
   load();assert page.evaluate('gameWorlds.isTrial()&&gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.trialMode)');page.evaluate('gameWorlds.setTrialEnabled(false)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>!r.trialMode)')
   page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.regionId===7&&r.worldId===1)')
@@ -257,12 +257,12 @@ try:
   layouts=[];touch=Touch(context,page)
   for w,h in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':w,'height':h});touch.tap(page,'#startSelected');page.wait_for_function('started');page.evaluate('worldSnow();invuln=999;spawn=999;transition=0;player.x=W/2;player.y=H*.55;gameScoring.updateHUD();draw()')
-   page.wait_for_function('!document.getElementById("worldPrototypeNotice").hidden')
+   expect(page.locator('#worldPrototypeNotice')).to_be_hidden()
    bounds=page.evaluate('''() => {const r=id=>{const b=document.getElementById(id).getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height,right:b.right,bottom:b.bottom}};return {joystick:r('rotationJoystick'),fire:r('fire'),hud:r('hud'),full:r('fullscreenToggle'),exit:r('exitGame'),notice:r('worldPrototypeNotice'),W,H}}''')
    j=bounds['joystick'];assert j['x']==30 and h-j['bottom']==22 and j['h']==58 and 135<=j['w']<=165
-   for key in ['fire','joystick','notice']:
+   for key in ['fire','joystick']:
     b=bounds[key];assert b['x']>=0 and b['y']>=0 and b['right']<=w and b['bottom']<=h
-   assert bounds['hud']['right']<=bounds['full']['x'] and j['right']<bounds['fire']['x'] and bounds['notice']['bottom']<j['y']
+   assert bounds['hud']['right']<=bounds['full']['x'] and j['right']<bounds['fire']['x'] and page.locator('#worldPrototypeNotice').is_hidden()
    page.screenshot(path=str(args.artifacts/f'snow-entry-{w}x{h}.png'))
    cx=j['x']+j['w']/2;cy=j['y']+j['h']/2
    travel=page.evaluate('''() => {const e=document.getElementById('rotationJoystick');return e.offsetWidth/2-parseFloat(getComputedStyle(e).getPropertyValue('--stick-inset'))}''')

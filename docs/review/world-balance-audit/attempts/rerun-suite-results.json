@@ -1,0 +1,133 @@
+[
+  {
+    "suite": "machine_boss-native",
+    "exit_code": 0,
+    "groups": 26,
+    "observed_groups_before_failure": 0,
+    "seconds": 17.02,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/machine_boss.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/machine_boss-native"
+    ]
+  },
+  {
+    "suite": "machine_fortress_bgm-native",
+    "exit_code": 0,
+    "groups": 22,
+    "observed_groups_before_failure": 0,
+    "seconds": 39.63,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/machine_fortress_bgm.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/machine_fortress_bgm-native"
+    ]
+  },
+  {
+    "suite": "machine_normal-native",
+    "exit_code": 0,
+    "groups": 22,
+    "observed_groups_before_failure": 0,
+    "seconds": 13.75,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/machine_normal.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/machine_normal-native"
+    ]
+  },
+  {
+    "suite": "machine_fortress-native",
+    "exit_code": 1,
+    "groups": 0,
+    "observed_groups_before_failure": 12,
+    "seconds": 13.46,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/machine_fortress.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/machine_fortress-native"
+    ]
+  },
+  {
+    "suite": "storm_sky-native",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 13.81,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/storm_sky.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/storm_sky-native"
+    ]
+  },
+  {
+    "suite": "storm_sky_bgm-native",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 42.02,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/storm_sky_bgm.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/storm_sky_bgm-native"
+    ]
+  },
+  {
+    "suite": "snowfield_boss-native",
+    "exit_code": 0,
+    "groups": 19,
+    "observed_groups_before_failure": 0,
+    "seconds": 33.3,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/snowfield_boss.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/snowfield_boss-native"
+    ]
+  },
+  {
+    "suite": "snowfield_combat-native",
+    "exit_code": 0,
+    "groups": 16,
+    "observed_groups_before_failure": 0,
+    "seconds": 19.47,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/snowfield_combat.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/snowfield_combat-native"
+    ]
+  },
+  {
+    "suite": "multitouch_exit-native",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 241.83,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/multitouch_exit-native"
+    ]
+  },
+  {
+    "suite": "multitouch_exit-offline",
+    "exit_code": 0,
+    "groups": 13,
+    "observed_groups_before_failure": 0,
+    "seconds": 400.27,
+    "command": [
+      "python",
+      "/tmp/world-balance39-work/tests/multitouch_exit.py",
+      "--artifacts",
+      "/tmp/balance39-rerun/multitouch_exit-offline",
+      "--standalone"
+    ]
+  }
+]

@@ -4,6 +4,7 @@ from machine_enemy_scale_preservation import without_enemy_scale,RENDERER
 from machine_normal_preservation import without_machine_normal,COMBAT_ASSETS,assert_machine_combat_asset
 from machine_boss_preservation import BOSS_ASSETS,assert_boss_asset
 from machine_fortress_bgm_preservation import MACHINE_BGM_ASSETS,assert_machine_bgm_asset
+from world_balance_labels_preservation import CHANGED
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='653ac838e32fbf8276853058b75041703af4f079'
@@ -26,8 +27,8 @@ def assert_machine_asset(name):
 def verify():
     names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
     for name in ['index.html']+names:
-        p=ROOT/name;data=without_machine_fortress(p.read_text(),name).encode() if name in ['index.html','assets/worlds/worlds.js'] else p.read_bytes()
+        p=ROOT/name;data=without_machine_fortress(p.read_text(),name).encode() if name in {'index.html','assets/worlds/worlds.js'}|CHANGED else p.read_bytes()
         assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
     for name in MACHINE_ASSETS:assert_machine_asset(name)
-    return {'baseline':BASE,'existing_assets':len(names),'unchanged_existing_assets':len(names)-1,'index_exact_graphics_hooks':16,'registry_exact_deltas':9,'approved_new_assets':len(MACHINE_ASSETS),'existing_graphics_combat_audio_score_item_controls_byte_preserved':True}
+    return {'baseline':BASE,'existing_assets':len(names),'assets_matching_after_exact_UI_and_feature_reversal':len(names),'index_exact_graphics_hooks':16,'registry_exact_deltas':9,'approved_new_assets':len(MACHINE_ASSETS),'existing_graphics_combat_audio_score_item_controls_byte_preserved':True}
 if __name__=='__main__':print(json.dumps(verify(),indent=2))

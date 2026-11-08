@@ -1,0 +1,1011 @@
+{
+  "regions": [
+    {
+      "id": 0,
+      "key": "world-1:forest",
+      "worldId": 0,
+      "worldName": "월드 1",
+      "localIndex": 0,
+      "name": "🌲 숲 지역",
+      "combatProfile": 0,
+      "assetProfile": 0,
+      "musicProfile": 0,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "🌳 숲의 수호괴물",
+      "prototype": false
+    },
+    {
+      "id": 1,
+      "key": "world-1:rock",
+      "worldId": 0,
+      "worldName": "월드 1",
+      "localIndex": 1,
+      "name": "🪨 바위 지역",
+      "combatProfile": 1,
+      "assetProfile": 1,
+      "musicProfile": 1,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "🪨 거대 바위 골렘",
+      "prototype": false
+    },
+    {
+      "id": 2,
+      "key": "world-1:sea",
+      "worldId": 0,
+      "worldName": "월드 1",
+      "localIndex": 2,
+      "name": "🌊 바다 지역",
+      "combatProfile": 2,
+      "assetProfile": 2,
+      "musicProfile": 2,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "🐙 바다의 문어 대왕",
+      "prototype": false
+    },
+    {
+      "id": 3,
+      "key": "world-1:desert",
+      "worldId": 0,
+      "worldName": "월드 1",
+      "localIndex": 3,
+      "name": "🏜️ 사막 지역",
+      "combatProfile": 3,
+      "assetProfile": 3,
+      "musicProfile": 3,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "🦂 사막 전갈왕",
+      "prototype": false
+    },
+    {
+      "id": 4,
+      "key": "world-2:snowfield",
+      "worldId": 1,
+      "worldName": "월드 2",
+      "localIndex": 0,
+      "name": "❄ 설원",
+      "combatProfile": 0,
+      "assetProfile": 0,
+      "musicProfile": 0,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "❄ 눈보라 거인왕",
+      "prototypeBackground": "snowfield-approved",
+      "prototype": true
+    },
+    {
+      "id": 5,
+      "key": "world-2:volcano",
+      "worldId": 1,
+      "worldName": "월드 2",
+      "localIndex": 1,
+      "name": "🌋 화산",
+      "combatProfile": 0,
+      "assetProfile": 0,
+      "musicProfile": 4,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "🐉 마그마 드래곤",
+      "prototypeBackground": "volcano-approved",
+      "prototype": true
+    },
+    {
+      "id": 6,
+      "key": "world-2:storm-sky",
+      "worldId": 1,
+      "worldName": "월드 2",
+      "localIndex": 2,
+      "name": "⚡ 폭풍 하늘",
+      "combatProfile": 0,
+      "assetProfile": 0,
+      "musicProfile": 5,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "⚡ 폭풍의 지배자",
+      "prototypeBackground": "storm-sky-approved",
+      "prototype": true
+    },
+    {
+      "id": 7,
+      "key": "world-2:machine-fortress",
+      "worldId": 1,
+      "worldName": "월드 2",
+      "localIndex": 3,
+      "name": "⚙ 기계 요새",
+      "combatProfile": 0,
+      "assetProfile": 0,
+      "musicProfile": 6,
+      "normalPhases": 4,
+      "bossPhase": 5,
+      "bossName": "⚙ 기가코어",
+      "prototypeBackground": "machine-fortress-approved",
+      "prototype": true
+    }
+  ],
+  "tactics": [
+    {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    },
+    {
+      "move": 53,
+      "bullet": 110,
+      "interval": 3.6,
+      "spawn": 1.8
+    },
+    {
+      "move": 65,
+      "bullet": 130,
+      "interval": 3.1,
+      "spawn": 1.62
+    },
+    {
+      "move": 82,
+      "bullet": 155,
+      "interval": 2.7,
+      "spawn": 1.46
+    },
+    {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    },
+    {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    },
+    {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    },
+    {
+      "move": 38,
+      "bullet": 85,
+      "interval": 4.3,
+      "spawn": 2
+    }
+  ],
+  "requiredKills": 6,
+  "maxHP": [
+    4,
+    6,
+    9
+  ],
+  "playerSpeed": [
+    265,
+    240,
+    204
+  ],
+  "flightProfiles": [
+    {
+      "accel": 950,
+      "drag": 2.75,
+      "turn": 3.05
+    },
+    {
+      "accel": 740,
+      "drag": 3.25,
+      "turn": 2.7
+    },
+    {
+      "accel": 473,
+      "drag": 4.25,
+      "turn": 2.35
+    }
+  ],
+  "bossMultipliers": [
+    1,
+    1.1,
+    1.4,
+    1.6,
+    1.9,
+    2.2
+  ],
+  "enemyArtCounts": [
+    12,
+    10,
+    9,
+    11,
+    4,
+    4,
+    4,
+    4
+  ],
+  "weapons": [
+    {
+      "hero": 0,
+      "upgrade": 0,
+      "interval": 0.105,
+      "shotsPerSecond": 9.523809523809524,
+      "projectiles": 1,
+      "nominalDPS": 9.523809523809524,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 0,
+      "upgrade": 1,
+      "interval": 0.0861,
+      "shotsPerSecond": 11.614401858304298,
+      "projectiles": 2,
+      "nominalDPS": 23.228803716608596,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 0,
+      "upgrade": 2,
+      "interval": 0.0861,
+      "shotsPerSecond": 11.614401858304298,
+      "projectiles": 3,
+      "nominalDPS": 34.84320557491289,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 0,
+      "upgrade": 3,
+      "interval": 0.0861,
+      "shotsPerSecond": 11.614401858304298,
+      "projectiles": 4,
+      "nominalDPS": 46.45760743321719,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 0,
+      "upgrade": 4,
+      "interval": 0.0861,
+      "shotsPerSecond": 11.614401858304298,
+      "projectiles": 5,
+      "nominalDPS": 58.07200929152149,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 0,
+      "upgrade": 5,
+      "interval": 0.0861,
+      "shotsPerSecond": 11.614401858304298,
+      "projectiles": 5,
+      "nominalDPS": 58.07200929152149,
+      "damage": 1,
+      "speed": 535,
+      "homing": 0,
+      "pierce": 2,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 0,
+      "interval": 0.17,
+      "shotsPerSecond": 5.88235294117647,
+      "projectiles": 1,
+      "nominalDPS": 5.88235294117647,
+      "damage": 1,
+      "speed": 480,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 1,
+      "interval": 0.1394,
+      "shotsPerSecond": 7.173601147776184,
+      "projectiles": 1,
+      "nominalDPS": 7.173601147776184,
+      "damage": 1,
+      "speed": 480,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 2,
+      "interval": 0.1394,
+      "shotsPerSecond": 7.173601147776184,
+      "projectiles": 3,
+      "nominalDPS": 21.52080344332855,
+      "damage": 1,
+      "speed": 480,
+      "homing": 0,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 3,
+      "interval": 0.1394,
+      "shotsPerSecond": 7.173601147776184,
+      "projectiles": 3,
+      "nominalDPS": 21.52080344332855,
+      "damage": 1,
+      "speed": 480,
+      "homing": 1,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 4,
+      "interval": 0.1394,
+      "shotsPerSecond": 7.173601147776184,
+      "projectiles": 3,
+      "nominalDPS": 21.52080344332855,
+      "damage": 1,
+      "speed": 480,
+      "homing": 2,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 1,
+      "upgrade": 5,
+      "interval": 0.11849,
+      "shotsPerSecond": 8.439530762089628,
+      "projectiles": 3,
+      "nominalDPS": 25.318592286268885,
+      "damage": 1,
+      "speed": 480,
+      "homing": 3,
+      "pierce": 1,
+      "width": null,
+      "height": 29,
+      "life": 1.45
+    },
+    {
+      "hero": 2,
+      "upgrade": 0,
+      "interval": 0.35000000000000003,
+      "shotsPerSecond": 2.8571428571428568,
+      "projectiles": 1,
+      "nominalDPS": 4.285714285714286,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 2,
+      "width": 17.5,
+      "height": 29,
+      "life": 1.9
+    },
+    {
+      "hero": 2,
+      "upgrade": 1,
+      "interval": 0.287,
+      "shotsPerSecond": 3.4843205574912894,
+      "projectiles": 1,
+      "nominalDPS": 5.226480836236934,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 3,
+      "width": 45.5,
+      "height": 29,
+      "life": 1.9
+    },
+    {
+      "hero": 2,
+      "upgrade": 2,
+      "interval": 0.287,
+      "shotsPerSecond": 3.4843205574912894,
+      "projectiles": 2,
+      "nominalDPS": 10.452961672473869,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 3,
+      "width": 51.1875,
+      "height": 29,
+      "life": 1.9
+    },
+    {
+      "hero": 2,
+      "upgrade": 3,
+      "interval": 0.287,
+      "shotsPerSecond": 3.4843205574912894,
+      "projectiles": 2,
+      "nominalDPS": 10.452961672473869,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 4,
+      "width": 56.875,
+      "height": 29,
+      "life": 1.9
+    },
+    {
+      "hero": 2,
+      "upgrade": 4,
+      "interval": 0.287,
+      "shotsPerSecond": 3.4843205574912894,
+      "projectiles": 2,
+      "nominalDPS": 10.452961672473869,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 4,
+      "width": 62.5625,
+      "height": 29,
+      "life": 1.9
+    },
+    {
+      "hero": 2,
+      "upgrade": 5,
+      "interval": 0.287,
+      "shotsPerSecond": 3.4843205574912894,
+      "projectiles": 2,
+      "nominalDPS": 10.452961672473869,
+      "damage": 1.5,
+      "speed": 410,
+      "homing": 0,
+      "pierce": 5,
+      "width": 68.25,
+      "height": 29,
+      "life": 1.9
+    }
+  ],
+  "snowProfiles": [
+    {
+      "id": "snow_slime",
+      "hp": 1,
+      "move": 0.85,
+      "interval": 1.2,
+      "bullet": 1
+    },
+    {
+      "id": "penguin_raider",
+      "hp": 2,
+      "move": 0.95,
+      "interval": 1,
+      "bullet": 1,
+      "windup": 0.8,
+      "dash": 1.2,
+      "dashHeight": 1.05,
+      "rest": 0.8,
+      "initialDelay": 4.5,
+      "recovery": 4.5
+    },
+    {
+      "id": "ice_yeti",
+      "hp": 2,
+      "move": 0.75,
+      "interval": 1.4,
+      "bullet": 0.9
+    },
+    {
+      "id": "frost_turtle",
+      "hp": 3,
+      "move": 0.55,
+      "interval": 1.5,
+      "bullet": 1
+    }
+  ],
+  "volcanoProfiles": [
+    {
+      "id": "ember_bean",
+      "hp": 1,
+      "move": 1.2,
+      "interval": 0.8,
+      "bullet": 1
+    },
+    {
+      "id": "lava_lizard",
+      "hp": 2,
+      "move": 1,
+      "interval": 1,
+      "bullet": 1.05,
+      "strafe": 0.32,
+      "pursue": 0.88,
+      "initialDelay": 0.6,
+      "lateral": 1.6
+    },
+    {
+      "id": "volcano_bat",
+      "hp": 2,
+      "move": 1.08,
+      "interval": 1.15,
+      "bullet": 1.12,
+      "zigzag": [
+        0.55,
+        0.8,
+        0.65,
+        1
+      ],
+      "lateral": 0.95
+    },
+    {
+      "id": "magma_beetle",
+      "hp": 4,
+      "move": 0.5,
+      "interval": 1.45,
+      "bullet": 0.95,
+      "windup": 0.25,
+      "guard": 0.7,
+      "recovery": 4.5,
+      "initialDelay": 2.5,
+      "guardMove": 0.35
+    }
+  ],
+  "difficulty": {
+    "world-2:volcano": {
+      "spawnWeights": [
+        [
+          80,
+          20,
+          0,
+          0
+        ],
+        [
+          45,
+          40,
+          15,
+          0
+        ],
+        [
+          20,
+          35,
+          35,
+          10
+        ],
+        [
+          10,
+          25,
+          35,
+          30
+        ],
+        [
+          5,
+          15,
+          35,
+          45
+        ]
+      ]
+    },
+    "world-2:snowfield": {
+      "chaseSpeedScale": 1.06,
+      "shotIntervalScale": 0.95,
+      "bossRest": 3,
+      "spawnWeights": [
+        [
+          80,
+          20,
+          0,
+          0
+        ],
+        [
+          45,
+          40,
+          15,
+          0
+        ],
+        [
+          20,
+          30,
+          35,
+          15
+        ],
+        [
+          10,
+          20,
+          35,
+          35
+        ],
+        [
+          0,
+          15,
+          30,
+          55
+        ]
+      ]
+    }
+  },
+  "storm": {
+    "key": "world-2:storm-sky",
+    "ids": [
+      "cloud_bean",
+      "lightning_bat",
+      "tornado_spirit",
+      "storm_jellyfish"
+    ],
+    "weights": [
+      [
+        75,
+        25,
+        0,
+        0
+      ],
+      [
+        40,
+        35,
+        25,
+        0
+      ],
+      [
+        20,
+        30,
+        35,
+        15
+      ],
+      [
+        10,
+        25,
+        30,
+        35
+      ],
+      [
+        5,
+        25,
+        30,
+        40
+      ]
+    ],
+    "spawnIntervals": [
+      2,
+      1.91,
+      1.82,
+      1.73,
+      1.64
+    ],
+    "spawnCaps": [
+      3,
+      4,
+      4,
+      5,
+      5
+    ],
+    "monsters": [
+      {
+        "id": "cloud_bean",
+        "hp": 1,
+        "speed": 43,
+        "interval": 3.8,
+        "bullet": 90
+      },
+      {
+        "id": "lightning_bat",
+        "hp": 2,
+        "speed": 50,
+        "interval": 4.1,
+        "bullet": 96,
+        "dash": 155,
+        "warning": 0.5,
+        "dashTime": 0.75,
+        "rest": 1.2
+      },
+      {
+        "id": "tornado_spirit",
+        "hp": 2,
+        "speed": 40,
+        "interval": 3.6,
+        "bullet": 87
+      },
+      {
+        "id": "storm_jellyfish",
+        "hp": 3,
+        "speed": 28,
+        "interval": 3.2,
+        "bullet": 82
+      }
+    ],
+    "maxNormalBullets": 24,
+    "perActorBullets": 3,
+    "boss": {
+      "firstDelay": 1.8,
+      "rest": 1.9,
+      "minRest": 1.5,
+      "warning": 0.8,
+      "secondVolley": 0.45,
+      "bulletSpeed": 82,
+      "bulletLife": 4,
+      "maxBullets": 32,
+      "laserWarning": 1,
+      "laserTime": 2,
+      "laserTurn": 0.2617993877991494,
+      "laserWidth": 10,
+      "windLife": 5,
+      "maxWinds": 3,
+      "windSpeed": 34,
+      "windRadius": 20,
+      "windCooldown": 1.4,
+      "spinTime": 0.65,
+      "awakenTime": 2,
+      "pullSpeed": 22,
+      "phase2AttackRate": 1.2,
+      "phase2BulletSpeed": 1.1,
+      "step": 0.008333333333333333
+    }
+  },
+  "machine": {
+    "key": "world-2:machine-fortress",
+    "ids": [
+      "screw_bot",
+      "gear_wasp",
+      "laser_drone",
+      "armored_turret"
+    ],
+    "weights": [
+      [
+        75,
+        25,
+        0,
+        0
+      ],
+      [
+        45,
+        35,
+        20,
+        0
+      ],
+      [
+        25,
+        25,
+        30,
+        20
+      ],
+      [
+        15,
+        20,
+        35,
+        30
+      ],
+      [
+        10,
+        20,
+        35,
+        35
+      ]
+    ],
+    "monsters": [
+      {
+        "id": "screw_bot",
+        "hp": 1,
+        "speed": 46,
+        "near": 110,
+        "warning": 0.45,
+        "dash": 100,
+        "dashHeight": 0.4,
+        "rest": 2.2
+      },
+      {
+        "id": "gear_wasp",
+        "hp": 1,
+        "speed": 50,
+        "initial": 1.2,
+        "warning": 0.6,
+        "dash": 145,
+        "dashHeight": 0.7,
+        "rest": 2.6
+      },
+      {
+        "id": "laser_drone",
+        "hp": 2,
+        "speed": 30,
+        "initial": 1.2,
+        "near": 150,
+        "far": 210,
+        "warning": 0.65,
+        "active": 0.28,
+        "width": 7,
+        "length": 260,
+        "rest": 3.1
+      },
+      {
+        "id": "armored_turret",
+        "hp": 3,
+        "speed": 20,
+        "initial": 1.2,
+        "warning": 0.45,
+        "interval": 3.6,
+        "bullet": 75,
+        "bulletRadius": 6,
+        "bulletLife": 3.4
+      }
+    ],
+    "maxNormalBullets": 24,
+    "perActorBullets": 2,
+    "playerLaserRadius": 12,
+    "step": 0.0033333333333333335,
+    "maxDt": 0.25
+  },
+  "bossSettings": {
+    "snow": {
+      "firstDelay": 1.8,
+      "rest": 3,
+      "fanSpeed": 80,
+      "fanSpread": 0.3141592653589793,
+      "radialSpeed": 65,
+      "radialStep": 0.2617993877991494,
+      "radiusRatio": 0.18,
+      "minRadius": 56,
+      "maxRadius": 74,
+      "warning": 1.4,
+      "burst": 0.25,
+      "bulletLife": 3.4,
+      "bulletRadius": 5,
+      "maxBullets": 9
+    },
+    "volcano": {
+      "firstDelay": 1.8,
+      "rest": 2.8,
+      "fireAim": 0.4,
+      "fireWaves": 3,
+      "fireGap": 0.32,
+      "fireSpread": 0.20943951023931953,
+      "fireSpeed": 88,
+      "bulletRadius": 5.5,
+      "bulletLife": 3.2,
+      "maxBullets": 18,
+      "eruptionRatio": 0.16,
+      "eruptionMin": 48,
+      "eruptionMax": 64,
+      "eruptionLead": 0.18,
+      "eruptionWarning": 1.25,
+      "eruptionBurst": 0.25,
+      "breathWarning": 1,
+      "breathHold": 0.2,
+      "breathDuration": 3.8,
+      "breathRatio": 0.52,
+      "breathMin": 165,
+      "breathMax": 205,
+      "fade": 0.18,
+      "positionSpeed": 45,
+      "positionLimit": 3,
+      "step": 0.008333333333333333
+    },
+    "storm": {
+      "firstDelay": 1.8,
+      "rest": 1.9,
+      "minRest": 1.5,
+      "warning": 0.8,
+      "secondVolley": 0.45,
+      "bulletSpeed": 82,
+      "bulletLife": 4,
+      "maxBullets": 32,
+      "laserWarning": 1,
+      "laserTime": 2,
+      "laserTurn": 0.2617993877991494,
+      "laserWidth": 10,
+      "windLife": 5,
+      "maxWinds": 3,
+      "windSpeed": 34,
+      "windRadius": 20,
+      "windCooldown": 1.4,
+      "spinTime": 0.65,
+      "awakenTime": 2,
+      "pullSpeed": 22,
+      "phase2AttackRate": 1.2,
+      "phase2BulletSpeed": 1.1,
+      "step": 0.008333333333333333
+    },
+    "machine": {
+      "firstDelay": 1.4,
+      "rest": 2.8,
+      "minRest": 1.2,
+      "overdriveRest": 0.75,
+      "awakenTime": 0.8,
+      "laserWarning": 0.9,
+      "laserTime": 1.8,
+      "laserWidth": 8,
+      "laserRatio": 0.55,
+      "laserMax": 220,
+      "laserSweep": 3.141592653589793,
+      "overdriveLaser": 1.25,
+      "missileWarning": 0.7,
+      "missileSpeed": 80,
+      "overdriveMissile": 1.1,
+      "missileRadius": 6,
+      "missileLife": 3.4,
+      "missileTurn": 1.6,
+      "maxMissiles": 12,
+      "wallWarning": 1.2,
+      "wallTime": 3,
+      "wallWidth": 56,
+      "wallHeight": 0.75,
+      "safeHeight": 0.25,
+      "playerRadius": 12,
+      "step": 0.0033333333333333335,
+      "maxDt": 0.25
+    }
+  },
+  "items": {
+    "monsters": [],
+    "entrances": [],
+    "bursts": [],
+    "regions": [
+      {
+        "region": 0,
+        "regionKey": "world-1:forest",
+        "worldId": 0,
+        "opportunities": 3,
+        "spawned": 0,
+        "phases": [
+          {
+            "phase": 1,
+            "selected": true,
+            "requiredKills": 2,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 2,
+            "selected": true,
+            "requiredKills": 3,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 3,
+            "selected": true,
+            "requiredKills": 2,
+            "normalKills": 0,
+            "status": "waiting"
+          },
+          {
+            "phase": 4,
+            "selected": false,
+            "requiredKills": null,
+            "normalKills": 0,
+            "status": "not-selected"
+          }
+        ]
+      }
+    ],
+    "settings": {
+      "opportunitiesPerRegion": 3
+    },
+    "mode": "regional-kill-count",
+    "bodyWidth": 80,
+    "bodyHeight": 64,
+    "hitRadius": 20,
+    "normalOpportunityProbability": 0.78
+  }
+}

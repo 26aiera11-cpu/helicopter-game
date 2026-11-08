@@ -1,0 +1,84 @@
+{
+  "assets/worlds/worlds.js": [
+    [
+      "'❄ 설원 (시험)'",
+      "'❄ 설원'"
+    ],
+    [
+      "'🌋 화산 (시험)'",
+      "'🌋 화산'"
+    ],
+    [
+      "'⚡ 폭풍 하늘 (시험)'",
+      "'⚡ 폭풍 하늘'"
+    ],
+    [
+      "'⚙ 기계 요새 (시험)'",
+      "'⚙ 기계 요새'"
+    ],
+    [
+      "'❄ 눈보라 거인왕 (시험)'",
+      "'❄ 눈보라 거인왕'"
+    ],
+    [
+      "'🐉 마그마 드래곤 (시험)'",
+      "'🐉 마그마 드래곤'"
+    ],
+    [
+      "'⚡ 폭풍의 지배자 (시험)'",
+      "'⚡ 폭풍의 지배자'"
+    ],
+    [
+      "'⚙ 기가코어 (시험)'",
+      "'⚙ 기가코어'"
+    ],
+    [
+      "🏁 월드 2 시험 완료!",
+      "🏆 전체 40단계 클리어!"
+    ],
+    [
+      "설원·화산·폭풍 하늘·기계 요새의 월드 2 시험 구간을 모두 완료했어요.",
+      "숲부터 기계 요새까지 8개 지역과 40단계를 모두 완료했어요."
+    ],
+    [
+      "if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);",
+      "if(notice)notice.hidden=!(typeof started!=='undefined' && started && isDeveloper() && region(stage)?.prototype);"
+    ],
+    [
+      "if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';",
+      "if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:volcano'?'화산 · 혼합 등장·전용 전투 / 전용 BGM':'설원 · 전용 전투 / 숲 임시 BGM';"
+    ],
+    [
+      "설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 40단계 기록은 기존 월드 2 시험 순위표에, 20단계 기록은 기존 월드 1 순위표에 따로 저장하며 이전 기록을 유지합니다.",
+      "설원은 전용 전투와 숲 임시 BGM을 사용합니다. 화산·폭풍 하늘·기계 요새는 전용 전투와 지역별 일반·보스 BGM을 사용합니다. 40단계 기록과 20단계 기록은 별도로 저장하며 이전 기록을 유지합니다."
+    ],
+    [
+      "개발 테스트가 켜져 있어 월드 2 포함 40단계 시험은 OFF입니다.",
+      "개발 테스트가 켜져 있어 40단계 연속 진행은 OFF입니다."
+    ],
+    [
+      "notice.textContent='설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시'",
+      "notice.textContent='설원 · 전용 전투 / 숲 임시 BGM'"
+    ]
+  ],
+  "assets/score/score.js": [
+    [
+      "'🏆 월드 2 시험 TOP 10'",
+      "'🏆 40단계 TOP 10'"
+    ],
+    [
+      "'월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외'",
+      "'40단계 기록 · 20단계 기록과 별도 저장 · 중도 종료 제외'"
+    ],
+    [
+      "regionName: stageNames[record.regionId], worldId:",
+      "regionName: typeof record.regionName === 'string' ? record.regionName : stageNames[record.regionId], worldId:"
+    ]
+  ],
+  "assets/selection/selection.js": [
+    [
+      "/모든 지역 클리어|설원 시험 완료|월드 2 시험 완료|지역 테스트 완료/",
+      "/모든 지역 클리어|전체 40단계 클리어|지역 테스트 완료/"
+    ]
+  ]
+}

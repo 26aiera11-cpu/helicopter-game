@@ -1,0 +1,1204 @@
+{
+  "baseline": "07c3d34331770f53817ca513241949ec19fe8dbe",
+  "main_not_modified": "653ac838e32fbf8276853058b75041703af4f079",
+  "branch": "feature/world-balance-audit-clean-labels",
+  "registered_suites": 84,
+  "selected_suites": 35,
+  "final_passed_suites": 35,
+  "final_failed_suites": 0,
+  "completed_groups": 516,
+  "unrun_suites": [
+    "snowfield_mixed-native",
+    "snowfield_art",
+    "snowfield_mixed-offline",
+    "game_audit",
+    "snowfield_art-offline",
+    "item_monsters",
+    "item_spawn_rules-offline",
+    "item_monsters-offline",
+    "tanko_cadence",
+    "tanko_combat",
+    "tanko_combat-offline",
+    "bgm_smoke",
+    "joystick_design",
+    "mobile_controls-offline",
+    "joystick_design-offline",
+    "snowfield_combat-offline",
+    "snowfield_difficulty-offline",
+    "ppyoko_title-native",
+    "snowfield_boss-offline",
+    "volcano_lifecycle",
+    "volcano_fallback",
+    "volcano_package",
+    "ppyoko_title-offline",
+    "volcano_art-native",
+    "volcano_art-offline",
+    "volcano_visual_fix-native",
+    "volcano_visual_fix-offline",
+    "volcano_combat-offline",
+    "volcano_boss-offline",
+    "volcano_boss_masks",
+    "volcano_breath_art-native",
+    "volcano_breath_art-offline",
+    "volcano_mixed-offline",
+    "volcano_bgm-native",
+    "volcano_bgm-offline",
+    "storm_sky-offline",
+    "storm_sky_edges",
+    "storm_background_fit-native",
+    "storm_background_fit-offline",
+    "storm_background_integrity",
+    "storm_sky_bgm-offline",
+    "machine_fortress-offline",
+    "machine_normal-offline",
+    "machine_background_dash-native",
+    "machine_background_dash-offline",
+    "machine_cover-native",
+    "machine_cover-offline",
+    "machine_boss-offline",
+    "machine_fortress_bgm-offline"
+  ],
+  "unrun_reason": "Relevant current native modules plus cross-cutting offline route/score/audio/input/labels/package were selected; duplicated historical variants, visual asset-production checks, and old balance-comparison suites were not all rerun. This is not an84-suite result.",
+  "initial_attempt": [
+    {
+      "suite": "world_balance_labels-native",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.67,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/world_balance_labels.py",
+        "--artifacts",
+        "/tmp/balance39-regression/world_balance_labels-native"
+      ]
+    },
+    {
+      "suite": "world_balance_labels-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 34.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/world_balance_labels.py",
+        "--artifacts",
+        "/tmp/balance39-regression/world_balance_labels-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.87,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/balance39-regression/worlds"
+      ]
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 128.28,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/balance39-regression/worlds-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "default_world_route-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.36,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/balance39-regression/default_world_route-native"
+      ]
+    },
+    {
+      "suite": "default_world_route-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 231.27,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/balance39-regression/default_world_route-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/balance39-regression/scoring"
+      ]
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 280.35,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/balance39-regression/scoring-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.94,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/balance39-regression/mobile_controls"
+      ]
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.78,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/exit_dialog.py",
+        "--artifacts",
+        "/tmp/balance39-regression/exit_dialog"
+      ]
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.38,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/balance39-regression/fullscreen_smoke"
+      ]
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.89,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_smoke.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_smoke"
+      ]
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 28.17,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/balance39-regression/game_over"
+      ]
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.63,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/balance39-regression/developer_start-native"
+      ]
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 125.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/balance39-regression/developer_start-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 1.22,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/balance39-regression/machine_boss-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 0.72,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/machine_fortress_bgm-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 2.02,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/balance39-regression/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 2.87,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/balance39-regression/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 4.68,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/balance39-regression/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 0,
+      "seconds": 2.77,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.43,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_boss-native"
+      ]
+    },
+    {
+      "suite": "volcano_combat-native",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.5,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_combat.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_combat-native"
+      ]
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.24,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_mixed-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 1,
+      "seconds": 11.48,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/balance39-regression/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 1,
+      "seconds": 11.85,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/balance39-regression/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.2,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/tmp/balance39-regression/snowfield_difficulty-native"
+      ]
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 75.9,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_bgm"
+      ]
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 98.7,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_bgm-offline",
+        "--standalone"
+      ]
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.01,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/balance39-regression/item_persistence"
+      ]
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.77,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/tmp/balance39-regression/item_spawn_rules"
+      ]
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.04,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/balance39-regression/boss_reward"
+      ]
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 69.34,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/balance39-regression/galaxy_standalone"
+      ]
+    }
+  ],
+  "reruns": [
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.02,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_boss-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.63,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_fortress_bgm-native"
+      ]
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.75,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_normal-native"
+      ]
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 1,
+      "groups": 0,
+      "observed_groups_before_failure": 12,
+      "seconds": 13.46,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_fortress-native"
+      ]
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.81,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/storm_sky-native"
+      ]
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 42.02,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/storm_sky_bgm-native"
+      ]
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.3,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/snowfield_boss-native"
+      ]
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.47,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/snowfield_combat-native"
+      ]
+    },
+    {
+      "suite": "multitouch_exit-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 241.83,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/multitouch_exit.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/multitouch_exit-native"
+      ]
+    },
+    {
+      "suite": "multitouch_exit-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 400.27,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/multitouch_exit.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/multitouch_exit-offline",
+        "--standalone"
+      ]
+    }
+  ],
+  "followup": [
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 14.45,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/balance39-followup/machine_fortress-native"
+      ]
+    }
+  ],
+  "final_suites": [
+    {
+      "suite": "world_balance_labels-native",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.67,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/world_balance_labels.py",
+        "--artifacts",
+        "/tmp/balance39-regression/world_balance_labels-native"
+      ],
+      "evidence": "tests/world_balance_labels-native",
+      "log_sha256": "a2c1b11e19a3a0360f92a940b5442b74db7a01041f599fdb38076ba3f89baca4"
+    },
+    {
+      "suite": "world_balance_labels-offline",
+      "exit_code": 0,
+      "groups": 5,
+      "observed_groups_before_failure": 0,
+      "seconds": 34.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/world_balance_labels.py",
+        "--artifacts",
+        "/tmp/balance39-regression/world_balance_labels-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/world_balance_labels-offline",
+      "log_sha256": "a2c1b11e19a3a0360f92a940b5442b74db7a01041f599fdb38076ba3f89baca4"
+    },
+    {
+      "suite": "worlds",
+      "exit_code": 0,
+      "groups": 20,
+      "observed_groups_before_failure": 0,
+      "seconds": 26.87,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/balance39-regression/worlds"
+      ],
+      "evidence": "tests/worlds",
+      "log_sha256": "7873fd5a5490369f3e20befbbf00b42fa47608207287a71b0e1fcc08847950c8"
+    },
+    {
+      "suite": "worlds-offline",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 128.28,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/worlds.py",
+        "--artifacts",
+        "/tmp/balance39-regression/worlds-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/worlds-offline",
+      "log_sha256": "86250767f652821e391395f94307028bd8e1af94384d4cbce575f91b0a9ec577"
+    },
+    {
+      "suite": "default_world_route-native",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.36,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/balance39-regression/default_world_route-native"
+      ],
+      "evidence": "tests/default_world_route-native",
+      "log_sha256": "4266d64f81dedf498aacd12e610c0f2a10843afc4c11223862d1f45f55a31155"
+    },
+    {
+      "suite": "default_world_route-offline",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 231.27,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/default_world_route.py",
+        "--artifacts",
+        "/tmp/balance39-regression/default_world_route-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/default_world_route-offline",
+      "log_sha256": "4266d64f81dedf498aacd12e610c0f2a10843afc4c11223862d1f45f55a31155"
+    },
+    {
+      "suite": "scoring",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 45.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/balance39-regression/scoring"
+      ],
+      "evidence": "tests/scoring",
+      "log_sha256": "f2b1ed4f8cb5244cd705c20926ab9119c38dd6a3fb712081b1e776e5c16cb281"
+    },
+    {
+      "suite": "scoring-offline",
+      "exit_code": 0,
+      "groups": 17,
+      "observed_groups_before_failure": 0,
+      "seconds": 280.35,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/scoring.py",
+        "--artifacts",
+        "/tmp/balance39-regression/scoring-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/scoring-offline",
+      "log_sha256": "f2b1ed4f8cb5244cd705c20926ab9119c38dd6a3fb712081b1e776e5c16cb281"
+    },
+    {
+      "suite": "mobile_controls",
+      "exit_code": 0,
+      "groups": 23,
+      "observed_groups_before_failure": 0,
+      "seconds": 27.94,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/mobile_controls.py",
+        "--artifacts",
+        "/tmp/balance39-regression/mobile_controls"
+      ],
+      "evidence": "tests/mobile_controls",
+      "log_sha256": "68a04451238adcb5ef9b0d26f3c110e16b00fb46617e9941563afda82a0b7dd5"
+    },
+    {
+      "suite": "exit_dialog",
+      "exit_code": 0,
+      "groups": 10,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.78,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/exit_dialog.py",
+        "--artifacts",
+        "/tmp/balance39-regression/exit_dialog"
+      ],
+      "evidence": "tests/exit_dialog",
+      "log_sha256": "3069b7999b1cc83f3c5b72d87b98ee4c3d7e772f40c6ce13396d3a943fa1f3b4"
+    },
+    {
+      "suite": "fullscreen_smoke",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 9.38,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/fullscreen_smoke.py",
+        "--artifacts",
+        "/tmp/balance39-regression/fullscreen_smoke"
+      ],
+      "evidence": "tests/fullscreen_smoke",
+      "log_sha256": "c28a8b6dcf24e75c3a6d79f498fe76c3927c354cc60634a5526906ec6953f632"
+    },
+    {
+      "suite": "selection_smoke",
+      "exit_code": 0,
+      "groups": 15,
+      "observed_groups_before_failure": 0,
+      "seconds": 32.89,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_smoke.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_smoke"
+      ],
+      "evidence": "tests/selection_smoke",
+      "log_sha256": "76cffa26878acabc89a114a4282fde145e2d7ce678542d369d61b97abef93afa"
+    },
+    {
+      "suite": "game_over",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 28.17,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/game_over.py",
+        "--artifacts",
+        "/tmp/balance39-regression/game_over"
+      ],
+      "evidence": "tests/game_over",
+      "log_sha256": "d2fc1a13886d941b55d689a9d5ffc3823bf8ca8d959eefcdcef4f1b021035b48"
+    },
+    {
+      "suite": "developer_start-native",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 47.63,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/balance39-regression/developer_start-native"
+      ],
+      "evidence": "tests/developer_start-native",
+      "log_sha256": "8835767019251f86d43f33b572fcee034fbab702cf6080841ef09e08c2aa8868"
+    },
+    {
+      "suite": "developer_start-offline",
+      "exit_code": 0,
+      "groups": 18,
+      "observed_groups_before_failure": 0,
+      "seconds": 125.8,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/developer_start.py",
+        "--artifacts",
+        "/tmp/balance39-regression/developer_start-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/developer_start-offline",
+      "log_sha256": "8835767019251f86d43f33b572fcee034fbab702cf6080841ef09e08c2aa8868"
+    },
+    {
+      "suite": "machine_boss-native",
+      "exit_code": 0,
+      "groups": 26,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.02,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_boss.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_boss-native"
+      ],
+      "evidence": "tests/machine_boss-native",
+      "log_sha256": "72fb8777e34f2c7b5d22c5790b59f55877295d3d5eb0a2b2d45d0aeb8c3560b0"
+    },
+    {
+      "suite": "machine_fortress_bgm-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 39.63,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_fortress_bgm-native"
+      ],
+      "evidence": "tests/machine_fortress_bgm-native",
+      "log_sha256": "962a6f6f9d175998119882223b2e822b1f24f102c02ec14cda4a418ca427e7c8"
+    },
+    {
+      "suite": "machine_normal-native",
+      "exit_code": 0,
+      "groups": 22,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.75,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_normal.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/machine_normal-native"
+      ],
+      "evidence": "tests/machine_normal-native",
+      "log_sha256": "49dc7dcecfa49abb768d814d011264dee8c3df472f12ebdede34c172848cd049"
+    },
+    {
+      "suite": "machine_fortress-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 14.45,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/machine_fortress.py",
+        "--artifacts",
+        "/tmp/balance39-followup/machine_fortress-native"
+      ],
+      "evidence": "tests/machine_fortress-native",
+      "log_sha256": "939979ee9bcada2dc7551f7e57f0aef8bcf445c0a8471692a2583a8af7643d58"
+    },
+    {
+      "suite": "storm_sky-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 13.81,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/storm_sky-native"
+      ],
+      "evidence": "tests/storm_sky-native",
+      "log_sha256": "e1ddff8c41a745826181b7bd25c8980274a6cd4e4cfeb61e2470f91d4da4490a"
+    },
+    {
+      "suite": "storm_sky_bgm-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 42.02,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/storm_sky_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/storm_sky_bgm-native"
+      ],
+      "evidence": "tests/storm_sky_bgm-native",
+      "log_sha256": "e90d36046ddb21874b9a9966c2ab5ff9c0bb6d5da850d2b1d366c21c288f9f0d"
+    },
+    {
+      "suite": "volcano_boss-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 24.43,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_boss.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_boss-native"
+      ],
+      "evidence": "tests/volcano_boss-native",
+      "log_sha256": "8a05f57bb9b7bd18f435a351a28ff6a5bda6002381ad8f121452b4ea8c394ea7"
+    },
+    {
+      "suite": "volcano_combat-native",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.5,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_combat.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_combat-native"
+      ],
+      "evidence": "tests/volcano_combat-native",
+      "log_sha256": "8e20de9f0454b7aa0b1dee15ac8be5747fd52da5af51d2e432720a7bd608c705"
+    },
+    {
+      "suite": "volcano_mixed-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 11.24,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/volcano_mixed.py",
+        "--artifacts",
+        "/tmp/balance39-regression/volcano_mixed-native"
+      ],
+      "evidence": "tests/volcano_mixed-native",
+      "log_sha256": "2c7b10ccf3e652c995dae6bebd0047756c9f942ab52ee9f21afc5c7de7c139c6"
+    },
+    {
+      "suite": "snowfield_boss-native",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 33.3,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_boss.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/snowfield_boss-native"
+      ],
+      "evidence": "tests/snowfield_boss-native",
+      "log_sha256": "1e543daa8be5ac938b4616946a86de2fdf2185d804b4d4e3542d68ef3e0462ea"
+    },
+    {
+      "suite": "snowfield_combat-native",
+      "exit_code": 0,
+      "groups": 16,
+      "observed_groups_before_failure": 0,
+      "seconds": 19.47,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_combat.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/snowfield_combat-native"
+      ],
+      "evidence": "tests/snowfield_combat-native",
+      "log_sha256": "336b48aa7ff86833378053643a7fec75591817bca18c4f10471ee3b5d8619b7a"
+    },
+    {
+      "suite": "snowfield_difficulty-native",
+      "exit_code": 0,
+      "groups": 9,
+      "observed_groups_before_failure": 0,
+      "seconds": 15.2,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/snowfield_difficulty.py",
+        "--artifacts",
+        "/tmp/balance39-regression/snowfield_difficulty-native"
+      ],
+      "evidence": "tests/snowfield_difficulty-native",
+      "log_sha256": "9a3efe659b1fe94a162f75724e9a74434bf9481be585bd21995ef8700117b791"
+    },
+    {
+      "suite": "selection_bgm",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 75.9,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_bgm"
+      ],
+      "evidence": "tests/selection_bgm",
+      "log_sha256": "6a95417e40828951aae134b7a68e58292bb8f1eb2fd163eef841761ba3686603"
+    },
+    {
+      "suite": "selection_bgm-offline",
+      "exit_code": 0,
+      "groups": 14,
+      "observed_groups_before_failure": 0,
+      "seconds": 98.7,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/selection_bgm.py",
+        "--artifacts",
+        "/tmp/balance39-regression/selection_bgm-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/selection_bgm-offline",
+      "log_sha256": "6a95417e40828951aae134b7a68e58292bb8f1eb2fd163eef841761ba3686603"
+    },
+    {
+      "suite": "item_persistence",
+      "exit_code": 0,
+      "groups": 7,
+      "observed_groups_before_failure": 0,
+      "seconds": 6.01,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/item_persistence.py",
+        "--artifacts",
+        "/tmp/balance39-regression/item_persistence"
+      ],
+      "evidence": "tests/item_persistence",
+      "log_sha256": "09ab8f7735c20d83d6ec124b707e5ca7618e0a37093ccdc6b0d8c9980bbcf631"
+    },
+    {
+      "suite": "item_spawn_rules",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 17.77,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/item_spawn_rules.py",
+        "--artifacts",
+        "/tmp/balance39-regression/item_spawn_rules"
+      ],
+      "evidence": "tests/item_spawn_rules",
+      "log_sha256": "8ff5d4a73ad30c0e4c99af8ad4a4f3ce51029289f9e5faa5e6f9d787da58daec"
+    },
+    {
+      "suite": "boss_reward",
+      "exit_code": 0,
+      "groups": 8,
+      "observed_groups_before_failure": 0,
+      "seconds": 20.04,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/boss_reward.py",
+        "--artifacts",
+        "/tmp/balance39-regression/boss_reward"
+      ],
+      "evidence": "tests/boss_reward",
+      "log_sha256": "50312ea9654a423e78517579b8defa8f0ef9f8357f9b67a8083d27437e2e71fe"
+    },
+    {
+      "suite": "galaxy_standalone",
+      "exit_code": 0,
+      "groups": 19,
+      "observed_groups_before_failure": 0,
+      "seconds": 69.34,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/galaxy_standalone.py",
+        "--artifacts",
+        "/tmp/balance39-regression/galaxy_standalone"
+      ],
+      "evidence": "tests/galaxy_standalone",
+      "log_sha256": "b0e2426366f9f1c6fc98a5c094902b713e91d471d5aaa398ac8de740a4e2d9ee"
+    },
+    {
+      "suite": "multitouch_exit-native",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 241.83,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/multitouch_exit.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/multitouch_exit-native"
+      ],
+      "evidence": "tests/multitouch_exit-native",
+      "log_sha256": "d2d89bd7820cf90077c8d428587a9ad0475dd92cb5a6b60ab9c5eb779fc745e0"
+    },
+    {
+      "suite": "multitouch_exit-offline",
+      "exit_code": 0,
+      "groups": 13,
+      "observed_groups_before_failure": 0,
+      "seconds": 400.27,
+      "command": [
+        "python",
+        "/tmp/world-balance39-work/tests/multitouch_exit.py",
+        "--artifacts",
+        "/tmp/balance39-rerun/multitouch_exit-offline",
+        "--standalone"
+      ],
+      "evidence": "tests/multitouch_exit-offline",
+      "log_sha256": "d2d89bd7820cf90077c8d428587a9ad0475dd92cb5a6b60ab9c5eb779fc745e0"
+    }
+  ],
+  "preservation": {
+    "baseline": "07c3d34331770f53817ca513241949ec19fe8dbe",
+    "assets": 131,
+    "raw_unchanged_assets": 128,
+    "index_and_multitouch_exit_byte_identical": true,
+    "exact_reviewed_deltas": 19,
+    "combat_parameters_AI_images_audio_controls_items_and_internal_identifiers_unchanged": true
+  },
+  "measurement_counts": {
+    "natural40_routes": 9,
+    "stationary_weapon_assays": 144,
+    "boss_conditions": 480,
+    "normal_phase1_conditions": 432
+  },
+  "resource_events_after_recovery": {
+    "low": "0",
+    "high": "0",
+    "max": "0",
+    "oom": "0",
+    "oom_kill": "0",
+    "oom_group_kill": "0"
+  },
+  "physical_galaxy_and_human_difficulty_tested": false
+}

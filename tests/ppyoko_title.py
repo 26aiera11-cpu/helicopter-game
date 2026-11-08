@@ -99,7 +99,7 @@ try:
    page.locator('.select-hit[data-heli="0"]').tap();page.wait_for_function('selectedHeli===0');page.locator('#startSelected').tap();page.wait_for_function('started&&player?.type===0')
    page.evaluate('trial=>{stage=gameWorlds.snapshot().route.at(-1);phase=5;phaseKills=6;spawn=999;transition=0;update(0);nameFinishBoss();}',trial)
    expect(page.locator('#menu')).to_be_visible(timeout=4000);page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending',timeout=4000)
-   expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어',timeout=4000)
+   expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어' if trial else '모든 지역 클리어',timeout=4000)
    text=page.locator('#selectionResult').inner_text();result=page.evaluate('gameScoring.getLastResult()');assert result['record']['characterName']=='뾰코' and result['record']['characterId']==0 and result['saved'];page.screenshot(path=str(args.artifacts/f'clear-{trial}.png'));final.append({'trial':trial,'text':text,'score':result['record']['score']})
   report['normal_trial_clear_names']=final;passed('Normal and trial final-clear headings and newly stored results consistently use뾰코/ID0 while game title stays헬리 트리오;legacy top entries remain available.')
   load();page.evaluate('gameWorlds.setTrialEnabled(true)');assert all(r['characterName']==names[r['characterId']] for r in page.evaluate('gameScoring.getTop()'));assert page.title()=='헬리 트리오'

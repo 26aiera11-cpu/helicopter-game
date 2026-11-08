@@ -61,7 +61,7 @@
       if (help.open) help.close();
     }
     const message = heading.textContent || '';
-    result.textContent = /모든 지역 클리어|설원 시험 완료|월드 2 시험 완료|지역 테스트 완료/.test(message) ? message : '';
+    result.textContent = /모든 지역 클리어|전체 40단계 클리어|지역 테스트 완료/.test(message) ? message : '';
     syncCharacters();
   }
 

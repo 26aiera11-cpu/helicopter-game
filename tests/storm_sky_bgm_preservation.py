@@ -4,6 +4,7 @@ Historical visual/combat guards remove only these six reviewed routing/UI deltas
 """
 import hashlib
 from machine_fortress_preservation import without_machine_fortress
+from world_balance_labels_preservation import CHANGED
 import json
 import subprocess
 from pathlib import Path
@@ -30,7 +31,7 @@ def verify():
     names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
     for name in ['index.html']+names:
         p=ROOT/name
-        data=without_storm_sky_bgm(p.read_text(),name).encode() if name in ['index.html','assets/worlds/worlds.js'] else p.read_bytes()
+        data=without_storm_sky_bgm(p.read_text(),name).encode() if name in {'index.html','assets/worlds/worlds.js'}|CHANGED else p.read_bytes()
         assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
     for name in STORM_BGM_ASSETS:assert_storm_bgm_asset(name)
     return {'baseline':BASE,'preserved_assets':len(names),'reviewed_index_deltas':3,'reviewed_world_registry_deltas':3,'new_music_files':2,'all_existing_graphics_audio_combat_and_controls_byte_preserved':True}

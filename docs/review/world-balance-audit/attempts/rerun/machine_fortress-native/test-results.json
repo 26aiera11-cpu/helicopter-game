@@ -1,0 +1,2399 @@
+{
+  "standalone": false,
+  "passed": [
+    "Exact16 graphics hooks and9 registry/UI deltas invert to653ac83; all other111 existing assets match the baseline, including every audio, image, combat/control/item/score module; all JS parses.",
+    "All11 supplied PNGs have valid chunk CRC/zlib EOF/IEND/full decode; dimensions/hashes/alpha unchanged. Background1672x941 and source_rect metadata is never misused to crop standalone sprites.",
+    "Registry keeps stable ID7/world2 localIndex3, default40phases and explicit World1-only20phases; all5 stage choices retain fallback combat/asset profile0 and dedicated music6 while Machine normal AI is region-local.",
+    "Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI labels normal/boss combat trial and forest temporary music.",
+    "All5 phases use one1672x941 source via centered cover at915x412/800x360/568x320 and actualDPR2; source ratio/center preserved with approved edge cropping; HUD/joystick/fire/fullscreen fit.",
+    "3heroes x13 permitted phase/species pairs=39 actual spawn/HP/weapon/hit/death cases match Issue33 profiles while keeping r16,100points/one normal kill, original animation and cleanup; dedicated pattern timing is checked separately.",
+    "All5 display states change transform/alpha over time; surviving hit is visible; original single-pose PNG proportions and centered pivots are retained without pixel edits.",
+    "Original normal/red PNGs load unchanged; HP50% now renders approved red132px GigaCore with one awakening, while other-region boss modules stay inactive. Dedicated pattern checks run separately.",
+    "All3 weapons: normalphase5 needs6 kills then original20HP/r48 GigaCore with generic shots suppressed, whereas developer5 is immediate; boss2000points/reward/outro once and clean dev return without records.",
+    "Actual trial Storm->Fortress transition enters7/1 on the40-phase route and carries the same item with unchanged lifetime; default World1 route remains separate.",
+    "Actual4-normal/boss Canvas calls use the entire per-file PNG (source_rect ignored), identical X/Y scale, centered full-image pivot and original transparency; no square distortion/cropping.",
+    "Internal exit freezes art timers, cancel/confirm retain fullscreen and clear ghosts; zeroHP preserves original3s GAME OVER/clean selection return, no browser dialogs."
+  ],
+  "limits": [
+    "Controlled real Chromium, not physical Galaxy Samsung Internet/Chrome, sensor hardware, audio speaker approval or human balance certification.",
+    "One original pose per normal monster/two boss PNGs; animation is display-only transforms, not redrawn frames.",
+    "Overdrive and four electromagnetic effects remain preview-only. Normal AI/laser/shells are tested separately; boss specials/wall/HP50% transition are still absent.",
+    "Local-file browser policy is not bypassed: exact standalone HTML is injected into an offline blank origin."
+  ],
+  "preservation": {
+    "baseline": "653ac838e32fbf8276853058b75041703af4f079",
+    "existing_assets": 111,
+    "assets_matching_after_exact_UI_and_feature_reversal": 111,
+    "index_exact_graphics_hooks": 16,
+    "registry_exact_deltas": 9,
+    "approved_new_assets": 20,
+    "existing_graphics_combat_audio_score_item_controls_byte_preserved": true
+  },
+  "png_integrity": [
+    {
+      "path": "background/machine_fortress_background_approved.png",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "bytes": 1796004,
+      "sha256": "89990eeac3ae96c8ed5c2d9af2d90a5f3d8e51e95ccecf3757db1f9e21f9f124",
+      "complete_crc_zlib_decode": true
+    },
+    {
+      "path": "boss/giga_core_normal.png",
+      "dimensions": [
+        402,
+        322
+      ],
+      "mode": "RGBA",
+      "bytes": 262419,
+      "sha256": "0e578ae3aa777c98c1562deed9ceac931b91e5c4330c17c536e9455c9e6b24df",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        402,
+        322
+      ],
+      "transparent_pixels": 38128
+    },
+    {
+      "path": "boss/giga_core_overdrive.png",
+      "dimensions": [
+        394,
+        322
+      ],
+      "mode": "RGBA",
+      "bytes": 259723,
+      "sha256": "5c762879b84bd03992654e2be03ebb94e4d2ca3a5207cbe8b3ecf7119165c6d6",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        394,
+        322
+      ],
+      "transparent_pixels": 35543
+    },
+    {
+      "path": "effects/electromagnetic_wall.png",
+      "dimensions": [
+        160,
+        313
+      ],
+      "mode": "RGBA",
+      "bytes": 87407,
+      "sha256": "7e6ceb82ad9bcaecc67b795309cb4bda6b56abd4c0eb21be80fa1fa057370627",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        160,
+        313
+      ],
+      "transparent_pixels": 3956
+    },
+    {
+      "path": "effects/electromagnetic_wall_dim.png",
+      "dimensions": [
+        132,
+        303
+      ],
+      "mode": "RGBA",
+      "bytes": 70650,
+      "sha256": "230d0316c65cc84653d91300eb95f26fa72c98e044aee07c3e67b57be033c921",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        243
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        132,
+        303
+      ],
+      "transparent_pixels": 3111
+    },
+    {
+      "path": "effects/electromagnetic_wall_motion.png",
+      "dimensions": [
+        210,
+        301
+      ],
+      "mode": "RGBA",
+      "bytes": 105095,
+      "sha256": "3af40a3a5219c3eb34c16d39d9cae5b577deacc40222b87609bc130990bd12bc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        253
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        210,
+        301
+      ],
+      "transparent_pixels": 14042
+    },
+    {
+      "path": "effects/electromagnetic_warning.png",
+      "dimensions": [
+        117,
+        298
+      ],
+      "mode": "RGBA",
+      "bytes": 59632,
+      "sha256": "d98b3add6d6071d6706e78bfc150f8d9d25236e032c6948c5dc3985f5b1201fc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        247
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        117,
+        298
+      ],
+      "transparent_pixels": 1823
+    },
+    {
+      "path": "enemies/armored_turret.png",
+      "dimensions": [
+        168,
+        173
+      ],
+      "mode": "RGBA",
+      "bytes": 59682,
+      "sha256": "66714522923538a51d5d50de65c237119cfa4ca728f7439b289145d4bae36e6e",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        168,
+        173
+      ],
+      "transparent_pixels": 5065
+    },
+    {
+      "path": "enemies/gear_wasp.png",
+      "dimensions": [
+        229,
+        162
+      ],
+      "mode": "RGBA",
+      "bytes": 66752,
+      "sha256": "b76e6b057d86e4f0ba9ae7c12a3003fea6723e2a1be217c1026a93cc0a9536cc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        229,
+        162
+      ],
+      "transparent_pixels": 14233
+    },
+    {
+      "path": "enemies/laser_drone.png",
+      "dimensions": [
+        185,
+        167
+      ],
+      "mode": "RGBA",
+      "bytes": 46245,
+      "sha256": "c097d673706ac7106e681276810760f159d02307d5f0bafd77b51207ab4395f9",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        185,
+        167
+      ],
+      "transparent_pixels": 16601
+    },
+    {
+      "path": "enemies/screw_bot.png",
+      "dimensions": [
+        168,
+        153
+      ],
+      "mode": "RGBA",
+      "bytes": 44896,
+      "sha256": "cb568949232dd355cd6f7ce2ae0570e25c5e4b6b28c2d4e731b210e42db10ecc",
+      "complete_crc_zlib_decode": true,
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "alpha_bounds": [
+        0,
+        0,
+        168,
+        153
+      ],
+      "transparent_pixels": 9777
+    }
+  ],
+  "layouts": [
+    {
+      "size": [
+        915,
+        412
+      ],
+      "calls": [
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ],
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ],
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ],
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ],
+        [
+          0,
+          -51.48056220095697,
+          915,
+          514.9611244019139
+        ]
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "dpr": 1,
+      "canvas": [
+        915,
+        412
+      ],
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "width": 705,
+        "height": 17.5,
+        "top": 10,
+        "right": 715,
+        "bottom": 27.5,
+        "left": 10
+      },
+      "joystick": {
+        "x": 30,
+        "y": 332,
+        "width": 164.6875,
+        "height": 58,
+        "top": 332,
+        "right": 194.6875,
+        "bottom": 390,
+        "left": 30
+      },
+      "fire": {
+        "x": 815,
+        "y": 317,
+        "width": 85,
+        "height": 85,
+        "top": 317,
+        "right": 900,
+        "bottom": 402,
+        "left": 815
+      },
+      "full": {
+        "x": 725,
+        "y": 9,
+        "width": 94,
+        "height": 26,
+        "top": 9,
+        "right": 819,
+        "bottom": 35,
+        "left": 725
+      }
+    },
+    {
+      "size": [
+        800,
+        360
+      ],
+      "calls": [
+        [
+          0,
+          -45.119617224880386,
+          800,
+          450.2392344497608
+        ],
+        [
+          0,
+          -45.119617224880386,
+          800,
+          450.2392344497608
+        ],
+        [
+          0,
+          -45.119617224880386,
+          800,
+          450.2392344497608
+        ],
+        [
+          0,
+          -45.119617224880386,
+          800,
+          450.2392344497608
+        ],
+        [
+          0,
+          -45.119617224880386,
+          800,
+          450.2392344497608
+        ]
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "dpr": 1,
+      "canvas": [
+        800,
+        360
+      ],
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "width": 590,
+        "height": 15.984375,
+        "top": 10,
+        "right": 600,
+        "bottom": 25.984375,
+        "left": 10
+      },
+      "joystick": {
+        "x": 30,
+        "y": 280,
+        "width": 144,
+        "height": 58,
+        "top": 280,
+        "right": 174,
+        "bottom": 338,
+        "left": 30
+      },
+      "fire": {
+        "x": 700,
+        "y": 265,
+        "width": 85,
+        "height": 85,
+        "top": 265,
+        "right": 785,
+        "bottom": 350,
+        "left": 700
+      },
+      "full": {
+        "x": 610,
+        "y": 9,
+        "width": 94,
+        "height": 26,
+        "top": 9,
+        "right": 704,
+        "bottom": 35,
+        "left": 610
+      }
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "calls": [
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ]
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "dpr": 1,
+      "canvas": [
+        568,
+        320
+      ],
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "width": 358,
+        "height": 12.5,
+        "top": 10,
+        "right": 368,
+        "bottom": 22.5,
+        "left": 10
+      },
+      "joystick": {
+        "x": 30,
+        "y": 240,
+        "width": 135,
+        "height": 58,
+        "top": 240,
+        "right": 165,
+        "bottom": 298,
+        "left": 30
+      },
+      "fire": {
+        "x": 468,
+        "y": 225,
+        "width": 85,
+        "height": 85,
+        "top": 225,
+        "right": 553,
+        "bottom": 310,
+        "left": 468
+      },
+      "full": {
+        "x": 378,
+        "y": 9,
+        "width": 94,
+        "height": 26,
+        "top": 9,
+        "right": 472,
+        "bottom": 35,
+        "left": 378
+      }
+    },
+    {
+      "size": [
+        568,
+        320
+      ],
+      "calls": [
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ],
+        [
+          -0.2933049946865367,
+          0,
+          568.5866099893731,
+          320
+        ]
+      ],
+      "source": [
+        1672,
+        941
+      ],
+      "dpr": 2,
+      "canvas": [
+        1136,
+        640
+      ],
+      "hud": {
+        "x": 10,
+        "y": 10,
+        "width": 358,
+        "height": 12.5,
+        "top": 10,
+        "right": 368,
+        "bottom": 22.5,
+        "left": 10
+      },
+      "joystick": {
+        "x": 30,
+        "y": 240,
+        "width": 135,
+        "height": 58,
+        "top": 240,
+        "right": 165,
+        "bottom": 298,
+        "left": 30
+      },
+      "fire": {
+        "x": 468,
+        "y": 225,
+        "width": 85,
+        "height": 85,
+        "top": 225,
+        "right": 553,
+        "bottom": 310,
+        "left": 468
+      },
+      "full": {
+        "x": 378,
+        "y": 9,
+        "width": 94,
+        "height": 26,
+        "top": 9,
+        "right": 472,
+        "bottom": 35,
+        "left": 378
+      }
+    }
+  ],
+  "normal_combat": [
+    {
+      "hero": 0,
+      "phase": 1,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 1,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 2,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 2,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 2,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 3,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 3,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 3,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 3,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 3,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 4,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 4,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 4,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 0,
+      "phase": 4,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 3,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 1,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 1,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 2,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 2,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 2,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 3,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 3,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 3,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 3,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 3,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 4,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 4,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 4,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 1,
+      "phase": 4,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 3,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 1,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 1,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 2,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 2,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 2,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": -1,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 3,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 3,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 3,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": -1,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 3,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 4,
+      "kind": 0,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 46,
+        "kind": 0,
+        "pose": {
+          "id": "screw_bot",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 4,
+      "kind": 1,
+      "initial": {
+        "hp": 1,
+        "r": 16,
+        "speed": 50,
+        "kind": 1,
+        "pose": {
+          "id": "gear_wasp",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 1,
+      "after": {
+        "hp": -0.5,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 4,
+      "kind": 2,
+      "initial": {
+        "hp": 2,
+        "r": 16,
+        "speed": 30,
+        "kind": 2,
+        "pose": {
+          "id": "laser_drone",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": -1,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    },
+    {
+      "hero": 2,
+      "phase": 4,
+      "kind": 3,
+      "initial": {
+        "hp": 3,
+        "r": 16,
+        "speed": 20,
+        "kind": 3,
+        "pose": {
+          "id": "armored_turret",
+          "name": "idle",
+          "scale": 1,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      "hits": 2,
+      "after": {
+        "hp": 0,
+        "score": 100,
+        "kills": 1,
+        "ghosts": 1,
+        "alive": false
+      },
+      "ghostsAfter": 0
+    }
+  ],
+  "poses": {
+    "idle": {
+      "id": "screw_bot",
+      "name": "idle",
+      "scale": 1,
+      "rotation": 0,
+      "alpha": 1,
+      "offsetX": 0
+    },
+    "hit": {
+      "id": "screw_bot",
+      "name": "hit",
+      "scale": 1.025,
+      "rotation": 0,
+      "alpha": 1,
+      "offsetX": 0
+    },
+    "frames": [
+      {
+        "name": "idle",
+        "first": {
+          "name": "idle",
+          "scale": 1.0006280314749154,
+          "rotation": 0.0006994284733753277,
+          "alpha": 1,
+          "offsetX": 0
+        },
+        "middle": {
+          "name": "idle",
+          "scale": 1.0070534230275097,
+          "rotation": 0.007446431199708593,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      {
+        "name": "move",
+        "first": {
+          "name": "move",
+          "scale": 1.0010756717068412,
+          "rotation": 0.0017485711834383192,
+          "alpha": 1,
+          "offsetX": 0
+        },
+        "middle": {
+          "name": "move",
+          "scale": 1.010567146382281,
+          "rotation": 0.018616077999271483,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      {
+        "name": "attack",
+        "first": {
+          "name": "attack",
+          "scale": 1.0020153605698596,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        },
+        "middle": {
+          "name": "attack",
+          "scale": 1.0175487024192729,
+          "rotation": 0,
+          "alpha": 1,
+          "offsetX": 0
+        }
+      },
+      {
+        "name": "hit",
+        "first": {
+          "name": "hit",
+          "scale": 1.025,
+          "rotation": 0,
+          "alpha": 0.949147715250678,
+          "offsetX": 0.9015364861683512
+        },
+        "middle": {
+          "name": "hit",
+          "scale": 1.025,
+          "rotation": 0,
+          "alpha": 0.9398044287827778,
+          "offsetX": -0.8398496251122508
+        }
+      },
+      {
+        "name": "defeat",
+        "first": {
+          "name": "defeat",
+          "scale": 1.0018461538461538,
+          "rotation": 0.008669342974153279,
+          "alpha": 0.9846153846153847,
+          "offsetX": 0
+        },
+        "middle": {
+          "name": "defeat",
+          "scale": 1.0221538461538462,
+          "rotation": 0.059143564855899056,
+          "alpha": 0.8153846153846154,
+          "offsetX": 0
+        }
+      }
+    ]
+  },
+  "approved_boss_capabilities": {
+    "image": "machine-boss-giga_core_overdrive",
+    "state": {
+      "clock": 0.09999999999999999,
+      "ghosts": [],
+      "advancing": false,
+      "combat": "machine normal / GigaCore boss trial",
+      "overdriveCombat": true,
+      "wallCombat": true
+    },
+    "combat": {
+      "phase": "awakening",
+      "pattern": "awakening",
+      "last": null,
+      "remaining": 0.7000000000000011,
+      "elapsed": 0.09999999999999994,
+      "age": 0.1,
+      "seed": 3161875422,
+      "rng": 3161875422,
+      "draws": 0,
+      "hp": 10,
+      "maxHp": 20,
+      "overdrive": true,
+      "awakenCount": 1,
+      "paused": false,
+      "sequence": [],
+      "history": [],
+      "shots": 0,
+      "denied": 0,
+      "damageCalls": 0,
+      "damage": 0,
+      "hitPlayer": false,
+      "laserSweep": 0,
+      "lasers": [],
+      "arms": [
+        {
+          "index": 0,
+          "source": [
+            53,
+            230
+          ],
+          "x": 235.01255142764109,
+          "y": 109.87315244092198
+        },
+        {
+          "index": 1,
+          "source": [
+            338,
+            230
+          ],
+          "x": 331.96687672710146,
+          "y": 109.87315244092198
+        }
+      ],
+      "wall": null,
+      "missiles": [],
+      "rects": [
+        {
+          "x": 10,
+          "y": 10,
+          "w": 358,
+          "h": 12.5
+        },
+        {
+          "x": 30,
+          "y": 240,
+          "w": 135,
+          "h": 58
+        },
+        {
+          "x": 468,
+          "y": 225,
+          "w": 85,
+          "h": 85
+        },
+        {
+          "x": 378,
+          "y": 9,
+          "w": 94,
+          "h": 26
+        },
+        {
+          "x": 486.5625,
+          "y": 9,
+          "w": 71.4375,
+          "h": 31
+        },
+        {
+          "x": 485.671875,
+          "y": 41,
+          "w": 72.328125,
+          "h": 24
+        },
+        {
+          "x": 429.3125,
+          "y": 68,
+          "w": 128.6875,
+          "h": 15
+        },
+        {
+          "x": 10,
+          "y": 90,
+          "w": 156.578125,
+          "h": 21.5
+        },
+        {
+          "x": 170.4,
+          "y": 30,
+          "w": 227.20000000000002,
+          "h": 38
+        }
+      ]
+    },
+    "storm": null,
+    "volcano": null,
+    "bullets": 0
+  },
+  "boss_gate_rewards": [
+    {
+      "normals": [
+        {
+          "kills": 1,
+          "boss": false
+        },
+        {
+          "kills": 2,
+          "boss": false
+        },
+        {
+          "kills": 3,
+          "boss": false
+        },
+        {
+          "kills": 4,
+          "boss": false
+        },
+        {
+          "kills": 5,
+          "boss": false
+        },
+        {
+          "kills": 6,
+          "boss": false
+        }
+      ],
+      "before": {
+        "hp": 20,
+        "r": 48
+      },
+      "shotCount": 0,
+      "ending": {
+        "clock": 0.001,
+        "ghosts": [
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "laser_drone",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "armored_turret",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "giga_core",
+            "x": 284,
+            "y": 86.4,
+            "at": 0.001,
+            "red": true
+          }
+        ],
+        "advancing": true,
+        "combat": "machine normal / GigaCore boss trial",
+        "overdriveCombat": true,
+        "wallCombat": true
+      },
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "03128d0b-aacb-41df-834f-4e9f66cf5fa7",
+          "score": 3100,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-08T01:31:31.020Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "ghosts": []
+    },
+    {
+      "normals": [
+        {
+          "kills": 1,
+          "boss": false
+        },
+        {
+          "kills": 2,
+          "boss": false
+        },
+        {
+          "kills": 3,
+          "boss": false
+        },
+        {
+          "kills": 4,
+          "boss": false
+        },
+        {
+          "kills": 5,
+          "boss": false
+        },
+        {
+          "kills": 6,
+          "boss": false
+        }
+      ],
+      "before": {
+        "hp": 20,
+        "r": 48
+      },
+      "shotCount": 0,
+      "ending": {
+        "clock": 0.001,
+        "ghosts": [
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "laser_drone",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "armored_turret",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "giga_core",
+            "x": 284,
+            "y": 86.4,
+            "at": 0.001,
+            "red": true
+          }
+        ],
+        "advancing": true,
+        "combat": "machine normal / GigaCore boss trial",
+        "overdriveCombat": true,
+        "wallCombat": true
+      },
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "76273ff5-7caf-49a6-b16b-6797428a6ab7",
+          "score": 3100,
+          "characterId": 1,
+          "characterName": "빙글",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-08T01:31:31.044Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 0,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "ghosts": []
+    },
+    {
+      "normals": [
+        {
+          "kills": 1,
+          "boss": false
+        },
+        {
+          "kills": 2,
+          "boss": false
+        },
+        {
+          "kills": 3,
+          "boss": false
+        },
+        {
+          "kills": 4,
+          "boss": false
+        },
+        {
+          "kills": 5,
+          "boss": false
+        },
+        {
+          "kills": 6,
+          "boss": false
+        }
+      ],
+      "before": {
+        "hp": 20,
+        "r": 48
+      },
+      "shotCount": 0,
+      "ending": {
+        "clock": 0.001,
+        "ghosts": [
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "laser_drone",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "armored_turret",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "screw_bot",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "gear_wasp",
+            "x": 198.79999999999998,
+            "y": 144,
+            "at": 0,
+            "red": false
+          },
+          {
+            "id": "giga_core",
+            "x": 284,
+            "y": 86.4,
+            "at": 0.001,
+            "red": true
+          }
+        ],
+        "advancing": true,
+        "combat": "machine normal / GigaCore boss trial",
+        "overdriveCombat": true,
+        "wallCombat": true
+      },
+      "score": 3100,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "c6b820ab-0d43-4fd4-b58e-773dc50b5af5",
+          "score": 3100,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": false,
+          "phase": 5,
+          "order": 0,
+          "createdAt": "2026-11-08T01:31:31.060Z",
+          "outcome": "clear",
+          "normalKills": 6,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 1,
+          "playTimeSeconds": 0.001,
+          "finalUpgrade": 1,
+          "developerTest": true
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": false,
+        "developerTest": true
+      },
+      "ghosts": []
+    }
+  ],
+  "storm_to_fortress": {
+    "stage": 7,
+    "phase": 1,
+    "life": 7.25,
+    "same": true,
+    "route": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "draw_rectangles": [
+    {
+      "id": "machine-enemies-screw_bot",
+      "w": 168,
+      "h": 153,
+      "args": [
+        0,
+        0,
+        168,
+        153,
+        -20,
+        -18.21428571428571,
+        40,
+        36.42857142857142
+      ]
+    },
+    {
+      "id": "machine-enemies-gear_wasp",
+      "w": 229,
+      "h": 162,
+      "args": [
+        0,
+        0,
+        229,
+        162,
+        -20,
+        -14.148471615720524,
+        40,
+        28.29694323144105
+      ]
+    },
+    {
+      "id": "machine-enemies-laser_drone",
+      "w": 185,
+      "h": 167,
+      "args": [
+        0,
+        0,
+        185,
+        167,
+        -20,
+        -18.054054054054056,
+        40,
+        36.10810810810811
+      ]
+    },
+    {
+      "id": "machine-enemies-armored_turret",
+      "w": 168,
+      "h": 173,
+      "args": [
+        0,
+        0,
+        168,
+        173,
+        -20,
+        -20.595238095238095,
+        40,
+        41.19047619047619
+      ]
+    },
+    {
+      "id": "machine-boss-giga_core_normal",
+      "w": 402,
+      "h": 322,
+      "args": [
+        0,
+        0,
+        402,
+        322,
+        -66,
+        -52.865671641791046,
+        132,
+        105.73134328358209
+      ]
+    }
+  ],
+  "fullscreen_before_explicit_toggle": true
+}

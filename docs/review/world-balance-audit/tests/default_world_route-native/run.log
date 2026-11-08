@@ -1,0 +1,10 @@
+PASS: Fresh URL defaults40 ON/regions0..7; Help explains20 OFF, developer defaultsOFF, no autoplay and all4 seeded legacy storage values remain byte-identical.
+PASS: Default leaderboard reads existing trial records without writing or migrating either score/history store.
+PASS: All3 trusted default starts complete40 actual phases/240normal kills/8bosses/32bonuses for56000points; only final GigaCore ends play and writes one trial TOP10/history result. Every region stage/boss BGM resolves correctly.
+PASS: Actual desert HP0/reward enters snow1 with hidden menu/startedtrue and same player/item objects, upgrade3,28000points, original reward+2 then region+2HP cap. Item7.25s stays7.25 at transition and ages to7.05 after.2s; no intermediate score write/reset.
+PASS: World1 storage bytes remain unchanged through default40; seeded old trial records retain every field and repeated finish calls write nothing.
+PASS: HelpOFF retains20phase/4boss/28000point desert clear in original World1 stores; old normal records and all trial storage bytes are preserved.
+PASS: Ordinary/unknown URL and?world2=1 initializeON;?world2=0 initializesOFF. ManualOFF is per-document and fresh reload returns defaultON, with no stored preference/migration/deletion.
+PASS: Real developer UI desert/snow/GigaCore direct5 remains single-region only and returns after that boss, without changing TOP10/history bytes.
+PASS: Explicit ON after developerOFF restores full40; trusted fullscreen/internal exit cancel/confirm remain intact without native dialogs.
+PASS: No uncaught errors/native dialogs/missing assets or overlapping BGM; standalone embeds PNG11/audio7 bytes and performs0external HTTP requests.

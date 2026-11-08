@@ -1,5 +1,6 @@
 """Issue26 exact inverse hooks and reviewed fixed new assets; old guards stay strict."""
 from storm_background_fit_preservation import without_background_fit,TEXT_ASSETS
+from world_balance_labels_preservation import CHANGED
 import hashlib,json,subprocess
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
@@ -21,7 +22,7 @@ def assert_storm_asset(name):
 def verify():
     old_names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
     for name in ['index.html']+old_names:
-        p=ROOT/name;data=without_storm(p.read_text(),name).encode() if name in ['index.html','assets/worlds/worlds.js'] else p.read_bytes()
+        p=ROOT/name;data=without_storm(p.read_text(),name).encode() if name in {'index.html','assets/worlds/worlds.js'}|CHANGED else p.read_bytes()
         assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
     for name in STORM_ASSETS:assert_storm_asset(name)
     return {'base':BASE,'preserved_existing_assets':len(old_names),'reviewed_index_hooks':32,'reviewed_registry_hooks':9,'new_assets':len(STORM_ASSETS)}

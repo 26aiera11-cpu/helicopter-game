@@ -55,15 +55,19 @@ try:
   if args.standalone:
    page.goto(url+'/blank');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
   else:page.goto(url+'/helicopter-game/',wait_until='load')
-  page.wait_for_function('gameMachineFortress.ready()&&gameStormSky.ready()&&gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()');page.evaluate(helpers);initial=page.evaluate('mfStorage()')
+  page.wait_for_function('gameMachineFortress.ready()&&gameStormSky.ready()&&gameVolcano.ready()&&gameSnowfield.ready()&&itemMonsters.ready()')
+  # Finish every existing PCM preload before rapid stage restarts. Keep the
+  # resource-failure assertion strict, as in the dedicated GigaCore regression.
+  page.wait_for_function("[...document.querySelectorAll('audio')].every(a=>!a.error&&a.readyState>=2&&a.duration>0&&a.buffered.length&&a.buffered.end(a.buffered.length-1)>=a.duration-.01)")
+  page.evaluate(helpers);initial=page.evaluate('mfStorage()')
   assert page.evaluate('gameWorlds.worlds[1].regionIds.join()==="4,5,6,7"&&gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6,7"&&gameWorlds.isTrial()&&!gameWorlds.isDeveloper()')
   r=page.evaluate('gameWorlds.region(7)');assert r['key']=='world-2:machine-fortress' and r['localIndex']==3 and r['normalPhases']==4 and r['bossPhase']==5 and r['combatProfile']==r['assetProfile']==0 and r['musicProfile']==6
   assert page.evaluate('gameMachineFortress.species.map(s=>s.renderWidth)')==[40,40,40,40,132]
   assert page.evaluate('terrainImgs.length===8&&enemySprites[7].length===4&&enemySprites[7].every((im,i)=>im===gameMachineFortress.species[i].baseImage)&&bossSprites[7]===gameMachineFortress.species[4].baseImage')
   passed('Registry keeps stable ID7/world2 localIndex3, default40phases and explicit World1-only20phases; all5 stage choices retain fallback combat/asset profile0 and dedicated music6 while Machine normal AI is region-local.')
   page.locator('.select-hit[data-heli="0"]').tap();page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');assert page.locator('#developerStartRegion option').count()==4;page.locator('#developerStartRegion').select_option('7');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'machine-developer-menu.png'));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&stage===7&&phase===5&&!!boss');assert page.evaluate('boss.hp===20&&phaseKills===6&&enemies.length===0&&warnings.length===0');page.evaluate('transition=0;spawn=999;invuln=999')
-  assert page.evaluate('document.body.innerText.includes("기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험")')
-  passed('Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI labels normal/boss combat trial and forest temporary music.')
+  assert page.evaluate('document.body.innerText.includes("기계 요새 · 전용 전투 / 전용 BGM")')
+  passed('Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI describes dedicated combat/music without trial labels.')
   # Whole source image, cover geometry, stage invariance, DPR and aspect ratios.
   layouts=[]
   for w,h,dpr2 in [(915,412,False),(800,360,False),(568,320,False),(568,320,True)]:

@@ -100,7 +100,7 @@ try:
   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
   assert '설원→화산' in page.locator('#worldTrialSettings').inner_text() and '35단계' in page.locator('#worldTrialSettings').inner_text()
-  assert '혼합 등장/전투 밸런스 시험 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
+  assert '전용 전투 / 숲 임시 BGM' in page.locator('#worldPrototypeNotice').inner_text()
   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
 
@@ -110,7 +110,7 @@ try:
    assert row['pose']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle','blizzard_king'][step-1]
    assert row['hp']==[1,2,2,3,20][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
    if step<5:assert abs(row['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-8
-   else:assert row['name']=='❄ 눈보라 거인왕 (시험)'
+   else:assert row['name']=='❄ 눈보라 거인왕'
    mapping.append(row)
   report['stage_mapping']=mapping
   passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.')

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/world-balance39-work/tests/machine_fortress_bgm.py", line 14, in <module>
+    report['preservation']=verify()
+                           ^^^^^^^^
+  File "/tmp/world-balance39-work/tests/machine_fortress_bgm_preservation.py", line 21, in verify
+    assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/score/score.js

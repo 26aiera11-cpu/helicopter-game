@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/world-balance39-work/tests/storm_sky.py", line 13, in <module>
+    report['preservation']=verify()
+                           ^^^^^^^^
+  File "/tmp/world-balance39-work/tests/storm_sky_preservation.py", line 25, in verify
+    assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/score/score.js

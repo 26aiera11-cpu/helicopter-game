@@ -58,6 +58,8 @@ try:
   if args.standalone:page.goto(url+'blank-origin');external.clear();context.set_offline(True);page.set_content((ROOT/'dist/heli_trio_galaxy_test.html').read_text(),wait_until='load')
   else:page.goto(url,wait_until='load')
   page.wait_for_function('gameSnowfield.ready()&&itemMonsters.ready()&&window.gameSnowfieldCombat');page.evaluate(helpers)
+  # Keep this historical20-stage comparison explicit after default40 approval.
+  assert page.evaluate('gameWorlds.setTrialEnabled(false)')
   assert not page.evaluate('gameWorlds.isDeveloper()||gameWorlds.isTrial()')
   storage=page.evaluate('JSON.stringify(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))')
   initial=[]

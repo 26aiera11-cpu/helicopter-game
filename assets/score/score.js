@@ -44,7 +44,7 @@
       const records = data.records.filter(validRecord).map(record => ({
         id: record.id, score: record.score, characterId: record.characterId,
         characterName: names[record.characterId], regionId: record.regionId,
-        regionName: stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,
+        regionName: typeof record.regionName === 'string' ? record.regionName : stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,
         regionKey: gameWorlds.region(record.regionId).key, localRegionIndex: gameWorlds.region(record.regionId).localIndex, trialMode: scope === 'trial', phase: record.phase, order: record.order,
         createdAt: record.createdAt, outcome: record.outcome, normalKills: record.normalKills,
         itemKills: record.itemKills, bossKills: record.bossKills, clearedPhases: record.clearedPhases,
@@ -172,8 +172,8 @@
   document.body.append(dialog);
   function render() {
     selectStorage();refresh();
-    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 월드 2 시험 TOP 10' : '🏆 TOP 10';
-    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
+    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 40단계 TOP 10' : '🏆 TOP 10';
+    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '40단계 기록 · 20단계 기록과 별도 저장 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
     const rows = dialog.querySelector('#leaderboardRows');
     rows.replaceChildren();
     top.forEach((record, index) => {

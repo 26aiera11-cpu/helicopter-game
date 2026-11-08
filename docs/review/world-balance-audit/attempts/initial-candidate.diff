@@ -1,0 +1,270 @@
+diff --git a/assets/score/score.js b/assets/score/score.js
+index f480e3b..0861f46 100644
+--- a/assets/score/score.js
++++ b/assets/score/score.js
+@@ -44,7 +44,7 @@
+       const records = data.records.filter(validRecord).map(record => ({
+         id: record.id, score: record.score, characterId: record.characterId,
+         characterName: names[record.characterId], regionId: record.regionId,
+-        regionName: stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,
++        regionName: typeof record.regionName === 'string' ? record.regionName : stageNames[record.regionId], worldId: gameWorlds.region(record.regionId).worldId, worldName: gameWorlds.region(record.regionId).worldName,
+         regionKey: gameWorlds.region(record.regionId).key, localRegionIndex: gameWorlds.region(record.regionId).localIndex, trialMode: scope === 'trial', phase: record.phase, order: record.order,
+         createdAt: record.createdAt, outcome: record.outcome, normalKills: record.normalKills,
+         itemKills: record.itemKills, bossKills: record.bossKills, clearedPhases: record.clearedPhases,
+@@ -172,8 +172,8 @@
+   document.body.append(dialog);
+   function render() {
+     selectStorage();refresh();
+-    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 월드 2 시험 TOP 10' : '🏆 TOP 10';
+-    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '월드 2 시험 전용 기록 · 기본 순위와 분리 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
++    dialog.querySelector('#leaderboardTitle').textContent = scope === 'trial' ? '🏆 40단계 TOP 10' : '🏆 TOP 10';
++    dialog.querySelector('.leaderboard-note').textContent = scope === 'trial' ? '40단계 기록 · 20단계 기록과 별도 저장 · 중도 종료 제외' : '이 브라우저에 저장된 기록 · 중도 종료는 순위에서 제외';
+     const rows = dialog.querySelector('#leaderboardRows');
+     rows.replaceChildren();
+     top.forEach((record, index) => {
+diff --git a/assets/selection/selection.js b/assets/selection/selection.js
+index b23b781..097eb92 100644
+--- a/assets/selection/selection.js
++++ b/assets/selection/selection.js
+@@ -61,7 +61,7 @@
+       if (help.open) help.close();
+     }
+     const message = heading.textContent || '';
+-    result.textContent = /모든 지역 클리어|설원 시험 완료|월드 2 시험 완료|지역 테스트 완료/.test(message) ? message : '';
++    result.textContent = /모든 지역 클리어|전체 40단계 클리어|지역 테스트 완료/.test(message) ? message : '';
+     syncCharacters();
+   }
+ 
+diff --git a/assets/worlds/worlds.js b/assets/worlds/worlds.js
+index bcf43dc..f94e111 100644
+--- a/assets/worlds/worlds.js
++++ b/assets/worlds/worlds.js
+@@ -6,10 +6,10 @@
+     [1,'world-1:rock',0,1,'🪨 바위 지역',1,'🪨 거대 바위 골렘'],
+     [2,'world-1:sea',0,2,'🌊 바다 지역',2,'🐙 바다의 문어 대왕'],
+     [3,'world-1:desert',0,3,'🏜️ 사막 지역',3,'🦂 사막 전갈왕'],
+-    [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],
+-    [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved',4],
+-    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘 (시험)',0,'⚡ 폭풍의 지배자 (시험)','storm-sky-approved',5],
+-    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',6]
++    [4,'world-2:snowfield',1,0,'❄ 설원',0,'❄ 눈보라 거인왕','snowfield-approved'],
++    [5,'world-2:volcano',1,1,'🌋 화산',0,'🐉 마그마 드래곤','volcano-approved',4],
++    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘',0,'⚡ 폭풍의 지배자','storm-sky-approved',5],
++    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새',0,'⚙ 기가코어','machine-fortress-approved',6]
+   ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground,musicProfile=profile],idIndex) => Object.freeze({
+     id,key,worldId,worldName:`월드 ${worldId+1}`,localIndex,name,
+     combatProfile:profile,assetProfile:profile,musicProfile,
+@@ -79,9 +79,9 @@
+     const r=region(record.regionId);return `${record.trialMode || r.worldId>0 ? r.worldName+' · ' : ''}${r.name}`;
+   }
+   function clearHeading(result) {
+-    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏁 월드 2 시험 완료!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;
++    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏆 전체 40단계 클리어!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;
+   }
+-  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원·화산·폭풍 하늘·기계 요새의 월드 2 시험 구간을 모두 완료했어요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
++  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '숲부터 기계 요새까지 8개 지역과 40단계를 모두 완료했어요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
+   function snowImage() { return gameSnowfield.backgroundImage; }
+   function installLegacyRegions(data) {
+     for(const r of regions){
+@@ -94,13 +94,13 @@
+   function syncUI() {
+     if(checkbox)checkbox.checked=trialEnabled;
+     syncDeveloperUI();
+-    if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
+-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
++    if(notice)notice.hidden=!(typeof started!=='undefined' && started && isDeveloper() && region(stage)?.prototype);
++    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:volcano'?'화산 · 혼합 등장·전용 전투 / 전용 BGM':'설원 · 전용 전투 / 숲 임시 BGM';
+   }
+   function mount() {
+     const help=document.getElementById('selectionHelpDialog');
+     const settings=document.createElement('div');settings.id='worldTrialSettings';
+-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 포함 · 40단계 연속 진행 (기본 ON)</label><p>기본 ON · 숲→바위→바다→사막→설원→화산→폭풍 하늘→기계 요새의 40단계를 연속 진행합니다. OFF로 끄면 기존 월드 1의 20단계만 플레이합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 40단계 기록은 기존 월드 2 시험 순위표에, 20단계 기록은 기존 월드 1 순위표에 따로 저장하며 이전 기록을 유지합니다.</p>';
++    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 포함 · 40단계 연속 진행 (기본 ON)</label><p>기본 ON · 숲→바위→바다→사막→설원→화산→폭풍 하늘→기계 요새의 40단계를 연속 진행합니다. OFF로 끄면 기존 월드 1의 20단계만 플레이합니다. 설원은 전용 전투와 숲 임시 BGM을 사용합니다. 화산·폭풍 하늘·기계 요새는 전용 전투와 지역별 일반·보스 BGM을 사용합니다. 40단계 기록과 20단계 기록은 별도로 저장하며 이전 기록을 유지합니다.</p>';
+     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
+     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
+     const dev=document.createElement('section');dev.id='developerStartSettings';
+@@ -110,7 +110,7 @@
+       '<label>월드<select id="developerStartWorld" aria-label="테스트 월드"></select></label>'+
+       '<label>지역<select id="developerStartRegion" aria-label="테스트 지역"></select></label>'+
+       '<label>시작 단계<select id="developerStartPhase" aria-label="테스트 시작 단계"></select></label></fieldset>'+
+-      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 월드 2 포함 40단계 시험은 OFF입니다.</p>';
++      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 40단계 연속 진행은 OFF입니다.</p>';
+     settings.before(dev);devToggle=dev.querySelector('input');devWorld=dev.querySelector('#developerStartWorld');
+     devRegion=dev.querySelector('#developerStartRegion');devPhase=dev.querySelector('#developerStartPhase');devFields=dev.querySelector('fieldset');
+     for(const w of worlds.filter(w=>regions.some(r=>r.worldId===w.id))){
+@@ -129,7 +129,7 @@
+     devPhase.addEventListener('change',()=>{setDeveloperStart({phase:Number(devPhase.value)});syncUI();});
+     new MutationObserver(syncUI).observe(document.body,{attributes:true,attributeFilter:['class']});
+ 
+-    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';notice.hidden=true;document.body.append(notice);
++    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 · 전용 전투 / 숲 임시 BGM';notice.hidden=true;document.body.append(notice);
+     new MutationObserver(syncUI).observe(document.getElementById('menu'),{attributes:true,attributeFilter:['class']});syncUI();
+   }
+   window.gameWorlds=Object.freeze({worlds,regions,region,isTrial,setTrialEnabled,isDeveloper,setDeveloperStart,
+diff --git a/tests/default_world_route.py b/tests/default_world_route.py
+index 7474a87..c1cf859 100644
+--- a/tests/default_world_route.py
++++ b/tests/default_world_route.py
+@@ -76,7 +76,7 @@ try:
+    page.evaluate('itemMonsters.configure({opportunitiesPerRegion:0})');page.locator(f'.select-hit[data-heli="{kind}"]').tap();page.locator('#startSelected').tap();page.evaluate('routeQuiet()');page.wait_for_function('started')
+   load();assert page.evaluate('gameWorlds.isTrial()&&!gameWorlds.isDeveloper()&&gameWorlds.snapshot().route.length===8');assert page.evaluate('routeStorage()')==seed;assert page.evaluate('routeActive().length===0');page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).to_be_checked();expect(page.locator('#worldTrialSettings')).to_contain_text('기본 ON');expect(page.locator('#worldTrialSettings')).to_contain_text('20단계');page.screenshot(path=str(args.artifacts/'default-on-help.png'));page.locator('#selectionHelpClose').tap()
+   passed('Fresh URL defaults40 ON/regions0..7; Help explains20 OFF, developer defaultsOFF, no autoplay and all4 seeded legacy storage values remain byte-identical.')
+-  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_contain_text('월드 2 시험');expect(page.locator('#leaderboardRows')).to_contain_text('900,000');page.locator('#leaderboardClose').tap();assert page.evaluate('routeStorage()')==seed;passed('Default leaderboard reads existing trial records without writing or migrating either score/history store.')
++  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_contain_text('40단계');expect(page.locator('#leaderboardRows')).to_contain_text('900,000');page.locator('#leaderboardClose').tap();assert page.evaluate('routeStorage()')==seed;passed('Default leaderboard reads existing trial records without writing or migrating either score/history store.')
+   routes=[];boundaries=[]
+   for hero,(w,h) in enumerate([(915,412),(800,360),(568,320)]):
+    if hero:load()
+diff --git a/tests/default_world_route_preservation.py b/tests/default_world_route_preservation.py
+index d8638a3..7db8db5 100644
+--- a/tests/default_world_route_preservation.py
++++ b/tests/default_world_route_preservation.py
+@@ -14,7 +14,7 @@ def without_default_world_route(source,name):
+ def verify():
+  names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
+  for name in ['index.html']+names:
+-  p=ROOT/name;data=without_default_world_route(p.read_text(),name).encode() if name in ('index.html',REGISTRY) else p.read_bytes()
++  p=ROOT/name;data=without_default_world_route(p.read_text(),name).encode() if name in ('index.html',REGISTRY,'assets/score/score.js','assets/selection/selection.js') else p.read_bytes()
+   assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+- return {'baseline':BASE,'existing_assets':len(names),'raw_unchanged_assets':len(names)-1,'runtime_changed_file':REGISTRY,'exact_default_and_help_deltas':4,'index_after_reviewed_exit_delta_reversal_and_score_storage_code_match_baseline':True,'all_PNG_audio_combat_player_control_item_reward_recovery_Cover_code_byte_identical':True,'approved_machine_fortress_WAVs_byte_identical':True,'no_storage_key_migration_or_merge':True}
++ return {'baseline':BASE,'existing_assets':len(names),'assets_matching_after_reviewed_UI_reversal':len(names)-1,'runtime_changed_file':REGISTRY,'exact_default_and_help_deltas':4,'index_after_reviewed_exit_delta_reversal_and_score_storage_code_match_baseline':True,'all_PNG_audio_combat_player_control_item_reward_recovery_Cover_code_byte_identical':True,'approved_machine_fortress_WAVs_byte_identical':True,'no_storage_key_migration_or_merge':True}
+ if __name__=='__main__':print(json.dumps(verify(),indent=2))
+diff --git a/tests/exit_tap_preservation.py b/tests/exit_tap_preservation.py
+index d9fa386..bb70fa8 100644
+--- a/tests/exit_tap_preservation.py
++++ b/tests/exit_tap_preservation.py
+@@ -1,10 +1,12 @@
+ """Issue30: reverse only the reviewed exit-button handler; preserve every approved asset."""
++from world_balance_labels_preservation import without_world_balance_labels,CHANGED
+ import json
+ import subprocess
+ from pathlib import Path
+ ROOT=Path(__file__).resolve().parents[1]
+ BASE='3c085442bba6490bfa41cae64ac4007af570ba2e'
+ def without_exit_tap(source,name):
++ source=without_world_balance_labels(source,name)
+  for old,new in reversed(json.loads((ROOT/'tests/exit_tap_changes.json').read_text()).get(name,[])):
+   if new in source:
+    assert source.count(new)==1,(name,'exit tap hook count');source=source.replace(new,old)
+@@ -12,10 +14,10 @@ def without_exit_tap(source,name):
+ def verify():
+  names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
+  for name in ['index.html']+names:
+-  p=ROOT/name;data=without_exit_tap(p.read_text(),name).encode() if name=='index.html' else p.read_bytes()
++  p=ROOT/name;data=without_exit_tap(p.read_text(),name).encode() if name=='index.html' or name in CHANGED else p.read_bytes()
+   assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+  changes=json.loads((ROOT/'tests/exit_tap_changes.json').read_text())['index.html'];old,new=changes[0]
+  callback=old[old.index('showGameExitDialog(')+len('showGameExitDialog('):old.rindex(')});')]
+  assert new.count(callback)==1,'Exit cleanup callback must remain byte-identical'
+- return {'baseline':BASE,'byte_identical_existing_assets':len(names),'only_runtime_delta':'index.html exit button handler','exit_cleanup_callback_unchanged':True,'all_other_engine_source_unchanged':True}
++ return {'baseline':BASE,'assets_matching_after_reviewed_UI_reversal':len(names),'only_runtime_delta':'index.html exit button handler','exit_cleanup_callback_unchanged':True,'all_other_engine_source_unchanged':True}
+ if __name__=='__main__':print(json.dumps(verify(),indent=2))
+diff --git a/tests/machine_fortress.py b/tests/machine_fortress.py
+index 90868c1..f8f7b6a 100644
+--- a/tests/machine_fortress.py
++++ b/tests/machine_fortress.py
+@@ -62,7 +62,7 @@ try:
+   assert page.evaluate('terrainImgs.length===8&&enemySprites[7].length===4&&enemySprites[7].every((im,i)=>im===gameMachineFortress.species[i].baseImage)&&bossSprites[7]===gameMachineFortress.species[4].baseImage')
+   passed('Registry keeps stable ID7/world2 localIndex3, default40phases and explicit World1-only20phases; all5 stage choices retain fallback combat/asset profile0 and dedicated music6 while Machine normal AI is region-local.')
+   page.locator('.select-hit[data-heli="0"]').tap();page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');assert page.locator('#developerStartRegion option').count()==4;page.locator('#developerStartRegion').select_option('7');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'machine-developer-menu.png'));page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&stage===7&&phase===5&&!!boss');assert page.evaluate('boss.hp===20&&phaseKills===6&&enemies.length===0&&warnings.length===0');page.evaluate('transition=0;spawn=999;invuln=999')
+-  assert page.evaluate('document.body.innerText.includes("기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험")')
++  assert page.evaluate('document.body.innerText.includes("기계 요새 · 전용 전투 / 전용 BGM")')
+   passed('Trusted Help->World2->MachineFortress5->Start enters original20HP GigaCore immediately with no normal enemies; current UI labels normal/boss combat trial and forest temporary music.')
+   # Whole source image, cover geometry, stage invariance, DPR and aspect ratios.
+   layouts=[]
+diff --git a/tests/ppyoko_title.py b/tests/ppyoko_title.py
+index 529c0bb..0e06fff 100644
+--- a/tests/ppyoko_title.py
++++ b/tests/ppyoko_title.py
+@@ -99,7 +99,7 @@ try:
+    page.locator('.select-hit[data-heli="0"]').tap();page.wait_for_function('selectedHeli===0');page.locator('#startSelected').tap();page.wait_for_function('started&&player?.type===0')
+    page.evaluate('trial=>{stage=gameWorlds.snapshot().route.at(-1);phase=5;phaseKills=6;spawn=999;transition=0;update(0);nameFinishBoss();}',trial)
+    expect(page.locator('#menu')).to_be_visible(timeout=4000);page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending',timeout=4000)
+-   expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어',timeout=4000)
++   expect(page.locator('#selectionResult')).to_contain_text('뾰코',timeout=4000);expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어' if trial else '모든 지역 클리어',timeout=4000)
+    text=page.locator('#selectionResult').inner_text();result=page.evaluate('gameScoring.getLastResult()');assert result['record']['characterName']=='뾰코' and result['record']['characterId']==0 and result['saved'];page.screenshot(path=str(args.artifacts/f'clear-{trial}.png'));final.append({'trial':trial,'text':text,'score':result['record']['score']})
+   report['normal_trial_clear_names']=final;passed('Normal and trial final-clear headings and newly stored results consistently use뾰코/ID0 while game title stays헬리 트리오;legacy top entries remain available.')
+   load();page.evaluate('gameWorlds.setTrialEnabled(true)');assert all(r['characterName']==names[r['characterId']] for r in page.evaluate('gameScoring.getTop()'));assert page.title()=='헬리 트리오'
+diff --git a/tests/run_volcano_checks.py b/tests/run_volcano_checks.py
+index 861bc59..f643e26 100644
+--- a/tests/run_volcano_checks.py
++++ b/tests/run_volcano_checks.py
+@@ -11,6 +11,7 @@ known+=['machine_boss-native','machine_boss-offline']
+ known+=['machine_fortress_bgm-native','machine_fortress_bgm-offline']
+ known+=['default_world_route-native','default_world_route-offline']
+ known+=['multitouch_exit-native','multitouch_exit-offline']
++known+=['world_balance_labels-native','world_balance_labels-offline']
+ names=args.only or known
+ assert set(names)<=set(known) and 1<=args.workers<=3
+ def run(name):
+diff --git a/tests/snowfield_art.py b/tests/snowfield_art.py
+index 6e06074..8c344fc 100644
+--- a/tests/snowfield_art.py
++++ b/tests/snowfield_art.py
+@@ -100,7 +100,7 @@ try:
+   assert page.evaluate("document.getElementById('snowfieldManifest').content.textContent")== (ROOT/'assets/snowfield/asset_manifest.json').read_text()
+   page.locator('#selectionHelp').tap();expect(page.locator('#worldTrialToggle')).not_to_be_checked();page.locator('#worldTrialToggle').check();page.locator('#selectionHelpClose').tap()
+   assert '설원→화산' in page.locator('#worldTrialSettings').inner_text() and '35단계' in page.locator('#worldTrialSettings').inner_text()
+-  assert '혼합 등장/전투 밸런스 시험 / BGM 숲 임시' in page.locator('#worldPrototypeNotice').inner_text()
++  assert '전용 전투 / 숲 임시 BGM' in page.locator('#worldPrototypeNotice').inner_text()
+   page.locator('#fullscreenToggle').tap();page.wait_for_function('!!document.fullscreenElement');page.locator('#startSelected').tap()
+   passed('Original manifest is embedded byte-for-byte; all approved resources load at project-prefix/native or offline paths, trial remains defaultOFF and its opt-in/temporary-combat notice is accurate.')
+ 
+@@ -110,7 +110,7 @@ try:
+    assert row['pose']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle','blizzard_king'][step-1]
+    assert row['hp']==[1,2,2,3,20][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
+    if step<5:assert abs(row['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-8
+-   else:assert row['name']=='❄ 눈보라 거인왕 (시험)'
++   else:assert row['name']=='❄ 눈보라 거인왕'
+    mapping.append(row)
+   report['stage_mapping']=mapping
+   passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.')
+diff --git a/tests/worlds.py b/tests/worlds.py
+index 714c83d..43a37e8 100644
+--- a/tests/worlds.py
++++ b/tests/worlds.py
+@@ -172,15 +172,15 @@ try:
+     assert {w['stage'] for w in waves}==set(range(8 if trial else 4))
+     assert r['characterId']==kind and r['bossKills']==(8 if trial else 4) and r['normalKills']==(240 if trial else 120) and r['clearedPhases']==(32 if trial else 16)
+     assert r['regionId']==(7 if trial else 3) and r['worldId']==int(trial) and r['trialMode']==trial and r['outcome']=='clear'
+-    assert ('월드 2 시험 완료' if trial else '모든 지역 클리어') in route['title']
++    assert ('전체 40단계 클리어' if trial else '모든 지역 클리어') in route['title']
+     assert page.evaluate('gameWorlds.nextRegion(stage)===null&&!!document.fullscreenElement')
+     routes.append({'trial':trial,'character':kind,**route})
+     if kind==0:
+-     expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료' if trial else '모든 지역 클리어')
++     expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어' if trial else '모든 지역 클리어')
+      page.screenshot(path=str(args.artifacts/('snow-trial-clear.png' if trial else 'world1-default-clear.png')))
+   report['controlled_full_routes']=routes
+   passed('All3 helicopters complete explicit20 and default40 phases through real warnings/spawns/shots/collisions:28,000 vs56,000,4 vs8 bosses; no undefined future region or duplicate clear credit.')
+-  expect(page.locator('#selectionResult')).to_contain_text('월드 2 시험 완료')
++  expect(page.locator('#selectionResult')).to_contain_text('전체 40단계 클리어')
+   passed('Snow boss ends at the existing safe clear/menu lifecycle with a clearly labeled trial result; explicit World1-only desert still uses the original World1 clear title.')
+ 
+   storage=page.evaluate('''() => {
+@@ -195,8 +195,8 @@ try:
+   assert all(r['score']==28000 and r['regionId']==3 and not r['trialMode'] for r in storage['base'])
+   assert storage['keys']['top']=='heliTrio.world2Trial.top10.v1'
+   report['storage_isolation']=storage;passed('Trial TOP10/analysis namespaces are separate, preserve normal storage bytes, retain all3 character results/tie order and store a repeated finish exactly once.')
+-  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 월드 2 시험 TOP 10')
+-  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚙ 기계 요새 (시험)')
++  page.locator('#selectionSettings').tap();expect(page.locator('#leaderboardTitle')).to_have_text('🏆 40단계 TOP 10')
++  expect(page.locator('#leaderboardRows')).to_contain_text('월드 2 · ⚙ 기계 요새')
+   page.screenshot(path=str(args.artifacts/'trial-leaderboard.png'));page.locator('#leaderboardClose').tap()
+   load();assert page.evaluate('gameWorlds.isTrial()&&gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.trialMode)');page.evaluate('gameWorlds.setTrialEnabled(false)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>!r.trialMode)')
+   page.evaluate('gameWorlds.setTrialEnabled(true)');assert page.evaluate('gameScoring.getTop().length===3&&gameScoring.getTop().every(r=>r.regionId===7&&r.worldId===1)')
+@@ -257,12 +257,12 @@ try:
+   layouts=[];touch=Touch(context,page)
+   for w,h in [(915,412),(800,360),(568,320)]:
+    page.set_viewport_size({'width':w,'height':h});touch.tap(page,'#startSelected');page.wait_for_function('started');page.evaluate('worldSnow();invuln=999;spawn=999;transition=0;player.x=W/2;player.y=H*.55;gameScoring.updateHUD();draw()')
+-   page.wait_for_function('!document.getElementById("worldPrototypeNotice").hidden')
++   expect(page.locator('#worldPrototypeNotice')).to_be_hidden()
+    bounds=page.evaluate('''() => {const r=id=>{const b=document.getElementById(id).getBoundingClientRect();return {x:b.x,y:b.y,w:b.width,h:b.height,right:b.right,bottom:b.bottom}};return {joystick:r('rotationJoystick'),fire:r('fire'),hud:r('hud'),full:r('fullscreenToggle'),exit:r('exitGame'),notice:r('worldPrototypeNotice'),W,H}}''')
+    j=bounds['joystick'];assert j['x']==30 and h-j['bottom']==22 and j['h']==58 and 135<=j['w']<=165
+-   for key in ['fire','joystick','notice']:
++   for key in ['fire','joystick']:
+     b=bounds[key];assert b['x']>=0 and b['y']>=0 and b['right']<=w and b['bottom']<=h
+-   assert bounds['hud']['right']<=bounds['full']['x'] and j['right']<bounds['fire']['x'] and bounds['notice']['bottom']<j['y']
++   assert bounds['hud']['right']<=bounds['full']['x'] and j['right']<bounds['fire']['x'] and page.locator('#worldPrototypeNotice').is_hidden()
+    page.screenshot(path=str(args.artifacts/f'snow-entry-{w}x{h}.png'))
+    cx=j['x']+j['w']/2;cy=j['y']+j['h']/2
+    travel=page.evaluate('''() => {const e=document.getElementById('rotationJoystick');return e.offsetWidth/2-parseFloat(getComputedStyle(e).getPropertyValue('--stick-inset'))}''')

@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/world-balance39-work/tests/machine_boss.py", line 10, in <module>
+    report={'standalone':args.standalone,'passed':[],'preservation':verify(),'limits':['Actual Chromium with controlled state/clock/gyro inputs, not physical Galaxy or human difficulty approval.','BaseHP20 and the original upgrade health snapshot are preserved; awakening uses half of actual maxHP.','Offline exact HTML uses network-disabled injection without bypassing managed file navigation.']}
+                                                                    ^^^^^^^^
+  File "/tmp/world-balance39-work/tests/machine_boss_preservation.py", line 23, in verify
+    assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: assets/score/score.js

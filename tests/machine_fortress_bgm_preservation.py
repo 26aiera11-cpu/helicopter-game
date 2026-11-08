@@ -1,6 +1,7 @@
 """Issue37 exact audio/registry-only delta; every older game asset remains intact."""
 import hashlib,json,subprocess
 from default_world_route_preservation import without_default_world_route
+from world_balance_labels_preservation import CHANGED
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 BASE='2f29ced6cd53b7ebcb8279669c70c74fc1374ff1'
@@ -17,8 +18,8 @@ def assert_machine_bgm_asset(name):
 def verify():
  names=subprocess.check_output(['git','ls-tree','-r','--name-only',BASE,'assets'],cwd=ROOT,text=True).splitlines()
  for name in ['index.html']+names:
-  p=ROOT/name;data=without_machine_bgm(p.read_text(),name).encode() if name in ['index.html','assets/worlds/worlds.js'] else p.read_bytes()
+  p=ROOT/name;data=without_machine_bgm(p.read_text(),name).encode() if name in {'index.html','assets/worlds/worlds.js'}|CHANGED else p.read_bytes()
   assert data==subprocess.check_output(['git','show',BASE+':'+name],cwd=ROOT),name
  for name in MACHINE_BGM_ASSETS:assert_machine_bgm_asset(name)
- return {'baseline':BASE,'existing_assets':len(names),'raw_unchanged_existing_assets':len(names)-1,'index_audio_deltas':3,'world_music_and_notice_deltas':3,'new_WAV_files':2,'all_old_PNGs_audio_manifest_Cover_normal_and_boss_AI_controls_weapons_score_items_byte_preserved':True,'unchanged_GigaCore_lasers_missiles_wall75_25_overdrive':True,'music_profiles':[0,1,2,3,0,4,5,6]}
+ return {'baseline':BASE,'existing_assets':len(names),'assets_matching_after_exact_UI_and_feature_reversal':len(names),'index_audio_deltas':3,'world_music_and_notice_deltas':3,'new_WAV_files':2,'all_old_PNGs_audio_manifest_Cover_normal_and_boss_AI_controls_weapons_score_items_byte_preserved':True,'unchanged_GigaCore_lasers_missiles_wall75_25_overdrive':True,'music_profiles':[0,1,2,3,0,4,5,6]}
 if __name__=='__main__':print(json.dumps(verify(),indent=2))

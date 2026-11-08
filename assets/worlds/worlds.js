@@ -6,10 +6,10 @@
     [1,'world-1:rock',0,1,'🪨 바위 지역',1,'🪨 거대 바위 골렘'],
     [2,'world-1:sea',0,2,'🌊 바다 지역',2,'🐙 바다의 문어 대왕'],
     [3,'world-1:desert',0,3,'🏜️ 사막 지역',3,'🦂 사막 전갈왕'],
-    [4,'world-2:snowfield',1,0,'❄ 설원 (시험)',0,'❄ 눈보라 거인왕 (시험)','snowfield-approved'],
-    [5,'world-2:volcano',1,1,'🌋 화산 (시험)',0,'🐉 마그마 드래곤 (시험)','volcano-approved',4],
-    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘 (시험)',0,'⚡ 폭풍의 지배자 (시험)','storm-sky-approved',5],
-    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새 (시험)',0,'⚙ 기가코어 (시험)','machine-fortress-approved',6]
+    [4,'world-2:snowfield',1,0,'❄ 설원',0,'❄ 눈보라 거인왕','snowfield-approved'],
+    [5,'world-2:volcano',1,1,'🌋 화산',0,'🐉 마그마 드래곤','volcano-approved',4],
+    [6,'world-2:storm-sky',1,2,'⚡ 폭풍 하늘',0,'⚡ 폭풍의 지배자','storm-sky-approved',5],
+    [7,'world-2:machine-fortress',1,3,'⚙ 기계 요새',0,'⚙ 기가코어','machine-fortress-approved',6]
   ].map(([id,key,worldId,localIndex,name,profile,bossName,prototypeBackground,musicProfile=profile],idIndex) => Object.freeze({
     id,key,worldId,worldName:`월드 ${worldId+1}`,localIndex,name,
     combatProfile:profile,assetProfile:profile,musicProfile,
@@ -79,9 +79,9 @@
     const r=region(record.regionId);return `${record.trialMode || r.worldId>0 ? r.worldName+' · ' : ''}${r.name}`;
   }
   function clearHeading(result) {
-    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏁 월드 2 시험 완료!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;
+    return `${activeDeveloper?'🧪 지역 테스트 완료!':activeTrial?'🏆 전체 40단계 클리어!':'🏆 모든 지역 클리어!'} · ${result.record.characterName} · ${gameScoring.format(result.record.score)}점`;
   }
-  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '설원·화산·폭풍 하늘·기계 요새의 월드 2 시험 구간을 모두 완료했어요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
+  function clearHint() { return activeDeveloper ? '선택한 지역의 테스트를 완료했어요. 테스트 점수와 분석 기록은 저장하지 않아요.' : activeTrial ? '숲부터 기계 요새까지 8개 지역과 40단계를 모두 완료했어요.' : '네 지역의 보스를 모두 물리쳤어! 다시 플레이하려면 헬기를 선택해.'; }
   function snowImage() { return gameSnowfield.backgroundImage; }
   function installLegacyRegions(data) {
     for(const r of regions){
@@ -94,13 +94,13 @@
   function syncUI() {
     if(checkbox)checkbox.checked=trialEnabled;
     syncDeveloperUI();
-    if(notice)notice.hidden=!(typeof started!=='undefined' && started && region(stage)?.prototype);
-    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 전투 시험 · 전용 보스 / 전용 BGM 2곡 시험':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 시험 · 전용 전투 / 전용 BGM 2곡 시험':region(stage).key==='world-2:volcano'?'화산 혼합·전투 시험 / 전용 BGM 2곡 시험':'설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';
+    if(notice)notice.hidden=!(typeof started!=='undefined' && started && isDeveloper() && region(stage)?.prototype);
+    if(notice&&!notice.hidden)notice.textContent=region(stage).key==='world-2:machine-fortress'?'기계 요새 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:storm-sky'?'폭풍 하늘 · 전용 전투 / 전용 BGM':region(stage).key==='world-2:volcano'?'화산 · 혼합 등장·전용 전투 / 전용 BGM':'설원 · 전용 전투 / 숲 임시 BGM';
   }
   function mount() {
     const help=document.getElementById('selectionHelpDialog');
     const settings=document.createElement('div');settings.id='worldTrialSettings';
-    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 포함 · 40단계 연속 진행 (기본 ON)</label><p>기본 ON · 숲→바위→바다→사막→설원→화산→폭풍 하늘→기계 요새의 40단계를 연속 진행합니다. OFF로 끄면 기존 월드 1의 20단계만 플레이합니다. 설원은 기존 전투·숲 임시 BGM, 화산은 혼합 등장·전용 BGM, 폭풍 하늘은 전용 전투·전용 BGM 2곡 시험입니다. 기계 요새는 일반4종·기가코어 전용 전투와 전용 BGM 2곡 시험입니다. 40단계 기록은 기존 월드 2 시험 순위표에, 20단계 기록은 기존 월드 1 순위표에 따로 저장하며 이전 기록을 유지합니다.</p>';
+    settings.innerHTML='<label><input id="worldTrialToggle" type="checkbox"> 월드 2 포함 · 40단계 연속 진행 (기본 ON)</label><p>기본 ON · 숲→바위→바다→사막→설원→화산→폭풍 하늘→기계 요새의 40단계를 연속 진행합니다. OFF로 끄면 기존 월드 1의 20단계만 플레이합니다. 설원은 전용 전투와 숲 임시 BGM을 사용합니다. 화산·폭풍 하늘·기계 요새는 전용 전투와 지역별 일반·보스 BGM을 사용합니다. 40단계 기록과 20단계 기록은 별도로 저장하며 이전 기록을 유지합니다.</p>';
     help.querySelector('#selectionHelpClose').before(settings);checkbox=settings.querySelector('input');
     checkbox.addEventListener('change',()=>{if(!setTrialEnabled(checkbox.checked))checkbox.checked=trialEnabled;});
     const dev=document.createElement('section');dev.id='developerStartSettings';
@@ -110,7 +110,7 @@
       '<label>월드<select id="developerStartWorld" aria-label="테스트 월드"></select></label>'+
       '<label>지역<select id="developerStartRegion" aria-label="테스트 지역"></select></label>'+
       '<label>시작 단계<select id="developerStartPhase" aria-label="테스트 시작 단계"></select></label></fieldset>'+
-      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 월드 2 포함 40단계 시험은 OFF입니다.</p>';
+      '<p id="developerStartPriority" hidden>개발 테스트가 켜져 있어 40단계 연속 진행은 OFF입니다.</p>';
     settings.before(dev);devToggle=dev.querySelector('input');devWorld=dev.querySelector('#developerStartWorld');
     devRegion=dev.querySelector('#developerStartRegion');devPhase=dev.querySelector('#developerStartPhase');devFields=dev.querySelector('fieldset');
     for(const w of worlds.filter(w=>regions.some(r=>r.worldId===w.id))){
@@ -129,7 +129,7 @@
     devPhase.addEventListener('change',()=>{setDeveloperStart({phase:Number(devPhase.value)});syncUI();});
     new MutationObserver(syncUI).observe(document.body,{attributes:true,attributeFilter:['class']});
 
-    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 시험 · 혼합 등장/전투 밸런스 시험 / BGM 숲 임시';notice.hidden=true;document.body.append(notice);
+    notice=document.createElement('p');notice.id='worldPrototypeNotice';notice.textContent='설원 · 전용 전투 / 숲 임시 BGM';notice.hidden=true;document.body.append(notice);
     new MutationObserver(syncUI).observe(document.getElementById('menu'),{attributes:true,attributeFilter:['class']});syncUI();
   }
   window.gameWorlds=Object.freeze({worlds,regions,region,isTrial,setTrialEnabled,isDeveloper,setDeveloperStart,
