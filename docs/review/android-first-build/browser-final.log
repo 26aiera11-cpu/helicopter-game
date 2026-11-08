@@ -1,0 +1,8 @@
+PASS: Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.
+PASS: Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start.
+PASS: Trusted drag+joystick+fire multitouch releases cleanly; native-back callback opens the existing exit dialog and Cancel preserves the game.
+PASS: WebView-no-signal fallback requests native gravity only after user sensor enable; raw x/y uses unchanged x3 and /17 math plus native90-degree display rotation. Physical signs/sensitivity remain unverified.
+PASS: App inactive freezes the entire original frame and silences media; foreground waits for Continue; music OFF persists and ON resumes one BGM with cleared input.
+PASS: Unavailable native sensor reports drag fallback; trusted canvas drag still moves input with the sensor enabled and no valid sensor signal.
+PASS: 915x412/800x360/568x320 controls fit; confirmed exit returns selection; original3s GAME OVER blocks Back and one result survives same-origin reload.
+PASS: Selection Back uses an internal app-exit panel with duplicate-exit guard; no browser errors, missing assets or external network requests.

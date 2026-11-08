@@ -60,9 +60,11 @@
     else exitPanel.showModal();
   });
   function webSignal(event) {
-    if (!event.isTrusted) return;
-    const value = event.type === 'deviceorientation' ? event.gamma : event.accelerationIncludingGravity?.x;
-    if (value == null) return;
+    if (!event.isTrusted || !sensorOn) return;
+    const valid = event.type === 'deviceorientation'
+      ? event.gamma != null && event.beta != null
+      : event.accelerationIncludingGravity?.x != null && event.accelerationIncludingGravity?.y != null;
+    if (!valid) return;
     if (nativeMotion) {event.stopImmediatePropagation();return;}
     lastWebSignal = Date.now();
   }
@@ -86,11 +88,13 @@
     } catch {sensorStatus.textContent = '센서 사용 불가 · 드래그 이동 가능';}
     finally {checking = false;}
   }
-  sensorBtn.addEventListener('click', () => {
-    ensureMotion();
+  const originalSensorClick = sensorBtn.onclick;
+  sensorBtn.onclick = async function(event) {
     const requested = Date.now();
+    await originalSensorClick.call(this,event);
+    ensureMotion();
     setTimeout(() => {if (sensorOn && lastSensor < requested) sensorStatus.textContent = '센서 신호 없음 · 드래그 이동 가능';},2000);
-  });
+  };
   new MutationObserver(() => {
     if (menu.classList.contains('hidden')) ensureMotion();else Motion.stop().catch(() => {});
   }).observe(menu,{attributes:true,attributeFilter:['class']});

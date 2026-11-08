@@ -1,0 +1,8 @@
+PASS: Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.
+PASS: Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start.
+PASS: Trusted drag+joystick+fire multitouch releases cleanly; native-back callback opens the existing exit dialog and Cancel preserves the game.
+Traceback (most recent call last):
+  File "/tmp/android41-work/tests/android_smoke.py", line 88, in <module>
+    assert sensor_state['lastSensor']>0,sensor_state
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'sensorOn': True, 'lastSensor': 0, 'sensorKind': '', 'status': '센서 신호 확인 중…', 'starts': 0, 'native': {'native': True, 'paused': False, 'active': True}}

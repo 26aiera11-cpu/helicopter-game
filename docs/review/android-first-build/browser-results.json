@@ -1,0 +1,188 @@
+{
+  "passed": [
+    "Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.",
+    "Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start.",
+    "Trusted drag+joystick+fire multitouch releases cleanly; native-back callback opens the existing exit dialog and Cancel preserves the game.",
+    "WebView-no-signal fallback requests native gravity only after user sensor enable; raw x/y uses unchanged x3 and /17 math plus native90-degree display rotation. Physical signs/sensitivity remain unverified.",
+    "App inactive freezes the entire original frame and silences media; foreground waits for Continue; music OFF persists and ON resumes one BGM with cleared input.",
+    "Unavailable native sensor reports drag fallback; trusted canvas drag still moves input with the sensor enabled and no valid sensor signal.",
+    "915x412/800x360/568x320 controls fit; confirmed exit returns selection; original3s GAME OVER blocks Back and one result survives same-origin reload.",
+    "Selection Back uses an internal app-exit panel with duplicate-exit guard; no browser errors, missing assets or external network requests."
+  ],
+  "limits": [
+    "Chromium touch/media/storage checks use an Android bridge mock, not a real WebView, physical sensor, Android system bars or hardware back button.",
+    "Random enemy spawns are disabled only in touch/audio/lifecycle QA so unrelated combat cannot end the run while media is loading. This is not combat/balance evidence.",
+    "No balance simulation or40-stage replay. Physical Galaxy approval remains required."
+  ],
+  "touch_state": {
+    "fire": true,
+    "rotation": 0.45342579875261746,
+    "controls": {
+      "raw": 0.4971517348524081,
+      "value": 0.45342579875261746,
+      "deadZone": 0.08,
+      "rotationPointer": 3,
+      "firePointer": 5,
+      "dragPointer": 4
+    },
+    "native": {
+      "native": true,
+      "paused": false,
+      "active": true
+    },
+    "started": true,
+    "gameOverPending": false,
+    "menuHidden": true,
+    "hidden": false,
+    "viewport": {
+      "w": 915,
+      "h": 412,
+      "scale": 1
+    },
+    "points": [
+      {
+        "id": 11,
+        "x": 142.34375,
+        "y": 361
+      },
+      {
+        "id": 12,
+        "x": 615,
+        "y": 200
+      },
+      {
+        "id": 13,
+        "x": 857.5,
+        "y": 359.5
+      }
+    ],
+    "hits": [
+      [
+        "rotationJoystick",
+        "game",
+        "BODY",
+        "HTML"
+      ],
+      [
+        "game",
+        "BODY",
+        "HTML"
+      ],
+      [
+        "fire",
+        "game",
+        "BODY",
+        "HTML"
+      ]
+    ],
+    "trace": [
+      {
+        "name": "pointerdown",
+        "target": "rotationJoystick",
+        "x": 112.34375,
+        "y": 361,
+        "pointer": 3,
+        "started": true,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointerdown",
+        "target": "game",
+        "x": 600,
+        "y": 200,
+        "pointer": 4,
+        "started": true,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": 3,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointerdown",
+        "target": "fire",
+        "x": 857.5,
+        "y": 359.5,
+        "pointer": 5,
+        "started": true,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": 3,
+          "firePointer": null,
+          "dragPointer": 4
+        }
+      },
+      {
+        "name": "pointermove",
+        "target": "game",
+        "x": 615,
+        "y": 200,
+        "pointer": 4,
+        "started": true,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": 3,
+          "firePointer": 5,
+          "dragPointer": 4
+        }
+      },
+      {
+        "name": "pointermove",
+        "target": "rotationJoystick",
+        "x": 142.34375,
+        "y": 361,
+        "pointer": 3,
+        "started": true,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": 3,
+          "firePointer": 5,
+          "dragPointer": 4
+        }
+      }
+    ],
+    "dialogs": []
+  },
+  "initial_sensor_provider": {
+    "sensorOn": true,
+    "lastSensor": 0,
+    "sensorKind": "",
+    "status": "센서 신호 확인 중…",
+    "starts": 1,
+    "native": {
+      "native": true,
+      "paused": false,
+      "active": true
+    }
+  },
+  "gravity_coordinate_contract": {
+    "x": 0.35294117647058826,
+    "y": -0.17647058823529413
+  },
+  "gravity_rotation_fire_combined": true,
+  "errors": [],
+  "external_requests": [],
+  "missing_paths": [],
+  "elapsed_seconds": 11.94
+}

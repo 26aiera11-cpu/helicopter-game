@@ -1,0 +1,49 @@
+{
+  "issue": 41,
+  "baseline": "6547958555ce0b04597a113ec25ae4f1d83340c0",
+  "branch": "feature/android-capacitor-first-build",
+  "checkpoint_commit": "192c87106098e81eb74246ab0dce004005273d4a",
+  "resume_environment_preserved": true,
+  "JDK_SDK_reinstalled_on_resume": false,
+  "full_build_repeated_on_resume": false,
+  "initial_build": "Before interruption:3m57s/123tasks",
+  "resumed_builds": [
+    "Offline incremental:11s/21executed/69up-to-date before final sensor fix",
+    "Offline incremental:11s/21executed/69up-to-date for final adapter"
+  ],
+  "browser_groups": 8,
+  "browser_final_passed": true,
+  "browser_bridge_mode": "Android API mock plus real Chromium media/touch/storage; not real Android WebView",
+  "actual_gyro_hardware_tested": false,
+  "emulator_tested": false,
+  "full40_stage_and_balance_reanalysis": false,
+  "source_game_assets_unchanged": 131,
+  "embedded_media_byte_preserved": 83,
+  "HTML_original_bytes": 18765613,
+  "HTML_app_bytes": 210055,
+  "artifact": {
+    "artifact": "dist/android/heli_trio_debug.apk",
+    "bytes": 76927542,
+    "sha256": "c2984df15aa01272b931eece3ab5625b16dde22b4a5171628d18cd75f8f84714",
+    "app_id": "com.helitrio.offlinetest",
+    "app_id_status": "temporary test ID; confirm before store registration",
+    "minSdk": 24,
+    "targetSdk": 36,
+    "compileSdk": 36,
+    "signing": "debug signed; private key outside repository",
+    "verification": {
+      "signature": "passed: APKv2",
+      "alignment": "passed: zipalign -c -P16 4",
+      "manifest": "passed: SDK36/min24/landscape",
+      "permissions": "no INTERNET/location/camera/microphone permission; AndroidX private receiver signature permission only"
+    },
+    "packaged_web_files_exactly_equal_to_latest_webDir": 220,
+    "JNI_libraries": [],
+    "ELF_16KB_check": "not applicable: no bundled .so; ZIP alignment passed",
+    "APK_CRC": "passed",
+    "AAB_generated": false,
+    "physical_device_or_emulator_run": false
+  },
+  "landscape_manifest": "A: http://schemas.android.com/apk/res/android:screenOrientation(0x0101001e)=0",
+  "private_signing_key_committed": false
+}

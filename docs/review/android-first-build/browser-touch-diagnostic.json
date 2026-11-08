@@ -1,0 +1,162 @@
+{
+  "passed": [
+    "Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.",
+    "Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start."
+  ],
+  "limits": [
+    "Chromium touch/media/storage checks use an Android bridge mock, not a real WebView, physical sensor, Android system bars or hardware back button.",
+    "No balance simulation or40-stage replay. Physical Galaxy approval remains required."
+  ],
+  "touch_state": {
+    "fire": false,
+    "rotation": 0,
+    "controls": {
+      "raw": 0,
+      "value": 0,
+      "deadZone": 0.08,
+      "rotationPointer": null,
+      "firePointer": null,
+      "dragPointer": null
+    },
+    "native": {
+      "native": true,
+      "paused": false,
+      "active": true
+    },
+    "started": false,
+    "gameOverPending": false,
+    "menuHidden": false,
+    "hidden": false,
+    "viewport": {
+      "w": 915,
+      "h": 412,
+      "scale": 1
+    },
+    "points": [
+      {
+        "id": 11,
+        "x": 142.34375,
+        "y": 361
+      },
+      {
+        "id": 12,
+        "x": 615,
+        "y": 200
+      },
+      {
+        "id": 13,
+        "x": 857.5,
+        "y": 359.5
+      }
+    ],
+    "hits": [
+      [
+        "selectionSettings",
+        "DIV",
+        "menu",
+        "game"
+      ],
+      [
+        "BUTTON",
+        "DIV",
+        "menu",
+        "game"
+      ],
+      [
+        "DIV",
+        "menu",
+        "game",
+        "BODY"
+      ]
+    ],
+    "trace": [
+      {
+        "name": "pointerdown",
+        "target": "selectionSettings",
+        "x": 112.34375,
+        "y": 361,
+        "pointer": 3,
+        "started": false,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointerdown",
+        "target": "BUTTON",
+        "x": 600,
+        "y": 200,
+        "pointer": 4,
+        "started": false,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointerdown",
+        "target": "DIV",
+        "x": 857.5,
+        "y": 359.5,
+        "pointer": 5,
+        "started": false,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointermove",
+        "target": "BUTTON",
+        "x": 615,
+        "y": 200,
+        "pointer": 4,
+        "started": false,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      },
+      {
+        "name": "pointermove",
+        "target": "selectionSettings",
+        "x": 142.34375,
+        "y": 361,
+        "pointer": 3,
+        "started": false,
+        "hidden": false,
+        "controls": {
+          "raw": 0,
+          "value": 0,
+          "deadZone": 0.08,
+          "rotationPointer": null,
+          "firePointer": null,
+          "dragPointer": null
+        }
+      }
+    ],
+    "dialogs": []
+  },
+  "elapsed_seconds": 23.8
+}

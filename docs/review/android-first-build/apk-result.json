@@ -1,0 +1,23 @@
+{
+  "artifact": "dist/android/heli_trio_debug.apk",
+  "bytes": 76927542,
+  "sha256": "c2984df15aa01272b931eece3ab5625b16dde22b4a5171628d18cd75f8f84714",
+  "app_id": "com.helitrio.offlinetest",
+  "app_id_status": "temporary test ID; confirm before store registration",
+  "minSdk": 24,
+  "targetSdk": 36,
+  "compileSdk": 36,
+  "signing": "debug signed; private key outside repository",
+  "verification": {
+    "signature": "passed: APKv2",
+    "alignment": "passed: zipalign -c -P16 4",
+    "manifest": "passed: SDK36/min24/landscape",
+    "permissions": "no INTERNET/location/camera/microphone permission; AndroidX private receiver signature permission only"
+  },
+  "packaged_web_files_exactly_equal_to_latest_webDir": 220,
+  "JNI_libraries": [],
+  "ELF_16KB_check": "not applicable: no bundled .so; ZIP alignment passed",
+  "APK_CRC": "passed",
+  "AAB_generated": false,
+  "physical_device_or_emulator_run": false
+}

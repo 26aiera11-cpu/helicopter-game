@@ -1,0 +1,7 @@
+PASS: Original index/131 game assets equal6547958;83 extracted media bytes reverse exactly to original HTML; app JavaScript parses; no game balance or graphics changes.
+PASS: Exact app webDir runs with network disabled via local asset interception; actual native media decoder advances one stage BGM after trusted start.
+Traceback (most recent call last):
+  File "/tmp/android41-work/tests/android_smoke.py", line 71, in <module>
+    assert touch_state['fire'] and abs(touch_state['rotation'])>0,touch_state
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {'fire': False, 'rotation': 0, 'controls': {'raw': 0, 'value': 0, 'deadZone': 0.08, 'rotationPointer': None, 'firePointer': None, 'dragPointer': None}, 'native': {'native': True, 'paused': False, 'active': True}, 'dialogs': []}
