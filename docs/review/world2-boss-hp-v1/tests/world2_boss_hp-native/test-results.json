@@ -1,0 +1,1442 @@
+{
+  "standalone": false,
+  "passed": [
+    "Exactly one index HP expression changes; all131 assets and reused Issue39 analysis are byte-identical to98676ed.",
+    "72 actual spawns:8regions x3heroes x0/3/5 levels; World1 stays20/35/50/65, World2 is72/80/90/100, original scales and spawn-time snapshot hold.",
+    "Reused the24 successful fight measurements from this exact HP-only delta and unchanged Issue39 bot; only lifecycle assertions need a rerun.",
+    "8 controlled actual collision paths:4bosses xboth rewards;2000points/one reward, HP reward before existing region heal, items/life carried, next region and final clear/storage idempotency preserved.",
+    "Trusted developer5 starts100HP GigaCore immediately;568x320 UI and original3s game-over/clean return hold; developer results do not enter TOP10/history.",
+    "No uncaught browser errors; standalone executes the exact rebuilt HTML with network disabled and zero external requests."
+  ],
+  "preservation": {
+    "baseline": "98676edd011147d59219590e4254c307e7ff6f07",
+    "exact_index_delta": 1,
+    "unchanged_assets": 131,
+    "all_other_engine_bytes_unchanged": true,
+    "Issue39_analysis_reused_unchanged": true
+  },
+  "limits": [
+    "First HP trial, not final balance approval.",
+    "Issue39 fixed-seed perfect-information bot, actual60Hz update/health/attacks, no forced invulnerability/instant kills/revival in the24 comparison fights.",
+    "Separate lifecycle QA controls projectile contact and random reward rolls; it is not difficulty evidence.",
+    "No40-stage replay/full suite. Physical Galaxy and human reaction/speaker/sensor tests are not performed."
+  ],
+  "HP_cases": [
+    {
+      "region": 0,
+      "hero": 0,
+      "up": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "afterUpgrade": 20
+    },
+    {
+      "region": 0,
+      "hero": 0,
+      "up": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "afterUpgrade": 32
+    },
+    {
+      "region": 0,
+      "hero": 0,
+      "up": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "afterUpgrade": 44
+    },
+    {
+      "region": 0,
+      "hero": 1,
+      "up": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "afterUpgrade": 20
+    },
+    {
+      "region": 0,
+      "hero": 1,
+      "up": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "afterUpgrade": 32
+    },
+    {
+      "region": 0,
+      "hero": 1,
+      "up": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "afterUpgrade": 44
+    },
+    {
+      "region": 0,
+      "hero": 2,
+      "up": 0,
+      "hp": 20,
+      "maxHp": 20,
+      "afterUpgrade": 20
+    },
+    {
+      "region": 0,
+      "hero": 2,
+      "up": 3,
+      "hp": 32,
+      "maxHp": 32,
+      "afterUpgrade": 32
+    },
+    {
+      "region": 0,
+      "hero": 2,
+      "up": 5,
+      "hp": 44,
+      "maxHp": 44,
+      "afterUpgrade": 44
+    },
+    {
+      "region": 1,
+      "hero": 0,
+      "up": 0,
+      "hp": 35,
+      "maxHp": 35,
+      "afterUpgrade": 35
+    },
+    {
+      "region": 1,
+      "hero": 0,
+      "up": 3,
+      "hp": 56,
+      "maxHp": 56,
+      "afterUpgrade": 56
+    },
+    {
+      "region": 1,
+      "hero": 0,
+      "up": 5,
+      "hp": 77,
+      "maxHp": 77,
+      "afterUpgrade": 77
+    },
+    {
+      "region": 1,
+      "hero": 1,
+      "up": 0,
+      "hp": 35,
+      "maxHp": 35,
+      "afterUpgrade": 35
+    },
+    {
+      "region": 1,
+      "hero": 1,
+      "up": 3,
+      "hp": 56,
+      "maxHp": 56,
+      "afterUpgrade": 56
+    },
+    {
+      "region": 1,
+      "hero": 1,
+      "up": 5,
+      "hp": 77,
+      "maxHp": 77,
+      "afterUpgrade": 77
+    },
+    {
+      "region": 1,
+      "hero": 2,
+      "up": 0,
+      "hp": 35,
+      "maxHp": 35,
+      "afterUpgrade": 35
+    },
+    {
+      "region": 1,
+      "hero": 2,
+      "up": 3,
+      "hp": 56,
+      "maxHp": 56,
+      "afterUpgrade": 56
+    },
+    {
+      "region": 1,
+      "hero": 2,
+      "up": 5,
+      "hp": 77,
+      "maxHp": 77,
+      "afterUpgrade": 77
+    },
+    {
+      "region": 2,
+      "hero": 0,
+      "up": 0,
+      "hp": 50,
+      "maxHp": 50,
+      "afterUpgrade": 50
+    },
+    {
+      "region": 2,
+      "hero": 0,
+      "up": 3,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 2,
+      "hero": 0,
+      "up": 5,
+      "hp": 110.00000000000001,
+      "maxHp": 110.00000000000001,
+      "afterUpgrade": 110.00000000000001
+    },
+    {
+      "region": 2,
+      "hero": 1,
+      "up": 0,
+      "hp": 50,
+      "maxHp": 50,
+      "afterUpgrade": 50
+    },
+    {
+      "region": 2,
+      "hero": 1,
+      "up": 3,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 2,
+      "hero": 1,
+      "up": 5,
+      "hp": 110.00000000000001,
+      "maxHp": 110.00000000000001,
+      "afterUpgrade": 110.00000000000001
+    },
+    {
+      "region": 2,
+      "hero": 2,
+      "up": 0,
+      "hp": 50,
+      "maxHp": 50,
+      "afterUpgrade": 50
+    },
+    {
+      "region": 2,
+      "hero": 2,
+      "up": 3,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 2,
+      "hero": 2,
+      "up": 5,
+      "hp": 110.00000000000001,
+      "maxHp": 110.00000000000001,
+      "afterUpgrade": 110.00000000000001
+    },
+    {
+      "region": 3,
+      "hero": 0,
+      "up": 0,
+      "hp": 65,
+      "maxHp": 65,
+      "afterUpgrade": 65
+    },
+    {
+      "region": 3,
+      "hero": 0,
+      "up": 3,
+      "hp": 104,
+      "maxHp": 104,
+      "afterUpgrade": 104
+    },
+    {
+      "region": 3,
+      "hero": 0,
+      "up": 5,
+      "hp": 143,
+      "maxHp": 143,
+      "afterUpgrade": 143
+    },
+    {
+      "region": 3,
+      "hero": 1,
+      "up": 0,
+      "hp": 65,
+      "maxHp": 65,
+      "afterUpgrade": 65
+    },
+    {
+      "region": 3,
+      "hero": 1,
+      "up": 3,
+      "hp": 104,
+      "maxHp": 104,
+      "afterUpgrade": 104
+    },
+    {
+      "region": 3,
+      "hero": 1,
+      "up": 5,
+      "hp": 143,
+      "maxHp": 143,
+      "afterUpgrade": 143
+    },
+    {
+      "region": 3,
+      "hero": 2,
+      "up": 0,
+      "hp": 65,
+      "maxHp": 65,
+      "afterUpgrade": 65
+    },
+    {
+      "region": 3,
+      "hero": 2,
+      "up": 3,
+      "hp": 104,
+      "maxHp": 104,
+      "afterUpgrade": 104
+    },
+    {
+      "region": 3,
+      "hero": 2,
+      "up": 5,
+      "hp": 143,
+      "maxHp": 143,
+      "afterUpgrade": 143
+    },
+    {
+      "region": 4,
+      "hero": 0,
+      "up": 0,
+      "hp": 72,
+      "maxHp": 72,
+      "afterUpgrade": 72
+    },
+    {
+      "region": 4,
+      "hero": 0,
+      "up": 3,
+      "hp": 115.2,
+      "maxHp": 115.2,
+      "afterUpgrade": 115.2
+    },
+    {
+      "region": 4,
+      "hero": 0,
+      "up": 5,
+      "hp": 158.4,
+      "maxHp": 158.4,
+      "afterUpgrade": 158.4
+    },
+    {
+      "region": 4,
+      "hero": 1,
+      "up": 0,
+      "hp": 72,
+      "maxHp": 72,
+      "afterUpgrade": 72
+    },
+    {
+      "region": 4,
+      "hero": 1,
+      "up": 3,
+      "hp": 115.2,
+      "maxHp": 115.2,
+      "afterUpgrade": 115.2
+    },
+    {
+      "region": 4,
+      "hero": 1,
+      "up": 5,
+      "hp": 158.4,
+      "maxHp": 158.4,
+      "afterUpgrade": 158.4
+    },
+    {
+      "region": 4,
+      "hero": 2,
+      "up": 0,
+      "hp": 72,
+      "maxHp": 72,
+      "afterUpgrade": 72
+    },
+    {
+      "region": 4,
+      "hero": 2,
+      "up": 3,
+      "hp": 115.2,
+      "maxHp": 115.2,
+      "afterUpgrade": 115.2
+    },
+    {
+      "region": 4,
+      "hero": 2,
+      "up": 5,
+      "hp": 158.4,
+      "maxHp": 158.4,
+      "afterUpgrade": 158.4
+    },
+    {
+      "region": 5,
+      "hero": 0,
+      "up": 0,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 5,
+      "hero": 0,
+      "up": 3,
+      "hp": 128,
+      "maxHp": 128,
+      "afterUpgrade": 128
+    },
+    {
+      "region": 5,
+      "hero": 0,
+      "up": 5,
+      "hp": 176,
+      "maxHp": 176,
+      "afterUpgrade": 176
+    },
+    {
+      "region": 5,
+      "hero": 1,
+      "up": 0,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 5,
+      "hero": 1,
+      "up": 3,
+      "hp": 128,
+      "maxHp": 128,
+      "afterUpgrade": 128
+    },
+    {
+      "region": 5,
+      "hero": 1,
+      "up": 5,
+      "hp": 176,
+      "maxHp": 176,
+      "afterUpgrade": 176
+    },
+    {
+      "region": 5,
+      "hero": 2,
+      "up": 0,
+      "hp": 80,
+      "maxHp": 80,
+      "afterUpgrade": 80
+    },
+    {
+      "region": 5,
+      "hero": 2,
+      "up": 3,
+      "hp": 128,
+      "maxHp": 128,
+      "afterUpgrade": 128
+    },
+    {
+      "region": 5,
+      "hero": 2,
+      "up": 5,
+      "hp": 176,
+      "maxHp": 176,
+      "afterUpgrade": 176
+    },
+    {
+      "region": 6,
+      "hero": 0,
+      "up": 0,
+      "hp": 90,
+      "maxHp": 90,
+      "afterUpgrade": 90
+    },
+    {
+      "region": 6,
+      "hero": 0,
+      "up": 3,
+      "hp": 144,
+      "maxHp": 144,
+      "afterUpgrade": 144
+    },
+    {
+      "region": 6,
+      "hero": 0,
+      "up": 5,
+      "hp": 198.00000000000003,
+      "maxHp": 198.00000000000003,
+      "afterUpgrade": 198.00000000000003
+    },
+    {
+      "region": 6,
+      "hero": 1,
+      "up": 0,
+      "hp": 90,
+      "maxHp": 90,
+      "afterUpgrade": 90
+    },
+    {
+      "region": 6,
+      "hero": 1,
+      "up": 3,
+      "hp": 144,
+      "maxHp": 144,
+      "afterUpgrade": 144
+    },
+    {
+      "region": 6,
+      "hero": 1,
+      "up": 5,
+      "hp": 198.00000000000003,
+      "maxHp": 198.00000000000003,
+      "afterUpgrade": 198.00000000000003
+    },
+    {
+      "region": 6,
+      "hero": 2,
+      "up": 0,
+      "hp": 90,
+      "maxHp": 90,
+      "afterUpgrade": 90
+    },
+    {
+      "region": 6,
+      "hero": 2,
+      "up": 3,
+      "hp": 144,
+      "maxHp": 144,
+      "afterUpgrade": 144
+    },
+    {
+      "region": 6,
+      "hero": 2,
+      "up": 5,
+      "hp": 198.00000000000003,
+      "maxHp": 198.00000000000003,
+      "afterUpgrade": 198.00000000000003
+    },
+    {
+      "region": 7,
+      "hero": 0,
+      "up": 0,
+      "hp": 100,
+      "maxHp": 100,
+      "afterUpgrade": 100
+    },
+    {
+      "region": 7,
+      "hero": 0,
+      "up": 3,
+      "hp": 160,
+      "maxHp": 160,
+      "afterUpgrade": 160
+    },
+    {
+      "region": 7,
+      "hero": 0,
+      "up": 5,
+      "hp": 220.00000000000003,
+      "maxHp": 220.00000000000003,
+      "afterUpgrade": 220.00000000000003
+    },
+    {
+      "region": 7,
+      "hero": 1,
+      "up": 0,
+      "hp": 100,
+      "maxHp": 100,
+      "afterUpgrade": 100
+    },
+    {
+      "region": 7,
+      "hero": 1,
+      "up": 3,
+      "hp": 160,
+      "maxHp": 160,
+      "afterUpgrade": 160
+    },
+    {
+      "region": 7,
+      "hero": 1,
+      "up": 5,
+      "hp": 220.00000000000003,
+      "maxHp": 220.00000000000003,
+      "afterUpgrade": 220.00000000000003
+    },
+    {
+      "region": 7,
+      "hero": 2,
+      "up": 0,
+      "hp": 100,
+      "maxHp": 100,
+      "afterUpgrade": 100
+    },
+    {
+      "region": 7,
+      "hero": 2,
+      "up": 3,
+      "hp": 160,
+      "maxHp": 160,
+      "afterUpgrade": 160
+    },
+    {
+      "region": 7,
+      "hero": 2,
+      "up": 5,
+      "hp": 220.00000000000003,
+      "maxHp": 220.00000000000003,
+      "afterUpgrade": 220.00000000000003
+    }
+  ],
+  "comparison": [
+    {
+      "region": 4,
+      "character": "뾰코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 115.2,
+      "before_seconds": 1.0333333333333345,
+      "after_seconds": 3.566666666666659,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 36,
+      "blocked": 0
+    },
+    {
+      "region": 4,
+      "character": "뾰코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 158.4,
+      "before_seconds": 1.35,
+      "after_seconds": 4.599999999999989,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 46,
+      "blocked": 0
+    },
+    {
+      "region": 4,
+      "character": "빙글",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 115.2,
+      "before_seconds": 1.7499999999999987,
+      "after_seconds": 5.933333333333318,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 40,
+      "blocked": 0
+    },
+    {
+      "region": 4,
+      "character": "빙글",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 158.4,
+      "before_seconds": 2.116666666666664,
+      "after_seconds": 7.183333333333313,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 54,
+      "blocked": 0
+    },
+    {
+      "region": 4,
+      "character": "탱코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 115.2,
+      "before_seconds": 3.21666666666666,
+      "after_seconds": 11.600000000000156,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 39,
+      "blocked": 9
+    },
+    {
+      "region": 4,
+      "character": "탱코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 158.4,
+      "before_seconds": 4.416666666666656,
+      "after_seconds": 15.816666666667032,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 53,
+      "blocked": 14
+    },
+    {
+      "region": 5,
+      "character": "뾰코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 128,
+      "before_seconds": 1.0333333333333345,
+      "after_seconds": 3.849999999999991,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 39,
+      "blocked": 0
+    },
+    {
+      "region": 5,
+      "character": "뾰코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 176,
+      "before_seconds": 1.35,
+      "after_seconds": 5.149999999999987,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 52,
+      "blocked": 0
+    },
+    {
+      "region": 5,
+      "character": "빙글",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 128,
+      "before_seconds": 1.7499999999999987,
+      "after_seconds": 6.5333333333333155,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 44,
+      "blocked": 0
+    },
+    {
+      "region": 5,
+      "character": "빙글",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 176,
+      "before_seconds": 2.116666666666664,
+      "after_seconds": 7.999999999999977,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 60,
+      "blocked": 0
+    },
+    {
+      "region": 5,
+      "character": "탱코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 128,
+      "before_seconds": 3.21666666666666,
+      "after_seconds": 12.883333333333553,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 1,
+      "deaths": 0,
+      "shots": 43,
+      "blocked": 3
+    },
+    {
+      "region": 5,
+      "character": "탱코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 176,
+      "before_seconds": 4.416666666666656,
+      "after_seconds": 17.616666666666948,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 2,
+      "deaths": 0,
+      "shots": 59,
+      "blocked": 3
+    },
+    {
+      "region": 6,
+      "character": "뾰코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 144,
+      "before_seconds": 1.0500000000000012,
+      "after_seconds": 4.34999999999999,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 44,
+      "blocked": 0
+    },
+    {
+      "region": 6,
+      "character": "뾰코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 198.00000000000003,
+      "before_seconds": 1.4,
+      "after_seconds": 5.716666666666652,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 58,
+      "blocked": 0
+    },
+    {
+      "region": 6,
+      "character": "빙글",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 144,
+      "before_seconds": 1.7833333333333319,
+      "after_seconds": 7.349999999999979,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 49,
+      "blocked": 0
+    },
+    {
+      "region": 6,
+      "character": "빙글",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 198.00000000000003,
+      "before_seconds": 2.1499999999999972,
+      "after_seconds": 9.083333333333364,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 69,
+      "blocked": 0
+    },
+    {
+      "region": 6,
+      "character": "탱코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 144,
+      "before_seconds": 3.183333333333327,
+      "after_seconds": 14.616666666666973,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 49,
+      "blocked": 23
+    },
+    {
+      "region": 6,
+      "character": "탱코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 198.00000000000003,
+      "before_seconds": 4.383333333333323,
+      "after_seconds": 20.000000000000146,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 67,
+      "blocked": 27
+    },
+    {
+      "region": 7,
+      "character": "뾰코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 160,
+      "before_seconds": 1.0666666666666678,
+      "after_seconds": 4.649999999999989,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 47,
+      "blocked": 0
+    },
+    {
+      "region": 7,
+      "character": "뾰코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 220.00000000000003,
+      "before_seconds": 1.4,
+      "after_seconds": 5.949999999999984,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 60,
+      "blocked": 0
+    },
+    {
+      "region": 7,
+      "character": "빙글",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 160,
+      "before_seconds": 1.816666666666665,
+      "after_seconds": 8.416666666666664,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 57,
+      "blocked": 0
+    },
+    {
+      "region": 7,
+      "character": "빙글",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 220.00000000000003,
+      "before_seconds": 2.199999999999997,
+      "after_seconds": 10.200000000000086,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 77,
+      "blocked": 0
+    },
+    {
+      "region": 7,
+      "character": "탱코",
+      "upgrade": 3,
+      "before_HP": 32,
+      "after_HP": 160,
+      "before_seconds": 3.2333333333333267,
+      "after_seconds": 16.183333333333696,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 0,
+      "deaths": 0,
+      "shots": 54,
+      "blocked": 0
+    },
+    {
+      "region": 7,
+      "character": "탱코",
+      "upgrade": 5,
+      "before_HP": 44,
+      "after_HP": 220.00000000000003,
+      "before_seconds": 4.416666666666656,
+      "after_seconds": 22.20000000000002,
+      "before_defeated": true,
+      "after_defeated": true,
+      "before_damage": 0,
+      "after_damage": 1,
+      "deaths": 0,
+      "shots": 74,
+      "blocked": 2
+    }
+  ],
+  "comparison_from": "docs/review/world2-boss-hp-v1/attempts/initial/test-results.json",
+  "lifecycle": [
+    {
+      "region": 4,
+      "roll": 0.25,
+      "initialHP": 115.2,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 3,
+          "region": 4
+        }
+      ],
+      "score": 2000,
+      "stage": 5,
+      "phase": 1,
+      "hp": 4,
+      "upgrade": 3,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "6be9d25e-7d4a-4cf3-ae95-a880ff2c955f",
+          "score": 0,
+          "characterId": 2,
+          "characterName": "탱코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 72,
+          "createdAt": "2026-11-08T03:28:16.454Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 0,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 0
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 4,
+      "roll": 0.75,
+      "initialHP": 115.2,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 4,
+          "region": 4
+        }
+      ],
+      "score": 2000,
+      "stage": 5,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 4,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "6a29a86f-0c4d-4099-bc12-87aadb3c450e",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 5,
+          "regionName": "🌋 화산",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:volcano",
+          "localRegionIndex": 1,
+          "trialMode": true,
+          "phase": 1,
+          "order": 73,
+          "createdAt": "2026-11-08T03:28:16.477Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 3
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 5,
+      "roll": 0.25,
+      "initialHP": 128,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 3,
+          "region": 5
+        }
+      ],
+      "score": 2000,
+      "stage": 6,
+      "phase": 1,
+      "hp": 4,
+      "upgrade": 3,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "de19ca21-4318-4fd4-8ffa-303135a3ddc5",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 5,
+          "regionName": "🌋 화산",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:volcano",
+          "localRegionIndex": 1,
+          "trialMode": true,
+          "phase": 1,
+          "order": 74,
+          "createdAt": "2026-11-08T03:28:16.488Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 4
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 5,
+      "roll": 0.75,
+      "initialHP": 128,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 4,
+          "region": 5
+        }
+      ],
+      "score": 2000,
+      "stage": 6,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 4,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "6e16a6b7-6b84-4a84-adba-82c9630e7f3b",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 6,
+          "regionName": "⚡ 폭풍 하늘",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:storm-sky",
+          "localRegionIndex": 2,
+          "trialMode": true,
+          "phase": 1,
+          "order": 75,
+          "createdAt": "2026-11-08T03:28:16.525Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 3
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 6,
+      "roll": 0.25,
+      "initialHP": 144,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 3,
+          "region": 6
+        }
+      ],
+      "score": 2000,
+      "stage": 7,
+      "phase": 1,
+      "hp": 4,
+      "upgrade": 3,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "77fe6b36-f998-4ed4-b9da-62b9031c8eb6",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 6,
+          "regionName": "⚡ 폭풍 하늘",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:storm-sky",
+          "localRegionIndex": 2,
+          "trialMode": true,
+          "phase": 1,
+          "order": 76,
+          "createdAt": "2026-11-08T03:28:16.560Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 4
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 6,
+      "roll": 0.75,
+      "initialHP": 144,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 4,
+          "region": 6
+        }
+      ],
+      "score": 2000,
+      "stage": 7,
+      "phase": 1,
+      "hp": 3,
+      "upgrade": 4,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": true,
+      "result": {
+        "record": {
+          "id": "f00f8a2a-1eed-4e75-9d0e-943425e37cbc",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 1,
+          "order": 77,
+          "createdAt": "2026-11-08T03:28:16.571Z",
+          "outcome": "abandoned",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 3
+        },
+        "rank": 0,
+        "isTop10": false,
+        "saved": true
+      },
+      "storageUnchanged": true,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 7,
+      "roll": 0.25,
+      "initialHP": 160,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "hp",
+          "amount": 2,
+          "hp": 3,
+          "upgrade": 3,
+          "region": 7
+        }
+      ],
+      "score": 2000,
+      "stage": 7,
+      "phase": 5,
+      "hp": 3,
+      "upgrade": 3,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "0179f17b-43ac-4cfa-9e6e-e16fd11d1d36",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 79,
+          "createdAt": "2026-11-08T03:28:16.588Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 3
+        },
+        "rank": 1,
+        "isTop10": true,
+        "saved": true
+      },
+      "storageUnchanged": false,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    },
+    {
+      "region": 7,
+      "roll": 0.75,
+      "initialHP": 160,
+      "dead": true,
+      "rewardGranted": true,
+      "duplicateReward": null,
+      "events": [
+        {
+          "type": "power",
+          "amount": 1,
+          "hp": 1,
+          "upgrade": 4,
+          "region": 7
+        }
+      ],
+      "score": 2000,
+      "stage": 7,
+      "phase": 5,
+      "hp": 1,
+      "upgrade": 4,
+      "itemSame": true,
+      "itemLife": 7.25,
+      "started": false,
+      "result": {
+        "record": {
+          "id": "09180119-a5ec-4cee-9d79-262039aa15be",
+          "score": 2000,
+          "characterId": 0,
+          "characterName": "뾰코",
+          "regionId": 7,
+          "regionName": "⚙ 기계 요새",
+          "worldId": 1,
+          "worldName": "월드 2",
+          "regionKey": "world-2:machine-fortress",
+          "localRegionIndex": 3,
+          "trialMode": true,
+          "phase": 5,
+          "order": 80,
+          "createdAt": "2026-11-08T03:28:16.606Z",
+          "outcome": "clear",
+          "normalKills": 0,
+          "itemKills": 0,
+          "bossKills": 1,
+          "clearedPhases": 0,
+          "playTimeSeconds": 0,
+          "finalUpgrade": 4
+        },
+        "rank": 2,
+        "isTop10": true,
+        "saved": true
+      },
+      "storageUnchanged": false,
+      "recordCount": 1,
+      "repeatStorageUnchanged": true
+    }
+  ],
+  "errors": [],
+  "external_requests": [],
+  "elapsed_seconds": 6.42
+}

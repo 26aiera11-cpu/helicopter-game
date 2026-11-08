@@ -91,7 +91,7 @@ try:
   expect(page.locator('#developerStartPriority')).to_be_visible();page.locator('#developerStartWorld').select_option('1');assert page.evaluate('[...developerStartRegion.options].map(o=>Number(o.value))')==[4,5,6,7]
   page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option('5');page.screenshot(path=str(args.artifacts/'help-snow-boss-915x412.png'))
   page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&boss!==null');state=page.evaluate('devStartState()')
-  assert state['stage']==4 and state['phase']==5 and state['score']==0 and state['hp']==state['maxHP']==4 and state['upgrade']==0 and state['boss']['hp']==20
+  assert state['stage']==4 and state['phase']==5 and state['score']==0 and state['hp']==state['maxHP']==4 and state['upgrade']==0 and state['boss']['hp']==72
   assert state['items']==state['enemies']==state['warnings']==state['bullets']==state['enemyBullets']==0
   assert state['route']['route']==[4] and not state['route']['activeTrial'] and len(state['plan']['regions'])==1 and state['plan']['regions'][0]['region']==4
   assert state['plan']['monsters']==state['plan']['entrances']==[] and state['phaseKills']==state['requiredKills']==6
@@ -115,7 +115,7 @@ try:
      assert first['route']['route']==[region] and first['developer']['start']=={'regionId':region,'phase':step}
      assert first['angle']==3.141592653589793 and first['items']==first['enemies']==first['warnings']==0
      assert (first['boss'] is not None)==(step==5)
-     if step==5:assert first['boss']['maxHp']==[20,35,50,65,20,20,20,20][region] and first['phaseKills']==6
+     if step==5:assert first['boss']['maxHp']==[20,35,50,65,72,80,90,100][region] and first['phaseKills']==6
      else:assert first['phaseKills']==0
      assert row['firstTrack']==((13 if step==5 else 12) if region==5 else (15 if step==5 else 14) if region==6 else (17 if step==5 else 16) if region==7 else [0,1,2,3,0,4,5,6][region]+(4 if step==5 else 0)),row['firstTrack']
      assert [w['phase'] for w in waves]==list(range(step,6)) and all(w['stage']==region for w in waves) and len(waves)==6-step
@@ -129,7 +129,7 @@ try:
      matrix.append({'region':region,'startPhase':step,'character':kind,**row})
   report['entry_completion_matrix']=matrix
   passed('All8 regions×5 starting phases×3 characters=120 actual encounter paths start at the exact target and finish at that region boss, with fullHP/upgrade0 and no traversal to other regions.')
-  passed('Direct boss starts spawn20/35/50/65/20/20/20/20HP bosses with zero normal kills/cleared-phase bonuses; other starts credit only actual remaining phases, producing7000/5900/4800/3700/2000 points.')
+  passed('Direct boss starts spawn20/35/50/65/72/80/90/100HP bosses with zero normal kills/cleared-phase bonuses; other starts credit only actual remaining phases, producing7000/5900/4800/3700/2000 points.')
   passed('Every matrix start selects the correct native stage/boss Audio target first, including forest-profile snow; no brief forest start is inserted for rock/sea/desert or direct bosses.')
   assert page.evaluate('devStorageSnapshot()')==initial_storage and page.evaluate('devWrites.length')==0
   assert page.evaluate('gameScoring.getTop().map(r=>r.id)')==['old-normal'] and page.evaluate('gameScoring.getHistory().map(r=>r.id)')==['old-normal']

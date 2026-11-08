@@ -68,10 +68,10 @@ try:
   starts=[]
   for kind in range(3):
    page.locator(f'.select-hit[data-heli="{kind}"]').tap();page.locator('#startSelected').tap()
-   state=page.evaluate('({stage,phase,type:player.type,hp:boss.maxHp,enemies:enemies.length,warnings:warnings.length,pattern:gameVolcanoBoss.snapshot().phase})');assert state=={'stage':5,'phase':5,'type':kind,'hp':20,'enemies':0,'warnings':0,'pattern':'rest'},state;starts.append(state)
+   state=page.evaluate('({stage,phase,type:player.type,hp:boss.maxHp,enemies:enemies.length,warnings:warnings.length,pattern:gameVolcanoBoss.snapshot().phase})');assert state=={'stage':5,'phase':5,'type':kind,'hp':80,'enemies':0,'warnings':0,'pattern':'rest'},state;starts.append(state)
    page.locator('#exitGame').tap();page.locator('#gameExitConfirm').tap()
   report['ui_starts']=starts
-  passed('Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP20 dragon, no normal prelude, unchanged fullscreen/exit UI.')
+  passed('Actual developer Help -> World2 Volcano5 directly starts all3 selected characters withHP80 dragon, no normal prelude, unchanged fullscreen/exit UI.')
   entries=[]
   for width,height in [(915,412),(800,360),(568,320)]:
    page.set_viewport_size({'width':width,'height':height});page.wait_for_function('([w,h])=>W===w&&H===h',arg=[width,height])
@@ -172,7 +172,7 @@ try:
   passed('A forced no-safe-circle UI fixture skips eruption safely instead of placing a warning/damage under controls; shipped UI unchanged.')
   deaths=[]
   for kind in range(3):
-   row=page.evaluate('''kind=>vbRun(()=>{vbBegin(kind);if(kind===0){vbGo('breath');vbAdvance(1.9);}const actor=boss,angle=gameVolcanoBoss.snapshot().angle;let hits=0;while(boss&&hits++<50)vbHit();if(boss)throw Error('Boss kill stalled');
+   row=page.evaluate('''kind=>vbRun(()=>{vbBegin(kind);if(kind===0){vbGo('breath');vbAdvance(1.9);}const actor=boss,angle=gameVolcanoBoss.snapshot().angle;let hits=0;while(boss&&hits++<Math.ceil(actor.maxHp)+1)vbHit();if(boss)throw Error('Boss kill stalled');
     const immediate={started,score:runScore,state:gameVolcanoBoss.snapshot(),death:gameVolcanoBoss.deathSnapshot(),advancing:gameVolcano.snapshot().advancing,angle};grantBossReward(actor);gameScoring.bossDefeated(actor);vbAdvance(.93);const waiting=started;vbAdvance(.02);return {kind,hits,immediate,waiting,after:{started,score:runScore,state:gameVolcanoBoss.snapshot(),death:gameVolcanoBoss.deathSnapshot()}};})''',kind)
    assert row['immediate']['started'] and row['immediate']['score']==2000 and row['immediate']['state'] is None and row['immediate']['advancing'] and row['waiting'] and row['after']=={'started':False,'score':2000,'state':None,'death':None},row
    if kind==0:assert abs(row['immediate']['death']['angle']-row['immediate']['angle'])<1e-8

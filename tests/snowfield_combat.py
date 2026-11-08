@@ -173,11 +173,11 @@ try:
   # Restore a developer-only scope after the reference fixtures, without completing a real run.
   page.evaluate('combatExit()');before_dev=page.evaluate('JSON.stringify(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))');before_writes=page.evaluate('combatWrites.length')
   direct=page.evaluate('''()=>{const b=combatScene(5);return {hp:b.hp,r:b.r,shot:b.shot,normal:enemies.length,score:runScore,run:gameWorlds.snapshot(),developer:gameWorlds.isDeveloperRun()};}''')
-  assert direct['hp']==20 and direct['r']==48 and direct['normal']==direct['score']==0 and direct['run']['route']==[4] and direct['developer']
+  assert direct['hp']==72 and direct['r']==48 and direct['normal']==direct['score']==0 and direct['run']['route']==[4] and direct['developer']
   page.evaluate('transition=0;while(boss){bullets=[];shoot();Object.assign(bullets[0],{x:boss.x,y:boss.y,vx:0,vy:0});update(0);}');page.wait_for_function('!gameSnowfield.snapshot().finale.active&&!gameSnowfield.snapshot().finale.pending')
   result=page.evaluate('gameScoring.getLastResult()');assert result['developerTest'] and not result['saved'] and result['record']['bossKills']==1 and result['record']['score']==2000
   assert page.evaluate('JSON.stringify(Object.keys(localStorage).sort().map(k=>[k,localStorage.getItem(k)]))')==before_dev and page.evaluate('combatWrites.length')==before_writes
-  report['direct_boss']=direct;passed('Developer direct5 still skips normal mobs and ends after the original20HP boss with2000 points; snow outro is retained and neither existing TOP10 nor analysis receives the test result.')
+  report['direct_boss']=direct;passed('Developer direct5 still skips normal mobs and ends after the trial72HP boss with2000 points; snow outro is retained and neither existing TOP10 nor analysis receives the test result.')
 
   layouts=[]
   for width,height in [(915,412),(800,360),(568,320)]:

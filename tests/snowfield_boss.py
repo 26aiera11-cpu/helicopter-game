@@ -63,8 +63,8 @@ try:
    if kind:page.evaluate('kingExit()')
    page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option('5');page.locator('#selectionHelpClose').tap();page.locator(f'.select-hit[data-heli="{kind}"]').tap();page.locator('#startSelected').tap()
    r=page.evaluate('''()=>({type:player.type,hp,max:maxHP[player.type],upgrade:player.upgrade,score:runScore,stage,phase,normal:enemies.length,bossHP:boss.hp,r:boss.r,state:gameSnowfieldBoss.snapshot(),route:gameWorlds.snapshot().route,full:!!document.fullscreenElement})''')
-   assert r['type']==kind and r['hp']==r['max']==[4,6,9][kind] and r['upgrade']==r['score']==r['normal']==0 and r['bossHP']==20 and r['r']==48 and r['route']==[4] and r['full'] and r['state']['next']=='fan';entries.append(r)
-  report['actual_help_entries']=entries;passed('Actual Help→World2→snow→direct5 starts all3 selected characters at fullHP/upgrade0/score0 with one20HP/r48 boss,no normal quota and retained fullscreen.')
+   assert r['type']==kind and r['hp']==r['max']==[4,6,9][kind] and r['upgrade']==r['score']==r['normal']==0 and r['bossHP']==72 and r['r']==48 and r['route']==[4] and r['full'] and r['state']['next']=='fan';entries.append(r)
+  report['actual_help_entries']=entries;passed('Actual Help→World2→snow→direct5 starts all3 selected characters at fullHP/upgrade0/score0 with one72HP/r48 boss,no normal quota and retained fullscreen.')
 
   sequences=[]
   for hz in [60,120]:
@@ -145,8 +145,8 @@ try:
   passed('All developer pattern cycles,deaths,exits,restarts and6 reward clears preserve all4 valid preexisting TOP10/history strings with0 storage writes and no memory-record contamination.')
 
   hp_cases=page.evaluate('''()=>{const rows=[];for(let kind=0;kind<3;kind++)for(let upgrade=0;upgrade<=5;upgrade++){kingScene(kind);player.upgrade=upgrade;spawnBossEncounter();const initial=boss.hp;player.upgrade=5;update(.1);rows.push({kind,upgrade,hp:boss.hp,maxHp:boss.maxHp,initial,r:boss.r});}return rows;}''')
-  assert all(abs(r['hp']-[20,22,28,32,38,44][r['upgrade']])<1e-8 and r['hp']==r['maxHp']==r['initial'] and r['r']==48 for r in hp_cases);report['protected_hp_scaling']=hp_cases
-  passed('All3 characters×upgrade0–5 retain bossHP20/22/28/32/38/44,r48 and spawn-time-only scaling; new attacks add no rage,extra summons or upgrade-dependent pattern change.')
+  assert all(abs(r['hp']-[72*m for m in [1,1.1,1.4,1.6,1.9,2.2]][r['upgrade']])<1e-8 and r['hp']==r['maxHp']==r['initial'] and r['r']==48 for r in hp_cases);report['protected_hp_scaling']=hp_cases
+  passed('All3 characters×upgrade0–5 retain bossHP72/79.2/100.8/115.2/136.8/158.4,r48 and spawn-time-only scaling; new attacks add no rage,extra summons or upgrade-dependent pattern change.')
 
   layouts=[]
   for width,height in [(915,412),(800,360),(568,320)]:

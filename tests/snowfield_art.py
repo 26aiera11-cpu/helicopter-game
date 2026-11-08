@@ -108,12 +108,12 @@ try:
   for step in range(1,6):
    row=page.evaluate('''step=>{artScene(step);const entity=boss||enemies[0];return {step,pose:gameSnowfield.pose(entity,!!boss),hp:entity.hp,r:entity.r,speed:entity.speed,boss:!!boss,profile:gameWorlds.profile(stage),name:gameWorlds.region(stage).bossName}}''',step)
    assert row['pose']['id']==['snow_slime','penguin_raider','ice_yeti','frost_turtle','blizzard_king'][step-1]
-   assert row['hp']==[1,2,2,3,20][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
+   assert row['hp']==[1,2,2,3,72][step-1] and row['r']==(48 if step==5 else 16) and row['profile']==0
    if step<5:assert abs(row['speed']-[32.3*1.06,36.1*1.06,28.5*1.06,20.9*1.06][step-1])<1e-8
    else:assert row['name']=='❄ 눈보라 거인왕'
    mapping.append(row)
   report['stage_mapping']=mapping
-  passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP20/r48.')
+  passed('Snow phases1–4 use slime/penguin/yeti/turtle and boss5 uses blizzard king; Issue8 HP1/2/2/3 and trial speeds are linked to the preserved art, with r16 and original bossHP72/r48.')
 
   frames=page.evaluate('''() => {
    const rows=[];
@@ -151,7 +151,7 @@ try:
   report['actual_attacks']=attacks;passed('Real ordinary/boss bullet emission triggers attack once, advances the4-frame nonlooping row and uses Issue8 normal bullet speeds85/85/76.5/85 while using the Issue9 boss3-shot fan at80px/s after its1.8s delay.')
 
   hit=page.evaluate('''() => {artScene(5);const target=boss;artHit(target);const first=gameSnowfield.pose(target,true);update(.111);const middle=gameSnowfield.pose(target,true);update(.111);const last=gameSnowfield.pose(target,true);return {hp:target.hp,r:target.r,first,middle,last,score:runScore};}''')
-  assert hit['hp']==19 and hit['r']==48 and hit['score']==0 and [hit[k]['index'] for k in ['first','middle','last']]==[0,1,2] and all(hit[k]['name']=='hit' for k in ['first','middle','last'])
+  assert hit['hp']==71 and hit['r']==48 and hit['score']==0 and [hit[k]['index'] for k in ['first','middle','last']]==[0,1,2] and all(hit[k]['name']=='hit' for k in ['first','middle','last'])
   report['actual_nonlethal_hit']=hit;passed('A real nonlethal boss collision removes exactly1HP, awards no kill points and plays all3 hit frames; hit has priority over attack/movement.')
   fatal=page.evaluate('''() => {artScene(1);const e=enemies[0];phaseKills=5;artHit(e);const atDeath={phase,phaseKills,score:runScore,remaining:enemies.length,ghost:gameSnowfield.snapshot().ghosts[0]};
    gameSnowfield.hit(e);gameScoring.enemyDefeated(e);const count=gameSnowfield.snapshot().ghosts.length;

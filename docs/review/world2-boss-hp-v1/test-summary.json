@@ -1,0 +1,81 @@
+{
+  "issue": 40,
+  "baseline": "98676edd011147d59219590e4254c307e7ff6f07",
+  "branch": "tune/world2-boss-hp-v1",
+  "product_change": "one index boss base HP expression",
+  "preservation": {
+    "baseline": "98676edd011147d59219590e4254c307e7ff6f07",
+    "exact_index_delta": 1,
+    "unchanged_assets": 131,
+    "all_other_engine_bytes_unchanged": true,
+    "Issue39_analysis_reused_unchanged": true
+  },
+  "selected_suites": [
+    {
+      "suite": "world2_boss_hp-native",
+      "passed_groups": 6,
+      "elapsed_seconds": 6.42,
+      "evidence": "tests/world2_boss_hp-native"
+    },
+    {
+      "suite": "world2_boss_hp-offline",
+      "passed_groups": 5,
+      "elapsed_seconds": 31.69,
+      "evidence": "tests/world2_boss_hp-offline"
+    },
+    {
+      "suite": "boss_reward",
+      "passed_groups": 8,
+      "elapsed_seconds": null,
+      "evidence": "tests/boss_reward"
+    }
+  ],
+  "final_passed_suites": 3,
+  "final_failed_suites": 0,
+  "completed_groups": 19,
+  "initial_failed_attempts": 1,
+  "initial_attempt_elapsed_seconds": 6.33,
+  "new_boss_fights": 24,
+  "old_boss_results_reused": 24,
+  "fight_reexecutions_after_QA_fix": 0,
+  "boss_defeats": 24,
+  "boss_deaths": 0,
+  "fixture_only_updates": {
+    "files": 15,
+    "exact_inverse_matches_base": true,
+    "assert_counts_preserved": true,
+    "full_browser_suites_executed": false
+  },
+  "not_run": "40-stage analysis, full registered86-suite regression, broad screenshots, other balance experiments.15 historical HP-expectation files were updated exactly and AST/inverse checked but their full browser suites were not rerun.",
+  "offline_external_requests": 0,
+  "separate_extraction_full_HTML_equality": true,
+  "new_HP_expression_embedded_once": true,
+  "zip_sha256": "f075ea6ca0e0fb1ed7befd7e9090342550a0c99780e6d550910f9fd54777ce19",
+  "HTML_sha256": "f95576a8ddda93eabffc9f3f04815a76ed8dad387fb6bbb1f128e48d965b6c89",
+  "physical_Galaxy_tested": false,
+  "resource_events": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "screenshot_followup": {
+    "state": {
+      "width": 568,
+      "height": 320,
+      "hp": 100,
+      "maxHp": 100,
+      "region": 7,
+      "phase": 5,
+      "started": true,
+      "canvas": [
+        568,
+        320
+      ]
+    },
+    "errors": [],
+    "note": "Capture only; original resize must finish before draw because diagnostic main RAF is paused. No fight was remeasured."
+  }
+}

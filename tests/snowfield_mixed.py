@@ -89,8 +89,8 @@ try:
   # Real Help entry retains defaultOFF and direct5 skip; every normal stage can mix.
   page.evaluate('mixExit()');page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('4');page.locator('#developerStartPhase').select_option('5');page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap()
   direct=page.evaluate('''()=>({phase,stage,hp,bossHP:boss.hp,normal:enemies.length,score:runScore,route:gameWorlds.snapshot().route,owned:gameSnowfieldBoss.snapshot()})''')
-  assert direct['phase']==5 and direct['stage']==4 and direct['bossHP']==20 and direct['normal']==direct['score']==0 and direct['route']==[4]
-  report['direct_boss_entry']=direct;passed('Actual Help World2→snow→direct5 still creates one20HP boss immediately,with no mixed normal actors or quota/score injection; ordinary phase5 separately uses its20/30/50 pool.')
+  assert direct['phase']==5 and direct['stage']==4 and direct['bossHP']==72 and direct['normal']==direct['score']==0 and direct['route']==[4]
+  report['direct_boss_entry']=direct;passed('Actual Help World2→snow→direct5 still creates one72HP boss immediately,with no mixed normal actors or quota/score injection; ordinary phase5 separately uses its20/30/50 pool.')
 
   # Drive unchanged real automatic spawning; positioning only helps the capture.
   populated=page.evaluate('''()=>{mixScene(3);let selected=null;for(let seed=1;seed<100000;seed++){gameSnowfieldSpawns.reset(seed);const a=Array.from({length:4},()=>gameSnowfieldSpawns.select(3));if(new Set(a).size>=3){selected={seed,ids:a};break;}}gameSnowfieldSpawns.reset(selected.seed);spawn=0;const old=Math.random;Math.random=()=>.5;const seen=new WeakSet(),warningsAt=[],actorsAt=[];let elapsed=0;

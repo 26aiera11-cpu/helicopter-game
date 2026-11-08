@@ -166,7 +166,7 @@ try:
   prelude=page.evaluate('''()=>{vcBegin(0,4);nextPhase();transition=0;spawn=999;const initial=runScore;const entries=[];
     for(let i=0;i<6;i++){const e=vcSpawn();entries.push({id:e.volcanoSpeciesId,hp:e.hp});while(e.hp>0)vcHit(e);}update(0);
     const result={entries,scoreDelta:runScore-initial,phaseKills,bossHP:boss.maxHp,bossCombat:gameVolcanoCombat.snapshot(boss),bossGuard:gameVolcanoCombat.blockHit(boss)};vcPause();return result;}''')
-  assert prelude['entries']==[{'id':'magma_beetle','hp':4}]*6 and prelude['scoreDelta']==600 and prelude['phaseKills']==6 and prelude['bossHP']==20 and prelude['bossCombat'] is None and not prelude['bossGuard'],prelude
+  assert prelude['entries']==[{'id':'magma_beetle','hp':4}]*6 and prelude['scoreDelta']==600 and prelude['phaseKills']==6 and prelude['bossHP']==80 and prelude['bossCombat'] is None and not prelude['bossGuard'],prelude
   report['prelude']=prelude
   passed('Seeded normal phase5 audit requires6 beetles withHP4 and600kill points; developer5 remains direct dragon; dragon receives no normal-combat state/guard.')
   scoped=page.evaluate('''()=>{const rows=[];for(const region of [0,3,4,5]){vcBegin(0,1);stage=region;const e={x:100,y:100,hp:7,r:16,t:0,shot:999,special:region===5,volcanoSpeciesId:'magma_beetle'};gameVolcanoCombat.prepare(e);rows.push({region,hp:e.hp,state:gameVolcanoCombat.snapshot(e),blocked:gameVolcanoCombat.blockHit(e)});}vcBegin(0,4);const e=vcSpawn();vcArm(e);gameVolcanoCombat.cleanup();const cleared=gameVolcanoCombat.snapshot(e)===null;vcPause();return {rows,cleared};}''')

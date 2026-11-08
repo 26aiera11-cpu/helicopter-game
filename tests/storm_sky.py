@@ -46,7 +46,7 @@ try:
   else:page.goto(url,wait_until='load')
   page.wait_for_function('gameStormSky.ready()&&gameSnowfield.ready()&&gameVolcano.ready()');page.evaluate(helpers);initial=page.evaluate('ssStorage()')
   assert page.evaluate('gameWorlds.worlds[1].regionIds.join()==="4,5,6,7"&&gameWorlds.snapshot().route.join()==="0,1,2,3,4,5,6,7"&&gameWorlds.isTrial()&&!gameWorlds.isDeveloper()')
-  page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('6');page.locator('#developerStartPhase').select_option('5');page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&!!boss');page.evaluate('window.gameExitDialogOpen=true');assert page.evaluate('stage===6&&phase===5&&phaseKills===6&&boss.maxHp===20&&enemies.length===0')
+  page.locator('#selectionHelp').tap();page.locator('#developerStartToggle').check();page.locator('#developerStartWorld').select_option('1');page.locator('#developerStartRegion').select_option('6');page.locator('#developerStartPhase').select_option('5');page.locator('#selectionHelpClose').tap();page.locator('#startSelected').tap();page.wait_for_function('started&&!!boss');page.evaluate('window.gameExitDialogOpen=true');assert page.evaluate('stage===6&&phase===5&&phaseKills===6&&boss.maxHp===90&&enemies.length===0')
   passed('Help auto-lists World2 Storm Sky1–5; actual start button enters boss directly, trial route appends4→5→6, default World1 remains20 phases/OFF.')
   entries=[]
   for kind in range(3):

@@ -12,6 +12,7 @@ known+=['machine_fortress_bgm-native','machine_fortress_bgm-offline']
 known+=['default_world_route-native','default_world_route-offline']
 known+=['multitouch_exit-native','multitouch_exit-offline']
 known+=['world_balance_labels-native','world_balance_labels-offline']
+known+=['world2_boss_hp-native','world2_boss_hp-offline']
 names=args.only or known
 assert set(names)<=set(known) and 1<=args.workers<=3
 def run(name):

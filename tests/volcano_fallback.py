@@ -34,7 +34,7 @@ try:
                     try{draw();return {phase,id,seen,colors,started,hp,normalHP:actor.hp,ready:gameVolcano.ready()};}
                     finally{ctx.drawImage=drawImage;ctx.arc=arc;}
                 }''',{'phase':phase,'mode':mode})
-                assert result['started'] and result['hp']==4 and result['normalHP']==[1,2,2,4,20][phase-1] and not result['ready']
+                assert result['started'] and result['hp']==4 and result['normalHP']==[1,2,2,4,80][phase-1] and not result['ready']
                 if mode=='atlas':assert 'volcano-'+result['id']+'-base' in result['seen']
                 else:assert ('#9240b8' if phase==3 else '#e88426') in result['colors']
                 assert not any('snowfield' in x for x in result['seen'])

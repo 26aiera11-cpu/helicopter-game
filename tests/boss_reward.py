@@ -63,7 +63,7 @@ def passed(message):
     print('PASS:', message, flush=True)
 
 
-passed('After reversing reviewed selection-BGM changes, only authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
+passed('After reversing the exact Issue40 HP delta and reviewed selection-BGM changes, only historical authorized Tanko combat/progression/game-over, reward/notice/Trio/Tanko PNG changes differ; ordinary items, region healing and other gameplay/audio/assets are preserved; JS syntax passes.')
 
 
 class QuietHandler(SimpleHTTPRequestHandler):

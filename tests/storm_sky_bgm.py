@@ -116,7 +116,7 @@ try:
   # Real ordinary phase4->5 path: six actual mixed enemies, not the direct5 shortcut.
   start(step=4);page.evaluate('nextPhase();vbQuiet()');track('stage_storm');normal=[]
   for _ in range(6):normal.append(page.evaluate('''()=>{const e=vbSpawn(),id=e.stormSpeciesId;while(e.hp>0)vbHit(e);return {id,kills:phaseKills,boss:!!boss};}'''))
-  page.wait_for_function('!!boss');track('boss_storm');assert all(not x['boss'] and x['kills']==i+1 for i,x in enumerate(normal));assert page.evaluate('boss.maxHp===20&&runScore===1100')
+  page.wait_for_function('!!boss');track('boss_storm');assert all(not x['boss'] and x['kills']==i+1 for i,x in enumerate(normal));assert page.evaluate('boss.maxHp===90&&runScore===1100')
   report['six_kill_gate']=normal;page.wait_for_function('vbMusic.events.some(e=>e.name==="appear"&&e.type==="play")')
   # old synthesized score must never be scheduled underneath the PCM.
   oscillator_before=page.evaluate('vbMusic.oscillators');page.wait_for_timeout(400);assert page.evaluate('vbMusic.oscillators')==oscillator_before

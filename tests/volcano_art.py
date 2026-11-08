@@ -130,7 +130,7 @@ try:
         page.locator('#developerStartRegion').select_option('5');page.locator('#developerStartPhase').select_option('5')
         page.screenshot(path=str(args.artifacts/'developer-volcano-help.png'));page.locator('#selectionHelpClose').tap()
         initial=page.evaluate('vStorage()');page.locator('#startSelected').tap()
-        assert page.evaluate('stage===5&&phase===5&&!!boss&&phaseKills===6&&enemies.length===0&&boss.maxHp===20')
+        assert page.evaluate('stage===5&&phase===5&&!!boss&&phaseKills===6&&enemies.length===0&&boss.maxHp===80')
         passed('RegistryIDs0–4 stable, volcano5; defaultON40-stage mode; actual Help world2/volcano/phase5 starts dragon directly with combat profile0 and dedicated music profile4.')
         page.locator('#exitGame').tap();expect(page.locator('#gameExitDialog')).to_be_visible()
         before=page.evaluate('gameVolcano.snapshot()');page.wait_for_timeout(200)
@@ -148,7 +148,7 @@ try:
                     page.locator(f'.select-hit[data-heli="{kind}"]').tap();page.locator('#startSelected').tap()
                     state=page.evaluate('vScene()');expected=['ember_bean','lava_lizard','volcano_bat','magma_beetle','magma_dragon'][step-1]
                     assert state['stage']==5 and state['phase']==step and state['type']==kind and state['actor']['id']==expected
-                    assert state['actor']['r']==(48 if step==5 else 16) and state['actor']['hp']==[1,2,2,4,20][step-1]
+                    assert state['actor']['r']==(48 if step==5 else 16) and state['actor']['hp']==[1,2,2,4,80][step-1]
                     assert state['profile']==0 and state['music']==4 and state['score']==0 and state['hp']==[4,6,9][kind]
                     assert page.evaluate('document.documentElement.scrollWidth<=innerWidth&&!!document.fullscreenElement')
                     if kind==0 and (not args.standalone or width==568):page.screenshot(path=str(args.artifacts/f'volcano-phase{step}-{width}x{height}.png'))

@@ -1,0 +1,207 @@
+{
+  "tests/developer_start.py": [
+    [
+      "state['boss']['hp']==20",
+      "state['boss']['hp']==72",
+      1
+    ],
+    [
+      "[20,35,50,65,20,20,20,20]",
+      "[20,35,50,65,72,80,90,100]",
+      1
+    ],
+    [
+      "20/35/50/65/20/20/20/20HP",
+      "20/35/50/65/72/80/90/100HP",
+      1
+    ]
+  ],
+  "tests/machine_boss.py": [
+    [
+      "[20,22,28,32,38,44]",
+      "[100*m for m in [1,1.1,1.4,1.6,1.9,2.2]]",
+      1
+    ],
+    [
+      "r['start']=={'hp':20,'r':48}",
+      "r['start']=={'hp':100,'r':48}",
+      1
+    ],
+    [
+      "BaseHP20",
+      "BaseHP100",
+      1
+    ],
+    [
+      "base20HP/upgrade snapshot20,22,28,32,38,44",
+      "trial base100HP/upgrade snapshot100,110,140,160,190,220",
+      1
+    ],
+    [
+      "0-upgrade HP10",
+      "0-upgrade HP50",
+      1
+    ],
+    [
+      "20HP/r48",
+      "100HP/r48",
+      1
+    ]
+  ],
+  "tests/machine_fortress.py": [
+    [
+      "boss.hp===20",
+      "boss.hp===100",
+      1
+    ],
+    [
+      "row['before']=={'hp':20,'r':48}",
+      "row['before']=={'hp':100,'r':48}",
+      1
+    ],
+    [
+      "original20HP",
+      "trial100HP",
+      2
+    ]
+  ],
+  "tests/machine_fortress_bgm.py": [
+    [
+      "boss.maxHp===20",
+      "boss.maxHp===100",
+      1
+    ]
+  ],
+  "tests/snowfield_boss.py": [
+    [
+      "r['bossHP']==20",
+      "r['bossHP']==72",
+      1
+    ],
+    [
+      "[20,22,28,32,38,44]",
+      "[72*m for m in [1,1.1,1.4,1.6,1.9,2.2]]",
+      1
+    ],
+    [
+      "bossHP20/22/28/32/38/44",
+      "bossHP72/79.2/100.8/115.2/136.8/158.4",
+      1
+    ],
+    [
+      "one20HP/r48 boss",
+      "one72HP/r48 boss",
+      1
+    ]
+  ],
+  "tests/snowfield_combat.py": [
+    [
+      "direct['hp']==20",
+      "direct['hp']==72",
+      1
+    ],
+    [
+      "original20HP",
+      "trial72HP",
+      1
+    ]
+  ],
+  "tests/snowfield_mixed.py": [
+    [
+      "direct['bossHP']==20",
+      "direct['bossHP']==72",
+      1
+    ],
+    [
+      "one20HP",
+      "one72HP",
+      1
+    ]
+  ],
+  "tests/storm_sky.py": [
+    [
+      "boss.maxHp===20",
+      "boss.maxHp===90",
+      1
+    ]
+  ],
+  "tests/storm_sky_bgm.py": [
+    [
+      "boss.maxHp===20",
+      "boss.maxHp===90",
+      1
+    ]
+  ],
+  "tests/volcano_art.py": [
+    [
+      "boss.maxHp===20",
+      "boss.maxHp===80",
+      1
+    ],
+    [
+      "[1,2,2,4,20]",
+      "[1,2,2,4,80]",
+      1
+    ]
+  ],
+  "tests/volcano_fallback.py": [
+    [
+      "[1,2,2,4,20]",
+      "[1,2,2,4,80]",
+      1
+    ]
+  ],
+  "tests/volcano_combat.py": [
+    [
+      "prelude['bossHP']==20",
+      "prelude['bossHP']==80",
+      1
+    ]
+  ],
+  "tests/volcano_mixed.py": [
+    [
+      "gate['normal']['bossHP']==20",
+      "gate['normal']['bossHP']==80",
+      1
+    ],
+    [
+      "unchanged20HP dragon",
+      "trial80HP dragon",
+      1
+    ]
+  ],
+  "tests/volcano_boss.py": [
+    [
+      "'type':kind,'hp':20,",
+      "'type':kind,'hp':80,",
+      1
+    ],
+    [
+      "withHP20 dragon",
+      "withHP80 dragon",
+      1
+    ],
+    [
+      "while(boss&&hits++<50)",
+      "while(boss&&hits++<Math.ceil(actor.maxHp)+1)",
+      1
+    ]
+  ],
+  "tests/snowfield_art.py": [
+    [
+      "[1,2,2,3,20]",
+      "[1,2,2,3,72]",
+      1
+    ],
+    [
+      "bossHP20/r48",
+      "bossHP72/r48",
+      1
+    ],
+    [
+      "hit['hp']==19",
+      "hit['hp']==71",
+      1
+    ]
+  ]
+}
